@@ -48,5 +48,6 @@ target 'WKMobileProject' do
   #pod 'BlocksKit', :git => 'https://github.com/zwaldowski/BlocksKit.git'
   pod 'PYSearch'
   pod 'HandyFrame'
+  pod 'ZYCornerRadius', '~> 1.0.2'
 
 end
