@@ -33,10 +33,16 @@
 //}
 - (void)initView{
     UIButton *mBtn = [UIButton new];
-    mBtn.frame = CGRectMake(100, 100, 100, 100);
     mBtn.backgroundColor = [UIColor redColor];
+    [mBtn setTitle:@"火车票查询" forState:0];
     [mBtn addTarget:self action:@selector(mAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:mBtn];
+    [mBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(10);
+        make.right.equalTo(self.view).offset(-10);
+        make.top.equalTo(self.view).offset(90);
+        make.height.offset(45);
+    }];
 }
 - (void)mAction{
 //    [self setDosomething3:@"调用了4？"];

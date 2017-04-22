@@ -11,7 +11,6 @@
 #import <IQKeyboardManager.h>
 #import <MJRefresh.h>
 #import <UIView+LayoutMethods.h>
-#import <Masonry.h>
 #import "WKAPIManager.h"
 #import "WKHeader.h"
 @interface WKBaseViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>

@@ -7,7 +7,7 @@
 //
 
 #import "WKtrainDemandViewController.h"
-
+#import "WKTrainDemandCell.h"
 @interface WKtrainDemandViewController ()
 
 @end
@@ -18,6 +18,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"火车票查询";
+    [self addTableView];
+    for (int i = 0; i<2; i++) {
+        [self.tableArr addObject:[NSString stringWithFormat:@"第%d行   查询",i]];
+    }
+    UINib *nib = [UINib nibWithNibName:@"WKTrainDemandCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,5 +40,44 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark -- tableviewDelegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView              // Default is 1 if not implemented
+{
 
+    return 1;
+
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.tableArr.count;
+
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 45;
+    
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    NSString *reuseCellId = nil;
+    
+    reuseCellId = @"cell";
+    
+    WKTrainDemandCell  *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.mName.text = self.tableArr[indexPath.row];
+    return cell;
+    
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+}
 @end

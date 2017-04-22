@@ -24,6 +24,8 @@
 		315FFC271E97D3C700C78440 /* WKMobileProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 315FFC261E97D3C700C78440 /* WKMobileProjectUITests.m */; };
 		31632CB71EAAFE850057B161 /* WKTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31632CB61EAAFE850057B161 /* WKTabbarViewController.m */; };
 		31632CBA1EAB011E0057B161 /* WKtrainDemandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31632CB91EAB011E0057B161 /* WKtrainDemandViewController.m */; };
+		31632CBE1EAB02AF0057B161 /* WKTrainDemandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31632CBC1EAB02AF0057B161 /* WKTrainDemandCell.m */; };
+		31632CBF1EAB02AF0057B161 /* WKTrainDemandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31632CBD1EAB02AF0057B161 /* WKTrainDemandCell.xib */; };
 		31A2219A1E99C24D0058A21B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A221991E99C24D0058A21B /* Foundation.framework */; };
 		31A2219C1E99C2540058A21B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A2219B1E99C2540058A21B /* UIKit.framework */; };
 		31A2219E1E99C25E0058A21B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A2219D1E99C25E0058A21B /* CoreGraphics.framework */; };
@@ -114,6 +116,9 @@
 		31632CB61EAAFE850057B161 /* WKTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTabbarViewController.m; sourceTree = "<group>"; };
 		31632CB81EAB011E0057B161 /* WKtrainDemandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKtrainDemandViewController.h; sourceTree = "<group>"; };
 		31632CB91EAB011E0057B161 /* WKtrainDemandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKtrainDemandViewController.m; sourceTree = "<group>"; };
+		31632CBB1EAB02AF0057B161 /* WKTrainDemandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTrainDemandCell.h; sourceTree = "<group>"; };
+		31632CBC1EAB02AF0057B161 /* WKTrainDemandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTrainDemandCell.m; sourceTree = "<group>"; };
+		31632CBD1EAB02AF0057B161 /* WKTrainDemandCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKTrainDemandCell.xib; sourceTree = "<group>"; };
 		31A221991E99C24D0058A21B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		31A2219B1E99C2540058A21B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		31A2219D1E99C25E0058A21B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -235,6 +240,9 @@
 		31507E991EA06FA8007B8345 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				31632CBB1EAB02AF0057B161 /* WKTrainDemandCell.h */,
+				31632CBC1EAB02AF0057B161 /* WKTrainDemandCell.m */,
+				31632CBD1EAB02AF0057B161 /* WKTrainDemandCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -805,6 +813,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31A222001E99CFA00058A21B /* iPhoneTypeDefine.plist in Resources */,
+				31632CBF1EAB02AF0057B161 /* WKTrainDemandCell.xib in Resources */,
 				315FFC111E97D3C600C78440 /* LaunchScreen.storyboard in Resources */,
 				315FFC0E1E97D3C600C78440 /* Assets.xcassets in Resources */,
 				315FFC0C1E97D3C600C78440 /* Main.storyboard in Resources */,
@@ -916,6 +925,7 @@
 				31632CBA1EAB011E0057B161 /* WKtrainDemandViewController.m in Sources */,
 				31507E961EA06EA5007B8345 /* WKBaseNavViewController.m in Sources */,
 				31A2220D1E99CFA10058A21B /* GDMapService.m in Sources */,
+				31632CBE1EAB02AF0057B161 /* WKTrainDemandCell.m in Sources */,
 				3107DB371EA64EAF00BCACA9 /* WKUserInfoViewController.m in Sources */,
 				31A2220A1E99CFA10058A21B /* CTAppContext.m in Sources */,
 				31A222041E99CFA10058A21B /* CTCommonParamsGenerator.m in Sources */,
