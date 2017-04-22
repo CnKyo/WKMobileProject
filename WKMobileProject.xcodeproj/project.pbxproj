@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3107DB371EA64EAF00BCACA9 /* WKUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3107DB361EA64EAF00BCACA9 /* WKUserInfoViewController.m */; };
+		31507E931EA06E7E007B8345 /* UIViewController+GYDNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 31507E921EA06E7E007B8345 /* UIViewController+GYDNav.m */; };
+		31507E961EA06EA5007B8345 /* WKBaseNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31507E951EA06EA5007B8345 /* WKBaseNavViewController.m */; };
+		31507EA51EA06FD2007B8345 /* WKHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31507EA41EA06FD2007B8345 /* WKHomeViewController.m */; };
+		31507EA81EA06FE0007B8345 /* WKUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31507EA71EA06FE0007B8345 /* WKUserViewController.m */; };
+		31507EAB1EA06FEA007B8345 /* WKOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31507EAA1EA06FEA007B8345 /* WKOtherViewController.m */; };
+		31507EAE1EA06FF6007B8345 /* WKValletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31507EAD1EA06FF6007B8345 /* WKValletViewController.m */; };
 		315FFC031E97D3C600C78440 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 315FFC021E97D3C600C78440 /* main.m */; };
 		315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 315FFC051E97D3C600C78440 /* AppDelegate.m */; };
 		315FFC091E97D3C600C78440 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 315FFC081E97D3C600C78440 /* ViewController.m */; };
@@ -15,6 +22,8 @@
 		315FFC111E97D3C600C78440 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 315FFC0F1E97D3C600C78440 /* LaunchScreen.storyboard */; };
 		315FFC1C1E97D3C700C78440 /* WKMobileProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 315FFC1B1E97D3C700C78440 /* WKMobileProjectTests.m */; };
 		315FFC271E97D3C700C78440 /* WKMobileProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 315FFC261E97D3C700C78440 /* WKMobileProjectUITests.m */; };
+		31632CB71EAAFE850057B161 /* WKTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31632CB61EAAFE850057B161 /* WKTabbarViewController.m */; };
+		31632CBA1EAB011E0057B161 /* WKtrainDemandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31632CB91EAB011E0057B161 /* WKtrainDemandViewController.m */; };
 		31A2219A1E99C24D0058A21B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A221991E99C24D0058A21B /* Foundation.framework */; };
 		31A2219C1E99C2540058A21B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A2219B1E99C2540058A21B /* UIKit.framework */; };
 		31A2219E1E99C25E0058A21B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A2219D1E99C25E0058A21B /* CoreGraphics.framework */; };
@@ -71,6 +80,20 @@
 /* Begin PBXFileReference section */
 		26A28E8D6E0DC80F8B4AF8C5 /* Pods-WKMobileProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.release.xcconfig"; sourceTree = "<group>"; };
 		285F832FE5BF65B9424B1FEA /* libPods-WKMobileProjectUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3107DB351EA64EAF00BCACA9 /* WKUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUserInfoViewController.h; sourceTree = "<group>"; };
+		3107DB361EA64EAF00BCACA9 /* WKUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUserInfoViewController.m; sourceTree = "<group>"; };
+		31507E911EA06E7E007B8345 /* UIViewController+GYDNav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GYDNav.h"; sourceTree = "<group>"; };
+		31507E921EA06E7E007B8345 /* UIViewController+GYDNav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GYDNav.m"; sourceTree = "<group>"; };
+		31507E941EA06EA5007B8345 /* WKBaseNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBaseNavViewController.h; sourceTree = "<group>"; };
+		31507E951EA06EA5007B8345 /* WKBaseNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBaseNavViewController.m; sourceTree = "<group>"; };
+		31507EA31EA06FD2007B8345 /* WKHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHomeViewController.h; sourceTree = "<group>"; };
+		31507EA41EA06FD2007B8345 /* WKHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHomeViewController.m; sourceTree = "<group>"; };
+		31507EA61EA06FE0007B8345 /* WKUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUserViewController.h; sourceTree = "<group>"; };
+		31507EA71EA06FE0007B8345 /* WKUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUserViewController.m; sourceTree = "<group>"; };
+		31507EA91EA06FEA007B8345 /* WKOtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKOtherViewController.h; sourceTree = "<group>"; };
+		31507EAA1EA06FEA007B8345 /* WKOtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKOtherViewController.m; sourceTree = "<group>"; };
+		31507EAC1EA06FF6007B8345 /* WKValletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKValletViewController.h; sourceTree = "<group>"; };
+		31507EAD1EA06FF6007B8345 /* WKValletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKValletViewController.m; sourceTree = "<group>"; };
 		315FFBFE1E97D3C600C78440 /* WKMobileProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKMobileProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		315FFC021E97D3C600C78440 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		315FFC041E97D3C600C78440 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -87,6 +110,10 @@
 		315FFC221E97D3C700C78440 /* WKMobileProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WKMobileProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		315FFC261E97D3C700C78440 /* WKMobileProjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKMobileProjectUITests.m; sourceTree = "<group>"; };
 		315FFC281E97D3C700C78440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31632CB51EAAFE850057B161 /* WKTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTabbarViewController.h; sourceTree = "<group>"; };
+		31632CB61EAAFE850057B161 /* WKTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTabbarViewController.m; sourceTree = "<group>"; };
+		31632CB81EAB011E0057B161 /* WKtrainDemandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKtrainDemandViewController.h; sourceTree = "<group>"; };
+		31632CB91EAB011E0057B161 /* WKtrainDemandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKtrainDemandViewController.m; sourceTree = "<group>"; };
 		31A221991E99C24D0058A21B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		31A2219B1E99C2540058A21B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		31A2219D1E99C25E0058A21B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -185,6 +212,110 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31507E971EA06FA8007B8345 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				31507E981EA06FA8007B8345 /* Controller */,
+				31507E991EA06FA8007B8345 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		31507E981EA06FA8007B8345 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				31507EA31EA06FD2007B8345 /* WKHomeViewController.h */,
+				31507EA41EA06FD2007B8345 /* WKHomeViewController.m */,
+				31632CB81EAB011E0057B161 /* WKtrainDemandViewController.h */,
+				31632CB91EAB011E0057B161 /* WKtrainDemandViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		31507E991EA06FA8007B8345 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		31507E9A1EA06FA8007B8345 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				31507E9B1EA06FA8007B8345 /* Controller */,
+				31507E9C1EA06FA8007B8345 /* View */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		31507E9B1EA06FA8007B8345 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				31507EA91EA06FEA007B8345 /* WKOtherViewController.h */,
+				31507EAA1EA06FEA007B8345 /* WKOtherViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		31507E9C1EA06FA8007B8345 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		31507E9D1EA06FA8007B8345 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				31507E9E1EA06FA8007B8345 /* Controller */,
+				31507E9F1EA06FA8007B8345 /* View */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		31507E9E1EA06FA8007B8345 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				31507EA61EA06FE0007B8345 /* WKUserViewController.h */,
+				31507EA71EA06FE0007B8345 /* WKUserViewController.m */,
+				3107DB351EA64EAF00BCACA9 /* WKUserInfoViewController.h */,
+				3107DB361EA64EAF00BCACA9 /* WKUserInfoViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		31507E9F1EA06FA8007B8345 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		31507EA01EA06FA8007B8345 /* Vallet */ = {
+			isa = PBXGroup;
+			children = (
+				31507EA11EA06FA8007B8345 /* Controller */,
+				31507EA21EA06FA8007B8345 /* View */,
+				31507EAC1EA06FF6007B8345 /* WKValletViewController.h */,
+				31507EAD1EA06FF6007B8345 /* WKValletViewController.m */,
+			);
+			path = Vallet;
+			sourceTree = "<group>";
+		};
+		31507EA11EA06FA8007B8345 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		31507EA21EA06FA8007B8345 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		315FFBF51E97D3C600C78440 = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +397,10 @@
 		31A221A21E99CB5D0058A21B /* WKViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				31507E971EA06FA8007B8345 /* Home */,
+				31507E9A1EA06FA8007B8345 /* Other */,
+				31507E9D1EA06FA8007B8345 /* User */,
+				31507EA01EA06FA8007B8345 /* Vallet */,
 			);
 			path = WKViewControllers;
 			sourceTree = "<group>";
@@ -301,6 +436,12 @@
 		31A221A61E99CB8B0058A21B /* WKNav */ = {
 			isa = PBXGroup;
 			children = (
+				31507E911EA06E7E007B8345 /* UIViewController+GYDNav.h */,
+				31507E921EA06E7E007B8345 /* UIViewController+GYDNav.m */,
+				31507E941EA06EA5007B8345 /* WKBaseNavViewController.h */,
+				31507E951EA06EA5007B8345 /* WKBaseNavViewController.m */,
+				31632CB51EAAFE850057B161 /* WKTabbarViewController.h */,
+				31632CB61EAAFE850057B161 /* WKTabbarViewController.m */,
 			);
 			path = WKNav;
 			sourceTree = "<group>";
@@ -746,6 +887,7 @@
 				315FFC091E97D3C600C78440 /* ViewController.m in Sources */,
 				31A222031E99CFA00058A21B /* CTURLResponse.m in Sources */,
 				31A222071E99CFA10058A21B /* CTUDIDGenerator.m in Sources */,
+				31507EAE1EA06FF6007B8345 /* WKValletViewController.m in Sources */,
 				31A221F81E99CFA00058A21B /* NSObject+AXNetworkingMethods.m in Sources */,
 				315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */,
 				31A221F61E99CFA00058A21B /* NSDictionary+AXNetworkingMethods.m in Sources */,
@@ -753,9 +895,11 @@
 				31A221F91E99CFA00058A21B /* NSString+AXNetworkingMethods.m in Sources */,
 				31A221FC1E99CFA00058A21B /* CTApiProxy.m in Sources */,
 				31A222021E99CFA00058A21B /* CTLogger.m in Sources */,
+				31507E931EA06E7E007B8345 /* UIViewController+GYDNav.m in Sources */,
 				31A222011E99CFA00058A21B /* CTLocationManager.m in Sources */,
 				31A221FB1E99CFA00058A21B /* UIDevice+IdentifierAddition.m in Sources */,
 				31A2220B1E99CFA10058A21B /* CTLoggerConfiguration.m in Sources */,
+				31507EA81EA06FE0007B8345 /* WKUserViewController.m in Sources */,
 				31A222101E99D0520058A21B /* WKAPIManager.m in Sources */,
 				315FFC031E97D3C600C78440 /* main.m in Sources */,
 				31A221AB1E99CCD00058A21B /* Util.m in Sources */,
@@ -764,9 +908,15 @@
 				31A221F71E99CFA00058A21B /* NSMutableString+AXNetworkingMethods.m in Sources */,
 				31A221F51E99CFA00058A21B /* NSArray+AXNetworkingMethods.m in Sources */,
 				31A222051E99CFA10058A21B /* CTRequestGenerator.m in Sources */,
+				31632CB71EAAFE850057B161 /* WKTabbarViewController.m in Sources */,
 				31A222091E99CFA10058A21B /* CTServiceFactory.m in Sources */,
 				31A222061E99CFA10058A21B /* CTSignatureGenerator.m in Sources */,
+				31507EA51EA06FD2007B8345 /* WKHomeViewController.m in Sources */,
+				31507EAB1EA06FEA007B8345 /* WKOtherViewController.m in Sources */,
+				31632CBA1EAB011E0057B161 /* WKtrainDemandViewController.m in Sources */,
+				31507E961EA06EA5007B8345 /* WKBaseNavViewController.m in Sources */,
 				31A2220D1E99CFA10058A21B /* GDMapService.m in Sources */,
+				3107DB371EA64EAF00BCACA9 /* WKUserInfoViewController.m in Sources */,
 				31A2220A1E99CFA10058A21B /* CTAppContext.m in Sources */,
 				31A222041E99CFA10058A21B /* CTCommonParamsGenerator.m in Sources */,
 			);

@@ -24,6 +24,9 @@
 #import <Photos/Photos.h>
 
 
+
+//#define  WKSyncQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
 #define ColorRGB(_R_, _G_, _B_)       ([UIColor colorWithRed:_R_/255.0f green:_G_/255.0f blue:_B_/255.0f alpha:1])
 
 #define COLOR(r,g,b)                [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
@@ -36,7 +39,7 @@
 #define navigationBarColor RGB(33, 192, 174)
 
 
-#define M_CO    [UIColor colorWithRed:0.56 green:0.77 blue:0.18 alpha:1.00]
+#define M_CO    [UIColor colorWithRed:0.89 green:0.09 blue:0.10 alpha:1.00]
 
 #define VERSION [[UIDevice currentDevice].systemVersion doubleValue]
 

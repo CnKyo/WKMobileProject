@@ -24,7 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-   _mAPIManager.mAPIName =  @"/home/banner";
+//   _mAPIManager.mAPIName =  @"/home/banner";
     [self.mAPIManager loadData];
 
 }
