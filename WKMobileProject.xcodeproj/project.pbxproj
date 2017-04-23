@@ -26,6 +26,8 @@
 		31632CBA1EAB011E0057B161 /* WKtrainDemandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31632CB91EAB011E0057B161 /* WKtrainDemandViewController.m */; };
 		31632CBE1EAB02AF0057B161 /* WKTrainDemandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31632CBC1EAB02AF0057B161 /* WKTrainDemandCell.m */; };
 		31632CBF1EAB02AF0057B161 /* WKTrainDemandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31632CBD1EAB02AF0057B161 /* WKTrainDemandCell.xib */; };
+		31632CC41EAB6E8E0057B161 /* UIView+RoundedCorners.m in Sources */ = {isa = PBXBuildFile; fileRef = 31632CC31EAB6E8E0057B161 /* UIView+RoundedCorners.m */; };
+		31632CC81EAB6EFB0057B161 /* WKUIButtonCorners.m in Sources */ = {isa = PBXBuildFile; fileRef = 31632CC71EAB6EFA0057B161 /* WKUIButtonCorners.m */; };
 		31A2219A1E99C24D0058A21B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A221991E99C24D0058A21B /* Foundation.framework */; };
 		31A2219C1E99C2540058A21B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A2219B1E99C2540058A21B /* UIKit.framework */; };
 		31A2219E1E99C25E0058A21B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A2219D1E99C25E0058A21B /* CoreGraphics.framework */; };
@@ -119,6 +121,10 @@
 		31632CBB1EAB02AF0057B161 /* WKTrainDemandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTrainDemandCell.h; sourceTree = "<group>"; };
 		31632CBC1EAB02AF0057B161 /* WKTrainDemandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTrainDemandCell.m; sourceTree = "<group>"; };
 		31632CBD1EAB02AF0057B161 /* WKTrainDemandCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKTrainDemandCell.xib; sourceTree = "<group>"; };
+		31632CC21EAB6E8E0057B161 /* UIView+RoundedCorners.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RoundedCorners.h"; sourceTree = "<group>"; };
+		31632CC31EAB6E8E0057B161 /* UIView+RoundedCorners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RoundedCorners.m"; sourceTree = "<group>"; };
+		31632CC61EAB6EFA0057B161 /* WKUIButtonCorners.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUIButtonCorners.h; sourceTree = "<group>"; };
+		31632CC71EAB6EFA0057B161 /* WKUIButtonCorners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUIButtonCorners.m; sourceTree = "<group>"; };
 		31A221991E99C24D0058A21B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		31A2219B1E99C2540058A21B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		31A2219D1E99C25E0058A21B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -349,6 +355,7 @@
 		315FFC001E97D3C600C78440 /* WKMobileProject */ = {
 			isa = PBXGroup;
 			children = (
+				31632CC01EAB6E750057B161 /* WKOtherResource */,
 				31A221A71E99CBA40058A21B /* WKHeaderFile */,
 				31A221A11E99CB5D0058A21B /* WKTool */,
 				31A221A21E99CB5D0058A21B /* WKViewControllers */,
@@ -391,6 +398,33 @@
 				315FFC281E97D3C700C78440 /* Info.plist */,
 			);
 			path = WKMobileProjectUITests;
+			sourceTree = "<group>";
+		};
+		31632CC01EAB6E750057B161 /* WKOtherResource */ = {
+			isa = PBXGroup;
+			children = (
+				31632CC51EAB6EDB0057B161 /* UIButton+RoundedCorners */,
+				31632CC11EAB6E8E0057B161 /* UIView+RoundedCorners */,
+			);
+			path = WKOtherResource;
+			sourceTree = "<group>";
+		};
+		31632CC11EAB6E8E0057B161 /* UIView+RoundedCorners */ = {
+			isa = PBXGroup;
+			children = (
+				31632CC21EAB6E8E0057B161 /* UIView+RoundedCorners.h */,
+				31632CC31EAB6E8E0057B161 /* UIView+RoundedCorners.m */,
+			);
+			path = "UIView+RoundedCorners";
+			sourceTree = "<group>";
+		};
+		31632CC51EAB6EDB0057B161 /* UIButton+RoundedCorners */ = {
+			isa = PBXGroup;
+			children = (
+				31632CC61EAB6EFA0057B161 /* WKUIButtonCorners.h */,
+				31632CC71EAB6EFA0057B161 /* WKUIButtonCorners.m */,
+			);
+			path = "UIButton+RoundedCorners";
 			sourceTree = "<group>";
 		};
 		31A221A11E99CB5D0058A21B /* WKTool */ = {
@@ -900,7 +934,9 @@
 				31A221F81E99CFA00058A21B /* NSObject+AXNetworkingMethods.m in Sources */,
 				315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */,
 				31A221F61E99CFA00058A21B /* NSDictionary+AXNetworkingMethods.m in Sources */,
+				31632CC81EAB6EFB0057B161 /* WKUIButtonCorners.m in Sources */,
 				31A221FD1E99CFA00058A21B /* CTAPIBaseManager.m in Sources */,
+				31632CC41EAB6E8E0057B161 /* UIView+RoundedCorners.m in Sources */,
 				31A221F91E99CFA00058A21B /* NSString+AXNetworkingMethods.m in Sources */,
 				31A221FC1E99CFA00058A21B /* CTApiProxy.m in Sources */,
 				31A222021E99CFA00058A21B /* CTLogger.m in Sources */,

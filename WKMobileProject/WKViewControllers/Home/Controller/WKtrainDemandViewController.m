@@ -8,6 +8,8 @@
 
 #import "WKtrainDemandViewController.h"
 #import "WKTrainDemandCell.h"
+#import "UIViewController+GYDNav.h"
+
 @interface WKtrainDemandViewController ()
 
 @end
@@ -18,12 +20,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"火车票查询";
+    self.d_navBarAlpha = 1;
+
     [self addTableView];
     for (int i = 0; i<2; i++) {
         [self.tableArr addObject:[NSString stringWithFormat:@"第%d行   查询",i]];
     }
     UINib *nib = [UINib nibWithNibName:@"WKTrainDemandCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
+    
 }
 
 - (void)didReceiveMemoryWarning {
