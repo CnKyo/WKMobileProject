@@ -394,14 +394,6 @@
      */
 + (BOOL)isUrl:(NSString *)mString;
     
-    
-    /**
-     判断跑腿类型
-     
-     @param mTypeStr 要判断的关键字
-     @return 返回类型
-     */
-+ (int)currentReleaseType:(NSString *)mTypeStr;
 #pragma mark---- 字符串过滤
     /**
      字符串过滤

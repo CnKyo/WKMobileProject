@@ -15,6 +15,8 @@
 @implementation AppDelegate
 
 - (void)initLabriary{
+    
+    
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setBarTintColor:M_CO];
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
@@ -23,6 +25,9 @@
     
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
+                                                         forBarMetrics:UIBarMetricsDefault];
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

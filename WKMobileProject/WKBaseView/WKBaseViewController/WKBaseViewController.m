@@ -18,8 +18,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = COLOR(247, 247, 247);
     self.tableArr = [NSMutableArray array];
-    
-    
+    self.mPage = 1;
+
     // Do any additional setup after loading the view.
 }
 
@@ -58,7 +58,105 @@
         }];
     }
 }
+#pragma mark ----****----设置左边的按钮
+/**
+ 设置左边的按钮
+ 
+ @param mHidden    是否显示
+ @param mBackTitle 标题
+ @param mImage     图片
+ */
+- (void)addLeftBtn:(BOOL)mHidden andTitel:(NSString *)mBackTitle andImage:(UIImage *)mImage{
+    UIButton *mBackBtn = [[UIButton alloc]initWithFrame:CGRectMake(80,15,13,20)];
+    
+    if (!mHidden) {
+        return;
+    }else{
+        
+        if (mBackTitle.length > 0 ) {
+            
+            [mBackBtn setTitle:mBackTitle forState:UIControlStateNormal];
+        }else if (mImage != nil){
+            [mBackBtn setImage:mImage forState:UIControlStateNormal];
+            
+        }else{
+            [mBackBtn setTitle:mBackTitle forState:UIControlStateNormal];
+            [mBackBtn setImage:[UIImage imageNamed:@"ZLBackBtn_Image"] forState:UIControlStateNormal];
+            
+        }
+        [mBackBtn addTarget:self action:@selector(mBackAction)forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *mBackItem = [[UIBarButtonItem alloc]initWithCustomView:mBackBtn];
+        self.navigationItem.leftBarButtonItem= mBackItem;
+    }
+    
+}
 
+#pragma mark ----****----设置右边的按钮
+/**
+ 设置右边的按钮
+ 
+ @param mHidden    是否显示
+ @param mBackTitle 标题
+ @param mImage     图片
+ */
+- (void)addRightBtn:(BOOL)mHidden andTitel:(NSString *)mBackTitle andImage:(UIImage *)mImage{
+    UIButton *mRightBtn = [[UIButton alloc]initWithFrame:CGRectMake(DEVICE_Width-60,15,25,25)];
+    mRightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    mRightBtn.titleLabel.textAlignment = NSTextAlignmentRight;
+    CGRect mR = mRightBtn.frame;
+    if (!mHidden) {
+        return;
+    }else{
+        if (mBackTitle.length > 0 ) {
+            mR.size.width = 70;
+            mRightBtn.frame = mR;
+            [mRightBtn setTitle:mBackTitle forState:UIControlStateNormal];
+        }else if (mImage != nil){
+            [mRightBtn setImage:mImage forState:UIControlStateNormal];
+            
+        }
+        [mRightBtn addTarget:self action:@selector(rightBtnAction)forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *mRightBartem = [[UIBarButtonItem alloc]initWithCustomView:mRightBtn];
+        self.navigationItem.rightBarButtonItem= mRightBartem;
+    }
+}
+- (void)mBackAction{
+    [self popViewController];
+}
+/**
+ 右边按钮的点击事件
+ */
+- (void)rightBtnAction{
+    MLLog(@"右边");
+}
+- (void)setRightBtnImage:(NSString *)mImage{
+    UIButton *mRightBtn = [[UIButton alloc]initWithFrame:CGRectMake(DEVICE_Width-60,15,25,25)];
+    mRightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    mRightBtn.titleLabel.textAlignment = NSTextAlignmentRight;
+    
+    [mRightBtn setImage:[UIImage imageNamed:mImage] forState:UIControlStateNormal];
+    
+    
+    [mRightBtn addTarget:self action:@selector(rightBtnAction)forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *mRightBartem = [[UIBarButtonItem alloc]initWithCustomView:mRightBtn];
+    self.navigationItem.rightBarButtonItem= mRightBartem;
+    
+}
+- (void)setRightBtnTitle:(NSString *)mTitle{
+    
+    CGFloat titleW = [Util labelTextWithWidth:mTitle];
+    UIButton *mRightBtn = [[UIButton alloc]initWithFrame:CGRectMake(DEVICE_Width-titleW-10,15,titleW+10,25)];
+    mRightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    mRightBtn.titleLabel.textAlignment = NSTextAlignmentRight;
+    [mRightBtn setTitle:mTitle forState:UIControlStateNormal];
+    [mRightBtn addTarget:self action:@selector(rightBtnAction)forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *mRightBartem = [[UIBarButtonItem alloc]initWithCustomView:mRightBtn];
+    self.navigationItem.rightBarButtonItem= mRightBartem;
+    
+
+}
+
+#pragma mark----****----页面跳转操作
 -(void)popViewController
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -168,5 +266,50 @@
 - (void)dismissViewController:(int)whatYouWant{
     self.presentingViewController.view.alpha = 0;
     [self.presentingViewController.presentingViewController.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark----****----刷新操作
+/**
+ 列表刷新
+ */
+- (void)addTableViewHeaderRefreshing{
+//    self.mTableViewRefreshStatus = UITableViewHeaderRefreshing;
+
+    __weak typeof(self) weakSelf = self;
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+
+        [weakSelf tableViewHeaderReloadData];
+        [weakSelf.tableView.mj_header endRefreshing];
+    }];
+
+    [self.tableView.mj_header beginRefreshing];
+}
+/**
+ 列表底部刷新
+ */
+- (void)addTableViewFootererRefreshing{
+//    self.mTableViewRefreshStatus = UITableViewFooterRefreshing;
+    MLLog(@"当前刷新的状态是：%ld",(long)self.tableView.mj_footer.state);
+    __weak typeof(self) weakSelf = self;
+
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+
+        [weakSelf tableViewFooterReloadData];
+        [weakSelf.tableView.mj_footer endRefreshing];
+    }];
+}
+/**
+ 列表加载数据
+ */
+- (void)tableViewHeaderReloadData{
+//    self.mTableViewRefreshStatus = UITableViewHeaderRefreshing;
+}
+/**
+ 列表加载数据
+ */
+- (void)tableViewFooterReloadData{
+//    self.mTableViewRefreshStatus = UITableViewFooterRefreshing;
+
 }
 @end

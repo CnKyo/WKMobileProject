@@ -1471,15 +1471,7 @@
         return [urlTest evaluateWithObject:mString];
     }
     
-+ (int)currentReleaseType:(NSString *)mTypeStr{
-    
-    if ([mTypeStr isEqualToString:@"买"]) {
-        return ZLPPTReleaseTypeWithBuyStaff;
-    }else{
-        return ZLPPTReleaseTypeWithSendDo;
-        
-    }
-}
+
     
     
 #pragma mark---- 字符串过滤

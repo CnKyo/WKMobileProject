@@ -20,17 +20,44 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"火车票查询";
+    
     self.d_navBarAlpha = 1;
-
+    
+//    [self setRightBtnImage:@"icon_search"];
+    [self setRightBtnTitle:@"右边右边"];
+    
     [self addTableView];
-    for (int i = 0; i<2; i++) {
-        [self.tableArr addObject:[NSString stringWithFormat:@"第%d行   查询",i]];
-    }
+
     UINib *nib = [UINib nibWithNibName:@"WKTrainDemandCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
-    
+    [self addTableViewHeaderRefreshing];
+    [self addTableViewFootererRefreshing];
 }
 
+- (void)tableViewHeaderReloadData{
+    self.mPage = 1;
+    [self.tableArr removeAllObjects];
+    NSMutableArray *mArr = [NSMutableArray new];
+    for (int i = 0; i<2; i++) {
+        [mArr addObject:[NSString stringWithFormat:@"第%d行   查询",i]];
+    }
+    [self.tableArr addObjectsFromArray:mArr];
+    [self.tableView reloadData];
+
+}
+- (void)tableViewFooterReloadData{
+    self.mPage++;
+    NSMutableArray *mArr = [NSMutableArray new];
+    for (int i = 0; i<2; i++) {
+        [mArr addObject:[NSString stringWithFormat:@"第%d行   查询",i]];
+    }
+    [self.tableArr addObjectsFromArray:mArr];
+    [self.tableView reloadData];
+
+}
+- (void)rightBtnAction{
+    MLLog(@"dasdasd");
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

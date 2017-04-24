@@ -41,6 +41,8 @@
 #define NumberWithBool(i)       [NSNumber numberWithBool:i]
 #define navigationBarColor RGB(33, 192, 174)
 
+#define IMG(_File_)                 [UIImage imageNamed:_File_]
+
 
 #define M_CO    [UIColor colorWithRed:0.89 green:0.09 blue:0.10 alpha:1.00]
 
@@ -145,13 +147,11 @@ typedef enum {
     kTableNote_NoRecord,//暂无记录
 } kTableNoteType;
 
-
-
-typedef enum {
-    ZLPPTReleaseTypeWithBuyStaff = 0,//买东西
-    ZLPPTReleaseTypeWithSendDo = 1,//送东西办事情
-} ZLPPTReleaseType;//发布跑腿类型
-
+///列表刷新状态
+typedef NS_ENUM(int,UITableViewRefreshStatus){
+    UITableViewHeaderRefreshing = 1,///头部刷新
+    UITableViewFooterRefreshing = 2,///底部刷新
+};
 
 //-----------------------
 //自定义的写在下面，通用的写在上面
