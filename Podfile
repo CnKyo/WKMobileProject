@@ -49,5 +49,5 @@ target 'WKMobileProject' do
   pod 'PYSearch'
   pod 'HandyFrame'
   pod 'ZYCornerRadius', '~> 1.0.2'
-
+  pod 'YYModel'
 end

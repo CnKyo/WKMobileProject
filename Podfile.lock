@@ -78,6 +78,7 @@ PODS:
   - WebViewJavascriptBridge (5.2.0)
   - WeChatSDK-iOS (1.7.3)
   - WPAttributedMarkup (1.0.0)
+  - YYModel (1.0.4)
   - ZYCornerRadius (1.0.2)
 
 DEPENDENCIES:
@@ -119,6 +120,7 @@ DEPENDENCIES:
   - WebViewJavascriptBridge (~> 5.0)
   - WeChatSDK-iOS
   - WPAttributedMarkup
+  - YYModel
   - ZYCornerRadius (~> 1.0.2)
 
 SPEC CHECKSUMS:
@@ -161,8 +163,9 @@ SPEC CHECKSUMS:
   WebViewJavascriptBridge: a00b2d61252aec5207e3263d46fd0fd3cfaf7895
   WeChatSDK-iOS: 5ab1275da6f245c41232870f8215998c59cbb539
   WPAttributedMarkup: eb50878af4ec647d8d2090f721a5cfe7d29c27fe
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
 
-PODFILE CHECKSUM: aa76cfd35926920dbceb0cc5a5472b28aa454a68
+PODFILE CHECKSUM: b418ea92c6a5953e48e82ed7d2eb427af65da530
 
 COCOAPODS: 1.0.1
