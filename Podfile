@@ -14,6 +14,7 @@ target 'WKMobileProject' do
   pod 'UITableView+FDTemplateLayoutCell'
   pod 'Masonry'
   pod 'AFNetworking'
+  pod 'YTKNetwork'
   pod 'SVProgressHUD'
   pod 'IQKeyboardManager'
   pod 'LKDBHelper'

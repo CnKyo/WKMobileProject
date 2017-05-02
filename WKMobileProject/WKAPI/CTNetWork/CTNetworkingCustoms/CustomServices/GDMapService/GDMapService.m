@@ -19,12 +19,12 @@
 
 - (NSString *)offlineApiBaseUrl
 {
-    return [NSString stringWithFormat:@"%@%@",kAFAppDotNetApiBaseURLString,kAFAppDotNetApiExtraURLString];
+    return kMobTainAPIURLString;
 }
 
 - (NSString *)onlineApiBaseUrl
 {
-    return [NSString stringWithFormat:@"%@%@",kAFAppDotNetApiBaseURLString,kAFAppDotNetApiExtraURLString];
+    return kMobTainAPIURLString;
 }
 
 - (NSString *)offlineApiVersion

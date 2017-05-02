@@ -12,7 +12,7 @@
 
 #import "WKAPIManager.h"
 
-
+#import <AFNetworking.h>
 #import "Util.h"
 #import <WPAttributedMarkup/WPHotspotLabel.h>
 #import <WPAttributedMarkup/NSString+WPAttributedMarkup.h>
@@ -27,6 +27,7 @@
 #import "UIView+RoundedCorners.h"
 #import "WKUIButtonCorners.h"
 #import "UIViewController+GYDNav.h"
+#import <YYModel.h>
 
 //#define  WKSyncQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
@@ -110,13 +111,17 @@ UITableViewCell *cell=[tableview cellForRowAtIndexPath:indexPath];\
 cell;\
 })\
 
-
+///火车票查询key
+static NSString* const kMobTrainDemandKey                   = @"cdfd2af73a77";
+///火车票api接口地址
+static NSString* const kMobTainAPIURLString                 = @"http://apicloud.mob.com/train/tickets/";
 
 ///api访问地址
 static NSString* const  kAFAppDotNetApiBaseURLString        = @"http://app.china-cr.com";
 static NSString* const  kAFAppDotNetApiExtraURLString       = @"/api/app/client";
 static NSString* const  kAFAppDotNetApiServiceURLString     = @"/api/app/service";
 static NSString* const  kAFAppDotNetImgBaseURLString        = @"http://resource.china-cr.com/resource";
+
 
 
 

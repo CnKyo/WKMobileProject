@@ -1,0 +1,113 @@
+//
+//  WKHttpRequest.m
+//  WKMobileProject
+//
+//  Created by 王钶 on 2017/4/27.
+//  Copyright © 2017年 com.xw. All rights reserved.
+//
+
+#import "WKHttpRequest.h"
+
+@implementation WKHttpRequest
++ (instancetype)shareClient{
+    static WKHttpRequest *_sharedClient = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        //[APIClient loadDefault];
+        _sharedClient = [[WKHttpRequest alloc] initWithBaseURL:[NSURL URLWithString:kAFAppDotNetImgBaseURLString]];
+        _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
+        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+        
+        ;
+        //_sharedClient.requestSerializer = [AFJSONRequestSerializer serializer];
+        _sharedClient.requestSerializer.HTTPShouldHandleCookies = YES;
+        //_sharedClient.requestSerializer.Content = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+    });
+    return _sharedClient;
+}
++ (void)WKGetNetDataWith:(NSString*)str withDic:(NSDictionary*)dic andSuccess:(void(^)(NSDictionary* dictionary))successBlock  andFailure:(void(^)())failueBlock{
+    
+    AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializer];
+    serializer.removesKeysWithNullValues = YES;
+    AFHTTPSessionManager *netManager = [AFHTTPSessionManager manager];
+    netManager.requestSerializer     = [AFHTTPRequestSerializer serializer];
+    netManager.responseSerializer    = [AFHTTPResponseSerializer serializer];
+    netManager.requestSerializer.timeoutInterval=15.0;
+    
+    
+    [netManager GET:str parameters:dic progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary*dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+        if (successBlock) {
+            successBlock(dic);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failueBlock) {
+            failueBlock();
+        }
+    }];
+
+}
+/**
+ *  封装的post请求
+ *
+ *  @param str          url
+ *  @param dic          参数
+ *  @param successBlock 请求成功的回调
+ *  @param failueBlock  请求失败的回调
+ */
++ (void)WKPostNetDataWith:(NSString*)str withDic:(NSDictionary*)dic andSuccess:(void(^)(NSDictionary* dictionary))successBlock  andFailure:(void(^)())failueBlock{
+    AFHTTPSessionManager *netManager   = [AFHTTPSessionManager manager];
+    netManager.requestSerializer      = [AFHTTPRequestSerializer serializer];
+    netManager.responseSerializer     = [AFHTTPResponseSerializer serializer];
+    netManager.requestSerializer.timeoutInterval=15.0;
+    
+    [netManager POST:str parameters:dic progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary*dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+        if (successBlock) {
+            successBlock(dic);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failueBlock) {
+            failueBlock();
+        }
+    }];
+}
+/**
+ 图片上传
+ 
+ @param urlStr     url
+ @param parameters 参数
+ @param fileData   文件
+ @param name       名称
+ @param fileName   文件名称
+ @param fileType   文件类型
+ @param success    请求成功的回调
+ @param fail       请求失败的回调
+ */
++ (void)WKPostUploadWithUrl:(NSString *)urlStr parameters:(id)parameters fileData:(NSData *)fileData name:(NSString *)name fileName:(NSString *)fileName fileType:(NSString *)fileType success:(void (^)(id responseObject))success fail:(void (^)())fail{
+    AFJSONResponseSerializer *serializer  = [AFJSONResponseSerializer serializer];
+    AFHTTPSessionManager *manager       = [AFHTTPSessionManager manager];
+    manager.responseSerializer         = serializer;
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+    manager.requestSerializer.timeoutInterval = 15;
+    [manager POST:urlStr parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        [formData appendPartWithFileData:fileData name:name fileName:fileName mimeType:fileType];
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (success) {
+            success(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (fail) {
+            fail();
+        }
+    }];
+
+}
+
+@end
