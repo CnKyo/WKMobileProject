@@ -41,7 +41,7 @@ PODS:
   - JPush (3.0.5):
     - JCore (~> 1.1.1)
   - JWLaunchAd (1.3.4)
-  - LKDBHelper (2.4.1):
+  - LKDBHelper (2.4.2):
     - FMDB
   - LPActionSheet (1.0)
   - LTNavigationBar (2.1.9)
@@ -78,6 +78,8 @@ PODS:
   - WebViewJavascriptBridge (5.2.0)
   - WeChatSDK-iOS (1.7.3)
   - WPAttributedMarkup (1.0.0)
+  - YTKNetwork (2.0.3):
+    - AFNetworking (~> 3.0)
   - YYModel (1.0.4)
   - ZYCornerRadius (1.0.2)
 
@@ -120,6 +122,7 @@ DEPENDENCIES:
   - WebViewJavascriptBridge (~> 5.0)
   - WeChatSDK-iOS
   - WPAttributedMarkup
+  - YTKNetwork
   - YYModel
   - ZYCornerRadius (~> 1.0.2)
 
@@ -144,7 +147,7 @@ SPEC CHECKSUMS:
   JKCategories: 863f4c7ed2d521ee6bf72ceea97948da23bb5af4
   JPush: dd0b776998aa705a6242b947bf72e5a640387cfe
   JWLaunchAd: b7898e445362a32713049cf1eba3212c3bd6f258
-  LKDBHelper: 531581fa6a7d0f14236cc028ce0d277bca73436a
+  LKDBHelper: ab67373b32f47463bf5f838d730f225824f4492a
   LPActionSheet: 49fb9201e73f24f41adeb2a76773307d37ab0416
   LTNavigationBar: c278785bed344862e18146b5f06792932e4feacc
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -163,9 +166,10 @@ SPEC CHECKSUMS:
   WebViewJavascriptBridge: a00b2d61252aec5207e3263d46fd0fd3cfaf7895
   WeChatSDK-iOS: 5ab1275da6f245c41232870f8215998c59cbb539
   WPAttributedMarkup: eb50878af4ec647d8d2090f721a5cfe7d29c27fe
+  YTKNetwork: c4b0c29c9d639dc050d475de69ee626d53eac598
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
 
-PODFILE CHECKSUM: b418ea92c6a5953e48e82ed7d2eb427af65da530
+PODFILE CHECKSUM: 350d61653f4a0d4a6525946d96ecb83ec4453f2b
 
 COCOAPODS: 1.0.1
