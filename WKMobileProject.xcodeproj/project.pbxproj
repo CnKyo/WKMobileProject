@@ -12,8 +12,8 @@
 		31507E961EA06EA5007B8345 /* WKBaseNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31507E951EA06EA5007B8345 /* WKBaseNavViewController.m */; };
 		31507EA51EA06FD2007B8345 /* WKHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31507EA41EA06FD2007B8345 /* WKHomeViewController.m */; };
 		31507EA81EA06FE0007B8345 /* WKUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31507EA71EA06FE0007B8345 /* WKUserViewController.m */; };
-		31507EAB1EA06FEA007B8345 /* WKOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31507EAA1EA06FEA007B8345 /* WKOtherViewController.m */; };
-		31507EAE1EA06FF6007B8345 /* WKValletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31507EAD1EA06FF6007B8345 /* WKValletViewController.m */; };
+		31507EAB1EA06FEA007B8345 /* WKFindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31507EAA1EA06FEA007B8345 /* WKFindViewController.m */; };
+		31507EAE1EA06FF6007B8345 /* WKActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31507EAD1EA06FF6007B8345 /* WKActivityViewController.m */; };
 		315FFC031E97D3C600C78440 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 315FFC021E97D3C600C78440 /* main.m */; };
 		315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 315FFC051E97D3C600C78440 /* AppDelegate.m */; };
 		315FFC091E97D3C600C78440 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 315FFC081E97D3C600C78440 /* ViewController.m */; };
@@ -115,10 +115,10 @@
 		31507EA41EA06FD2007B8345 /* WKHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHomeViewController.m; sourceTree = "<group>"; };
 		31507EA61EA06FE0007B8345 /* WKUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUserViewController.h; sourceTree = "<group>"; };
 		31507EA71EA06FE0007B8345 /* WKUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUserViewController.m; sourceTree = "<group>"; };
-		31507EA91EA06FEA007B8345 /* WKOtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKOtherViewController.h; sourceTree = "<group>"; };
-		31507EAA1EA06FEA007B8345 /* WKOtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKOtherViewController.m; sourceTree = "<group>"; };
-		31507EAC1EA06FF6007B8345 /* WKValletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKValletViewController.h; sourceTree = "<group>"; };
-		31507EAD1EA06FF6007B8345 /* WKValletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKValletViewController.m; sourceTree = "<group>"; };
+		31507EA91EA06FEA007B8345 /* WKFindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKFindViewController.h; sourceTree = "<group>"; };
+		31507EAA1EA06FEA007B8345 /* WKFindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKFindViewController.m; sourceTree = "<group>"; };
+		31507EAC1EA06FF6007B8345 /* WKActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKActivityViewController.h; sourceTree = "<group>"; };
+		31507EAD1EA06FF6007B8345 /* WKActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKActivityViewController.m; sourceTree = "<group>"; };
 		315FFBFE1E97D3C600C78440 /* WKMobileProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKMobileProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		315FFC021E97D3C600C78440 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		315FFC041E97D3C600C78440 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -325,20 +325,21 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		31507E9A1EA06FA8007B8345 /* Other */ = {
+		31507E9A1EA06FA8007B8345 /* Find */ = {
 			isa = PBXGroup;
 			children = (
 				31507E9B1EA06FA8007B8345 /* Controller */,
 				31507E9C1EA06FA8007B8345 /* View */,
 			);
+			name = Find;
 			path = Other;
 			sourceTree = "<group>";
 		};
 		31507E9B1EA06FA8007B8345 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				31507EA91EA06FEA007B8345 /* WKOtherViewController.h */,
-				31507EAA1EA06FEA007B8345 /* WKOtherViewController.m */,
+				31507EA91EA06FEA007B8345 /* WKFindViewController.h */,
+				31507EAA1EA06FEA007B8345 /* WKFindViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -377,14 +378,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		31507EA01EA06FA8007B8345 /* Vallet */ = {
+		31507EA01EA06FA8007B8345 /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				31507EAC1EA06FF6007B8345 /* WKActivityViewController.h */,
+				31507EAD1EA06FF6007B8345 /* WKActivityViewController.m */,
 				31507EA11EA06FA8007B8345 /* Controller */,
 				31507EA21EA06FA8007B8345 /* View */,
-				31507EAC1EA06FF6007B8345 /* WKValletViewController.h */,
-				31507EAD1EA06FF6007B8345 /* WKValletViewController.m */,
 			);
+			name = Activity;
 			path = Vallet;
 			sourceTree = "<group>";
 		};
@@ -515,9 +517,9 @@
 			isa = PBXGroup;
 			children = (
 				31507E971EA06FA8007B8345 /* Home */,
-				31507E9A1EA06FA8007B8345 /* Other */,
+				31507E9A1EA06FA8007B8345 /* Find */,
 				31507E9D1EA06FA8007B8345 /* User */,
-				31507EA01EA06FA8007B8345 /* Vallet */,
+				31507EA01EA06FA8007B8345 /* Activity */,
 			);
 			path = WKViewControllers;
 			sourceTree = "<group>";
@@ -1068,7 +1070,7 @@
 				31A222071E99CFA10058A21B /* CTUDIDGenerator.m in Sources */,
 				52AC36351EC2A059000866D4 /* WKCustomPopView.m in Sources */,
 				52AC36471EC2C086000866D4 /* SXColorLabel.m in Sources */,
-				31507EAE1EA06FF6007B8345 /* WKValletViewController.m in Sources */,
+				31507EAE1EA06FF6007B8345 /* WKActivityViewController.m in Sources */,
 				31A221F81E99CFA00058A21B /* NSObject+AXNetworkingMethods.m in Sources */,
 				315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */,
 				31A221F61E99CFA00058A21B /* NSDictionary+AXNetworkingMethods.m in Sources */,
@@ -1104,7 +1106,7 @@
 				52AC36461EC2C086000866D4 /* SXColorGradientView.m in Sources */,
 				31A222061E99CFA10058A21B /* CTSignatureGenerator.m in Sources */,
 				31507EA51EA06FD2007B8345 /* WKHomeViewController.m in Sources */,
-				31507EAB1EA06FEA007B8345 /* WKOtherViewController.m in Sources */,
+				31507EAB1EA06FEA007B8345 /* WKFindViewController.m in Sources */,
 				31632CBA1EAB011E0057B161 /* WKtrainDemandViewController.m in Sources */,
 				31507E961EA06EA5007B8345 /* WKBaseNavViewController.m in Sources */,
 				31A2220D1E99CFA10058A21B /* GDMapService.m in Sources */,

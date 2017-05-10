@@ -8,6 +8,6 @@
 
 #import "WKBaseViewController.h"
 
-@interface WKValletViewController : WKBaseViewController
+@interface WKActivityViewController : WKBaseViewController
 
 @end

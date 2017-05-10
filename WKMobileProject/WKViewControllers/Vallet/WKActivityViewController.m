@@ -6,13 +6,13 @@
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
 
-#import "WKValletViewController.h"
+#import "WKActivityViewController.h"
 
-@interface WKValletViewController ()
+@interface UIActivityViewController ()
 
 @end
 
-@implementation WKValletViewController
+@implementation WKActivityViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

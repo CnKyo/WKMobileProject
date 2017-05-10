@@ -6,13 +6,13 @@
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
 
-#import "WKOtherViewController.h"
+#import "WKFindViewController.h"
 
-@interface WKOtherViewController ()
+@interface WKFindViewController ()
 
 @end
 
-@implementation WKOtherViewController
+@implementation WKFindViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

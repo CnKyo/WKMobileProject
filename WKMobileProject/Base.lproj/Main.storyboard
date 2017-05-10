@@ -45,11 +45,11 @@
             </objects>
             <point key="canvasLocation" x="-668" y="233"/>
         </scene>
-        <!--钱包-->
+        <!--活动-->
         <scene sceneID="nN0-t6-YG0">
             <objects>
                 <navigationController id="Fix-li-D88" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="钱包" id="SnN-7f-7Og"/>
+                    <tabBarItem key="tabBarItem" title="活动" id="SnN-7f-7Og"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="e3a-Ip-2oR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="-668" y="934"/>
         </scene>
-        <!--Vallet View Controller-->
+        <!--Activity View Controller-->
         <scene sceneID="jOy-CM-xcp">
             <objects>
-                <viewController id="k70-mb-gBV" customClass="WKValletViewController" sceneMemberID="viewController">
+                <viewController id="k70-mb-gBV" customClass="WKActivityViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aQQ-TQ-dOj"/>
                         <viewControllerLayoutGuide type="bottom" id="xit-Tx-lDU"/>
@@ -81,10 +81,10 @@
             </objects>
             <point key="canvasLocation" x="54" y="933"/>
         </scene>
-        <!--Other View Controller-->
+        <!--Find View Controller-->
         <scene sceneID="N7n-jf-frz">
             <objects>
-                <viewController id="oFO-Ky-x0X" customClass="WKOtherViewController" sceneMemberID="viewController">
+                <viewController id="oFO-Ky-x0X" customClass="WKFindViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="p2Z-nX-XWb"/>
                         <viewControllerLayoutGuide type="bottom" id="qgy-sX-le2"/>
@@ -100,11 +100,11 @@
             </objects>
             <point key="canvasLocation" x="54" y="1624"/>
         </scene>
-        <!--其他-->
+        <!--发现-->
         <scene sceneID="JWP-h7-Lkj">
             <objects>
                 <navigationController id="oEz-H3-grV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="其他" id="3DS-aA-rtf"/>
+                    <tabBarItem key="tabBarItem" title="发现" id="3DS-aA-rtf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="55G-Pb-ECr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -198,9 +198,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="q4B-1M-zpU" kind="relationship" relationship="viewControllers" id="UvY-20-kP7"/>
-                        <segue destination="wMZ-wK-zcD" kind="relationship" relationship="viewControllers" id="fTP-oP-Bi4"/>
                         <segue destination="Fix-li-D88" kind="relationship" relationship="viewControllers" id="4Cl-kF-lLd"/>
                         <segue destination="oEz-H3-grV" kind="relationship" relationship="viewControllers" id="P7E-01-jUN"/>
+                        <segue destination="wMZ-wK-zcD" kind="relationship" relationship="viewControllers" id="m1Q-gE-4wa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d80-xJ-In6" userLabel="First Responder" sceneMemberID="firstResponder"/>
