@@ -9,13 +9,22 @@
 #import "WKHomeViewController.h"
 #import "WKHeader.h"
 #import "WKtrainDemandViewController.h"
+#import "WKHomeTypeHeaderCell.h"
+#import "WKHomeHeaderSectionView.h"
 
-
-@interface WKHomeViewController ()
+#import "WKHomeDecomandedCell.h"
+#import "WKHomeActivityCell.h"
+@interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
 @end
 
-@implementation WKHomeViewController
+@implementation WKHomeViewController{
+    ///banner数据源
+    NSMutableArray *mBannerArr;
+    ///列表分组view
+    WKHomeHeaderSectionView *mSectionView;
+}
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
@@ -32,7 +41,37 @@
     self.navigationItem.title = @"首页";
     self.d_navBarAlpha = 0;
     
-    [self initView];
+    mBannerArr = [NSMutableArray new];
+    
+//    [self initView];
+
+    self.mTableView.delegate = self;
+    self.mTableView.dataSource = self;
+    self.mTableView.separatorStyle = UITableViewCellSelectionStyleNone;
+
+    self.tableView = self.mTableView;
+    UINib   *nib = [UINib nibWithNibName:@"WKHomeTypeHeaderCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"normalCell"];
+
+    nib = [UINib nibWithNibName:@"WKHomeDecomandedCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"demandedCell"];
+
+    nib = [UINib nibWithNibName:@"WKHomeActivityCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"activityCell"];
+
+    
+    [self addTableViewHeaderRefreshing];
+    [self addTableViewFootererRefreshing];
+}
+- (void)tableViewHeaderReloadData{
+    [mBannerArr removeAllObjects];
+    NSArray *mArr = @[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493210044049&di=ac402c2ce8259c98e5e4ea1b7aac4cac&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F209%2Fd%2F97.jpg",@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1493199772&di=66346cd79eed9c8cb4ec03c3734d0b31&src=http://img15.3lian.com/2015/f2/128/d/123.jpg",@"http://wmtp.net/wp-content/uploads/2017/04/0420_sweet945_1.jpeg",@"http://wmtp.net/wp-content/uploads/2017/04/0407_shouhui_1.jpeg"];
+    [mBannerArr addObjectsFromArray:mArr];
+    
+    [self.tableView reloadData];
+}
+- (void)tableViewFooterReloadData{
+
 }
 - (void)initView{
     UIButton *mBtn = [UIButton new];
@@ -43,7 +82,7 @@
     [mBtn addTarget:self action:@selector(mAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:mBtn];
     [mBtn setButtonRoundedCornersWithView:self.view andCorners:UIRectCornerAllCorners radius:3.0];
-
+    
 }
 - (void)mAction{
 
@@ -73,12 +112,12 @@
 }
 - (void)WKCustomPopViewWithCloseBtnAction{
     
-    NSLog(@"取消");
+    MLLog(@"取消");
 }
 - (void)WKCustomPopViewWithOkBtnAction{
     
     
-    NSLog(@"好的");
+    MLLog(@"好的");
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -94,5 +133,133 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark -- tableviewDelegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView              // Default is 1 if not implemented
+{
+ 
+    return 3;
+   
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    if (section == 0) {
+        return 0.5;
+    }else{
+        return 45;
+    }
+    
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    if (section == 0) {
+            return nil;
+    }else if(section == 1){
+    
+        mSectionView = [WKHomeHeaderSectionView initView];
+        mSectionView.mTitle.text = @"- 推荐 -";
+        return mSectionView;
+    }else{
+        mSectionView = [WKHomeHeaderSectionView initView];
+        mSectionView.mTitle.text = @"- 活动 -";
+        return mSectionView;
+    }
+    
+    
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 1;
+    }else if(section == 1){
+        return 4;
+    }else{
+        return 4;
+    }
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        return 330;
+    }else if(indexPath.section == 1){
+        return 80;
+    }else{
+        return 150;
+    }
+    
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    NSString *reuseCellId = nil;
+    
+    if (indexPath.section == 0) {
+        reuseCellId = @"normalCell";
+        
+        WKHomeTypeHeaderCell  *cell = [[WKHomeTypeHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellId andBannerDataSource:mBannerArr andDataSource:mBannerArr andScrollerLabelTx:@"这是跑马风这是跑马风这是跑马风这是跑马风"];
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        cell.delegate = self;
+        
+        return cell;
+    }else if(indexPath.section == 1){
+        reuseCellId = @"demandedCell";
+        
+        WKHomeDecomandedCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        cell.delegate = self;
+        
+        return cell;
+    }else{
+    
+        reuseCellId = @"activityCell";
+        
+        WKHomeActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        return cell;
+
+    }
+    
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 2) {
+        MLLog(@"%ld行",indexPath.row);
+    }
+    
+}
+/**
+ 跑马灯点击的代理方法
+ */
+- (void)WKHomeScrollerLabelDidSelected{
+    MLLog(@"跑马灯");
+}
+
+/**
+ 主功能按钮点击的代理方法
+ 
+ @param mIndex 索引
+ */
+- (void)WKHomeScrollerTableViewCellDidSelectedWithIndex:(NSInteger)mIndex{
+    MLLog(@"%ld",mIndex);
+}
+
+/**
+ 点击baner的代理方法
+ 
+ @param mIndex 索引
+ */
+- (void)WKHomeBannerDidSelectedWithIndex:(NSInteger)mIndex{
+    MLLog(@"%ld",mIndex);
+
+}
+
 
 @end

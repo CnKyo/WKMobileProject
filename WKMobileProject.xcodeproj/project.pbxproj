@@ -66,6 +66,23 @@
 		52AC36341EC2A059000866D4 /* FDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC362F1EC2A059000866D4 /* FDAlertView.m */; };
 		52AC36351EC2A059000866D4 /* WKCustomPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC36321EC2A059000866D4 /* WKCustomPopView.m */; };
 		52AC36361EC2A059000866D4 /* WKCustomPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AC36331EC2A059000866D4 /* WKCustomPopView.xib */; };
+		52AC36461EC2C086000866D4 /* SXColorGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC36391EC2C086000866D4 /* SXColorGradientView.m */; };
+		52AC36471EC2C086000866D4 /* SXColorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC363B1EC2C086000866D4 /* SXColorLabel.m */; };
+		52AC36481EC2C086000866D4 /* SXHeadLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC363D1EC2C086000866D4 /* SXHeadLine.m */; };
+		52AC36491EC2C086000866D4 /* SXMarquee.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC363F1EC2C086000866D4 /* SXMarquee.m */; };
+		52AC364A1EC2C086000866D4 /* UIColor+Separate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC36411EC2C086000866D4 /* UIColor+Separate.m */; };
+		52AC364B1EC2C086000866D4 /* UIColor+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC36431EC2C086000866D4 /* UIColor+Wonderful.m */; };
+		52AC364C1EC2C086000866D4 /* UILabel+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC36451EC2C086000866D4 /* UILabel+Wonderful.m */; };
+		52AC36501EC2C318000866D4 /* WKHomeTypeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC364E1EC2C318000866D4 /* WKHomeTypeHeaderCell.m */; };
+		52AC36511EC2C318000866D4 /* WKHomeTypeHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AC364F1EC2C318000866D4 /* WKHomeTypeHeaderCell.xib */; };
+		52AC36551EC2C4C6000866D4 /* RKImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC36541EC2C4C6000866D4 /* RKImageBrowser.m */; };
+		52AC36581EC2C5DA000866D4 /* WKCustomBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC36571EC2C5DA000866D4 /* WKCustomBtnView.m */; };
+		52AC365B1EC2F0BB000866D4 /* WKHomeHeaderSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC365A1EC2F0BB000866D4 /* WKHomeHeaderSectionView.m */; };
+		52AC365D1EC2F0C5000866D4 /* WKHomeHeaderSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AC365C1EC2F0C5000866D4 /* WKHomeHeaderSectionView.xib */; };
+		52AC36611EC2F3A1000866D4 /* WKHomeDecomandedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC365F1EC2F3A1000866D4 /* WKHomeDecomandedCell.m */; };
+		52AC36621EC2F3A1000866D4 /* WKHomeDecomandedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AC36601EC2F3A1000866D4 /* WKHomeDecomandedCell.xib */; };
+		52AC36661EC2FB55000866D4 /* WKHomeActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC36641EC2FB55000866D4 /* WKHomeActivityCell.m */; };
+		52AC36671EC2FB55000866D4 /* WKHomeActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AC36651EC2FB55000866D4 /* WKHomeActivityCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,6 +216,36 @@
 		52AC36311EC2A059000866D4 /* WKCustomPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKCustomPopView.h; sourceTree = "<group>"; };
 		52AC36321EC2A059000866D4 /* WKCustomPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKCustomPopView.m; sourceTree = "<group>"; };
 		52AC36331EC2A059000866D4 /* WKCustomPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKCustomPopView.xib; sourceTree = "<group>"; };
+		52AC36381EC2C086000866D4 /* SXColorGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXColorGradientView.h; sourceTree = "<group>"; };
+		52AC36391EC2C086000866D4 /* SXColorGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXColorGradientView.m; sourceTree = "<group>"; };
+		52AC363A1EC2C086000866D4 /* SXColorLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXColorLabel.h; sourceTree = "<group>"; };
+		52AC363B1EC2C086000866D4 /* SXColorLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXColorLabel.m; sourceTree = "<group>"; };
+		52AC363C1EC2C086000866D4 /* SXHeadLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXHeadLine.h; sourceTree = "<group>"; };
+		52AC363D1EC2C086000866D4 /* SXHeadLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXHeadLine.m; sourceTree = "<group>"; };
+		52AC363E1EC2C086000866D4 /* SXMarquee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXMarquee.h; sourceTree = "<group>"; };
+		52AC363F1EC2C086000866D4 /* SXMarquee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXMarquee.m; sourceTree = "<group>"; };
+		52AC36401EC2C086000866D4 /* UIColor+Separate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Separate.h"; sourceTree = "<group>"; };
+		52AC36411EC2C086000866D4 /* UIColor+Separate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Separate.m"; sourceTree = "<group>"; };
+		52AC36421EC2C086000866D4 /* UIColor+Wonderful.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Wonderful.h"; sourceTree = "<group>"; };
+		52AC36431EC2C086000866D4 /* UIColor+Wonderful.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Wonderful.m"; sourceTree = "<group>"; };
+		52AC36441EC2C086000866D4 /* UILabel+Wonderful.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Wonderful.h"; sourceTree = "<group>"; };
+		52AC36451EC2C086000866D4 /* UILabel+Wonderful.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Wonderful.m"; sourceTree = "<group>"; };
+		52AC364D1EC2C318000866D4 /* WKHomeTypeHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHomeTypeHeaderCell.h; sourceTree = "<group>"; };
+		52AC364E1EC2C318000866D4 /* WKHomeTypeHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHomeTypeHeaderCell.m; sourceTree = "<group>"; };
+		52AC364F1EC2C318000866D4 /* WKHomeTypeHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKHomeTypeHeaderCell.xib; sourceTree = "<group>"; };
+		52AC36531EC2C4C6000866D4 /* RKImageBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKImageBrowser.h; sourceTree = "<group>"; };
+		52AC36541EC2C4C6000866D4 /* RKImageBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKImageBrowser.m; sourceTree = "<group>"; };
+		52AC36561EC2C5DA000866D4 /* WKCustomBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKCustomBtnView.h; sourceTree = "<group>"; };
+		52AC36571EC2C5DA000866D4 /* WKCustomBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKCustomBtnView.m; sourceTree = "<group>"; };
+		52AC36591EC2F0BB000866D4 /* WKHomeHeaderSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHomeHeaderSectionView.h; sourceTree = "<group>"; };
+		52AC365A1EC2F0BB000866D4 /* WKHomeHeaderSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHomeHeaderSectionView.m; sourceTree = "<group>"; };
+		52AC365C1EC2F0C5000866D4 /* WKHomeHeaderSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKHomeHeaderSectionView.xib; sourceTree = "<group>"; };
+		52AC365E1EC2F3A1000866D4 /* WKHomeDecomandedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHomeDecomandedCell.h; sourceTree = "<group>"; };
+		52AC365F1EC2F3A1000866D4 /* WKHomeDecomandedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHomeDecomandedCell.m; sourceTree = "<group>"; };
+		52AC36601EC2F3A1000866D4 /* WKHomeDecomandedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKHomeDecomandedCell.xib; sourceTree = "<group>"; };
+		52AC36631EC2FB55000866D4 /* WKHomeActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHomeActivityCell.h; sourceTree = "<group>"; };
+		52AC36641EC2FB55000866D4 /* WKHomeActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHomeActivityCell.m; sourceTree = "<group>"; };
+		52AC36651EC2FB55000866D4 /* WKHomeActivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKHomeActivityCell.xib; sourceTree = "<group>"; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD07EEDDCB555B036A1A24CA /* libPods-WKMobileProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -260,6 +307,20 @@
 				31632CBB1EAB02AF0057B161 /* WKTrainDemandCell.h */,
 				31632CBC1EAB02AF0057B161 /* WKTrainDemandCell.m */,
 				31632CBD1EAB02AF0057B161 /* WKTrainDemandCell.xib */,
+				52AC364D1EC2C318000866D4 /* WKHomeTypeHeaderCell.h */,
+				52AC364E1EC2C318000866D4 /* WKHomeTypeHeaderCell.m */,
+				52AC364F1EC2C318000866D4 /* WKHomeTypeHeaderCell.xib */,
+				52AC365E1EC2F3A1000866D4 /* WKHomeDecomandedCell.h */,
+				52AC365F1EC2F3A1000866D4 /* WKHomeDecomandedCell.m */,
+				52AC36601EC2F3A1000866D4 /* WKHomeDecomandedCell.xib */,
+				52AC36631EC2FB55000866D4 /* WKHomeActivityCell.h */,
+				52AC36641EC2FB55000866D4 /* WKHomeActivityCell.m */,
+				52AC36651EC2FB55000866D4 /* WKHomeActivityCell.xib */,
+				52AC36561EC2C5DA000866D4 /* WKCustomBtnView.h */,
+				52AC36571EC2C5DA000866D4 /* WKCustomBtnView.m */,
+				52AC36591EC2F0BB000866D4 /* WKHomeHeaderSectionView.h */,
+				52AC365A1EC2F0BB000866D4 /* WKHomeHeaderSectionView.m */,
+				52AC365C1EC2F0C5000866D4 /* WKHomeHeaderSectionView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -414,6 +475,8 @@
 		31632CC01EAB6E750057B161 /* WKOtherResource */ = {
 			isa = PBXGroup;
 			children = (
+				52AC36521EC2C4C6000866D4 /* UIBannerView */,
+				52AC36371EC2C086000866D4 /* UILoopLabel */,
 				52AC362D1EC2A059000866D4 /* UIFDCustom+PopView */,
 				31632CC51EAB6EDB0057B161 /* UIButton+RoundedCorners */,
 				31632CC11EAB6E8E0057B161 /* UIView+RoundedCorners */,
@@ -747,6 +810,36 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		52AC36371EC2C086000866D4 /* UILoopLabel */ = {
+			isa = PBXGroup;
+			children = (
+				52AC36381EC2C086000866D4 /* SXColorGradientView.h */,
+				52AC36391EC2C086000866D4 /* SXColorGradientView.m */,
+				52AC363A1EC2C086000866D4 /* SXColorLabel.h */,
+				52AC363B1EC2C086000866D4 /* SXColorLabel.m */,
+				52AC363C1EC2C086000866D4 /* SXHeadLine.h */,
+				52AC363D1EC2C086000866D4 /* SXHeadLine.m */,
+				52AC363E1EC2C086000866D4 /* SXMarquee.h */,
+				52AC363F1EC2C086000866D4 /* SXMarquee.m */,
+				52AC36401EC2C086000866D4 /* UIColor+Separate.h */,
+				52AC36411EC2C086000866D4 /* UIColor+Separate.m */,
+				52AC36421EC2C086000866D4 /* UIColor+Wonderful.h */,
+				52AC36431EC2C086000866D4 /* UIColor+Wonderful.m */,
+				52AC36441EC2C086000866D4 /* UILabel+Wonderful.h */,
+				52AC36451EC2C086000866D4 /* UILabel+Wonderful.m */,
+			);
+			path = UILoopLabel;
+			sourceTree = "<group>";
+		};
+		52AC36521EC2C4C6000866D4 /* UIBannerView */ = {
+			isa = PBXGroup;
+			children = (
+				52AC36531EC2C4C6000866D4 /* RKImageBrowser.h */,
+				52AC36541EC2C4C6000866D4 /* RKImageBrowser.m */,
+			);
+			path = UIBannerView;
+			sourceTree = "<group>";
+		};
 		7975C39D53A4E4C84C61C265 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -882,11 +975,15 @@
 			files = (
 				31A222001E99CFA00058A21B /* iPhoneTypeDefine.plist in Resources */,
 				31632CBF1EAB02AF0057B161 /* WKTrainDemandCell.xib in Resources */,
+				52AC36621EC2F3A1000866D4 /* WKHomeDecomandedCell.xib in Resources */,
 				315FFC111E97D3C600C78440 /* LaunchScreen.storyboard in Resources */,
+				52AC365D1EC2F0C5000866D4 /* WKHomeHeaderSectionView.xib in Resources */,
 				315FFC0E1E97D3C600C78440 /* Assets.xcassets in Resources */,
 				52AC36361EC2A059000866D4 /* WKCustomPopView.xib in Resources */,
+				52AC36671EC2FB55000866D4 /* WKHomeActivityCell.xib in Resources */,
 				315FFC0C1E97D3C600C78440 /* Main.storyboard in Resources */,
 				31A2220C1E99CFA10058A21B /* CTNetworkingConfiguration.plist in Resources */,
+				52AC36511EC2C318000866D4 /* WKHomeTypeHeaderCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -960,12 +1057,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				31A221FF1E99CFA00058A21B /* CTCachedObject.m in Sources */,
+				52AC36491EC2C086000866D4 /* SXMarquee.m in Sources */,
+				52AC364B1EC2C086000866D4 /* UIColor+Wonderful.m in Sources */,
 				31A222081E99CFA10058A21B /* CTService.m in Sources */,
 				31A221FA1E99CFA00058A21B /* NSURLRequest+CTNetworkingMethods.m in Sources */,
 				315FFC091E97D3C600C78440 /* ViewController.m in Sources */,
+				52AC36481EC2C086000866D4 /* SXHeadLine.m in Sources */,
 				31A222031E99CFA00058A21B /* CTURLResponse.m in Sources */,
+				52AC36611EC2F3A1000866D4 /* WKHomeDecomandedCell.m in Sources */,
 				31A222071E99CFA10058A21B /* CTUDIDGenerator.m in Sources */,
 				52AC36351EC2A059000866D4 /* WKCustomPopView.m in Sources */,
+				52AC36471EC2C086000866D4 /* SXColorLabel.m in Sources */,
 				31507EAE1EA06FF6007B8345 /* WKValletViewController.m in Sources */,
 				31A221F81E99CFA00058A21B /* NSObject+AXNetworkingMethods.m in Sources */,
 				315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */,
@@ -974,12 +1076,19 @@
 				31A221FD1E99CFA00058A21B /* CTAPIBaseManager.m in Sources */,
 				31632CC41EAB6E8E0057B161 /* UIView+RoundedCorners.m in Sources */,
 				31A221F91E99CFA00058A21B /* NSString+AXNetworkingMethods.m in Sources */,
+				52AC36551EC2C4C6000866D4 /* RKImageBrowser.m in Sources */,
 				31A221FC1E99CFA00058A21B /* CTApiProxy.m in Sources */,
 				31A222021E99CFA00058A21B /* CTLogger.m in Sources */,
 				31507E931EA06E7E007B8345 /* UIViewController+GYDNav.m in Sources */,
 				31A222011E99CFA00058A21B /* CTLocationManager.m in Sources */,
+				52AC36501EC2C318000866D4 /* WKHomeTypeHeaderCell.m in Sources */,
+				52AC36661EC2FB55000866D4 /* WKHomeActivityCell.m in Sources */,
+				52AC364C1EC2C086000866D4 /* UILabel+Wonderful.m in Sources */,
 				31A221FB1E99CFA00058A21B /* UIDevice+IdentifierAddition.m in Sources */,
 				31A2220B1E99CFA10058A21B /* CTLoggerConfiguration.m in Sources */,
+				52AC36581EC2C5DA000866D4 /* WKCustomBtnView.m in Sources */,
+				52AC364A1EC2C086000866D4 /* UIColor+Separate.m in Sources */,
+				52AC365B1EC2F0BB000866D4 /* WKHomeHeaderSectionView.m in Sources */,
 				31507EA81EA06FE0007B8345 /* WKUserViewController.m in Sources */,
 				31A222101E99D0520058A21B /* WKAPIManager.m in Sources */,
 				315FFC031E97D3C600C78440 /* main.m in Sources */,
@@ -992,6 +1101,7 @@
 				31A222051E99CFA10058A21B /* CTRequestGenerator.m in Sources */,
 				31632CB71EAAFE850057B161 /* WKTabbarViewController.m in Sources */,
 				31A222091E99CFA10058A21B /* CTServiceFactory.m in Sources */,
+				52AC36461EC2C086000866D4 /* SXColorGradientView.m in Sources */,
 				31A222061E99CFA10058A21B /* CTSignatureGenerator.m in Sources */,
 				31507EA51EA06FD2007B8345 /* WKHomeViewController.m in Sources */,
 				31507EAB1EA06FEA007B8345 /* WKOtherViewController.m in Sources */,

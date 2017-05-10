@@ -28,6 +28,10 @@
 #import "WKUIButtonCorners.h"
 #import "UIViewController+GYDNav.h"
 #import <YYModel.h>
+#import <UIImageView+WebCache.h>
+
+#import "UIColor+Wonderful.h"
+#import "SXMarquee.h"
 
 //#define  WKSyncQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
