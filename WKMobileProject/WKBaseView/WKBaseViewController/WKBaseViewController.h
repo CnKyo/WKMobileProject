@@ -13,7 +13,9 @@
 #import <UIView+LayoutMethods.h>
 #import "WKAPIManager.h"
 #import "WKHeader.h"
-@interface WKBaseViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+#import "FDAlertView.h"
+#import "WKCustomPopView.h"
+@interface WKBaseViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,WKCustomPopViewDelegate>
 #pragma mark----****----View基本界面
 /**
  列表数据源
@@ -127,4 +129,16 @@
  *  模态跳转返回上n级
  */
 - (void)dismissViewController:(int)whatYouWant;
+
+#pragma mark----****----自定义弹出框
+/**
+ 自定义弹出框
+
+ @param mType 弹出框类型
+ @param mTitle 标题
+ @param mContent 内容
+ @param mOkTitle 确定按钮
+ @param mCancelTitle 取消按钮
+ */
+- (void)showCustomViewType:(WKCustomPopViewType)mType andTitle:(NSString *)mTitle andContentTx:(NSString *)mContent andOkBtntitle:(NSString *)mOkTitle andCancelBtntitle:(NSString *)mCancelTitle;
 @end

@@ -9,6 +9,8 @@
 #import "WKHomeViewController.h"
 #import "WKHeader.h"
 #import "WKtrainDemandViewController.h"
+
+
 @interface WKHomeViewController ()
 
 @end
@@ -28,7 +30,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"首页";
-    self.view.backgroundColor = [UIColor lightGrayColor];
     self.d_navBarAlpha = 0;
     
     [self initView];
@@ -41,21 +42,18 @@
     [mBtn setTitle:@"火车票查询" forState:0];
     [mBtn addTarget:self action:@selector(mAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:mBtn];
-//    [mBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.view).offset(10);
-//        make.right.equalTo(self.view).offset(-10);
-//        make.top.equalTo(self.view).offset(90);
-//        make.height.offset(45);
-//    }];
-
     [mBtn setButtonRoundedCornersWithView:self.view andCorners:UIRectCornerAllCorners radius:3.0];
 
 }
 - (void)mAction{
+
+    [self showCustomViewType:WKCustomPopViewHaveCloseBtn andTitle:@"这个是标题" andContentTx:@"这个是内容内容内容" andOkBtntitle:@"确定" andCancelBtntitle:@"取消"];
+
     
-    WKtrainDemandViewController *vc = [WKtrainDemandViewController new];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+    
+//    WKtrainDemandViewController *vc = [WKtrainDemandViewController new];
+//    vc.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
 
 //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 //        
@@ -72,6 +70,15 @@
 //        });
 //    });
     
+}
+- (void)WKCustomPopViewWithCloseBtnAction{
+    
+    NSLog(@"取消");
+}
+- (void)WKCustomPopViewWithOkBtnAction{
+    
+    
+    NSLog(@"好的");
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

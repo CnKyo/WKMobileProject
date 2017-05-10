@@ -63,6 +63,9 @@
 		31A222131E99D2B50058A21B /* WKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A222121E99D2B50058A21B /* WKBaseViewController.m */; };
 		31E289411EB21A47006C9756 /* WKHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E289401EB21A47006C9756 /* WKHttpRequest.m */; };
 		438D7113768A3061C072BCE4 /* libPods-WKMobileProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BDC79F377B749380AF0636A /* libPods-WKMobileProject.a */; };
+		52AC36341EC2A059000866D4 /* FDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC362F1EC2A059000866D4 /* FDAlertView.m */; };
+		52AC36351EC2A059000866D4 /* WKCustomPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC36321EC2A059000866D4 /* WKCustomPopView.m */; };
+		52AC36361EC2A059000866D4 /* WKCustomPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AC36331EC2A059000866D4 /* WKCustomPopView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +194,11 @@
 		31E2893F1EB21A47006C9756 /* WKHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHttpRequest.h; sourceTree = "<group>"; };
 		31E289401EB21A47006C9756 /* WKHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHttpRequest.m; sourceTree = "<group>"; };
 		3BDC79F377B749380AF0636A /* libPods-WKMobileProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52AC362E1EC2A059000866D4 /* FDAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDAlertView.h; sourceTree = "<group>"; };
+		52AC362F1EC2A059000866D4 /* FDAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDAlertView.m; sourceTree = "<group>"; };
+		52AC36311EC2A059000866D4 /* WKCustomPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKCustomPopView.h; sourceTree = "<group>"; };
+		52AC36321EC2A059000866D4 /* WKCustomPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKCustomPopView.m; sourceTree = "<group>"; };
+		52AC36331EC2A059000866D4 /* WKCustomPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKCustomPopView.xib; sourceTree = "<group>"; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD07EEDDCB555B036A1A24CA /* libPods-WKMobileProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -406,6 +414,7 @@
 		31632CC01EAB6E750057B161 /* WKOtherResource */ = {
 			isa = PBXGroup;
 			children = (
+				52AC362D1EC2A059000866D4 /* UIFDCustom+PopView */,
 				31632CC51EAB6EDB0057B161 /* UIButton+RoundedCorners */,
 				31632CC11EAB6E8E0057B161 /* UIView+RoundedCorners */,
 			);
@@ -718,6 +727,26 @@
 			path = GDMapService;
 			sourceTree = "<group>";
 		};
+		52AC362D1EC2A059000866D4 /* UIFDCustom+PopView */ = {
+			isa = PBXGroup;
+			children = (
+				52AC362E1EC2A059000866D4 /* FDAlertView.h */,
+				52AC362F1EC2A059000866D4 /* FDAlertView.m */,
+				52AC36301EC2A059000866D4 /* View */,
+			);
+			path = "UIFDCustom+PopView";
+			sourceTree = "<group>";
+		};
+		52AC36301EC2A059000866D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52AC36311EC2A059000866D4 /* WKCustomPopView.h */,
+				52AC36321EC2A059000866D4 /* WKCustomPopView.m */,
+				52AC36331EC2A059000866D4 /* WKCustomPopView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7975C39D53A4E4C84C61C265 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -855,6 +884,7 @@
 				31632CBF1EAB02AF0057B161 /* WKTrainDemandCell.xib in Resources */,
 				315FFC111E97D3C600C78440 /* LaunchScreen.storyboard in Resources */,
 				315FFC0E1E97D3C600C78440 /* Assets.xcassets in Resources */,
+				52AC36361EC2A059000866D4 /* WKCustomPopView.xib in Resources */,
 				315FFC0C1E97D3C600C78440 /* Main.storyboard in Resources */,
 				31A2220C1E99CFA10058A21B /* CTNetworkingConfiguration.plist in Resources */,
 			);
@@ -935,6 +965,7 @@
 				315FFC091E97D3C600C78440 /* ViewController.m in Sources */,
 				31A222031E99CFA00058A21B /* CTURLResponse.m in Sources */,
 				31A222071E99CFA10058A21B /* CTUDIDGenerator.m in Sources */,
+				52AC36351EC2A059000866D4 /* WKCustomPopView.m in Sources */,
 				31507EAE1EA06FF6007B8345 /* WKValletViewController.m in Sources */,
 				31A221F81E99CFA00058A21B /* NSObject+AXNetworkingMethods.m in Sources */,
 				315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */,
@@ -967,6 +998,7 @@
 				31632CBA1EAB011E0057B161 /* WKtrainDemandViewController.m in Sources */,
 				31507E961EA06EA5007B8345 /* WKBaseNavViewController.m in Sources */,
 				31A2220D1E99CFA10058A21B /* GDMapService.m in Sources */,
+				52AC36341EC2A059000866D4 /* FDAlertView.m in Sources */,
 				31632CBE1EAB02AF0057B161 /* WKTrainDemandCell.m in Sources */,
 				3107DB371EA64EAF00BCACA9 /* WKUserInfoViewController.m in Sources */,
 				31A2220A1E99CFA10058A21B /* CTAppContext.m in Sources */,

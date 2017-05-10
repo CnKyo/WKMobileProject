@@ -45,7 +45,7 @@
 #define IMG(_File_)                 [UIImage imageNamed:_File_]
 
 
-#define M_CO    [UIColor colorWithRed:0.89 green:0.09 blue:0.10 alpha:1.00]
+#define M_CO    [UIColor colorWithRed:65/255.0f green:149/255.0f blue:220/255.0f alpha:1.00]
 
 #define VERSION [[UIDevice currentDevice].systemVersion doubleValue]
 
@@ -156,6 +156,15 @@ typedef enum {
 typedef NS_ENUM(int,UITableViewRefreshStatus){
     UITableViewHeaderRefreshing = 1,///头部刷新
     UITableViewFooterRefreshing = 2,///底部刷新
+};
+
+///自定义弹出框样式
+typedef NS_ENUM(NSInteger,WKCustomPopViewType) {
+    WKCustomPopViewSucess = 1,///成功
+    WKCustomPopViewError = 2,///失败
+    WKCustomPopViewHaveCloseBtn = 3,///有关闭按钮
+    WKCustomPopViewHaveTwoBtn = 4,///有2个按钮
+    
 };
 
 //-----------------------

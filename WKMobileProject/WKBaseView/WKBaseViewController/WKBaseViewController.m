@@ -13,7 +13,10 @@
 @end
 
 @implementation WKBaseViewController
-
+{
+    WKCustomPopView *mCustomView;
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = COLOR(247, 247, 247);
@@ -310,6 +313,27 @@
  */
 - (void)tableViewFooterReloadData{
 //    self.mTableViewRefreshStatus = UITableViewFooterRefreshing;
+
+}
+#pragma mark----****----自定义弹出框
+/**
+ 自定义弹出框
+ 
+ @param mType 弹出框类型
+ @param mTitle 标题
+ @param mContent 内容
+ @param mOkTitle 确定按钮
+ @param mCancelTitle 取消按钮
+ */
+- (void)showCustomViewType:(WKCustomPopViewType)mType andTitle:(NSString *)mTitle andContentTx:(NSString *)mContent andOkBtntitle:(NSString *)mOkTitle andCancelBtntitle:(NSString *)mCancelTitle{
+    
+    FDAlertView *alert = [[FDAlertView alloc] init];
+    mCustomView = [WKCustomPopView initViewType:mType andTitle:mTitle andContentTx:mContent andOkBtntitle:mOkTitle andCancelBtntitle:mCancelTitle];
+    mCustomView.delegate = self;
+    
+    mCustomView.frame = CGRectMake(30, 0, self.view.bounds.size.width-60, 250);
+    alert.contentView = mCustomView;
+    [alert show];
 
 }
 @end
