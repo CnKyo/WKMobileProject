@@ -9,7 +9,7 @@ target 'WKMobileProject' do
   
   pod 'WeChatSDK-iOS'
   pod 'DateTools'
-  pod 'JKCategories'
+  #pod 'JKCategories'
   pod 'WPAttributedMarkup'
   pod 'UITableView+FDTemplateLayoutCell'
   pod 'Masonry'
@@ -27,7 +27,7 @@ target 'WKMobileProject' do
   pod 'SKTagView'
   pod 'JPush'
   pod 'LTNavigationBar'
-  pod 'AutoScrollLabel'
+  #pod 'AutoScrollLabel'
   pod 'ShareSDK3'
   pod 'MOBFoundation'
   pod 'ShareSDK3/ShareSDKUI'

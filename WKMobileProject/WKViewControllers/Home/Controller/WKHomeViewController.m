@@ -239,7 +239,8 @@
     MLLog(@"%ld",mIndex);
     if (mIndex == 1) {
         WKWashViewController *vc = [WKWashViewController new];
-        [self pushViewController:vc];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
     }
 }
 

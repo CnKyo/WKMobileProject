@@ -1,1 +1,0 @@
-../../../WPAttributedMarkup/Extras/WPTappableLabel.h
