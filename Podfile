@@ -7,9 +7,8 @@ target 'WKMobileProject' do
 
   # Pods for WKMobileProject
   
-  pod 'WeChatSDK-iOS'
+
   pod 'DateTools'
-  #pod 'JKCategories'
   pod 'WPAttributedMarkup'
   pod 'UITableView+FDTemplateLayoutCell'
   pod 'Masonry'
@@ -26,8 +25,6 @@ target 'WKMobileProject' do
   pod 'SDWebImage','~> 3.8.2'
   pod 'SKTagView'
   pod 'JPush'
-  pod 'LTNavigationBar'
-  #pod 'AutoScrollLabel'
   pod 'ShareSDK3'
   pod 'MOBFoundation'
   pod 'ShareSDK3/ShareSDKUI'
@@ -43,11 +40,8 @@ target 'WKMobileProject' do
   pod 'JHUD'
   pod 'RSKImageCropper'
   pod 'WebViewJavascriptBridge','~> 5.0'
-  #pod 'CardIO'
   pod 'DZNEmptyDataSet'
   pod 'PYPhotoBrowser’,'~> 1.2.3'
-  #pod 'BlocksKit', :git => 'https://github.com/zwaldowski/BlocksKit.git'
-  pod 'PYSearch'
   pod 'HandyFrame'
   pod 'ZYCornerRadius', '~> 1.0.2'
   pod 'YYModel'

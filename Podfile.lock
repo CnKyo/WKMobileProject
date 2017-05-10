@@ -24,7 +24,6 @@ PODS:
     - AMapFoundation (~> 1.3)
   - AMapSearch (5.0.0):
     - AMapFoundation (~> 1.2)
-  - AutoScrollLabel (0.4.3)
   - CustomIOSAlertView (0.9.5)
   - DACircularProgress (2.3.1)
   - DateTools (2.0.0)
@@ -32,19 +31,17 @@ PODS:
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
-  - HandyFrame (1.1.2)
+  - HandyFrame (1.1.3)
   - HcdGuideView (0.0.5)
   - IQKeyboardManager (4.0.9)
   - JCore (1.1.3)
   - JHUD (0.3.0)
-  - JKCategories (1.5)
   - JPush (3.0.5):
     - JCore (~> 1.1.1)
   - JWLaunchAd (1.3.4)
   - LKDBHelper (2.4.2):
     - FMDB
   - LPActionSheet (1.0)
-  - LTNavigationBar (2.1.9)
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
   - MJExtension (3.0.13)
@@ -54,7 +51,6 @@ PODS:
     - DACircularProgress
     - MBProgressHUD
     - SDWebImage
-  - PYSearch (0.8.0)
   - RSKImageCropper (1.6.1)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
@@ -74,9 +70,8 @@ PODS:
     - MOBFoundation
   - SKTagView (0.9.2)
   - SVProgressHUD (2.1.2)
-  - UITableView+FDTemplateLayoutCell (1.4)
+  - UITableView+FDTemplateLayoutCell (1.6)
   - WebViewJavascriptBridge (5.2.0)
-  - WeChatSDK-iOS (1.7.3)
   - WPAttributedMarkup (1.0.0)
   - YTKNetwork (2.0.3):
     - AFNetworking (~> 3.0)
@@ -89,7 +84,6 @@ DEPENDENCIES:
   - AMap2DMap
   - AMapLocation
   - AMapSearch
-  - AutoScrollLabel
   - CustomIOSAlertView
   - DateTools
   - DZNEmptyDataSet
@@ -97,18 +91,15 @@ DEPENDENCIES:
   - HcdGuideView
   - IQKeyboardManager
   - JHUD
-  - JKCategories
   - JPush
   - JWLaunchAd
   - LKDBHelper
   - LPActionSheet
-  - LTNavigationBar
   - Masonry
   - MJExtension
   - MJRefresh
   - MOBFoundation
   - PYPhotoBrowser (~> 1.2.3)
-  - PYSearch
   - RSKImageCropper
   - SDWebImage (~> 3.8.2)
   - ShareSDK3
@@ -120,7 +111,6 @@ DEPENDENCIES:
   - SVProgressHUD
   - UITableView+FDTemplateLayoutCell
   - WebViewJavascriptBridge (~> 5.0)
-  - WeChatSDK-iOS
   - WPAttributedMarkup
   - YTKNetwork
   - YYModel
@@ -133,43 +123,38 @@ SPEC CHECKSUMS:
   AMapFoundation: 458974f46a39df8407fd818ab83d2630d494c726
   AMapLocation: 6016f0e09c127461c9c8e36945f34c0f037ad962
   AMapSearch: cf7fd100d533995822d92c22586abfaf7cdf6eef
-  AutoScrollLabel: bee53a1d4532569b49cbecaf9b80ca003bed3767
   CustomIOSAlertView: cc4fa8e36219be3fd5ebcd40789f5b4aaae0f38e
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
-  HandyFrame: d505faced4d4fb820d66bd88b654dbf7b88da424
+  HandyFrame: 5fef3c197c383332d7d5c838b3f7a85ce2f8f9cc
   HcdGuideView: 3ffaa22aebe7409bbd3fd6bcfcbe912d391a237a
   IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
   JCore: dff3c50e9a7522a508cd9096ca79165968e1aed3
   JHUD: 17650f65045d9843a7ad19f6a0b1eac6c78a45d2
-  JKCategories: 863f4c7ed2d521ee6bf72ceea97948da23bb5af4
   JPush: dd0b776998aa705a6242b947bf72e5a640387cfe
   JWLaunchAd: b7898e445362a32713049cf1eba3212c3bd6f258
   LKDBHelper: ab67373b32f47463bf5f838d730f225824f4492a
   LPActionSheet: 49fb9201e73f24f41adeb2a76773307d37ab0416
-  LTNavigationBar: c278785bed344862e18146b5f06792932e4feacc
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MOBFoundation: e962b2aee79e2b8f626e2d30c2f23e9f13e5331e
   PYPhotoBrowser: 832154ec5e61c2c321d9be0e69af1fda8731e5ac
-  PYSearch: 53c239376b392fe0658c2bd002f408e7caf63046
   RSKImageCropper: 0df8c99e77a8ea7ca7a8b83ef468556f31584254
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   ShareSDK3: d271520113160eb24b31cd642b45b38fcd592d93
   SKTagView: 59cdadcd16e4a09300746ad1811a72371e1327f7
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
-  UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
+  UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
   WebViewJavascriptBridge: a00b2d61252aec5207e3263d46fd0fd3cfaf7895
-  WeChatSDK-iOS: 5ab1275da6f245c41232870f8215998c59cbb539
   WPAttributedMarkup: eb50878af4ec647d8d2090f721a5cfe7d29c27fe
   YTKNetwork: c4b0c29c9d639dc050d475de69ee626d53eac598
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
 
-PODFILE CHECKSUM: 350d61653f4a0d4a6525946d96ecb83ec4453f2b
+PODFILE CHECKSUM: 32fe0d7581fc96a96a10c458ed9b70b274c7a099
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.1
