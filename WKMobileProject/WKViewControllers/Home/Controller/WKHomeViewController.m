@@ -8,12 +8,13 @@
 
 #import "WKHomeViewController.h"
 #import "WKHeader.h"
-#import "WKtrainDemandViewController.h"
 #import "WKHomeTypeHeaderCell.h"
 #import "WKHomeHeaderSectionView.h"
-
 #import "WKHomeDecomandedCell.h"
 #import "WKHomeActivityCell.h"
+
+#import "WKWashViewController.h"
+
 @interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
@@ -43,8 +44,6 @@
     
     mBannerArr = [NSMutableArray new];
     
-//    [self initView];
-
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     self.mTableView.separatorStyle = UITableViewCellSelectionStyleNone;
@@ -73,17 +72,7 @@
 - (void)tableViewFooterReloadData{
 
 }
-- (void)initView{
-    UIButton *mBtn = [UIButton new];
-    mBtn.frame = CGRectMake(10, 90, DEVICE_Width-20, 45);
 
-    mBtn.backgroundColor = [UIColor redColor];
-    [mBtn setTitle:@"火车票查询" forState:0];
-    [mBtn addTarget:self action:@selector(mAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:mBtn];
-    [mBtn setButtonRoundedCornersWithView:self.view andCorners:UIRectCornerAllCorners radius:3.0];
-    
-}
 - (void)mAction{
 
     [self showCustomViewType:WKCustomPopViewHaveCloseBtn andTitle:@"这个是标题" andContentTx:@"这个是内容内容内容" andOkBtntitle:@"确定" andCancelBtntitle:@"取消"];
@@ -220,7 +209,6 @@
         reuseCellId = @"activityCell";
         
         WKHomeActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
-//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
 
@@ -249,6 +237,10 @@
  */
 - (void)WKHomeScrollerTableViewCellDidSelectedWithIndex:(NSInteger)mIndex{
     MLLog(@"%ld",mIndex);
+    if (mIndex == 1) {
+        WKWashViewController *vc = [WKWashViewController new];
+        [self pushViewController:vc];
+    }
 }
 
 /**
