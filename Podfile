@@ -7,7 +7,7 @@ target 'WKMobileProject' do
 
   # Pods for WKMobileProject
   
-
+  pod 'WechatOpenSDK'
   pod 'DateTools'
   pod 'WPAttributedMarkup'
   pod 'UITableView+FDTemplateLayoutCell'
@@ -27,11 +27,6 @@ target 'WKMobileProject' do
   pod 'JPush'
   pod 'ShareSDK3'
   pod 'MOBFoundation'
-  pod 'ShareSDK3/ShareSDKUI'
-  pod 'ShareSDK3/ShareSDKPlatforms/QQ'
-  pod 'ShareSDK3/ShareSDKPlatforms/SinaWeibo'
-  pod 'ShareSDK3/ShareSDKPlatforms/WeChat'
-  pod 'ShareSDK3/ShareSDKPlatforms/WeChat'
   pod 'CustomIOSAlertView'
   pod 'AlipaySDK-2.0'
   pod 'LPActionSheet'
