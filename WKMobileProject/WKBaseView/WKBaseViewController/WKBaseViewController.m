@@ -15,8 +15,22 @@
 @implementation WKBaseViewController
 {
     WKCustomPopView *mCustomView;
-    
+
 }
+//通过一个方法来找到这个黑线(findHairlineImageViewUnder):
+- (UIImageView *)findHairlineImageViewUnder:(UIView *)view {
+    if ([view isKindOfClass:UIImageView.class] && view.bounds.size.height <= 1.0) {
+        return (UIImageView *)view;
+    }
+    for (UIView *subview in view.subviews) {
+        UIImageView *imageView = [self findHairlineImageViewUnder:subview];
+        if (imageView) {
+            return imageView;
+        }
+    }
+    return nil;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = COLOR(247, 247, 247);

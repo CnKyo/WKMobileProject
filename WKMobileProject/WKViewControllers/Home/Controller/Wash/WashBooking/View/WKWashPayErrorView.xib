@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WKWashPayResultView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_payerror" translatesAutoresizingMaskIntoConstraints="NO" id="OhN-FH-rsl">
+                    <rect key="frame" x="157" y="90" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="Tpb-f9-QYC"/>
+                        <constraint firstAttribute="height" constant="60" id="pzT-aE-9WS"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预约失败" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7X-Vf-1lg">
+                    <rect key="frame" x="16" y="193" width="343" height="54"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="据悉，现在三个月大的小河马曾因为早产6周而面临严重的健康问题。不过，在这段新上传的视频中，菲奥娜看起来十分放松，它闭着眼睛，张着嘴，享受着饲养员给它的牙床按摩" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="bPS-FS-1GC">
+                    <rect key="frame" x="16" y="260" width="343" height="107.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWX-tv-pwh">
+                    <rect key="frame" x="107" y="412.5" width="160" height="45"/>
+                    <color key="backgroundColor" red="0.97254901959999995" green="0.58431372550000005" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="0Ee-Y6-hlc"/>
+                        <constraint firstAttribute="width" constant="160" id="crK-23-bTZ"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="重新预约">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="mBackAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="435-Vx-Ou3"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="OhN-FH-rsl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="90" id="9mo-EE-TwV"/>
+                <constraint firstItem="bPS-FS-1GC" firstAttribute="top" secondItem="u7X-Vf-1lg" secondAttribute="bottom" constant="13" id="HLe-g6-wPa"/>
+                <constraint firstAttribute="trailing" secondItem="u7X-Vf-1lg" secondAttribute="trailing" constant="16" id="M0e-fc-dKu"/>
+                <constraint firstItem="ZWX-tv-pwh" firstAttribute="top" secondItem="bPS-FS-1GC" secondAttribute="bottom" constant="45" id="PNs-Cd-qbq"/>
+                <constraint firstItem="ZWX-tv-pwh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="WCM-Ch-xOR"/>
+                <constraint firstItem="u7X-Vf-1lg" firstAttribute="top" secondItem="OhN-FH-rsl" secondAttribute="bottom" constant="43" id="aQz-mm-WFi"/>
+                <constraint firstItem="bPS-FS-1GC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="gDx-CW-7Y2"/>
+                <constraint firstAttribute="trailing" secondItem="bPS-FS-1GC" secondAttribute="trailing" constant="16" id="hTx-Do-6Dw"/>
+                <constraint firstItem="OhN-FH-rsl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jNe-A7-Pl8"/>
+                <constraint firstItem="u7X-Vf-1lg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="yEl-Bl-Yya"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="mDetail" destination="bPS-FS-1GC" id="fkE-ad-dgO"/>
+                <outlet property="mRebookingBtn" destination="ZWX-tv-pwh" id="e7z-RM-QVe"/>
+                <outlet property="mStatus" destination="u7X-Vf-1lg" id="Ufs-tA-MbG"/>
+            </connections>
+            <point key="canvasLocation" x="31.5" y="59.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_payerror" width="64" height="64"/>
+    </resources>
+</document>

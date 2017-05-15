@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WKOperatorMyWashBookingView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="blw-oS-z9Q">
+                    <rect key="frame" x="0.0" y="90" width="375" height="577"/>
+                    <subviews>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0UH-Kh-KCO">
+                            <rect key="frame" x="137" y="-50" width="100" height="100"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEa-gI-0jw">
+                                    <rect key="frame" x="8" y="23" width="83" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="24" id="YUR-A0-JAH"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <color key="textColor" red="0.97254901959999995" green="0.58431372550000005" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="倒计时" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nn5-j7-BHk">
+                                    <rect key="frame" x="8" y="63" width="84" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="kEa-gI-0jw" firstAttribute="leading" secondItem="0UH-Kh-KCO" secondAttribute="leading" constant="8" id="0na-7W-HXB"/>
+                                <constraint firstAttribute="trailing" secondItem="kEa-gI-0jw" secondAttribute="trailing" constant="9" id="0zn-DL-geb"/>
+                                <constraint firstAttribute="height" constant="100" id="9d0-Va-mEJ"/>
+                                <constraint firstItem="kEa-gI-0jw" firstAttribute="top" secondItem="0UH-Kh-KCO" secondAttribute="top" constant="23" id="F3X-we-WBq"/>
+                                <constraint firstItem="Nn5-j7-BHk" firstAttribute="top" secondItem="kEa-gI-0jw" secondAttribute="bottom" constant="16" id="ViK-GY-mkr"/>
+                                <constraint firstAttribute="trailing" secondItem="Nn5-j7-BHk" secondAttribute="trailing" constant="8" id="Yja-rd-NH8"/>
+                                <constraint firstAttribute="bottom" secondItem="Nn5-j7-BHk" secondAttribute="bottom" constant="16" id="ahO-tw-WUw"/>
+                                <constraint firstItem="Nn5-j7-BHk" firstAttribute="leading" secondItem="0UH-Kh-KCO" secondAttribute="leading" constant="8" id="awP-xC-wpv"/>
+                                <constraint firstAttribute="width" constant="100" id="bLc-f9-vfW"/>
+                            </constraints>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dUC-GN-pqv">
+                            <rect key="frame" x="0.0" y="100" width="375" height="190"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="190" id="5Ky-Cd-Itm"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在预约付款" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQL-KT-ql1">
+                            <rect key="frame" x="8" y="329" width="359" height="23"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTS-l5-1ee">
+                            <rect key="frame" x="107" y="382" width="160" height="45"/>
+                            <color key="backgroundColor" red="0.97254901959999995" green="0.58431372550000005" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="DIs-hk-f1T"/>
+                                <constraint firstAttribute="width" constant="160" id="Koz-xr-ru8"/>
+                            </constraints>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <state key="normal" title="验证机器">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.95686274510000002" green="0.98431372549999996" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="ZTS-l5-1ee" firstAttribute="centerX" secondItem="blw-oS-z9Q" secondAttribute="centerX" id="14g-19-mbx"/>
+                        <constraint firstItem="DQL-KT-ql1" firstAttribute="leading" secondItem="blw-oS-z9Q" secondAttribute="leading" constant="8" id="ASf-gY-vhg"/>
+                        <constraint firstItem="dUC-GN-pqv" firstAttribute="leading" secondItem="blw-oS-z9Q" secondAttribute="leading" id="IZI-bs-uLs"/>
+                        <constraint firstAttribute="trailing" secondItem="DQL-KT-ql1" secondAttribute="trailing" constant="8" id="JfE-7Y-vsS"/>
+                        <constraint firstAttribute="trailing" secondItem="dUC-GN-pqv" secondAttribute="trailing" id="WW3-1j-qm3"/>
+                        <constraint firstItem="0UH-Kh-KCO" firstAttribute="top" secondItem="blw-oS-z9Q" secondAttribute="top" constant="-50" id="YNU-vs-NSQ"/>
+                        <constraint firstItem="DQL-KT-ql1" firstAttribute="top" secondItem="dUC-GN-pqv" secondAttribute="bottom" constant="39" id="eec-Z1-9xc"/>
+                        <constraint firstItem="dUC-GN-pqv" firstAttribute="top" secondItem="0UH-Kh-KCO" secondAttribute="bottom" constant="50" id="fL9-2h-hOh"/>
+                        <constraint firstItem="ZTS-l5-1ee" firstAttribute="top" secondItem="DQL-KT-ql1" secondAttribute="bottom" constant="30" id="s4d-0X-r6W"/>
+                        <constraint firstItem="0UH-Kh-KCO" firstAttribute="centerX" secondItem="blw-oS-z9Q" secondAttribute="centerX" id="zgh-Nr-evR"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="blw-oS-z9Q" secondAttribute="bottom" id="FWp-U4-wgj"/>
+                <constraint firstAttribute="trailing" secondItem="blw-oS-z9Q" secondAttribute="trailing" id="bHN-Jr-1mp"/>
+                <constraint firstItem="blw-oS-z9Q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="w1H-Qd-APU"/>
+                <constraint firstItem="blw-oS-z9Q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="90" id="xJ6-f6-gQj"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <connections>
+                <outlet property="mBgkView" destination="0UH-Kh-KCO" id="tO0-0d-xwj"/>
+                <outlet property="mBtnAction" destination="ZTS-l5-1ee" id="ZLK-eA-Gyz"/>
+                <outlet property="mContent" destination="DQL-KT-ql1" id="GIl-QO-TlR"/>
+                <outlet property="mCountTime" destination="kEa-gI-0jw" id="L0v-LX-6wf"/>
+            </connections>
+            <point key="canvasLocation" x="46.5" y="79.5"/>
+        </view>
+    </objects>
+</document>

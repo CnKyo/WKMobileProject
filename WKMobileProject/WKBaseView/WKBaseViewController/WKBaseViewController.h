@@ -16,6 +16,9 @@
 #import "FDAlertView.h"
 #import "WKCustomPopView.h"
 @interface WKBaseViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,WKCustomPopViewDelegate>
+@property (strong,nonatomic) UIImageView *navBarHairlineImageView;
+- (UIImageView *)findHairlineImageViewUnder:(UIView *)view;
+
 #pragma mark----****----View基本界面
 /**
  列表数据源

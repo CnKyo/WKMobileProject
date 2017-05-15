@@ -9,6 +9,7 @@
 #import "WKWashBookingViewController.h"
 #import "WKWashBookingHeaderView.h"
 #import "WKWashBookingCell.h"
+#import "WaskBookingResultController.h"
 @interface WKWashBookingViewController ()<WKWashBookingCellDelegate>
 
 @end
@@ -85,6 +86,8 @@
 }
 - (void)WKWashBookingCellBtnAction:(NSIndexPath *)mIndexPath{
     MLLog(@"点击了%ld行",mIndexPath.row);
+    WaskBookingResultController *vc = [WaskBookingResultController new];
+    [self pushViewController:vc];
 }
 
 @end

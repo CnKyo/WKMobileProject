@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WKTopupHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="充   值  账   号：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hnf-Hs-FWS">
+                    <rect key="frame" x="16" y="35" width="124" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="124" id="AW2-Py-mIb"/>
+                        <constraint firstAttribute="height" constant="21" id="LtY-h9-qzk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="13444444444" placeholder="请输入充值账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nue-CV-3iM">
+                    <rect key="frame" x="132" y="31" width="149" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="xeL-l0-jiD"/>
+                    </constraints>
+                    <color key="textColor" red="0.97254901959999995" green="0.58431372550000005" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_right_yellow" translatesAutoresizingMaskIntoConstraints="NO" id="z8N-YU-fP5">
+                    <rect key="frame" x="355" y="37" width="16" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="16" id="7sD-4c-8bR"/>
+                        <constraint firstAttribute="height" constant="16" id="sYS-Qy-sXm"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RjP-AH-4vS">
+                    <rect key="frame" x="281" y="29" width="94" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="94" id="bVK-eX-2bC"/>
+                        <constraint firstAttribute="height" constant="32" id="eWY-6Q-50F"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="为他人充值">
+                        <color key="titleColor" red="0.97254901959999995" green="0.58431372550000005" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="mAddressBookAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Usm-mb-ykb"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NDR-FD-pYF">
+                    <rect key="frame" x="0.0" y="90" width="375" height="1"/>
+                    <color key="backgroundColor" red="0.9120299220085144" green="0.93947011232376099" blue="0.98344939947128296" alpha="0.74777932363013699" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="pnd-Gc-CzI"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="会员到期时间：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugZ-hh-hBq">
+                    <rect key="frame" x="16" y="126" width="121.5" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="6LH-te-6VD"/>
+                        <constraint firstAttribute="width" constant="121.5" id="wrx-yg-Pgn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBk-Se-lYu">
+                    <rect key="frame" x="148" y="125" width="211" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.97254901959999995" green="0.58431372550000005" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="RjP-AH-4vS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="29" id="06m-Fa-U8J"/>
+                <constraint firstAttribute="trailing" secondItem="z8N-YU-fP5" secondAttribute="trailing" constant="4" id="1fU-uc-lYi"/>
+                <constraint firstItem="ugZ-hh-hBq" firstAttribute="top" secondItem="NDR-FD-pYF" secondAttribute="bottom" constant="35" id="2zn-uo-xwq"/>
+                <constraint firstItem="Hnf-Hs-FWS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="4Qg-lI-n9z"/>
+                <constraint firstItem="nue-CV-3iM" firstAttribute="leading" secondItem="Hnf-Hs-FWS" secondAttribute="trailing" constant="-8" id="BuT-ji-92j"/>
+                <constraint firstItem="ugZ-hh-hBq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="F87-9N-74j"/>
+                <constraint firstItem="nue-CV-3iM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="31" id="GPI-Zf-8LF"/>
+                <constraint firstAttribute="trailing" secondItem="NDR-FD-pYF" secondAttribute="trailing" id="OXU-8X-9sq"/>
+                <constraint firstItem="Hnf-Hs-FWS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="TqM-De-sm3"/>
+                <constraint firstItem="DBk-Se-lYu" firstAttribute="leading" secondItem="ugZ-hh-hBq" secondAttribute="trailing" constant="10.5" id="VlU-ip-NpR"/>
+                <constraint firstAttribute="trailing" secondItem="RjP-AH-4vS" secondAttribute="trailing" id="Z0Z-w1-lbc"/>
+                <constraint firstItem="NDR-FD-pYF" firstAttribute="top" secondItem="RjP-AH-4vS" secondAttribute="bottom" constant="29" id="aIK-nm-WOA"/>
+                <constraint firstItem="NDR-FD-pYF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dqJ-iy-gD6"/>
+                <constraint firstAttribute="trailing" secondItem="DBk-Se-lYu" secondAttribute="trailing" constant="16" id="fxn-jf-avn"/>
+                <constraint firstItem="RjP-AH-4vS" firstAttribute="leading" secondItem="nue-CV-3iM" secondAttribute="trailing" id="gc8-PL-5KS"/>
+                <constraint firstItem="DBk-Se-lYu" firstAttribute="top" secondItem="NDR-FD-pYF" secondAttribute="bottom" constant="34" id="hsq-22-6M3"/>
+                <constraint firstItem="z8N-YU-fP5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="37" id="ziz-i2-l96"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="mAddressBookBtn" destination="RjP-AH-4vS" id="IF2-ll-NW5"/>
+                <outlet property="mExpirationTime" destination="DBk-Se-lYu" id="fJi-TW-Ccu"/>
+                <outlet property="mTopupTx" destination="nue-CV-3iM" id="HSa-Ji-40l"/>
+            </connections>
+            <point key="canvasLocation" x="42.5" y="-16.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_right_yellow" width="32" height="32"/>
+    </resources>
+</document>

@@ -14,7 +14,7 @@
 #import "WKHomeActivityCell.h"
 
 #import "WKWashViewController.h"
-
+#import "WKVipTopupViewController.h"
 @interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
@@ -239,6 +239,11 @@
     MLLog(@"%ld",mIndex);
     if (mIndex == 1) {
         WKWashViewController *vc = [WKWashViewController new];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+    }else if (mIndex == 2){
+    
+        WKVipTopupViewController *vc = [WKVipTopupViewController new];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
     }

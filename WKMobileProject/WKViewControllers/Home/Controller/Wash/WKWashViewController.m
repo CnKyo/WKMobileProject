@@ -12,6 +12,7 @@
 #import "WKWashTableCell.h"
 
 #import "WKWashBookingViewController.h"
+#import "WKMyWashBookingViewController.h"
 @interface WKWashViewController ()<WKWashTableHeaderViewDelegate,WKWashHeaderViewDelegate>
 {
     BOOL  Display[100];
@@ -26,14 +27,13 @@
 @implementation WKWashViewController
 {
     WKWashHeaderView *mHeaderView;
-    UIImageView *navBarHairlineImageView;
     UITableView *mTableView;
     
 
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    navBarHairlineImageView.hidden = YES;
+    self.navBarHairlineImageView.hidden = YES;
 
     //去除导航栏下方的横线
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
@@ -42,7 +42,7 @@
 //在页面消失的时候就让navigationbar还原样式
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    navBarHairlineImageView.hidden = NO;
+    self.navBarHairlineImageView.hidden = NO;
 
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
@@ -54,7 +54,7 @@
     self.dic = [[NSMutableDictionary alloc]init];
 
     self.view.backgroundColor = M_CO;
-    navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
+    self.navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
 
     
     mHeaderView = [WKWashHeaderView initView];
@@ -99,6 +99,8 @@
         case 2:
         {
         MLLog(@"我的预约");
+        WKMyWashBookingViewController *vc = [WKMyWashBookingViewController new];
+        [self pushViewController:vc];
         }
             break;
         case 3:
@@ -135,19 +137,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-//通过一个方法来找到这个黑线(findHairlineImageViewUnder):
-- (UIImageView *)findHairlineImageViewUnder:(UIView *)view {
-    if ([view isKindOfClass:UIImageView.class] && view.bounds.size.height <= 1.0) {
-        return (UIImageView *)view;
-    }
-    for (UIView *subview in view.subviews) {
-        UIImageView *imageView = [self findHairlineImageViewUnder:subview];
-        if (imageView) {
-            return imageView;
-        }
-    }
-    return nil;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

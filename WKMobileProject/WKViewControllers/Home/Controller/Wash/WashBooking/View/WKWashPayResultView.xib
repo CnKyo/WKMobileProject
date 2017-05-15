@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WKWashPayResultView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_paysucess" translatesAutoresizingMaskIntoConstraints="NO" id="UNp-TC-mM2">
+                    <rect key="frame" x="167" y="90" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="SL1-Sc-lrJ"/>
+                        <constraint firstAttribute="height" constant="40" id="dND-FR-pyg"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOp-rO-hKe">
+                    <rect key="frame" x="16" y="145" width="343" height="54"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="此次消费400元" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01X-UB-NLy">
+                    <rect key="frame" x="16" y="224" width="343" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="倒计时" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7F-Do-zQT">
+                    <rect key="frame" x="16" y="278" width="343" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zF-DD-Sml">
+                    <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ith-FF-9yf">
+                            <rect key="frame" x="107" y="53" width="160" height="45"/>
+                            <color key="backgroundColor" red="0.97254901959999995" green="0.58431372550000005" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="160" id="SK7-0x-7f9"/>
+                                <constraint firstAttribute="height" constant="45" id="bJc-Lm-5P6"/>
+                            </constraints>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <state key="normal" title="返回我的预约">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="mBackAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="jLt-ba-ZgR"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Ith-FF-9yf" firstAttribute="centerY" secondItem="0zF-DD-Sml" secondAttribute="centerY" id="22l-tB-EMZ"/>
+                        <constraint firstAttribute="height" constant="150" id="MYt-fD-iWB"/>
+                        <constraint firstItem="Ith-FF-9yf" firstAttribute="centerX" secondItem="0zF-DD-Sml" secondAttribute="centerX" id="OKU-rS-rce"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.25490196079999999" green="0.58431372550000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="01X-UB-NLy" secondAttribute="trailing" constant="16" id="5c9-Aa-wUZ"/>
+                <constraint firstItem="UNp-TC-mM2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7dk-bV-TRj"/>
+                <constraint firstItem="lOp-rO-hKe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="9Ko-DA-9q4"/>
+                <constraint firstItem="0zF-DD-Sml" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="E9B-gh-Jcr"/>
+                <constraint firstItem="01X-UB-NLy" firstAttribute="top" secondItem="lOp-rO-hKe" secondAttribute="bottom" constant="25" id="JRk-AB-aZg"/>
+                <constraint firstItem="g7F-Do-zQT" firstAttribute="top" secondItem="01X-UB-NLy" secondAttribute="bottom" constant="30" id="Jjq-hO-Bv8"/>
+                <constraint firstAttribute="trailing" secondItem="0zF-DD-Sml" secondAttribute="trailing" id="MGb-4b-I09"/>
+                <constraint firstItem="g7F-Do-zQT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="P6m-US-SeE"/>
+                <constraint firstItem="01X-UB-NLy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="WfQ-u4-LJi"/>
+                <constraint firstAttribute="trailing" secondItem="g7F-Do-zQT" secondAttribute="trailing" constant="16" id="eiB-sB-igJ"/>
+                <constraint firstAttribute="trailing" secondItem="lOp-rO-hKe" secondAttribute="trailing" constant="16" id="gNH-tM-KyA"/>
+                <constraint firstItem="lOp-rO-hKe" firstAttribute="top" secondItem="UNp-TC-mM2" secondAttribute="bottom" constant="15" id="gzE-WI-xVO"/>
+                <constraint firstItem="UNp-TC-mM2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="90" id="hlB-7i-aEw"/>
+                <constraint firstAttribute="bottom" secondItem="0zF-DD-Sml" secondAttribute="bottom" id="rkq-Ve-StS"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="mBackBtn" destination="Ith-FF-9yf" id="rOQ-yX-OfN"/>
+                <outlet property="mCountTime" destination="g7F-Do-zQT" id="yn9-BB-BbQ"/>
+                <outlet property="mDetail" destination="01X-UB-NLy" id="Tae-Bg-eUo"/>
+                <outlet property="mStatus" destination="lOp-rO-hKe" id="iar-V8-3ZT"/>
+            </connections>
+            <point key="canvasLocation" x="46.5" y="79.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_paysucess" width="64" height="64"/>
+    </resources>
+</document>

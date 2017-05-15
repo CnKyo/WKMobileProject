@@ -23,10 +23,16 @@
     
     
     view.mBkgView.layer.cornerRadius = 5;
-    view.mBkgView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    view.mBkgView.layer.borderColor = [UIColor colorWithRed:0.807843F green:0.835294F blue:0.878431F alpha:0.5f].CGColor;
     view.mBkgView.layer.borderWidth = 1;
     return view;
     
 }
++ (WKWashBookingHeaderView *)initBookingView{
+    WKWashBookingHeaderView * view = [[[NSBundle mainBundle] loadNibNamed:@"WKBookingResultView" owner:self options:nil] objectAtIndex:0];
+ 
+    return view;
+}
+
 
 @end
