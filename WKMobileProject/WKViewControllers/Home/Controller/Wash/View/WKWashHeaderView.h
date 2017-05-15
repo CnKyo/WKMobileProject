@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol WKWashHeaderViewDelegate <NSObject>
+
+@optional
+
+- (void)WKWashHeaderViewBtnAction:(NSInteger)mTag;
+
+@end
+
 @interface WKWashHeaderView : UIView
 
 + (WKWashHeaderView *)initView;
+
+@property(weak,nonatomic) id<WKWashHeaderViewDelegate>delegate;
 
 @end

@@ -23,5 +23,23 @@
     
     return view;
 }
+- (IBAction)booking:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(WKWashHeaderViewBtnAction:)]) {
+        [self.delegate WKWashHeaderViewBtnAction:1];
+
+    }
+}
+- (IBAction)use:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(WKWashHeaderViewBtnAction:)]) {
+        [self.delegate WKWashHeaderViewBtnAction:3];
+        
+    }
+}
+- (IBAction)my:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(WKWashHeaderViewBtnAction:)]) {
+        [self.delegate WKWashHeaderViewBtnAction:2];
+        
+    }
+}
 
 @end

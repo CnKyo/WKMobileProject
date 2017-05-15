@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WKWashBookingHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="洗衣地点" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykP-4t-VeH">
+                    <rect key="frame" x="16" y="25" width="65" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="67c-6E-5eq"/>
+                        <constraint firstAttribute="width" secondItem="ykP-4t-VeH" secondAttribute="height" multiplier="65:21" id="Ha8-SG-2ot"/>
+                        <constraint firstAttribute="width" constant="65" id="P5Q-Uy-ZiU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgG-BF-m6Y">
+                    <rect key="frame" x="90" y="13" width="265" height="45"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZJ-az-edn">
+                            <rect key="frame" x="8" y="12" width="249" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="HZJ-az-edn" secondAttribute="height" multiplier="83:7" id="BC6-ZB-WCw"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="HZJ-az-edn" firstAttribute="top" secondItem="tgG-BF-m6Y" secondAttribute="top" constant="12" id="00j-Ux-D6H"/>
+                        <constraint firstAttribute="bottom" secondItem="HZJ-az-edn" secondAttribute="bottom" constant="12" id="3NG-RE-SSo"/>
+                        <constraint firstAttribute="trailing" secondItem="HZJ-az-edn" secondAttribute="trailing" constant="8" id="D4h-CK-cFT"/>
+                        <constraint firstAttribute="height" constant="45" id="Ygg-Q7-117"/>
+                        <constraint firstAttribute="width" secondItem="tgG-BF-m6Y" secondAttribute="height" multiplier="53:9" id="fx3-aX-AEO"/>
+                        <constraint firstItem="HZJ-az-edn" firstAttribute="leading" secondItem="tgG-BF-m6Y" secondAttribute="leading" constant="8" id="rm6-8y-89H"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.95686274509803915" green="0.98431372549019602" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ykP-4t-VeH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="0XP-aO-oSO"/>
+                <constraint firstItem="tgG-BF-m6Y" firstAttribute="leading" secondItem="ykP-4t-VeH" secondAttribute="trailing" constant="9" id="Gjt-Ux-Eul"/>
+                <constraint firstAttribute="trailing" secondItem="tgG-BF-m6Y" secondAttribute="trailing" constant="20" id="vmV-sQ-fp1"/>
+                <constraint firstItem="tgG-BF-m6Y" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="wCV-Dk-8AB"/>
+                <constraint firstItem="ykP-4t-VeH" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="wE7-ns-rSa"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="mBkgView" destination="tgG-BF-m6Y" id="8h5-51-qEm"/>
+                <outlet property="mContent" destination="HZJ-az-edn" id="9Sa-bU-hDo"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="52"/>
+        </view>
+    </objects>
+</document>
