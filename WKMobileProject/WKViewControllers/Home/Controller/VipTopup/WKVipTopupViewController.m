@@ -10,6 +10,7 @@
 #import "WKTopupHeaderView.h"
 #import "WKTopupCollectionReusableView.h"
 #import "WKTopupCollectionViewCell.h"
+#import "WKPayVIPTopupViewController.h"
 @interface WKVipTopupViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,WKTopupHeaderViewDelegate>
 @property(strong,nonatomic) UICollectionView *mCollectionView;
 
@@ -71,8 +72,11 @@
 
     
 }
+#pragma mark----****----去支付按钮
 - (void)mCommitAction{
     MLLog(@"提交");
+    WKPayVIPTopupViewController *vc = [WKPayVIPTopupViewController new];
+    [self pushViewController:vc];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

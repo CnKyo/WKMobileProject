@@ -15,6 +15,7 @@
 
 #import "WKWashViewController.h"
 #import "WKVipTopupViewController.h"
+#import "WKBuyGoldenViewController.h"
 @interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
@@ -244,6 +245,10 @@
     }else if (mIndex == 2){
     
         WKVipTopupViewController *vc = [WKVipTopupViewController new];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+    }else if (mIndex == 3){
+        WKBuyGoldenViewController *vc = [WKBuyGoldenViewController new];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
     }

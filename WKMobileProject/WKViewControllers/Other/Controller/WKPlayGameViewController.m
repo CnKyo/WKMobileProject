@@ -1,25 +1,26 @@
 //
-//  WKValletViewController.m
+//  WKPlayGameViewController.m
 //  WKMobileProject
 //
-//  Created by 王钶 on 2017/4/14.
+//  Created by mwi01 on 2017/5/16.
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
 
-#import "WKActivityViewController.h"
-#import "WKActivityTableViewCell.h"
-@interface UIActivityViewController ()
+#import "WKPlayGameViewController.h"
+#import "WKPlayGameCell.h"
+@interface WKPlayGameViewController ()
 
 @end
 
-@implementation WKActivityViewController
+@implementation WKPlayGameViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"活动";
+    self.navigationItem.title = @"玩游戏";
+    
     [self addTableView];
-    UINib   *nib = [UINib nibWithNibName:@"WKActivityTableViewCell" bundle:nil];
+    UINib   *nib = [UINib nibWithNibName:@"WKPlayGameCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
     [self addTableViewHeaderRefreshing];
     [self addTableViewFootererRefreshing];
@@ -28,8 +29,9 @@
 
 }
 - (void)tableViewFooterReloadData{
-
+    
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -54,18 +56,26 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
     return 0;
-    
-    
+   
 }
-
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    return nil;
+ 
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+
+    return 14;
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 200;
+
+    return 100;
+
+    
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,17 +86,32 @@
     
     reuseCellId = @"cell";
     
-    WKActivityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
+    WKPlayGameCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    [cell.mImg sd_setImageWithURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493210044049&di=ac402c2ce8259c98e5e4ea1b7aac4cac&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F209%2Fd%2F97.jpg"] placeholderImage:nil];
-    
+
     return cell;
     
+    
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    MLLog(@"点击了%ld行",indexPath.row);
+    MLLog(@"%ld行",indexPath.row);
+    
+    
+    [self showCustomViewType:WKCustomPopViewHaveTwoBtn andTitle:@"您的账户还有100000000个金币" andContentTx:@"本次游戏将消耗您120000个金币，您是否愿意玩本次游戏呢？" andOkBtntitle:@"确定" andCancelBtntitle:@"取消"];
+    
+}
+///关闭按钮代理方法
+- (void)WKCustomPopViewWithCloseBtnAction{
+    MLLog(@"关闭");
+}
+///取消按钮代理方法
+- (void)WKCustomPopViewWithCancelBtnAction{
+    MLLog(@"取消");
+}
+///确定按钮代理方法
+- (void)WKCustomPopViewWithOkBtnAction{
+    MLLog(@"确定");
 }
 @end

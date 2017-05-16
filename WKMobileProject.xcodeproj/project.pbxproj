@@ -62,6 +62,15 @@
 		31A222131E99D2B50058A21B /* WKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A222121E99D2B50058A21B /* WKBaseViewController.m */; };
 		31E289411EB21A47006C9756 /* WKHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E289401EB21A47006C9756 /* WKHttpRequest.m */; };
 		438D7113768A3061C072BCE4 /* libPods-WKMobileProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BDC79F377B749380AF0636A /* libPods-WKMobileProject.a */; };
+		52289D721ECAE94700D8A6F5 /* WKPlayGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52289D711ECAE94700D8A6F5 /* WKPlayGameViewController.m */; };
+		52289D761ECAE99F00D8A6F5 /* WKPlayGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52289D741ECAE99F00D8A6F5 /* WKPlayGameCell.m */; };
+		52289D771ECAE99F00D8A6F5 /* WKPlayGameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52289D751ECAE99F00D8A6F5 /* WKPlayGameCell.xib */; };
+		52289D7B1ECAF09E00D8A6F5 /* WKUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52289D791ECAF09E00D8A6F5 /* WKUserInfoCell.m */; };
+		52289D7C1ECAF09E00D8A6F5 /* WKUserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52289D7A1ECAF09E00D8A6F5 /* WKUserInfoCell.xib */; };
+		52289D801ECAF6CD00D8A6F5 /* WKUserInfoAdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52289D7E1ECAF6CD00D8A6F5 /* WKUserInfoAdCell.m */; };
+		52289D811ECAF6CD00D8A6F5 /* WKUserInfoAdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52289D7F1ECAF6CD00D8A6F5 /* WKUserInfoAdCell.xib */; };
+		52289D851ECAF8A500D8A6F5 /* WKUserFuncCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52289D831ECAF8A500D8A6F5 /* WKUserFuncCell.m */; };
+		52289D861ECAF8A500D8A6F5 /* WKUserFuncCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52289D841ECAF8A500D8A6F5 /* WKUserFuncCell.xib */; };
 		52368FE91EC3FA15002524E5 /* WKWashTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52368FE81EC3FA15002524E5 /* WKWashTableHeaderView.m */; };
 		52368FEB1EC3FA1D002524E5 /* WKWashTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52368FEA1EC3FA1D002524E5 /* WKWashTableHeaderView.xib */; };
 		52368FEF1EC3FEEC002524E5 /* WKWashTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52368FED1EC3FEEC002524E5 /* WKWashTableCell.m */; };
@@ -71,6 +80,19 @@
 		52368FFA1EC41116002524E5 /* WKWashBookingHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52368FF91EC41116002524E5 /* WKWashBookingHeaderView.xib */; };
 		52368FFE1EC412F0002524E5 /* WKWashBookingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52368FFC1EC412F0002524E5 /* WKWashBookingCell.m */; };
 		52368FFF1EC412F0002524E5 /* WKWashBookingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52368FFD1EC412F0002524E5 /* WKWashBookingCell.xib */; };
+		524E3EDF1ECA89DD00EF0224 /* WKPayVIPTopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 524E3EDE1ECA89DD00EF0224 /* WKPayVIPTopupViewController.m */; };
+		524E3EE31ECA8A2500EF0224 /* WKPayVIPTopupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 524E3EE11ECA8A2500EF0224 /* WKPayVIPTopupCell.m */; };
+		524E3EE41ECA8A2500EF0224 /* WKPayVIPTopupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524E3EE21ECA8A2500EF0224 /* WKPayVIPTopupCell.xib */; };
+		524E3EE61ECA980C00EF0224 /* WKVIPTopupSucessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524E3EE51ECA980C00EF0224 /* WKVIPTopupSucessView.xib */; };
+		524E3EEB1ECAA30900EF0224 /* WKBuyGoldenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 524E3EEA1ECAA30900EF0224 /* WKBuyGoldenViewController.m */; };
+		524E3EEF1ECAA34600EF0224 /* WKBuyGoldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 524E3EED1ECAA34600EF0224 /* WKBuyGoldCell.m */; };
+		524E3EF01ECAA34600EF0224 /* WKBuyGoldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524E3EEE1ECAA34600EF0224 /* WKBuyGoldCell.xib */; };
+		524E3EF41ECAAEC900EF0224 /* WKActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 524E3EF21ECAAEC900EF0224 /* WKActivityTableViewCell.m */; };
+		524E3EF51ECAAEC900EF0224 /* WKActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524E3EF31ECAAEC900EF0224 /* WKActivityTableViewCell.xib */; };
+		524E3EF91ECACD5B00EF0224 /* WKFindHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 524E3EF71ECACD5B00EF0224 /* WKFindHeaderCell.m */; };
+		524E3EFA1ECACD5B00EF0224 /* WKFindHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524E3EF81ECACD5B00EF0224 /* WKFindHeaderCell.xib */; };
+		524E3EFE1ECACD7300EF0224 /* WKFindTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 524E3EFC1ECACD7300EF0224 /* WKFindTableViewCell.m */; };
+		524E3EFF1ECACD7300EF0224 /* WKFindTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524E3EFD1ECACD7300EF0224 /* WKFindTableViewCell.xib */; };
 		5279A7321EC93DB900999B3D /* WaskBookingResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5279A7311EC93DB900999B3D /* WaskBookingResultController.m */; };
 		5279A7341EC93F7700999B3D /* WKBookingResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5279A7331EC93F7700999B3D /* WKBookingResultView.xib */; };
 		5279A7361EC9428A00999B3D /* WKBookingResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5279A7351EC9428A00999B3D /* WKBookingResultCell.xib */; };
@@ -237,6 +259,20 @@
 		31E2893F1EB21A47006C9756 /* WKHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHttpRequest.h; sourceTree = "<group>"; };
 		31E289401EB21A47006C9756 /* WKHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHttpRequest.m; sourceTree = "<group>"; };
 		3BDC79F377B749380AF0636A /* libPods-WKMobileProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52289D701ECAE94700D8A6F5 /* WKPlayGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPlayGameViewController.h; sourceTree = "<group>"; };
+		52289D711ECAE94700D8A6F5 /* WKPlayGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPlayGameViewController.m; sourceTree = "<group>"; };
+		52289D731ECAE99F00D8A6F5 /* WKPlayGameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKPlayGameCell.h; path = WKMobileProject/WKViewControllers/Other/Controller/WKPlayGameCell.h; sourceTree = SOURCE_ROOT; };
+		52289D741ECAE99F00D8A6F5 /* WKPlayGameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKPlayGameCell.m; path = WKMobileProject/WKViewControllers/Other/Controller/WKPlayGameCell.m; sourceTree = SOURCE_ROOT; };
+		52289D751ECAE99F00D8A6F5 /* WKPlayGameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKPlayGameCell.xib; path = WKMobileProject/WKViewControllers/Other/Controller/WKPlayGameCell.xib; sourceTree = SOURCE_ROOT; };
+		52289D781ECAF09E00D8A6F5 /* WKUserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKUserInfoCell.h; path = WKMobileProject/WKViewControllers/Other/Controller/WKUserInfoCell.h; sourceTree = SOURCE_ROOT; };
+		52289D791ECAF09E00D8A6F5 /* WKUserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKUserInfoCell.m; path = WKMobileProject/WKViewControllers/Other/Controller/WKUserInfoCell.m; sourceTree = SOURCE_ROOT; };
+		52289D7A1ECAF09E00D8A6F5 /* WKUserInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKUserInfoCell.xib; path = WKMobileProject/WKViewControllers/Other/Controller/WKUserInfoCell.xib; sourceTree = SOURCE_ROOT; };
+		52289D7D1ECAF6CD00D8A6F5 /* WKUserInfoAdCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKUserInfoAdCell.h; path = WKMobileProject/WKViewControllers/Other/Controller/WKUserInfoAdCell.h; sourceTree = SOURCE_ROOT; };
+		52289D7E1ECAF6CD00D8A6F5 /* WKUserInfoAdCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKUserInfoAdCell.m; path = WKMobileProject/WKViewControllers/Other/Controller/WKUserInfoAdCell.m; sourceTree = SOURCE_ROOT; };
+		52289D7F1ECAF6CD00D8A6F5 /* WKUserInfoAdCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKUserInfoAdCell.xib; path = WKMobileProject/WKViewControllers/Other/Controller/WKUserInfoAdCell.xib; sourceTree = SOURCE_ROOT; };
+		52289D821ECAF8A500D8A6F5 /* WKUserFuncCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKUserFuncCell.h; path = WKMobileProject/WKViewControllers/Other/Controller/WKUserFuncCell.h; sourceTree = SOURCE_ROOT; };
+		52289D831ECAF8A500D8A6F5 /* WKUserFuncCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKUserFuncCell.m; path = WKMobileProject/WKViewControllers/Other/Controller/WKUserFuncCell.m; sourceTree = SOURCE_ROOT; };
+		52289D841ECAF8A500D8A6F5 /* WKUserFuncCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKUserFuncCell.xib; path = WKMobileProject/WKViewControllers/Other/Controller/WKUserFuncCell.xib; sourceTree = SOURCE_ROOT; };
 		52368FE71EC3FA15002524E5 /* WKWashTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWashTableHeaderView.h; sourceTree = "<group>"; };
 		52368FE81EC3FA15002524E5 /* WKWashTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWashTableHeaderView.m; sourceTree = "<group>"; };
 		52368FEA1EC3FA1D002524E5 /* WKWashTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKWashTableHeaderView.xib; sourceTree = "<group>"; };
@@ -251,6 +287,26 @@
 		52368FFB1EC412F0002524E5 /* WKWashBookingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWashBookingCell.h; sourceTree = "<group>"; };
 		52368FFC1EC412F0002524E5 /* WKWashBookingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWashBookingCell.m; sourceTree = "<group>"; };
 		52368FFD1EC412F0002524E5 /* WKWashBookingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKWashBookingCell.xib; sourceTree = "<group>"; };
+		524E3EDD1ECA89DD00EF0224 /* WKPayVIPTopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPayVIPTopupViewController.h; sourceTree = "<group>"; };
+		524E3EDE1ECA89DD00EF0224 /* WKPayVIPTopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPayVIPTopupViewController.m; sourceTree = "<group>"; };
+		524E3EE01ECA8A2500EF0224 /* WKPayVIPTopupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPayVIPTopupCell.h; sourceTree = "<group>"; };
+		524E3EE11ECA8A2500EF0224 /* WKPayVIPTopupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPayVIPTopupCell.m; sourceTree = "<group>"; };
+		524E3EE21ECA8A2500EF0224 /* WKPayVIPTopupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKPayVIPTopupCell.xib; sourceTree = "<group>"; };
+		524E3EE51ECA980C00EF0224 /* WKVIPTopupSucessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKVIPTopupSucessView.xib; sourceTree = "<group>"; };
+		524E3EE91ECAA30900EF0224 /* WKBuyGoldenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBuyGoldenViewController.h; sourceTree = "<group>"; };
+		524E3EEA1ECAA30900EF0224 /* WKBuyGoldenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBuyGoldenViewController.m; sourceTree = "<group>"; };
+		524E3EEC1ECAA34600EF0224 /* WKBuyGoldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBuyGoldCell.h; sourceTree = "<group>"; };
+		524E3EED1ECAA34600EF0224 /* WKBuyGoldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBuyGoldCell.m; sourceTree = "<group>"; };
+		524E3EEE1ECAA34600EF0224 /* WKBuyGoldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKBuyGoldCell.xib; sourceTree = "<group>"; };
+		524E3EF11ECAAEC900EF0224 /* WKActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKActivityTableViewCell.h; path = WKMobileProject/WKViewControllers/Home/Controller/BuyGolden/View/WKActivityTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		524E3EF21ECAAEC900EF0224 /* WKActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKActivityTableViewCell.m; path = WKMobileProject/WKViewControllers/Home/Controller/BuyGolden/View/WKActivityTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		524E3EF31ECAAEC900EF0224 /* WKActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKActivityTableViewCell.xib; path = WKMobileProject/WKViewControllers/Home/Controller/BuyGolden/View/WKActivityTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		524E3EF61ECACD5B00EF0224 /* WKFindHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKFindHeaderCell.h; path = WKMobileProject/WKViewControllers/Home/Controller/BuyGolden/View/WKFindHeaderCell.h; sourceTree = SOURCE_ROOT; };
+		524E3EF71ECACD5B00EF0224 /* WKFindHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKFindHeaderCell.m; path = WKMobileProject/WKViewControllers/Home/Controller/BuyGolden/View/WKFindHeaderCell.m; sourceTree = SOURCE_ROOT; };
+		524E3EF81ECACD5B00EF0224 /* WKFindHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKFindHeaderCell.xib; path = WKMobileProject/WKViewControllers/Home/Controller/BuyGolden/View/WKFindHeaderCell.xib; sourceTree = SOURCE_ROOT; };
+		524E3EFB1ECACD7300EF0224 /* WKFindTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKFindTableViewCell.h; path = WKMobileProject/WKViewControllers/Home/Controller/BuyGolden/View/WKFindTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		524E3EFC1ECACD7300EF0224 /* WKFindTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKFindTableViewCell.m; path = WKMobileProject/WKViewControllers/Home/Controller/BuyGolden/View/WKFindTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		524E3EFD1ECACD7300EF0224 /* WKFindTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKFindTableViewCell.xib; path = WKMobileProject/WKViewControllers/Home/Controller/BuyGolden/View/WKFindTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		5279A7301EC93DB900999B3D /* WaskBookingResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaskBookingResultController.h; sourceTree = "<group>"; };
 		5279A7311EC93DB900999B3D /* WaskBookingResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaskBookingResultController.m; sourceTree = "<group>"; };
 		5279A7331EC93F7700999B3D /* WKBookingResultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKBookingResultView.xib; sourceTree = "<group>"; };
@@ -367,6 +423,7 @@
 			children = (
 				31507EA31EA06FD2007B8345 /* WKHomeViewController.h */,
 				31507EA41EA06FD2007B8345 /* WKHomeViewController.m */,
+				524E3EE71ECAA2F500EF0224 /* BuyGolden */,
 				5279A7531EC99BFD00999B3D /* VipTopup */,
 				52AC36681EC30389000866D4 /* Wash */,
 			);
@@ -412,6 +469,8 @@
 			children = (
 				31507EA91EA06FEA007B8345 /* WKFindViewController.h */,
 				31507EAA1EA06FEA007B8345 /* WKFindViewController.m */,
+				52289D701ECAE94700D8A6F5 /* WKPlayGameViewController.h */,
+				52289D711ECAE94700D8A6F5 /* WKPlayGameViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -419,6 +478,15 @@
 		31507E9C1EA06FA8007B8345 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				524E3EF61ECACD5B00EF0224 /* WKFindHeaderCell.h */,
+				524E3EF71ECACD5B00EF0224 /* WKFindHeaderCell.m */,
+				524E3EF81ECACD5B00EF0224 /* WKFindHeaderCell.xib */,
+				524E3EFB1ECACD7300EF0224 /* WKFindTableViewCell.h */,
+				524E3EFC1ECACD7300EF0224 /* WKFindTableViewCell.m */,
+				524E3EFD1ECACD7300EF0224 /* WKFindTableViewCell.xib */,
+				52289D731ECAE99F00D8A6F5 /* WKPlayGameCell.h */,
+				52289D741ECAE99F00D8A6F5 /* WKPlayGameCell.m */,
+				52289D751ECAE99F00D8A6F5 /* WKPlayGameCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -446,6 +514,15 @@
 		31507E9F1EA06FA8007B8345 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				52289D781ECAF09E00D8A6F5 /* WKUserInfoCell.h */,
+				52289D791ECAF09E00D8A6F5 /* WKUserInfoCell.m */,
+				52289D7A1ECAF09E00D8A6F5 /* WKUserInfoCell.xib */,
+				52289D7D1ECAF6CD00D8A6F5 /* WKUserInfoAdCell.h */,
+				52289D7E1ECAF6CD00D8A6F5 /* WKUserInfoAdCell.m */,
+				52289D7F1ECAF6CD00D8A6F5 /* WKUserInfoAdCell.xib */,
+				52289D821ECAF8A500D8A6F5 /* WKUserFuncCell.h */,
+				52289D831ECAF8A500D8A6F5 /* WKUserFuncCell.m */,
+				52289D841ECAF8A500D8A6F5 /* WKUserFuncCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -472,6 +549,9 @@
 		31507EA21EA06FA8007B8345 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				524E3EF11ECAAEC900EF0224 /* WKActivityTableViewCell.h */,
+				524E3EF21ECAAEC900EF0224 /* WKActivityTableViewCell.m */,
+				524E3EF31ECAAEC900EF0224 /* WKActivityTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -896,6 +976,27 @@
 				5279A7431EC97B0B00999B3D /* WKWashPayResultView.m */,
 				5279A7451EC97B1400999B3D /* WKWashPayResultView.xib */,
 				5279A7471EC97E5000999B3D /* WKWashPayErrorView.xib */,
+				524E3EE51ECA980C00EF0224 /* WKVIPTopupSucessView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		524E3EE71ECAA2F500EF0224 /* BuyGolden */ = {
+			isa = PBXGroup;
+			children = (
+				524E3EE91ECAA30900EF0224 /* WKBuyGoldenViewController.h */,
+				524E3EEA1ECAA30900EF0224 /* WKBuyGoldenViewController.m */,
+				524E3EE81ECAA2F500EF0224 /* View */,
+			);
+			path = BuyGolden;
+			sourceTree = "<group>";
+		};
+		524E3EE81ECAA2F500EF0224 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				524E3EEC1ECAA34600EF0224 /* WKBuyGoldCell.h */,
+				524E3EED1ECAA34600EF0224 /* WKBuyGoldCell.m */,
+				524E3EEE1ECAA34600EF0224 /* WKBuyGoldCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -925,6 +1026,8 @@
 			children = (
 				5279A7551EC99C1400999B3D /* WKVipTopupViewController.h */,
 				5279A7561EC99C1400999B3D /* WKVipTopupViewController.m */,
+				524E3EDD1ECA89DD00EF0224 /* WKPayVIPTopupViewController.h */,
+				524E3EDE1ECA89DD00EF0224 /* WKPayVIPTopupViewController.m */,
 				5279A7541EC99BFD00999B3D /* View */,
 			);
 			path = VipTopup;
@@ -940,6 +1043,9 @@
 				5279A7611EC9AA8200999B3D /* WKTopupCollectionViewCell.m */,
 				5279A7651EC9AB9000999B3D /* WKTopupCollectionReusableView.h */,
 				5279A7661EC9AB9000999B3D /* WKTopupCollectionReusableView.m */,
+				524E3EE01ECA8A2500EF0224 /* WKPayVIPTopupCell.h */,
+				524E3EE11ECA8A2500EF0224 /* WKPayVIPTopupCell.m */,
+				524E3EE21ECA8A2500EF0224 /* WKPayVIPTopupCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1155,12 +1261,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				524E3EFF1ECACD7300EF0224 /* WKFindTableViewCell.xib in Resources */,
+				52289D861ECAF8A500D8A6F5 /* WKUserFuncCell.xib in Resources */,
+				524E3EF01ECAA34600EF0224 /* WKBuyGoldCell.xib in Resources */,
+				524E3EF51ECAAEC900EF0224 /* WKActivityTableViewCell.xib in Resources */,
 				31A222001E99CFA00058A21B /* iPhoneTypeDefine.plist in Resources */,
+				524E3EE41ECA8A2500EF0224 /* WKPayVIPTopupCell.xib in Resources */,
+				52289D7C1ECAF09E00D8A6F5 /* WKUserInfoCell.xib in Resources */,
 				31632CBF1EAB02AF0057B161 /* WKTrainDemandCell.xib in Resources */,
 				52AC36711EC314D2000866D4 /* WKWashHeaderView.xib in Resources */,
+				52289D771ECAE99F00D8A6F5 /* WKPlayGameCell.xib in Resources */,
 				52AC36621EC2F3A1000866D4 /* WKHomeDecomandedCell.xib in Resources */,
 				52368FFF1EC412F0002524E5 /* WKWashBookingCell.xib in Resources */,
 				315FFC111E97D3C600C78440 /* LaunchScreen.storyboard in Resources */,
+				524E3EFA1ECACD5B00EF0224 /* WKFindHeaderCell.xib in Resources */,
+				524E3EE61ECA980C00EF0224 /* WKVIPTopupSucessView.xib in Resources */,
 				5279A75C1EC99ECC00999B3D /* WKTopupHeaderView.xib in Resources */,
 				52AC365D1EC2F0C5000866D4 /* WKHomeHeaderSectionView.xib in Resources */,
 				315FFC0E1E97D3C600C78440 /* Assets.xcassets in Resources */,
@@ -1170,6 +1285,7 @@
 				5279A7341EC93F7700999B3D /* WKBookingResultView.xib in Resources */,
 				52AC36671EC2FB55000866D4 /* WKHomeActivityCell.xib in Resources */,
 				5279A7461EC97B1400999B3D /* WKWashPayResultView.xib in Resources */,
+				52289D811ECAF6CD00D8A6F5 /* WKUserInfoAdCell.xib in Resources */,
 				52368FEB1EC3FA1D002524E5 /* WKWashTableHeaderView.xib in Resources */,
 				5279A7481EC97E5000999B3D /* WKWashPayErrorView.xib in Resources */,
 				5279A73E1EC94C6700999B3D /* WKPayWashView.xib in Resources */,
@@ -1254,6 +1370,7 @@
 				52AC36491EC2C086000866D4 /* SXMarquee.m in Sources */,
 				52AC364B1EC2C086000866D4 /* UIColor+Wonderful.m in Sources */,
 				31A222081E99CFA10058A21B /* CTService.m in Sources */,
+				524E3EEF1ECAA34600EF0224 /* WKBuyGoldCell.m in Sources */,
 				52368FFE1EC412F0002524E5 /* WKWashBookingCell.m in Sources */,
 				31A221FA1E99CFA00058A21B /* NSURLRequest+CTNetworkingMethods.m in Sources */,
 				315FFC091E97D3C600C78440 /* ViewController.m in Sources */,
@@ -1264,6 +1381,7 @@
 				5279A75A1EC99EC500999B3D /* WKTopupHeaderView.m in Sources */,
 				52368FE91EC3FA15002524E5 /* WKWashTableHeaderView.m in Sources */,
 				52AC366F1EC314CD000866D4 /* WKWashHeaderView.m in Sources */,
+				52289D761ECAE99F00D8A6F5 /* WKPlayGameCell.m in Sources */,
 				52AC36351EC2A059000866D4 /* WKCustomPopView.m in Sources */,
 				5279A7501EC989EC00999B3D /* WKOperatorMyWashBookingView.m in Sources */,
 				52AC36471EC2C086000866D4 /* SXColorLabel.m in Sources */,
@@ -1271,6 +1389,7 @@
 				5279A73C1EC94C5D00999B3D /* WKPayWashView.m in Sources */,
 				5279A74D1EC9896E00999B3D /* WKMyWashBookingViewController.m in Sources */,
 				31507EAE1EA06FF6007B8345 /* WKActivityViewController.m in Sources */,
+				524E3EFE1ECACD7300EF0224 /* WKFindTableViewCell.m in Sources */,
 				31A221F81E99CFA00058A21B /* NSObject+AXNetworkingMethods.m in Sources */,
 				315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */,
 				52368FEF1EC3FEEC002524E5 /* WKWashTableCell.m in Sources */,
@@ -1287,9 +1406,11 @@
 				5279A7411EC95E1300999B3D /* WKWashGoPayViewController.m in Sources */,
 				31A222021E99CFA00058A21B /* CTLogger.m in Sources */,
 				31507E931EA06E7E007B8345 /* UIViewController+GYDNav.m in Sources */,
+				52289D851ECAF8A500D8A6F5 /* WKUserFuncCell.m in Sources */,
 				31A222011E99CFA00058A21B /* CTLocationManager.m in Sources */,
 				52AC36501EC2C318000866D4 /* WKHomeTypeHeaderCell.m in Sources */,
 				52AC36661EC2FB55000866D4 /* WKHomeActivityCell.m in Sources */,
+				52289D801ECAF6CD00D8A6F5 /* WKUserInfoAdCell.m in Sources */,
 				5279A7631EC9AA8200999B3D /* WKTopupCollectionViewCell.m in Sources */,
 				52AC364C1EC2C086000866D4 /* UILabel+Wonderful.m in Sources */,
 				31A221FB1E99CFA00058A21B /* UIDevice+IdentifierAddition.m in Sources */,
@@ -1300,14 +1421,18 @@
 				31507EA81EA06FE0007B8345 /* WKUserViewController.m in Sources */,
 				31A222101E99D0520058A21B /* WKAPIManager.m in Sources */,
 				315FFC031E97D3C600C78440 /* main.m in Sources */,
+				524E3EE31ECA8A2500EF0224 /* WKPayVIPTopupCell.m in Sources */,
 				31A221AB1E99CCD00058A21B /* Util.m in Sources */,
 				31A222131E99D2B50058A21B /* WKBaseViewController.m in Sources */,
+				524E3EDF1ECA89DD00EF0224 /* WKPayVIPTopupViewController.m in Sources */,
 				31E289411EB21A47006C9756 /* WKHttpRequest.m in Sources */,
 				31A221FE1E99CFA00058A21B /* CTCache.m in Sources */,
 				31A221F71E99CFA00058A21B /* NSMutableString+AXNetworkingMethods.m in Sources */,
+				52289D7B1ECAF09E00D8A6F5 /* WKUserInfoCell.m in Sources */,
 				31A221F51E99CFA00058A21B /* NSArray+AXNetworkingMethods.m in Sources */,
 				31A222051E99CFA10058A21B /* CTRequestGenerator.m in Sources */,
 				31632CB71EAAFE850057B161 /* WKTabbarViewController.m in Sources */,
+				524E3EEB1ECAA30900EF0224 /* WKBuyGoldenViewController.m in Sources */,
 				5279A7571EC99C1400999B3D /* WKVipTopupViewController.m in Sources */,
 				31A222091E99CFA10058A21B /* CTServiceFactory.m in Sources */,
 				52AC36461EC2C086000866D4 /* SXColorGradientView.m in Sources */,
@@ -1318,9 +1443,12 @@
 				31A2220D1E99CFA10058A21B /* GDMapService.m in Sources */,
 				52368FF81EC41105002524E5 /* WKWashBookingHeaderView.m in Sources */,
 				5279A7321EC93DB900999B3D /* WaskBookingResultController.m in Sources */,
+				52289D721ECAE94700D8A6F5 /* WKPlayGameViewController.m in Sources */,
+				524E3EF41ECAAEC900EF0224 /* WKActivityTableViewCell.m in Sources */,
 				52AC36341EC2A059000866D4 /* FDAlertView.m in Sources */,
 				31632CBE1EAB02AF0057B161 /* WKTrainDemandCell.m in Sources */,
 				3107DB371EA64EAF00BCACA9 /* WKUserInfoViewController.m in Sources */,
+				524E3EF91ECACD5B00EF0224 /* WKFindHeaderCell.m in Sources */,
 				31A2220A1E99CFA10058A21B /* CTAppContext.m in Sources */,
 				31A222041E99CFA10058A21B /* CTCommonParamsGenerator.m in Sources */,
 			);

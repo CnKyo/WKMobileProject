@@ -34,5 +34,22 @@
 ///初始化失败view
 + (WKWashPayResultView *)initErrorView;
 
+#pragma mark----****----vip会员充值view
+///会员充值返回消息说明
+@property (weak, nonatomic) IBOutlet UILabel *mTopupMessageContent;
+///会员充值图片
+@property (weak, nonatomic) IBOutlet UIImageView *mTopupStatusImg;
+///会员充值状态
+@property (weak, nonatomic) IBOutlet UILabel *mTopupStatus;
+///会员充值返回按钮
+@property (weak, nonatomic) IBOutlet UIButton *mTopupBackBtn;
+///vip背景色
+@property (weak, nonatomic) IBOutlet UIView *mVipBgk;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mTopupBackBtnContrains;
+
+
+///初始化vipview
++ (WKWashPayResultView *)initVIPSucessView;
 
 @end

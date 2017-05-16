@@ -92,7 +92,7 @@
     NSInteger mtype = 0;
     
     
-    if (_mPayTypeArr!=nil) {
+    if (_mPayTypeArr.count>0) {
         mtype = [[NSString stringWithFormat:@"%@",_mPayTypeArr[0]] integerValue];
     }else{
         mtype = 0;

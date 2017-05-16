@@ -38,5 +38,10 @@
     }
     
 }
++ (WKWashPayResultView *)initVIPSucessView{
+    WKWashPayResultView *view = [[[NSBundle mainBundle] loadNibNamed:@"WKVIPTopupSucessView" owner:self options:nil] objectAtIndex:0];
+    view.mVipBgk.layer.cornerRadius = view.mVipBgk.ct_width/2;
+    return view;
+}
 
 @end
