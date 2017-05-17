@@ -16,6 +16,8 @@
 #import "WKEditUserinfoViewController.h"
 #import "WKJoinusViewController.h"
 #import "WKMyActivityViewController.h"
+#import "MyWashViewController.h"
+#import "WKMyOrderViewController.h"
 @interface WKUserViewController ()<WKUserInfoCellDelegate,WKUserInfoAdCellDelegate>
 
 @end
@@ -211,7 +213,20 @@
             [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
             }
                 break;
-                
+            case 1:
+            {
+            MyWashViewController *vc = [MyWashViewController new];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+            }
+                break;
+            case 2:
+            {
+            WKMyOrderViewController *vc = [WKMyOrderViewController new];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+            }
+                break;
             case 5:
             {
             WKJoinusViewController *vc = [WKJoinusViewController new];

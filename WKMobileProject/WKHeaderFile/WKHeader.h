@@ -34,6 +34,7 @@
 #import "SXMarquee.h"
 
 #import <UIView+LayoutMethods.h>
+#import "WKSegmentControl.h"
 //#define  WKSyncQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
 #define ColorRGB(_R_, _G_, _B_)       ([UIColor colorWithRed:_R_/255.0f green:_G_/255.0f blue:_B_/255.0f alpha:1])
