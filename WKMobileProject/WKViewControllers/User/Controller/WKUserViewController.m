@@ -18,6 +18,7 @@
 #import "WKMyActivityViewController.h"
 #import "MyWashViewController.h"
 #import "WKMyOrderViewController.h"
+#import "WKMygoldenViewController.h"
 @interface WKUserViewController ()<WKUserInfoCellDelegate,WKUserInfoAdCellDelegate>
 
 @end
@@ -272,7 +273,9 @@
             break;
         case 3:
         {
-        
+        WKMygoldenViewController *vc = [WKMygoldenViewController new];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
         }
             break;
             
