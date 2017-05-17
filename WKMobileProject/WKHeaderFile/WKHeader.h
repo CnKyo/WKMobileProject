@@ -171,6 +171,19 @@ typedef NS_ENUM(NSInteger,WKCustomPopViewType) {
     WKCustomPopViewHaveTwoBtn = 4,///有2个按钮
     
 };
+///编辑用户信息按钮点击类型
+typedef NS_ENUM(NSInteger,WKEditUserInfoClicked) {
+
+    WKEditUserInfoAvatorClick = 1,///头像
+    WKEditUserInfoUsernameClick = 2,///用户名
+    WKEditUserInfoPhoneClick = 3,///电话号码
+    WKEditUserInfoRealnameClick = 4,///真实姓名
+    WKEditUserInfoUsercodeClick = 5,///证件号
+    WKEditUserInfoChangePwdClick = 6,///修改密码
+    WKEditUserInfoLogoutClick = 7,///退出登录
+    
+};
+
 
 //-----------------------
 //自定义的写在下面，通用的写在上面

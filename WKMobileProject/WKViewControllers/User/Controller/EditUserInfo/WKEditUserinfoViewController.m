@@ -7,8 +7,8 @@
 //
 
 #import "WKEditUserinfoViewController.h"
-
-@interface WKEditUserinfoViewController ()
+#import "WKEditUserInfoCell.h"
+@interface WKEditUserinfoViewController ()<WKEditUserInfoCellDelegate>
 
 @end
 
@@ -18,12 +18,57 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"个人中心";
+    
+    [self addTableView];
+    UINib   *nib = [UINib nibWithNibName:@"WKEditUserInfoCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark -- tableviewDelegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView              // Default is 1 if not implemented
+{
+    
+    return 1;
+    
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    return 600;
+ 
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    NSString *reuseCellId = nil;
+    
+    
+    reuseCellId = @"cell";
+    
+    WKEditUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    cell.delegate = self;
+    
+    return cell;
+   
+    
+    
+    
 }
 
 /*
@@ -35,5 +80,12 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+/**
+ 修改用户信息界面按钮点击代理方法
+ 
+ @param mType 选择的按钮类型（1头像，2用户名，3手机号，4真实信息，5证件号，6登录密码，7退出登录）
+ */
+- (void)WKEditUserInfoCellDelegateWithBtnClicked:(WKEditUserInfoClicked)mType{
+    MLLog(@"点击了%ld",mType);
+}
 @end

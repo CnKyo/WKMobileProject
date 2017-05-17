@@ -7,13 +7,15 @@
 //
 
 #import "WKUserViewController.h"
-#import "WKUserInfoViewController.h"
 
 #import "WKUserInfoCell.h"
 #import "WKUserInfoAdCell.h"
 #import "WKUserFuncCell.h"
 
 #import "WKUserMsgViewController.h"
+#import "WKEditUserinfoViewController.h"
+#import "WKJoinusViewController.h"
+#import "WKMyActivityViewController.h"
 @interface WKUserViewController ()<WKUserInfoCellDelegate,WKUserInfoAdCellDelegate>
 
 @end
@@ -201,6 +203,26 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 2) {
         MLLog(@"%ld行",indexPath.row);
+        switch (indexPath.row) {
+            case 0:
+            {
+            WKMyActivityViewController *vc = [WKMyActivityViewController new];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+            }
+                break;
+                
+            case 5:
+            {
+            WKJoinusViewController *vc = [WKJoinusViewController new];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+            }
+                break;
+                
+            default:
+                break;
+        }
     }
     
 }
@@ -214,6 +236,34 @@
  */
 - (void)WKUserInfoCellDelegateWithBtnClicked:(NSInteger)mTag{
     MLLog(@"选择的是:%ld",mTag);
+    switch (mTag) {
+        case 0:
+        {
+        WKEditUserinfoViewController *vc = [WKEditUserinfoViewController new];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+        
+        }
+            break;
+        case 1:
+        {
+        
+        }
+            break;
+        case 2:
+        {
+        
+        }
+            break;
+        case 3:
+        {
+        
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 /**
