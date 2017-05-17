@@ -12,11 +12,17 @@
 #import "WKUserInfoCell.h"
 #import "WKUserInfoAdCell.h"
 #import "WKUserFuncCell.h"
+
+#import "WKUserMsgViewController.h"
 @interface WKUserViewController ()<WKUserInfoCellDelegate,WKUserInfoAdCellDelegate>
 
 @end
 
 @implementation WKUserViewController
+{
+    UITableView *mTableView;
+
+}
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navBarHairlineImageView.hidden = YES;
@@ -38,10 +44,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"个人中心";
-    self.tableView.backgroundColor = M_CO;
+    self.view.backgroundColor = M_CO;
     self.navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
     
-    [self addTableView];
+    [self addRightBtn:YES andTitel:nil andImage:[UIImage imageNamed:@"icon_user_message"]];
+    [self setRightBtnImage:@"icon_user_message"];
+    
+    UIView *mView = [UIView new];
+    mView.backgroundColor = M_CO;
+    [self.view addSubview:mView];
+    
+    mTableView = [UITableView new];
+    
+    mTableView.delegate = self;
+    mTableView.dataSource = self;
+    mTableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    [self.view addSubview:mTableView];
+    
+    self.tableView = mTableView;
     
     UINib   *nib = [UINib nibWithNibName:@"WKUserInfoCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"headerCell"];
@@ -51,15 +71,34 @@
     
     nib = [UINib nibWithNibName:@"WKUserFuncCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"funcCell"];
-
     
-}
+    [mView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.view).offset(54);
+        make.height.offset(15);
+        make.bottom.equalTo(mTableView.mas_top);
+    }];
+    [mTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(mView.mas_bottom);
+    }];
+    [self addTableViewHeaderRefreshing];
 
+}
+- (void)tableViewHeaderReloadData{
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (void)rightBtnAction{
+    MLLog(@"消息");
+    
+    WKUserMsgViewController *vc = [WKUserMsgViewController new];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+}
 /*
 #pragma mark - Navigation
 

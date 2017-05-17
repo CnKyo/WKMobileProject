@@ -13,22 +13,22 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="WKUserInfoAdCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="114.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1uX-Hr-s3l">
-                        <rect key="frame" x="15" y="15" width="140" height="90"/>
+                        <rect key="frame" x="15" y="15" width="140" height="91.5"/>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.58431372550000005" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2XF-oK-6l5">
-                        <rect key="frame" x="165" y="15" width="140" height="90"/>
+                        <rect key="frame" x="165" y="15" width="140" height="91.5"/>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.58431372550000005" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ub-n6-x91">
-                        <rect key="frame" x="0.0" y="0.0" width="160" height="120"/>
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="115"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <state key="normal">
                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -38,7 +38,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ErX-bh-JRw">
-                        <rect key="frame" x="160" y="0.0" width="160" height="120"/>
+                        <rect key="frame" x="160" y="0.0" width="160" height="115"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <state key="normal">
                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -50,11 +50,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="2XF-oK-6l5" firstAttribute="width" secondItem="1uX-Hr-s3l" secondAttribute="width" id="5RQ-rD-N3p"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="1uX-Hr-s3l" secondAttribute="bottom" constant="6.5" id="6MB-C1-rkS"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="1uX-Hr-s3l" secondAttribute="bottom" id="6MB-C1-rkS"/>
                     <constraint firstItem="2XF-oK-6l5" firstAttribute="leading" secondItem="1uX-Hr-s3l" secondAttribute="trailing" constant="10" id="8h8-lJ-NFx"/>
                     <constraint firstItem="1uX-Hr-s3l" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="9bK-gs-icn"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ErX-bh-JRw" secondAttribute="trailing" constant="-8" id="Bv9-gn-u5J"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="2XF-oK-6l5" secondAttribute="bottom" constant="6.5" id="Dv7-6O-a4g"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="2XF-oK-6l5" secondAttribute="bottom" id="Dv7-6O-a4g"/>
                     <constraint firstItem="ErX-bh-JRw" firstAttribute="height" secondItem="0Ub-n6-x91" secondAttribute="height" id="GJm-CA-3Ij"/>
                     <constraint firstItem="ErX-bh-JRw" firstAttribute="width" secondItem="0Ub-n6-x91" secondAttribute="width" id="I60-Pf-6ZY"/>
                     <constraint firstAttribute="trailingMargin" secondItem="2XF-oK-6l5" secondAttribute="trailing" constant="7" id="SNW-KD-pPr"/>

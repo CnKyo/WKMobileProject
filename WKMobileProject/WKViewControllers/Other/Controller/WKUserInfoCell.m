@@ -23,7 +23,7 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    
+    self.contentView.backgroundColor = M_CO;
     [self.mSignBtn setButtonRoundedCornersWithView:self.contentView andCorners:UIRectCornerAllCorners radius:3.0];
 }
 - (IBAction)mHeadBtnAction:(UIButton *)sender {
