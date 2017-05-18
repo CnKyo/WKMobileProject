@@ -116,6 +116,9 @@
 		526B7D7F1ECC646000A43DCF /* WKMygoldenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 526B7D7E1ECC646000A43DCF /* WKMygoldenViewController.m */; };
 		526B7D831ECC64B900A43DCF /* WKMyGoldenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 526B7D811ECC64B900A43DCF /* WKMyGoldenCell.m */; };
 		526B7D841ECC64B900A43DCF /* WKMyGoldenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526B7D821ECC64B900A43DCF /* WKMyGoldenCell.xib */; };
+		5274A12B1ECD30600002B252 /* WKConnectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5274A1291ECD30600002B252 /* WKConnectCell.m */; };
+		5274A12C1ECD30600002B252 /* WKConnectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5274A12A1ECD30600002B252 /* WKConnectCell.xib */; };
+		5274A12F1ECD307A0002B252 /* WKConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5274A12E1ECD307A0002B252 /* WKConnectViewController.m */; };
 		5279A7321EC93DB900999B3D /* WaskBookingResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5279A7311EC93DB900999B3D /* WaskBookingResultController.m */; };
 		5279A7341EC93F7700999B3D /* WKBookingResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5279A7331EC93F7700999B3D /* WKBookingResultView.xib */; };
 		5279A7361EC9428A00999B3D /* WKBookingResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5279A7351EC9428A00999B3D /* WKBookingResultCell.xib */; };
@@ -376,6 +379,11 @@
 		526B7D801ECC64B900A43DCF /* WKMyGoldenCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyGoldenCell.h; sourceTree = "<group>"; };
 		526B7D811ECC64B900A43DCF /* WKMyGoldenCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMyGoldenCell.m; sourceTree = "<group>"; };
 		526B7D821ECC64B900A43DCF /* WKMyGoldenCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKMyGoldenCell.xib; sourceTree = "<group>"; };
+		5274A1281ECD30600002B252 /* WKConnectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKConnectCell.h; sourceTree = "<group>"; };
+		5274A1291ECD30600002B252 /* WKConnectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKConnectCell.m; sourceTree = "<group>"; };
+		5274A12A1ECD30600002B252 /* WKConnectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKConnectCell.xib; sourceTree = "<group>"; };
+		5274A12D1ECD307A0002B252 /* WKConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKConnectViewController.h; sourceTree = "<group>"; };
+		5274A12E1ECD307A0002B252 /* WKConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKConnectViewController.m; sourceTree = "<group>"; };
 		5279A7301EC93DB900999B3D /* WaskBookingResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaskBookingResultController.h; sourceTree = "<group>"; };
 		5279A7311EC93DB900999B3D /* WaskBookingResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaskBookingResultController.m; sourceTree = "<group>"; };
 		5279A7331EC93F7700999B3D /* WKBookingResultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKBookingResultView.xib; sourceTree = "<group>"; };
@@ -591,6 +599,7 @@
 				31507EA71EA06FE0007B8345 /* WKUserViewController.m */,
 				52289D871ECB042700D8A6F5 /* WKUserMsgViewController.h */,
 				52289D881ECB042700D8A6F5 /* WKUserMsgViewController.m */,
+				5274A1261ECD2FC30002B252 /* Connectus */,
 				526B7D7B1ECC643200A43DCF /* MyGolden */,
 				529D215C1ECC577400766E2F /* MyOrder */,
 				5229762C1ECC417C00FEB6D9 /* MyWash */,
@@ -1216,6 +1225,26 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		5274A1261ECD2FC30002B252 /* Connectus */ = {
+			isa = PBXGroup;
+			children = (
+				5274A1271ECD2FC30002B252 /* View */,
+				5274A12D1ECD307A0002B252 /* WKConnectViewController.h */,
+				5274A12E1ECD307A0002B252 /* WKConnectViewController.m */,
+			);
+			path = Connectus;
+			sourceTree = "<group>";
+		};
+		5274A1271ECD2FC30002B252 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5274A1281ECD30600002B252 /* WKConnectCell.h */,
+				5274A1291ECD30600002B252 /* WKConnectCell.m */,
+				5274A12A1ECD30600002B252 /* WKConnectCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		5279A7491EC9895A00999B3D /* MyWashBooking */ = {
 			isa = PBXGroup;
 			children = (
@@ -1507,6 +1536,7 @@
 				524E3EF01ECAA34600EF0224 /* WKBuyGoldCell.xib in Resources */,
 				524E3EF51ECAAEC900EF0224 /* WKActivityTableViewCell.xib in Resources */,
 				31A222001E99CFA00058A21B /* iPhoneTypeDefine.plist in Resources */,
+				5274A12C1ECD30600002B252 /* WKConnectCell.xib in Resources */,
 				524E3EE41ECA8A2500EF0224 /* WKPayVIPTopupCell.xib in Resources */,
 				52289D7C1ECAF09E00D8A6F5 /* WKUserInfoCell.xib in Resources */,
 				529D21531ECC50E800766E2F /* WKMyWashCell.xib in Resources */,
@@ -1671,6 +1701,7 @@
 				5279A7411EC95E1300999B3D /* WKWashGoPayViewController.m in Sources */,
 				31A222021E99CFA00058A21B /* CTLogger.m in Sources */,
 				31507E931EA06E7E007B8345 /* UIViewController+GYDNav.m in Sources */,
+				5274A12F1ECD307A0002B252 /* WKConnectViewController.m in Sources */,
 				52289D851ECAF8A500D8A6F5 /* WKUserFuncCell.m in Sources */,
 				31A222011E99CFA00058A21B /* CTLocationManager.m in Sources */,
 				52AC36501EC2C318000866D4 /* WKHomeTypeHeaderCell.m in Sources */,
@@ -1686,6 +1717,7 @@
 				52289D971ECB07C900D8A6F5 /* WKEditUserInfoCell.m in Sources */,
 				31507EA81EA06FE0007B8345 /* WKUserViewController.m in Sources */,
 				31A222101E99D0520058A21B /* WKAPIManager.m in Sources */,
+				5274A12B1ECD30600002B252 /* WKConnectCell.m in Sources */,
 				315FFC031E97D3C600C78440 /* main.m in Sources */,
 				524E3EE31ECA8A2500EF0224 /* WKPayVIPTopupCell.m in Sources */,
 				31A221AB1E99CCD00058A21B /* Util.m in Sources */,

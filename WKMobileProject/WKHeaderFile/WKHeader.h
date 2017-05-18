@@ -185,6 +185,12 @@ typedef NS_ENUM(NSInteger,WKEditUserInfoClicked) {
     
 };
 
+///联系我们or帮助中心
+typedef NS_ENUM(NSInteger,WKConnectUsOrHelpCenterType) {
+    
+    WKConnectUs = 1,///联系我们
+    WKHelpCenter = 2,///帮助中心
+};
 
 //-----------------------
 //自定义的写在下面，通用的写在上面

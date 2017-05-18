@@ -19,6 +19,7 @@
 #import "MyWashViewController.h"
 #import "WKMyOrderViewController.h"
 #import "WKMygoldenViewController.h"
+#import "WKConnectViewController.h"
 @interface WKUserViewController ()<WKUserInfoCellDelegate,WKUserInfoAdCellDelegate>
 
 @end
@@ -224,6 +225,23 @@
             case 2:
             {
             WKMyOrderViewController *vc = [WKMyOrderViewController new];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+            }
+                break;
+            case 3:
+            {
+            WKConnectViewController *vc = [WKConnectViewController new];
+            vc.mType = WKConnectUs;
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+            }
+                break;
+            case 4:
+            {
+            WKConnectViewController *vc = [WKConnectViewController new];
+            vc.mType = WKHelpCenter;
+
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
             }
