@@ -22,7 +22,7 @@ PODS:
   - AMapFoundation (1.4.0)
   - AMapLocation (2.4.0):
     - AMapFoundation (~> 1.4)
-  - AMapSearch (5.0.0):
+  - AMapSearch (5.1.0):
     - AMapFoundation (~> 1.2)
   - CustomIOSAlertView (0.9.5)
   - DACircularProgress (2.3.1)
@@ -51,7 +51,7 @@ PODS:
     - DACircularProgress
     - MBProgressHUD
     - SDWebImage
-  - RSKImageCropper (1.6.1)
+  - RSKImageCropper (1.6.2)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -112,7 +112,7 @@ SPEC CHECKSUMS:
   AMap2DMap: 003fa70526983a1469ae6fc3323a6ee8b5ccf53c
   AMapFoundation: 458974f46a39df8407fd818ab83d2630d494c726
   AMapLocation: 47b62b5381a66e4d0c2931b70ffde72682427896
-  AMapSearch: cf7fd100d533995822d92c22586abfaf7cdf6eef
+  AMapSearch: d4c924b929f433968669721a07b4bd57736f5f2a
   CustomIOSAlertView: cc4fa8e36219be3fd5ebcd40789f5b4aaae0f38e
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
@@ -133,7 +133,7 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MOBFoundation: e962b2aee79e2b8f626e2d30c2f23e9f13e5331e
   PYPhotoBrowser: 832154ec5e61c2c321d9be0e69af1fda8731e5ac
-  RSKImageCropper: 0df8c99e77a8ea7ca7a8b83ef468556f31584254
+  RSKImageCropper: 3e579d0000945a8be1c0efdad728fd9e25c2fd79
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   ShareSDK3: d271520113160eb24b31cd642b45b38fcd592d93
   SKTagView: 59cdadcd16e4a09300746ad1811a72371e1327f7
