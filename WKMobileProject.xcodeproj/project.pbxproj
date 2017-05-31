@@ -89,7 +89,6 @@
 		522976271ECC3D9300FEB6D9 /* WKMyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522976261ECC3D9300FEB6D9 /* WKMyActivityViewController.m */; };
 		5229762B1ECC413F00FEB6D9 /* WKSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5229762A1ECC413F00FEB6D9 /* WKSegmentControl.m */; };
 		522976301ECC418D00FEB6D9 /* MyWashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5229762F1ECC418D00FEB6D9 /* MyWashViewController.m */; };
-		5233F4401ECEE46400EC6F6E /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5233F43F1ECEE46400EC6F6E /* WKWebViewController.m */; };
 		52368FE91EC3FA15002524E5 /* WKWashTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52368FE81EC3FA15002524E5 /* WKWashTableHeaderView.m */; };
 		52368FEB1EC3FA1D002524E5 /* WKWashTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52368FEA1EC3FA1D002524E5 /* WKWashTableHeaderView.xib */; };
 		52368FEF1EC3FEEC002524E5 /* WKWashTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52368FED1EC3FEEC002524E5 /* WKWashTableCell.m */; };
@@ -338,8 +337,6 @@
 		5229762A1ECC413F00FEB6D9 /* WKSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKSegmentControl.m; sourceTree = "<group>"; };
 		5229762E1ECC418D00FEB6D9 /* MyWashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWashViewController.h; sourceTree = "<group>"; };
 		5229762F1ECC418D00FEB6D9 /* MyWashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWashViewController.m; sourceTree = "<group>"; };
-		5233F43E1ECEE46400EC6F6E /* WKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
-		5233F43F1ECEE46400EC6F6E /* WKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
 		52368FE71EC3FA15002524E5 /* WKWashTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWashTableHeaderView.h; sourceTree = "<group>"; };
 		52368FE81EC3FA15002524E5 /* WKWashTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWashTableHeaderView.m; sourceTree = "<group>"; };
 		52368FEA1EC3FA1D002524E5 /* WKWashTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKWashTableHeaderView.xib; sourceTree = "<group>"; };
@@ -774,7 +771,6 @@
 		31A221A21E99CB5D0058A21B /* WKViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5233F43D1ECEE45A00EC6F6E /* Web */,
 				31507E971EA06FA8007B8345 /* Home */,
 				31507E9A1EA06FA8007B8345 /* Find */,
 				31507E9D1EA06FA8007B8345 /* User */,
@@ -1152,15 +1148,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		5233F43D1ECEE45A00EC6F6E /* Web */ = {
-			isa = PBXGroup;
-			children = (
-				5233F43E1ECEE46400EC6F6E /* WKWebViewController.h */,
-				5233F43F1ECEE46400EC6F6E /* WKWebViewController.m */,
-			);
-			path = Web;
-			sourceTree = "<group>";
-		};
 		52368FF11EC4092F002524E5 /* WashBooking */ = {
 			isa = PBXGroup;
 			children = (
@@ -1504,7 +1491,6 @@
 				TargetAttributes = {
 					315FFBFD1E97D3C600C78440 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 7U7AE55838;
 						ProvisioningStyle = Automatic;
 					};
 					315FFC161E97D3C700C78440 = {
@@ -1709,7 +1695,6 @@
 				526B7D831ECC64B900A43DCF /* WKMyGoldenCell.m in Sources */,
 				31A221FC1E99CFA00058A21B /* CTApiProxy.m in Sources */,
 				5279A7671EC9AB9000999B3D /* WKTopupCollectionReusableView.m in Sources */,
-				5233F4401ECEE46400EC6F6E /* WKWebViewController.m in Sources */,
 				52AC366C1EC3039B000866D4 /* WKWashViewController.m in Sources */,
 				522976201ECC391B00FEB6D9 /* WKJoinProgressView.m in Sources */,
 				52368FF51EC40949002524E5 /* WKWashBookingViewController.m in Sources */,
@@ -1917,10 +1902,9 @@
 			baseConfigurationReference = 958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7U7AE55838;
 				INFOPLIST_FILE = WKMobileProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tengle.happyschool;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiewei.WKMobileProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1930,10 +1914,9 @@
 			baseConfigurationReference = 26A28E8D6E0DC80F8B4AF8C5 /* Pods-WKMobileProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7U7AE55838;
 				INFOPLIST_FILE = WKMobileProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tengle.happyschool;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiewei.WKMobileProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

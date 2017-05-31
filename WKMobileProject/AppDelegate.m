@@ -29,15 +29,6 @@
     
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
                                                          forBarMetrics:UIBarMetricsDefault];
-
-    
-    [WXAppConfiguration setAppName:@"lifeApp"];
-    [WXAppConfiguration setAppGroup:[Util getAPPName]];
-    [WXAppConfiguration setAppVersion:[Util getAppVersion]];
-    
-    [WXSDKEngine initSDKEnvironment];
-    
-
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

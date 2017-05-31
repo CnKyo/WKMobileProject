@@ -16,8 +16,6 @@
 #import "WKWashViewController.h"
 #import "WKVipTopupViewController.h"
 #import "WKBuyGoldenViewController.h"
-
-#import "WKWebViewController.h"
 @interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
@@ -231,8 +229,6 @@
  */
 - (void)WKHomeScrollerLabelDidSelected{
     MLLog(@"跑马灯");
-    
-    WKWebViewController 
 }
 
 /**

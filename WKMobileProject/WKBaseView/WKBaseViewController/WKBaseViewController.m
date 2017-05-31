@@ -71,6 +71,7 @@
         self.tableView.tableFooterView = [UIView new];
         [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.view);
+
             make.height.equalTo(self.view.mas_height);
         }];
     }
