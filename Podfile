@@ -40,4 +40,5 @@ target 'WKMobileProject' do
   pod 'HandyFrame'
   pod 'ZYCornerRadius', '~> 1.0.2'
   pod 'YYModel'
+  pod 'WeexSDK'
 end

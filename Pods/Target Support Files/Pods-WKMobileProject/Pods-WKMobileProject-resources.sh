@@ -89,6 +89,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle"
   install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
   install_resource "ShareSDK3/ShareSDK/Support/Required/ShareSDK.bundle"
+  install_resource "WeexSDK/WeexSDK.framework/main.js"
+  install_resource "WeexSDK/WeexSDK.framework/wx_load_error@3x.png"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "AMap2DMap/MAMapKit.framework/AMap.bundle"
@@ -100,6 +102,8 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle"
   install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
   install_resource "ShareSDK3/ShareSDK/Support/Required/ShareSDK.bundle"
+  install_resource "WeexSDK/WeexSDK.framework/main.js"
+  install_resource "WeexSDK/WeexSDK.framework/wx_load_error@3x.png"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
