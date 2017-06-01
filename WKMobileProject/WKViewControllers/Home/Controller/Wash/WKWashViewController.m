@@ -13,6 +13,7 @@
 
 #import "WKWashBookingViewController.h"
 #import "WKMyWashBookingViewController.h"
+#import "WKScanDeviceViewController.h"
 @interface WKWashViewController ()<WKWashTableHeaderViewDelegate,WKWashHeaderViewDelegate>
 {
     BOOL  Display[100];
@@ -105,6 +106,9 @@
             break;
         case 3:
         {
+        UIStoryboard *board = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        WKScanDeviceViewController *vc = [board instantiateViewControllerWithIdentifier:@"scan"];;
+        [self pushViewController:vc];
         MLLog(@"立即使用");
         }
             break;

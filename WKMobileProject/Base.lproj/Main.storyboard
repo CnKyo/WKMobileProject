@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -207,5 +208,108 @@
             </objects>
             <point key="canvasLocation" x="-1631" y="233"/>
         </scene>
+        <!--Scan Device View Controller-->
+        <scene sceneID="F9v-OV-XeB">
+            <objects>
+                <viewController storyboardIdentifier="scan" hidesBottomBarWhenPushed="YES" id="0Z5-AF-WKf" customClass="WKScanDeviceViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IBf-sN-ObY"/>
+                        <viewControllerLayoutGuide type="bottom" id="wFX-YP-CgQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gx9-7H-P0k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="190-iN-i37" customClass="CountDownLabel">
+                                <rect key="frame" x="66" y="56" width="243" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scancode_box" translatesAutoresizingMaskIntoConstraints="NO" id="J0o-YS-ycS">
+                                <rect key="frame" x="187.5" y="317.5" width="0.0" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="J0o-YS-ycS" secondAttribute="height" multiplier="6:5" id="2K3-qi-G7i"/>
+                                    <constraint firstAttribute="width" id="CeU-tr-WBb"/>
+                                </constraints>
+                            </imageView>
+                            <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yQx-Og-KTl">
+                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFL-nQ-4sB">
+                                        <rect key="frame" x="100" y="13" width="45" height="54"/>
+                                        <state key="normal" image="scancode_photo"/>
+                                        <connections>
+                                            <action selector="photoBtnAction:" destination="0Z5-AF-WKf" eventType="touchUpInside" id="MNg-7j-6Os"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCM-hi-oaW">
+                                        <rect key="frame" x="230" y="13" width="45" height="54"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="xCM-hi-oaW" secondAttribute="height" multiplier="5:6" id="MWZ-Sw-xtT"/>
+                                            <constraint firstAttribute="width" constant="45" id="P3Z-Tm-iFq"/>
+                                        </constraints>
+                                        <state key="normal" image="scancode_light"/>
+                                        <state key="selected" image="scancode_light_select"/>
+                                        <connections>
+                                            <action selector="lightBtnAction:" destination="0Z5-AF-WKf" eventType="touchUpInside" id="Ig5-pU-SQb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="SFL-nQ-4sB" firstAttribute="centerY" secondItem="xCM-hi-oaW" secondAttribute="centerY" id="CWt-9l-0Hp"/>
+                                    <constraint firstAttribute="trailing" secondItem="xCM-hi-oaW" secondAttribute="trailing" constant="100" id="Cge-OE-G09"/>
+                                    <constraint firstItem="xCM-hi-oaW" firstAttribute="height" secondItem="SFL-nQ-4sB" secondAttribute="height" id="SKK-iI-jeb"/>
+                                    <constraint firstItem="xCM-hi-oaW" firstAttribute="width" secondItem="SFL-nQ-4sB" secondAttribute="width" id="Vad-vV-nXR"/>
+                                    <constraint firstItem="xCM-hi-oaW" firstAttribute="centerY" secondItem="yQx-Og-KTl" secondAttribute="centerY" id="WN8-mO-cRx"/>
+                                    <constraint firstItem="SFL-nQ-4sB" firstAttribute="leading" secondItem="yQx-Og-KTl" secondAttribute="leading" constant="100" id="ZL3-Bg-mv1"/>
+                                    <constraint firstAttribute="height" constant="80" id="hZi-Xf-1R6"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="将二维码/条形码放入框内,即可自动扫描" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htl-Vp-pNN">
+                                <rect key="frame" x="70.5" y="281.5" width="234" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aSs-JE-gXa">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Htl-Vp-pNN" firstAttribute="centerX" secondItem="gx9-7H-P0k" secondAttribute="centerX" id="1Xl-WR-fUT"/>
+                            <constraint firstItem="J0o-YS-ycS" firstAttribute="centerY" secondItem="gx9-7H-P0k" secondAttribute="centerY" constant="-16" id="4iy-c2-Fhu"/>
+                            <constraint firstItem="J0o-YS-ycS" firstAttribute="centerX" secondItem="gx9-7H-P0k" secondAttribute="centerX" id="BWH-qN-Bhi"/>
+                            <constraint firstItem="aSs-JE-gXa" firstAttribute="centerX" secondItem="gx9-7H-P0k" secondAttribute="centerX" id="BbZ-OI-KpZ"/>
+                            <constraint firstItem="J0o-YS-ycS" firstAttribute="top" secondItem="Htl-Vp-pNN" secondAttribute="bottom" constant="20" id="Ipv-wt-Kwj"/>
+                            <constraint firstAttribute="trailing" secondItem="yQx-Og-KTl" secondAttribute="trailing" id="Ocb-PR-6aR"/>
+                            <constraint firstItem="190-iN-i37" firstAttribute="top" secondItem="IBf-sN-ObY" secondAttribute="bottom" constant="36" id="fNv-BC-GtW"/>
+                            <constraint firstItem="190-iN-i37" firstAttribute="leading" secondItem="gx9-7H-P0k" secondAttribute="leadingMargin" constant="50" id="g9V-1H-Amh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="190-iN-i37" secondAttribute="trailing" constant="50" id="hya-4Z-waD"/>
+                            <constraint firstItem="yQx-Og-KTl" firstAttribute="leading" secondItem="gx9-7H-P0k" secondAttribute="leading" id="m00-8T-h7R"/>
+                            <constraint firstItem="aSs-JE-gXa" firstAttribute="centerY" secondItem="gx9-7H-P0k" secondAttribute="centerY" id="sBt-0V-Nnh"/>
+                            <constraint firstAttribute="bottom" secondItem="yQx-Og-KTl" secondAttribute="bottom" id="yL9-FJ-7JR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="_boxLayoutConstraint" destination="CeU-tr-WBb" id="4Bs-9K-WfV"/>
+                        <outlet property="_contentLabel" destination="Htl-Vp-pNN" id="eSc-Ii-nbY"/>
+                        <outlet property="_loaddingIndicatorView" destination="aSs-JE-gXa" id="EQc-0X-20V"/>
+                        <outlet property="_scanPane" destination="J0o-YS-ycS" id="gXV-kW-uxH"/>
+                        <outlet property="mCountLb" destination="190-iN-i37" id="rNo-Ov-gHw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4oe-Px-RWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-598" y="5279"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="scancode_box" width="260" height="260"/>
+        <image name="scancode_light" width="60" height="72"/>
+        <image name="scancode_light_select" width="60" height="72"/>
+        <image name="scancode_photo" width="60" height="72"/>
+    </resources>
 </document>

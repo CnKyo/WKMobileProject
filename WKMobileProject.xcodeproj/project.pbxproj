@@ -164,6 +164,11 @@
 		529D8E6A1EE0008A00BF0FDE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529D8E691EE0008A00BF0FDE /* JavaScriptCore.framework */; };
 		529D8E6C1EE0008F00BF0FDE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529D8E6B1EE0008F00BF0FDE /* AVFoundation.framework */; };
 		529D8E6E1EE000A800BF0FDE /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 529D8E6D1EE000A800BF0FDE /* libsqlite3.0.tbd */; };
+		529D8E791EE0109200BF0FDE /* WKScanDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D8E781EE0109200BF0FDE /* WKScanDeviceViewController.m */; };
+		529D8E841EE010B300BF0FDE /* NSString+QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D8E7C1EE010B300BF0FDE /* NSString+QRCode.m */; };
+		529D8E851EE010B300BF0FDE /* UIImage+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D8E7E1EE010B300BF0FDE /* UIImage+Extend.m */; };
+		529D8E861EE010B300BF0FDE /* ControlRunLoopTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D8E811EE010B300BF0FDE /* ControlRunLoopTool.m */; };
+		529D8E871EE010B300BF0FDE /* CountDownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D8E831EE010B300BF0FDE /* CountDownLabel.m */; };
 		52AC36341EC2A059000866D4 /* FDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC362F1EC2A059000866D4 /* FDAlertView.m */; };
 		52AC36351EC2A059000866D4 /* WKCustomPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC36321EC2A059000866D4 /* WKCustomPopView.m */; };
 		52AC36361EC2A059000866D4 /* WKCustomPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AC36331EC2A059000866D4 /* WKCustomPopView.xib */; };
@@ -467,6 +472,16 @@
 		529D8E691EE0008A00BF0FDE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		529D8E6B1EE0008F00BF0FDE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		529D8E6D1EE000A800BF0FDE /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		529D8E771EE0109200BF0FDE /* WKScanDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKScanDeviceViewController.h; sourceTree = "<group>"; };
+		529D8E781EE0109200BF0FDE /* WKScanDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKScanDeviceViewController.m; sourceTree = "<group>"; };
+		529D8E7B1EE010B300BF0FDE /* NSString+QRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QRCode.h"; sourceTree = "<group>"; };
+		529D8E7C1EE010B300BF0FDE /* NSString+QRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QRCode.m"; sourceTree = "<group>"; };
+		529D8E7D1EE010B300BF0FDE /* UIImage+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extend.h"; sourceTree = "<group>"; };
+		529D8E7E1EE010B300BF0FDE /* UIImage+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extend.m"; sourceTree = "<group>"; };
+		529D8E801EE010B300BF0FDE /* ControlRunLoopTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlRunLoopTool.h; sourceTree = "<group>"; };
+		529D8E811EE010B300BF0FDE /* ControlRunLoopTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlRunLoopTool.m; sourceTree = "<group>"; };
+		529D8E821EE010B300BF0FDE /* CountDownLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountDownLabel.h; sourceTree = "<group>"; };
+		529D8E831EE010B300BF0FDE /* CountDownLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountDownLabel.m; sourceTree = "<group>"; };
 		52AC362E1EC2A059000866D4 /* FDAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDAlertView.h; sourceTree = "<group>"; };
 		52AC362F1EC2A059000866D4 /* FDAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDAlertView.m; sourceTree = "<group>"; };
 		52AC36311EC2A059000866D4 /* WKCustomPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKCustomPopView.h; sourceTree = "<group>"; };
@@ -793,6 +808,8 @@
 		31632CC01EAB6E750057B161 /* WKOtherResource */ = {
 			isa = PBXGroup;
 			children = (
+				529D8E7A1EE010B300BF0FDE /* ScanCode */,
+				529D8E7F1EE010B300BF0FDE /* WKCountTimeLb */,
 				529D8E461EDFF9D000BF0FDE /* MarqueeBar */,
 				522976281ECC413F00FEB6D9 /* WKSegmentView */,
 				52AC36521EC2C4C6000866D4 /* UIBannerView */,
@@ -1393,6 +1410,37 @@
 			path = MarqueeBar;
 			sourceTree = "<group>";
 		};
+		529D8E761EE0107C00BF0FDE /* ScanDevice */ = {
+			isa = PBXGroup;
+			children = (
+				529D8E771EE0109200BF0FDE /* WKScanDeviceViewController.h */,
+				529D8E781EE0109200BF0FDE /* WKScanDeviceViewController.m */,
+			);
+			path = ScanDevice;
+			sourceTree = "<group>";
+		};
+		529D8E7A1EE010B300BF0FDE /* ScanCode */ = {
+			isa = PBXGroup;
+			children = (
+				529D8E7B1EE010B300BF0FDE /* NSString+QRCode.h */,
+				529D8E7C1EE010B300BF0FDE /* NSString+QRCode.m */,
+				529D8E7D1EE010B300BF0FDE /* UIImage+Extend.h */,
+				529D8E7E1EE010B300BF0FDE /* UIImage+Extend.m */,
+			);
+			path = ScanCode;
+			sourceTree = "<group>";
+		};
+		529D8E7F1EE010B300BF0FDE /* WKCountTimeLb */ = {
+			isa = PBXGroup;
+			children = (
+				529D8E801EE010B300BF0FDE /* ControlRunLoopTool.h */,
+				529D8E811EE010B300BF0FDE /* ControlRunLoopTool.m */,
+				529D8E821EE010B300BF0FDE /* CountDownLabel.h */,
+				529D8E831EE010B300BF0FDE /* CountDownLabel.m */,
+			);
+			path = WKCountTimeLb;
+			sourceTree = "<group>";
+		};
 		52AC362D1EC2A059000866D4 /* UIFDCustom+PopView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1448,6 +1496,7 @@
 			children = (
 				52AC366A1EC3039B000866D4 /* WKWashViewController.h */,
 				52AC366B1EC3039B000866D4 /* WKWashViewController.m */,
+				529D8E761EE0107C00BF0FDE /* ScanDevice */,
 				5279A7491EC9895A00999B3D /* MyWashBooking */,
 				52368FF11EC4092F002524E5 /* WashBooking */,
 				52AC36691EC30389000866D4 /* View */,
@@ -1757,6 +1806,7 @@
 				52368FFE1EC412F0002524E5 /* WKWashBookingCell.m in Sources */,
 				31A221FA1E99CFA00058A21B /* NSURLRequest+CTNetworkingMethods.m in Sources */,
 				522976111ECC2B3F00FEB6D9 /* WKJoinusViewController.m in Sources */,
+				529D8E841EE010B300BF0FDE /* NSString+QRCode.m in Sources */,
 				315FFC091E97D3C600C78440 /* ViewController.m in Sources */,
 				529D215B1ECC534E00766E2F /* WKMyWashDetailViewController.m in Sources */,
 				522976301ECC418D00FEB6D9 /* MyWashViewController.m in Sources */,
@@ -1794,6 +1844,7 @@
 				31A221F91E99CFA00058A21B /* NSString+AXNetworkingMethods.m in Sources */,
 				5229761C1ECC30AD00FEB6D9 /* WKJoinusApplyViewController.m in Sources */,
 				52EFE1901EDECC74004CDA65 /* WKModel.m in Sources */,
+				529D8E871EE010B300BF0FDE /* CountDownLabel.m in Sources */,
 				52AC36551EC2C4C6000866D4 /* RKImageBrowser.m in Sources */,
 				526B7D831ECC64B900A43DCF /* WKMyGoldenCell.m in Sources */,
 				31A221FC1E99CFA00058A21B /* CTApiProxy.m in Sources */,
@@ -1827,6 +1878,7 @@
 				31A222131E99D2B50058A21B /* WKBaseViewController.m in Sources */,
 				524E3EDF1ECA89DD00EF0224 /* WKPayVIPTopupViewController.m in Sources */,
 				31E289411EB21A47006C9756 /* WKHttpRequest.m in Sources */,
+				529D8E851EE010B300BF0FDE /* UIImage+Extend.m in Sources */,
 				31A221FE1E99CFA00058A21B /* CTCache.m in Sources */,
 				31A221F71E99CFA00058A21B /* NSMutableString+AXNetworkingMethods.m in Sources */,
 				52289D7B1ECAF09E00D8A6F5 /* WKUserInfoCell.m in Sources */,
@@ -1853,11 +1905,13 @@
 				52289D721ECAE94700D8A6F5 /* WKPlayGameViewController.m in Sources */,
 				524E3EF41ECAAEC900EF0224 /* WKActivityTableViewCell.m in Sources */,
 				52AC36341EC2A059000866D4 /* FDAlertView.m in Sources */,
+				529D8E861EE010B300BF0FDE /* ControlRunLoopTool.m in Sources */,
 				31632CBE1EAB02AF0057B161 /* WKTrainDemandCell.m in Sources */,
 				52289D931ECB07A900D8A6F5 /* WKEditUserinfoViewController.m in Sources */,
 				524E3EF91ECACD5B00EF0224 /* WKFindHeaderCell.m in Sources */,
 				31A2220A1E99CFA10058A21B /* CTAppContext.m in Sources */,
 				31A222041E99CFA10058A21B /* CTCommonParamsGenerator.m in Sources */,
+				529D8E791EE0109200BF0FDE /* WKScanDeviceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
