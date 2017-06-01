@@ -118,7 +118,8 @@ NSIndexPath *indexPath = [tableview indexPathForRowAtPoint:subviewFrame.origin];
 UITableViewCell *cell=[tableview cellForRowAtIndexPath:indexPath];\
 cell;\
 })\
-
+///jpush Key
+static NSString* const kJpushKey                   = @"aff37128ca29fc8f5f3afa8f";
 ///火车票查询key
 static NSString* const kMobTrainDemandKey                   = @"cdfd2af73a77";
 ///火车票api接口地址
