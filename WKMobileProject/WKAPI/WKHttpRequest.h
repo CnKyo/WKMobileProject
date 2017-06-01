@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "WKHeader.h"
+#import "WKModel.h"
 #import "AppDelegate.h"
+@class WKBaseInfo;
 @interface WKHttpRequest : AFHTTPSessionManager
+
+@property(nonatomic, strong) NSMutableDictionary *conDic;//存网络链接，便于取消
 
 + (instancetype)shareClient;
 
@@ -31,6 +35,15 @@
  *  @param failueBlock  请求失败的回调
  */
 + (void)WKPostNetDataWith:(NSString*)str withDic:(NSDictionary*)dic andSuccess:(void(^)(NSDictionary* dictionary))successBlock  andFailure:(void(^)())failueBlock;
+#pragma mark----****----*  封装的post请求
+/**
+ *  封装的post请求
+ *
+ *  @param url          url
+ *  @param para          参数
+ *  @param block 请求成功的回调
+ */
+- (void)WKPostDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKBaseInfo *info))block;
 
 /**
  图片上传

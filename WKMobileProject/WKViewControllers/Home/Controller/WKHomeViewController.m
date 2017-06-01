@@ -69,6 +69,18 @@
     [mBannerArr addObjectsFromArray:mArr];
     
     [self.tableView reloadData];
+    
+    NSMutableDictionary *para = [NSMutableDictionary new];
+    [para setObject:kMobTrainDemandKey forKey:@"key"];
+    [para setObject:@"K688" forKey:@"trainno"];
+    [self showWithLoading:@"loading..."];
+    [WKBaseInfo WKFindTrainNumber:para block:^(WKBaseInfo *info, NSArray *list) {
+        if (info.status == kRetCodeSucess) {
+            [self showSucess:info.msg];
+        }else{
+            [self showError:info.msg];
+        }
+    }];
 }
 - (void)tableViewFooterReloadData{
 
@@ -189,7 +201,7 @@
     if (indexPath.section == 0) {
         reuseCellId = @"normalCell";
         
-        WKHomeTypeHeaderCell  *cell = [[WKHomeTypeHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellId andBannerDataSource:mBannerArr andDataSource:mBannerArr andScrollerLabelTx:@"这是跑马风这是跑马风这是跑马风这是跑马风"];
+        WKHomeTypeHeaderCell  *cell = [[WKHomeTypeHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellId andBannerDataSource:mBannerArr andDataSource:mBannerArr andScrollerLabelTx:[NSString stringWithFormat:@"%@            ",@"这是跑马风这是跑马风这是跑马风这是跑马风"]];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         

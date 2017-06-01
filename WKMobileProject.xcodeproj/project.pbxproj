@@ -145,6 +145,7 @@
 		529D21641ECC580F00766E2F /* WKMyOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D21621ECC580F00766E2F /* WKMyOrderCell.m */; };
 		529D21651ECC580F00766E2F /* WKMyOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529D21631ECC580F00766E2F /* WKMyOrderCell.xib */; };
 		529D21681ECC5E3A00766E2F /* WKMyOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D21671ECC5E3A00766E2F /* WKMyOrderDetailViewController.m */; };
+		529D8E491EDFF9E100BF0FDE /* WKMarqueeBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D8E481EDFF9E100BF0FDE /* WKMarqueeBar.m */; };
 		52AC36341EC2A059000866D4 /* FDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC362F1EC2A059000866D4 /* FDAlertView.m */; };
 		52AC36351EC2A059000866D4 /* WKCustomPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC36321EC2A059000866D4 /* WKCustomPopView.m */; };
 		52AC36361EC2A059000866D4 /* WKCustomPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AC36331EC2A059000866D4 /* WKCustomPopView.xib */; };
@@ -168,6 +169,7 @@
 		52AC366C1EC3039B000866D4 /* WKWashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC366B1EC3039B000866D4 /* WKWashViewController.m */; };
 		52AC366F1EC314CD000866D4 /* WKWashHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC366E1EC314CD000866D4 /* WKWashHeaderView.m */; };
 		52AC36711EC314D2000866D4 /* WKWashHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AC36701EC314D2000866D4 /* WKWashHeaderView.xib */; };
+		52EFE1901EDECC74004CDA65 /* WKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EFE18F1EDECC74004CDA65 /* WKModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -426,6 +428,8 @@
 		529D21631ECC580F00766E2F /* WKMyOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKMyOrderCell.xib; sourceTree = "<group>"; };
 		529D21661ECC5E3A00766E2F /* WKMyOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyOrderDetailViewController.h; sourceTree = "<group>"; };
 		529D21671ECC5E3A00766E2F /* WKMyOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMyOrderDetailViewController.m; sourceTree = "<group>"; };
+		529D8E471EDFF9E100BF0FDE /* WKMarqueeBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMarqueeBar.h; sourceTree = "<group>"; };
+		529D8E481EDFF9E100BF0FDE /* WKMarqueeBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMarqueeBar.m; sourceTree = "<group>"; };
 		52AC362E1EC2A059000866D4 /* FDAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDAlertView.h; sourceTree = "<group>"; };
 		52AC362F1EC2A059000866D4 /* FDAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDAlertView.m; sourceTree = "<group>"; };
 		52AC36311EC2A059000866D4 /* WKCustomPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKCustomPopView.h; sourceTree = "<group>"; };
@@ -466,6 +470,8 @@
 		52AC366D1EC314CD000866D4 /* WKWashHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWashHeaderView.h; sourceTree = "<group>"; };
 		52AC366E1EC314CD000866D4 /* WKWashHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWashHeaderView.m; sourceTree = "<group>"; };
 		52AC36701EC314D2000866D4 /* WKWashHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKWashHeaderView.xib; sourceTree = "<group>"; };
+		52EFE18E1EDECC74004CDA65 /* WKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKModel.h; sourceTree = "<group>"; };
+		52EFE18F1EDECC74004CDA65 /* WKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKModel.m; sourceTree = "<group>"; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD07EEDDCB555B036A1A24CA /* libPods-WKMobileProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -731,6 +737,7 @@
 		31632CC01EAB6E750057B161 /* WKOtherResource */ = {
 			isa = PBXGroup;
 			children = (
+				529D8E461EDFF9D000BF0FDE /* MarqueeBar */,
 				522976281ECC413F00FEB6D9 /* WKSegmentView */,
 				52AC36521EC2C4C6000866D4 /* UIBannerView */,
 				52AC36371EC2C086000866D4 /* UILoopLabel */,
@@ -787,6 +794,8 @@
 				31A2220F1E99D0520058A21B /* WKAPIManager.m */,
 				31E2893F1EB21A47006C9756 /* WKHttpRequest.h */,
 				31E289401EB21A47006C9756 /* WKHttpRequest.m */,
+				52EFE18E1EDECC74004CDA65 /* WKModel.h */,
+				52EFE18F1EDECC74004CDA65 /* WKModel.m */,
 			);
 			path = WKAPI;
 			sourceTree = "<group>";
@@ -1319,6 +1328,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		529D8E461EDFF9D000BF0FDE /* MarqueeBar */ = {
+			isa = PBXGroup;
+			children = (
+				529D8E471EDFF9E100BF0FDE /* WKMarqueeBar.h */,
+				529D8E481EDFF9E100BF0FDE /* WKMarqueeBar.m */,
+			);
+			path = MarqueeBar;
+			sourceTree = "<group>";
+		};
 		52AC362D1EC2A059000866D4 /* UIFDCustom+PopView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1683,6 +1701,7 @@
 				315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */,
 				52368FEF1EC3FEEC002524E5 /* WKWashTableCell.m in Sources */,
 				31A221F61E99CFA00058A21B /* NSDictionary+AXNetworkingMethods.m in Sources */,
+				529D8E491EDFF9E100BF0FDE /* WKMarqueeBar.m in Sources */,
 				529D21681ECC5E3A00766E2F /* WKMyOrderDetailViewController.m in Sources */,
 				31632CC81EAB6EFB0057B161 /* WKUIButtonCorners.m in Sources */,
 				526B7D7F1ECC646000A43DCF /* WKMygoldenViewController.m in Sources */,
@@ -1691,6 +1710,7 @@
 				529D21571ECC533900766E2F /* MyWashDetailCell.m in Sources */,
 				31A221F91E99CFA00058A21B /* NSString+AXNetworkingMethods.m in Sources */,
 				5229761C1ECC30AD00FEB6D9 /* WKJoinusApplyViewController.m in Sources */,
+				52EFE1901EDECC74004CDA65 /* WKModel.m in Sources */,
 				52AC36551EC2C4C6000866D4 /* RKImageBrowser.m in Sources */,
 				526B7D831ECC64B900A43DCF /* WKMyGoldenCell.m in Sources */,
 				31A221FC1E99CFA00058A21B /* CTApiProxy.m in Sources */,

@@ -449,5 +449,13 @@
      @return 返回字符串
      */
 + (NSString *)wk_stringToSubString:(NSInteger)mIndex withString:(NSString *)mString;
-    
-    @end
+
+/**
+ *  对象转换为字典
+ *
+ *  @param obj 需要转化的对象
+ *
+ *  @return 转换后的字典
+ */
++ (NSDictionary*)ObjectToData:(id)obj;
+@end

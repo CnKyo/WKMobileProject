@@ -9,6 +9,7 @@
 #import "WKHomeTypeHeaderCell.h"
 #import "WKCustomBtnView.h"
 #import "SXMarquee.h"
+#import "WKMarqueeBar.h"
 @implementation WKHomeTypeHeaderCell
 
 - (void)awakeFromNib {
@@ -59,20 +60,17 @@
         mShadow.image = [UIImage imageNamed:@"ZLHomeBanner_shadow"];
         [self.contentView addSubview:mShadow];
         
-        SXMarquee *marView = [[SXMarquee alloc]initWithFrame:CGRectMake(90, 200, screen_width-90, 40) speed:4 Msg:mText bgColor:COLOR(244, 248, 254) txtColor:[UIColor blackColor]];
-        [marView changeMarqueeLabelFont:[UIFont systemFontOfSize:15]];
-        
         __weak typeof(self)weakSelf = self;
-        
-        [marView changeTapMarqueeAction:^{
-    
+
+        WKMarqueeBar* marqueeBar = [WKMarqueeBar marqueeBarWithFrame:CGRectMake(90, 200, screen_width-90, 40) title:mText action:^(UIButton *btn) {
             if ([weakSelf.delegate respondsToSelector:@selector(WKHomeScrollerLabelDidSelected)]) {
                 [weakSelf.delegate WKHomeScrollerLabelDidSelected];
             }
-
         }];
-        [marView start];
-        [self.contentView addSubview:marView];
+        marqueeBar.tintColor = [UIColor blackColor];
+        marqueeBar.backgroundColor = COLOR(244, 248, 254);
+        
+        [self.contentView addSubview:marqueeBar];
         
         
         if (mDataSource.count > 0) {

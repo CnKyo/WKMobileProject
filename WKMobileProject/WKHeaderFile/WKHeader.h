@@ -20,6 +20,7 @@
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import <LPActionSheet.h>
 #import <SVProgressHUD.h>
+#import <MBProgressHUD.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/Photos.h>
 #import <Masonry.h>
@@ -35,6 +36,7 @@
 
 #import <UIView+LayoutMethods.h>
 #import "WKSegmentControl.h"
+#import "WKModel.h"
 //#define  WKSyncQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
 #define ColorRGB(_R_, _G_, _B_)       ([UIColor colorWithRed:_R_/255.0f green:_G_/255.0f blue:_B_/255.0f alpha:1])
@@ -120,15 +122,23 @@ cell;\
 ///火车票查询key
 static NSString* const kMobTrainDemandKey                   = @"cdfd2af73a77";
 ///火车票api接口地址
-static NSString* const kMobTainAPIURLString                 = @"http://apicloud.mob.com/train/tickets/";
+static NSString* const kMobTainAPIURLString                 = @"https://apicloud.mob.com/train/tickets/";
 
 ///api访问地址
-static NSString* const  kAFAppDotNetApiBaseURLString        = @"http://app.china-cr.com";
+static NSString* const  kAFAppDotNetApiBaseURLString        = @"https://app.china-cr.com";
 static NSString* const  kAFAppDotNetApiExtraURLString       = @"/api/app/client";
 static NSString* const  kAFAppDotNetApiServiceURLString     = @"/api/app/service";
 static NSString* const  kAFAppDotNetImgBaseURLString        = @"http://resource.china-cr.com/resource";
-
-
+///错误
+static int const  kRetCodeError        = 10002;
+///接口维护
+static int const  kRetCodeAPIMaintain        = 10020;
+///成功
+static int const  kRetCodeSucess        = 200;
+///需要登录
+static int const  kRetCodeNeedLogin        = 3;
+///appkey不合法
+static int const  kRetCodeIllega        = 10001;
 
 
 static inline NSString *StringWithInteger(NSInteger _Value_)

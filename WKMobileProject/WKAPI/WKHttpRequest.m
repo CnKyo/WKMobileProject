@@ -14,7 +14,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         //[APIClient loadDefault];
-        _sharedClient = [[WKHttpRequest alloc] initWithBaseURL:[NSURL URLWithString:kAFAppDotNetImgBaseURLString]];
+        _sharedClient = [[WKHttpRequest alloc] initWithBaseURL:[NSURL URLWithString:kMobTainAPIURLString]];
         _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
         _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
         
@@ -76,6 +76,32 @@
         }
     }];
 }
+#pragma mark----****----*  封装的post请求
+/**
+ *  封装的post请求
+ *
+ *  @param url          url
+ *  @param para          参数
+ *  @param block 请求成功的回调
+ */
+- (void)WKPostDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKBaseInfo *info))block{
+
+    [self urlGroupKey:nil path:url parameters:para call:^(NSError *error, id responseObject) {
+        if (error == nil) {
+            MLLog(@"responseObject----:%@",responseObject);
+            
+            WKBaseInfo *info = [WKBaseInfo yy_modelWithJSON:responseObject];
+            block(info);
+        }else{
+            WKBaseInfo *info = [WKBaseInfo infoWithError:error];
+            info.status = kRetCodeError;
+
+            block(info);
+        }
+    }];
+
+}
+
 /**
  图片上传
  
@@ -109,5 +135,36 @@
     }];
 
 }
-
+-(void)urlGroupKey:(NSString *)key path:(NSString *)URLString parameters:(id)parameters call:(void (^)(NSError *error, id responseObject))callback
+{
+    id operation = nil;
+    operation = [self POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        callback(nil, responseObject);
+        [self removeConnection:operation group:key];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        callback(error, nil);
+        [self removeConnection:operation group:key];
+    }];
+    [self addConnection:operation group:key];
+}
+- (void)removeConnection:(NSURLSessionDataTask *)operation group:(NSString *)key
+{
+    NSMutableArray *arr = [self.conDic objectForKey:key];
+    if ([arr containsObject:operation]) {
+        [arr removeObject:operation];
+        [self.conDic setObject:arr forKey:key];
+    }
+}
+- (void)addConnection:(NSURLSessionDataTask *)operation group:(NSString *)key
+{
+    NSMutableArray *arr = [self.conDic objectForKey:key];
+    if (arr == nil)
+        arr = [[NSMutableArray alloc] init];
+    [arr addObject:operation];
+    
+    if (key==nil || key.length==0)
+        key = @"defaultKey";
+    
+    [self.conDic setObject:arr forKey:key];
+}
 @end

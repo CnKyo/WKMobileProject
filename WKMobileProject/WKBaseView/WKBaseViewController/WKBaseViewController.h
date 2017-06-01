@@ -144,4 +144,10 @@
  @param mCancelTitle 取消按钮
  */
 - (void)showCustomViewType:(WKCustomPopViewType)mType andTitle:(NSString *)mTitle andContentTx:(NSString *)mContent andOkBtntitle:(NSString *)mOkTitle andCancelBtntitle:(NSString *)mCancelTitle;
+
+#pragma mark----****----hud框
+- (void)showSucess:(NSString *)text;
+- (void)showError:(NSString *)text;
+- (void)showAlert:(NSString *)text;
+- (void)showWithLoading:(NSString *)text;
 @end
