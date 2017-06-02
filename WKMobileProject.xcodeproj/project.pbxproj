@@ -31,7 +31,6 @@
 		31A2219E1E99C25E0058A21B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A2219D1E99C25E0058A21B /* CoreGraphics.framework */; };
 		31A221A01E99C2640058A21B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A2219F1E99C2630058A21B /* QuartzCore.framework */; };
 		31A221AB1E99CCD00058A21B /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A221AA1E99CCD00058A21B /* Util.m */; };
-		31A221AD1E99CDE50058A21B /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A221AC1E99CDE50058A21B /* AssetsLibrary.framework */; };
 		31A221F51E99CFA00058A21B /* NSArray+AXNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A221B21E99CFA00058A21B /* NSArray+AXNetworkingMethods.m */; };
 		31A221F61E99CFA00058A21B /* NSDictionary+AXNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A221B41E99CFA00058A21B /* NSDictionary+AXNetworkingMethods.m */; };
 		31A221F71E99CFA00058A21B /* NSMutableString+AXNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A221B61E99CFA00058A21B /* NSMutableString+AXNetworkingMethods.m */; };
@@ -61,6 +60,7 @@
 		31A222131E99D2B50058A21B /* WKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A222121E99D2B50058A21B /* WKBaseViewController.m */; };
 		31E289411EB21A47006C9756 /* WKHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E289401EB21A47006C9756 /* WKHttpRequest.m */; };
 		438D7113768A3061C072BCE4 /* libPods-WKMobileProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BDC79F377B749380AF0636A /* libPods-WKMobileProject.a */; };
+		5217DDD01EE0FE9900BE35ED /* scancode.caf in Resources */ = {isa = PBXBuildFile; fileRef = 5217DDCF1EE0FE9900BE35ED /* scancode.caf */; };
 		52289D721ECAE94700D8A6F5 /* WKPlayGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52289D711ECAE94700D8A6F5 /* WKPlayGameViewController.m */; };
 		52289D761ECAE99F00D8A6F5 /* WKPlayGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52289D741ECAE99F00D8A6F5 /* WKPlayGameCell.m */; };
 		52289D771ECAE99F00D8A6F5 /* WKPlayGameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52289D751ECAE99F00D8A6F5 /* WKPlayGameCell.xib */; };
@@ -169,6 +169,8 @@
 		529D8E851EE010B300BF0FDE /* UIImage+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D8E7E1EE010B300BF0FDE /* UIImage+Extend.m */; };
 		529D8E861EE010B300BF0FDE /* ControlRunLoopTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D8E811EE010B300BF0FDE /* ControlRunLoopTool.m */; };
 		529D8E871EE010B300BF0FDE /* CountDownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D8E831EE010B300BF0FDE /* CountDownLabel.m */; };
+		529D8E8A1EE01F4300BF0FDE /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529D8E891EE01F4300BF0FDE /* Photos.framework */; };
+		529D8E8B1EE01F6D00BF0FDE /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A221AC1E99CDE50058A21B /* AssetsLibrary.framework */; };
 		52AC36341EC2A059000866D4 /* FDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC362F1EC2A059000866D4 /* FDAlertView.m */; };
 		52AC36351EC2A059000866D4 /* WKCustomPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC36321EC2A059000866D4 /* WKCustomPopView.m */; };
 		52AC36361EC2A059000866D4 /* WKCustomPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AC36331EC2A059000866D4 /* WKCustomPopView.xib */; };
@@ -317,6 +319,7 @@
 		31E2893F1EB21A47006C9756 /* WKHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHttpRequest.h; sourceTree = "<group>"; };
 		31E289401EB21A47006C9756 /* WKHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHttpRequest.m; sourceTree = "<group>"; };
 		3BDC79F377B749380AF0636A /* libPods-WKMobileProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5217DDCF1EE0FE9900BE35ED /* scancode.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = scancode.caf; sourceTree = "<group>"; };
 		52289D701ECAE94700D8A6F5 /* WKPlayGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPlayGameViewController.h; sourceTree = "<group>"; };
 		52289D711ECAE94700D8A6F5 /* WKPlayGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPlayGameViewController.m; sourceTree = "<group>"; };
 		52289D731ECAE99F00D8A6F5 /* WKPlayGameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKPlayGameCell.h; path = WKMobileProject/WKViewControllers/Other/Controller/WKPlayGameCell.h; sourceTree = SOURCE_ROOT; };
@@ -482,6 +485,7 @@
 		529D8E811EE010B300BF0FDE /* ControlRunLoopTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlRunLoopTool.m; sourceTree = "<group>"; };
 		529D8E821EE010B300BF0FDE /* CountDownLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountDownLabel.h; sourceTree = "<group>"; };
 		529D8E831EE010B300BF0FDE /* CountDownLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountDownLabel.m; sourceTree = "<group>"; };
+		529D8E891EE01F4300BF0FDE /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		52AC362E1EC2A059000866D4 /* FDAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDAlertView.h; sourceTree = "<group>"; };
 		52AC362F1EC2A059000866D4 /* FDAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDAlertView.m; sourceTree = "<group>"; };
 		52AC36311EC2A059000866D4 /* WKCustomPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKCustomPopView.h; sourceTree = "<group>"; };
@@ -533,6 +537,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				529D8E8B1EE01F6D00BF0FDE /* AssetsLibrary.framework in Frameworks */,
+				529D8E8A1EE01F4300BF0FDE /* Photos.framework in Frameworks */,
 				529D8E6E1EE000A800BF0FDE /* libsqlite3.0.tbd in Frameworks */,
 				529D8E6C1EE0008F00BF0FDE /* AVFoundation.framework in Frameworks */,
 				529D8E6A1EE0008A00BF0FDE /* JavaScriptCore.framework in Frameworks */,
@@ -551,7 +557,6 @@
 				529D8E4F1EDFFE8800BF0FDE /* CoreTelephony.framework in Frameworks */,
 				529D8E4D1EDFFE7E00BF0FDE /* CoreFoundation.framework in Frameworks */,
 				529D8E4B1EDFFE7600BF0FDE /* CFNetwork.framework in Frameworks */,
-				31A221AD1E99CDE50058A21B /* AssetsLibrary.framework in Frameworks */,
 				31A221A01E99C2640058A21B /* QuartzCore.framework in Frameworks */,
 				31A2219E1E99C25E0058A21B /* CoreGraphics.framework in Frameworks */,
 				31A2219C1E99C2540058A21B /* UIKit.framework in Frameworks */,
@@ -1426,6 +1431,7 @@
 				529D8E7C1EE010B300BF0FDE /* NSString+QRCode.m */,
 				529D8E7D1EE010B300BF0FDE /* UIImage+Extend.h */,
 				529D8E7E1EE010B300BF0FDE /* UIImage+Extend.m */,
+				5217DDCF1EE0FE9900BE35ED /* scancode.caf */,
 			);
 			path = ScanCode;
 			sourceTree = "<group>";
@@ -1532,6 +1538,7 @@
 		E268BC1B05380FDB2B866690 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				529D8E891EE01F4300BF0FDE /* Photos.framework */,
 				529D8E6D1EE000A800BF0FDE /* libsqlite3.0.tbd */,
 				529D8E6B1EE0008F00BF0FDE /* AVFoundation.framework */,
 				529D8E691EE0008A00BF0FDE /* JavaScriptCore.framework */,
@@ -1698,6 +1705,7 @@
 				526B7D7A1ECC60A900A43DCF /* WKMyOrderDetailTableViewCell.xib in Resources */,
 				52AC36621EC2F3A1000866D4 /* WKHomeDecomandedCell.xib in Resources */,
 				52368FFF1EC412F0002524E5 /* WKWashBookingCell.xib in Resources */,
+				5217DDD01EE0FE9900BE35ED /* scancode.caf in Resources */,
 				315FFC111E97D3C600C78440 /* LaunchScreen.storyboard in Resources */,
 				524E3EFA1ECACD5B00EF0224 /* WKFindHeaderCell.xib in Resources */,
 				52289D8E1ECB043A00D8A6F5 /* WKUserMsgCell.xib in Resources */,

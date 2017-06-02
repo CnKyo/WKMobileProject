@@ -323,7 +323,12 @@ const static CGFloat animationTime = 2.5f;//扫描时长
     [picker dismissViewControllerAnimated:YES completion:^{
         
         NSString *scanResult = [image scanCodeContent];
-        
+        if ([scanResult isEqualToString:@"未识别!"]) {
+            [self showMessage:@"未识别出图片信息！" title:@"温馨提示" andler:nil];
+            [_loaddingIndicatorView stopAnimating];
+
+            return;
+        }
         [_loaddingIndicatorView stopAnimating];
         
         [self dealwithResult:scanResult];

@@ -64,7 +64,7 @@
     [JPUSHService setupWithOption:launchOptions appKey:kJpushKey
                           channel:@"App Store"
                  apsForProduction:0
-            advertisingIdentifier:advertisingId];
+            advertisingIdentifier:nil];
     [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
         if(resCode == 0){
             NSLog(@"registrationID获取成功：%@",registrationID);
