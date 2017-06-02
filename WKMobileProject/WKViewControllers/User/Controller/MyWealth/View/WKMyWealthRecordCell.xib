@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="WKMyWealthRecordCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务收入名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acM-LM-P2F">
+                        <rect key="frame" x="8" y="8" width="226" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+15000000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="sB7-UF-65F">
+                        <rect key="frame" x="242" y="22" width="70" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Gpw-M4-HGQ"/>
+                            <constraint firstAttribute="width" constant="70" id="cFi-JE-xls"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.97254901959999995" green="0.58431372550000005" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="状态" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaZ-1V-Z4O">
+                        <rect key="frame" x="8" y="34" width="304" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Dyp-3c-rMa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DOc-a5-CgO">
+                        <rect key="frame" x="0.0" y="64" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="0.24962542808219179" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Vhq-5R-oc3"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="NaZ-1V-Z4O" secondAttribute="trailing" id="8Kb-0U-RQL"/>
+                    <constraint firstItem="sB7-UF-65F" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="B7x-5V-YLY"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="sB7-UF-65F" secondAttribute="trailing" id="BeX-rb-S8A"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="DOc-a5-CgO" secondAttribute="trailing" constant="-8" id="CvG-Zz-eK1"/>
+                    <constraint firstItem="DOc-a5-CgO" firstAttribute="top" secondItem="NaZ-1V-Z4O" secondAttribute="bottom" constant="9" id="JTB-tk-Cv5"/>
+                    <constraint firstAttribute="topMargin" secondItem="acM-LM-P2F" secondAttribute="top" id="SSb-D2-7UA"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="NaZ-1V-Z4O" secondAttribute="leading" id="dgv-qR-kRI"/>
+                    <constraint firstItem="DOc-a5-CgO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="dhg-eh-kaa"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="acM-LM-P2F" secondAttribute="leading" id="gyg-yf-9UD"/>
+                    <constraint firstItem="NaZ-1V-Z4O" firstAttribute="top" secondItem="acM-LM-P2F" secondAttribute="bottom" constant="8" id="jKs-dB-QXl"/>
+                    <constraint firstItem="sB7-UF-65F" firstAttribute="leading" secondItem="acM-LM-P2F" secondAttribute="trailing" constant="8" id="yRg-5x-RQD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="mMoney" destination="sB7-UF-65F" id="8gh-2m-43v"/>
+                <outlet property="mName" destination="acM-LM-P2F" id="F8G-W7-keY"/>
+                <outlet property="mStatus" destination="NaZ-1V-Z4O" id="RaP-qE-fLZ"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="51.5"/>
+        </tableViewCell>
+    </objects>
+</document>

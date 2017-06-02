@@ -68,6 +68,14 @@
 		5217DDE11EE1059600BE35ED /* YLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5217DDDF1EE1059600BE35ED /* YLButton.m */; };
 		5217DDE51EE1134700BE35ED /* WKFetchWealthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5217DDE31EE1134700BE35ED /* WKFetchWealthCell.m */; };
 		5217DDE61EE1134700BE35ED /* WKFetchWealthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5217DDE41EE1134700BE35ED /* WKFetchWealthCell.xib */; };
+		5217DDE91EE138E700BE35ED /* WKMyWealthRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5217DDE81EE138E700BE35ED /* WKMyWealthRecordViewController.m */; };
+		5217DDED1EE1392500BE35ED /* WKMyWealthRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5217DDEB1EE1392500BE35ED /* WKMyWealthRecordCell.m */; };
+		5217DDEE1EE1392500BE35ED /* WKMyWealthRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5217DDEC1EE1392500BE35ED /* WKMyWealthRecordCell.xib */; };
+		5217DDF21EE157AA00BE35ED /* WKPasswordTextFiled.m in Sources */ = {isa = PBXBuildFile; fileRef = 5217DDF11EE157AA00BE35ED /* WKPasswordTextFiled.m */; };
+		5217DDF71EE15B4D00BE35ED /* WKBoundleToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5217DDF61EE15B4D00BE35ED /* WKBoundleToolViewController.m */; };
+		5217DDFB1EE15BAC00BE35ED /* WKBoundleToolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5217DDF91EE15BAC00BE35ED /* WKBoundleToolCell.m */; };
+		5217DDFC1EE15BAC00BE35ED /* WKBoundleToolCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5217DDFA1EE15BAC00BE35ED /* WKBoundleToolCell.xib */; };
+		5217DDFF1EE169C600BE35ED /* WKPwdText.m in Sources */ = {isa = PBXBuildFile; fileRef = 5217DDFE1EE169C600BE35ED /* WKPwdText.m */; };
 		52289D721ECAE94700D8A6F5 /* WKPlayGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52289D711ECAE94700D8A6F5 /* WKPlayGameViewController.m */; };
 		52289D761ECAE99F00D8A6F5 /* WKPlayGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52289D741ECAE99F00D8A6F5 /* WKPlayGameCell.m */; };
 		52289D771ECAE99F00D8A6F5 /* WKPlayGameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52289D751ECAE99F00D8A6F5 /* WKPlayGameCell.xib */; };
@@ -339,6 +347,20 @@
 		5217DDE21EE1134700BE35ED /* WKFetchWealthCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKFetchWealthCell.h; sourceTree = "<group>"; };
 		5217DDE31EE1134700BE35ED /* WKFetchWealthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKFetchWealthCell.m; sourceTree = "<group>"; };
 		5217DDE41EE1134700BE35ED /* WKFetchWealthCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKFetchWealthCell.xib; sourceTree = "<group>"; };
+		5217DDE71EE138E700BE35ED /* WKMyWealthRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyWealthRecordViewController.h; sourceTree = "<group>"; };
+		5217DDE81EE138E700BE35ED /* WKMyWealthRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMyWealthRecordViewController.m; sourceTree = "<group>"; };
+		5217DDEA1EE1392500BE35ED /* WKMyWealthRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyWealthRecordCell.h; sourceTree = "<group>"; };
+		5217DDEB1EE1392500BE35ED /* WKMyWealthRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMyWealthRecordCell.m; sourceTree = "<group>"; };
+		5217DDEC1EE1392500BE35ED /* WKMyWealthRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKMyWealthRecordCell.xib; sourceTree = "<group>"; };
+		5217DDF01EE157AA00BE35ED /* WKPasswordTextFiled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPasswordTextFiled.h; sourceTree = "<group>"; };
+		5217DDF11EE157AA00BE35ED /* WKPasswordTextFiled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPasswordTextFiled.m; sourceTree = "<group>"; };
+		5217DDF51EE15B4D00BE35ED /* WKBoundleToolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBoundleToolViewController.h; sourceTree = "<group>"; };
+		5217DDF61EE15B4D00BE35ED /* WKBoundleToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBoundleToolViewController.m; sourceTree = "<group>"; };
+		5217DDF81EE15BAC00BE35ED /* WKBoundleToolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBoundleToolCell.h; sourceTree = "<group>"; };
+		5217DDF91EE15BAC00BE35ED /* WKBoundleToolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBoundleToolCell.m; sourceTree = "<group>"; };
+		5217DDFA1EE15BAC00BE35ED /* WKBoundleToolCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKBoundleToolCell.xib; sourceTree = "<group>"; };
+		5217DDFD1EE169C600BE35ED /* WKPwdText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPwdText.h; sourceTree = "<group>"; };
+		5217DDFE1EE169C600BE35ED /* WKPwdText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPwdText.m; sourceTree = "<group>"; };
 		52289D701ECAE94700D8A6F5 /* WKPlayGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPlayGameViewController.h; sourceTree = "<group>"; };
 		52289D711ECAE94700D8A6F5 /* WKPlayGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPlayGameViewController.m; sourceTree = "<group>"; };
 		52289D731ECAE99F00D8A6F5 /* WKPlayGameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKPlayGameCell.h; path = WKMobileProject/WKViewControllers/Other/Controller/WKPlayGameCell.h; sourceTree = SOURCE_ROOT; };
@@ -833,6 +855,7 @@
 		31632CC01EAB6E750057B161 /* WKOtherResource */ = {
 			isa = PBXGroup;
 			children = (
+				5217DDEF1EE1578600BE35ED /* WKPwdText */,
 				5217DDDB1EE1059600BE35ED /* YLButton */,
 				529D8E7A1EE010B300BF0FDE /* ScanCode */,
 				529D8E7F1EE010B300BF0FDE /* WKCountTimeLb */,
@@ -1160,6 +1183,9 @@
 			children = (
 				5217DDD31EE1023A00BE35ED /* WKMyWealthViewController.h */,
 				5217DDD41EE1023A00BE35ED /* WKMyWealthViewController.m */,
+				5217DDE71EE138E700BE35ED /* WKMyWealthRecordViewController.h */,
+				5217DDE81EE138E700BE35ED /* WKMyWealthRecordViewController.m */,
+				5217DDF31EE15B3A00BE35ED /* BoundleTool */,
 				5217DDD21EE101FA00BE35ED /* View */,
 			);
 			path = MyWealth;
@@ -1174,6 +1200,9 @@
 				5217DDE21EE1134700BE35ED /* WKFetchWealthCell.h */,
 				5217DDE31EE1134700BE35ED /* WKFetchWealthCell.m */,
 				5217DDE41EE1134700BE35ED /* WKFetchWealthCell.xib */,
+				5217DDEA1EE1392500BE35ED /* WKMyWealthRecordCell.h */,
+				5217DDEB1EE1392500BE35ED /* WKMyWealthRecordCell.m */,
+				5217DDEC1EE1392500BE35ED /* WKMyWealthRecordCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1187,6 +1216,37 @@
 				5217DDDF1EE1059600BE35ED /* YLButton.m */,
 			);
 			path = YLButton;
+			sourceTree = "<group>";
+		};
+		5217DDEF1EE1578600BE35ED /* WKPwdText */ = {
+			isa = PBXGroup;
+			children = (
+				5217DDF01EE157AA00BE35ED /* WKPasswordTextFiled.h */,
+				5217DDF11EE157AA00BE35ED /* WKPasswordTextFiled.m */,
+				5217DDFD1EE169C600BE35ED /* WKPwdText.h */,
+				5217DDFE1EE169C600BE35ED /* WKPwdText.m */,
+			);
+			path = WKPwdText;
+			sourceTree = "<group>";
+		};
+		5217DDF31EE15B3A00BE35ED /* BoundleTool */ = {
+			isa = PBXGroup;
+			children = (
+				5217DDF51EE15B4D00BE35ED /* WKBoundleToolViewController.h */,
+				5217DDF61EE15B4D00BE35ED /* WKBoundleToolViewController.m */,
+				5217DDF41EE15B3A00BE35ED /* View */,
+			);
+			path = BoundleTool;
+			sourceTree = "<group>";
+		};
+		5217DDF41EE15B3A00BE35ED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5217DDF81EE15BAC00BE35ED /* WKBoundleToolCell.h */,
+				5217DDF91EE15BAC00BE35ED /* WKBoundleToolCell.m */,
+				5217DDFA1EE15BAC00BE35ED /* WKBoundleToolCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		52289D8F1ECB078500D8A6F5 /* EditUserInfo */ = {
@@ -1749,6 +1809,7 @@
 				524E3EF51ECAAEC900EF0224 /* WKActivityTableViewCell.xib in Resources */,
 				31A222001E99CFA00058A21B /* iPhoneTypeDefine.plist in Resources */,
 				5274A12C1ECD30600002B252 /* WKConnectCell.xib in Resources */,
+				5217DDEE1EE1392500BE35ED /* WKMyWealthRecordCell.xib in Resources */,
 				524E3EE41ECA8A2500EF0224 /* WKPayVIPTopupCell.xib in Resources */,
 				52289D7C1ECAF09E00D8A6F5 /* WKUserInfoCell.xib in Resources */,
 				529D21531ECC50E800766E2F /* WKMyWashCell.xib in Resources */,
@@ -1778,6 +1839,7 @@
 				52AC36671EC2FB55000866D4 /* WKHomeActivityCell.xib in Resources */,
 				522976181ECC2C1C00FEB6D9 /* WKJoinusFooterSectionView.xib in Resources */,
 				5279A7461EC97B1400999B3D /* WKWashPayResultView.xib in Resources */,
+				5217DDFC1EE15BAC00BE35ED /* WKBoundleToolCell.xib in Resources */,
 				5217DDE61EE1134700BE35ED /* WKFetchWealthCell.xib in Resources */,
 				529D21651ECC580F00766E2F /* WKMyOrderCell.xib in Resources */,
 				52289D811ECAF6CD00D8A6F5 /* WKUserInfoAdCell.xib in Resources */,
@@ -1899,6 +1961,7 @@
 				522976141ECC2C0700FEB6D9 /* WKJoinusHeaderFooterSectionView.m in Sources */,
 				315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */,
 				52368FEF1EC3FEEC002524E5 /* WKWashTableCell.m in Sources */,
+				5217DDF21EE157AA00BE35ED /* WKPasswordTextFiled.m in Sources */,
 				31A221F61E99CFA00058A21B /* NSDictionary+AXNetworkingMethods.m in Sources */,
 				529D8E491EDFF9E100BF0FDE /* WKMarqueeBar.m in Sources */,
 				529D21681ECC5E3A00766E2F /* WKMyOrderDetailViewController.m in Sources */,
@@ -1938,6 +2001,7 @@
 				52289D971ECB07C900D8A6F5 /* WKEditUserInfoCell.m in Sources */,
 				31507EA81EA06FE0007B8345 /* WKUserViewController.m in Sources */,
 				31A222101E99D0520058A21B /* WKAPIManager.m in Sources */,
+				5217DDFF1EE169C600BE35ED /* WKPwdText.m in Sources */,
 				5274A12B1ECD30600002B252 /* WKConnectCell.m in Sources */,
 				315FFC031E97D3C600C78440 /* main.m in Sources */,
 				524E3EE31ECA8A2500EF0224 /* WKPayVIPTopupCell.m in Sources */,
@@ -1968,17 +2032,21 @@
 				5217DDE01EE1059600BE35ED /* UIButton+Layout.m in Sources */,
 				529D21521ECC50E800766E2F /* WKMyWashCell.m in Sources */,
 				31507E961EA06EA5007B8345 /* WKBaseNavViewController.m in Sources */,
+				5217DDED1EE1392500BE35ED /* WKMyWealthRecordCell.m in Sources */,
 				31A2220D1E99CFA10058A21B /* GDMapService.m in Sources */,
 				52368FF81EC41105002524E5 /* WKWashBookingHeaderView.m in Sources */,
 				5229762B1ECC413F00FEB6D9 /* WKSegmentControl.m in Sources */,
 				5279A7321EC93DB900999B3D /* WaskBookingResultController.m in Sources */,
 				52289D721ECAE94700D8A6F5 /* WKPlayGameViewController.m in Sources */,
 				524E3EF41ECAAEC900EF0224 /* WKActivityTableViewCell.m in Sources */,
+				5217DDF71EE15B4D00BE35ED /* WKBoundleToolViewController.m in Sources */,
 				52AC36341EC2A059000866D4 /* FDAlertView.m in Sources */,
+				5217DDFB1EE15BAC00BE35ED /* WKBoundleToolCell.m in Sources */,
 				529D8E861EE010B300BF0FDE /* ControlRunLoopTool.m in Sources */,
 				31632CBE1EAB02AF0057B161 /* WKTrainDemandCell.m in Sources */,
 				52289D931ECB07A900D8A6F5 /* WKEditUserinfoViewController.m in Sources */,
 				524E3EF91ECACD5B00EF0224 /* WKFindHeaderCell.m in Sources */,
+				5217DDE91EE138E700BE35ED /* WKMyWealthRecordViewController.m in Sources */,
 				31A2220A1E99CFA10058A21B /* CTAppContext.m in Sources */,
 				31A222041E99CFA10058A21B /* CTCommonParamsGenerator.m in Sources */,
 				529D8E791EE0109200BF0FDE /* WKScanDeviceViewController.m in Sources */,

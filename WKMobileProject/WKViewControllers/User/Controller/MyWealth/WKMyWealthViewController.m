@@ -9,6 +9,8 @@
 #import "WKMyWealthViewController.h"
 #import "WKMyWealthTableViewCell.h"
 #import "WKFetchWealthCell.h"
+#import "WKMyWealthRecordViewController.h"
+#import "WKBoundleToolViewController.h"
 @interface WKMyWealthViewController ()<WKMyWealthTableViewCellDelegate>
 
 @end
@@ -174,11 +176,15 @@
         case 0:
         {
         MLLog(@"说明");
+        WKMyWealthRecordViewController *vc = [WKMyWealthRecordViewController new];
+        [self pushViewController:vc];
         }
             break;
         case 1:
         {
         MLLog(@"绑定首款工具");
+        WKBoundleToolViewController *vc= [WKBoundleToolViewController new];
+        [self pushViewController:vc];
         }
             break;
         case 2:

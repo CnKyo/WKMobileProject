@@ -22,6 +22,7 @@
 }
 
 - (void)layoutSubviews{
+    [super layoutSubviews];
     self.mBgkView.backgroundColor = M_CO;
     self.mDrawBtn.layer.cornerRadius = 3;
     
