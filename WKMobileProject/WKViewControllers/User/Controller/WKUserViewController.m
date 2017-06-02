@@ -20,6 +20,7 @@
 #import "WKMyOrderViewController.h"
 #import "WKMygoldenViewController.h"
 #import "WKConnectViewController.h"
+#import "WKMyWealthViewController.h"
 @interface WKUserViewController ()<WKUserInfoCellDelegate,WKUserInfoAdCellDelegate>
 
 @end
@@ -266,7 +267,7 @@
 /**
  用户header按钮点击代理方法
  
- @param mTag 返回索引(0修改用户资料1签到2财富值3金币)
+ @param mTag 返回索引(0修改用户资料,1签到,2财富值,3金币)
  */
 - (void)WKUserInfoCellDelegateWithBtnClicked:(NSInteger)mTag{
     MLLog(@"选择的是:%ld",mTag);
@@ -286,7 +287,9 @@
             break;
         case 2:
         {
-        
+        WKMyWealthViewController *vc = [WKMyWealthViewController new];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
         }
             break;
         case 3:
