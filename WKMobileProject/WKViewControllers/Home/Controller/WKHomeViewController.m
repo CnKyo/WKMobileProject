@@ -273,6 +273,9 @@
  */
 - (void)WKHomeBannerDidSelectedWithIndex:(NSInteger)mIndex{
     MLLog(@"%ld",mIndex);
+    WKWebViewController *vc = [WKWebViewController new];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
 
 }
 

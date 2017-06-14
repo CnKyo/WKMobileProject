@@ -37,6 +37,8 @@
 #import <UIView+LayoutMethods.h>
 #import "WKSegmentControl.h"
 #import "WKModel.h"
+
+#import "WKWebViewController.h"
 //#define  WKSyncQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
 #define ColorRGB(_R_, _G_, _B_)       ([UIColor colorWithRed:_R_/255.0f green:_G_/255.0f blue:_B_/255.0f alpha:1])
@@ -76,6 +78,12 @@
 #define SystemIsiOS6()                  ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 6.0)
 #define SystemIsiOS7()                  ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 7.0)//判断是否为IOS7
 #define SystemIsiOS8()                  ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 8.0)//判断是否为IOS8
+#define SystemIsiOS9()                  ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 9.0)//判断是否为IOS9
+#define SystemIsiOS10()                  ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 10.0)//判断是否为IOS10
+#define SystemIsiOS11()                  ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 11.0)//判断是否为IOS11
+
+
+
 #define DEVICE_StatuBar_Height          (20.0)
 
 

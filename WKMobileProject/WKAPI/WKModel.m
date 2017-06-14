@@ -118,7 +118,10 @@
 
 @end
 
-@implementation WKModel
+@implementation WKModel : NSObject
+
+@end
+@implementation body
 
 @end
 @implementation WKTrainName

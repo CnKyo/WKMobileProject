@@ -56,10 +56,19 @@
 
 @end
 
+@class body;
 @interface WKModel : NSObject
+
+@property (strong,nonatomic) body *body;
 
 @end
 
+@interface body : NSObject
+
+@property (strong,nonatomic) NSString *id;
+@property (strong,nonatomic) NSString *name;
+
+@end
 @interface WKTrainName : NSObject
 
 @property (nonatomic,strong) NSString *arriveTime;
