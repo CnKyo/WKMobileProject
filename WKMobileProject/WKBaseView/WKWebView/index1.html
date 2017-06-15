@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<title>test</title>
+<style>
+* {margin: 0;padding: 0;outline: none;}
+*:not(input,textarea) {-webkit-touch-callout: inherit;-webkit-user-select: auto;}
+body {width: 100%;font-family: 'Microsoft YaHei',Hiragino Sans GB, Arial, Helvetica, "黑体", sans-serif;font-size: 16px;-webkit-touch-callout: inherit ;-webkit-user-select: auto ;background:#f3f2f2;}
+a {color: #878787;text-decoration: none;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+a:active,a:hover,a:focus{outline:0;text-decoration:none;}
+button,input,select,textarea {font-size: 100%;margin: 0;padding: 0;outline: none;}
+dt,dd {display: inline-block;}
+textarea,input {resize: none;outline: none;}
+textarea {resize: none;-webkit-appearance: none;}
+ul,ol,li {list-style: none;}
+img{padding:0; border:0;margin:0;display:block;}
+em {font-style: normal;}
+	
+.items{padding:20px;border-bottom:1px solid #CCCCCC;}
+.pubtxt{padding:5px;border-radius:5px;border:1px solid #cccccc;}
+.rad{margin-left:10px;}
+.btn{border-radius:5px;padding:5px 20px;background:#51c332;color:#FFF;font-weight:600;}
+</style>
+</head>
+<body id="Vbody">
+
+	<div class="container">
+		<div class="items">
+			<p>文本框：<input id="text" class="pubtxt" type="text"></p>
+		</div>
+		<div class="items">
+			<p>单选按钮：<input class="rad" type="radio" name="sex" value="女">女 <input class="rad" type="radio" name="sex" value="男">男</p>
+		</div>
+		<div class="items">
+			<p>文本框：<input id="btn_sub" class="btn" type="button" value="按钮" ></p>
+		</div>
+        <div class="items">
+            <p>按钮：<input id="mBtn" class="btn" type="button" value="登录" onclick="btnClicked()"></p>
+                </div>
+		
+	</div>
+	<script src="jquery.min.js"></script>
+	<script>
+		$("#btn_sub").click(function(){
+			var text= $("#text").val();
+			var rad= $('input[name="sex"]:checked').val();
+			if(text==""||rad==undefined){
+				alert("请输入文本框内容和选择单选按钮。");
+				return;
+			}
+			alert("文本输入的内容："+text+"   选择的性别："+rad);
+            var contetTx = "文本输入的内容："+text+"   选择的性别："+rad;
+            window.webkit.messageHandlers.AppModel.postMessage({body: {'id':'2','name':contetTx}});
+
+		});
+        function btnClicked() {
+            
+            window.webkit.messageHandlers.AppModel.postMessage({body: {'id':'3','name':'firstClicked'}});
+        }
+	</script>
+</body>
+</html>

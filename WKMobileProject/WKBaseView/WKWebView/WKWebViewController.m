@@ -11,7 +11,7 @@
 
 #import <WebKit/WebKit.h>
 #import <objc/runtime.h>
-
+#import "WKWebViewConfigDelegate.h"
 @interface WKWebViewController ()<WKScriptMessageHandler, WKNavigationDelegate, WKUIDelegate>
 @property (nonatomic, strong) WKWebView *webView;
 @property (nonatomic, strong) UIProgressView *progressView;
@@ -44,14 +44,14 @@
     config.userContentController = [[WKUserContentController alloc]init];
     // 注入JS对象名称AppModel，当JS通过AppModel来调用时，
     // 我们可以在WKScriptMessageHandler代理中接收到
-    [config.userContentController addScriptMessageHandler:self name:@"AppModel"];
+    [config.userContentController addScriptMessageHandler:[[WKWebViewConfigDelegate alloc] initWithDelegate:self] name:@"AppModel"];
     
     self.webView = [[WKWebView alloc] initWithFrame:self.view.bounds
                                       configuration:config];
     
     
-//    NSURL *path = [[NSBundle mainBundle] URLForResource:@"test" withExtension:@"html"];
-    NSURL *path = [NSURL URLWithString:@"https://www.baidu.com"];
+    NSURL *path = [[NSBundle mainBundle] URLForResource:@"index3" withExtension:@"html"];
+//    NSURL *path = [NSURL URLWithString:@"https://www.baidu.com"];
 
     //设置缓存请求策略时间
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:path cachePolicy:1 timeoutInterval:30.0f];
@@ -91,6 +91,7 @@
     //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    [SVProgressHUD showWithStatus:@"加载中..."];
 }
 -(void)dealloc{
     [self.webView removeObserver:self forKeyPath:@"loading"];
@@ -98,6 +99,8 @@
     [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
     [self.webView removeObserver:self forKeyPath:@"title"];
 //    [self deleteCacke];
+    [SVProgressHUD dismiss];
+
 
 }
 /** 清理缓存的方法，这个方法会清除缓存类型为HTML类型的文件*/
@@ -222,11 +225,17 @@
     ///oc 反调js
     if ([model.body.id isEqualToString:@"2"]) {
         ///点击了确定按钮
-        NSString *ocTojs = [NSString stringWithFormat:@"alert('%s')","this is alertview pop to "];
+        NSString *ocTojs = [NSString stringWithFormat:@"getInfo(1)"];
+
         [self.webView evaluateJavaScript:ocTojs completionHandler:^(id _Nullable result, NSError * _Nullable error) {
             MLLog(@"%@----%@",result, error);
         }];
     }else if ([model.body.id isEqualToString:@"3"]){
+        
+        NSString *ocTojs = [NSString stringWithFormat:@"alert('%s')","this is alertview pop to "];
+        [self.webView evaluateJavaScript:ocTojs completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+            MLLog(@"%@----%@",result, error);
+        }];
         MLLog(@"3");
     }
     else{
@@ -318,6 +327,7 @@
     [self.webView evaluateJavaScript:jsToTextFiled completionHandler:^(id _Nullable result, NSError * _Nullable error) {
         MLLog(@"%@----%@",result, error);
     }];
+    [SVProgressHUD dismiss];
 }
 
 - (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
@@ -341,7 +351,7 @@
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
     MLLog(@"%s", __FUNCTION__);
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"alert" message:@"JS调用alert" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         completionHandler();
     }]];
