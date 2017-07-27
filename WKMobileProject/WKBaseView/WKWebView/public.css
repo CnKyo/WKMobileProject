@@ -1,0 +1,70 @@
+/*修改tabbar选中背景色*/
+.mui-bar-tab .mui-tab-item.mui-active {
+    color: #4195F0;
+}
+/*导航条背景色*/
+.public-bgcolor{
+	background-color: #4195F0;
+}
+/*导航条标题颜色*/
+.public-bgcolor a, .public-bgcolor h1{
+	color: #fff;
+}
+/*banner基于顶部-21个像素*/
+.banner-top{
+	margin-top: -21px;
+}
+/*头像*/
+#mAvator{
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	margin: 30px auto;
+	display: block;
+}
+/*修改头像按钮*/
+#mChangeAvatorBtn{
+	background: red;
+    border: 0px;
+	color: #fff;
+	display: block;
+	margin: 20px auto;
+}
+/*我的列表左边图片*/
+#mImg{
+	height: 25px;
+	width: 25px;
+	margin: 5px auto;
+}
+/*列表*/
+.box ul{
+	margin: 20px 0px;
+	font-size: 13px;
+	color: #999;
+}
+/*列表图片样式*/
+.box ul li a span{
+	margin: 5px;
+}
+
+.mLoginBtn{
+	border: 0px;
+	display: block;
+	background-color: red;
+	margin-top: 10px;
+	margin: 10px auto;
+			color: white;
+
+}
+.mRegistBtn{
+		background-color: red;
+		color: white;
+}
+.mGoLogin{
+	margin: 10px auto;
+	margin-top: 50px;
+}
+
+.btn1{
+	margin-top: 150px;
+}

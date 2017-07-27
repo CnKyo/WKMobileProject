@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+		<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="public.css"/>
+	</head>
+
+	<body>
+		<script src="mui.min.js"></script>
+<!--	<header class="mui-bar mui-bar-nav public-bgcolor">-->
+<!--			<h1 class="mui-title">首页</h1>-->
+<!--		</header>-->
+<!--	//支持循环-->
+<div class="mui-content">
+        <div class="mui-slider banner-top">
+          <div class="mui-slider-group mui-slider-loop">
+            <!--支持循环，需要重复图片节点   0  1 2 3 0 1 2 3-->
+            <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="yuantiao.jpg" /></a></div>
+            <div class="mui-slider-item"><a href="#"><img src="cbd.jpg" /></a></div>
+            <div class="mui-slider-item"><a href="#"><img src="muwu.jpg" /></a></div>
+            <div class="mui-slider-item"><a href="#"><img src="shuijiao.jpg" /></a></div>
+            <div class="mui-slider-item"><a href="#"><img src="yuantiao.jpg" /></a></div>
+            <!--支持循环，需要重复图片节点-->
+            <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="cbd.jpg" /></a></div>
+          </div>
+              
+        <!--//轮播图中间底部圆点-->
+          <div class="mui-slider-indicator">
+                <div class="mui-indicator mui-active"></div>
+            <div class="mui-indicator"></div>
+            <div class="mui-indicator"></div>
+            <div class="mui-indicator"></div>
+          </div>
+        </div>
+       
+       <ul class="mui-table-view">
+           <li class="mui-table-view-cell mui-media">
+               <a href="javascript:;">
+                   <img class="mui-media-object mui-pull-left" src="shuijiao.jpg">
+                   <div class="mui-media-body">
+                       幸福
+                       <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+                   </div>
+               </a>
+           </li>
+           <li class="mui-table-view-cell mui-media">
+               <a href="javascript:;">
+                   <img class="mui-media-object mui-pull-left" src="muwu.jpg">
+                   <div class="mui-media-body">
+                       木屋
+                       <p class="mui-ellipsis">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+                   </div>
+               </a>
+           </li>
+           <li class="mui-table-view-cell mui-media">
+               <a href="javascript:;">
+                   <img class="mui-media-object mui-pull-left" src="cbd.jpg">
+                   <div class="mui-media-body">
+                       CBD
+                       <p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+                   </div>
+               </a>
+           </li>
+       </ul>
+</div>
+	<script src="castapp.js">
+	</script>
+	<script>
+		ca.init(false);
+		
+/**
+ * 图片轮播
+ * 
+ * 参数 : json
+ * callback 回调 回调参数 pictureNumber 返回当前浏览的第几张图片 
+ * isAutoScroll 是否滚动  true 滚动 false 不滚动
+ * scrollTime 滚动时间 比如 1 为 1秒滚动一次
+ */
+castapp.pictureScroll({
+    callback:function(pictureNumber){
+//	    console.log(pictureNumber);
+    },
+    isAutoScroll:true,
+    scrollTime:3
+});
+	</script>
+	</body>
+
+</html>

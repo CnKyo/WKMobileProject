@@ -218,6 +218,10 @@
 - (void)userContentController:(WKUserContentController *)userContentController
       didReceiveScriptMessage:(WKScriptMessage *)message {
     
+    NSMutableDictionary *para = [NSMutableDictionary new];
+    [para setObject:kMobTrainDemandKey forKey:@"key"];
+    [para setObject:@"K688" forKey:@"trainno"];
+    
     //    MLLog(@"name:%@\n ----****---- body:%@\n ----****---- frameInfo:%@\n",message.name,message.body,message.frameInfo);
     
     WKModel *model = [WKModel yy_modelWithJSON:message.body];
@@ -225,7 +229,7 @@
     ///oc 反调js
     if ([model.body.id isEqualToString:@"2"]) {
         ///点击了确定按钮
-        NSString *ocTojs = [NSString stringWithFormat:@"getInfo(1)"];
+        NSString *ocTojs = [NSString stringWithFormat:@"getInfo(%@)",para];
 
         [self.webView evaluateJavaScript:ocTojs completionHandler:^(id _Nullable result, NSError * _Nullable error) {
             MLLog(@"%@----%@",result, error);
