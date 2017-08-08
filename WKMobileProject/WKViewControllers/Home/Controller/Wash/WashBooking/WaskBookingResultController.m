@@ -11,7 +11,12 @@
 #import "WKWashBookingCell.h"
 #import "WKHeader.h"
 #import "WKWashGoPayViewController.h"
+#import "WKChoiceWashTableViewCell.h"
+
+#define defaultTag 0
+
 @interface WaskBookingResultController ()<WKWashBookingCellDelegate>
+@property (nonatomic, assign) NSInteger btnTag;//默认选中的Tag
 
 @end
 
@@ -42,6 +47,9 @@
     self.navigationItem.title = @"预约结果";
     
     self.view.backgroundColor = M_CO;
+    
+    self.btnTag = defaultTag; //self.btnTag = defaultTag+1  表示默认选择第二个，依次类推
+
     self.navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
     // Do any additional setup after loading the view.
     mHeaderView = [WKWashBookingHeaderView initBookingView];
@@ -101,14 +109,55 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WKWashBookingCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    static NSString *cellID = @"cellID";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    WKChoiceWashTableViewCell *customCell = [[WKChoiceWashTableViewCell alloc] init];
+    [customCell.mBtn setTitle:[NSString stringWithFormat:@"第%ld个",indexPath.row] forState:0];
+    customCell.mBtn.tag = defaultTag+indexPath.row;
+    if (customCell.mBtn.tag == self.btnTag) {
+        [customCell.mBtn setBackgroundColor:[UIColor colorWithRed:0.976470588235294 green:0.580392156862745 blue:0.274509803921569 alpha:1.00]];
+
+        customCell.isSelect = YES;
+
+    }else{
+        [customCell.mBtn setBackgroundColor:[UIColor colorWithRed:0.733333333333333 green:0.772549019607843 blue:0.819607843137255 alpha:1.00]];
+
+        customCell.isSelect = NO;
+
+    }
+    __weak WKChoiceWashTableViewCell *weakCell = customCell;
+    [customCell setBtnSelectBlock:^(BOOL choice,NSInteger btnTag){
+        if (choice) {
+            [weakCell.mBtn setBackgroundColor:[UIColor colorWithRed:0.976470588235294 green:0.580392156862745 blue:0.274509803921569 alpha:1.00]];
+
+            self.btnTag = btnTag;
+            MLLog(@"$$$$$$%ld",(long)btnTag);
+            [self.tableView reloadData];
+        }
+        else{
+            //选中一个之后，再次点击，是未选中状态，图片仍然设置为选中的图片，记录下tag，刷新tableView，这个else 也可以注释不用，tag只记录选中的就可以
+            [weakCell.mBtn setBackgroundColor:[UIColor colorWithRed:0.733333333333333 green:0.772549019607843 blue:0.819607843137255 alpha:1.00]];
+
+            self.btnTag = btnTag;
+            [self.tableView reloadData];
+            MLLog(@"#####%ld",(long)btnTag);
+        }
+    }];
     
-    cell.delegate = self;
-    cell.mIndexPath = indexPath;
+    cell = customCell;
+    
+    
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+
     return cell;
     
     
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    MLLog(@"选择了%ld行",(long)indexPath.row);
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60;
