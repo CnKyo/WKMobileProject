@@ -10,4 +10,6 @@
 
 @interface WKWebViewController : UIViewController
 
+@property (strong,nonatomic) NSString *mTitle;
+
 @end

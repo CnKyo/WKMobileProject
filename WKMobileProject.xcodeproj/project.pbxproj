@@ -234,6 +234,8 @@
 		52BC43641F39650C00B44FD6 /* WKTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC43621F39650C00B44FD6 /* WKTaskTableViewCell.m */; };
 		52BC43651F39650C00B44FD6 /* WKTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BC43631F39650C00B44FD6 /* WKTaskTableViewCell.xib */; };
 		52BC43681F39676500B44FD6 /* WKTaskHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC43671F39676500B44FD6 /* WKTaskHeaderCell.m */; };
+		52BC436C1F39925200B44FD6 /* WKProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC436B1F39925200B44FD6 /* WKProgressView.m */; };
+		52BC436E1F39925900B44FD6 /* WKProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BC436D1F39925900B44FD6 /* WKProgressView.xib */; };
 		52EFE1901EDECC74004CDA65 /* WKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EFE18F1EDECC74004CDA65 /* WKModel.m */; };
 /* End PBXBuildFile section */
 
@@ -624,6 +626,9 @@
 		52BC43631F39650C00B44FD6 /* WKTaskTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKTaskTableViewCell.xib; sourceTree = "<group>"; };
 		52BC43661F39676500B44FD6 /* WKTaskHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTaskHeaderCell.h; sourceTree = "<group>"; };
 		52BC43671F39676500B44FD6 /* WKTaskHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTaskHeaderCell.m; sourceTree = "<group>"; };
+		52BC436A1F39925200B44FD6 /* WKProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKProgressView.h; sourceTree = "<group>"; };
+		52BC436B1F39925200B44FD6 /* WKProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKProgressView.m; sourceTree = "<group>"; };
+		52BC436D1F39925900B44FD6 /* WKProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKProgressView.xib; sourceTree = "<group>"; };
 		52EFE18E1EDECC74004CDA65 /* WKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKModel.h; sourceTree = "<group>"; };
 		52EFE18F1EDECC74004CDA65 /* WKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKModel.m; sourceTree = "<group>"; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -864,6 +869,7 @@
 			isa = PBXGroup;
 			children = (
 				529D8E5C1EDFFF1700BF0FDE /* WKMobileProject.entitlements */,
+				52BC43691F39922F00B44FD6 /* WKGenericProgressView */,
 				523FC24B1F381E4600EA7A6E /* MWGenericTextField */,
 				31632CC01EAB6E750057B161 /* WKOtherResource */,
 				31A221A71E99CBA40058A21B /* WKHeaderFile */,
@@ -1771,6 +1777,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		52BC43691F39922F00B44FD6 /* WKGenericProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				52BC436A1F39925200B44FD6 /* WKProgressView.h */,
+				52BC436B1F39925200B44FD6 /* WKProgressView.m */,
+				52BC436D1F39925900B44FD6 /* WKProgressView.xib */,
+			);
+			path = WKGenericProgressView;
+			sourceTree = "<group>";
+		};
 		7975C39D53A4E4C84C61C265 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1993,6 +2009,7 @@
 				5279A7481EC97E5000999B3D /* WKWashPayErrorView.xib in Resources */,
 				5239D32E1EF37E7D00BAB3F3 /* index1.css in Resources */,
 				522976161ECC2C1400FEB6D9 /* WKJoinusHeaderSectionView.xib in Resources */,
+				52BC436E1F39925900B44FD6 /* WKProgressView.xib in Resources */,
 				5279A73E1EC94C6700999B3D /* WKPayWashView.xib in Resources */,
 				5279A7521EC989F200999B3D /* WKOperatorMyWashBookingView.xib in Resources */,
 				5279A7361EC9428A00999B3D /* WKBookingResultCell.xib in Resources */,
@@ -2120,6 +2137,7 @@
 				31632CC81EAB6EFB0057B161 /* WKUIButtonCorners.m in Sources */,
 				526B7D7F1ECC646000A43DCF /* WKMygoldenViewController.m in Sources */,
 				31A221FD1E99CFA00058A21B /* CTAPIBaseManager.m in Sources */,
+				52BC436C1F39925200B44FD6 /* WKProgressView.m in Sources */,
 				31632CC41EAB6E8E0057B161 /* UIView+RoundedCorners.m in Sources */,
 				529D21571ECC533900766E2F /* MyWashDetailCell.m in Sources */,
 				31A221F91E99CFA00058A21B /* NSString+AXNetworkingMethods.m in Sources */,

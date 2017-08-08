@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WKProgressView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_joinus_sucess" translatesAutoresizingMaskIntoConstraints="NO" id="NjV-Al-ewF">
+                    <rect key="frame" x="162" y="145" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="s1O-0Y-a2N"/>
+                        <constraint firstAttribute="width" constant="50" id="v3i-9p-TtE"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="领取成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCH-A9-yJJ">
+                    <rect key="frame" x="16" y="234" width="343" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您已成功领取任务，赶紧去完成任务吧，任务完成后可在我的任务订单列表查看" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMY-NC-bca">
+                    <rect key="frame" x="16" y="290" width="343" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pyS-Gl-1D0">
+                    <rect key="frame" x="0.0" y="539" width="375" height="130"/>
+                    <subviews>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4KU-fV-Mz0">
+                            <rect key="frame" x="117" y="43" width="140" height="45"/>
+                            <color key="backgroundColor" red="0.97574561834335327" green="0.58092361688613892" blue="0.27516999840736389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="140" id="c5G-1k-fWH"/>
+                                <constraint firstAttribute="height" constant="45" id="hRc-x4-gnZ"/>
+                            </constraints>
+                            <state key="normal" title="返回首页">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="mBtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="9Ey-rw-cea"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="4KU-fV-Mz0" firstAttribute="centerY" secondItem="pyS-Gl-1D0" secondAttribute="centerY" id="Iej-Ol-Mis"/>
+                        <constraint firstAttribute="height" constant="130" id="aTC-U1-wl4"/>
+                        <constraint firstItem="4KU-fV-Mz0" firstAttribute="centerX" secondItem="pyS-Gl-1D0" secondAttribute="centerX" id="qgg-76-pEi"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8M-eX-gWg">
+                    <rect key="frame" x="117" y="361" width="140" height="45"/>
+                    <color key="backgroundColor" red="0.97574561829999995" green="0.58092361690000005" blue="0.2751699984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="DAT-p5-uVV"/>
+                        <constraint firstAttribute="width" constant="140" id="xsb-6F-IMF"/>
+                    </constraints>
+                    <state key="normal" title="返回首页">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="mBtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="hDq-mw-mRJ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="pyS-Gl-1D0" secondAttribute="trailing" id="3lb-0L-P6u"/>
+                <constraint firstItem="NjV-Al-ewF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="145" id="7Gt-fM-Gyf"/>
+                <constraint firstItem="pyS-Gl-1D0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="BXF-LT-drE"/>
+                <constraint firstAttribute="trailing" secondItem="xMY-NC-bca" secondAttribute="trailing" constant="16" id="DaY-Or-SBV"/>
+                <constraint firstItem="H8M-eX-gWg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="FDz-bU-phV"/>
+                <constraint firstItem="oCH-A9-yJJ" firstAttribute="top" secondItem="NjV-Al-ewF" secondAttribute="bottom" constant="39" id="Lff-Ju-5fI"/>
+                <constraint firstItem="xMY-NC-bca" firstAttribute="top" secondItem="oCH-A9-yJJ" secondAttribute="bottom" constant="20" id="OG2-37-cIG"/>
+                <constraint firstItem="xMY-NC-bca" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="a6H-sL-wew"/>
+                <constraint firstAttribute="trailing" secondItem="oCH-A9-yJJ" secondAttribute="trailing" constant="16" id="cpK-hy-Mys"/>
+                <constraint firstAttribute="bottom" secondItem="pyS-Gl-1D0" secondAttribute="bottom" constant="-2" id="iN3-t3-DUg"/>
+                <constraint firstItem="NjV-Al-ewF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="oB3-Cl-4Bp"/>
+                <constraint firstItem="H8M-eX-gWg" firstAttribute="top" secondItem="xMY-NC-bca" secondAttribute="bottom" constant="30" id="tPX-LQ-Kuf"/>
+                <constraint firstItem="oCH-A9-yJJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="zFm-l0-TFO"/>
+            </constraints>
+            <connections>
+                <outlet property="mBottomView" destination="pyS-Gl-1D0" id="Y6p-po-kSz"/>
+                <outlet property="mContent" destination="xMY-NC-bca" id="QaD-hH-ZZI"/>
+                <outlet property="mFirstBtn" destination="H8M-eX-gWg" id="xKC-W8-Fty"/>
+                <outlet property="mSecondBtn" destination="4KU-fV-Mz0" id="U6j-Ag-dxa"/>
+                <outlet property="mStatusImg" destination="NjV-Al-ewF" id="scE-BB-JHJ"/>
+                <outlet property="mTitle" destination="oCH-A9-yJJ" id="Ku5-Ey-DPs"/>
+            </connections>
+            <point key="canvasLocation" x="45.5" y="-22.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_joinus_sucess" width="64" height="64"/>
+    </resources>
+</document>

@@ -95,6 +95,8 @@
         
         WKWashBookingViewController *vc = [WKWashBookingViewController new];
         [self pushViewController:vc];
+
+       
         }
             break;
         case 2:

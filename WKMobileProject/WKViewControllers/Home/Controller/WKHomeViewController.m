@@ -16,6 +16,7 @@
 #import "WKWashViewController.h"
 #import "WKVipTopupViewController.h"
 #import "WKBuyGoldenViewController.h"
+
 @interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
@@ -273,11 +274,17 @@
  @param mIndex 索引
  */
 - (void)WKHomeBannerDidSelectedWithIndex:(NSInteger)mIndex{
-    MLLog(@"%ld",mIndex);
-    WKWebViewController *vc = [WKWebViewController new];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+//    MLLog(@"%ld",mIndex);
+//    WKWebViewController *vc = [WKWebViewController new];
+//    vc.mTitle = @"测试页面";
+//    vc.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
 
+    [WKProgressView WKShowView:self.view andStatus:WKProgressSucess WithTitle:@"成功" andContent:@"这是什么？" andBlock:^(WKProgressView *progressView,NSInteger btnIndex) {
+        MLLog(@"%ld",btnIndex);
+    }];
+
+    
 }
 
 

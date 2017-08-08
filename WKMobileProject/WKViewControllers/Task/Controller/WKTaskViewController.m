@@ -137,11 +137,17 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 1) {
         MLLog(@"%ld行",indexPath.row);
+        WKWebViewController *vc = [WKWebViewController new];
+        vc.mTitle = [NSString stringWithFormat:@"%ld行",indexPath.row];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+
     }
     
 }
 - (void)WKTaskHeaderCellBannerClicked:(NSInteger)mIndex{
     MLLog(@"选择了:%ld",mIndex);
+
 }
 
 @end
