@@ -65,6 +65,9 @@
 		5214A3311F3C037900BE840D /* ZJJTimeCountDownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5214A32E1F3C037900BE840D /* ZJJTimeCountDownLabel.m */; };
 		5214A3351F3C055100BE840D /* MZTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5214A3341F3C055100BE840D /* MZTimerLabel.m */; };
 		5214A3391F3C090900BE840D /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5214A3381F3C090900BE840D /* UIViewController+BackButtonHandler.m */; };
+		5214A33E1F3C3A6800BE840D /* WKMyTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5214A33D1F3C3A6800BE840D /* WKMyTaskViewController.m */; };
+		5214A3421F3C3A9500BE840D /* MyTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5214A3401F3C3A9500BE840D /* MyTaskTableViewCell.m */; };
+		5214A3431F3C3A9500BE840D /* MyTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5214A3411F3C3A9500BE840D /* MyTaskTableViewCell.xib */; };
 		5217DDD01EE0FE9900BE35ED /* scancode.caf in Resources */ = {isa = PBXBuildFile; fileRef = 5217DDCF1EE0FE9900BE35ED /* scancode.caf */; };
 		5217DDD51EE1023A00BE35ED /* WKMyWealthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5217DDD41EE1023A00BE35ED /* WKMyWealthViewController.m */; };
 		5217DDD91EE1031500BE35ED /* WKMyWealthTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5217DDD71EE1031500BE35ED /* WKMyWealthTableViewCell.m */; };
@@ -383,6 +386,11 @@
 		5214A3341F3C055100BE840D /* MZTimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTimerLabel.m; sourceTree = "<group>"; };
 		5214A3371F3C090900BE840D /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
 		5214A3381F3C090900BE840D /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
+		5214A33C1F3C3A6800BE840D /* WKMyTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyTaskViewController.h; sourceTree = "<group>"; };
+		5214A33D1F3C3A6800BE840D /* WKMyTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMyTaskViewController.m; sourceTree = "<group>"; };
+		5214A33F1F3C3A9500BE840D /* MyTaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTaskTableViewCell.h; sourceTree = "<group>"; };
+		5214A3401F3C3A9500BE840D /* MyTaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTaskTableViewCell.m; sourceTree = "<group>"; };
+		5214A3411F3C3A9500BE840D /* MyTaskTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTaskTableViewCell.xib; sourceTree = "<group>"; };
 		5217DDCF1EE0FE9900BE35ED /* scancode.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = scancode.caf; sourceTree = "<group>"; };
 		5217DDD31EE1023A00BE35ED /* WKMyWealthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyWealthViewController.h; sourceTree = "<group>"; };
 		5217DDD41EE1023A00BE35ED /* WKMyWealthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMyWealthViewController.m; sourceTree = "<group>"; };
@@ -815,6 +823,7 @@
 				31507EA71EA06FE0007B8345 /* WKUserViewController.m */,
 				52289D871ECB042700D8A6F5 /* WKUserMsgViewController.h */,
 				52289D881ECB042700D8A6F5 /* WKUserMsgViewController.m */,
+				5214A33A1F3C39B900BE840D /* MyTask */,
 				5217DDD11EE101FA00BE35ED /* MyWealth */,
 				5274A1261ECD2FC30002B252 /* Connectus */,
 				526B7D7B1ECC643200A43DCF /* MyGolden */,
@@ -1309,6 +1318,26 @@
 				5214A3381F3C090900BE840D /* UIViewController+BackButtonHandler.m */,
 			);
 			path = WKCustomBackHandle;
+			sourceTree = "<group>";
+		};
+		5214A33A1F3C39B900BE840D /* MyTask */ = {
+			isa = PBXGroup;
+			children = (
+				5214A33C1F3C3A6800BE840D /* WKMyTaskViewController.h */,
+				5214A33D1F3C3A6800BE840D /* WKMyTaskViewController.m */,
+				5214A33B1F3C39B900BE840D /* View */,
+			);
+			path = MyTask;
+			sourceTree = "<group>";
+		};
+		5214A33B1F3C39B900BE840D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5214A33F1F3C3A9500BE840D /* MyTaskTableViewCell.h */,
+				5214A3401F3C3A9500BE840D /* MyTaskTableViewCell.m */,
+				5214A3411F3C3A9500BE840D /* MyTaskTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5217DDD11EE101FA00BE35ED /* MyWealth */ = {
@@ -2067,6 +2096,7 @@
 				529D21581ECC533900766E2F /* MyWashDetailCell.xib in Resources */,
 				52BC43871F39BAF800B44FD6 /* WKGenericRegistCell.xib in Resources */,
 				5239D3301EF3B1EC00BAB3F3 /* home.html in Resources */,
+				5214A3431F3C3A9500BE840D /* MyTaskTableViewCell.xib in Resources */,
 				5229760E1ECC2B3100FEB6D9 /* WKJoinusCell.xib in Resources */,
 				5217DDDA1EE1031500BE35ED /* WKMyWealthTableViewCell.xib in Resources */,
 				31632CBF1EAB02AF0057B161 /* WKTrainDemandCell.xib in Resources */,
@@ -2233,6 +2263,7 @@
 				31507EAE1EA06FF6007B8345 /* WKActivityViewController.m in Sources */,
 				524E3EFE1ECACD7300EF0224 /* WKFindTableViewCell.m in Sources */,
 				31A221F81E99CFA00058A21B /* NSObject+AXNetworkingMethods.m in Sources */,
+				5214A33E1F3C3A6800BE840D /* WKMyTaskViewController.m in Sources */,
 				5217DDE51EE1134700BE35ED /* WKFetchWealthCell.m in Sources */,
 				522976141ECC2C0700FEB6D9 /* WKJoinusHeaderFooterSectionView.m in Sources */,
 				315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */,
@@ -2316,6 +2347,7 @@
 				5217DDE01EE1059600BE35ED /* UIButton+Layout.m in Sources */,
 				529D21521ECC50E800766E2F /* WKMyWashCell.m in Sources */,
 				31507E961EA06EA5007B8345 /* WKBaseNavViewController.m in Sources */,
+				5214A3421F3C3A9500BE840D /* MyTaskTableViewCell.m in Sources */,
 				5217DDED1EE1392500BE35ED /* WKMyWealthRecordCell.m in Sources */,
 				31A2220D1E99CFA10058A21B /* GDMapService.m in Sources */,
 				52368FF81EC41105002524E5 /* WKWashBookingHeaderView.m in Sources */,

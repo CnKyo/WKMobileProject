@@ -21,6 +21,7 @@
 #import "WKMygoldenViewController.h"
 #import "WKConnectViewController.h"
 #import "WKMyWealthViewController.h"
+#import "WKMyTaskViewController.h"
 @interface WKUserViewController ()<WKUserInfoCellDelegate,WKUserInfoAdCellDelegate>
 
 @end
@@ -151,7 +152,7 @@
     }else if(section == 1){
         return 4;
     }else{
-        return 6;
+        return 7;
     }
     
 }
@@ -225,15 +226,16 @@
                 break;
             case 2:
             {
-            WKMyOrderViewController *vc = [WKMyOrderViewController new];
+            WKMyTaskViewController *vc = [WKMyTaskViewController new];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
             }
                 break;
             case 3:
             {
-            WKConnectViewController *vc = [WKConnectViewController new];
-            vc.mType = WKConnectUs;
+            WKMyOrderViewController *vc = [WKMyOrderViewController new];
+
+      
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
             }
@@ -241,6 +243,7 @@
             case 4:
             {
             WKConnectViewController *vc = [WKConnectViewController new];
+ 
             vc.mType = WKHelpCenter;
 
             vc.hidesBottomBarWhenPushed = YES;
@@ -250,6 +253,14 @@
             case 5:
             {
             WKJoinusViewController *vc = [WKJoinusViewController new];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+            }
+                break;
+            case 6:
+            {
+            WKConnectViewController *vc = [WKConnectViewController new];
+            vc.mType = WKConnectUs;
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
             }
