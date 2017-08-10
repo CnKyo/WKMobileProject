@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "WKHeader.h"
+
 typedef enum WKProgressStatus {
+    ///错误
     WKProgressError,
+    ///成功
     WKProgressSucess
 } WKProgressStatus;
 
@@ -34,6 +37,6 @@ typedef void(^WKProgressBlock)(WKProgressView *progressView,NSInteger btnIndex);
 
 @property (nonatomic,copy) WKProgressBlock mProgressBlock;
 
-+ (void)WKShowView:(UIView *)mView andStatus:(WKProgressStatus)mStatus WithTitle:(NSString *)mTitle andContent:(NSString *)mContent andBlock:(WKProgressBlock)block;
++ (void)WKShowView:(UIView *)mView andStatus:(WKProgressStatus)mStatus WithTitle:(NSString *)mTitle andContent:(NSString *)mContent andBtnTitle:(NSString *)mBtnTitle andImgSRC:(NSString *)mImgSRC andBlock:(WKProgressBlock)block;
 
 @end

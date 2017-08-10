@@ -40,7 +40,9 @@
 
 #import "WKWebViewController.h"
 
+#import "WKGenericTextFiled.h"
 #import "WKProgressView.h"
+
 //#define  WKSyncQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
 #define ColorRGB(_R_, _G_, _B_)       ([UIColor colorWithRed:_R_/255.0f green:_G_/255.0f blue:_B_/255.0f alpha:1])
@@ -211,6 +213,15 @@ typedef NS_ENUM(NSInteger,WKConnectUsOrHelpCenterType) {
     
     WKConnectUs = 1,///联系我们
     WKHelpCenter = 2,///帮助中心
+};
+
+///登录注册验证码登录
+typedef NS_ENUM(NSInteger,WKLoginType) {
+    
+    WKLogin = 1,///登录
+    WKRegist = 2,///注册
+    WKVerifyCode = 3,///验证码
+
 };
 
 //-----------------------

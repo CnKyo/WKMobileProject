@@ -17,14 +17,16 @@
     // Drawing code
 }
 */
-+ (void)WKShowView:(UIView *)mView andStatus:(WKProgressStatus)mStatus WithTitle:(NSString *)mTitle andContent:(NSString *)mContent andBlock:(WKProgressBlock)block{
++ (void)WKShowView:(UIView *)mView andStatus:(WKProgressStatus)mStatus WithTitle:(NSString *)mTitle andContent:(NSString *)mContent andBtnTitle:(NSString *)mBtnTitle andImgSRC:(NSString *)mImgSRC andBlock:(WKProgressBlock)block{
     WKProgressView *view = [self shareView:mView];
     [view removeFromSuperview];
     view.alpha = 1;
     view.mTitle.text = mTitle;
     view.mContent.text = mContent;
     view.mProgressBlock = block;
-    
+    [view.mFirstBtn setTitle:mBtnTitle forState:0];
+    [view.mSecondBtn setTitle:mBtnTitle forState:0];
+    view.mStatusImg.image = [UIImage imageNamed:mImgSRC];
     if (mStatus == WKProgressSucess) {
         view.backgroundColor = M_CO;
         view.mTitle.textColor = [UIColor whiteColor];

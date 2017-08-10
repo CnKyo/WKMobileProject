@@ -17,6 +17,7 @@
 #import "WKVipTopupViewController.h"
 #import "WKBuyGoldenViewController.h"
 
+#import "WKGenericLoginViewController.h"
 @interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
@@ -235,6 +236,10 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 2) {
         MLLog(@"%ld行",indexPath.row);
+        WKGenericLoginViewController *vc = [WKGenericLoginViewController new];
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.mLoginType = WKLogin;
+        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
     }
     
 }
@@ -280,10 +285,11 @@
 //    vc.hidesBottomBarWhenPushed = YES;
 //    [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
 
-    [WKProgressView WKShowView:self.view andStatus:WKProgressSucess WithTitle:@"成功" andContent:@"这是什么？" andBlock:^(WKProgressView *progressView,NSInteger btnIndex) {
+ 
+    [WKProgressView WKShowView:self.view andStatus:WKProgressError WithTitle:@"成功" andContent:@"这是什么？" andBtnTitle:@"重新加载" andImgSRC:@"icon_paysucess" andBlock:^(WKProgressView *progressView, NSInteger btnIndex) {
         MLLog(@"%ld",btnIndex);
-    }];
 
+    }];
     
 }
 
