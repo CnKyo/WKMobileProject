@@ -7,8 +7,12 @@
 //
 
 #import "WKGenericLoginViewController.h"
+
 #import "WKGenericHeaderCell.h"
 #import "WKGenericLoginCell.h"
+#import "UIViewController+BackButtonHandler.h"
+
+
 @interface WKGenericLoginViewController ()<WKGenericLoginCellDelegate>
 
 @end
@@ -18,7 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = _mTitle;
+    
+
     [self addTableView];
     
     UINib   *nib = [UINib nibWithNibName:@"WKGenericHeaderCell" bundle:nil];
@@ -96,18 +101,21 @@
             case WKLogin:
             {
             reuseCellId = @"loginCell";
+            _mTitle = @"登录";
 
             }
                 break;
             case WKVerifyCode:
             {
             reuseCellId = @"VerifyCodeCell";
+            _mTitle = @"验证码登录";
 
             }
                 break;
             case WKRegist:
             {
             reuseCellId = @"registCell";
+            _mTitle = @"注册";
 
             }
                 break;
@@ -115,7 +123,8 @@
             default:
                 break;
         }
-        
+   
+        self.navigationItem.title = _mTitle;
         WKGenericLoginCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.delegate = self;
@@ -150,7 +159,7 @@
             break;
         case 4:
         {
-        
+ 
         }
             break;
         case 5:
@@ -170,6 +179,8 @@
     }
 }
 
+
+
 /**
  注册cell输入框代理方法
  
@@ -179,5 +190,19 @@
 - (void)WKGenericRegistCellDelegateWithTextFieldEditingWithTag:(NSInteger)mTag andText:(NSString *)mText{
     MLLog(@"tag是：%ld----输入的内容是：%@",mTag,mText);
 
+}
+/**
+ * 协议中的方法，获取返回按钮的点击事件
+ */
+- (BOOL)navigationShouldPopOnBackButton
+{
+    if (_mLoginType == WKLogin) {
+        return YES;
+    }else{
+        _mLoginType = WKLogin;
+        [self.tableView reloadData];
+        return NO;
+    }
+    
 }
 @end

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WKHeader.h"
+#import "MZTimerLabel.h"
 
 @protocol WKGenericLoginCellDelegate <NSObject>
 
@@ -59,7 +61,7 @@
 
 @end
 
-@interface WKGenericLoginCell : UITableViewCell<UITextFieldDelegate>
+@interface WKGenericLoginCell : UITableViewCell<UITextFieldDelegate,MZTimerLabelDelegate>
 #pragma mark----****----登录cell
 
 /**
@@ -123,6 +125,9 @@
  去登录按钮
  */
 @property (weak, nonatomic) IBOutlet UIButton *mGoLoginBtn;
+///倒计时label
+@property (strong,nonatomic)  UILabel *timer_show;
 
 @property (nonatomic,weak) id<WKGenericLoginCellDelegate>delegate;
+
 @end
