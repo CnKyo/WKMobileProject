@@ -209,6 +209,7 @@
 		529D8E871EE010B300BF0FDE /* CountDownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D8E831EE010B300BF0FDE /* CountDownLabel.m */; };
 		529D8E8A1EE01F4300BF0FDE /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529D8E891EE01F4300BF0FDE /* Photos.framework */; };
 		529D8E8B1EE01F6D00BF0FDE /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A221AC1E99CDE50058A21B /* AssetsLibrary.framework */; };
+		529F3B441F3D9A84000E5933 /* WKBDModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 529F3B431F3D9A84000E5933 /* WKBDModel.m */; };
 		52A66E501EF268330011EEC3 /* index3.html in Resources */ = {isa = PBXBuildFile; fileRef = 52A66E4F1EF268330011EEC3 /* index3.html */; };
 		52A66E531EF293310011EEC3 /* WKWebViewConfigDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A66E521EF293310011EEC3 /* WKWebViewConfigDelegate.m */; };
 		52AC36341EC2A059000866D4 /* FDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC362F1EC2A059000866D4 /* FDAlertView.m */; };
@@ -601,6 +602,8 @@
 		529D8E821EE010B300BF0FDE /* CountDownLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountDownLabel.h; sourceTree = "<group>"; };
 		529D8E831EE010B300BF0FDE /* CountDownLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountDownLabel.m; sourceTree = "<group>"; };
 		529D8E891EE01F4300BF0FDE /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		529F3B421F3D9A84000E5933 /* WKBDModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBDModel.h; sourceTree = "<group>"; };
+		529F3B431F3D9A84000E5933 /* WKBDModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBDModel.m; sourceTree = "<group>"; };
 		52A66E4F1EF268330011EEC3 /* index3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index3.html; sourceTree = "<group>"; };
 		52A66E511EF293310011EEC3 /* WKWebViewConfigDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewConfigDelegate.h; sourceTree = "<group>"; };
 		52A66E521EF293310011EEC3 /* WKWebViewConfigDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewConfigDelegate.m; sourceTree = "<group>"; };
@@ -910,6 +913,7 @@
 			isa = PBXGroup;
 			children = (
 				529D8E5C1EDFFF1700BF0FDE /* WKMobileProject.entitlements */,
+				529F3B3E1F3D9860000E5933 /* WKModelCacke */,
 				5214A3361F3C090900BE840D /* WKCustomBackHandle */,
 				5214A3321F3C055100BE840D /* MZTimerLabel */,
 				5214A3281F3C037900BE840D /* ZJJTimeCountDown */,
@@ -1764,6 +1768,15 @@
 			path = WKCountTimeLb;
 			sourceTree = "<group>";
 		};
+		529F3B3E1F3D9860000E5933 /* WKModelCacke */ = {
+			isa = PBXGroup;
+			children = (
+				529F3B421F3D9A84000E5933 /* WKBDModel.h */,
+				529F3B431F3D9A84000E5933 /* WKBDModel.m */,
+			);
+			path = WKModelCacke;
+			sourceTree = "<group>";
+		};
 		52AC362D1EC2A059000866D4 /* UIFDCustom+PopView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2353,6 +2366,7 @@
 				52368FF81EC41105002524E5 /* WKWashBookingHeaderView.m in Sources */,
 				5229762B1ECC413F00FEB6D9 /* WKSegmentControl.m in Sources */,
 				5279A7321EC93DB900999B3D /* WaskBookingResultController.m in Sources */,
+				529F3B441F3D9A84000E5933 /* WKBDModel.m in Sources */,
 				5214A3391F3C090900BE840D /* UIViewController+BackButtonHandler.m in Sources */,
 				52289D721ECAE94700D8A6F5 /* WKPlayGameViewController.m in Sources */,
 				524E3EF41ECAAEC900EF0224 /* WKActivityTableViewCell.m in Sources */,

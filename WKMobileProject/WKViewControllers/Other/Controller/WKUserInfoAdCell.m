@@ -20,6 +20,11 @@
 
     // Configure the view for the selected state
 }
+- (void)layoutSubviews{
+
+    [super layoutSubviews];
+    self.mLeftImg.layer.cornerRadius = self.mRightImg.layer.cornerRadius = 4;
+}
 - (IBAction)mLeftAction:(id)sender {
     if ([self.delegete respondsToSelector:@selector(WKUserInfoAdCellDelegateWithLeftBtn:)]) {
         [self.delegete WKUserInfoAdCellDelegateWithLeftBtn:self.mIndexPath];

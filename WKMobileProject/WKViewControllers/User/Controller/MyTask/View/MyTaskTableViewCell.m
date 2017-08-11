@@ -20,6 +20,10 @@
 
     // Configure the view for the selected state
 }
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    self.mCommitBtn.layer.cornerRadius  =4;
+}
 - (IBAction)mBtnAction:(id)sender {
     if ([self.delegate respondsToSelector:@selector(MyTaskTableViewCellDelegateWithBtnAction:)]) {
         [self.delegate MyTaskTableViewCellDelegateWithBtnAction:self.mIndexPath];
