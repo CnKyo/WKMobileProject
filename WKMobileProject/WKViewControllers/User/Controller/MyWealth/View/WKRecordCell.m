@@ -17,7 +17,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
@@ -31,5 +31,36 @@
     
     self.mCommitBtn.layer.cornerRadius = 4;
     
+    _mComPwdTx = [[WKPwdText alloc] initWithFrame:CGRectMake(0, 0, DEVICE_Width, 50)];
+    [self.mPwdTxView addSubview:_mComPwdTx];
+    
 }
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.contentView endEditing:YES];
+    MLLog( @"222222----:%@", _mComPwdTx.text );
+    
+    if ([self.delegate respondsToSelector:@selector(WKRecordCellWithRecordPwd:)]) {
+        [self.delegate WKRecordCellWithRecordPwd:_mComPwdTx.text];
+        
+    }
+    
+    
+    
+}
+- (IBAction)mBtnAction:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(WKRecordCellWithRecordBtnClicked)]) {
+        [self.delegate WKRecordCellWithRecordBtnClicked];
+    }
+    
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    if (textField.text.length>0) {
+        if ([self.delegate respondsToSelector:@selector(WKRecordCellWithRecordMoney:)]) {
+            [self.delegate WKRecordCellWithRecordMoney:textField.text];
+        }
+        
+    }
+}
+
 @end

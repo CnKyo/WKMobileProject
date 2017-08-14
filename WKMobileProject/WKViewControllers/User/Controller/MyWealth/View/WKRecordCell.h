@@ -7,8 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WKPwdText.h"
+#import "WKHeader.h"
 
-@interface WKRecordCell : UITableViewCell
+@protocol  WKRecordCellDelegate <NSObject>
+
+@optional
+
+- (void)WKRecordCellWithRecordMoney:(NSString *)mText;
+
+- (void)WKRecordCellWithRecordPwd:(NSString *)mText;
+
+- (void)WKRecordCellWithRecordBtnClicked;
+
+@end
+
+@interface WKRecordCell : UITableViewCell<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *mMMoney;
 
@@ -24,6 +38,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *mCommitBtn;
 
+@property (strong,nonatomic) WKPwdText *mComPwdTx;
+
+@property (weak,nonatomic) id <WKRecordCellDelegate>delegate;
 
 
 @end

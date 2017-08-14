@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="499.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEQ-qQ-WEh">
@@ -168,6 +168,9 @@
                         <state key="normal" title="我要提现">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="mBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="n8Z-PW-h2Z"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
