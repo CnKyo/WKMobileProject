@@ -8,6 +8,7 @@
 
 #import "WKEditUserinfoViewController.h"
 #import "WKEditUserInfoCell.h"
+#import "WKChangeUserInfoViewController.h"
 @interface WKEditUserinfoViewController ()<WKEditUserInfoCellDelegate>
 
 @end
@@ -87,5 +88,16 @@
  */
 - (void)WKEditUserInfoCellDelegateWithBtnClicked:(WKEditUserInfoClicked)mType{
     MLLog(@"点击了%ld",mType);
+    if (mType == 2) {
+        WKChangeUserInfoViewController *vc = [WKChangeUserInfoViewController new];
+        vc.mType = WKChangeNormalInfo;
+        [self pushViewController:vc];
+    }else if (mType == 6){
+        WKChangeUserInfoViewController *vc = [WKChangeUserInfoViewController new];
+        vc.mType = WKChangePwd;
+        [self pushViewController:vc];
+    }else{
+    
+    }
 }
 @end

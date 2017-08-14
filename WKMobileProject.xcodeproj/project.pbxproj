@@ -252,6 +252,19 @@
 		52BC43831F39B70D00B44FD6 /* WKGenericHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BC43811F39B70D00B44FD6 /* WKGenericHeaderCell.xib */; };
 		52BC43851F39BA0100B44FD6 /* WKGenericVerifyCodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BC43841F39BA0100B44FD6 /* WKGenericVerifyCodeCell.xib */; };
 		52BC43871F39BAF800B44FD6 /* WKGenericRegistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BC43861F39BAF800B44FD6 /* WKGenericRegistCell.xib */; };
+		52D02D201F417FD900B24618 /* WKTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D02D1F1F417FD900B24618 /* WKTaskDetailViewController.m */; };
+		52D02D241F41800A00B24618 /* WKTaskDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D02D221F41800A00B24618 /* WKTaskDetailCell.m */; };
+		52D02D251F41800A00B24618 /* WKTaskDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D02D231F41800A00B24618 /* WKTaskDetailCell.xib */; };
+		52D02D281F41814F00B24618 /* WKTaskSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D02D271F41814F00B24618 /* WKTaskSectionHeaderView.m */; };
+		52D02D2A1F41815900B24618 /* WKTaskSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D02D291F41815900B24618 /* WKTaskSectionHeaderView.xib */; };
+		52D02D2C1F41913400B24618 /* WKActivityDetailHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D02D2B1F41913400B24618 /* WKActivityDetailHeadView.xib */; };
+		52D02D2F1F4195F900B24618 /* WKChangeUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D02D2E1F4195F900B24618 /* WKChangeUserInfoViewController.m */; };
+		52D02D331F41963500B24618 /* WKChangeUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D02D311F41963500B24618 /* WKChangeUserInfoCell.m */; };
+		52D02D341F41963500B24618 /* WKChangeUserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D02D321F41963500B24618 /* WKChangeUserInfoCell.xib */; };
+		52D02D361F419A0F00B24618 /* WKChangePWDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D02D351F419A0F00B24618 /* WKChangePWDView.xib */; };
+		52D02D391F41A26100B24618 /* WKRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D02D381F41A26100B24618 /* WKRecordViewController.m */; };
+		52D02D3D1F41A8CD00B24618 /* WKRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D02D3B1F41A8CD00B24618 /* WKRecordCell.m */; };
+		52D02D3E1F41A8CD00B24618 /* WKRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D02D3C1F41A8CD00B24618 /* WKRecordCell.xib */; };
 		52EFE1901EDECC74004CDA65 /* WKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EFE18F1EDECC74004CDA65 /* WKModel.m */; };
 /* End PBXBuildFile section */
 
@@ -672,6 +685,26 @@
 		52BC43811F39B70D00B44FD6 /* WKGenericHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKGenericHeaderCell.xib; sourceTree = "<group>"; };
 		52BC43841F39BA0100B44FD6 /* WKGenericVerifyCodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKGenericVerifyCodeCell.xib; sourceTree = "<group>"; };
 		52BC43861F39BAF800B44FD6 /* WKGenericRegistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKGenericRegistCell.xib; sourceTree = "<group>"; };
+		52D02D1E1F417FD900B24618 /* WKTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTaskDetailViewController.h; sourceTree = "<group>"; };
+		52D02D1F1F417FD900B24618 /* WKTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTaskDetailViewController.m; sourceTree = "<group>"; };
+		52D02D211F41800A00B24618 /* WKTaskDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTaskDetailCell.h; sourceTree = "<group>"; };
+		52D02D221F41800A00B24618 /* WKTaskDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTaskDetailCell.m; sourceTree = "<group>"; };
+		52D02D231F41800A00B24618 /* WKTaskDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKTaskDetailCell.xib; sourceTree = "<group>"; };
+		52D02D261F41814F00B24618 /* WKTaskSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTaskSectionHeaderView.h; sourceTree = "<group>"; };
+		52D02D271F41814F00B24618 /* WKTaskSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTaskSectionHeaderView.m; sourceTree = "<group>"; };
+		52D02D291F41815900B24618 /* WKTaskSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKTaskSectionHeaderView.xib; sourceTree = "<group>"; };
+		52D02D2B1F41913400B24618 /* WKActivityDetailHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKActivityDetailHeadView.xib; sourceTree = "<group>"; };
+		52D02D2D1F4195F900B24618 /* WKChangeUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKChangeUserInfoViewController.h; sourceTree = "<group>"; };
+		52D02D2E1F4195F900B24618 /* WKChangeUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKChangeUserInfoViewController.m; sourceTree = "<group>"; };
+		52D02D301F41963500B24618 /* WKChangeUserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKChangeUserInfoCell.h; sourceTree = "<group>"; };
+		52D02D311F41963500B24618 /* WKChangeUserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKChangeUserInfoCell.m; sourceTree = "<group>"; };
+		52D02D321F41963500B24618 /* WKChangeUserInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKChangeUserInfoCell.xib; sourceTree = "<group>"; };
+		52D02D351F419A0F00B24618 /* WKChangePWDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKChangePWDView.xib; sourceTree = "<group>"; };
+		52D02D371F41A26100B24618 /* WKRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKRecordViewController.h; sourceTree = "<group>"; };
+		52D02D381F41A26100B24618 /* WKRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKRecordViewController.m; sourceTree = "<group>"; };
+		52D02D3A1F41A8CD00B24618 /* WKRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKRecordCell.h; sourceTree = "<group>"; };
+		52D02D3B1F41A8CD00B24618 /* WKRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKRecordCell.m; sourceTree = "<group>"; };
+		52D02D3C1F41A8CD00B24618 /* WKRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKRecordCell.xib; sourceTree = "<group>"; };
 		52EFE18E1EDECC74004CDA65 /* WKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKModel.h; sourceTree = "<group>"; };
 		52EFE18F1EDECC74004CDA65 /* WKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKModel.m; sourceTree = "<group>"; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1351,6 +1384,8 @@
 				5217DDD41EE1023A00BE35ED /* WKMyWealthViewController.m */,
 				5217DDE71EE138E700BE35ED /* WKMyWealthRecordViewController.h */,
 				5217DDE81EE138E700BE35ED /* WKMyWealthRecordViewController.m */,
+				52D02D371F41A26100B24618 /* WKRecordViewController.h */,
+				52D02D381F41A26100B24618 /* WKRecordViewController.m */,
 				5217DDF31EE15B3A00BE35ED /* BoundleTool */,
 				5217DDD21EE101FA00BE35ED /* View */,
 			);
@@ -1369,6 +1404,9 @@
 				5217DDEA1EE1392500BE35ED /* WKMyWealthRecordCell.h */,
 				5217DDEB1EE1392500BE35ED /* WKMyWealthRecordCell.m */,
 				5217DDEC1EE1392500BE35ED /* WKMyWealthRecordCell.xib */,
+				52D02D3A1F41A8CD00B24618 /* WKRecordCell.h */,
+				52D02D3B1F41A8CD00B24618 /* WKRecordCell.m */,
+				52D02D3C1F41A8CD00B24618 /* WKRecordCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1420,6 +1458,8 @@
 			children = (
 				52289D911ECB07A900D8A6F5 /* WKEditUserinfoViewController.h */,
 				52289D921ECB07A900D8A6F5 /* WKEditUserinfoViewController.m */,
+				52D02D2D1F4195F900B24618 /* WKChangeUserInfoViewController.h */,
+				52D02D2E1F4195F900B24618 /* WKChangeUserInfoViewController.m */,
 				52289D901ECB078500D8A6F5 /* View */,
 			);
 			path = EditUserInfo;
@@ -1431,6 +1471,10 @@
 				52289D941ECB07C900D8A6F5 /* WKEditUserInfoCell.h */,
 				52289D951ECB07C900D8A6F5 /* WKEditUserInfoCell.m */,
 				52289D961ECB07C900D8A6F5 /* WKEditUserInfoCell.xib */,
+				52D02D301F41963500B24618 /* WKChangeUserInfoCell.h */,
+				52D02D311F41963500B24618 /* WKChangeUserInfoCell.m */,
+				52D02D321F41963500B24618 /* WKChangeUserInfoCell.xib */,
+				52D02D351F419A0F00B24618 /* WKChangePWDView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1870,6 +1914,8 @@
 			children = (
 				52BC435E1F39649200B44FD6 /* WKTaskViewController.h */,
 				52BC435F1F39649200B44FD6 /* WKTaskViewController.m */,
+				52D02D1E1F417FD900B24618 /* WKTaskDetailViewController.h */,
+				52D02D1F1F417FD900B24618 /* WKTaskDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1882,6 +1928,13 @@
 				52BC43631F39650C00B44FD6 /* WKTaskTableViewCell.xib */,
 				52BC43661F39676500B44FD6 /* WKTaskHeaderCell.h */,
 				52BC43671F39676500B44FD6 /* WKTaskHeaderCell.m */,
+				52D02D211F41800A00B24618 /* WKTaskDetailCell.h */,
+				52D02D221F41800A00B24618 /* WKTaskDetailCell.m */,
+				52D02D231F41800A00B24618 /* WKTaskDetailCell.xib */,
+				52D02D261F41814F00B24618 /* WKTaskSectionHeaderView.h */,
+				52D02D271F41814F00B24618 /* WKTaskSectionHeaderView.m */,
+				52D02D291F41815900B24618 /* WKTaskSectionHeaderView.xib */,
+				52D02D2B1F41913400B24618 /* WKActivityDetailHeadView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2126,6 +2179,7 @@
 				52B724651EF137A800551108 /* index.html in Resources */,
 				315FFC111E97D3C600C78440 /* LaunchScreen.storyboard in Resources */,
 				524E3EFA1ECACD5B00EF0224 /* WKFindHeaderCell.xib in Resources */,
+				52D02D2A1F41815900B24618 /* WKTaskSectionHeaderView.xib in Resources */,
 				52289D8E1ECB043A00D8A6F5 /* WKUserMsgCell.xib in Resources */,
 				5240A27F1EEFC68F000A132A /* test.html in Resources */,
 				522976221ECC392200FEB6D9 /* WKJoinProgressView.xib in Resources */,
@@ -2150,11 +2204,16 @@
 				5217DDE61EE1134700BE35ED /* WKFetchWealthCell.xib in Resources */,
 				529D21651ECC580F00766E2F /* WKMyOrderCell.xib in Resources */,
 				52289D811ECAF6CD00D8A6F5 /* WKUserInfoAdCell.xib in Resources */,
+				52D02D3E1F41A8CD00B24618 /* WKRecordCell.xib in Resources */,
 				52BC43851F39BA0100B44FD6 /* WKGenericVerifyCodeCell.xib in Resources */,
+				52D02D2C1F41913400B24618 /* WKActivityDetailHeadView.xib in Resources */,
 				52368FEB1EC3FA1D002524E5 /* WKWashTableHeaderView.xib in Resources */,
+				52D02D341F41963500B24618 /* WKChangeUserInfoCell.xib in Resources */,
 				5239D3391EF3B22000BAB3F3 /* mui.css in Resources */,
+				52D02D361F419A0F00B24618 /* WKChangePWDView.xib in Resources */,
 				5279A7481EC97E5000999B3D /* WKWashPayErrorView.xib in Resources */,
 				5239D32E1EF37E7D00BAB3F3 /* index1.css in Resources */,
+				52D02D251F41800A00B24618 /* WKTaskDetailCell.xib in Resources */,
 				522976161ECC2C1400FEB6D9 /* WKJoinusHeaderSectionView.xib in Resources */,
 				52BC436E1F39925900B44FD6 /* WKProgressView.xib in Resources */,
 				5279A73E1EC94C6700999B3D /* WKPayWashView.xib in Resources */,
@@ -2250,6 +2309,7 @@
 				522976111ECC2B3F00FEB6D9 /* WKJoinusViewController.m in Sources */,
 				52A66E531EF293310011EEC3 /* WKWebViewConfigDelegate.m in Sources */,
 				529D8E841EE010B300BF0FDE /* NSString+QRCode.m in Sources */,
+				52D02D391F41A26100B24618 /* WKRecordViewController.m in Sources */,
 				315FFC091E97D3C600C78440 /* ViewController.m in Sources */,
 				529D215B1ECC534E00766E2F /* WKMyWashDetailViewController.m in Sources */,
 				522976301ECC418D00FEB6D9 /* MyWashViewController.m in Sources */,
@@ -2265,6 +2325,7 @@
 				52AC366F1EC314CD000866D4 /* WKWashHeaderView.m in Sources */,
 				529D21601ECC579000766E2F /* WKMyOrderViewController.m in Sources */,
 				523FC24E1F381E6700EA7A6E /* WKGenericTextFiled.m in Sources */,
+				52D02D281F41814F00B24618 /* WKTaskSectionHeaderView.m in Sources */,
 				52BC43641F39650C00B44FD6 /* WKTaskTableViewCell.m in Sources */,
 				52289D761ECAE99F00D8A6F5 /* WKPlayGameCell.m in Sources */,
 				52AC36351EC2A059000866D4 /* WKCustomPopView.m in Sources */,
@@ -2276,6 +2337,7 @@
 				31507EAE1EA06FF6007B8345 /* WKActivityViewController.m in Sources */,
 				524E3EFE1ECACD7300EF0224 /* WKFindTableViewCell.m in Sources */,
 				31A221F81E99CFA00058A21B /* NSObject+AXNetworkingMethods.m in Sources */,
+				52D02D201F417FD900B24618 /* WKTaskDetailViewController.m in Sources */,
 				5214A33E1F3C3A6800BE840D /* WKMyTaskViewController.m in Sources */,
 				5217DDE51EE1134700BE35ED /* WKFetchWealthCell.m in Sources */,
 				522976141ECC2C0700FEB6D9 /* WKJoinusHeaderFooterSectionView.m in Sources */,
@@ -2285,6 +2347,7 @@
 				5217DDF21EE157AA00BE35ED /* WKPasswordTextFiled.m in Sources */,
 				31A221F61E99CFA00058A21B /* NSDictionary+AXNetworkingMethods.m in Sources */,
 				529D8E491EDFF9E100BF0FDE /* WKMarqueeBar.m in Sources */,
+				52D02D331F41963500B24618 /* WKChangeUserInfoCell.m in Sources */,
 				529D21681ECC5E3A00766E2F /* WKMyOrderDetailViewController.m in Sources */,
 				31632CC81EAB6EFB0057B161 /* WKUIButtonCorners.m in Sources */,
 				526B7D7F1ECC646000A43DCF /* WKMygoldenViewController.m in Sources */,
@@ -2313,6 +2376,7 @@
 				52AC36501EC2C318000866D4 /* WKHomeTypeHeaderCell.m in Sources */,
 				52AC36661EC2FB55000866D4 /* WKHomeActivityCell.m in Sources */,
 				52289D801ECAF6CD00D8A6F5 /* WKUserInfoAdCell.m in Sources */,
+				52D02D241F41800A00B24618 /* WKTaskDetailCell.m in Sources */,
 				5279A7631EC9AA8200999B3D /* WKTopupCollectionViewCell.m in Sources */,
 				52AC364C1EC2C086000866D4 /* UILabel+Wonderful.m in Sources */,
 				31A221FB1E99CFA00058A21B /* UIDevice+IdentifierAddition.m in Sources */,
@@ -2352,10 +2416,12 @@
 				5229760D1ECC2B3100FEB6D9 /* WKJoinusCell.m in Sources */,
 				529D21641ECC580F00766E2F /* WKMyOrderCell.m in Sources */,
 				31A222061E99CFA10058A21B /* CTSignatureGenerator.m in Sources */,
+				52D02D2F1F4195F900B24618 /* WKChangeUserInfoViewController.m in Sources */,
 				5217DDD51EE1023A00BE35ED /* WKMyWealthViewController.m in Sources */,
 				5240A27D1EEFC482000A132A /* WKWebViewController.m in Sources */,
 				31507EA51EA06FD2007B8345 /* WKHomeViewController.m in Sources */,
 				31507EAB1EA06FEA007B8345 /* WKFindViewController.m in Sources */,
+				52D02D3D1F41A8CD00B24618 /* WKRecordCell.m in Sources */,
 				522976271ECC3D9300FEB6D9 /* WKMyActivityViewController.m in Sources */,
 				5217DDE01EE1059600BE35ED /* UIButton+Layout.m in Sources */,
 				529D21521ECC50E800766E2F /* WKMyWashCell.m in Sources */,

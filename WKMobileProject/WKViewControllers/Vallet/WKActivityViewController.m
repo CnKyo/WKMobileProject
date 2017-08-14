@@ -8,6 +8,8 @@
 
 #import "WKActivityViewController.h"
 #import "WKActivityTableViewCell.h"
+#import "WKTaskDetailViewController.h"
+
 @interface UIActivityViewController ()
 
 @end
@@ -88,5 +90,10 @@
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     MLLog(@"点击了%ld行",indexPath.row);
+    WKTaskDetailViewController *vc = [WKTaskDetailViewController new];
+    vc.mType = WKActivityDetail;
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+
 }
 @end

@@ -225,6 +225,15 @@ typedef NS_ENUM(NSInteger,WKLoginType) {
 
 };
 
+
+///任务详情和活动详情页面
+typedef NS_ENUM(NSInteger,WKTaskAndActivity) {
+    
+    WKTaskDetail = 1,///任务详情
+    WKActivityDetail = 2,///活动详情
+    
+};
+
 //-----------------------
 //自定义的写在下面，通用的写在上面
 //-----------------------

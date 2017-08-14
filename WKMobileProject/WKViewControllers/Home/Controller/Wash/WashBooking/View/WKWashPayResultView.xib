@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,26 +16,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_paysucess" translatesAutoresizingMaskIntoConstraints="NO" id="UNp-TC-mM2">
-                    <rect key="frame" x="167" y="90" width="40" height="40"/>
+                    <rect key="frame" x="167" y="190" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="SL1-Sc-lrJ"/>
                         <constraint firstAttribute="height" constant="40" id="dND-FR-pyg"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOp-rO-hKe">
-                    <rect key="frame" x="16" y="145" width="343" height="54"/>
+                    <rect key="frame" x="16" y="245" width="343" height="54"/>
                     <fontDescription key="fontDescription" type="system" pointSize="45"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="此次消费400元" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01X-UB-NLy">
-                    <rect key="frame" x="16" y="224" width="343" height="24"/>
+                    <rect key="frame" x="16" y="324" width="343" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="倒计时" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7F-Do-zQT">
-                    <rect key="frame" x="16" y="278" width="343" height="24"/>
+                    <rect key="frame" x="16" y="378" width="343" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -81,7 +81,7 @@
                 <constraint firstAttribute="trailing" secondItem="g7F-Do-zQT" secondAttribute="trailing" constant="16" id="eiB-sB-igJ"/>
                 <constraint firstAttribute="trailing" secondItem="lOp-rO-hKe" secondAttribute="trailing" constant="16" id="gNH-tM-KyA"/>
                 <constraint firstItem="lOp-rO-hKe" firstAttribute="top" secondItem="UNp-TC-mM2" secondAttribute="bottom" constant="15" id="gzE-WI-xVO"/>
-                <constraint firstItem="UNp-TC-mM2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="90" id="hlB-7i-aEw"/>
+                <constraint firstItem="UNp-TC-mM2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="190" id="hlB-7i-aEw"/>
                 <constraint firstAttribute="bottom" secondItem="0zF-DD-Sml" secondAttribute="bottom" id="rkq-Ve-StS"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

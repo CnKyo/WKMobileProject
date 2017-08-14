@@ -9,6 +9,7 @@
 #import "WKTaskViewController.h"
 #import "WKTaskTableViewCell.h"
 #import "WKTaskHeaderCell.h"
+#import "WKTaskDetailViewController.h"
 @interface WKTaskViewController ()<WKTaskHeaderCellDelegate>
 
 @end
@@ -137,8 +138,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 1) {
         MLLog(@"%ld行",indexPath.row);
-        WKWebViewController *vc = [WKWebViewController new];
-        vc.mTitle = [NSString stringWithFormat:@"%ld行",indexPath.row];
+        WKTaskDetailViewController *vc = [WKTaskDetailViewController new];
+        vc.mType = WKTaskDetail;
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="599.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入购买数量:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVs-zX-5iq">
@@ -88,23 +88,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_wechatpay" translatesAutoresizingMaskIntoConstraints="NO" id="Bso-GZ-gl9">
-                                <rect key="frame" x="15" y="51" width="28" height="28"/>
+                                <rect key="frame" x="15" y="51" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="Hp1-A3-C8P"/>
-                                    <constraint firstAttribute="width" constant="28" id="d8i-vL-Gr2"/>
+                                    <constraint firstAttribute="height" constant="25" id="Hp1-A3-C8P"/>
+                                    <constraint firstAttribute="width" constant="25" id="d8i-vL-Gr2"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeQ-iF-HRd">
-                                <rect key="frame" x="53" y="54" width="201" height="18"/>
+                                <rect key="frame" x="50" y="54" width="207" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.81284781679999996" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgp-SQ-5we">
-                                <rect key="frame" x="275" y="51" width="28" height="28"/>
+                                <rect key="frame" x="278" y="51" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="28" id="M7I-6q-NCg"/>
-                                    <constraint firstAttribute="height" constant="28" id="UYy-ce-ydm"/>
+                                    <constraint firstAttribute="width" constant="25" id="M7I-6q-NCg"/>
+                                    <constraint firstAttribute="height" constant="25" id="UYy-ce-ydm"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" backgroundImage="icon_unselected">
@@ -116,30 +116,30 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eyz-Xd-uc4">
-                                <rect key="frame" x="15" y="100" width="290" height="1"/>
+                                <rect key="frame" x="15" y="97" width="290" height="1"/>
                                 <color key="backgroundColor" red="0.90026319030000002" green="0.92770570519999995" blue="0.97168630359999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="NPt-Hi-miP"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_alipay" translatesAutoresizingMaskIntoConstraints="NO" id="VAH-7D-RVx">
-                                <rect key="frame" x="15" y="114" width="28" height="28"/>
+                                <rect key="frame" x="15" y="111" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="28" id="6Ms-Q7-LYe"/>
-                                    <constraint firstAttribute="height" constant="28" id="9oI-R4-dCz"/>
+                                    <constraint firstAttribute="width" constant="25" id="6Ms-Q7-LYe"/>
+                                    <constraint firstAttribute="height" constant="25" id="9oI-R4-dCz"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付宝支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHC-dv-bWS">
-                                <rect key="frame" x="53" y="117" width="201" height="18"/>
+                                <rect key="frame" x="50" y="114" width="207" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.81284781679999996" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l85-FB-7Q5">
-                                <rect key="frame" x="275" y="114" width="28" height="28"/>
+                                <rect key="frame" x="278" y="111" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="bym-xd-rQe"/>
-                                    <constraint firstAttribute="width" constant="28" id="kBD-Jt-vbt"/>
+                                    <constraint firstAttribute="height" constant="25" id="bym-xd-rQe"/>
+                                    <constraint firstAttribute="width" constant="25" id="kBD-Jt-vbt"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" backgroundImage="icon_unselected">
