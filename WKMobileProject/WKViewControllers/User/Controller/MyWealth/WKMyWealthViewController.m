@@ -11,6 +11,7 @@
 #import "WKFetchWealthCell.h"
 #import "WKMyWealthRecordViewController.h"
 #import "WKBoundleToolViewController.h"
+#import "WKRecordViewController.h"
 @interface WKMyWealthViewController ()<WKMyWealthTableViewCellDelegate>
 
 @end
@@ -18,7 +19,7 @@
 @implementation WKMyWealthViewController
 {
     UITableView *mTableView;
-
+    
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -59,7 +60,7 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"WKMyWealthTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
-     [self.tableView registerNib:[UINib nibWithNibName:@"WKFetchWealthCell" bundle:nil] forCellReuseIdentifier:@"cell2"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"WKFetchWealthCell" bundle:nil] forCellReuseIdentifier:@"cell2"];
     
     [mView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
@@ -71,15 +72,15 @@
         make.left.right.bottom.equalTo(self.view);
         make.top.equalTo(mView.mas_bottom);
     }];
-
+    
     [self addTableViewHeaderRefreshing];
     [self addTableViewFootererRefreshing];
 }
 - (void)tableViewHeaderReloadData{
-
+    
 }
 - (void)tableViewFooterReloadData{
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,14 +89,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
@@ -190,6 +191,9 @@
         case 2:
         {
         MLLog(@"提现");
+        WKRecordViewController *vc = [WKRecordViewController new];
+        [self pushViewController:vc];
+        
         }
             break;
             

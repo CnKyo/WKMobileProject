@@ -14,10 +14,23 @@
 
 @optional
 
+/**
+ 提现金额代理方法
+
+ @param mText 返回金额内容
+ */
 - (void)WKRecordCellWithRecordMoney:(NSString *)mText;
 
+/**
+ 提现密码代理方法
+
+ @param mText 返回密码输入内容
+ */
 - (void)WKRecordCellWithRecordPwd:(NSString *)mText;
 
+/**
+ 提现按钮代理方法
+ */
 - (void)WKRecordCellWithRecordBtnClicked;
 
 @end
