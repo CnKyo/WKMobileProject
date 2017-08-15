@@ -35,7 +35,7 @@ target 'WKMobileProject' do
   pod 'RSKImageCropper'
   pod 'WebViewJavascriptBridge','~> 5.0'
   pod 'DZNEmptyDataSet'
-  pod 'PYPhotoBrowser’,'~> 1.2.3'
+#  pod 'PYPhotoBrowser'
   pod 'HandyFrame'
   pod 'ZYCornerRadius', '~> 1.0.2'
   pod 'YYModel'
@@ -43,4 +43,6 @@ target 'WKMobileProject' do
   pod 'SDWebImage', '~>4.1.0'
   #内存泄漏检测
   pod 'MLeaksFinder'
+  pod 'MBProgressHUD'
+  
 end
