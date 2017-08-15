@@ -42,7 +42,7 @@ target 'WKMobileProject' do
   pod 'QSDispatchQueue'
   pod 'SDWebImage', '~>4.1.0'
   #内存泄漏检测
-  pod 'MLeaksFinder'
+#  pod 'MLeaksFinder'
   pod 'MBProgressHUD'
   
 end

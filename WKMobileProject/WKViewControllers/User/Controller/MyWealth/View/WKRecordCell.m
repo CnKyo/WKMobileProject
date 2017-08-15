@@ -24,6 +24,8 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     
+    self.mRecordMoneyTx.delegate = self;
+    
     self.mCornerView.layer.masksToBounds = YES;
     self.mCornerView.layer.cornerRadius = 4;
     self.mCornerView.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -35,19 +37,23 @@
     [self.mPwdTxView addSubview:_mComPwdTx];
     
 }
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self.contentView endEditing:YES];
-    MLLog( @"222222----:%@", _mComPwdTx.text );
-    
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//    [self.contentView endEditing:YES];
+//    MLLog( @"222222----:%@", _mComPwdTx.text );
+//    
+//    if ([self.delegate respondsToSelector:@selector(WKRecordCellWithRecordPwd:)]) {
+//        [self.delegate WKRecordCellWithRecordPwd:_mComPwdTx.text];
+//        
+//    }
+//    
+//    
+//    
+//}
+- (IBAction)mBtnAction:(UIButton *)sender {
     if ([self.delegate respondsToSelector:@selector(WKRecordCellWithRecordPwd:)]) {
         [self.delegate WKRecordCellWithRecordPwd:_mComPwdTx.text];
         
     }
-    
-    
-    
-}
-- (IBAction)mBtnAction:(UIButton *)sender {
     if ([self.delegate respondsToSelector:@selector(WKRecordCellWithRecordBtnClicked)]) {
         [self.delegate WKRecordCellWithRecordBtnClicked];
     }

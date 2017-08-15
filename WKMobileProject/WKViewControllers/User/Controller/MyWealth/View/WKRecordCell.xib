@@ -73,7 +73,7 @@
                                 <rect key="frame" x="128" y="99" width="179" height="43"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入提现金额" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nT7-0z-Rre">
-                                        <rect key="frame" x="0.0" y="6" width="136" height="31"/>
+                                        <rect key="frame" x="5" y="6" width="131" height="31"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -93,7 +93,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="EDK-ZE-xZ3" secondAttribute="trailing" constant="15" id="4PL-DB-mUW"/>
                                     <constraint firstItem="EDK-ZE-xZ3" firstAttribute="leading" secondItem="nT7-0z-Rre" secondAttribute="trailing" constant="8" id="ba0-iJ-75y"/>
-                                    <constraint firstItem="nT7-0z-Rre" firstAttribute="leading" secondItem="IuJ-b9-0n5" secondAttribute="leading" id="bke-9V-93O"/>
+                                    <constraint firstItem="nT7-0z-Rre" firstAttribute="leading" secondItem="IuJ-b9-0n5" secondAttribute="leading" constant="5" id="bke-9V-93O"/>
                                     <constraint firstAttribute="bottom" secondItem="nT7-0z-Rre" secondAttribute="bottom" constant="6" id="dCZ-t7-sbH"/>
                                     <constraint firstItem="EDK-ZE-xZ3" firstAttribute="centerY" secondItem="IuJ-b9-0n5" secondAttribute="centerY" id="pHl-xH-b1h"/>
                                     <constraint firstItem="nT7-0z-Rre" firstAttribute="top" secondItem="IuJ-b9-0n5" secondAttribute="top" constant="6" id="rC3-7A-Jgd"/>

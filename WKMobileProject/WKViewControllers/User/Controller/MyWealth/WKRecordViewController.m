@@ -53,10 +53,10 @@
 {
     WKRecordCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.delegate = self;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     return cell;
-    
-    
-    
+
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -72,7 +72,7 @@
  @param mText 返回金额内容
  */
 - (void)WKRecordCellWithRecordMoney:(NSString *)mText{
-
+    MLLog(@"提现金额是：%@",mText);
 }
 
 /**
@@ -81,14 +81,14 @@
  @param mText 返回密码输入内容
  */
 - (void)WKRecordCellWithRecordPwd:(NSString *)mText{
-
+    MLLog(@"提现密码是：%@",mText);
 }
 
 /**
  提现按钮代理方法
  */
 - (void)WKRecordCellWithRecordBtnClicked{
-
+    MLLog(@"提现");
 }
 
 @end
