@@ -22,7 +22,6 @@ target 'WKMobileProject' do
   pod 'AMap2DMap'
   pod 'AMapSearch'
   pod 'AMapLocation'
-  pod 'SDWebImage','~> 3.8.2'
   pod 'SKTagView'
   pod 'JPush'
   pod 'ShareSDK3'
@@ -40,5 +39,8 @@ target 'WKMobileProject' do
   pod 'HandyFrame'
   pod 'ZYCornerRadius', '~> 1.0.2'
   pod 'YYModel'
-  pod 'QSImageProcess'
+  pod 'QSDispatchQueue'
+  pod 'SDWebImage', '~>4.1.0'
+  #内存泄漏检测
+  pod 'MLeaksFinder'
 end

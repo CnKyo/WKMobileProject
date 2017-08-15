@@ -88,7 +88,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "PYPhotoBrowser/PYPhotoBrowser/PYPhotosView.bundle"
   install_resource "RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle"
   install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
-  install_resource "ShareSDK3/ShareSDK/Support/Required/ShareSDK.bundle"
+  install_resource "ShareSDK3/SDK/ShareSDK/Support/Required/ShareSDK.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "AMap2DMap/MAMapKit.framework/AMap.bundle"
@@ -99,7 +99,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "PYPhotoBrowser/PYPhotoBrowser/PYPhotosView.bundle"
   install_resource "RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle"
   install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
-  install_resource "ShareSDK3/ShareSDK/Support/Required/ShareSDK.bundle"
+  install_resource "ShareSDK3/SDK/ShareSDK/Support/Required/ShareSDK.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
