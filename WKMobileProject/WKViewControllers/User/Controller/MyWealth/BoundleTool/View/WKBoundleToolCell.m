@@ -22,23 +22,92 @@
 }
 - (void)layoutSubviews{
     [super layoutSubviews];
-    
+
     
     _mArr = [NSMutableArray new];
     self.mCommitBtn.layer.cornerRadius = 3;
     
-    _mPwdTx= [[WKPasswordTextFiled alloc] initWithFrame:CGRectMake(0, 0, DEVICE_Width, 50)];
+    _mPwdTx = [WKPwdTextField new];
+    _mPwdTx.frame = CGRectMake(35, 0, DEVICE_Width-70, 50);
+    _mPwdTx.delegate = self;
+    _mPwdTx.secureTextEntry = YES;
+    _mPwdTx.autoResignFirstResponderWhenInputFinished = YES;
+    _mPwdTx.unitSpace = 10;
+    _mPwdTx.borderRadius = 4;
+    _mPwdTx.borderWidth = 1;
+    
+    _mPwdTx.textColor = [UIColor blackColor];
+    _mPwdTx.tintColor = [UIColor colorWithRed:0.850980392156863 green:0.850980392156863 blue:0.850980392156863 alpha:1.00];
+    _mPwdTx.trackTintColor = [UIColor colorWithRed:0.850980392156863 green:0.850980392156863 blue:0.850980392156863 alpha:1.00];
+    _mPwdTx.cursorColor = [UIColor blueColor];
+
     [self.mPwdView addSubview:_mPwdTx];
     
-    _mComPwdTx = [[WKPwdText alloc] initWithFrame:CGRectMake(0, 0, DEVICE_Width, 50)];
+    _mComPwdTx = [WLUnitField new];
+    _mComPwdTx.frame = CGRectMake(35, 0, DEVICE_Width-70, 50);
+    _mComPwdTx.delegate = self;
+    _mComPwdTx.secureTextEntry = YES;
+    _mComPwdTx.autoResignFirstResponderWhenInputFinished = YES;
+    _mComPwdTx.unitSpace = 10;
+    _mComPwdTx.borderRadius = 4;
+    _mComPwdTx.borderWidth = 1;
+    
+    _mComPwdTx.textColor = [UIColor blackColor];
+    _mComPwdTx.tintColor = [UIColor colorWithRed:0.850980392156863 green:0.850980392156863 blue:0.850980392156863 alpha:1.00];
+    _mComPwdTx.trackTintColor = [UIColor colorWithRed:0.850980392156863 green:0.850980392156863 blue:0.850980392156863 alpha:1.00];
+    _mComPwdTx.cursorColor = [UIColor blueColor];
+    
     [self.mComfirmPwdView addSubview:_mComPwdTx];
 
     
     
 }
+- (BOOL)unitField:(WLUnitField *)uniField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    NSString *text = [uniField.text stringByAppendingString:string];
+    
+    if (text.length>=6) {
+        NSLog(@"第一个内容是：******>%@", text);
+        if ([_delegate respondsToSelector:@selector(WKBoundleToolCellDelegateWithTag:WithPwdText:)]) {
+            [_delegate WKBoundleToolCellDelegateWithTag:2 WithPwdText:text];
+        }
+    }
+    
+    
+    return YES;
+}
+- (BOOL)WKunitField:(WKPwdTextField *)uniField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    NSString *text = [uniField.text stringByAppendingString:string];
+    
+    if (text.length>=6) {
+        NSLog(@"第一个内容是：******>%@", text);
+        if ([_delegate respondsToSelector:@selector(WKBoundleToolCellDelegateWithTag:WithPwdText:)]) {
+            [_delegate WKBoundleToolCellDelegateWithTag:1 WithPwdText:text];
+        }
+    }
+    
+    
+    return YES;
+
+}
+
+//- (void)unitFieldEditingChanged:(WLUnitField *)sender {
+//    NSLog(@"%s, ----得到的内容是：%@", __FUNCTION__, sender.text);
+//    
+//}
+//
+//- (void)unitFieldEditingDidBegin:(id)sender {
+//    NSLog(@"%s", __FUNCTION__);
+//}
+//
+//- (void)unitFieldEditingDidEnd:(id)sender {
+//    NSLog(@"%s", __FUNCTION__);
+//}
+
+
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.contentView endEditing:YES];
-    MLLog( @"111111----:%@", _mPwdTx.text );
     MLLog( @"222222----:%@", _mComPwdTx.text );
     
     if (_mPwdTx.text.length>0) {
@@ -46,11 +115,6 @@
             [_delegate WKBoundleToolCellDelegateWithTag:1 WithPwdText:_mPwdTx.text];
         }
         
-    }else{
-        if ([_delegate respondsToSelector:@selector(WKBoundleToolCellDelegateWithTag:WithPwdText:)]) {
-            [_delegate WKBoundleToolCellDelegateWithTag:2 WithPwdText:_mComPwdTx.text];
-        }
-
     }
     
 }

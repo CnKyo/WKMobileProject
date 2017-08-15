@@ -266,6 +266,7 @@
 		52D02D3D1F41A8CD00B24618 /* WKRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D02D3B1F41A8CD00B24618 /* WKRecordCell.m */; };
 		52D02D3E1F41A8CD00B24618 /* WKRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D02D3C1F41A8CD00B24618 /* WKRecordCell.xib */; };
 		52EEE8601F42E3B400D7C985 /* WLUnitField.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEE85F1F42E3B400D7C985 /* WLUnitField.m */; };
+		52EEE8631F42EA9600D7C985 /* WKPwdTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEE8621F42EA9600D7C985 /* WKPwdTextField.m */; };
 		52EFE1901EDECC74004CDA65 /* WKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EFE18F1EDECC74004CDA65 /* WKModel.m */; };
 /* End PBXBuildFile section */
 
@@ -708,6 +709,8 @@
 		52D02D3C1F41A8CD00B24618 /* WKRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKRecordCell.xib; sourceTree = "<group>"; };
 		52EEE85E1F42E3B400D7C985 /* WLUnitField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLUnitField.h; sourceTree = "<group>"; };
 		52EEE85F1F42E3B400D7C985 /* WLUnitField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLUnitField.m; sourceTree = "<group>"; };
+		52EEE8611F42EA9600D7C985 /* WKPwdTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPwdTextField.h; sourceTree = "<group>"; };
+		52EEE8621F42EA9600D7C985 /* WKPwdTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPwdTextField.m; sourceTree = "<group>"; };
 		52EFE18E1EDECC74004CDA65 /* WKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKModel.h; sourceTree = "<group>"; };
 		52EFE18F1EDECC74004CDA65 /* WKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKModel.m; sourceTree = "<group>"; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1991,6 +1994,8 @@
 			children = (
 				52EEE85E1F42E3B400D7C985 /* WLUnitField.h */,
 				52EEE85F1F42E3B400D7C985 /* WLUnitField.m */,
+				52EEE8611F42EA9600D7C985 /* WKPwdTextField.h */,
+				52EEE8621F42EA9600D7C985 /* WKPwdTextField.m */,
 			);
 			path = WLUnitField;
 			sourceTree = "<group>";
@@ -2376,6 +2381,7 @@
 				52AC36551EC2C4C6000866D4 /* RKImageBrowser.m in Sources */,
 				526B7D831ECC64B900A43DCF /* WKMyGoldenCell.m in Sources */,
 				31A221FC1E99CFA00058A21B /* CTApiProxy.m in Sources */,
+				52EEE8631F42EA9600D7C985 /* WKPwdTextField.m in Sources */,
 				5279A7671EC9AB9000999B3D /* WKTopupCollectionReusableView.m in Sources */,
 				52AC366C1EC3039B000866D4 /* WKWashViewController.m in Sources */,
 				5217DDE11EE1059600BE35ED /* YLButton.m in Sources */,

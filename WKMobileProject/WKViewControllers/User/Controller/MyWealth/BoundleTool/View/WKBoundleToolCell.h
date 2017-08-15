@@ -10,6 +10,8 @@
 #import "WKPasswordTextFiled.h"
 #import "WKPwdText.h"
 #import "WKHeader.h"
+#import "WLUnitField.h"
+#import "WKPwdTextField.h"
 @protocol WKBoundleToolCellDelegate <NSObject>
 
 @optional
@@ -37,7 +39,7 @@
 
 @end
 
-@interface WKBoundleToolCell : UITableViewCell
+@interface WKBoundleToolCell : UITableViewCell<WLUnitFieldDelegate,WKPwdTextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *mWechatBtn;
 @property (weak, nonatomic) IBOutlet UIButton *mAlipayBtn;
 ///密码view
@@ -49,8 +51,8 @@
 ///数据源
 @property (strong,nonatomic) NSMutableArray *mArr;
 
-@property (strong,nonatomic) WKPasswordTextFiled *mPwdTx;
-@property (strong,nonatomic) WKPwdText *mComPwdTx;
+@property (strong,nonatomic) WKPwdTextField *mPwdTx;
+@property (strong,nonatomic) WLUnitField *mComPwdTx;
 
 @property (weak,nonatomic) id<WKBoundleToolCellDelegate>delegate;
 
