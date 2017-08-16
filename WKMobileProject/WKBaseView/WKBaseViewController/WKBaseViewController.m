@@ -414,5 +414,17 @@
     });
 
 }
+- (ZJJTimeCountDown *)countDown{
+    
+    if (!_countDown) {
+        _countDown = [[ZJJTimeCountDown alloc] initWithScrollView:self.tableView dataList:self.tableArr];
+        _countDown.delegate = self;
+    }
+    return _countDown;
+}
+- (void)dealloc {
+    /// 2.销毁
+    [_countDown destoryTimer];
+}
 
 @end

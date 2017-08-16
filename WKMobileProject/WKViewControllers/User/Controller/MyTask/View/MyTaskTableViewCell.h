@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WKCountLabel.h"
 @protocol MyTaskTableViewCellDelegate <NSObject>
 
 @optional
@@ -26,7 +26,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *mContent;
 
-@property (weak, nonatomic) IBOutlet UILabel *mCountTime;
+@property (weak, nonatomic) IBOutlet WKCountLabel *mCountTime;
 
 @property (weak, nonatomic) IBOutlet UIButton *mCommitBtn;
 

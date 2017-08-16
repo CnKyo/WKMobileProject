@@ -9,6 +9,8 @@
 #import "WKMyTaskViewController.h"
 #import "MyTaskTableViewCell.h"
 #import "WKMyTaskDetailViewController.h"
+
+#import "TimeModel.h"
 @interface WKMyTaskViewController ()<MyTaskTableViewCellDelegate,WKSegmentControlDelagate>
 
 @end
@@ -33,11 +35,64 @@
 }
 - (void)tableViewHeaderReloadData{
     MLLog(@"刷头");
+    
+    NSArray *arr = @[@"2017-2-5 12:10:06",
+                     @"2017-3-5 12:10:06",
+                     @"2017-7-10 18:6:16",
+                     @"2017-8-5 18:10:06",
+                     @"2017-10-5 18:10:06",
+                     @"2017-7-10 18:6:16",
+                     @"2017-8-5 18:10:06",
+                     @"2017-9-5 18:10:06",
+                     @"2017-10-5 18:10:06",
+                     @"2017-6-5 12:10:06",
+                     @"2020-7-10 18:6:16",
+                     @"2017-8-5 18:10:06",
+                     @"2017-9-5 18:10:06",
+                     @"2017-10-5 18:10:06",
+                     @"2017-8-5 18:10:06",
+                     @"2017-9-5 18:10:06",
+                     @"2017-10-5 18:10:06",
+                     @"2017-8-5 18:10:06",
+                     @"2007-10-5 18:10:06",
+                     @"2017-8-5 18:10:06",
+                     @"2017-9-5 18:10:06",
+                     @"2017-10-5 18:10:06",
+                     @"2017-8-5 18:10:06",
+                     ];
+
+    
+    for (int i = 0; i < arr.count; i ++) {
+        
+        TimeModel *model = [TimeModel new];
+        model.endTime = arr[i];
+        [self.tableArr addObject:model];
+    }
+    
+    //移除过时数据
+    //    [self removeOutDate];
+    [self.tableView reloadData];
+
 }
 - (void)tableViewFooterReloadData{
     MLLog(@"刷尾");
 }
-
+//移除过时数据
+- (void)removeOutDate{
+    
+    for (NSInteger i = self.tableArr.count-1; i >= 0; i--) {
+        
+        TimeModel *model = self.tableArr[i];
+        if ([self.countDown isOutDateWithModel:model]) {
+            [self.tableArr removeObject:model];
+        }
+    }
+}
+- (ZJJTimeCountDown *)countDown{
+    
+    ZJJTimeCountDown *countDown = [super countDown];
+    return countDown;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -75,7 +130,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.tableArr.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -95,6 +150,14 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.delegate = self;
     cell.mIndexPath = indexPath;
+    
+    TimeModel *model = self.tableArr[indexPath.row];
+    //必须设置所显示的行
+    cell.mCountTime.indexPath = indexPath;
+    //在不设置为过时自动删除情况下 滑动过快的时候时间不会闪
+    cell.mCountTime.text = [self.countDown countDownWithModel:model timeLabel:cell.mCountTime];
+    
+
     return cell;
     
 }

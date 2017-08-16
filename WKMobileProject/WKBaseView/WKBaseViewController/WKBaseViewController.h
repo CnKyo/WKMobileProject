@@ -15,9 +15,13 @@
 #import "WKHeader.h"
 #import "FDAlertView.h"
 #import "WKCustomPopView.h"
-@interface WKBaseViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,WKCustomPopViewDelegate>
+#import "ZJJTimeCountDown.h"
+
+@interface WKBaseViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,WKCustomPopViewDelegate,ZJJTimeCountDownDelegate>
 @property (strong,nonatomic) UIImageView *navBarHairlineImageView;
 - (UIImageView *)findHairlineImageViewUnder:(UIView *)view;
+
+@property(nonatomic,strong) ZJJTimeCountDown * countDown;
 
 #pragma mark----****----View基本界面
 /**
