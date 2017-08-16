@@ -8,6 +8,7 @@
 
 #import "WKMyTaskViewController.h"
 #import "MyTaskTableViewCell.h"
+#import "WKMyTaskDetailViewController.h"
 @interface WKMyTaskViewController ()<MyTaskTableViewCellDelegate,WKSegmentControlDelagate>
 
 @end
@@ -100,6 +101,9 @@
 
 - (void)MyTaskTableViewCellDelegateWithBtnAction:(NSIndexPath *)mIndexPath{
     MLLog(@"点击了第：%ld个",mIndexPath.row);
+    WKMyTaskDetailViewController *vc = [WKMyTaskDetailViewController new];
+    vc.mStatus = mIndexPath.row+1;
+    [self pushViewController:vc];
 }
 
 @end

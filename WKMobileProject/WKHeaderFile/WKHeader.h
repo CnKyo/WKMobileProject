@@ -234,6 +234,16 @@ typedef NS_ENUM(NSInteger,WKTaskAndActivity) {
     
 };
 
+///任务详情和活动详情页面
+typedef NS_ENUM(NSInteger,WKTaskStatus) {
+    
+    Going = 1,///进行中
+    Auditing = 2,///审核中
+    Finished = 3,///已完成
+    Returned = 4,///已返回
+    
+};
+
 //-----------------------
 //自定义的写在下面，通用的写在上面
 //-----------------------

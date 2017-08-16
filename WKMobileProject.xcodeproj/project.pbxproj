@@ -149,6 +149,11 @@
 		524E3EFA1ECACD5B00EF0224 /* WKFindHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524E3EF81ECACD5B00EF0224 /* WKFindHeaderCell.xib */; };
 		524E3EFE1ECACD7300EF0224 /* WKFindTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 524E3EFC1ECACD7300EF0224 /* WKFindTableViewCell.m */; };
 		524E3EFF1ECACD7300EF0224 /* WKFindTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524E3EFD1ECACD7300EF0224 /* WKFindTableViewCell.xib */; };
+		5260EBE61F43DB7D0021F42A /* WKMyTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5260EBE51F43DB7D0021F42A /* WKMyTaskDetailViewController.m */; };
+		5260EBEA1F43DC150021F42A /* WKMyTaskDetailHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5260EBE81F43DC150021F42A /* WKMyTaskDetailHeadCell.m */; };
+		5260EBEB1F43DC150021F42A /* WKMyTaskDetailHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5260EBE91F43DC150021F42A /* WKMyTaskDetailHeadCell.xib */; };
+		5260EBEF1F43DDD10021F42A /* WKMyTaskDetailCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5260EBED1F43DDD10021F42A /* WKMyTaskDetailCommitCell.m */; };
+		5260EBF01F43DDD10021F42A /* WKMyTaskDetailCommitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5260EBEE1F43DDD10021F42A /* WKMyTaskDetailCommitCell.xib */; };
 		526B7D791ECC60A900A43DCF /* WKMyOrderDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 526B7D771ECC60A900A43DCF /* WKMyOrderDetailTableViewCell.m */; };
 		526B7D7A1ECC60A900A43DCF /* WKMyOrderDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526B7D781ECC60A900A43DCF /* WKMyOrderDetailTableViewCell.xib */; };
 		526B7D7F1ECC646000A43DCF /* WKMygoldenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 526B7D7E1ECC646000A43DCF /* WKMygoldenViewController.m */; };
@@ -530,6 +535,14 @@
 		524E3EFB1ECACD7300EF0224 /* WKFindTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKFindTableViewCell.h; path = WKMobileProject/WKViewControllers/Home/Controller/BuyGolden/View/WKFindTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		524E3EFC1ECACD7300EF0224 /* WKFindTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKFindTableViewCell.m; path = WKMobileProject/WKViewControllers/Home/Controller/BuyGolden/View/WKFindTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		524E3EFD1ECACD7300EF0224 /* WKFindTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKFindTableViewCell.xib; path = WKMobileProject/WKViewControllers/Home/Controller/BuyGolden/View/WKFindTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		5260EBE41F43DB7D0021F42A /* WKMyTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyTaskDetailViewController.h; sourceTree = "<group>"; };
+		5260EBE51F43DB7D0021F42A /* WKMyTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMyTaskDetailViewController.m; sourceTree = "<group>"; };
+		5260EBE71F43DC150021F42A /* WKMyTaskDetailHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyTaskDetailHeadCell.h; sourceTree = "<group>"; };
+		5260EBE81F43DC150021F42A /* WKMyTaskDetailHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMyTaskDetailHeadCell.m; sourceTree = "<group>"; };
+		5260EBE91F43DC150021F42A /* WKMyTaskDetailHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKMyTaskDetailHeadCell.xib; sourceTree = "<group>"; };
+		5260EBEC1F43DDD10021F42A /* WKMyTaskDetailCommitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyTaskDetailCommitCell.h; sourceTree = "<group>"; };
+		5260EBED1F43DDD10021F42A /* WKMyTaskDetailCommitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMyTaskDetailCommitCell.m; sourceTree = "<group>"; };
+		5260EBEE1F43DDD10021F42A /* WKMyTaskDetailCommitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKMyTaskDetailCommitCell.xib; sourceTree = "<group>"; };
 		526B7D761ECC60A900A43DCF /* WKMyOrderDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyOrderDetailTableViewCell.h; sourceTree = "<group>"; };
 		526B7D771ECC60A900A43DCF /* WKMyOrderDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMyOrderDetailTableViewCell.m; sourceTree = "<group>"; };
 		526B7D781ECC60A900A43DCF /* WKMyOrderDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKMyOrderDetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -1369,6 +1382,8 @@
 			children = (
 				5214A33C1F3C3A6800BE840D /* WKMyTaskViewController.h */,
 				5214A33D1F3C3A6800BE840D /* WKMyTaskViewController.m */,
+				5260EBE41F43DB7D0021F42A /* WKMyTaskDetailViewController.h */,
+				5260EBE51F43DB7D0021F42A /* WKMyTaskDetailViewController.m */,
 				5214A33B1F3C39B900BE840D /* View */,
 			);
 			path = MyTask;
@@ -1380,6 +1395,12 @@
 				5214A33F1F3C3A9500BE840D /* MyTaskTableViewCell.h */,
 				5214A3401F3C3A9500BE840D /* MyTaskTableViewCell.m */,
 				5214A3411F3C3A9500BE840D /* MyTaskTableViewCell.xib */,
+				5260EBE71F43DC150021F42A /* WKMyTaskDetailHeadCell.h */,
+				5260EBE81F43DC150021F42A /* WKMyTaskDetailHeadCell.m */,
+				5260EBE91F43DC150021F42A /* WKMyTaskDetailHeadCell.xib */,
+				5260EBEC1F43DDD10021F42A /* WKMyTaskDetailCommitCell.h */,
+				5260EBED1F43DDD10021F42A /* WKMyTaskDetailCommitCell.m */,
+				5260EBEE1F43DDD10021F42A /* WKMyTaskDetailCommitCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2192,6 +2213,7 @@
 				5239D33B1EF3B22000BAB3F3 /* mui.min.css in Resources */,
 				52AC36621EC2F3A1000866D4 /* WKHomeDecomandedCell.xib in Resources */,
 				5239D3431EF3B29B00BAB3F3 /* shuijiao.jpg in Resources */,
+				5260EBEB1F43DC150021F42A /* WKMyTaskDetailHeadCell.xib in Resources */,
 				52368FFF1EC412F0002524E5 /* WKWashBookingCell.xib in Resources */,
 				5217DDD01EE0FE9900BE35ED /* scancode.caf in Resources */,
 				52B724651EF137A800551108 /* index.html in Resources */,
@@ -2219,6 +2241,7 @@
 				522976181ECC2C1C00FEB6D9 /* WKJoinusFooterSectionView.xib in Resources */,
 				5279A7461EC97B1400999B3D /* WKWashPayResultView.xib in Resources */,
 				5217DDFC1EE15BAC00BE35ED /* WKBoundleToolCell.xib in Resources */,
+				5260EBF01F43DDD10021F42A /* WKMyTaskDetailCommitCell.xib in Resources */,
 				5217DDE61EE1134700BE35ED /* WKFetchWealthCell.xib in Resources */,
 				529D21651ECC580F00766E2F /* WKMyOrderCell.xib in Resources */,
 				52289D811ECAF6CD00D8A6F5 /* WKUserInfoAdCell.xib in Resources */,
@@ -2362,6 +2385,7 @@
 				522976141ECC2C0700FEB6D9 /* WKJoinusHeaderFooterSectionView.m in Sources */,
 				315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */,
 				52368FEF1EC3FEEC002524E5 /* WKWashTableCell.m in Sources */,
+				5260EBE61F43DB7D0021F42A /* WKMyTaskDetailViewController.m in Sources */,
 				52BC43741F39B44600B44FD6 /* WKGenericLoginViewController.m in Sources */,
 				5217DDF21EE157AA00BE35ED /* WKPasswordTextFiled.m in Sources */,
 				31A221F61E99CFA00058A21B /* NSDictionary+AXNetworkingMethods.m in Sources */,
@@ -2370,6 +2394,7 @@
 				529D21681ECC5E3A00766E2F /* WKMyOrderDetailViewController.m in Sources */,
 				31632CC81EAB6EFB0057B161 /* WKUIButtonCorners.m in Sources */,
 				526B7D7F1ECC646000A43DCF /* WKMygoldenViewController.m in Sources */,
+				5260EBEA1F43DC150021F42A /* WKMyTaskDetailHeadCell.m in Sources */,
 				31A221FD1E99CFA00058A21B /* CTAPIBaseManager.m in Sources */,
 				52BC436C1F39925200B44FD6 /* WKProgressView.m in Sources */,
 				31632CC41EAB6E8E0057B161 /* UIView+RoundedCorners.m in Sources */,
@@ -2384,6 +2409,7 @@
 				52EEE8631F42EA9600D7C985 /* WKPwdTextField.m in Sources */,
 				5279A7671EC9AB9000999B3D /* WKTopupCollectionReusableView.m in Sources */,
 				52AC366C1EC3039B000866D4 /* WKWashViewController.m in Sources */,
+				5260EBEF1F43DDD10021F42A /* WKMyTaskDetailCommitCell.m in Sources */,
 				5217DDE11EE1059600BE35ED /* YLButton.m in Sources */,
 				522976201ECC391B00FEB6D9 /* WKJoinProgressView.m in Sources */,
 				52368FF51EC40949002524E5 /* WKWashBookingViewController.m in Sources */,
