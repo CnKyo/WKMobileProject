@@ -98,7 +98,13 @@
     return cell;
     
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    WKMyTaskDetailViewController *vc = [WKMyTaskDetailViewController new];
+    vc.mStatus = indexPath.row+1;
+    [self pushViewController:vc];
+}
 - (void)MyTaskTableViewCellDelegateWithBtnAction:(NSIndexPath *)mIndexPath{
     MLLog(@"点击了第：%ld个",mIndexPath.row);
     WKMyTaskDetailViewController *vc = [WKMyTaskDetailViewController new];
