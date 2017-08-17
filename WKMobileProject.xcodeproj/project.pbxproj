@@ -156,6 +156,8 @@
 		5260EBF01F43DDD10021F42A /* WKMyTaskDetailCommitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5260EBEE1F43DDD10021F42A /* WKMyTaskDetailCommitCell.xib */; };
 		5260EBF31F44208F0021F42A /* WKCountLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5260EBF21F44208F0021F42A /* WKCountLabel.m */; };
 		5260EBF61F4421990021F42A /* TimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5260EBF51F4421990021F42A /* TimeModel.m */; };
+		526ABF451F4538B500F0C335 /* CALayer+FSUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 526ABF411F4538B500F0C335 /* CALayer+FSUI.m */; };
+		526ABF461F4538B500F0C335 /* FSCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 526ABF441F4538B500F0C335 /* FSCustomButton.m */; };
 		526B7D791ECC60A900A43DCF /* WKMyOrderDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 526B7D771ECC60A900A43DCF /* WKMyOrderDetailTableViewCell.m */; };
 		526B7D7A1ECC60A900A43DCF /* WKMyOrderDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526B7D781ECC60A900A43DCF /* WKMyOrderDetailTableViewCell.xib */; };
 		526B7D7F1ECC646000A43DCF /* WKMygoldenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 526B7D7E1ECC646000A43DCF /* WKMygoldenViewController.m */; };
@@ -549,6 +551,11 @@
 		5260EBF21F44208F0021F42A /* WKCountLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKCountLabel.m; sourceTree = "<group>"; };
 		5260EBF41F4421990021F42A /* TimeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeModel.h; sourceTree = "<group>"; };
 		5260EBF51F4421990021F42A /* TimeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeModel.m; sourceTree = "<group>"; };
+		526ABF401F4538B500F0C335 /* CALayer+FSUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+FSUI.h"; sourceTree = "<group>"; };
+		526ABF411F4538B500F0C335 /* CALayer+FSUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+FSUI.m"; sourceTree = "<group>"; };
+		526ABF421F4538B500F0C335 /* FSCommenDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCommenDefine.h; sourceTree = "<group>"; };
+		526ABF431F4538B500F0C335 /* FSCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCustomButton.h; sourceTree = "<group>"; };
+		526ABF441F4538B500F0C335 /* FSCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCustomButton.m; sourceTree = "<group>"; };
 		526B7D761ECC60A900A43DCF /* WKMyOrderDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyOrderDetailTableViewCell.h; sourceTree = "<group>"; };
 		526B7D771ECC60A900A43DCF /* WKMyOrderDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMyOrderDetailTableViewCell.m; sourceTree = "<group>"; };
 		526B7D781ECC60A900A43DCF /* WKMyOrderDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKMyOrderDetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -971,6 +978,7 @@
 			isa = PBXGroup;
 			children = (
 				529D8E5C1EDFFF1700BF0FDE /* WKMobileProject.entitlements */,
+				526ABF3F1F4538B500F0C335 /* FSCustomBUtton */,
 				52EEE85D1F42E3B400D7C985 /* WLUnitField */,
 				529F3B3E1F3D9860000E5933 /* WKModelCacke */,
 				5214A3361F3C090900BE840D /* WKCustomBackHandle */,
@@ -1695,6 +1703,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		526ABF3F1F4538B500F0C335 /* FSCustomBUtton */ = {
+			isa = PBXGroup;
+			children = (
+				526ABF401F4538B500F0C335 /* CALayer+FSUI.h */,
+				526ABF411F4538B500F0C335 /* CALayer+FSUI.m */,
+				526ABF421F4538B500F0C335 /* FSCommenDefine.h */,
+				526ABF431F4538B500F0C335 /* FSCustomButton.h */,
+				526ABF441F4538B500F0C335 /* FSCustomButton.m */,
+			);
+			path = FSCustomBUtton;
+			sourceTree = "<group>";
+		};
 		526B7D7B1ECC643200A43DCF /* MyGolden */ = {
 			isa = PBXGroup;
 			children = (
@@ -2374,6 +2394,7 @@
 				52289D891ECB042700D8A6F5 /* WKUserMsgViewController.m in Sources */,
 				52368FE91EC3FA15002524E5 /* WKWashTableHeaderView.m in Sources */,
 				5214A3311F3C037900BE840D /* ZJJTimeCountDownLabel.m in Sources */,
+				526ABF461F4538B500F0C335 /* FSCustomButton.m in Sources */,
 				52AC366F1EC314CD000866D4 /* WKWashHeaderView.m in Sources */,
 				529D21601ECC579000766E2F /* WKMyOrderViewController.m in Sources */,
 				523FC24E1F381E6700EA7A6E /* WKGenericTextFiled.m in Sources */,
@@ -2404,6 +2425,7 @@
 				529D21681ECC5E3A00766E2F /* WKMyOrderDetailViewController.m in Sources */,
 				31632CC81EAB6EFB0057B161 /* WKUIButtonCorners.m in Sources */,
 				526B7D7F1ECC646000A43DCF /* WKMygoldenViewController.m in Sources */,
+				526ABF451F4538B500F0C335 /* CALayer+FSUI.m in Sources */,
 				5260EBEA1F43DC150021F42A /* WKMyTaskDetailHeadCell.m in Sources */,
 				31A221FD1E99CFA00058A21B /* CTAPIBaseManager.m in Sources */,
 				52BC436C1F39925200B44FD6 /* WKProgressView.m in Sources */,

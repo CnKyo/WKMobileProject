@@ -10,6 +10,8 @@
 #import "WKTaskTableViewCell.h"
 #import "WKTaskHeaderCell.h"
 #import "WKTaskDetailViewController.h"
+#import "FSCustomButton.h"
+#import "WKMyTaskViewController.h"
 @interface WKTaskViewController ()<WKTaskHeaderCellDelegate>
 
 @end
@@ -34,6 +36,33 @@
 
     [self addTableViewHeaderRefreshing];
     [self addTableViewFootererRefreshing];
+    
+    
+    FSCustomButton *mLeftBtn = [[FSCustomButton alloc] initWithFrame:CGRectMake(0, 220, 120, 40)];
+    mLeftBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    [mLeftBtn setTitle:@"我的任务" forState:UIControlStateNormal];
+    [mLeftBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [mLeftBtn setImage:[UIImage imageNamed:@"task_money"] forState:UIControlStateNormal];
+    mLeftBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -50, 0, 0);
+    mLeftBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -60, 0, 0);
+//    [mLeftBtn setBackgroundColor:[UIColor redColor]];
+    [mLeftBtn addTarget:self action:@selector(myTaskOrder) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *mLeftItem = [[UIBarButtonItem alloc]initWithCustomView:mLeftBtn];
+    self.navigationItem.leftBarButtonItem = mLeftItem;
+
+    [self addRightBtn:YES andTitel:nil andImage:[UIImage imageNamed:@"service"]];
+    [self setRightBtnImage:@"service"];
+    
+}
+- (void)myTaskOrder{
+    MLLog(@"我的任务");
+    WKMyTaskViewController *vc = [WKMyTaskViewController new];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+}
+- (void)rightBtnAction{
+    MLLog(@"客服");
+
 }
 - (void)tableViewHeaderReloadData{
     [mBannerArr removeAllObjects];
