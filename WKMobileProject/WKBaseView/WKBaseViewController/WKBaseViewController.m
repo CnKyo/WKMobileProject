@@ -15,7 +15,7 @@
 @implementation WKBaseViewController
 {
     WKCustomPopView *mCustomView;
-
+    
 }
 //通过一个方法来找到这个黑线(findHairlineImageViewUnder):
 - (UIImageView *)findHairlineImageViewUnder:(UIView *)view {
@@ -36,7 +36,7 @@
     self.view.backgroundColor = COLOR(247, 247, 247);
     self.tableArr = [NSMutableArray array];
     self.mPage = 1;
-
+    
     // Do any additional setup after loading the view.
 }
 
@@ -46,14 +46,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 - (void)addTableView{
     if (self.tableView==nil ) {
         self.tableView = [[UITableView alloc] initWithFrame:CGRectZero];
@@ -66,12 +66,12 @@
         self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         self.tableView.tableFooterView = [[UIView alloc] init];
         self.tableView.backgroundColor = COLOR(247, 247, 247);
-//        self.tableView.emptyDataSetSource = self;
-//        self.tableView.emptyDataSetDelegate = self;
+        //        self.tableView.emptyDataSetSource = self;
+        //        self.tableView.emptyDataSetDelegate = self;
         self.tableView.tableFooterView = [UIView new];
         [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.view);
-
+            
             make.height.equalTo(self.view.mas_height);
         }];
     }
@@ -171,7 +171,7 @@
     UIBarButtonItem *mRightBartem = [[UIBarButtonItem alloc]initWithCustomView:mRightBtn];
     self.navigationItem.rightBarButtonItem= mRightBartem;
     
-
+    
 }
 
 #pragma mark----****----页面跳转操作
@@ -183,11 +183,11 @@
 {
     NSMutableArray* vcs = [[NSMutableArray alloc]initWithArray:self.navigationController.viewControllers];
     if( vcs.count > 2 )
-    {
+        {
         [vcs removeLastObject];
         [vcs removeLastObject];
         [self.navigationController setViewControllers:vcs   animated:YES];
-    }
+        }
     else
         [self popViewController];
 }
@@ -195,12 +195,12 @@
 {
     NSMutableArray* vcs = [[NSMutableArray alloc]initWithArray:self.navigationController.viewControllers];
     if( vcs.count > 2 )
-    {
+        {
         [vcs removeLastObject];
         [vcs removeLastObject];
         [vcs removeLastObject];
         [self.navigationController setViewControllers:vcs   animated:YES];
-    }
+        }
     else
         [self popViewController];
 }
@@ -229,10 +229,10 @@
  */
 -(void)pushViewController:(UIViewController *)vc{
     if( [vc isKindOfClass:[WKBaseViewController class] ] )
-    {
+        {
         
         [self.navigationController pushViewController:vc animated:YES];
-    }
+        }
     else
         
         [self.navigationController pushViewController:vc animated:YES];
@@ -248,11 +248,11 @@
  */
 - (void)presentModalViewController:(UIViewController *)vc{
     if( [vc isKindOfClass:[WKBaseViewController class] ] )
-    {
+        {
         
         
         [self presentViewController:vc animated:YES completion:nil];
-    }
+        }
     else
         
         [self presentViewController:vc animated:YES completion:nil];
@@ -291,28 +291,28 @@
  列表刷新
  */
 - (void)addTableViewHeaderRefreshing{
-//    self.mTableViewRefreshStatus = UITableViewHeaderRefreshing;
-
+    //    self.mTableViewRefreshStatus = UITableViewHeaderRefreshing;
+    
     __weak typeof(self) weakSelf = self;
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-
+        
         [weakSelf tableViewHeaderReloadData];
         [weakSelf.tableView.mj_header endRefreshing];
     }];
-
+    
     [self.tableView.mj_header beginRefreshing];
 }
 /**
  列表底部刷新
  */
 - (void)addTableViewFootererRefreshing{
-//    self.mTableViewRefreshStatus = UITableViewFooterRefreshing;
+    //    self.mTableViewRefreshStatus = UITableViewFooterRefreshing;
     MLLog(@"当前刷新的状态是：%ld",(long)self.tableView.mj_footer.state);
     __weak typeof(self) weakSelf = self;
-
+    
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-
+        
         [weakSelf tableViewFooterReloadData];
         [weakSelf.tableView.mj_footer endRefreshing];
     }];
@@ -321,14 +321,14 @@
  列表加载数据
  */
 - (void)tableViewHeaderReloadData{
-//    self.mTableViewRefreshStatus = UITableViewHeaderRefreshing;
+    //    self.mTableViewRefreshStatus = UITableViewHeaderRefreshing;
 }
 /**
  列表加载数据
  */
 - (void)tableViewFooterReloadData{
-//    self.mTableViewRefreshStatus = UITableViewFooterRefreshing;
-
+    //    self.mTableViewRefreshStatus = UITableViewFooterRefreshing;
+    
 }
 #pragma mark----****----自定义弹出框
 /**
@@ -349,70 +349,39 @@
     mCustomView.frame = CGRectMake(30, 0, self.view.bounds.size.width-60, 250);
     alert.contentView = mCustomView;
     [alert show];
-
+    
 }
 #pragma mark----****----hud框
 - (void)showSucess:(NSString *)text{
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [SVProgressHUD showSuccessWithStatus:text];
+    [self dissMissSVPHUD];
     
-    // Set the custom view mode to show any view.
-    hud.mode = MBProgressHUDModeCustomView;
-    // Set an image view with a checkmark.
-    UIImage *image = [[UIImage imageNamed:@"hud_sucess"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    hud.customView = [[UIImageView alloc] initWithImage:image];
-    // Looks a bit nicer if we make it square.
-    hud.square = YES;
-    // Optional label text.
-    hud.label.text = text;
     
-    [hud hideAnimated:YES afterDelay:2.f];
-
 }
 - (void)showError:(NSString *)text{
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [SVProgressHUD showErrorWithStatus:text];
+    [self dissMissSVPHUD];
     
-    // Set the custom view mode to show any view.
-    hud.mode = MBProgressHUDModeCustomView;
-    // Set an image view with a checkmark.
-    UIImage *image = [[UIImage imageNamed:@"hud_error"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    hud.customView = [[UIImageView alloc] initWithImage:image];
-    // Looks a bit nicer if we make it square.
-    hud.square = YES;
-    // Optional label text.
-    hud.label.text = text;
-    
-    [hud hideAnimated:YES afterDelay:2.f];
 }
 - (void)showAlert:(NSString *)text{
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [SVProgressHUD showErrorWithStatus:text];
+    [self dissMissSVPHUD];
+}
+- (void)dissMissSVPHUD{
     
-    // Set the custom view mode to show any view.
-    hud.mode = MBProgressHUDModeCustomView;
-    // Set an image view with a checkmark.
-    UIImage *image = [[UIImage imageNamed:@"hud_alert"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    hud.customView = [[UIImageView alloc] initWithImage:image];
-    // Looks a bit nicer if we make it square.
-    hud.square = YES;
-    // Optional label text.
-    hud.label.text = text;
     
-    [hud hideAnimated:YES afterDelay:2.f];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SVProgressHUD dismiss];
+    });
 }
 - (void)showWithLoading:(NSString *)text{
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [SVProgressHUD showWithStatus:text];
 
-    // Set the label text.
-    hud.label.text = text;
-    // You can also adjust other label properties if needed.
-    // hud.label.font = [UIFont italicSystemFontOfSize:16.f];
     
-    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [hud hideAnimated:YES];
-        });
-    });
-
+}
+-(void)dismiss //隐藏svprogressview
+{
+    [SVProgressHUD dismiss];
 }
 - (ZJJTimeCountDown *)countDown{
     

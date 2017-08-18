@@ -154,4 +154,8 @@
 - (void)showError:(NSString *)text;
 - (void)showAlert:(NSString *)text;
 - (void)showWithLoading:(NSString *)text;
+
+-(void)dismiss;
+//隐藏svprogressview
+
 @end

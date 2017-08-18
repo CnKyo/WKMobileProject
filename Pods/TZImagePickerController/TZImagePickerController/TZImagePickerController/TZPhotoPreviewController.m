@@ -273,7 +273,9 @@
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         return;
     }
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
     if (self.backButtonClickBlock) {
         self.backButtonClickBlock(_isSelectOriginalPhoto);
     }

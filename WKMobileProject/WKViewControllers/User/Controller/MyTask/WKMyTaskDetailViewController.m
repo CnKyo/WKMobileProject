@@ -16,11 +16,16 @@
 @end
 
 @implementation WKMyTaskDetailViewController
-
+{
+    NSInteger mImgNum;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"任务详情";
+    
+    mImgNum = 0;
+    
     [self addTableView];
     
     UINib   *nib = [UINib nibWithNibName:@"WKMyTaskDetailHeadCell" bundle:nil];
@@ -73,7 +78,7 @@
             return 5;
         }
     }
-
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -82,7 +87,8 @@
         return 280;
     }else{
         if (_mStatus == Going) {
-            return 430;
+            
+            return 410;
         }else{
             return 90;
         }
@@ -104,7 +110,7 @@
             cell.mStatusH.constant = 0;
         }else{
             cell.mStatusH.constant = 20;
-
+            
         }
         return cell;
     }else{
@@ -122,9 +128,9 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
-
+        
     }
-
+    
 }
 
 /**
@@ -138,5 +144,19 @@
 - (void)WKMyTaskDetailCommitCellWithTextViewEndEditing:(NSString *)mText{
     MLLog(@"备注的内容是：%@",mText);
 }
-
+/**
+ 选择图片代理方法
+ 
+ @param mImgArr 返回图片数组
+ */
+- (void)WKMyTaskDetailCommitCellWithReturnImgs:(NSArray *)mImgArr{
+    if (mImgArr.count>0) {
+        for (LLImagePickerModel *model in mImgArr) {
+            // 在这里取到模型的数据
+            MLLog(@"%@",model.imageUrlString);
+        }
+        
+    }
+    
+}
 @end

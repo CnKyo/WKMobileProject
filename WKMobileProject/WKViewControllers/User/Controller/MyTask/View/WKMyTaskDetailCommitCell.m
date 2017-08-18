@@ -31,6 +31,51 @@
     self.mWriteDataView.layer.cornerRadius = 4;
     self.mWriteDataView.layer.borderWidth = 1;
     self.mWriteDataView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
+        
+    // 初始化
+    LLImagePickerView *pickerV = [[LLImagePickerView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_Width-20, self.mUpLoadView.ct_height)];
+    pickerV.maxImageSelected = 4;
+    
+    pickerV.backgroundColor = M_CO;
+    // 需要展示的媒体的资源类型，当前是仅本地图库
+    pickerV.type = LLImageTypePhoto;
+    
+    // 是否允许 同个图片或视频进行多次选择
+    pickerV.allowMultipleSelection = NO;
+    
+    __weak __typeof(self)weakSelf = self;
+
+    //视情况看是否需要改变高度，目前单独使用且作为tableview的header，实时监控高度的变化
+    [pickerV observeViewHeight:^(CGFloat height) {
+        MLLog(@"更新的高度是：%f",height);
+        weakSelf.mUploadViewH.constant = 60+height;
+    }];
+    
+
+    // 随时获取选择好媒体文件
+    [pickerV observeSelectedMediaArray:^(NSArray<LLImagePickerModel *> *list) {
+//        for (LLImagePickerModel *model in list) {
+//            // 在这里取到模型的数据
+//            MLLog(@"%@",model.imageUrlString);
+//        }
+        if (list.count>4) {
+            [SVProgressHUD showErrorWithStatus:@"选择的图片不能超过4张！"];
+            return;
+        }else{
+            if ([weakSelf.delegate respondsToSelector:@selector(WKMyTaskDetailCommitCellWithReturnImgs:)]) {
+                [weakSelf.delegate WKMyTaskDetailCommitCellWithReturnImgs:list];
+            }
+        }
+        
+        
+    }];
+    [self.mUpLoadView addSubview:pickerV];
+//    [pickerV mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.top.equalTo(self.mUpLoadView).offset(5);
+//        make.right.bottom.equalTo(self.mUpLoadView).offset(-5);
+//    }];
+
 }
 
 - (IBAction)mBtnAction:(UIButton *)sender {

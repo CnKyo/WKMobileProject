@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WKHeader.h"
 #import <IQTextView.h>
+
+#import <LLImagePickerView.h>
 
 @protocol WKMyTaskDetailCommitCellDelagate <NSObject>
 
@@ -27,24 +30,22 @@
  */
 - (void)WKMyTaskDetailCommitCellWithTextViewEndEditing:(NSString *)mText;
 
+/**
+ 选择图片代理方法
+
+ @param mImgArr 返回图片数组
+ */
+- (void)WKMyTaskDetailCommitCellWithReturnImgs:(NSArray *)mImgArr;
 
 @end
 
 @interface WKMyTaskDetailCommitCell : UITableViewCell<UITextViewDelegate>
 
-/**
- 微信按钮
- */
-@property (weak, nonatomic) IBOutlet UIButton *mWechatBtn;
+@property (weak, nonatomic) IBOutlet UIView *mUpLoadView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mUploadViewH;
 
-/**
- 外网注册按钮
- */
-@property (weak, nonatomic) IBOutlet UIButton *mOutLineRegistBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mNoteH;
 
-@property (weak, nonatomic) IBOutlet UIImageView *mWechatImg;
-
-@property (weak, nonatomic) IBOutlet UIImageView *mOutLineRegistImg;
 
 /**
  资料录入view
@@ -64,5 +65,6 @@
 @property (weak, nonatomic) IBOutlet IQTextView *mNoteTxView;
 
 @property (weak,nonatomic) id<WKMyTaskDetailCommitCellDelagate>delegate;
+
 
 @end
