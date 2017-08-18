@@ -117,12 +117,15 @@
 {
     if (indexPath.section == 0) {
         WKMyWealthTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
         cell.delegate = self;
         
         return cell;
     }else{
         WKFetchWealthCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell2" forIndexPath:indexPath];
-        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
         return cell;
     }
     
