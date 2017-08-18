@@ -26,7 +26,7 @@
 /**
  支付密码
 
- @param mTag 密码输入框tag。1是密码，2是确认密码
+ @param mTag 密码输入框tag。1是密码，2是确认密码  3是提现账户
  @param mText 返回输入框内容
  */
 - (void)WKBoundleToolCellDelegateWithTag:(NSInteger)mTag WithPwdText:(NSString *)mText;
@@ -39,13 +39,18 @@
 
 @end
 
-@interface WKBoundleToolCell : UITableViewCell<WLUnitFieldDelegate,WKPwdTextFieldDelegate>
+@interface WKBoundleToolCell : UITableViewCell<WLUnitFieldDelegate,WKPwdTextFieldDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *mWechatBtn;
 @property (weak, nonatomic) IBOutlet UIButton *mAlipayBtn;
 ///密码view
 @property (weak, nonatomic) IBOutlet UIView *mPwdView;
 ///确认密码view
 @property (weak, nonatomic) IBOutlet UIView *mComfirmPwdView;
+
+/**
+ 提现账户
+ */
+@property (weak, nonatomic) IBOutlet UITextField *mAcountTx;
 ///提交按钮
 @property (weak, nonatomic) IBOutlet UIButton *mCommitBtn;
 ///数据源

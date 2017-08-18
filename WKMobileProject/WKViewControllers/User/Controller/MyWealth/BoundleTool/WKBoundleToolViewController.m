@@ -56,7 +56,7 @@
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 600;
+    return 700;
     
     
 }
@@ -73,7 +73,7 @@
 /**
  支付密码
  
- @param mTag 密码输入框tag。1是密码，2是确认密码
+ @param mTag 密码输入框tag。1是密码，2是确认密码  3是提现账户
  @param mText 返回输入框内容
  */
 - (void)WKBoundleToolCellDelegateWithTag:(NSInteger)mTag WithPwdText:(NSString *)mText{

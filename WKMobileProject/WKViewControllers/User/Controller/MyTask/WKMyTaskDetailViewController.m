@@ -135,4 +135,8 @@
 - (void)WKMyTaskDetailCommitCellWithBtnClicked:(NSInteger)mTag{
     MLLog(@"点击了:%ld",mTag);
 }
+- (void)WKMyTaskDetailCommitCellWithTextViewEndEditing:(NSString *)mText{
+    MLLog(@"备注的内容是：%@",mText);
+}
+
 @end

@@ -104,7 +104,21 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kke-ZB-uUi">
                                 <rect key="frame" x="10" y="39" width="302" height="130"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bVz-bY-6l6" customClass="IQTextView">
+                                        <rect key="frame" x="8" y="5" width="286" height="117"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="bVz-bY-6l6" firstAttribute="leading" secondItem="Kke-ZB-uUi" secondAttribute="leading" constant="8" id="1Ei-wZ-rry"/>
+                                    <constraint firstAttribute="bottom" secondItem="bVz-bY-6l6" secondAttribute="bottom" constant="8" id="9zd-o1-9pg"/>
+                                    <constraint firstAttribute="trailing" secondItem="bVz-bY-6l6" secondAttribute="trailing" constant="8" id="NAg-Ul-Z6P"/>
+                                    <constraint firstItem="bVz-bY-6l6" firstAttribute="top" secondItem="Kke-ZB-uUi" secondAttribute="top" constant="5" id="z7A-kN-tB8"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -171,6 +185,7 @@
             <connections>
                 <outlet property="mCommitNowBtn" destination="08V-2J-iHf" id="ufc-d0-ftv"/>
                 <outlet property="mCountTime" destination="liY-Gk-0xr" id="tod-qM-7G6"/>
+                <outlet property="mNoteTxView" destination="bVz-bY-6l6" id="GXw-NX-uMq"/>
                 <outlet property="mOutLineRegistBtn" destination="Sbl-zu-age" id="ELq-fs-xyu"/>
                 <outlet property="mWechatBtn" destination="6bm-7g-WhH" id="OhW-CR-OP9"/>
                 <outlet property="mWriteDataView" destination="Kke-ZB-uUi" id="9id-BB-ohQ"/>

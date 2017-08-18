@@ -27,6 +27,8 @@
     _mArr = [NSMutableArray new];
     self.mCommitBtn.layer.cornerRadius = 3;
     
+    self.mAcountTx.delegate = self;
+    
     _mPwdTx = [WKPwdTextField new];
     _mPwdTx.frame = CGRectMake(35, 0, DEVICE_Width-70, 50);
     _mPwdTx.delegate = self;
@@ -90,7 +92,14 @@
     return YES;
 
 }
-
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    if (textField.text.length>0) {
+        if ([_delegate respondsToSelector:@selector(WKBoundleToolCellDelegateWithTag:WithPwdText:)]) {
+            [_delegate WKBoundleToolCellDelegateWithTag:3 WithPwdText:textField.text];
+        }
+        
+    }
+}
 //- (void)unitFieldEditingChanged:(WLUnitField *)sender {
 //    NSLog(@"%s, ----得到的内容是：%@", __FUNCTION__, sender.text);
 //    

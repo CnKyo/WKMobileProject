@@ -24,6 +24,9 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     
+    [self.mNoteTxView setPlaceholder:@"请输入备注信息"];
+    self.mNoteTxView.delegate = self;
+    
     self.mWriteDataView.layer.masksToBounds = YES;
     self.mWriteDataView.layer.cornerRadius = 4;
     self.mWriteDataView.layer.borderWidth = 1;
@@ -36,6 +39,14 @@
         [self.delegate WKMyTaskDetailCommitCellWithBtnClicked:sender.tag];
     }
     
+}
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    if (textView.text.length>0) {
+        if ([_delegate respondsToSelector:@selector(WKMyTaskDetailCommitCellWithTextViewEndEditing:)]) {
+            [_delegate WKMyTaskDetailCommitCellWithTextViewEndEditing:textView.text];
+        }
+        
+    }
 }
 
 

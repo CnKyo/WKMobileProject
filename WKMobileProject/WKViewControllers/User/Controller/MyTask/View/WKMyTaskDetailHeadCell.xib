@@ -16,19 +16,23 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="279.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m2s-ju-VEU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vVZ-FY-pb3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vVZ-FY-pb3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="m8M-rp-pe7"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="进行中：请耐心等待！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gV-fL-tjV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="进行中：请耐心等待！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gV-fL-tjV">
                                 <rect key="frame" x="8" y="110" width="304" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="7QE-9O-9j7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -36,49 +40,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.22780537610000001" green="0.53584480290000003" blue="0.89293801780000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="3gV-fL-tjV" firstAttribute="top" secondItem="vVZ-FY-pb3" secondAttribute="bottom" constant="10" id="0Lb-bp-xCV"/>
+                            <constraint firstAttribute="trailing" secondItem="vVZ-FY-pb3" secondAttribute="trailing" id="Diu-NY-t8k"/>
                             <constraint firstAttribute="height" constant="146" id="QOA-Ts-ZtV"/>
+                            <constraint firstItem="3gV-fL-tjV" firstAttribute="leading" secondItem="m2s-ju-VEU" secondAttribute="leading" constant="8" id="Xl1-h2-Gsj"/>
+                            <constraint firstItem="vVZ-FY-pb3" firstAttribute="top" secondItem="m2s-ju-VEU" secondAttribute="top" id="Y0u-m9-Fcl"/>
+                            <constraint firstItem="vVZ-FY-pb3" firstAttribute="leading" secondItem="m2s-ju-VEU" secondAttribute="leading" id="rto-rJ-6rS"/>
+                            <constraint firstAttribute="trailing" secondItem="3gV-fL-tjV" secondAttribute="trailing" constant="8" id="xgs-0t-M8v"/>
                         </constraints>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evn-Cg-qTe">
-                        <rect key="frame" x="0.0" y="180" width="320" height="100"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" fixedFrame="YES" text="xxxx局web门户推广" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZmC-2b-vWd">
-                                <rect key="frame" x="10" y="10" width="302" height="19.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" fixedFrame="YES" text="任务生育力昂：2000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypt-Ip-SrD">
-                                <rect key="frame" x="10" y="40" width="190" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.88233090749999998" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5¥/次" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Z0-C9-wE9">
-                                <rect key="frame" x="208" y="40" width="104" height="23.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" red="0.97574561829999995" green="0.58092361690000005" blue="0.2751699984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="任务截止日期：2017-08-08" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmH-Ud-94f">
-                                <rect key="frame" x="8" y="73" width="179" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.88233090749999998" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" fixedFrame="YES" text="任务完成7天后发放财富值" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="fV0-TI-zxj">
-                                <rect key="frame" x="187" y="73" width="125" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.88233090749999998" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前任务状态：审核中..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAP-st-mUM">
                         <rect key="frame" x="10" y="154" width="302" height="21"/>
@@ -89,6 +58,66 @@
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evn-Cg-qTe">
+                        <rect key="frame" x="0.0" y="180" width="320" height="100"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="xxxx局web门户推广" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZmC-2b-vWd">
+                                <rect key="frame" x="10" y="10" width="302" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="任务生育力昂：2000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypt-Ip-SrD">
+                                <rect key="frame" x="10" y="40" width="190" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="BCg-Z9-Nda"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.88233090749999998" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5¥/次" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Z0-C9-wE9">
+                                <rect key="frame" x="208" y="40" width="104" height="23.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23.5" id="34X-6N-vXt"/>
+                                    <constraint firstAttribute="width" constant="104" id="Chx-W7-Bf9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.97574561829999995" green="0.58092361690000005" blue="0.2751699984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务截止日期：2017-08-08" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmH-Ud-94f">
+                                <rect key="frame" x="8" y="73" width="179" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.88233090749999998" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="任务完成7天后发放财富值" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="fV0-TI-zxj">
+                                <rect key="frame" x="187" y="73" width="125" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.88233090749999998" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ypt-Ip-SrD" firstAttribute="leading" secondItem="evn-Cg-qTe" secondAttribute="leading" constant="10" id="752-pj-Z20"/>
+                            <constraint firstItem="ZmC-2b-vWd" firstAttribute="leading" secondItem="evn-Cg-qTe" secondAttribute="leading" constant="10" id="94I-fC-jjX"/>
+                            <constraint firstAttribute="bottom" secondItem="nmH-Ud-94f" secondAttribute="bottom" constant="10" id="EgU-vv-8Ot"/>
+                            <constraint firstItem="nmH-Ud-94f" firstAttribute="top" secondItem="0Z0-C9-wE9" secondAttribute="bottom" constant="9.5" id="FOv-17-auB"/>
+                            <constraint firstItem="0Z0-C9-wE9" firstAttribute="top" secondItem="ZmC-2b-vWd" secondAttribute="bottom" constant="10.5" id="G6D-cn-F93"/>
+                            <constraint firstAttribute="trailing" secondItem="0Z0-C9-wE9" secondAttribute="trailing" constant="8" id="Zga-01-6NX"/>
+                            <constraint firstItem="fV0-TI-zxj" firstAttribute="leading" secondItem="nmH-Ud-94f" secondAttribute="trailing" id="abv-5Z-TI4"/>
+                            <constraint firstItem="fV0-TI-zxj" firstAttribute="top" secondItem="0Z0-C9-wE9" secondAttribute="bottom" constant="9.5" id="cFi-gu-agZ"/>
+                            <constraint firstAttribute="trailing" secondItem="fV0-TI-zxj" secondAttribute="trailing" constant="8" id="cuP-Wi-If9"/>
+                            <constraint firstItem="nmH-Ud-94f" firstAttribute="leading" secondItem="evn-Cg-qTe" secondAttribute="leading" constant="8" id="d1z-05-B0W"/>
+                            <constraint firstAttribute="bottom" secondItem="fV0-TI-zxj" secondAttribute="bottom" constant="10" id="gYn-kF-izJ"/>
+                            <constraint firstItem="ZmC-2b-vWd" firstAttribute="top" secondItem="evn-Cg-qTe" secondAttribute="top" constant="10" id="mA4-8J-vWs"/>
+                            <constraint firstItem="0Z0-C9-wE9" firstAttribute="leading" secondItem="Ypt-Ip-SrD" secondAttribute="trailing" constant="8" id="qr7-F0-Nyw"/>
+                            <constraint firstAttribute="trailing" secondItem="ZmC-2b-vWd" secondAttribute="trailing" constant="8" id="tld-w3-7pH"/>
+                            <constraint firstItem="Ypt-Ip-SrD" firstAttribute="top" secondItem="ZmC-2b-vWd" secondAttribute="bottom" constant="10.5" id="u0P-Cx-I1z"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="evn-Cg-qTe" firstAttribute="top" secondItem="mAP-st-mUM" secondAttribute="bottom" constant="5" id="0Tb-rR-mcT"/>

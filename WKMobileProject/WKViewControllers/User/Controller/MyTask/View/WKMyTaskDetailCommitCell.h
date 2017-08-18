@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <IQTextView.h>
 
 @protocol WKMyTaskDetailCommitCellDelagate <NSObject>
 
@@ -20,9 +20,12 @@
  */
 - (void)WKMyTaskDetailCommitCellWithBtnClicked:(NSInteger)mTag;
 
+- (void)WKMyTaskDetailCommitCellWithTextViewEndEditing:(NSString *)mText;
+
+
 @end
 
-@interface WKMyTaskDetailCommitCell : UITableViewCell
+@interface WKMyTaskDetailCommitCell : UITableViewCell<UITextViewDelegate>
 
 /**
  微信按钮
@@ -49,6 +52,7 @@
  */
 @property (weak, nonatomic) IBOutlet UILabel *mCountTime;
 
+@property (weak, nonatomic) IBOutlet IQTextView *mNoteTxView;
 @property (weak,nonatomic) id<WKMyTaskDetailCommitCellDelagate>delegate;
 
 @end
