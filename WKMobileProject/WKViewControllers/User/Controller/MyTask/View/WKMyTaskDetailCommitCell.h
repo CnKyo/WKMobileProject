@@ -20,6 +20,11 @@
  */
 - (void)WKMyTaskDetailCommitCellWithBtnClicked:(NSInteger)mTag;
 
+/**
+ cell备注输入框代理方法
+
+ @param mText 返回输入内容
+ */
 - (void)WKMyTaskDetailCommitCellWithTextViewEndEditing:(NSString *)mText;
 
 
@@ -37,6 +42,10 @@
  */
 @property (weak, nonatomic) IBOutlet UIButton *mOutLineRegistBtn;
 
+@property (weak, nonatomic) IBOutlet UIImageView *mWechatImg;
+
+@property (weak, nonatomic) IBOutlet UIImageView *mOutLineRegistImg;
+
 /**
  资料录入view
  */
@@ -53,6 +62,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *mCountTime;
 
 @property (weak, nonatomic) IBOutlet IQTextView *mNoteTxView;
+
 @property (weak,nonatomic) id<WKMyTaskDetailCommitCellDelagate>delegate;
 
 @end
