@@ -40,9 +40,10 @@ target 'WKMobileProject' do
   pod 'ZYCornerRadius', '~> 1.0.2'
   pod 'YYModel'
   pod 'QSDispatchQueue'
-  pod 'SDWebImage', '~>4.1.0'
+  pod 'SDWebImage', '~>3.7.2'
   #内存泄漏检测
 #  pod 'MLeaksFinder'
   pod 'MBProgressHUD'
+  pod 'LLImagePickerView'
   
 end

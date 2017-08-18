@@ -1,4 +1,5 @@
 PODS:
+  - ACAlertController (1.0.0)
   - AFNetworking (3.1.0):
     - AFNetworking/NSURLSession (= 3.1.0)
     - AFNetworking/Reachability (= 3.1.0)
@@ -22,9 +23,10 @@ PODS:
   - AMapFoundation (1.4.1)
   - AMapLocation (2.4.0):
     - AMapFoundation (~> 1.4)
-  - AMapSearch (5.2.1):
+  - AMapSearch (5.3.0):
     - AMapFoundation (~> 1.2)
   - CustomIOSAlertView (0.9.5)
+  - DACircularProgress (2.3.1)
   - DateTools (2.0.0)
   - DZNEmptyDataSet (1.8.1)
   - FMDB (2.7.2):
@@ -42,17 +44,25 @@ PODS:
     - LKDBHelper/standard (= 2.4.4)
   - LKDBHelper/standard (2.4.4):
     - FMDB
+  - LLImagePickerView (0.0.2):
+    - ACAlertController (~> 1.0.0)
+    - MWPhotoBrowser (~> 2.1.2)
+    - TZImagePickerController (~> 1.7.9)
   - LPActionSheet (1.0)
   - Masonry (1.0.2)
-  - MBProgressHUD (1.0.0)
+  - MBProgressHUD (0.9.2)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
   - MOBFoundation (3.0.2)
+  - MWPhotoBrowser (2.1.2):
+    - DACircularProgress (~> 2.3)
+    - MBProgressHUD (~> 0.9)
+    - SDWebImage (!= 3.7.2, ~> 3.7)
   - QSDispatchQueue (1.0.1)
   - RSKImageCropper (1.6.3)
-  - SDWebImage (4.1.0):
-    - SDWebImage/Core (= 4.1.0)
-  - SDWebImage/Core (4.1.0)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
   - ShareSDK3 (4.0.1):
     - MOBFoundation
     - ShareSDK3/ShareSDK (= 4.0.1)
@@ -60,6 +70,7 @@ PODS:
     - MOBFoundation
   - SKTagView (0.9.2)
   - SVProgressHUD (2.1.2)
+  - TZImagePickerController (1.7.9)
   - UITableView+FDTemplateLayoutCell (1.6)
   - WebViewJavascriptBridge (5.2.0)
   - WechatOpenSDK (1.7.9)
@@ -85,6 +96,7 @@ DEPENDENCIES:
   - JPush
   - JWLaunchAd
   - LKDBHelper
+  - LLImagePickerView
   - LPActionSheet
   - Masonry
   - MBProgressHUD
@@ -93,7 +105,7 @@ DEPENDENCIES:
   - MOBFoundation
   - QSDispatchQueue
   - RSKImageCropper
-  - SDWebImage (~> 4.1.0)
+  - SDWebImage (~> 3.7.2)
   - ShareSDK3
   - SKTagView
   - SVProgressHUD
@@ -106,13 +118,15 @@ DEPENDENCIES:
   - ZYCornerRadius (~> 1.0.2)
 
 SPEC CHECKSUMS:
+  ACAlertController: 10f0455c3e1691a6197b5cd0d96d6f9a03c82763
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   AlipaySDK-2.0: 346e006fd2999d5ca5dd8869d03bc0a260fc48e0
   AMap2DMap: 003fa70526983a1469ae6fc3323a6ee8b5ccf53c
   AMapFoundation: 9cc5198980873cca29bb70466a84b3bd922c0e65
   AMapLocation: 47b62b5381a66e4d0c2931b70ffde72682427896
-  AMapSearch: 4979b98adf56ed4dabe735435ed78d759ba0c21f
+  AMapSearch: beb01c6b2e7be18fb4898e97162fedf144420c6f
   CustomIOSAlertView: cc4fa8e36219be3fd5ebcd40789f5b4aaae0f38e
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
@@ -124,18 +138,21 @@ SPEC CHECKSUMS:
   JPush: c41be50eb1a574a66aeb68d237f00a4ec6ec3a82
   JWLaunchAd: b7898e445362a32713049cf1eba3212c3bd6f258
   LKDBHelper: cf467ff69aaf1e13bd4964aca3a79881d54c6d14
+  LLImagePickerView: b1b14ca0639aa2f5f67979ab086e02eb8d4405bc
   LPActionSheet: 49fb9201e73f24f41adeb2a76773307d37ab0416
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
-  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MOBFoundation: d5e27c4638d911d3c7501aa5df458955d4814359
+  MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
   QSDispatchQueue: 3981828538f605d115001ab033e60465a359951a
   RSKImageCropper: 356e36fc58c57c371b5d8b23d603936d6a73df6c
-  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   ShareSDK3: 6983a9b5209b63f2f4297fb0328d9a8dd6abd5f1
   SKTagView: 59cdadcd16e4a09300746ad1811a72371e1327f7
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  TZImagePickerController: 0a8ff228d287ebdd7d485e8c42a2a932894f1fba
   UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
   WebViewJavascriptBridge: a00b2d61252aec5207e3263d46fd0fd3cfaf7895
   WechatOpenSDK: 1fe7e3b07db860d6a936c3ff4a5aba6b890958d9
@@ -144,6 +161,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
 
-PODFILE CHECKSUM: 0801e53c6cac2d0fabf00c99fdc7583cd8fb0fd5
+PODFILE CHECKSUM: e06f43692d310c534eefed8df94116aa5716e421
 
 COCOAPODS: 1.2.1
