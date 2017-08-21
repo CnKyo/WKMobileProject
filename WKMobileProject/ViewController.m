@@ -10,23 +10,23 @@
 #import "WKHeader.h"
 @interface ViewController ()<CTAPIManagerParamSource, CTAPIManagerCallBackDelegate>
 
-    @property (nonatomic,strong) WKAPIManager *mAPIManager;
-    
+@property (nonatomic,strong) WKAPIManager *mAPIManager;
+
 @end
 
 @implementation ViewController
 
-    - (void)viewWillAppear:(BOOL)animated{
-        [super viewWillAppear:YES];
-    }
-    
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-//   _mAPIManager.mAPIName =  @"/home/banner";
+    //   _mAPIManager.mAPIName =  @"/home/banner";
     [self.mAPIManager loadData];
-
+    
 }
 
 
@@ -44,32 +44,32 @@
     }
     
     return params;
-
+    
 }
 #pragma mark - CTAPIManagerCallBackDelegate
 - (void)managerCallAPIDidSuccess:(CTAPIBaseManager *)manager
-    {
-        if (manager == self.mAPIManager) {
-            NSLog(@"%@", [manager fetchDataWithReformer:nil]);
-        }
+{
+    if (manager == self.mAPIManager) {
+        NSLog(@"%@", [manager fetchDataWithReformer:nil]);
     }
-    
+}
+
 - (void)managerCallAPIDidFailed:(CTAPIBaseManager *)manager
-    {
-        if (manager == self.mAPIManager) {
-            NSLog(@"%@", [manager fetchDataWithReformer:nil]);
-        }
+{
+    if (manager == self.mAPIManager) {
+        NSLog(@"%@", [manager fetchDataWithReformer:nil]);
     }
-    
+}
+
 #pragma mark - getters and setters
 - (WKAPIManager *)mAPIManager
-    {
-        if (_mAPIManager == nil) {
-            _mAPIManager = [[WKAPIManager alloc] init];
-            _mAPIManager.delegate = self;
-            _mAPIManager.paramSource = self;
-        }
-        return _mAPIManager;
+{
+    if (_mAPIManager == nil) {
+        _mAPIManager = [[WKAPIManager alloc] init];
+        _mAPIManager.delegate = self;
+        _mAPIManager.paramSource = self;
     }
+    return _mAPIManager;
+}
 
 @end

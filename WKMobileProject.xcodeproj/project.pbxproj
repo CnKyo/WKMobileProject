@@ -112,6 +112,7 @@
 		522976271ECC3D9300FEB6D9 /* WKMyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522976261ECC3D9300FEB6D9 /* WKMyActivityViewController.m */; };
 		5229762B1ECC413F00FEB6D9 /* WKSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5229762A1ECC413F00FEB6D9 /* WKSegmentControl.m */; };
 		522976301ECC418D00FEB6D9 /* MyWashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5229762F1ECC418D00FEB6D9 /* MyWashViewController.m */; };
+		523544851F4AD19F007983C8 /* FCIPAddressGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 523544841F4AD19F007983C8 /* FCIPAddressGeocoder.m */; };
 		52368FE91EC3FA15002524E5 /* WKWashTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52368FE81EC3FA15002524E5 /* WKWashTableHeaderView.m */; };
 		52368FEB1EC3FA1D002524E5 /* WKWashTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52368FEA1EC3FA1D002524E5 /* WKWashTableHeaderView.xib */; };
 		52368FEF1EC3FEEC002524E5 /* WKWashTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52368FED1EC3FEEC002524E5 /* WKWashTableCell.m */; };
@@ -488,6 +489,8 @@
 		5229762A1ECC413F00FEB6D9 /* WKSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKSegmentControl.m; sourceTree = "<group>"; };
 		5229762E1ECC418D00FEB6D9 /* MyWashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWashViewController.h; sourceTree = "<group>"; };
 		5229762F1ECC418D00FEB6D9 /* MyWashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWashViewController.m; sourceTree = "<group>"; };
+		523544831F4AD19F007983C8 /* FCIPAddressGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCIPAddressGeocoder.h; sourceTree = "<group>"; };
+		523544841F4AD19F007983C8 /* FCIPAddressGeocoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCIPAddressGeocoder.m; sourceTree = "<group>"; };
 		52368FE71EC3FA15002524E5 /* WKWashTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWashTableHeaderView.h; sourceTree = "<group>"; };
 		52368FE81EC3FA15002524E5 /* WKWashTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWashTableHeaderView.m; sourceTree = "<group>"; };
 		52368FEA1EC3FA1D002524E5 /* WKWashTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKWashTableHeaderView.xib; sourceTree = "<group>"; };
@@ -978,6 +981,7 @@
 			isa = PBXGroup;
 			children = (
 				529D8E5C1EDFFF1700BF0FDE /* WKMobileProject.entitlements */,
+				523544821F4AD19F007983C8 /* FCIPAddressGeocoder */,
 				526ABF3F1F4538B500F0C335 /* FSCustomBUtton */,
 				52EEE85D1F42E3B400D7C985 /* WLUnitField */,
 				529F3B3E1F3D9860000E5933 /* WKModelCacke */,
@@ -1604,6 +1608,15 @@
 				529D21561ECC533900766E2F /* MyWashDetailCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		523544821F4AD19F007983C8 /* FCIPAddressGeocoder */ = {
+			isa = PBXGroup;
+			children = (
+				523544831F4AD19F007983C8 /* FCIPAddressGeocoder.h */,
+				523544841F4AD19F007983C8 /* FCIPAddressGeocoder.m */,
+			);
+			path = FCIPAddressGeocoder;
 			sourceTree = "<group>";
 		};
 		52368FF11EC4092F002524E5 /* WashBooking */ = {
@@ -2519,6 +2532,7 @@
 				5217DDF71EE15B4D00BE35ED /* WKBoundleToolViewController.m in Sources */,
 				52AC36341EC2A059000866D4 /* FDAlertView.m in Sources */,
 				5217DDFB1EE15BAC00BE35ED /* WKBoundleToolCell.m in Sources */,
+				523544851F4AD19F007983C8 /* FCIPAddressGeocoder.m in Sources */,
 				529D8E861EE010B300BF0FDE /* ControlRunLoopTool.m in Sources */,
 				31632CBE1EAB02AF0057B161 /* WKTrainDemandCell.m in Sources */,
 				52289D931ECB07A900D8A6F5 /* WKEditUserinfoViewController.m in Sources */,

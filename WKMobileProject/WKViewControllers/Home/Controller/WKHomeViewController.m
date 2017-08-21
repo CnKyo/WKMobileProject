@@ -18,6 +18,8 @@
 #import "WKBuyGoldenViewController.h"
 
 #import "WKGenericLoginViewController.h"
+
+#import "FCIPAddressGeocoder.h"
 @interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
@@ -248,6 +250,48 @@
  */
 - (void)WKHomeScrollerLabelDidSelected{
     MLLog(@"跑马灯");
+    
+//    //默认使用的服务是FreeGeoIP，但你可以设置默认服务到另一个
+//    //此方法会影响所有实例的默认服务/ URL，包括共享一个
+//    //如果需要更改默认服务/ url建议做它应用程序：didFinishLaunching
+//    [FCIPAddressGeocoder setDefaultService:FCIPAddressGeocoderServiceFreeGeoIP];
+//    
+////    // FreeGeoIP等一些服务是开源的，您可能需要使用在自己的服务器上运行的实例
+////    [FCIPAddressGeocoder setDefaultService:FCIPAddressGeocoderServiceFreeGeoIP andURL:@"http://127.0.0.1/ "];
+////     //可以使用共享实例
+////     FCIPAddressGeocoder * geocoder = [FCIPAddressGeocoder sharedGeocoder ];
+//    
+//     //或创建一个新的地理编码器
+////     FCIPAddressGeocoder * geocoder = [FCIPAddressGeocoder new ];
+//    
+//     //或创建一个新的地理编码器，它使用您自己的服务器上安装的FreeGeoIP服务的自定义实例
+//    FCIPAddressGeocoder * geocoder = [[FCIPAddressGeocoder alloc ] initWithService: FCIPAddressGeocoderServiceFreeGeoIP andURL:@"https://www.baidu.com/"];
+//    
+//    //设置地址解析器是否可以使用所有可用的服务，以防万一失败的默认值
+//    //非常有用，因为第三方服务不依赖于我们，可能暂时不可用或没有更多的活动
+//    //默认情况下，此属性值被设置如果您使用共享的geocoder，或者如果您创建一个geocoder，而不指定其服务/ url
+//    geocoder.canUseOtherServicesAsFallback = YES ;
+//    // IP地址编码（地理编码结果缓存1分钟）
+//    //IP Address geocoding (geocoding results are cached for 1 minute)
+//    [geocoder geocode:^(BOOL success) {
+//        
+//        if(success)
+//            {
+//            //you can access the location info-dictionary containing all informations using 'geocoder.locationInfo'
+//            //you can access the location using 'geocoder.location'
+//            //you can access the location city using 'geocoder.locationCity' (it could be nil)
+//            //you can access the location country using 'geocoder.locationCountry'
+//            //you can access the location country-code using 'geocoder.locationCountryCode'
+//            MLLog(@"%@",geocoder.locationInfo);
+//            [self showAlert:[NSString stringWithFormat:@"获得的ip地址是：%@",geocoder.locationInfo]];
+////            [geocoder cancelGeocode];
+//            }
+//        
+//        else {
+//            //you can debug what's going wrong using: 'geocoder.error'
+//        }
+//    }];
+//    [geocoder isGeocoding];
 }
 
 /**
