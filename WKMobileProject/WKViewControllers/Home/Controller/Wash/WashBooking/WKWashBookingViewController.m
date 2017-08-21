@@ -35,14 +35,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
@@ -52,14 +52,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-
+    
     return 3;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WKWashBookingCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+    [cell setMType:WKBusy];
     cell.delegate = self;
     cell.mIndexPath = indexPath;
     return cell;
@@ -77,12 +77,9 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
-        mHeaderView = [WKWashBookingHeaderView initView];
-        return mHeaderView;
-    }else{
-        return nil;
-    }
+    mHeaderView = [WKWashBookingHeaderView initView];
+    return mHeaderView;
+    
 }
 - (void)WKWashBookingCellBtnAction:(NSIndexPath *)mIndexPath{
     MLLog(@"点击了%ld行",mIndexPath.row);

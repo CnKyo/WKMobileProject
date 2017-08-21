@@ -33,5 +33,20 @@
     
 }
 
+- (void)setMType:(WKWashBookingType)mType{
 
+    if (mType == WKUnUsed) {
+        self.mViewCenter.constant = -10;
+        self.mContentCenter.constant = -10;
+        self.mBtnCenter.constant = -10;
+        self.mWaitingH.constant = 21;
+        self.mWaiting.hidden = NO;
+    }else{
+        self.mViewCenter.constant = 0;
+        self.mContentCenter.constant = 0;
+        self.mBtnCenter.constant = 0;
+        self.mWaitingH.constant = 0;
+        self.mWaiting.hidden = YES;
+    }
+}
 @end

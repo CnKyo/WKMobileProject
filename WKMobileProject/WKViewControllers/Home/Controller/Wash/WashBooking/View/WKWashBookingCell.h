@@ -16,6 +16,14 @@
 
 @end
 
+///任务详情和活动详情页面
+typedef NS_ENUM(NSInteger,WKWashBookingType) {
+    
+    WKUnUsed = 1,///闲置
+    WKBusy = 2,///忙碌
+    
+};
+
 @interface WKWashBookingCell : UITableViewCell
 ///背景图
 @property (weak, nonatomic) IBOutlet UIImageView *mBgkImg;
@@ -27,6 +35,18 @@
 @property (weak, nonatomic) IBOutlet UIButton *mBtn;
 ///索引
 @property (weak,nonatomic) NSIndexPath *mIndexPath;
+///等待数
+@property (weak, nonatomic) IBOutlet UILabel *mWaiting;
+///等待数Height
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mWaitingH;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mViewCenter;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mContentCenter;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mBtnCenter;
+
+@property (assign,nonatomic) WKWashBookingType mType;
 ///设置代理
 @property (weak,nonatomic) id<WKWashBookingCellDelegate>delegate;
 
