@@ -51,6 +51,9 @@
                                                          forBarMetrics:UIBarMetricsDefault];
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    ///禁止程序运行时锁屏
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    
     // Override point for customization after application launch.
     // Optional
     // 获取IDFA

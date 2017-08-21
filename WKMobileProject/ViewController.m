@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "WKHeader.h"
+
 @interface ViewController ()<CTAPIManagerParamSource, CTAPIManagerCallBackDelegate>
 
 @property (nonatomic,strong) WKAPIManager *mAPIManager;
@@ -15,7 +16,6 @@
 @end
 
 @implementation ViewController
-
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
 }
