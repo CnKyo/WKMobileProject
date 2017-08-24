@@ -56,7 +56,15 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    HDAlertView *alertView = [HDAlertView alertViewWithTitle:@"提示" andMessage:@"张三充值****元，请您知悉张三充值****元，请您知悉张三充值****元，请您知悉张三充值****元，请您知悉！"];
     
+    [alertView addButtonWithTitle:@"知道了" type:HDAlertViewButtonTypeDefault handler:^(HDAlertView *alertView) {
+        NSLog(@"知道了");
+    }];
+    
+    
+    [alertView show];
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

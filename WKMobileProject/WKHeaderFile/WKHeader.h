@@ -22,7 +22,7 @@
 #import <SVProgressHUD.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/Photos.h>
-
+#import <HDAlertView.h>
 
 #define ColorRGB(_R_, _G_, _B_)       ([UIColor colorWithRed:_R_/255.0f green:_G_/255.0f blue:_B_/255.0f alpha:1])
 
