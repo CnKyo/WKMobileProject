@@ -8,13 +8,20 @@
 
 #import "ViewController.h"
 #import "WKHeader.h"
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+#import <AVFoundation/AVSpeechSynthesis.h>
+
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,AVSpeechSynthesizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
 @end
 
 @implementation ViewController
+{
+    AVSpeechSynthesizer *AVOice;
+
+}
 @synthesize mTableView;
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
@@ -30,6 +37,29 @@
     self.view.backgroundColor = [UIColor colorWithRed:0.949019607843137 green:0.949019607843137 blue:0.949019607843137 alpha:1.00];
 }
 
+- (void)palyVoice:(NSString *)mText{
+    [SVProgressHUD showWithStatus:@"播放中..."];
+    if ([AVOice isPaused]) {
+        [AVOice continueSpeaking];
+    }else{
+        AVOice = [[AVSpeechSynthesizer alloc] init];
+        AVOice.delegate = self;
+        
+        AVSpeechUtterance*utterance = [[AVSpeechUtterance alloc]initWithString:@"张三成功收款音乐节项目350000元，请注意查收！"];//需要转换的文字
+        
+        utterance.rate=0.5;// 设置语速，范围0-1，注意0最慢，1最快；AVSpeechUtteranceMinimumSpeechRate最慢，AVSpeechUtteranceMaximumSpeechRate最快
+        
+        AVSpeechSynthesisVoice*voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CN"];//设置发音，这是中文普通话
+        
+        
+        utterance.voice= voice;
+        
+        [AVOice speakUtterance:utterance];//开始
+        
+        
+    }
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -56,10 +86,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    HDAlertView *alertView = [HDAlertView alertViewWithTitle:@"提示" andMessage:@"张三充值****元，请您知悉张三充值****元，请您知悉张三充值****元，请您知悉张三充值****元，请您知悉！"];
+    HDAlertView *alertView = [HDAlertView alertViewWithTitle:@"提示" andMessage:@"张三成功收款音乐节项目350000元，请注意查收！"];
     
     [alertView addButtonWithTitle:@"知道了" type:HDAlertViewButtonTypeDefault handler:^(HDAlertView *alertView) {
         NSLog(@"知道了");
+        
     }];
     
     
@@ -69,5 +100,32 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 45;
+}
+#pragma mark----****----这是语音代理方法
+- (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didStartSpeechUtterance:(AVSpeechUtterance*)utterance{
+    [SVProgressHUD dismiss];
+    NSLog(@"---开始播放");
+    
+}
+- (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance*)utterance{
+    
+    NSLog(@"---完成播放");
+    
+}
+- (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didPauseSpeechUtterance:(AVSpeechUtterance*)utterance{
+    
+    NSLog(@"---播放中止");
+    
+}
+- (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didContinueSpeechUtterance:(AVSpeechUtterance*)utterance{
+    
+    NSLog(@"---恢复播放");
+    
+}
+
+- (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didCancelSpeechUtterance:(AVSpeechUtterance*)utterance{
+    
+    NSLog(@"---播放取消");
+    
 }
 @end
