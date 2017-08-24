@@ -7,7 +7,7 @@ target 'WKMobileProject' do
 
   # Pods for WKMobileProject
   
-  pod 'WeChatSDK-iOS'
+#  pod 'WeChatSDK-iOS'
   pod 'DateTools'
   pod 'JKCategories'
   pod 'WPAttributedMarkup'
@@ -48,5 +48,6 @@ target 'WKMobileProject' do
   #pod 'BlocksKit', :git => 'https://github.com/zwaldowski/BlocksKit.git'
   pod 'PYSearch'
   pod 'HandyFrame'
+  pod 'HDAlertView'
 
 end
