@@ -21,9 +21,8 @@
 
 #import "FCIPAddressGeocoder.h"
 
-#import <AVFoundation/AVSpeechSynthesis.h>
 
-@interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate,AVSpeechSynthesizerDelegate>
+@interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
 @end
@@ -34,7 +33,6 @@
     ///列表分组view
     WKHomeHeaderSectionView *mSectionView;
     
-    AVSpeechSynthesizer*av;
     
 
 }
@@ -258,53 +256,8 @@
  */
 - (void)WKHomeScrollerLabelDidSelected{
     MLLog(@"跑马灯");
-    if ([av isPaused]) {
-        [av continueSpeaking];
-    }else{
-        av = [[AVSpeechSynthesizer alloc] init];
-        av.delegate = self;
-        
-        AVSpeechUtterance*utterance = [[AVSpeechUtterance alloc]initWithString:@"张三成功首款音乐节项目350000元，请注意查收"];//需要转换的文字
-        
-        utterance.rate=0.5;// 设置语速，范围0-1，注意0最慢，1最快；AVSpeechUtteranceMinimumSpeechRate最慢，AVSpeechUtteranceMaximumSpeechRate最快
-        
-        AVSpeechSynthesisVoice*voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CN"];//设置发音，这是中文普通话
-
-        
-        utterance.voice= voice;
-        
-        [av speakUtterance:utterance];//开始
-        
-        
-    }
     
 
-}
-- (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didStartSpeechUtterance:(AVSpeechUtterance*)utterance{
-    
-    NSLog(@"---开始播放");
-    
-}
-- (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance*)utterance{
-    
-    NSLog(@"---完成播放");
-    
-}
-- (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didPauseSpeechUtterance:(AVSpeechUtterance*)utterance{
-    
-    NSLog(@"---播放中止");
-    
-}
-- (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didContinueSpeechUtterance:(AVSpeechUtterance*)utterance{
-    
-    NSLog(@"---恢复播放");
-    
-}
-
-- (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didCancelSpeechUtterance:(AVSpeechUtterance*)utterance{
-    
-    NSLog(@"---播放取消");
-    
 }
 /**
  主功能按钮点击的代理方法
