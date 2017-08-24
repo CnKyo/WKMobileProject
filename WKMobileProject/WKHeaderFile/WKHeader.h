@@ -14,6 +14,7 @@
 
 
 #import "Util.h"
+#import "WKModel.h"
 #import <WPAttributedMarkup/WPHotspotLabel.h>
 #import <WPAttributedMarkup/NSString+WPAttributedMarkup.h>
 #import <WPAttributedMarkup/WPAttributedStyleAction.h>
@@ -23,6 +24,8 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/Photos.h>
 #import <HDAlertView.h>
+
+#import <MJExtension.h>
 
 #define ColorRGB(_R_, _G_, _B_)       ([UIColor colorWithRed:_R_/255.0f green:_G_/255.0f blue:_B_/255.0f alpha:1])
 
@@ -110,6 +113,8 @@ static NSString* const  kAFAppDotNetApiExtraURLString       = @"/api/app/client"
 static NSString* const  kAFAppDotNetApiServiceURLString     = @"/api/app/service";
 static NSString* const  kAFAppDotNetImgBaseURLString        = @"http://resource.china-cr.com/resource";
 
+
+static NSString * const KAppFetchJPUSHService       = @"AppFetchJPUSHNotification";
 
 
 static inline NSString *StringWithInteger(NSInteger _Value_)

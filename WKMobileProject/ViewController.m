@@ -31,12 +31,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.title = @"首页";
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(getPushMessage:)
+                                                 name:KAppFetchJPUSHService
+                                               object:nil];
     mTableView.delegate = self;
     mTableView.dataSource = self;
     self.view.backgroundColor = [UIColor colorWithRed:0.949019607843137 green:0.949019607843137 blue:0.949019607843137 alpha:1.00];
 }
-
+- (void)getPushMessage:(NSNotification *)notification{
+    NSDictionary * infoDic = notification.object;
+    WKJPushObj *mJpush = [WKJPushObj mj_objectWithKeyValues:[infoDic objectForKey:@"pushObj"]];
+    
+    [self palyVoice:mJpush.aps.alert];
+}
 - (void)palyVoice:(NSString *)mText{
     [SVProgressHUD showWithStatus:@"播放中..."];
     if ([AVOice isPaused]) {
@@ -45,7 +53,7 @@
         AVOice = [[AVSpeechSynthesizer alloc] init];
         AVOice.delegate = self;
         
-        AVSpeechUtterance*utterance = [[AVSpeechUtterance alloc]initWithString:@"张三成功收款音乐节项目350000元，请注意查收！"];//需要转换的文字
+        AVSpeechUtterance*utterance = [[AVSpeechUtterance alloc]initWithString:mText];//需要转换的文字
         
         utterance.rate=0.5;// 设置语速，范围0-1，注意0最慢，1最快；AVSpeechUtteranceMinimumSpeechRate最慢，AVSpeechUtteranceMaximumSpeechRate最快
         
@@ -103,19 +111,20 @@
 }
 #pragma mark----****----这是语音代理方法
 - (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didStartSpeechUtterance:(AVSpeechUtterance*)utterance{
-    [SVProgressHUD dismiss];
     NSLog(@"---开始播放");
     
 }
 - (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance*)utterance{
     
     NSLog(@"---完成播放");
-    
+    [SVProgressHUD dismiss];
+
 }
 - (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didPauseSpeechUtterance:(AVSpeechUtterance*)utterance{
     
     NSLog(@"---播放中止");
-    
+    [SVProgressHUD dismiss];
+
 }
 - (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didContinueSpeechUtterance:(AVSpeechUtterance*)utterance{
     

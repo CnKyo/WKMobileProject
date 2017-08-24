@@ -58,6 +58,7 @@
 		523704DF1F4E7C320046D674 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704DE1F4E7C320046D674 /* AdSupport.framework */; };
 		523704E11F4E7C3C0046D674 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704E01F4E7C3C0046D674 /* UserNotifications.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		523704E31F4E7C510046D674 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704E21F4E7C510046D674 /* libresolv.tbd */; };
+		523704E61F4EA8900046D674 /* WKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 523704E51F4EA8900046D674 /* WKModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +170,8 @@
 		523704DE1F4E7C320046D674 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		523704E01F4E7C3C0046D674 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		523704E21F4E7C510046D674 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		523704E41F4EA8900046D674 /* WKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKModel.h; sourceTree = "<group>"; };
+		523704E51F4EA8900046D674 /* WKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKModel.m; sourceTree = "<group>"; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD07EEDDCB555B036A1A24CA /* libPods-WKMobileProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -305,6 +308,8 @@
 				31A221AE1E99CFA00058A21B /* CTNetWork */,
 				31A2220E1E99D0520058A21B /* WKAPIManager.h */,
 				31A2220F1E99D0520058A21B /* WKAPIManager.m */,
+				523704E41F4EA8900046D674 /* WKModel.h */,
+				523704E51F4EA8900046D674 /* WKModel.m */,
 			);
 			path = WKAPI;
 			sourceTree = "<group>";
@@ -785,6 +790,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31A221FF1E99CFA00058A21B /* CTCachedObject.m in Sources */,
+				523704E61F4EA8900046D674 /* WKModel.m in Sources */,
 				31A222081E99CFA10058A21B /* CTService.m in Sources */,
 				31A221FA1E99CFA00058A21B /* NSURLRequest+CTNetworkingMethods.m in Sources */,
 				315FFC091E97D3C600C78440 /* ViewController.m in Sources */,
