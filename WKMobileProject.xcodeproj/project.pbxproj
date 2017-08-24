@@ -964,7 +964,7 @@
 				DEVELOPMENT_TEAM = 7U7AE55838;
 				INFOPLIST_FILE = WKMobileProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mw.com.TengleHappySchool;
+				PRODUCT_BUNDLE_IDENTIFIER = tengle.happyschool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -978,7 +978,7 @@
 				DEVELOPMENT_TEAM = 7U7AE55838;
 				INFOPLIST_FILE = WKMobileProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mw.com.TengleHappySchool;
+				PRODUCT_BUNDLE_IDENTIFIER = tengle.happyschool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -39,17 +39,14 @@
     
     
 #warning 极光推送在正式环境时一定铭记改状态
-    NSString *advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-    [JPUSHService setupWithOption:launchOptions appKey:@"aff37128ca29fc8f5f3afa8f"
-                          channel:@"25b4503e82ad1f91cfc56061"
-                 apsForProduction:NO ///极光推送修改发布环境改为yes
-            advertisingIdentifier:advertisingId];
+    
+    [JPUSHService setupWithOption:launchOptions appKey:@"aff37128ca29fc8f5f3afa8f" channel:@"25b4503e82ad1f91cfc56061" apsForProduction:NO];
     
     
     [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
         if(resCode == 0){
             NSLog(@"registrationID获取成功：%@",registrationID);
-            
+            ///registId：171976fa8ab5a8bb6dc
 //            //向服务器更新registrationID
 //            [[APIClient sharedClient] userJpushUpdateWithTag:self jpush_id:registrationID call:^(APIObject *info) { }];
             
