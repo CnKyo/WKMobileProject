@@ -49,6 +49,15 @@
 		31A222101E99D0520058A21B /* WKAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A2220F1E99D0520058A21B /* WKAPIManager.m */; };
 		31A222131E99D2B50058A21B /* WKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A222121E99D2B50058A21B /* WKBaseViewController.m */; };
 		438D7113768A3061C072BCE4 /* libPods-WKMobileProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BDC79F377B749380AF0636A /* libPods-WKMobileProject.a */; };
+		523704D31F4E7BF60046D674 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704D21F4E7BF60046D674 /* CFNetwork.framework */; };
+		523704D51F4E7C030046D674 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704D41F4E7C030046D674 /* CoreFoundation.framework */; };
+		523704D71F4E7C0B0046D674 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704D61F4E7C0B0046D674 /* CoreTelephony.framework */; };
+		523704D91F4E7C140046D674 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704D81F4E7C140046D674 /* SystemConfiguration.framework */; };
+		523704DB1F4E7C210046D674 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704DA1F4E7C210046D674 /* Security.framework */; };
+		523704DD1F4E7C2C0046D674 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704DC1F4E7C2C0046D674 /* libz.tbd */; };
+		523704DF1F4E7C320046D674 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704DE1F4E7C320046D674 /* AdSupport.framework */; };
+		523704E11F4E7C3C0046D674 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704E01F4E7C3C0046D674 /* UserNotifications.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		523704E31F4E7C510046D674 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704E21F4E7C510046D674 /* libresolv.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +159,16 @@
 		31A222111E99D2B50058A21B /* WKBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBaseViewController.h; sourceTree = "<group>"; };
 		31A222121E99D2B50058A21B /* WKBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBaseViewController.m; sourceTree = "<group>"; };
 		3BDC79F377B749380AF0636A /* libPods-WKMobileProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		523704D11F4E7B640046D674 /* WKMobileProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WKMobileProject.entitlements; sourceTree = "<group>"; };
+		523704D21F4E7BF60046D674 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		523704D41F4E7C030046D674 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		523704D61F4E7C0B0046D674 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		523704D81F4E7C140046D674 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		523704DA1F4E7C210046D674 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		523704DC1F4E7C2C0046D674 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		523704DE1F4E7C320046D674 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		523704E01F4E7C3C0046D674 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		523704E21F4E7C510046D674 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD07EEDDCB555B036A1A24CA /* libPods-WKMobileProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -159,6 +178,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				523704E31F4E7C510046D674 /* libresolv.tbd in Frameworks */,
+				523704E11F4E7C3C0046D674 /* UserNotifications.framework in Frameworks */,
+				523704DF1F4E7C320046D674 /* AdSupport.framework in Frameworks */,
+				523704DD1F4E7C2C0046D674 /* libz.tbd in Frameworks */,
+				523704DB1F4E7C210046D674 /* Security.framework in Frameworks */,
+				523704D91F4E7C140046D674 /* SystemConfiguration.framework in Frameworks */,
+				523704D71F4E7C0B0046D674 /* CoreTelephony.framework in Frameworks */,
+				523704D51F4E7C030046D674 /* CoreFoundation.framework in Frameworks */,
+				523704D31F4E7BF60046D674 /* CFNetwork.framework in Frameworks */,
 				31A221AD1E99CDE50058A21B /* AssetsLibrary.framework in Frameworks */,
 				31A221A01E99C2640058A21B /* QuartzCore.framework in Frameworks */,
 				31A2219E1E99C25E0058A21B /* CoreGraphics.framework in Frameworks */,
@@ -210,6 +238,7 @@
 		315FFC001E97D3C600C78440 /* WKMobileProject */ = {
 			isa = PBXGroup;
 			children = (
+				523704D11F4E7B640046D674 /* WKMobileProject.entitlements */,
 				31A221A71E99CBA40058A21B /* WKHeaderFile */,
 				31A221A11E99CB5D0058A21B /* WKTool */,
 				31A221A21E99CB5D0058A21B /* WKViewControllers */,
@@ -542,6 +571,15 @@
 		E268BC1B05380FDB2B866690 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				523704E21F4E7C510046D674 /* libresolv.tbd */,
+				523704E01F4E7C3C0046D674 /* UserNotifications.framework */,
+				523704DE1F4E7C320046D674 /* AdSupport.framework */,
+				523704DC1F4E7C2C0046D674 /* libz.tbd */,
+				523704DA1F4E7C210046D674 /* Security.framework */,
+				523704D81F4E7C140046D674 /* SystemConfiguration.framework */,
+				523704D61F4E7C0B0046D674 /* CoreTelephony.framework */,
+				523704D41F4E7C030046D674 /* CoreFoundation.framework */,
+				523704D21F4E7BF60046D674 /* CFNetwork.framework */,
 				31A221AC1E99CDE50058A21B /* AssetsLibrary.framework */,
 				31A2219F1E99C2630058A21B /* QuartzCore.framework */,
 				31A2219D1E99C25E0058A21B /* CoreGraphics.framework */,
@@ -624,7 +662,13 @@
 				TargetAttributes = {
 					315FFBFD1E97D3C600C78440 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 7U7AE55838;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					315FFC161E97D3C700C78440 = {
 						CreatedOnToolsVersion = 8.0;
@@ -916,9 +960,11 @@
 			baseConfigurationReference = 958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WKMobileProject/WKMobileProject.entitlements;
+				DEVELOPMENT_TEAM = 7U7AE55838;
 				INFOPLIST_FILE = WKMobileProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xiewei.WKMobileProject;
+				PRODUCT_BUNDLE_IDENTIFIER = mw.com.TengleHappySchool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -928,9 +974,11 @@
 			baseConfigurationReference = 26A28E8D6E0DC80F8B4AF8C5 /* Pods-WKMobileProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WKMobileProject/WKMobileProject.entitlements;
+				DEVELOPMENT_TEAM = 7U7AE55838;
 				INFOPLIST_FILE = WKMobileProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xiewei.WKMobileProject;
+				PRODUCT_BUNDLE_IDENTIFIER = mw.com.TengleHappySchool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
