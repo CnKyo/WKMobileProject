@@ -20,6 +20,7 @@
 @implementation ViewController
 {
     AVSpeechSynthesizer *AVOice;
+    HDAlertView *alertView;
 
 }
 @synthesize mTableView;
@@ -46,6 +47,17 @@
     [self palyVoice:mJpush.aps.alert];
 }
 - (void)palyVoice:(NSString *)mText{
+    alertView = [HDAlertView alertViewWithTitle:@"提示" andMessage:mText];
+    
+    [alertView addButtonWithTitle:@"知道了" type:HDAlertViewButtonTypeDefault handler:^(HDAlertView *alertView) {
+        NSLog(@"知道了");
+        
+    }];
+    
+    
+    [alertView show];
+    [self performSelector:@selector(dissmissAlert) withObject:nil afterDelay:5];
+
     [SVProgressHUD showWithStatus:@"播放中..."];
     if ([AVOice isPaused]) {
         [AVOice continueSpeaking];
@@ -68,7 +80,9 @@
     }
 
 }
-
+- (void)dissmissAlert{
+    [alertView removeAlertView];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -94,15 +108,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    HDAlertView *alertView = [HDAlertView alertViewWithTitle:@"提示" andMessage:@"张三成功收款音乐节项目350000元，请注意查收！"];
-    
-    [alertView addButtonWithTitle:@"知道了" type:HDAlertViewButtonTypeDefault handler:^(HDAlertView *alertView) {
-        NSLog(@"知道了");
-        
-    }];
-    
-    
-    [alertView show];
+
 
 }
 
