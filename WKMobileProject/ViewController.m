@@ -56,9 +56,8 @@
     
     
     [alertView show];
-    [self performSelector:@selector(dissmissAlert) withObject:nil afterDelay:5];
+    [self performSelector:@selector(dissmissAlert) withObject:nil afterDelay:10];
 
-    [SVProgressHUD showWithStatus:@"播放中..."];
     if ([AVOice isPaused]) {
         [AVOice continueSpeaking];
     }else{
@@ -123,13 +122,11 @@
 - (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance*)utterance{
     
     NSLog(@"---完成播放");
-    [SVProgressHUD dismiss];
 
 }
 - (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didPauseSpeechUtterance:(AVSpeechUtterance*)utterance{
     
     NSLog(@"---播放中止");
-    [SVProgressHUD dismiss];
 
 }
 - (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didContinueSpeechUtterance:(AVSpeechUtterance*)utterance{
