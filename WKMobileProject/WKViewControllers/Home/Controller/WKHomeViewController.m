@@ -30,6 +30,8 @@
 @implementation WKHomeViewController{
     ///banner数据源
     NSMutableArray *mBannerArr;
+    NSMutableArray *mFuncArr;
+
     ///列表分组view
     WKHomeHeaderSectionView *mSectionView;
     
@@ -53,7 +55,7 @@
     self.d_navBarAlpha = 0;
     
     mBannerArr = [NSMutableArray new];
-    
+    mFuncArr = [NSMutableArray new];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     self.mTableView.separatorStyle = UITableViewCellSelectionStyleNone;
@@ -75,7 +77,11 @@
 - (void)tableViewHeaderReloadData{
     [mBannerArr removeAllObjects];
     NSArray *mArr = @[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493210044049&di=ac402c2ce8259c98e5e4ea1b7aac4cac&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F209%2Fd%2F97.jpg",@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1493199772&di=66346cd79eed9c8cb4ec03c3734d0b31&src=http://img15.3lian.com/2015/f2/128/d/123.jpg",@"http://wmtp.net/wp-content/uploads/2017/04/0420_sweet945_1.jpeg",@"http://wmtp.net/wp-content/uploads/2017/04/0407_shouhui_1.jpeg"];
+    NSArray *mFArr = @[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493210044049&di=ac402c2ce8259c98e5e4ea1b7aac4cac&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F209%2Fd%2F97.jpg",@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1493199772&di=66346cd79eed9c8cb4ec03c3734d0b31&src=http://img15.3lian.com/2015/f2/128/d/123.jpg"];
+
     [mBannerArr addObjectsFromArray:mArr];
+    [mFuncArr addObjectsFromArray:mFArr];
+
     
     [self.tableView reloadData];
     
@@ -211,7 +217,7 @@
     if (indexPath.section == 0) {
         reuseCellId = @"normalCell";
         
-        WKHomeTypeHeaderCell  *cell = [[WKHomeTypeHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellId andBannerDataSource:mBannerArr andDataSource:mBannerArr andScrollerLabelTx:[NSString stringWithFormat:@"%@            ",@"这是跑马风这是跑马风这是跑马风这是跑马风"]];
+        WKHomeTypeHeaderCell  *cell = [[WKHomeTypeHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellId andBannerDataSource:mBannerArr andDataSource:mFuncArr andScrollerLabelTx:[NSString stringWithFormat:@"%@            ",@"这是跑马风这是跑马风这是跑马风这是跑马风"]];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         

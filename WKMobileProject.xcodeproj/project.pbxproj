@@ -64,7 +64,6 @@
 		5214A3301F3C037900BE840D /* ZJJTimeCountDownDateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5214A32C1F3C037900BE840D /* ZJJTimeCountDownDateTool.m */; };
 		5214A3311F3C037900BE840D /* ZJJTimeCountDownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5214A32E1F3C037900BE840D /* ZJJTimeCountDownLabel.m */; };
 		5214A3351F3C055100BE840D /* MZTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5214A3341F3C055100BE840D /* MZTimerLabel.m */; };
-		5214A3391F3C090900BE840D /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5214A3381F3C090900BE840D /* UIViewController+BackButtonHandler.m */; };
 		5214A33E1F3C3A6800BE840D /* WKMyTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5214A33D1F3C3A6800BE840D /* WKMyTaskViewController.m */; };
 		5214A3421F3C3A9500BE840D /* MyTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5214A3401F3C3A9500BE840D /* MyTaskTableViewCell.m */; };
 		5214A3431F3C3A9500BE840D /* MyTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5214A3411F3C3A9500BE840D /* MyTaskTableViewCell.xib */; };
@@ -410,8 +409,6 @@
 		5214A32E1F3C037900BE840D /* ZJJTimeCountDownLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJJTimeCountDownLabel.m; sourceTree = "<group>"; };
 		5214A3331F3C055100BE840D /* MZTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZTimerLabel.h; sourceTree = "<group>"; };
 		5214A3341F3C055100BE840D /* MZTimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTimerLabel.m; sourceTree = "<group>"; };
-		5214A3371F3C090900BE840D /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
-		5214A3381F3C090900BE840D /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
 		5214A33C1F3C3A6800BE840D /* WKMyTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyTaskViewController.h; sourceTree = "<group>"; };
 		5214A33D1F3C3A6800BE840D /* WKMyTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMyTaskViewController.m; sourceTree = "<group>"; };
 		5214A33F1F3C3A9500BE840D /* MyTaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTaskTableViewCell.h; sourceTree = "<group>"; };
@@ -985,7 +982,6 @@
 				526ABF3F1F4538B500F0C335 /* FSCustomBUtton */,
 				52EEE85D1F42E3B400D7C985 /* WLUnitField */,
 				529F3B3E1F3D9860000E5933 /* WKModelCacke */,
-				5214A3361F3C090900BE840D /* WKCustomBackHandle */,
 				5214A3321F3C055100BE840D /* MZTimerLabel */,
 				5214A3281F3C037900BE840D /* ZJJTimeCountDown */,
 				52BC43691F39922F00B44FD6 /* WKGenericProgressView */,
@@ -1386,15 +1382,6 @@
 				5214A3341F3C055100BE840D /* MZTimerLabel.m */,
 			);
 			path = MZTimerLabel;
-			sourceTree = "<group>";
-		};
-		5214A3361F3C090900BE840D /* WKCustomBackHandle */ = {
-			isa = PBXGroup;
-			children = (
-				5214A3371F3C090900BE840D /* UIViewController+BackButtonHandler.h */,
-				5214A3381F3C090900BE840D /* UIViewController+BackButtonHandler.m */,
-			);
-			path = WKCustomBackHandle;
 			sourceTree = "<group>";
 		};
 		5214A33A1F3C39B900BE840D /* MyTask */ = {
@@ -2526,7 +2513,6 @@
 				5229762B1ECC413F00FEB6D9 /* WKSegmentControl.m in Sources */,
 				5279A7321EC93DB900999B3D /* WaskBookingResultController.m in Sources */,
 				529F3B441F3D9A84000E5933 /* WKBDModel.m in Sources */,
-				5214A3391F3C090900BE840D /* UIViewController+BackButtonHandler.m in Sources */,
 				52289D721ECAE94700D8A6F5 /* WKPlayGameViewController.m in Sources */,
 				524E3EF41ECAAEC900EF0224 /* WKActivityTableViewCell.m in Sources */,
 				5217DDF71EE15B4D00BE35ED /* WKBoundleToolViewController.m in Sources */,

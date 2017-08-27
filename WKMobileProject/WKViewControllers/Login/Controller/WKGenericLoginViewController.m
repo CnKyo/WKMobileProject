@@ -10,7 +10,6 @@
 
 #import "WKGenericHeaderCell.h"
 #import "WKGenericLoginCell.h"
-#import "UIViewController+BackButtonHandler.h"
 
 
 @interface WKGenericLoginViewController ()<WKGenericLoginCellDelegate>
@@ -37,6 +36,7 @@
     
     nib = [UINib nibWithNibName:@"WKGenericRegistCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"registCell"];
+
 
 }
 
@@ -194,14 +194,13 @@
 /**
  * 协议中的方法，获取返回按钮的点击事件
  */
-- (BOOL)navigationShouldPopOnBackButton
+- (void)navigationShouldPopOnBackButton
 {
     if (_mLoginType == WKLogin) {
-        return YES;
+        [self popViewController];
     }else{
         _mLoginType = WKLogin;
         [self.tableView reloadData];
-        return NO;
     }
     
 }
