@@ -82,3 +82,10 @@
 @property (nonatomic,strong) NSString *trainClassName;
 
 @end
+
+@interface WKFunc : NSObject
+
+@property (nonatomic,strong) NSString *mFuncName;
+@property (nonatomic,strong) NSString *mFuncImg;
+
+@end

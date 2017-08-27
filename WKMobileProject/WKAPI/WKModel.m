@@ -127,3 +127,8 @@
 @implementation WKTrainName
 
 @end
+
+@implementation WKFunc
+
+
+@end

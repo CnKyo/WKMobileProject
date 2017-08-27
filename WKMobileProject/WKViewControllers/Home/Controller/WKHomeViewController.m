@@ -78,8 +78,13 @@
     [mBannerArr removeAllObjects];
     NSArray *mArr = @[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493210044049&di=ac402c2ce8259c98e5e4ea1b7aac4cac&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F209%2Fd%2F97.jpg",@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1493199772&di=66346cd79eed9c8cb4ec03c3734d0b31&src=http://img15.3lian.com/2015/f2/128/d/123.jpg",@"http://wmtp.net/wp-content/uploads/2017/04/0420_sweet945_1.jpeg",@"http://wmtp.net/wp-content/uploads/2017/04/0407_shouhui_1.jpeg"];
     NSArray *mFArr = @[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493210044049&di=ac402c2ce8259c98e5e4ea1b7aac4cac&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F209%2Fd%2F97.jpg",@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1493199772&di=66346cd79eed9c8cb4ec03c3734d0b31&src=http://img15.3lian.com/2015/f2/128/d/123.jpg"];
-
+    
+    for (int i=0; i<mArr.count; i++) {
+//        WKFunc
+    }
+    NSArray *mTArr = @[@"洗衣机",@"金币充值"];
     [mBannerArr addObjectsFromArray:mArr];
+    [mFuncArr addObjectsFromArray:mTArr];
     [mFuncArr addObjectsFromArray:mFArr];
 
     
@@ -272,19 +277,25 @@
  */
 - (void)WKHomeScrollerTableViewCellDidSelectedWithIndex:(NSInteger)mIndex{
     MLLog(@"%ld",mIndex);
-    if (mIndex == 1) {
+    if (mIndex == 0) {
         WKWashViewController *vc = [WKWashViewController new];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
-    }else if (mIndex == 2){
-    
-        WKVipTopupViewController *vc = [WKVipTopupViewController new];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
-    }else if (mIndex == 3){
+    }
+    else if (mIndex == 1){
         WKBuyGoldenViewController *vc = [WKBuyGoldenViewController new];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+       ;
+    }else if (mIndex == 2){
+        WKBuyGoldenViewController *vc = [WKBuyGoldenViewController new];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+    }else{
+        WKVipTopupViewController *vc = [WKVipTopupViewController new];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+
     }
 }
 
