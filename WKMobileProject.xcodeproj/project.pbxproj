@@ -49,6 +49,12 @@
 		31A222101E99D0520058A21B /* WKAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A2220F1E99D0520058A21B /* WKAPIManager.m */; };
 		31A222131E99D2B50058A21B /* WKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A222121E99D2B50058A21B /* WKBaseViewController.m */; };
 		438D7113768A3061C072BCE4 /* libPods-WKMobileProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BDC79F377B749380AF0636A /* libPods-WKMobileProject.a */; };
+		52315FEA1F5285300001BA21 /* WKHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52315FE81F5285300001BA21 /* WKHomeTableViewCell.m */; };
+		52315FEB1F5285300001BA21 /* WKHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52315FE91F5285300001BA21 /* WKHomeTableViewCell.xib */; };
+		52315FEE1F529BDE0001BA21 /* WKLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52315FED1F529BDE0001BA21 /* WKLoginView.m */; };
+		52315FF01F529BE40001BA21 /* WKLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52315FEF1F529BE40001BA21 /* WKLoginView.xib */; };
+		52315FF41F52A5AB0001BA21 /* WKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52315FF21F52A5AB0001BA21 /* WKLoginViewController.m */; };
+		52315FF51F52A5AB0001BA21 /* WKLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52315FF31F52A5AB0001BA21 /* WKLoginViewController.xib */; };
 		523704D31F4E7BF60046D674 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704D21F4E7BF60046D674 /* CFNetwork.framework */; };
 		523704D51F4E7C030046D674 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704D41F4E7C030046D674 /* CoreFoundation.framework */; };
 		523704D71F4E7C0B0046D674 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704D61F4E7C0B0046D674 /* CoreTelephony.framework */; };
@@ -160,6 +166,15 @@
 		31A222111E99D2B50058A21B /* WKBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBaseViewController.h; sourceTree = "<group>"; };
 		31A222121E99D2B50058A21B /* WKBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBaseViewController.m; sourceTree = "<group>"; };
 		3BDC79F377B749380AF0636A /* libPods-WKMobileProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52315FE71F5285300001BA21 /* WKHomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHomeTableViewCell.h; sourceTree = "<group>"; };
+		52315FE81F5285300001BA21 /* WKHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHomeTableViewCell.m; sourceTree = "<group>"; };
+		52315FE91F5285300001BA21 /* WKHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKHomeTableViewCell.xib; sourceTree = "<group>"; };
+		52315FEC1F529BDE0001BA21 /* WKLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKLoginView.h; sourceTree = "<group>"; };
+		52315FED1F529BDE0001BA21 /* WKLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKLoginView.m; sourceTree = "<group>"; };
+		52315FEF1F529BE40001BA21 /* WKLoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKLoginView.xib; sourceTree = "<group>"; };
+		52315FF11F52A5AB0001BA21 /* WKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKLoginViewController.h; sourceTree = "<group>"; };
+		52315FF21F52A5AB0001BA21 /* WKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKLoginViewController.m; sourceTree = "<group>"; };
+		52315FF31F52A5AB0001BA21 /* WKLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKLoginViewController.xib; sourceTree = "<group>"; };
 		523704D11F4E7B640046D674 /* WKMobileProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WKMobileProject.entitlements; sourceTree = "<group>"; };
 		523704D21F4E7BF60046D674 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		523704D41F4E7C030046D674 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -251,6 +266,10 @@
 				315FFC051E97D3C600C78440 /* AppDelegate.m */,
 				315FFC071E97D3C600C78440 /* ViewController.h */,
 				315FFC081E97D3C600C78440 /* ViewController.m */,
+				52315FF11F52A5AB0001BA21 /* WKLoginViewController.h */,
+				52315FF21F52A5AB0001BA21 /* WKLoginViewController.m */,
+				52315FF31F52A5AB0001BA21 /* WKLoginViewController.xib */,
+				52315FE61F5284DC0001BA21 /* View */,
 				315FFC0A1E97D3C600C78440 /* Main.storyboard */,
 				315FFC0D1E97D3C600C78440 /* Assets.xcassets */,
 				315FFC0F1E97D3C600C78440 /* LaunchScreen.storyboard */,
@@ -564,6 +583,19 @@
 			path = GDMapService;
 			sourceTree = "<group>";
 		};
+		52315FE61F5284DC0001BA21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52315FE71F5285300001BA21 /* WKHomeTableViewCell.h */,
+				52315FE81F5285300001BA21 /* WKHomeTableViewCell.m */,
+				52315FE91F5285300001BA21 /* WKHomeTableViewCell.xib */,
+				52315FEC1F529BDE0001BA21 /* WKLoginView.h */,
+				52315FED1F529BDE0001BA21 /* WKLoginView.m */,
+				52315FEF1F529BE40001BA21 /* WKLoginView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		7975C39D53A4E4C84C61C265 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -712,8 +744,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52315FEB1F5285300001BA21 /* WKHomeTableViewCell.xib in Resources */,
 				31A222001E99CFA00058A21B /* iPhoneTypeDefine.plist in Resources */,
+				52315FF01F529BE40001BA21 /* WKLoginView.xib in Resources */,
 				315FFC111E97D3C600C78440 /* LaunchScreen.storyboard in Resources */,
+				52315FF51F52A5AB0001BA21 /* WKLoginViewController.xib in Resources */,
 				315FFC0E1E97D3C600C78440 /* Assets.xcassets in Resources */,
 				315FFC0C1E97D3C600C78440 /* Main.storyboard in Resources */,
 				31A2220C1E99CFA10058A21B /* CTNetworkingConfiguration.plist in Resources */,
@@ -791,6 +826,7 @@
 			files = (
 				31A221FF1E99CFA00058A21B /* CTCachedObject.m in Sources */,
 				523704E61F4EA8900046D674 /* WKModel.m in Sources */,
+				52315FEE1F529BDE0001BA21 /* WKLoginView.m in Sources */,
 				31A222081E99CFA10058A21B /* CTService.m in Sources */,
 				31A221FA1E99CFA00058A21B /* NSURLRequest+CTNetworkingMethods.m in Sources */,
 				315FFC091E97D3C600C78440 /* ViewController.m in Sources */,
@@ -803,6 +839,7 @@
 				31A221F91E99CFA00058A21B /* NSString+AXNetworkingMethods.m in Sources */,
 				31A221FC1E99CFA00058A21B /* CTApiProxy.m in Sources */,
 				31A222021E99CFA00058A21B /* CTLogger.m in Sources */,
+				52315FF41F52A5AB0001BA21 /* WKLoginViewController.m in Sources */,
 				31A222011E99CFA00058A21B /* CTLocationManager.m in Sources */,
 				31A221FB1E99CFA00058A21B /* UIDevice+IdentifierAddition.m in Sources */,
 				31A2220B1E99CFA10058A21B /* CTLoggerConfiguration.m in Sources */,
@@ -818,6 +855,7 @@
 				31A222061E99CFA10058A21B /* CTSignatureGenerator.m in Sources */,
 				31A2220D1E99CFA10058A21B /* GDMapService.m in Sources */,
 				31A2220A1E99CFA10058A21B /* CTAppContext.m in Sources */,
+				52315FEA1F5285300001BA21 /* WKHomeTableViewCell.m in Sources */,
 				31A222041E99CFA10058A21B /* CTCommonParamsGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

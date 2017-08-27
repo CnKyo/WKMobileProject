@@ -28,5 +28,22 @@
 @property (nonatomic, strong) NSString *            odr_type;              //
 @property (nonatomic, assign) int                   odr_code;              //
 @property (nonatomic, strong) NSString *            url;              //
+///追加参数
+@property (nonatomic, strong) NSString *            time;              //
+
+@property (nonatomic, strong) NSString *            price;              //
+
+
+@end
+
+@interface WKHomeModel : NSObject
+
+@property (nonatomic, assign) int                   mId;              //
+
+@property (nonatomic, assign) int                   mNo;              //
+
+@property (nonatomic, strong) NSString *            mName;              //
+@property (nonatomic, strong) NSString *            mPrice;              //
+@property (nonatomic, strong) NSString *            mTime;              //
 
 @end

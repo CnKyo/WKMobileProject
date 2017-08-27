@@ -8,10 +8,12 @@
 
 #import "ViewController.h"
 #import "WKHeader.h"
+#import "WKHomeTableViewCell.h"
 
+#import <LKDBHelper.h>
 #import <AVFoundation/AVSpeechSynthesis.h>
-
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,AVSpeechSynthesizerDelegate>
+#import "WKLoginViewController.h"
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,AVSpeechSynthesizerDelegate,UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
@@ -21,7 +23,8 @@
 {
     AVSpeechSynthesizer *AVOice;
     HDAlertView *alertView;
-
+    
+    NSMutableArray *mTableArr;
 }
 @synthesize mTableView;
 - (void)viewWillAppear:(BOOL)animated{
@@ -32,17 +35,79 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.title = @"首页";
+    
+    mTableArr = [NSMutableArray new];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(getPushMessage:)
                                                  name:KAppFetchJPUSHService
                                                object:nil];
     mTableView.delegate = self;
     mTableView.dataSource = self;
+    mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
+    UINib   *nib = [UINib nibWithNibName:@"WKHomeTableViewCell" bundle:nil];
+    [self.mTableView registerNib:nib forCellReuseIdentifier:@"cell"];
+    
     self.view.backgroundColor = [UIColor colorWithRed:0.949019607843137 green:0.949019607843137 blue:0.949019607843137 alpha:1.00];
+    
+    
+    
+
+    
+    
+    mTableArr = [WKHomeModel searchWithWhere:[NSString stringWithFormat:@"mId=1"]];
+    
+    [mTableView reloadData];
+    
+    WKLoginViewController *vc = [[WKLoginViewController alloc] initWithNibName:@"WKLoginViewController" bundle:nil];
+    
+    [self presentViewController:vc animated:YES completion:nil];
+}
+- (IBAction)mClearndata:(id)sender {
+    if (mTableArr.count<=0) {
+        [SVProgressHUD showErrorWithStatus:@"没有数据!"];
+    }else{
+        [self AlertViewShow:@"提示" alertViewMsg:@"确定要清空数据吗？" alertViewCancelBtnTiele:@"取消" alertTag:10];
+    }
+}
+
+- (void)AlertViewShow:(NSString *)alerViewTitle alertViewMsg:(NSString *)msg alertViewCancelBtnTiele:(NSString *)cancelTitle alertTag:(int)tag{
+    
+    UIAlertView* al = [[UIAlertView alloc] initWithTitle:alerViewTitle message:msg delegate:self cancelButtonTitle:cancelTitle otherButtonTitles:@"确定", nil];
+    al.delegate = self;
+    al.tag = tag;
+    [al show];
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    
+    if( buttonIndex == 1)
+        {
+        [WKHomeModel deleteWithWhere:[NSString stringWithFormat:@"1"]];
+        [mTableArr removeAllObjects];
+        [mTableView reloadData];
+        
+        }
+    
+    
 }
 - (void)getPushMessage:(NSNotification *)notification{
     NSDictionary * infoDic = notification.object;
     WKJPushObj *mJpush = [WKJPushObj mj_objectWithKeyValues:[infoDic objectForKey:@"pushObj"]];
+    
+    WKHomeModel *mHome = [WKHomeModel new];
+    mHome.mId = 1;
+    mHome.mName = mJpush.aps.alert;
+    mHome.mPrice = mJpush.price;
+    mHome.mTime = mJpush.time;
+    mHome.mNo+=1;
+    [mHome saveToDB];
+    
+    mTableArr = [WKHomeModel searchWithWhere:[NSString stringWithFormat:@"mId=1"]];
+    
+    [mTableView reloadData];
     
     [self palyVoice:mJpush.aps.alert];
 }
@@ -57,7 +122,7 @@
     
     [alertView show];
     [self performSelector:@selector(dissmissAlert) withObject:nil afterDelay:10];
-
+    
     if ([AVOice isPaused]) {
         [AVOice continueSpeaking];
     }else{
@@ -77,7 +142,7 @@
         
         
     }
-
+    
 }
 - (void)dissmissAlert{
     [alertView removeAlertView];
@@ -91,28 +156,28 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    return mTableArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *cellId = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
-    }
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld行",indexPath.row];
+    
+    WKHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    [cell setMHome:mTableArr[indexPath.row]];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-
-
+    
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 45;
+    return 75;
 }
 #pragma mark----****----这是语音代理方法
 - (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didStartSpeechUtterance:(AVSpeechUtterance*)utterance{
@@ -122,12 +187,12 @@
 - (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance*)utterance{
     
     NSLog(@"---完成播放");
-
+    
 }
 - (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didPauseSpeechUtterance:(AVSpeechUtterance*)utterance{
     
     NSLog(@"---播放中止");
-
+    
 }
 - (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didContinueSpeechUtterance:(AVSpeechUtterance*)utterance{
     

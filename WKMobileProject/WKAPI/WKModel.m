@@ -22,3 +22,12 @@
 
 
 @end
+
+@implementation WKHomeModel
++ (NSString *)getPrimaryKey{
+    
+    return @"mId";
+}
+
+
+@end
