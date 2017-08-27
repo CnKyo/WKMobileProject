@@ -31,6 +31,8 @@
         make.left.right.top.bottom.equalTo(self.view).offset(0);
     }];
     
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,6 +59,8 @@
     switch (mTag) {
         case 1:
         {
+        NSString *mIp = [Util wk_getIPAddress];
+        MLLog(@"获取到的ip地址是：%@",mIp);
         [self dismissViewControllerAnimated:YES completion:nil];
         }
             break;

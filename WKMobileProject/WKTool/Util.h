@@ -458,4 +458,6 @@
      */
 + (NSString *)wk_stringToSubString:(NSInteger)mIndex withString:(NSString *)mString;
     
-    @end
+
++ (NSString *)wk_getIPAddress;
+@end

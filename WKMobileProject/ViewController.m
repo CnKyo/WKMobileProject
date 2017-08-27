@@ -36,6 +36,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.title = @"首页";
     
+
     mTableArr = [NSMutableArray new];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
