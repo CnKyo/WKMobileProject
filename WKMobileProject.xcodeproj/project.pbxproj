@@ -1010,6 +1010,7 @@
 				CODE_SIGN_ENTITLEMENTS = WKMobileProject/WKMobileProject.entitlements;
 				DEVELOPMENT_TEAM = 45YS2S94XQ;
 				INFOPLIST_FILE = WKMobileProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mw.washmachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1024,6 +1025,7 @@
 				CODE_SIGN_ENTITLEMENTS = WKMobileProject/WKMobileProject.entitlements;
 				DEVELOPMENT_TEAM = 45YS2S94XQ;
 				INFOPLIST_FILE = WKMobileProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mw.washmachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
