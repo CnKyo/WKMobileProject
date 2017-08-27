@@ -20,6 +20,23 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>iosamap</string>
+        <string>alipay</string>
+        <string>cydia</string>
+        <string>safepay</string>
+        <string>diditripcard</string>
+        <string>weixin</string>
+        <string>wechat</string>
+        <string>mqzone</string>
+        <string>wtloginmqq2</string>
+        <string>mqqopensdkapiV3</string>
+        <string>mqqopensdkapiV2</string>
+        <string>mqqOpensdkSSoLogin</string>
+        <string>mqq</string>
+        <string>mqqapi</string>
+    </array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
