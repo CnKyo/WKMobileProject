@@ -103,9 +103,8 @@
                 if (i<2) {
                     CGRect frame = CGRectMake(i*screen_width/2, 0, screen_width/2, 80);
                     
-                    NSString *title = mDataSource[0][i];
-                    NSString *imageStr = mDataSource[1][i];
-                    WKCustomBtnView *btnView = [[WKCustomBtnView alloc] initWithZLCustomBtnViewFrame:frame Title:title ImageStr:imageStr];
+                    WKFunc *mFC = mDataSource[i];
+                    WKCustomBtnView *btnView = [[WKCustomBtnView alloc] initWithZLCustomBtnViewFrame:frame Title:mFC.mFuncName ImageStr:mFC.mFuncImg];
                     btnView.tag = i;
                     [mBgkView1 addSubview:btnView];
                     
