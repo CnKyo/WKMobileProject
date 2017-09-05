@@ -17,12 +17,22 @@
 #import "WKCustomPopView.h"
 #import "ZJJTimeCountDown.h"
 
+typedef NS_ENUM(NSInteger,WKBaseHandleType){
+    WKBaseHandleTypeHeaderRefresh = 1,///列表头部刷新
+    WKBaseHandleTypeFooterRefresh = 2,///列表底部刷新
+    WKBaseHandleTypeTableRefresh = 3,///列表刷新
+    WKBaseHandleTypeOther = 4,///其他？？？？
+};
+
+typedef void (^WKHandle)(WKBaseHandleType);
+
 @interface WKBaseViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,WKCustomPopViewDelegate,ZJJTimeCountDownDelegate>
 @property (strong,nonatomic) UIImageView *navBarHairlineImageView;
 - (UIImageView *)findHairlineImageViewUnder:(UIView *)view;
 
 @property(nonatomic,strong) ZJJTimeCountDown * countDown;
-
+#pragma mark----****----block
+@property (strong,nonatomic)WKHandle mBlock;
 #pragma mark----****----View基本界面
 /**
  列表数据源
@@ -140,7 +150,7 @@
 #pragma mark----****----自定义弹出框
 /**
  自定义弹出框
-
+ 
  @param mType 弹出框类型
  @param mTitle 标题
  @param mContent 内容

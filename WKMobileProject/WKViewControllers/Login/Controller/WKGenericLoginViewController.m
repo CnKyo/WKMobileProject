@@ -142,7 +142,10 @@
     switch (mTag) {
         case 1:
         {
-        [self dismissViewController];
+//        [self dismissViewController];
+        [self dismissViewControllerAnimated:YES completion:^{
+            self.mBlock(1);
+        }];
         }
             break;
         case 2:
@@ -164,7 +167,10 @@
             break;
         case 5:
         {
-        [self dismissViewController];
+//        [self dismissViewController];
+        [self dismissViewControllerAnimated:YES completion:^{
+            self.mBlock(1);
+        }];
         
         }
             break;
