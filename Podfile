@@ -47,8 +47,8 @@ target 'WKMobileProject' do
   pod 'LLImagePickerView'
   pod 'YHPDFImageLoader'
   #网络检测
-  #pod 'YYCache'
-  #pod 'NSNetworkManager'
+  pod 'YYCache'
+#  pod 'NSNetworkManager'
 
 
 end
