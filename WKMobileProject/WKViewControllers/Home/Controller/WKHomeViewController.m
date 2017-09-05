@@ -257,10 +257,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 2) {
         MLLog(@"%ld行",indexPath.row);
+        
         WKGenericLoginViewController *vc = [WKGenericLoginViewController new];
         vc.hidesBottomBarWhenPushed = YES;
         vc.mLoginType = WKLogin;
-        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+        [self presentModalViewController:vc];
     }
     
 }

@@ -22,7 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-
+    
     [self addTableView];
     
     UINib   *nib = [UINib nibWithNibName:@"WKGenericHeaderCell" bundle:nil];
@@ -36,8 +36,8 @@
     
     nib = [UINib nibWithNibName:@"WKGenericRegistCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"registCell"];
-
-
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,14 +46,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 #pragma mark -- tableviewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView              // Default is 1 if not implemented
 {
@@ -62,7 +62,7 @@
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-  
+    
     return 0;
 }
 
@@ -93,37 +93,37 @@
         
         WKGenericHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                
+        
         return cell;
-
+        
     }else{
         switch (_mLoginType) {
             case WKLogin:
             {
             reuseCellId = @"loginCell";
             _mTitle = @"登录";
-
+            
             }
                 break;
             case WKVerifyCode:
             {
             reuseCellId = @"VerifyCodeCell";
             _mTitle = @"验证码登录";
-
+            
             }
                 break;
             case WKRegist:
             {
             reuseCellId = @"registCell";
             _mTitle = @"注册";
-
+            
             }
                 break;
                 
             default:
                 break;
         }
-   
+        
         self.navigationItem.title = _mTitle;
         WKGenericLoginCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -142,7 +142,7 @@
     switch (mTag) {
         case 1:
         {
-        
+        [self dismissViewController];
         }
             break;
         case 2:
@@ -159,11 +159,12 @@
             break;
         case 4:
         {
- 
+        
         }
             break;
         case 5:
         {
+        [self dismissViewController];
         
         }
             break;
@@ -189,7 +190,7 @@
  */
 - (void)WKGenericRegistCellDelegateWithTextFieldEditingWithTag:(NSInteger)mTag andText:(NSString *)mText{
     MLLog(@"tag是：%ld----输入的内容是：%@",mTag,mText);
-
+    
 }
 /**
  * 协议中的方法，获取返回按钮的点击事件

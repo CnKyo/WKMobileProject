@@ -81,6 +81,18 @@
                             <action selector="mBtnAction:" destination="fHB-BN-mL4" eventType="touchUpInside" id="Gy5-cx-wNI"/>
                         </connections>
                     </button>
+                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bed-PM-aXi">
+                        <rect key="frame" x="35" y="237" width="250" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="Obf-hO-Mii"/>
+                        </constraints>
+                        <state key="normal" title="已有账号直接登录 &gt;">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="mBtnAction:" destination="fHB-BN-mL4" eventType="touchUpInside" id="BRI-gs-a2N"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="nBU-vi-Oze" firstAttribute="leading" secondItem="MLU-r9-Zcf" secondAttribute="leadingMargin" constant="27" id="6Gp-Eb-ygU"/>
@@ -90,13 +102,16 @@
                     <constraint firstItem="Hbz-Jr-MQe" firstAttribute="top" secondItem="AlU-kl-6tq" secondAttribute="bottom" constant="27" id="JbF-bn-H2o"/>
                     <constraint firstItem="AlU-kl-6tq" firstAttribute="top" secondItem="Pv0-5u-KaF" secondAttribute="bottom" constant="10" id="PiD-Fu-ubB"/>
                     <constraint firstItem="Vrq-76-fiA" firstAttribute="top" secondItem="nBU-vi-Oze" secondAttribute="bottom" constant="31" id="SPM-q5-q0C"/>
+                    <constraint firstItem="Bed-PM-aXi" firstAttribute="top" secondItem="Vrq-76-fiA" secondAttribute="bottom" constant="8" id="cej-a2-eQO"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Vrq-76-fiA" secondAttribute="trailing" constant="27" id="dPG-zC-q1i"/>
                     <constraint firstItem="AlU-kl-6tq" firstAttribute="leading" secondItem="MLU-r9-Zcf" secondAttribute="leadingMargin" constant="27" id="df5-Fj-emj"/>
                     <constraint firstAttribute="trailingMargin" secondItem="nBU-vi-Oze" secondAttribute="trailing" constant="27" id="gO4-vc-rR5"/>
                     <constraint firstAttribute="trailingMargin" secondItem="AlU-kl-6tq" secondAttribute="trailing" constant="27" id="grW-qp-Xgo"/>
                     <constraint firstItem="nBU-vi-Oze" firstAttribute="top" secondItem="Erk-No-4Eo" secondAttribute="bottom" constant="10" id="iFd-KZ-EGe"/>
                     <constraint firstItem="Hbz-Jr-MQe" firstAttribute="leading" secondItem="Erk-No-4Eo" secondAttribute="trailing" constant="8" id="iVo-r2-tiU"/>
+                    <constraint firstItem="Bed-PM-aXi" firstAttribute="leading" secondItem="MLU-r9-Zcf" secondAttribute="leadingMargin" constant="27" id="jQd-dX-Yq6"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Pv0-5u-KaF" secondAttribute="trailing" constant="27" id="jZR-Lt-Zhz"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Bed-PM-aXi" secondAttribute="trailing" constant="27" id="tD8-ud-LEc"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Hbz-Jr-MQe" secondAttribute="trailing" constant="27" id="wTb-aS-foh"/>
                     <constraint firstItem="Pv0-5u-KaF" firstAttribute="leading" secondItem="MLU-r9-Zcf" secondAttribute="leadingMargin" constant="27" id="zFh-mb-hrO"/>
                     <constraint firstItem="Erk-No-4Eo" firstAttribute="top" secondItem="AlU-kl-6tq" secondAttribute="bottom" constant="22" id="zHu-g9-kOj"/>
@@ -105,6 +120,7 @@
             <color key="backgroundColor" red="0.95775061849999998" green="0.97365540269999995" blue="0.9955922961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="mGetVerifyCodeBtn" destination="Hbz-Jr-MQe" id="eV5-9K-pXR"/>
+                <outlet property="mGoLoginBtn" destination="Bed-PM-aXi" id="dui-ES-Mkf"/>
                 <outlet property="mLoginBtn" destination="Vrq-76-fiA" id="pA5-lH-aPL"/>
                 <outlet property="mUserNameTx" destination="Pv0-5u-KaF" id="nR2-0I-Ji1"/>
                 <outlet property="mVerifyCodeTx" destination="Erk-No-4Eo" id="qOZ-2z-RY7"/>
