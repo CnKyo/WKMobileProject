@@ -45,5 +45,7 @@ target 'WKMobileProject' do
 #  pod 'MLeaksFinder'
   pod 'MBProgressHUD'
   pod 'LLImagePickerView'
-  
+  pod 'YHPDFImageLoader'
+
+
 end
