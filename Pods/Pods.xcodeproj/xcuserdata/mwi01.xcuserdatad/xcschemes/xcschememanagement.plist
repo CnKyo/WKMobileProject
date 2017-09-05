@@ -49,6 +49,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HexColors.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -139,6 +144,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TSMessages.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>TZImagePickerController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -187,17 +197,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>01BC7E60B7CC3FDC8C5A8AF3FA0FDB46</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>031657B967693EE00628A5A4EADDAE0F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>04CF549EBEEE7BC87AEAE35397184D94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>148997A1F67DC54FBC0C413672AA8AA6</key>
+		<key>04DBA88CBEBFF72DA82FDE6096338AC3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1AF9D696E809035EF44113D511AA3138</key>
+		<key>07D0928807B51B000646AF72A9D4E17A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -207,12 +227,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>32BE3A6767E84C6A9ABB2D5D5D9AE1D0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4BC2A1BF65038EDD1647816404A8DF52</key>
+		<key>3D3F7D4670950615D8B080B0F40915BE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -222,7 +237,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4D62B323CCFAFD7FD9F9419086DB4F73</key>
+		<key>53173EB8BC4CA61474734EDD0CF03FFD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -232,12 +247,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>600E9A8B8B238099715C539F692FB2FF</key>
+		<key>60A515212596D79E02DF2EE24A63E972</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>60A515212596D79E02DF2EE24A63E972</key>
+		<key>62AC6CDF24BB0E7DE7640E6E081C4873</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -252,7 +267,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7EDE67E5B8C2721C6553D583661771D9</key>
+		<key>7CF2A86CA7A452E96E3A3743EBB60DC4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -262,12 +277,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8642CC820CE8C5B88C113D7F47AF4BC3</key>
+		<key>81402F5CEF4DA4F5AE1D6FD320A5A340</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8EDCDFDBF0193BC75ECD9F10B2BBE09F</key>
+		<key>84DF2C320027C2E4D3BD483EF32D3D46</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8642CC820CE8C5B88C113D7F47AF4BC3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -277,7 +297,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9A74BB2C5184ADE88B076EE49619DD52</key>
+		<key>9A0E3BD873F7EB5F82188BF86FE6F900</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -312,17 +332,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B4DF095A73B21D7D54D9AEC2A0A2F125</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BAE53AD0B7382177F4D30E0299A670EC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C39A3ADEF5D33CDE72C14911F82B8EA6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C39ACE68E3E06DAE4320EAD579CF37EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -337,6 +352,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>E3195C8834BC12690F82441776995BA7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E5053B007B687ED9F9FBC4CD0906C796</key>
 		<dict>
 			<key>primary</key>
@@ -347,7 +367,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ECA7770D0F06C6BEF6BF2B0E6057674E</key>
+		<key>EC7BAA2B0109B633CE06A36E872A9505</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -362,7 +382,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F8E6DDB77283ADDBB5CF20228DD94605</key>
+		<key>F7CCA930A0982EEA8264A30A274225AF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

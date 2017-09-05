@@ -94,7 +94,8 @@
 }
 + (void)WKFindTrainNumber:(NSDictionary *)param block:(void(^)(WKBaseInfo *info,NSArray *list))block{
     
-    [[WKHttpRequest shareClient] WKPostDataWithUrl:@"queryByTrainNo" withPara:param block:^(WKBaseInfo *info) {
+
+    [[WKHttpRequest shareClient] WKGetDataWithUrl:@"queryByTrainNo" withPara:param block:^(WKBaseInfo *info) {
         if (info.status
             == kRetCodeSucess) {
             

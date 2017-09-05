@@ -7,7 +7,7 @@
 //
 
 #import "WKHttpRequest.h"
-
+#import "NSNetworkManager.h"
 @implementation WKHttpRequest
 + (instancetype)shareClient{
     static WKHttpRequest *_sharedClient = nil;
@@ -101,7 +101,36 @@
     }];
 
 }
+#pragma mark----****----*  封装的get请求
+/**
+ *  封装的get请求
+ *
+ *  @param url          url
+ *  @param para          参数
+ *  @param block 请求成功的回调
+ */
+- (void)WKGetDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKBaseInfo *info))block{
 
+
+    [[NSNetworkRequest sharedInstance] GET:url parameters:para cacheMode:YES successBlock:^(id responseObject) {
+        MLLog(@"%@\n缓存路径为:  %@",responseObject,kPathCache);
+//        MLLog(@"responseObject----:%@",responseObject);
+        
+        WKBaseInfo *info = [WKBaseInfo yy_modelWithJSON:responseObject];
+        block(info);
+
+//        [TSMessage showNotificationWithTitle:@"GET请求成功,已缓存!" type:TSMessageNotificationTypeWarning];
+    } failureBlock:^(NSError *error) {
+        MLLog(@"%@",error);
+//        [TSMessage showNotificationWithTitle:[NSString stringWithFormat:@"GET请求失败:%@",error.description] type:TSMessageNotificationTypeWarning];
+        WKBaseInfo *info = [WKBaseInfo infoWithError:error];
+        info.status = kRetCodeError;
+        
+        block(info);
+
+    }];
+
+}
 /**
  图片上传
  

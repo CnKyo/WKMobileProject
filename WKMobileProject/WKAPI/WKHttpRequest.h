@@ -44,7 +44,15 @@
  *  @param block 请求成功的回调
  */
 - (void)WKPostDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKBaseInfo *info))block;
-
+#pragma mark----****----*  封装的get请求
+/**
+ *  封装的get请求
+ *
+ *  @param url          url
+ *  @param para          参数
+ *  @param block 请求成功的回调
+ */
+- (void)WKGetDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKBaseInfo *info))block;
 /**
  图片上传
 

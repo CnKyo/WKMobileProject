@@ -60,6 +60,10 @@
 		31A222131E99D2B50058A21B /* WKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A222121E99D2B50058A21B /* WKBaseViewController.m */; };
 		31E289411EB21A47006C9756 /* WKHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E289401EB21A47006C9756 /* WKHttpRequest.m */; };
 		438D7113768A3061C072BCE4 /* libPods-WKMobileProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BDC79F377B749380AF0636A /* libPods-WKMobileProject.a */; };
+		520623AA1F5E7FB500E91A8E /* NSNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5206239E1F5E7FB500E91A8E /* NSNetworkCache.m */; };
+		520623AB1F5E7FB500E91A8E /* NSNetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 520623A21F5E7FB500E91A8E /* NSNetworkMonitor.m */; };
+		520623AC1F5E7FB500E91A8E /* NSNetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 520623A51F5E7FB500E91A8E /* NSNetworkRequest.m */; };
+		520623AD1F5E7FB500E91A8E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 520623A91F5E7FB500E91A8E /* Reachability.m */; };
 		5214A32F1F3C037900BE840D /* ZJJTimeCountDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 5214A32A1F3C037900BE840D /* ZJJTimeCountDown.m */; };
 		5214A3301F3C037900BE840D /* ZJJTimeCountDownDateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5214A32C1F3C037900BE840D /* ZJJTimeCountDownDateTool.m */; };
 		5214A3311F3C037900BE840D /* ZJJTimeCountDownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5214A32E1F3C037900BE840D /* ZJJTimeCountDownLabel.m */; };
@@ -401,6 +405,19 @@
 		31E2893F1EB21A47006C9756 /* WKHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHttpRequest.h; sourceTree = "<group>"; };
 		31E289401EB21A47006C9756 /* WKHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHttpRequest.m; sourceTree = "<group>"; };
 		3BDC79F377B749380AF0636A /* libPods-WKMobileProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5206239D1F5E7FB500E91A8E /* NSNetworkCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNetworkCache.h; sourceTree = "<group>"; };
+		5206239E1F5E7FB500E91A8E /* NSNetworkCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSNetworkCache.m; sourceTree = "<group>"; };
+		5206239F1F5E7FB500E91A8E /* NSNetworkInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNetworkInterface.h; sourceTree = "<group>"; };
+		520623A01F5E7FB500E91A8E /* NSNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNetworkManager.h; sourceTree = "<group>"; };
+		520623A11F5E7FB500E91A8E /* NSNetworkMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNetworkMonitor.h; sourceTree = "<group>"; };
+		520623A21F5E7FB500E91A8E /* NSNetworkMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSNetworkMonitor.m; sourceTree = "<group>"; };
+		520623A31F5E7FB500E91A8E /* NSNetworkProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNetworkProtocol.h; sourceTree = "<group>"; };
+		520623A41F5E7FB500E91A8E /* NSNetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNetworkRequest.h; sourceTree = "<group>"; };
+		520623A51F5E7FB500E91A8E /* NSNetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSNetworkRequest.m; sourceTree = "<group>"; };
+		520623A61F5E7FB500E91A8E /* NSNetworkSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNetworkSingleton.h; sourceTree = "<group>"; };
+		520623A71F5E7FB500E91A8E /* NSNetworkStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNetworkStatus.h; sourceTree = "<group>"; };
+		520623A81F5E7FB500E91A8E /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		520623A91F5E7FB500E91A8E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		5214A3291F3C037900BE840D /* ZJJTimeCountDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJJTimeCountDown.h; sourceTree = "<group>"; };
 		5214A32A1F3C037900BE840D /* ZJJTimeCountDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJJTimeCountDown.m; sourceTree = "<group>"; };
 		5214A32B1F3C037900BE840D /* ZJJTimeCountDownDateTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJJTimeCountDownDateTool.h; sourceTree = "<group>"; };
@@ -978,6 +995,7 @@
 			isa = PBXGroup;
 			children = (
 				529D8E5C1EDFFF1700BF0FDE /* WKMobileProject.entitlements */,
+				5206239C1F5E7FB500E91A8E /* NSNetworkManager */,
 				523544821F4AD19F007983C8 /* FCIPAddressGeocoder */,
 				526ABF3F1F4538B500F0C335 /* FSCustomBUtton */,
 				52EEE85D1F42E3B400D7C985 /* WLUnitField */,
@@ -1358,6 +1376,26 @@
 				31A221F41E99CFA00058A21B /* GDMapService.m */,
 			);
 			path = GDMapService;
+			sourceTree = "<group>";
+		};
+		5206239C1F5E7FB500E91A8E /* NSNetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				5206239D1F5E7FB500E91A8E /* NSNetworkCache.h */,
+				5206239E1F5E7FB500E91A8E /* NSNetworkCache.m */,
+				5206239F1F5E7FB500E91A8E /* NSNetworkInterface.h */,
+				520623A01F5E7FB500E91A8E /* NSNetworkManager.h */,
+				520623A11F5E7FB500E91A8E /* NSNetworkMonitor.h */,
+				520623A21F5E7FB500E91A8E /* NSNetworkMonitor.m */,
+				520623A31F5E7FB500E91A8E /* NSNetworkProtocol.h */,
+				520623A41F5E7FB500E91A8E /* NSNetworkRequest.h */,
+				520623A51F5E7FB500E91A8E /* NSNetworkRequest.m */,
+				520623A61F5E7FB500E91A8E /* NSNetworkSingleton.h */,
+				520623A71F5E7FB500E91A8E /* NSNetworkStatus.h */,
+				520623A81F5E7FB500E91A8E /* Reachability.h */,
+				520623A91F5E7FB500E91A8E /* Reachability.m */,
+			);
+			path = NSNetworkManager;
 			sourceTree = "<group>";
 		};
 		5214A3281F3C037900BE840D /* ZJJTimeCountDown */ = {
@@ -2396,6 +2434,7 @@
 				5279A75A1EC99EC500999B3D /* WKTopupHeaderView.m in Sources */,
 				52289D891ECB042700D8A6F5 /* WKUserMsgViewController.m in Sources */,
 				52368FE91EC3FA15002524E5 /* WKWashTableHeaderView.m in Sources */,
+				520623AB1F5E7FB500E91A8E /* NSNetworkMonitor.m in Sources */,
 				5214A3311F3C037900BE840D /* ZJJTimeCountDownLabel.m in Sources */,
 				526ABF461F4538B500F0C335 /* FSCustomButton.m in Sources */,
 				52AC366F1EC314CD000866D4 /* WKWashHeaderView.m in Sources */,
@@ -2481,6 +2520,7 @@
 				31E289411EB21A47006C9756 /* WKHttpRequest.m in Sources */,
 				5217DDD91EE1031500BE35ED /* WKMyWealthTableViewCell.m in Sources */,
 				529D8E851EE010B300BF0FDE /* UIImage+Extend.m in Sources */,
+				520623AC1F5E7FB500E91A8E /* NSNetworkRequest.m in Sources */,
 				31A221FE1E99CFA00058A21B /* CTCache.m in Sources */,
 				31A221F71E99CFA00058A21B /* NSMutableString+AXNetworkingMethods.m in Sources */,
 				52289D7B1ECAF09E00D8A6F5 /* WKUserInfoCell.m in Sources */,
@@ -2496,6 +2536,7 @@
 				31A222091E99CFA10058A21B /* CTServiceFactory.m in Sources */,
 				52AC36461EC2C086000866D4 /* SXColorGradientView.m in Sources */,
 				5229760D1ECC2B3100FEB6D9 /* WKJoinusCell.m in Sources */,
+				520623AA1F5E7FB500E91A8E /* NSNetworkCache.m in Sources */,
 				529D21641ECC580F00766E2F /* WKMyOrderCell.m in Sources */,
 				31A222061E99CFA10058A21B /* CTSignatureGenerator.m in Sources */,
 				5260EBF61F4421990021F42A /* TimeModel.m in Sources */,
@@ -2529,6 +2570,7 @@
 				5217DDE91EE138E700BE35ED /* WKMyWealthRecordViewController.m in Sources */,
 				31A2220A1E99CFA10058A21B /* CTAppContext.m in Sources */,
 				31A222041E99CFA10058A21B /* CTCommonParamsGenerator.m in Sources */,
+				520623AD1F5E7FB500E91A8E /* Reachability.m in Sources */,
 				529D8E791EE0109200BF0FDE /* WKScanDeviceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

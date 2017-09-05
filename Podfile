@@ -49,6 +49,9 @@ target 'WKMobileProject' do
   #网络检测
   pod 'YYCache'
 #  pod 'NSNetworkManager'
+  pod 'TSMessages'
+  pod 'HexColors'
+
 
 
 end

@@ -22,12 +22,15 @@
 #import "FCIPAddressGeocoder.h"
 
 
-@interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate>
+@interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate,NSNetworkMonitorProtocol>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
+///网络状态 
+@property (strong,nonatomic) NSString *mNetWorkStatus;
 
 @end
 
 @implementation WKHomeViewController{
+
     ///banner数据源
     NSMutableArray *mBannerArr;
     NSMutableArray *mFuncArr;
@@ -52,6 +55,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"首页";
+    
+    [NSNetworkMonitor registerNetworkNotification:self];
+    _mNetWorkStatus = [NSNetworkMonitor currentNetworkStatusString];
+
     self.d_navBarAlpha = 0;
     
     mBannerArr = [NSMutableArray new];
@@ -123,6 +130,12 @@
 }
 - (void)tableViewFooterReloadData{
 
+}
+-(void)networkStatusChangeNotification:(NSNotification *)notification
+{
+    _mNetWorkStatus = [NSNetworkMonitor currentNetworkStatusString];
+    MLLog(@"%@\n%@",_mNetWorkStatus,notification);
+    
 }
 
 - (void)mAction{

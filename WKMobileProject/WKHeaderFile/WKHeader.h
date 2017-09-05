@@ -43,6 +43,7 @@
 #import "WKGenericTextFiled.h"
 #import "WKProgressView.h"
 
+#import "NSNetworkManager.h"
 //#define  WKSyncQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
 #define ColorRGB(_R_, _G_, _B_)       ([UIColor colorWithRed:_R_/255.0f green:_G_/255.0f blue:_B_/255.0f alpha:1])
@@ -130,6 +131,11 @@ NSIndexPath *indexPath = [tableview indexPathForRowAtPoint:subviewFrame.origin];
 UITableViewCell *cell=[tableview cellForRowAtIndexPath:indexPath];\
 cell;\
 })\
+
+
+#define kPathCache   [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0] //缓存路径
+
+
 ///jpush Key
 static NSString* const kJpushKey                   = @"aff37128ca29fc8f5f3afa8f";
 ///火车票查询key

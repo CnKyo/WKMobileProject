@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "WKHeader.h"
 #import "WKHttpRequest.h"
-
+#import "NSNetworkManager.h"
 @interface WKBaseInfo : NSObject
 
 @property (nonatomic,strong) NSString *msg;

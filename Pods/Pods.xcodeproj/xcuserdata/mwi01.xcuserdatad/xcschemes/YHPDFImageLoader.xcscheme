@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9A74BB2C5184ADE88B076EE49619DD52'
+               BlueprintIdentifier = 'F7CCA930A0982EEA8264A30A274225AF'
                BlueprintName = 'YHPDFImageLoader'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libYHPDFImageLoader.a'>
