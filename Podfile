@@ -46,6 +46,9 @@ target 'WKMobileProject' do
   pod 'MBProgressHUD'
   pod 'LLImagePickerView'
   pod 'YHPDFImageLoader'
+  #网络检测
+  #pod 'YYCache'
+  #pod 'NSNetworkManager'
 
 
 end

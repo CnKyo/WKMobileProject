@@ -412,6 +412,17 @@
      @return 返回yes or no
      */
 + (BOOL)ZLRangOfString:(NSString *)mString;
+
+#pragma mark---- 判断字符串包含某字符串
+/**
+ 判断字符串包含某字符串
+ @param mTextString 原内容
+ @param mText 要判断的字符内容
+ @return 返回bool yes or no
+ */
++ (BOOL)WKJudgeString:(NSString *)mTextString toString:(NSString *)mText;
+
+
 #pragma mark----  返回当前图片url
     /**
      返回当前图片url

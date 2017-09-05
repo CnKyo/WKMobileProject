@@ -1537,8 +1537,37 @@
     }
     
 }
+#pragma mark---- 判断字符串包含某字符串
+/**
+ 判断字符串包含某字符串
+ @param mTextString 原内容
+ @param mText 要判断的字符内容
+ @return 返回bool yes or no
+ */
++ (BOOL)WKJudgeString:(NSString *)mTextString toString:(NSString *)mText{
     
+    if (mTextString.length<=0 || mText.length<=0) {
+        return NO;
+    }else{
+        if (SystemIsiOS8()) {
+            if ([mTextString containsString:mText]) {
+                return YES;
+                
+            }else {
+                return NO;
+            }
+        }else{
+            if ([mTextString rangeOfString:mText].location == NSNotFound) {
+                return NO;
+            } else {
+                return YES;
+            }
+        }
+        
+    }
     
+}
+
 //#pragma mark----  返回当前图片url
 //    /**
 //     返回当前图片url

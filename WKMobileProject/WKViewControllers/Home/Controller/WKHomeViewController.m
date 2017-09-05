@@ -102,10 +102,24 @@
     [WKBaseInfo WKFindTrainNumber:para block:^(WKBaseInfo *info, NSArray *list) {
         if (info.status == kRetCodeSucess) {
             [self showSucess:info.msg];
+            
         }else{
             [self showError:info.msg];
         }
     }];
+    [self judgeString];
+}
+- (void)judgeString{
+    BOOL mJ = [Util WKJudgeString:@"http://xxlaundry.aboutnew.net/qr/?q=eHgyMD" toString:@"eHgyMDE3MDkwNTAyNDUxNzYwNz"];
+    if (mJ) {
+        [self showSucess:@"有"];
+        MLLog(@"包含");
+        
+    }else{
+        [self showError:@"没有"];
+        MLLog(@"不包含");
+
+    }
 }
 - (void)tableViewFooterReloadData{
 
