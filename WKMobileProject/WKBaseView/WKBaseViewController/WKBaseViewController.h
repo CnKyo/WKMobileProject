@@ -32,7 +32,7 @@ typedef void (^WKHandle)(WKBaseHandleType);
 
 @property(nonatomic,strong) ZJJTimeCountDown * countDown;
 #pragma mark----****----block
-@property (strong,nonatomic)WKHandle mBlock;
+@property (copy,nonatomic)WKHandle mBlock;
 #pragma mark----****----View基本界面
 /**
  列表数据源
