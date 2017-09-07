@@ -469,4 +469,13 @@
  *  @return 转换后的字典
  */
 + (NSDictionary*)ObjectToData:(id)obj;
+#pragma mark----****---- 截取字符串中的字符串
+/**
+ 截取字符串中的字符串
+
+ @param mText 要截取的字符串
+ @param mString 截取字符串内容
+ @return 返回截取数组
+ */
++ (NSString *)WK_StringToString:(NSString *)mText toString:(NSString *)mString;
 @end

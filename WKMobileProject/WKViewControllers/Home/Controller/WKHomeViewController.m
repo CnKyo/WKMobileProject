@@ -117,10 +117,12 @@
     [self judgeString];
 }
 - (void)judgeString{
-    BOOL mJ = [Util WKJudgeString:@"http://xxlaundry.aboutnew.net/qr/?q=eHgyMD" toString:@"eHgyMDE3MDkwNTAyNDUxNzYwNz"];
+    
+    BOOL mJ = [Util WKJudgeString:@"http://xxlaundry.aboutnew.net/qr/?q=eHgyMDE3MDkwNTAyNDUxNzYwNzM4NDA4" toString:@"eHgyMDE3MDkwNTAyNDUxNzYwNz"];
     if (mJ) {
+        NSString *mCurrentString = [Util WK_StringToString:@"http://xxlaundry.aboutnew.net/qr/?qbarcode111222=eHgyMDE3MDkwNTAyNDUxNzYwNzg5NTMx" toString:@"eHgy"];
         [self showSucess:@"有"];
-        MLLog(@"包含");
+        MLLog(@"包含了：%@",mCurrentString);
         
     }else{
         [self showError:@"没有"];

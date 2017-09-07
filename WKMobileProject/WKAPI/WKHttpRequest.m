@@ -86,18 +86,30 @@
  */
 - (void)WKPostDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKBaseInfo *info))block{
 
-    [self urlGroupKey:nil path:url parameters:para call:^(NSError *error, id responseObject) {
-        if (error == nil) {
-            MLLog(@"responseObject----:%@",responseObject);
-            
-            WKBaseInfo *info = [WKBaseInfo yy_modelWithJSON:responseObject];
-            block(info);
-        }else{
-            WKBaseInfo *info = [WKBaseInfo infoWithError:error];
-            info.status = kRetCodeError;
-
-            block(info);
-        }
+//    [self urlGroupKey:nil path:url parameters:para call:^(NSError *error, id responseObject) {
+//        if (error == nil) {
+//            MLLog(@"responseObject----:%@",responseObject);
+//            
+//            WKBaseInfo *info = [WKBaseInfo yy_modelWithJSON:responseObject];
+//            block(info);
+//        }else{
+//            WKBaseInfo *info = [WKBaseInfo infoWithError:error];
+//            info.status = kRetCodeError;
+//
+//            block(info);
+//        }
+//    }];
+    
+    [[NSNetworkRequest sharedInstance] POST:url parameters:para cacheMode:YES successBlock:^(id responseObject) {
+        MLLog(@"responseObject----:%@",responseObject);
+        
+        WKBaseInfo *info = [WKBaseInfo yy_modelWithJSON:responseObject];
+        block(info);
+    } failureBlock:^(NSError *error) {
+        WKBaseInfo *info = [WKBaseInfo infoWithError:error];
+        info.status = kRetCodeError;
+        
+        block(info);
     }];
 
 }

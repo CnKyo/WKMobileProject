@@ -1728,4 +1728,44 @@
     return [self ObjectToData:obj];
     
 }
+
+#pragma mark----****---- 截取字符串中的字符串
+/**
+ 截取字符串中的字符串
+ 
+ @param mText 要截取的字符串
+ @param mString 截取字符串内容
+ @return 返回截取数组
+ */
++ (NSString *)WK_StringToString:(NSString *)mText toString:(NSString *)mString{
+
+//    NSMutableArray *mmNewStringArr = [NSMutableArray new];
+//    
+    if (mText.length<=0 || [mText isEqualToString:@""]) {
+        return nil;
+    }else{
+        ///下面屏蔽的这个方法不科学
+//        NSArray *mArr = [mText componentsSeparatedByString:mString];
+//        
+//        for (int i = 0; i<mArr.count; i++) {
+//            NSString *mImgStr = mArr[i];
+//            
+//            if (mImgStr.length>0) {
+//                [mmNewStringArr addObject:mImgStr];
+//            }
+//        }
+//        return mmNewStringArr[1];
+        ///万能截取
+        NSString *mCurrentStr = [NSString stringWithFormat:@"%@%@",mText,@"!"];
+        
+        NSRange range;
+        range.location = [mCurrentStr rangeOfString:mString].location;
+        range.length = [mCurrentStr rangeOfString:@"!"].location-range.location;
+        NSString *result = [mCurrentStr substringWithRange:range];
+        MLLog(@"result = %@", result);
+        return result;
+    }
+    
+    
+}
 @end
