@@ -223,6 +223,9 @@
 		529D8E8A1EE01F4300BF0FDE /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529D8E891EE01F4300BF0FDE /* Photos.framework */; };
 		529D8E8B1EE01F6D00BF0FDE /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A221AC1E99CDE50058A21B /* AssetsLibrary.framework */; };
 		529F3B441F3D9A84000E5933 /* WKBDModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 529F3B431F3D9A84000E5933 /* WKBDModel.m */; };
+		52A408491F6131750053B683 /* WKUserMsgDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A408481F6131750053B683 /* WKUserMsgDetailViewController.m */; };
+		52A408501F613D970053B683 /* WKUserMsgDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A4084E1F613D970053B683 /* WKUserMsgDetailCell.m */; };
+		52A408511F613D970053B683 /* WKUserMsgDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A4084F1F613D970053B683 /* WKUserMsgDetailCell.xib */; };
 		52A66E501EF268330011EEC3 /* index3.html in Resources */ = {isa = PBXBuildFile; fileRef = 52A66E4F1EF268330011EEC3 /* index3.html */; };
 		52A66E531EF293310011EEC3 /* WKWebViewConfigDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A66E521EF293310011EEC3 /* WKWebViewConfigDelegate.m */; };
 		52AC36341EC2A059000866D4 /* FDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC362F1EC2A059000866D4 /* FDAlertView.m */; };
@@ -662,6 +665,11 @@
 		529D8E891EE01F4300BF0FDE /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		529F3B421F3D9A84000E5933 /* WKBDModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBDModel.h; sourceTree = "<group>"; };
 		529F3B431F3D9A84000E5933 /* WKBDModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBDModel.m; sourceTree = "<group>"; };
+		52A408471F6131750053B683 /* WKUserMsgDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUserMsgDetailViewController.h; sourceTree = "<group>"; };
+		52A408481F6131750053B683 /* WKUserMsgDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUserMsgDetailViewController.m; sourceTree = "<group>"; };
+		52A4084D1F613D970053B683 /* WKUserMsgDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKUserMsgDetailCell.h; path = WKMobileProject/WKViewControllers/User/Controller/WKUserMsgDetailCell.h; sourceTree = SOURCE_ROOT; };
+		52A4084E1F613D970053B683 /* WKUserMsgDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKUserMsgDetailCell.m; path = WKMobileProject/WKViewControllers/User/Controller/WKUserMsgDetailCell.m; sourceTree = SOURCE_ROOT; };
+		52A4084F1F613D970053B683 /* WKUserMsgDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKUserMsgDetailCell.xib; path = WKMobileProject/WKViewControllers/User/Controller/WKUserMsgDetailCell.xib; sourceTree = SOURCE_ROOT; };
 		52A66E4F1EF268330011EEC3 /* index3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index3.html; sourceTree = "<group>"; };
 		52A66E511EF293310011EEC3 /* WKWebViewConfigDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewConfigDelegate.h; sourceTree = "<group>"; };
 		52A66E521EF293310011EEC3 /* WKWebViewConfigDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewConfigDelegate.m; sourceTree = "<group>"; };
@@ -908,6 +916,8 @@
 				31507EA71EA06FE0007B8345 /* WKUserViewController.m */,
 				52289D871ECB042700D8A6F5 /* WKUserMsgViewController.h */,
 				52289D881ECB042700D8A6F5 /* WKUserMsgViewController.m */,
+				52A408471F6131750053B683 /* WKUserMsgDetailViewController.h */,
+				52A408481F6131750053B683 /* WKUserMsgDetailViewController.m */,
 				5214A33A1F3C39B900BE840D /* MyTask */,
 				5217DDD11EE101FA00BE35ED /* MyWealth */,
 				5274A1261ECD2FC30002B252 /* Connectus */,
@@ -936,6 +946,9 @@
 				52289D8A1ECB043A00D8A6F5 /* WKUserMsgCell.h */,
 				52289D8B1ECB043A00D8A6F5 /* WKUserMsgCell.m */,
 				52289D8C1ECB043A00D8A6F5 /* WKUserMsgCell.xib */,
+				52A4084D1F613D970053B683 /* WKUserMsgDetailCell.h */,
+				52A4084E1F613D970053B683 /* WKUserMsgDetailCell.m */,
+				52A4084F1F613D970053B683 /* WKUserMsgDetailCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2296,6 +2309,7 @@
 				522976221ECC392200FEB6D9 /* WKJoinProgressView.xib in Resources */,
 				524E3EE61ECA980C00EF0224 /* WKVIPTopupSucessView.xib in Resources */,
 				5279A75C1EC99ECC00999B3D /* WKTopupHeaderView.xib in Resources */,
+				52A408511F613D970053B683 /* WKUserMsgDetailCell.xib in Resources */,
 				5239D3381EF3B22000BAB3F3 /* castapp.js in Resources */,
 				52AC365D1EC2F0C5000866D4 /* WKHomeHeaderSectionView.xib in Resources */,
 				315FFC0E1E97D3C600C78440 /* Assets.xcassets in Resources */,
@@ -2441,6 +2455,7 @@
 				529D21601ECC579000766E2F /* WKMyOrderViewController.m in Sources */,
 				523FC24E1F381E6700EA7A6E /* WKGenericTextFiled.m in Sources */,
 				52D02D281F41814F00B24618 /* WKTaskSectionHeaderView.m in Sources */,
+				52A408501F613D970053B683 /* WKUserMsgDetailCell.m in Sources */,
 				52BC43641F39650C00B44FD6 /* WKTaskTableViewCell.m in Sources */,
 				52289D761ECAE99F00D8A6F5 /* WKPlayGameCell.m in Sources */,
 				52AC36351EC2A059000866D4 /* WKCustomPopView.m in Sources */,
@@ -2560,6 +2575,7 @@
 				52289D721ECAE94700D8A6F5 /* WKPlayGameViewController.m in Sources */,
 				524E3EF41ECAAEC900EF0224 /* WKActivityTableViewCell.m in Sources */,
 				5217DDF71EE15B4D00BE35ED /* WKBoundleToolViewController.m in Sources */,
+				52A408491F6131750053B683 /* WKUserMsgDetailViewController.m in Sources */,
 				52AC36341EC2A059000866D4 /* FDAlertView.m in Sources */,
 				5217DDFB1EE15BAC00BE35ED /* WKBoundleToolCell.m in Sources */,
 				523544851F4AD19F007983C8 /* FCIPAddressGeocoder.m in Sources */,

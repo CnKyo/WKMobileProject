@@ -8,6 +8,7 @@
 
 #import "WKUserMsgViewController.h"
 #import "WKUserMsgCell.h"
+#import "WKUserMsgDetailViewController.h"
 @interface WKUserMsgViewController ()
 
 @end
@@ -105,7 +106,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     MLLog(@"%ld行",indexPath.row);
     
-    
+    WKUserMsgDetailViewController *vc = [WKUserMsgDetailViewController new];
+    [self pushViewController:vc];
 }
 
 @end
