@@ -68,7 +68,12 @@
     
     [mHeaderMessage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
-        make.top.equalTo(self.view).offset(54);
+        
+        if([[[WKGetDeviceInfo sharedLibrery]getDiviceName] isEqualToString:@"iphone X"]){
+            make.top.equalTo(self.view).offset(74);
+        }else{
+            make.top.equalTo(self.view).offset(54);
+        }
         make.height.offset(45);
         make.bottom.equalTo(mTableView.mas_top);
     }];

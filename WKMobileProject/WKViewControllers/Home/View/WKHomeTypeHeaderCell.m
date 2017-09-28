@@ -169,6 +169,8 @@
             
             mBgkView1.frame =mBgkView1Rect;
             mBgkView2.frame =mBgkView2Rect;
+            CGRect mTR = mSRR;
+            mTR.origin.y = -88;
             scrollView.frame = mSRR;
             [scrollView addSubview:mBgkView1];
             [scrollView addSubview:mBgkView2];

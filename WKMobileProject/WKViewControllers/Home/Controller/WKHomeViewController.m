@@ -56,6 +56,9 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"首页";
     
+  const  NSString *mDeviceInfo = [[WKGetDeviceInfo sharedLibrery] getDiviceName];
+    MLLog(@"设备信息：%@",mDeviceInfo);
+
     [NSNetworkMonitor registerNetworkNotification:self];
     _mNetWorkStatus = [NSNetworkMonitor currentNetworkStatusString];
 

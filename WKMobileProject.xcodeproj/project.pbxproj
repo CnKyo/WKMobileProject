@@ -228,6 +228,7 @@
 		52A408511F613D970053B683 /* WKUserMsgDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A4084F1F613D970053B683 /* WKUserMsgDetailCell.xib */; };
 		52A66E501EF268330011EEC3 /* index3.html in Resources */ = {isa = PBXBuildFile; fileRef = 52A66E4F1EF268330011EEC3 /* index3.html */; };
 		52A66E531EF293310011EEC3 /* WKWebViewConfigDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A66E521EF293310011EEC3 /* WKWebViewConfigDelegate.m */; };
+		52ABDCB21F7C9C8B0051744C /* WKGetDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ABDCB11F7C9C8B0051744C /* WKGetDeviceInfo.m */; };
 		52AC36341EC2A059000866D4 /* FDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC362F1EC2A059000866D4 /* FDAlertView.m */; };
 		52AC36351EC2A059000866D4 /* WKCustomPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC36321EC2A059000866D4 /* WKCustomPopView.m */; };
 		52AC36361EC2A059000866D4 /* WKCustomPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AC36331EC2A059000866D4 /* WKCustomPopView.xib */; };
@@ -673,6 +674,8 @@
 		52A66E4F1EF268330011EEC3 /* index3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index3.html; sourceTree = "<group>"; };
 		52A66E511EF293310011EEC3 /* WKWebViewConfigDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewConfigDelegate.h; sourceTree = "<group>"; };
 		52A66E521EF293310011EEC3 /* WKWebViewConfigDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewConfigDelegate.m; sourceTree = "<group>"; };
+		52ABDCB01F7C9C8B0051744C /* WKGetDeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKGetDeviceInfo.h; sourceTree = "<group>"; };
+		52ABDCB11F7C9C8B0051744C /* WKGetDeviceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKGetDeviceInfo.m; sourceTree = "<group>"; };
 		52AC362E1EC2A059000866D4 /* FDAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDAlertView.h; sourceTree = "<group>"; };
 		52AC362F1EC2A059000866D4 /* FDAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDAlertView.m; sourceTree = "<group>"; };
 		52AC36311EC2A059000866D4 /* WKCustomPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKCustomPopView.h; sourceTree = "<group>"; };
@@ -1103,6 +1106,8 @@
 			children = (
 				31A221A91E99CCD00058A21B /* Util.h */,
 				31A221AA1E99CCD00058A21B /* Util.m */,
+				52ABDCB01F7C9C8B0051744C /* WKGetDeviceInfo.h */,
+				52ABDCB11F7C9C8B0051744C /* WKGetDeviceInfo.m */,
 			);
 			path = WKTool;
 			sourceTree = "<group>";
@@ -2472,6 +2477,7 @@
 				5217DDE51EE1134700BE35ED /* WKFetchWealthCell.m in Sources */,
 				522976141ECC2C0700FEB6D9 /* WKJoinusHeaderFooterSectionView.m in Sources */,
 				315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */,
+				52ABDCB21F7C9C8B0051744C /* WKGetDeviceInfo.m in Sources */,
 				52368FEF1EC3FEEC002524E5 /* WKWashTableCell.m in Sources */,
 				5260EBE61F43DB7D0021F42A /* WKMyTaskDetailViewController.m in Sources */,
 				52BC43741F39B44600B44FD6 /* WKGenericLoginViewController.m in Sources */,
@@ -2738,7 +2744,7 @@
 				CODE_SIGN_ENTITLEMENTS = WKMobileProject/WKMobileProject.entitlements;
 				DEVELOPMENT_TEAM = 45YS2S94XQ;
 				INFOPLIST_FILE = WKMobileProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mw.washmachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2753,7 +2759,7 @@
 				CODE_SIGN_ENTITLEMENTS = WKMobileProject/WKMobileProject.entitlements;
 				DEVELOPMENT_TEAM = 45YS2S94XQ;
 				INFOPLIST_FILE = WKMobileProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mw.washmachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";

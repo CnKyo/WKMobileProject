@@ -60,7 +60,7 @@
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-        
+        self.tableView.mj_header.automaticallyChangeAlpha = YES;
         //self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         [self.view addSubview:self.tableView];
         self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
@@ -69,6 +69,14 @@
         //        self.tableView.emptyDataSetSource = self;
         //        self.tableView.emptyDataSetDelegate = self;
         self.tableView.tableFooterView = [UIView new];
+        
+        if (SystemIsiOS11()) {
+            self.tableView.estimatedSectionHeaderHeight=0;
+            
+            self.tableView.estimatedSectionFooterHeight=0;
+            self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+        
         [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.view);
             

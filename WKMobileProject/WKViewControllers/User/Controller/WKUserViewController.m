@@ -85,7 +85,12 @@
     [mView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.top.equalTo(self.view).offset(54);
-        make.height.offset(15);
+        if([[[WKGetDeviceInfo sharedLibrery]getDiviceName] isEqualToString:@"iphone X"] || SystemIsiOS11()){
+            make.height.offset(35);
+        }else{
+            make.height.offset(15);
+        }
+        
         make.bottom.equalTo(mTableView.mas_top);
     }];
     [mTableView mas_makeConstraints:^(MASConstraintMaker *make) {
