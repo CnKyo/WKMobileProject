@@ -70,16 +70,21 @@
         //        self.tableView.emptyDataSetDelegate = self;
         self.tableView.tableFooterView = [UIView new];
         
-        if (SystemIsiOS11()) {
-            self.tableView.estimatedSectionHeaderHeight=0;
-            
-            self.tableView.estimatedSectionFooterHeight=0;
-            self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        }
+//        if([[[WKGetDeviceInfo sharedLibrery]getDiviceName] isEqualToString:@"iphone X"] || SystemIsiOS11()){
+//            self.tableView.estimatedSectionHeaderHeight=0;
+//
+//            self.tableView.estimatedSectionFooterHeight=0;
+//            self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//        }
         
         [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self.view);
             
+            if([[[WKGetDeviceInfo sharedLibrery]getDiviceName] isEqualToString:@"iphone X"] ){
+                make.top.equalTo(self.view).offset(84);
+                make.left.bottom.right.equalTo(self.view);
+            }else{
+                make.edges.equalTo(self.view);
+            }
             make.height.equalTo(self.view.mas_height);
         }];
     }

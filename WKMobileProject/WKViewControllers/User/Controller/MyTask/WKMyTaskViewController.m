@@ -19,28 +19,37 @@
 {
     WKSegmentControl *mSegmentView;
     UITableView *mTableView;
-
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"我的任务";
     
-     mSegmentView = [WKSegmentControl initWithSegmentControlFrame:CGRectMake(0, 64, DEVICE_Width, 50) andTitleWithBtn:@[@"执行中",@"已提交",@"已结束"] andBackgroudColor:[UIColor whiteColor] andBtnSelectedColor:[UIColor whiteColor] andBtnTitleColor:[UIColor blackColor] andUndeLineColor: [UIColor whiteColor] andBtnTitleFont:[UIFont systemFontOfSize:15] andInterval:5 delegate:self andIsHiddenLine:YES andType:4];
+    CGFloat mY;
+    if([[[WKGetDeviceInfo sharedLibrery]getDiviceName] isEqualToString:@"iphone X"] ){
+        
+        mY = 84;
+    }else{
+        mY = 64;
+        
+    }
+    CGFloat mTY = mY+50;
+    mSegmentView = [WKSegmentControl initWithSegmentControlFrame:CGRectMake(0, mY, DEVICE_Width, 50) andTitleWithBtn:@[@"执行中",@"已提交",@"已结束"] andBackgroudColor:[UIColor whiteColor] andBtnSelectedColor:[UIColor whiteColor] andBtnTitleColor:[UIColor blackColor] andUndeLineColor: [UIColor whiteColor] andBtnTitleFont:[UIFont systemFontOfSize:15] andInterval:5 delegate:self andIsHiddenLine:YES andType:4];
     [self.view addSubview:mSegmentView];
     
     mTableView = [UITableView new];
-    mTableView.frame = CGRectMake(0, 114, DEVICE_Width, DEVICE_Height-114);
+    mTableView.frame = CGRectMake(0, mTY, DEVICE_Width, DEVICE_Height-mTY);
     mTableView.delegate = self;
     mTableView.dataSource = self;
     mTableView.separatorStyle = UITableViewCellSelectionStyleNone;
     [self.view addSubview:mTableView];
     self.tableView = mTableView;
-//    [self addTableView];
+    //    [self addTableView];
     
     UINib   *nib = [UINib nibWithNibName:@"MyTaskTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
-
+    
     [self addTableViewHeaderRefreshing];
     [self addTableViewFootererRefreshing];
 }
@@ -71,7 +80,7 @@
                      @"2017-10-5 18:10:06",
                      @"2017-8-5 18:10:06",
                      ];
-
+    
     
     for (int i = 0; i < arr.count; i ++) {
         
@@ -83,7 +92,7 @@
     //移除过时数据
     //    [self removeOutDate];
     [self.tableView reloadData];
-
+    
 }
 - (void)tableViewFooterReloadData{
     MLLog(@"刷尾");
@@ -110,14 +119,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 #pragma mark----****---- 分段选择控件
 ///选择了哪一个？
 - (void)WKDidSelectedIndex:(NSInteger)mIndex{
@@ -168,7 +177,7 @@
     //在不设置为过时自动删除情况下 滑动过快的时候时间不会闪
     cell.mCountTime.text = [self.countDown countDownWithModel:model timeLabel:cell.mCountTime];
     
-
+    
     return cell;
     
 }

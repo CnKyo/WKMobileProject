@@ -85,7 +85,7 @@
     [mView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.top.equalTo(self.view).offset(54);
-        if([[[WKGetDeviceInfo sharedLibrery]getDiviceName] isEqualToString:@"iphone X"] || SystemIsiOS11()){
+        if([[[WKGetDeviceInfo sharedLibrery]getDiviceName] isEqualToString:@"iphone X"]){
             make.height.offset(35);
         }else{
             make.height.offset(15);
