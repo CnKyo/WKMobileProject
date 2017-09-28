@@ -106,9 +106,12 @@
 #pragma mark----****----提交成功view
 - (void)initSucessView{
     mView = [WKJoinProgressView initView];
-    mView.frame = CGRectMake(0, DEVICE_Height, DEVICE_Width, DEVICE_Height);
+//    mView.frame = CGRectMake(0, 0, DEVICE_Width, DEVICE_Height);
     [mView.mBackBtn addTarget:self action:@selector(mReturnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:mView];
+    [mView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.bottom.equalTo(self.view).offset(0);
+    }];
 }
 - (void)showSucessView{
     [UIView animateWithDuration:0.25 animations:^{
@@ -136,7 +139,8 @@
     
 }
 - (void)mReturnAction{
-
+    MLLog(@"返回");
+    [self popViewController_2];
 }
 ///限制电话号码输入长度
 #define TEXT_MAXLENGTH 11

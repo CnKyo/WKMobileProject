@@ -29,6 +29,8 @@
 @implementation WKUserViewController
 {
     UITableView *mTableView;
+    
+    NSArray *mFuncArr;
 
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -92,6 +94,8 @@
     }];
     [self addTableViewHeaderRefreshing];
 
+    
+    mFuncArr = @[@"我的活动",@"我的洗衣",@"我的任务",@"我的订单",@"帮助中心",@"加入我们",@"联系我们"];
 }
 - (void)tableViewHeaderReloadData{
 }
@@ -152,7 +156,7 @@
     }else if(section == 1){
         return 4;
     }else{
-        return 7;
+        return mFuncArr.count;
     }
     
 }
@@ -198,7 +202,7 @@
         reuseCellId = @"funcCell";
         
         WKUserFuncCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
-        
+        cell.mName.text = mFuncArr[indexPath.row];
         return cell;
         
     }

@@ -8,6 +8,8 @@
 
 #import "WKMyWashBookingViewController.h"
 #import "WKOperatorMyWashBookingView.h"
+#import "WKScanDeviceViewController.h"
+
 @interface WKMyWashBookingViewController ()
 
 @end
@@ -53,6 +55,9 @@
 }
 - (void)mBtnAction:(UIButton *)sender{
     MLLog(@"按钮");
+    UIStoryboard *board = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    WKScanDeviceViewController *vc = [board instantiateViewControllerWithIdentifier:@"scan"];;
+    [self pushViewController:vc];
 }
 /*
 #pragma mark - Navigation
