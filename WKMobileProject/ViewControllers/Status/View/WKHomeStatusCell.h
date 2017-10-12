@@ -12,32 +12,20 @@
 
 @optional
 
-- (void)WKHomeStatusCellDelegateWithBtnAction:(NSInteger)mTag withIndexPath:(NSIndexPath *)mIndexPath;
+- (void)WKHomeStatusCellDelegateWithBtnAction:(NSInteger)mTag;
 
 @end
 
 @interface WKHomeStatusCell : UITableViewCell
 
 ///名称
-@property (weak, nonatomic) IBOutlet UILabel *mName;
+@property (weak, nonatomic) IBOutlet UILabel *mOrderCode;
 ///声音按钮
-@property (weak, nonatomic) IBOutlet UIButton *mVoiceBtn;
-///日期
-@property (weak, nonatomic) IBOutlet UILabel *mDate;
-///气温
-@property (weak, nonatomic) IBOutlet UILabel *mTemperature;
-///天气
-@property (weak, nonatomic) IBOutlet UILabel *mWether;
-///空气
-@property (weak, nonatomic) IBOutlet UILabel *mAir;
-///风
-@property (weak, nonatomic) IBOutlet UILabel *mWind;
-///报警状态
-@property (weak, nonatomic) IBOutlet UILabel *mAlertStatus;
+@property (weak, nonatomic) IBOutlet UIButton *mOrderStatus;
+
 ///查看摄像机
-@property (weak, nonatomic) IBOutlet UIButton *mCheckCamBtn;
-///k线图View
-@property (weak, nonatomic) IBOutlet UIView *mKLineView;
+@property (weak, nonatomic) IBOutlet UIButton *mAcceptBtn;
+
 
 @property (strong,nonatomic) NSIndexPath *mIndexPath;
 

@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 
 #import "WKHeader.h"
+#import "ViewController.h"
+#import "WKLeftViewController.h"
 #import <AdSupport/AdSupport.h>
 
 #import <JPUSHService.h>
@@ -25,7 +27,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
+    UINavigationController *main = [[UINavigationController alloc]initWithRootViewController:[ViewController new]];
+    CKLeftSlideViewController *root = [[CKLeftSlideViewController alloc]initWithLeftVc:[WKLeftViewController new] mainVc:main];
+    self.leftSlideVc = root;
+    self.window.rootViewController = root;
+    [self.window makeKeyAndVisible];
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
     //Required
     //notice: 3.0.0及以后版本注册可以这样写，也可以继续用之前的注册方式
     JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];

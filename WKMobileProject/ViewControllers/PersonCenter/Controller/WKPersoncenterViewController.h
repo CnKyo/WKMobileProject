@@ -6,8 +6,8 @@
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "WKBaseViewController.h"
 
-@interface WKPersoncenterViewController : UIViewController
+@interface WKPersoncenterViewController : WKBaseViewController
 
 @end

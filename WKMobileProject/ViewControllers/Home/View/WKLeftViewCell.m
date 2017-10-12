@@ -1,14 +1,14 @@
 //
-//  WKHomeStatusCell.m
+//  WKLeftViewCell.m
 //  WKMobileProject
 //
-//  Created by mwi01 on 2017/10/12.
+//  Created by mwi01 on 2017/10/13.
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
 
-#import "WKHomeStatusCell.h"
+#import "WKLeftViewCell.h"
 
-@implementation WKHomeStatusCell
+@implementation WKLeftViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -21,7 +21,10 @@
     // Configure the view for the selected state
 }
 - (IBAction)mBtnAction:(UIButton *)sender {
-   
+    if ([self.delegate respondsToSelector:@selector(WKLeftViewCellDelegateWithBtnAction:)]) {
+        [self.delegate WKLeftViewCellDelegateWithBtnAction:sender.tag];
+    }
+    
 }
 
 @end

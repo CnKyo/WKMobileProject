@@ -11,8 +11,6 @@
 #import "WKHeader.h"
 #import <BAButton.h>
 #import "WKDriverCell.h"
-#import "WKReleaseViewController.h"
-#import "WKGoPayViewController.h"
 #import "WKMyReleaseCell.h"
 #import "WKOrderDetailViewController.h"
 @interface WKTransetViewController ()
@@ -75,8 +73,7 @@
     
     MLLog(@"左边的添加");
     
-    WKReleaseViewController *vc = [WKReleaseViewController new];
-    [self.navigationController pushViewController:vc animated:YES];
+  
 }
 /*
  #pragma mark - Navigation
@@ -142,8 +139,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     MLLog(@"点击了第：%ld",indexPath.row);
     if (mType == 0) {
-        WKGoPayViewController *vc = [WKGoPayViewController new];
-        [self.navigationController pushViewController:vc animated:YES];
+       
     }else{
         WKOrderDetailViewController *vc = [WKOrderDetailViewController new];
         [self.navigationController pushViewController:vc animated:YES];

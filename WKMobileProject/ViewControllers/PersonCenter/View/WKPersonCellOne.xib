@@ -19,58 +19,37 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="109.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的头像" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZw-RX-4Lj">
+                        <rect key="frame" x="10" y="44.5" width="219" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_avator" translatesAutoresizingMaskIntoConstraints="NO" id="C9w-PC-EzE">
-                        <rect key="frame" x="10" y="17" width="75" height="75"/>
+                        <rect key="frame" x="237" y="17.5" width="75" height="75"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="75" id="H16-Pl-19a"/>
-                            <constraint firstAttribute="height" constant="75" id="fI0-j9-d32"/>
+                            <constraint firstAttribute="height" constant="75" id="hyr-Hj-lCI"/>
+                            <constraint firstAttribute="width" constant="75" id="q3x-9P-gZr"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张三" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZw-RX-4Lj">
-                        <rect key="frame" x="93" y="17" width="219" height="24"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_right" translatesAutoresizingMaskIntoConstraints="NO" id="EgV-Yi-9af">
-                        <rect key="frame" x="290" y="45" width="20" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="20" id="FbI-4F-EBP"/>
-                            <constraint firstAttribute="height" constant="20" id="gkx-xj-ufr"/>
-                        </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIP 1级" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jrg-yx-Us1">
-                        <rect key="frame" x="93" y="74.5" width="219" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="qZw-RX-4Lj" secondAttribute="trailing" constant="8" id="5y1-HE-6u1"/>
-                    <constraint firstItem="qZw-RX-4Lj" firstAttribute="leading" secondItem="C9w-PC-EzE" secondAttribute="trailing" constant="8" id="CGK-Ve-GKC"/>
-                    <constraint firstItem="C9w-PC-EzE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Zsz-la-zDO"/>
-                    <constraint firstAttribute="trailing" secondItem="Jrg-yx-Us1" secondAttribute="trailing" constant="8" id="bBD-NC-WzP"/>
-                    <constraint firstAttribute="trailing" secondItem="EgV-Yi-9af" secondAttribute="trailing" constant="10" id="czl-fv-CCK"/>
-                    <constraint firstItem="Jrg-yx-Us1" firstAttribute="leading" secondItem="C9w-PC-EzE" secondAttribute="trailing" constant="8" id="fD7-nH-Can"/>
-                    <constraint firstItem="EgV-Yi-9af" firstAttribute="top" secondItem="qZw-RX-4Lj" secondAttribute="bottom" constant="4" id="h0E-1Z-8gw"/>
-                    <constraint firstItem="C9w-PC-EzE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="jV4-tg-r5s"/>
-                    <constraint firstItem="Jrg-yx-Us1" firstAttribute="top" secondItem="EgV-Yi-9af" secondAttribute="bottom" constant="9.5" id="mAC-en-gEF"/>
-                    <constraint firstItem="qZw-RX-4Lj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="nzo-cV-1TT"/>
-                    <constraint firstItem="EgV-Yi-9af" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="oaj-1A-CPY"/>
+                    <constraint firstItem="qZw-RX-4Lj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hxN-oa-77k"/>
+                    <constraint firstItem="C9w-PC-EzE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ng4-jy-hCf"/>
+                    <constraint firstItem="C9w-PC-EzE" firstAttribute="leading" secondItem="qZw-RX-4Lj" secondAttribute="trailing" constant="8" id="wRJ-Oz-YNa"/>
+                    <constraint firstAttribute="trailing" secondItem="C9w-PC-EzE" secondAttribute="trailing" constant="8" id="xfw-am-BiW"/>
+                    <constraint firstItem="qZw-RX-4Lj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ylK-d9-yw2"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="mAvator" destination="C9w-PC-EzE" id="Zfk-rv-ghQ"/>
-                <outlet property="mLevel" destination="Jrg-yx-Us1" id="gsa-RP-mFm"/>
                 <outlet property="mName" destination="qZw-RX-4Lj" id="9eX-DI-WUO"/>
             </connections>
-            <point key="canvasLocation" x="62" y="67"/>
+            <point key="canvasLocation" x="29" y="78"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="icon_avator" width="42" height="42"/>
-        <image name="icon_right" width="42" height="42"/>
     </resources>
 </document>

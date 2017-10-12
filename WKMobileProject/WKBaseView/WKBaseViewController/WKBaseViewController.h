@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface WKBaseViewController : UIViewController
+@property (strong,nonatomic) NSString *mTitle;
+@property (strong,nonatomic) UITableView *tableView;
 
+- (void)addTableView;
+- (void)setMTitle:(NSString *)mTitle;
 @end

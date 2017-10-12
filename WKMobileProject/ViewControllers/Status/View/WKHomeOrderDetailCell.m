@@ -1,14 +1,14 @@
 //
-//  WKHomeStatusCell.m
+//  WKHomeOrderDetailCell.m
 //  WKMobileProject
 //
-//  Created by mwi01 on 2017/10/12.
+//  Created by mwi01 on 2017/10/13.
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
 
-#import "WKHomeStatusCell.h"
+#import "WKHomeOrderDetailCell.h"
 
-@implementation WKHomeStatusCell
+@implementation WKHomeOrderDetailCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -19,9 +19,6 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
-}
-- (IBAction)mBtnAction:(UIButton *)sender {
-   
 }
 
 @end

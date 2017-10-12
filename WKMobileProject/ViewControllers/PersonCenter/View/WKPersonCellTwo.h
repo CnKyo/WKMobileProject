@@ -10,5 +10,6 @@
 
 @interface WKPersonCellTwo : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *mContent;
+@property (weak, nonatomic) IBOutlet UILabel *mName;
 
 @end

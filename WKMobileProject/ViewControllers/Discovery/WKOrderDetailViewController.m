@@ -9,6 +9,8 @@
 #import "WKOrderDetailViewController.h"
 #import "WKHeader.h"
 #import "WKOrderDetailCell.h"
+#import "WKHomeOrderDetailCell.h"
+
 @interface WKOrderDetailViewController ()
 <UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic) UITableView *tableView;
@@ -39,7 +41,7 @@
     
     self.tableView.backgroundColor = COLOR(247, 247, 247);
     
-    UINib   *nib = [UINib nibWithNibName:@"WKOrderDetailCell" bundle:nil];
+    UINib   *nib = [UINib nibWithNibName:@"WKHomeOrderDetailCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -70,7 +72,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    return 500;
+    return 668;
     
     
 }
@@ -81,7 +83,7 @@
     NSString *CellId = nil;
     CellId = @"cell";
     
-    WKOrderDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
+    WKHomeOrderDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
     return cell;
     
     
