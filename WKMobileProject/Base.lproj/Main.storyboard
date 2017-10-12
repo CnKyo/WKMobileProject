@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="-2047" y="1352"/>
         </scene>
-        <!--View Controller-->
+        <!--Personcenter View Controller-->
         <scene sceneID="aMw-Sb-9gx">
             <objects>
-                <viewController id="8Rh-Mm-eI3" sceneMemberID="viewController">
+                <viewController id="8Rh-Mm-eI3" customClass="WKPersoncenterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d9l-Bc-iaz"/>
                         <viewControllerLayoutGuide type="bottom" id="nhv-bi-VX6"/>
@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="-2047" y="690"/>
         </scene>
-        <!--View Controller-->
+        <!--Discovery View Controller-->
         <scene sceneID="UDJ-4w-TS7">
             <objects>
-                <viewController id="bXT-di-TW7" sceneMemberID="viewController">
+                <viewController id="bXT-di-TW7" customClass="WKDiscoveryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nHa-6h-8UF"/>
                         <viewControllerLayoutGuide type="bottom" id="0fZ-Pd-qtv"/>
@@ -132,32 +132,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QUn-k1-vka">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89H-9R-eX0">
-                                <rect key="frame" x="0.0" y="568" width="375" height="50"/>
-                                <color key="backgroundColor" red="0.22780537610000001" green="0.53584480290000003" blue="0.89293801780000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="d8T-Sj-7dg"/>
-                                </constraints>
-                                <state key="normal" title="清空数据">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="mClearndata:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WMq-r2-o9u"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="QUn-k1-vka" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="5hg-4R-m7t"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="89H-9R-eX0" secondAttribute="trailing" constant="-16" id="aIk-QD-qBM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QUn-k1-vka" secondAttribute="bottom" id="Gjj-HX-L4J"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QUn-k1-vka" secondAttribute="trailing" constant="-16" id="cPo-Y4-ECH"/>
-                            <constraint firstItem="89H-9R-eX0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="g90-KJ-vpv"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="89H-9R-eX0" secondAttribute="bottom" id="h1p-LE-xR4"/>
                             <constraint firstItem="QUn-k1-vka" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="wRz-wl-UvK"/>
-                            <constraint firstItem="89H-9R-eX0" firstAttribute="top" secondItem="QUn-k1-vka" secondAttribute="bottom" id="xEx-oK-da2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lHh-Bt-4PZ"/>
@@ -167,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1289" y="6"/>
+            <point key="canvasLocation" x="-1290.4000000000001" y="5.8470764617691158"/>
         </scene>
     </scenes>
 </document>

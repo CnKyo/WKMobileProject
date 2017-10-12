@@ -67,6 +67,30 @@
 		523704E61F4EA8900046D674 /* WKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 523704E51F4EA8900046D674 /* WKModel.m */; };
 		5263F0161F8F340C00F80B4D /* WKNavLeftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0151F8F340C00F80B4D /* WKNavLeftView.m */; };
 		5263F0181F8F341400F80B4D /* WKNavLeftView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F0171F8F341400F80B4D /* WKNavLeftView.xib */; };
+		5263F01C1F8F471800F80B4D /* WKHomeStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F01A1F8F471800F80B4D /* WKHomeStatusCell.m */; };
+		5263F01D1F8F471800F80B4D /* WKHomeStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F01B1F8F471800F80B4D /* WKHomeStatusCell.xib */; };
+		5263F0201F8F506100F80B4D /* WKDiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F01F1F8F506100F80B4D /* WKDiscoveryViewController.m */; };
+		5263F0231F8F506F00F80B4D /* WKPersoncenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0221F8F506F00F80B4D /* WKPersoncenterViewController.m */; };
+		5263F0271F8F512900F80B4D /* WKPersonCellOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0251F8F512900F80B4D /* WKPersonCellOne.m */; };
+		5263F0281F8F512900F80B4D /* WKPersonCellOne.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F0261F8F512900F80B4D /* WKPersonCellOne.xib */; };
+		5263F02C1F8F514200F80B4D /* WKPersonCellTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F02A1F8F514200F80B4D /* WKPersonCellTwo.m */; };
+		5263F02D1F8F514200F80B4D /* WKPersonCellTwo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F02B1F8F514200F80B4D /* WKPersonCellTwo.xib */; };
+		5263F0311F8F514E00F80B4D /* WKPersonCellThree.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F02F1F8F514E00F80B4D /* WKPersonCellThree.m */; };
+		5263F0321F8F514E00F80B4D /* WKPersonCellThree.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F0301F8F514E00F80B4D /* WKPersonCellThree.xib */; };
+		5263F0351F8F5C4600F80B4D /* WKMyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0341F8F5C4600F80B4D /* WKMyCollectionViewController.m */; };
+		5263F0391F8F5CCA00F80B4D /* WKMyReleaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0371F8F5CCA00F80B4D /* WKMyReleaseCell.m */; };
+		5263F03A1F8F5CCA00F80B4D /* WKMyReleaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F0381F8F5CCA00F80B4D /* WKMyReleaseCell.xib */; };
+		5263F03D1F8F61E800F80B4D /* WKMyPayListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F03C1F8F61E800F80B4D /* WKMyPayListViewController.m */; };
+		5263F0411F8F622D00F80B4D /* WKMyPayListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F03F1F8F622D00F80B4D /* WKMyPayListCell.m */; };
+		5263F0421F8F622D00F80B4D /* WKMyPayListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F0401F8F622D00F80B4D /* WKMyPayListCell.xib */; };
+		5263F0461F8F63E000F80B4D /* WKMyMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0441F8F63E000F80B4D /* WKMyMsgCell.m */; };
+		5263F0471F8F63E000F80B4D /* WKMyMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F0451F8F63E000F80B4D /* WKMyMsgCell.xib */; };
+		5263F04A1F8F64CF00F80B4D /* WKMyMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0491F8F64CF00F80B4D /* WKMyMsgViewController.m */; };
+		5263F04E1F8F65EC00F80B4D /* WKReleaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F04D1F8F65EC00F80B4D /* WKReleaseViewController.m */; };
+		5263F0521F8F664E00F80B4D /* WKReleaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0501F8F664E00F80B4D /* WKReleaseCell.m */; };
+		5263F0531F8F664E00F80B4D /* WKReleaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F0511F8F664E00F80B4D /* WKReleaseCell.xib */; };
+		5263F0571F8F6B1D00F80B4D /* WKGoPayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0551F8F6B1D00F80B4D /* WKGoPayCell.m */; };
+		5263F0581F8F6B1D00F80B4D /* WKGoPayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F0561F8F6B1D00F80B4D /* WKGoPayCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,6 +216,45 @@
 		5263F0141F8F340C00F80B4D /* WKNavLeftView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKNavLeftView.h; sourceTree = "<group>"; };
 		5263F0151F8F340C00F80B4D /* WKNavLeftView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKNavLeftView.m; sourceTree = "<group>"; };
 		5263F0171F8F341400F80B4D /* WKNavLeftView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKNavLeftView.xib; sourceTree = "<group>"; };
+		5263F0191F8F471800F80B4D /* WKHomeStatusCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKHomeStatusCell.h; sourceTree = "<group>"; };
+		5263F01A1F8F471800F80B4D /* WKHomeStatusCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKHomeStatusCell.m; sourceTree = "<group>"; };
+		5263F01B1F8F471800F80B4D /* WKHomeStatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKHomeStatusCell.xib; sourceTree = "<group>"; };
+		5263F01E1F8F506100F80B4D /* WKDiscoveryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKDiscoveryViewController.h; sourceTree = "<group>"; };
+		5263F01F1F8F506100F80B4D /* WKDiscoveryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKDiscoveryViewController.m; sourceTree = "<group>"; };
+		5263F0211F8F506F00F80B4D /* WKPersoncenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKPersoncenterViewController.h; sourceTree = "<group>"; };
+		5263F0221F8F506F00F80B4D /* WKPersoncenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKPersoncenterViewController.m; sourceTree = "<group>"; };
+		5263F0241F8F512900F80B4D /* WKPersonCellOne.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKPersonCellOne.h; sourceTree = "<group>"; };
+		5263F0251F8F512900F80B4D /* WKPersonCellOne.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKPersonCellOne.m; sourceTree = "<group>"; };
+		5263F0261F8F512900F80B4D /* WKPersonCellOne.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKPersonCellOne.xib; sourceTree = "<group>"; };
+		5263F0291F8F514200F80B4D /* WKPersonCellTwo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKPersonCellTwo.h; sourceTree = "<group>"; };
+		5263F02A1F8F514200F80B4D /* WKPersonCellTwo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKPersonCellTwo.m; sourceTree = "<group>"; };
+		5263F02B1F8F514200F80B4D /* WKPersonCellTwo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKPersonCellTwo.xib; sourceTree = "<group>"; };
+		5263F02E1F8F514E00F80B4D /* WKPersonCellThree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKPersonCellThree.h; sourceTree = "<group>"; };
+		5263F02F1F8F514E00F80B4D /* WKPersonCellThree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKPersonCellThree.m; sourceTree = "<group>"; };
+		5263F0301F8F514E00F80B4D /* WKPersonCellThree.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKPersonCellThree.xib; sourceTree = "<group>"; };
+		5263F0331F8F5C4600F80B4D /* WKMyCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKMyCollectionViewController.h; sourceTree = "<group>"; };
+		5263F0341F8F5C4600F80B4D /* WKMyCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKMyCollectionViewController.m; sourceTree = "<group>"; };
+		5263F0361F8F5CCA00F80B4D /* WKMyReleaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKMyReleaseCell.h; sourceTree = "<group>"; };
+		5263F0371F8F5CCA00F80B4D /* WKMyReleaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKMyReleaseCell.m; sourceTree = "<group>"; };
+		5263F0381F8F5CCA00F80B4D /* WKMyReleaseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKMyReleaseCell.xib; sourceTree = "<group>"; };
+		5263F03B1F8F61E800F80B4D /* WKMyPayListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKMyPayListViewController.h; sourceTree = "<group>"; };
+		5263F03C1F8F61E800F80B4D /* WKMyPayListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKMyPayListViewController.m; sourceTree = "<group>"; };
+		5263F03E1F8F622D00F80B4D /* WKMyPayListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKMyPayListCell.h; sourceTree = "<group>"; };
+		5263F03F1F8F622D00F80B4D /* WKMyPayListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKMyPayListCell.m; sourceTree = "<group>"; };
+		5263F0401F8F622D00F80B4D /* WKMyPayListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKMyPayListCell.xib; sourceTree = "<group>"; };
+		5263F0431F8F63E000F80B4D /* WKMyMsgCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKMyMsgCell.h; sourceTree = "<group>"; };
+		5263F0441F8F63E000F80B4D /* WKMyMsgCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKMyMsgCell.m; sourceTree = "<group>"; };
+		5263F0451F8F63E000F80B4D /* WKMyMsgCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKMyMsgCell.xib; sourceTree = "<group>"; };
+		5263F0481F8F64CF00F80B4D /* WKMyMsgViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKMyMsgViewController.h; sourceTree = "<group>"; };
+		5263F0491F8F64CF00F80B4D /* WKMyMsgViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKMyMsgViewController.m; sourceTree = "<group>"; };
+		5263F04C1F8F65EC00F80B4D /* WKReleaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKReleaseViewController.h; sourceTree = "<group>"; };
+		5263F04D1F8F65EC00F80B4D /* WKReleaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKReleaseViewController.m; sourceTree = "<group>"; };
+		5263F04F1F8F664E00F80B4D /* WKReleaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKReleaseCell.h; sourceTree = "<group>"; };
+		5263F0501F8F664E00F80B4D /* WKReleaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKReleaseCell.m; sourceTree = "<group>"; };
+		5263F0511F8F664E00F80B4D /* WKReleaseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKReleaseCell.xib; sourceTree = "<group>"; };
+		5263F0541F8F6B1D00F80B4D /* WKGoPayCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKGoPayCell.h; sourceTree = "<group>"; };
+		5263F0551F8F6B1D00F80B4D /* WKGoPayCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKGoPayCell.m; sourceTree = "<group>"; };
+		5263F0561F8F6B1D00F80B4D /* WKGoPayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKGoPayCell.xib; sourceTree = "<group>"; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD07EEDDCB555B036A1A24CA /* libPods-WKMobileProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -614,6 +677,8 @@
 			isa = PBXGroup;
 			children = (
 				5263F00F1F8F336B00F80B4D /* View */,
+				5263F01E1F8F506100F80B4D /* WKDiscoveryViewController.h */,
+				5263F01F1F8F506100F80B4D /* WKDiscoveryViewController.m */,
 			);
 			path = Discovery;
 			sourceTree = "<group>";
@@ -628,6 +693,7 @@
 		5263F0101F8F336B00F80B4D /* PersonCenter */ = {
 			isa = PBXGroup;
 			children = (
+				5263F04B1F8F65D300F80B4D /* Controller */,
 				5263F0111F8F336B00F80B4D /* View */,
 			);
 			path = PersonCenter;
@@ -636,6 +702,30 @@
 		5263F0111F8F336B00F80B4D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5263F0241F8F512900F80B4D /* WKPersonCellOne.h */,
+				5263F0251F8F512900F80B4D /* WKPersonCellOne.m */,
+				5263F0261F8F512900F80B4D /* WKPersonCellOne.xib */,
+				5263F0291F8F514200F80B4D /* WKPersonCellTwo.h */,
+				5263F02A1F8F514200F80B4D /* WKPersonCellTwo.m */,
+				5263F02B1F8F514200F80B4D /* WKPersonCellTwo.xib */,
+				5263F02E1F8F514E00F80B4D /* WKPersonCellThree.h */,
+				5263F02F1F8F514E00F80B4D /* WKPersonCellThree.m */,
+				5263F0301F8F514E00F80B4D /* WKPersonCellThree.xib */,
+				5263F0361F8F5CCA00F80B4D /* WKMyReleaseCell.h */,
+				5263F0371F8F5CCA00F80B4D /* WKMyReleaseCell.m */,
+				5263F0381F8F5CCA00F80B4D /* WKMyReleaseCell.xib */,
+				5263F03E1F8F622D00F80B4D /* WKMyPayListCell.h */,
+				5263F03F1F8F622D00F80B4D /* WKMyPayListCell.m */,
+				5263F0401F8F622D00F80B4D /* WKMyPayListCell.xib */,
+				5263F0431F8F63E000F80B4D /* WKMyMsgCell.h */,
+				5263F0441F8F63E000F80B4D /* WKMyMsgCell.m */,
+				5263F0451F8F63E000F80B4D /* WKMyMsgCell.xib */,
+				5263F04F1F8F664E00F80B4D /* WKReleaseCell.h */,
+				5263F0501F8F664E00F80B4D /* WKReleaseCell.m */,
+				5263F0511F8F664E00F80B4D /* WKReleaseCell.xib */,
+				5263F0541F8F6B1D00F80B4D /* WKGoPayCell.h */,
+				5263F0551F8F6B1D00F80B4D /* WKGoPayCell.m */,
+				5263F0561F8F6B1D00F80B4D /* WKGoPayCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -656,8 +746,28 @@
 				5263F0141F8F340C00F80B4D /* WKNavLeftView.h */,
 				5263F0151F8F340C00F80B4D /* WKNavLeftView.m */,
 				5263F0171F8F341400F80B4D /* WKNavLeftView.xib */,
+				5263F0191F8F471800F80B4D /* WKHomeStatusCell.h */,
+				5263F01A1F8F471800F80B4D /* WKHomeStatusCell.m */,
+				5263F01B1F8F471800F80B4D /* WKHomeStatusCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5263F04B1F8F65D300F80B4D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5263F0211F8F506F00F80B4D /* WKPersoncenterViewController.h */,
+				5263F0221F8F506F00F80B4D /* WKPersoncenterViewController.m */,
+				5263F0331F8F5C4600F80B4D /* WKMyCollectionViewController.h */,
+				5263F0341F8F5C4600F80B4D /* WKMyCollectionViewController.m */,
+				5263F03B1F8F61E800F80B4D /* WKMyPayListViewController.h */,
+				5263F03C1F8F61E800F80B4D /* WKMyPayListViewController.m */,
+				5263F0481F8F64CF00F80B4D /* WKMyMsgViewController.h */,
+				5263F0491F8F64CF00F80B4D /* WKMyMsgViewController.m */,
+				5263F04C1F8F65EC00F80B4D /* WKReleaseViewController.h */,
+				5263F04D1F8F65EC00F80B4D /* WKReleaseViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		7975C39D53A4E4C84C61C265 /* Pods */ = {
@@ -812,14 +922,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				52315FEB1F5285300001BA21 /* WKHomeTableViewCell.xib in Resources */,
+				5263F0281F8F512900F80B4D /* WKPersonCellOne.xib in Resources */,
+				5263F0421F8F622D00F80B4D /* WKMyPayListCell.xib in Resources */,
+				5263F0531F8F664E00F80B4D /* WKReleaseCell.xib in Resources */,
 				31A222001E99CFA00058A21B /* iPhoneTypeDefine.plist in Resources */,
+				5263F03A1F8F5CCA00F80B4D /* WKMyReleaseCell.xib in Resources */,
+				5263F01D1F8F471800F80B4D /* WKHomeStatusCell.xib in Resources */,
 				52315FF01F529BE40001BA21 /* WKLoginView.xib in Resources */,
 				315FFC111E97D3C600C78440 /* LaunchScreen.storyboard in Resources */,
 				52315FF51F52A5AB0001BA21 /* WKLoginViewController.xib in Resources */,
+				5263F0581F8F6B1D00F80B4D /* WKGoPayCell.xib in Resources */,
 				315FFC0E1E97D3C600C78440 /* Assets.xcassets in Resources */,
+				5263F0321F8F514E00F80B4D /* WKPersonCellThree.xib in Resources */,
 				315FFC0C1E97D3C600C78440 /* Main.storyboard in Resources */,
 				31A2220C1E99CFA10058A21B /* CTNetworkingConfiguration.plist in Resources */,
 				5263F0181F8F341400F80B4D /* WKNavLeftView.xib in Resources */,
+				5263F02D1F8F514200F80B4D /* WKPersonCellTwo.xib in Resources */,
+				5263F0471F8F63E000F80B4D /* WKMyMsgCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,25 +1012,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				31A221FF1E99CFA00058A21B /* CTCachedObject.m in Sources */,
+				5263F0391F8F5CCA00F80B4D /* WKMyReleaseCell.m in Sources */,
 				523704E61F4EA8900046D674 /* WKModel.m in Sources */,
 				52315FEE1F529BDE0001BA21 /* WKLoginView.m in Sources */,
 				31A222081E99CFA10058A21B /* CTService.m in Sources */,
 				31A221FA1E99CFA00058A21B /* NSURLRequest+CTNetworkingMethods.m in Sources */,
 				315FFC091E97D3C600C78440 /* ViewController.m in Sources */,
 				31A222031E99CFA00058A21B /* CTURLResponse.m in Sources */,
+				5263F0311F8F514E00F80B4D /* WKPersonCellThree.m in Sources */,
+				5263F04E1F8F65EC00F80B4D /* WKReleaseViewController.m in Sources */,
 				31A222071E99CFA10058A21B /* CTUDIDGenerator.m in Sources */,
 				31A221F81E99CFA00058A21B /* NSObject+AXNetworkingMethods.m in Sources */,
 				315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */,
 				31A221F61E99CFA00058A21B /* NSDictionary+AXNetworkingMethods.m in Sources */,
 				5263F0161F8F340C00F80B4D /* WKNavLeftView.m in Sources */,
+				5263F0411F8F622D00F80B4D /* WKMyPayListCell.m in Sources */,
+				5263F02C1F8F514200F80B4D /* WKPersonCellTwo.m in Sources */,
 				31A221FD1E99CFA00058A21B /* CTAPIBaseManager.m in Sources */,
 				31A221F91E99CFA00058A21B /* NSString+AXNetworkingMethods.m in Sources */,
 				31A221FC1E99CFA00058A21B /* CTApiProxy.m in Sources */,
+				5263F0201F8F506100F80B4D /* WKDiscoveryViewController.m in Sources */,
+				5263F04A1F8F64CF00F80B4D /* WKMyMsgViewController.m in Sources */,
 				31A222021E99CFA00058A21B /* CTLogger.m in Sources */,
 				52315FF41F52A5AB0001BA21 /* WKLoginViewController.m in Sources */,
 				31A222011E99CFA00058A21B /* CTLocationManager.m in Sources */,
+				5263F0271F8F512900F80B4D /* WKPersonCellOne.m in Sources */,
 				31A221FB1E99CFA00058A21B /* UIDevice+IdentifierAddition.m in Sources */,
 				31A2220B1E99CFA10058A21B /* CTLoggerConfiguration.m in Sources */,
+				5263F0571F8F6B1D00F80B4D /* WKGoPayCell.m in Sources */,
 				31A222101E99D0520058A21B /* WKAPIManager.m in Sources */,
 				315FFC031E97D3C600C78440 /* main.m in Sources */,
 				31A221AB1E99CCD00058A21B /* Util.m in Sources */,
@@ -921,9 +1049,15 @@
 				31A221F51E99CFA00058A21B /* NSArray+AXNetworkingMethods.m in Sources */,
 				31A222051E99CFA10058A21B /* CTRequestGenerator.m in Sources */,
 				31A222091E99CFA10058A21B /* CTServiceFactory.m in Sources */,
+				5263F01C1F8F471800F80B4D /* WKHomeStatusCell.m in Sources */,
+				5263F03D1F8F61E800F80B4D /* WKMyPayListViewController.m in Sources */,
+				5263F0231F8F506F00F80B4D /* WKPersoncenterViewController.m in Sources */,
 				31A222061E99CFA10058A21B /* CTSignatureGenerator.m in Sources */,
+				5263F0351F8F5C4600F80B4D /* WKMyCollectionViewController.m in Sources */,
 				31A2220D1E99CFA10058A21B /* GDMapService.m in Sources */,
 				31A2220A1E99CFA10058A21B /* CTAppContext.m in Sources */,
+				5263F0461F8F63E000F80B4D /* WKMyMsgCell.m in Sources */,
+				5263F0521F8F664E00F80B4D /* WKReleaseCell.m in Sources */,
 				52315FEA1F5285300001BA21 /* WKHomeTableViewCell.m in Sources */,
 				31A222041E99CFA10058A21B /* CTCommonParamsGenerator.m in Sources */,
 			);

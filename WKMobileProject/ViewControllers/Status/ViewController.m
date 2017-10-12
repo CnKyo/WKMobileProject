@@ -9,12 +9,13 @@
 #import "ViewController.h"
 #import "WKHeader.h"
 #import "WKHomeTableViewCell.h"
-
+#import <BAButton.h>
 #import <LKDBHelper.h>
 #import <AVFoundation/AVSpeechSynthesis.h>
 #import "WKLoginViewController.h"
 #import "WKNavLeftView.h"
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,AVSpeechSynthesizerDelegate,UIAlertViewDelegate,WKNavLeftViewDelegate>
+#import "WKHomeStatusCell.h"
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,AVSpeechSynthesizerDelegate,UIAlertViewDelegate,WKNavLeftViewDelegate,WKHomeStatusCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
@@ -50,16 +51,11 @@
     mTableView.dataSource = self;
     mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
-    UINib   *nib = [UINib nibWithNibName:@"WKHomeTableViewCell" bundle:nil];
+    UINib   *nib = [UINib nibWithNibName:@"WKHomeStatusCell" bundle:nil];
     [self.mTableView registerNib:nib forCellReuseIdentifier:@"cell"];
     
     self.view.backgroundColor = [UIColor colorWithRed:0.949019607843137 green:0.949019607843137 blue:0.949019607843137 alpha:1.00];
-    
-    
-    
 
-    
-    
     mTableArr = [WKHomeModel searchWithWhere:[NSString stringWithFormat:@"mId=1"]];
     
     [mTableView reloadData];
@@ -78,29 +74,28 @@
     
     //    UIBarButtonItem *releaseButtonItem = [[UIBarButtonItem alloc] initWithCustomView:mNavLView];
     //    self.navigationItem.leftBarButtonItem = releaseButtonItem;
+    CGRect frame = CGRectMake(0, 0, 150, 40);
+    CGRect mRFrame = CGRectMake(DEVICE_Width-80, 0, 80, 40);
+
+
+    UIButton *mNavLeftBtn = [UIButton ba_creatButtonWithFrame:frame title:@"重庆 小雨 15℃" selTitle:nil titleColor:[UIColor colorWithRed:0.223529411764706 green:0.533333333333333 blue:0.886274509803922 alpha:1.00] titleFont:[UIFont systemFontOfSize:14] image:[UIImage imageNamed:@"icon_littleRing"] selImage:nil padding:2 buttonPositionStyle:BAKit_ButtonLayoutTypeLeftImageLeft viewRectCornerType:nil viewCornerRadius:0 target:self selector:@selector(handleLeftNaviButtonAction:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:mNavLeftBtn];
     
-    UIButton *releaseButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [releaseButton setTitle:@"天气" forState:normal];
-    [releaseButton addTarget:self action:@selector(releaseInfo:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *releaseButtonItem = [[UIBarButtonItem alloc] initWithCustomView:releaseButton];
-    self.navigationItem.leftBarButtonItem = releaseButtonItem;
+    UIButton *mRightBtn = [UIButton ba_creatButtonWithFrame:mRFrame title:@"+添加蜂眼" selTitle:nil titleColor:[UIColor colorWithRed:0.223529411764706 green:0.533333333333333 blue:0.886274509803922 alpha:1.00] titleFont:[UIFont systemFontOfSize:14] image:nil selImage:nil padding:2 buttonPositionStyle:BAKit_ButtonLayoutTypeCenterImageRight viewRectCornerType:BAKit_ViewRectCornerTypeAllCorners viewCornerRadius:20 target:self selector:@selector(handleRightNaviButtonAction:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:mRightBtn];
     
 }
-- (void)releaseInfo:(UIButton *)sender{
+- (void)handleLeftNaviButtonAction:(UIButton *)sender{
     
     MLLog(@"左边的天气");
+}
+- (void)handleRightNaviButtonAction:(UIButton *)sender{
+    
+    MLLog(@"左边的添加");
 }
 - (void)WKNavLeftViewDelegateWithBtnAction{
     
     MLLog(@"左边的天气");
-}
-
-- (IBAction)mClearndata:(id)sender {
-    if (mTableArr.count<=0) {
-        [SVProgressHUD showErrorWithStatus:@"没有数据!"];
-    }else{
-        [self AlertViewShow:@"提示" alertViewMsg:@"确定要清空数据吗？" alertViewCancelBtnTiele:@"取消" alertTag:10];
-    }
 }
 
 - (void)AlertViewShow:(NSString *)alerViewTitle alertViewMsg:(NSString *)msg alertViewCancelBtnTiele:(NSString *)cancelTitle alertTag:(int)tag{
@@ -143,15 +138,15 @@
     [self palyVoice:mJpush.aps.alert];
 }
 - (void)palyVoice:(NSString *)mText{
-    alertView = [HDAlertView alertViewWithTitle:@"提示" andMessage:mText];
-    
-    [alertView addButtonWithTitle:@"知道了" type:HDAlertViewButtonTypeDefault handler:^(HDAlertView *alertView) {
-        NSLog(@"知道了");
-        
-    }];
-    
-    
-    [alertView show];
+//    alertView = [HDAlertView alertViewWithTitle:@"提示" andMessage:mText];
+//
+//    [alertView addButtonWithTitle:@"知道了" type:HDAlertViewButtonTypeDefault handler:^(HDAlertView *alertView) {
+//        NSLog(@"知道了");
+//
+//    }];
+//
+//
+//    [alertView show];
     [self performSelector:@selector(dissmissAlert) withObject:nil afterDelay:10];
     
     if ([AVOice isPaused]) {
@@ -162,7 +157,7 @@
         
         AVSpeechUtterance*utterance = [[AVSpeechUtterance alloc]initWithString:mText];//需要转换的文字
         
-        utterance.rate=0.5;// 设置语速，范围0-1，注意0最慢，1最快；AVSpeechUtteranceMinimumSpeechRate最慢，AVSpeechUtteranceMaximumSpeechRate最快
+        utterance.rate=0.4;// 设置语速，范围0-1，注意0最慢，1最快；AVSpeechUtteranceMinimumSpeechRate最慢，AVSpeechUtteranceMaximumSpeechRate最快
         
         AVSpeechSynthesisVoice*voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CN"];//设置发音，这是中文普通话
         
@@ -187,16 +182,17 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return mTableArr.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *cellId = @"cell";
     
-    WKHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    WKHomeStatusCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     
-    [cell setMHome:mTableArr[indexPath.row]];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.delegate = self;
+    
     return cell;
 }
 
@@ -208,7 +204,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 75;
+    return 365;
 }
 #pragma mark----****----这是语音代理方法
 - (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didStartSpeechUtterance:(AVSpeechUtterance*)utterance{
@@ -236,4 +232,24 @@
     NSLog(@"---播放取消");
     
 }
+- (void)WKHomeStatusCellDelegateWithBtnAction:(NSInteger)mTag{
+    switch (mTag) {
+        case 0:
+            {
+                
+            [self palyVoice:@"1号蜂巢。今天是9月28。农历八月初八。气温25度。天气。晴。空气质量。25度。优。风向。西北风。报警状态。正常"];
+            }
+        case 1:
+        {
+        
+        
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
 @end
