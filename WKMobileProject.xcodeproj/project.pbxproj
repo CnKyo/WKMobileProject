@@ -91,6 +91,7 @@
 		5263F0531F8F664E00F80B4D /* WKReleaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F0511F8F664E00F80B4D /* WKReleaseCell.xib */; };
 		5263F0571F8F6B1D00F80B4D /* WKGoPayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0551F8F6B1D00F80B4D /* WKGoPayCell.m */; };
 		5263F0581F8F6B1D00F80B4D /* WKGoPayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F0561F8F6B1D00F80B4D /* WKGoPayCell.xib */; };
+		5263F05B1F8F702E00F80B4D /* WKGoPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F05A1F8F702E00F80B4D /* WKGoPayViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -255,6 +256,8 @@
 		5263F0541F8F6B1D00F80B4D /* WKGoPayCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKGoPayCell.h; sourceTree = "<group>"; };
 		5263F0551F8F6B1D00F80B4D /* WKGoPayCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKGoPayCell.m; sourceTree = "<group>"; };
 		5263F0561F8F6B1D00F80B4D /* WKGoPayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKGoPayCell.xib; sourceTree = "<group>"; };
+		5263F0591F8F702E00F80B4D /* WKGoPayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKGoPayViewController.h; sourceTree = "<group>"; };
+		5263F05A1F8F702E00F80B4D /* WKGoPayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKGoPayViewController.m; sourceTree = "<group>"; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD07EEDDCB555B036A1A24CA /* libPods-WKMobileProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -766,6 +769,8 @@
 				5263F0491F8F64CF00F80B4D /* WKMyMsgViewController.m */,
 				5263F04C1F8F65EC00F80B4D /* WKReleaseViewController.h */,
 				5263F04D1F8F65EC00F80B4D /* WKReleaseViewController.m */,
+				5263F0591F8F702E00F80B4D /* WKGoPayViewController.h */,
+				5263F05A1F8F702E00F80B4D /* WKGoPayViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1048,6 +1053,7 @@
 				31A221F71E99CFA00058A21B /* NSMutableString+AXNetworkingMethods.m in Sources */,
 				31A221F51E99CFA00058A21B /* NSArray+AXNetworkingMethods.m in Sources */,
 				31A222051E99CFA10058A21B /* CTRequestGenerator.m in Sources */,
+				5263F05B1F8F702E00F80B4D /* WKGoPayViewController.m in Sources */,
 				31A222091E99CFA10058A21B /* CTServiceFactory.m in Sources */,
 				5263F01C1F8F471800F80B4D /* WKHomeStatusCell.m in Sources */,
 				5263F03D1F8F61E800F80B4D /* WKMyPayListViewController.m in Sources */,

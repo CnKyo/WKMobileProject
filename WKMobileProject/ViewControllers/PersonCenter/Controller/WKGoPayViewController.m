@@ -1,28 +1,27 @@
 //
-//  WKReleaseViewController.m
+//  WKGoPayViewController.m
 //  WKMobileProject
 //
 //  Created by mwi01 on 2017/10/12.
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
 
-#import "WKReleaseViewController.h"
-#import "WKHeader.h"
-#import "WKReleaseCell.h"
 #import "WKGoPayViewController.h"
-@interface WKReleaseViewController ()<UITableViewDelegate,UITableViewDataSource,WKReleaseCellDelegate>
+#import "WKHeader.h"
+#import "WKGoPayCell.h"
+@interface WKGoPayViewController ()<UITableViewDelegate,UITableViewDataSource,WKGoPayCellDelegate>
 @property (strong,nonatomic) UITableView *tableView;
 
 
 @end
 
-@implementation WKReleaseViewController
+@implementation WKGoPayViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"我要发布";
+    // Do any additional setup after loading the view.
+    self.navigationItem.title = @"去支付";
     [self initView];
-    
 }
 - (void)initView{
     
@@ -37,7 +36,7 @@
     
     self.tableView.backgroundColor = COLOR(247, 247, 247);
     
-    UINib   *nib = [UINib nibWithNibName:@"WKReleaseCell" bundle:nil];
+    UINib   *nib = [UINib nibWithNibName:@"WKGoPayCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
     
     
@@ -70,7 +69,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 700;
+    return 400;
     
 }
 
@@ -81,7 +80,7 @@
     
     CellId = @"cell";
     
-    WKReleaseCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
+    WKGoPayCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
     cell.delegate = self;
     return cell;
     
@@ -94,10 +93,8 @@
     MLLog(@"点击了第：%ld",indexPath.row);
     
 }
-- (void)WKReleaseCellDelegateWithBtnAction:(NSInteger)mTag{
+- (void)WKGoPayCellDelegateWithBtnAction:(NSInteger)mTag{
     MLLog(@"点击了%ld个",mTag);
-    WKGoPayViewController *vc = [WKGoPayViewController new];
-    [self.navigationController pushViewController:vc animated:YES];
     
 }
 @end

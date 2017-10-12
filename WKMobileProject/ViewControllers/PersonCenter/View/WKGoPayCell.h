@@ -20,5 +20,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *mAlipay;
 @property (weak, nonatomic) IBOutlet UIButton *mCommitBtn;
 @property (weak,nonatomic) id<WKGoPayCellDelegate>delegate;
-
+@property (strong,nonatomic) NSMutableArray *mTypeArr;
 @end
