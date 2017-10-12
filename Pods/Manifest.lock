@@ -22,9 +22,10 @@ PODS:
   - AMapFoundation (1.4.2)
   - AMapLocation (2.4.0):
     - AMapFoundation (~> 1.4)
-  - AMapSearch (5.3.0):
-    - AMapFoundation (~> 1.2)
+  - AMapSearch (5.4.0):
+    - AMapFoundation (~> 1.4)
   - AutoScrollLabel (0.4.3)
+  - BAButton (2.6.5)
   - CustomIOSAlertView (0.9.5)
   - DACircularProgress (2.3.1)
   - DateTools (2.0.0)
@@ -32,10 +33,10 @@ PODS:
   - FMDB (2.7.2):
     - FMDB/standard (= 2.7.2)
   - FMDB/standard (2.7.2)
-  - HandyFrame (1.1.3)
+  - HandyFrame (1.2.0)
   - HcdGuideView (0.0.5)
   - HDAlertView (2.1)
-  - IQKeyboardManager (4.0.13)
+  - IQKeyboardManager (5.0.3)
   - JCore (1.1.5)
   - JHUD (0.3.0)
   - JKCategories (1.5)
@@ -48,35 +49,35 @@ PODS:
     - FMDB
   - LPActionSheet (1.0)
   - LTNavigationBar (2.1.9)
-  - Masonry (1.0.2)
+  - Masonry (1.1.0)
   - MBProgressHUD (1.0.0)
   - MJExtension (3.0.13)
-  - MJRefresh (3.1.12)
-  - MOBFoundation (3.0.2)
+  - MJRefresh (3.1.14)
+  - MOBFoundation (3.0.4)
   - PYPhotoBrowser (1.2.5):
     - DACircularProgress
     - MBProgressHUD
     - SDWebImage
-  - PYSearch (0.8.3)
+  - PYSearch (0.8.4)
   - RSKImageCropper (1.6.3)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - ShareSDK3 (4.0.1):
+  - ShareSDK3 (4.0.2):
     - MOBFoundation
-    - ShareSDK3/ShareSDK (= 4.0.1)
-  - ShareSDK3/ShareSDK (4.0.1):
+    - ShareSDK3/ShareSDK (= 4.0.2)
+  - ShareSDK3/ShareSDK (4.0.2):
     - MOBFoundation
-  - ShareSDK3/ShareSDKPlatforms/QQ (4.0.1):
+  - ShareSDK3/ShareSDKPlatforms/QQ (4.0.2):
     - MOBFoundation
-  - ShareSDK3/ShareSDKPlatforms/SinaWeibo (4.0.1):
+  - ShareSDK3/ShareSDKPlatforms/SinaWeibo (4.0.2):
     - MOBFoundation
-  - ShareSDK3/ShareSDKPlatforms/WeChat (4.0.1):
+  - ShareSDK3/ShareSDKPlatforms/WeChat (4.0.2):
     - MOBFoundation
-  - ShareSDK3/ShareSDKUI (4.0.1):
+  - ShareSDK3/ShareSDKUI (4.0.2):
     - MOBFoundation
   - SKTagView (0.9.2)
-  - SVProgressHUD (2.1.2)
+  - SVProgressHUD (2.2.1)
   - UITableView+FDTemplateLayoutCell (1.6)
   - WebViewJavascriptBridge (5.2.0)
   - WPAttributedMarkup (1.0.0)
@@ -88,6 +89,7 @@ DEPENDENCIES:
   - AMapLocation
   - AMapSearch
   - AutoScrollLabel
+  - BAButton
   - CustomIOSAlertView
   - DateTools
   - DZNEmptyDataSet
@@ -127,17 +129,18 @@ SPEC CHECKSUMS:
   AMap2DMap: 003fa70526983a1469ae6fc3323a6ee8b5ccf53c
   AMapFoundation: 6c0471c9a6a0ad17dad46e3d800ad56ca170f82a
   AMapLocation: 47b62b5381a66e4d0c2931b70ffde72682427896
-  AMapSearch: beb01c6b2e7be18fb4898e97162fedf144420c6f
+  AMapSearch: 97042f81c1c8ea8adc4b1dadf1b1a688210aa141
   AutoScrollLabel: bee53a1d4532569b49cbecaf9b80ca003bed3767
+  BAButton: 4a59120abd74ca52aa5d85552d0cc0cf997ed0a2
   CustomIOSAlertView: cc4fa8e36219be3fd5ebcd40789f5b4aaae0f38e
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
-  HandyFrame: 5fef3c197c383332d7d5c838b3f7a85ce2f8f9cc
+  HandyFrame: 437df83ba7563c56cd55b9bd0128561995463110
   HcdGuideView: 3ffaa22aebe7409bbd3fd6bcfcbe912d391a237a
   HDAlertView: a6e9270e58c542e2c8bb2e2d87adda1e0ced1a62
-  IQKeyboardManager: 8eab4d8111418414619d1df8e4779ce5d0f8d7e2
+  IQKeyboardManager: dc5b18b47e5170e4d150bb86dbee8c8a2fc48997
   JCore: 9bd9c770c877c583d98b90a68792b8361974c231
   JHUD: 17650f65045d9843a7ad19f6a0b1eac6c78a45d2
   JKCategories: 863f4c7ed2d521ee6bf72ceea97948da23bb5af4
@@ -146,22 +149,22 @@ SPEC CHECKSUMS:
   LKDBHelper: cf467ff69aaf1e13bd4964aca3a79881d54c6d14
   LPActionSheet: 49fb9201e73f24f41adeb2a76773307d37ab0416
   LTNavigationBar: c278785bed344862e18146b5f06792932e4feacc
-  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
-  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  MOBFoundation: d5e27c4638d911d3c7501aa5df458955d4814359
+  MJRefresh: 6642e35b3227a5447b9fd5e17c552c90196c9859
+  MOBFoundation: ee0d83f92fe394f7f2b145a407441d08ca1c831c
   PYPhotoBrowser: 832154ec5e61c2c321d9be0e69af1fda8731e5ac
-  PYSearch: 04ea6b91d7d36de716f8bf87cc76f3db0e94dabc
+  PYSearch: 75f94d4a1473334898a5776bf62a6a08ebe7eec5
   RSKImageCropper: 356e36fc58c57c371b5d8b23d603936d6a73df6c
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  ShareSDK3: 6983a9b5209b63f2f4297fb0328d9a8dd6abd5f1
+  ShareSDK3: a01a35da3cd8f4d10d7f4394c7c42f8113392182
   SKTagView: 59cdadcd16e4a09300746ad1811a72371e1327f7
-  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
   UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
   WebViewJavascriptBridge: a00b2d61252aec5207e3263d46fd0fd3cfaf7895
   WPAttributedMarkup: eb50878af4ec647d8d2090f721a5cfe7d29c27fe
 
-PODFILE CHECKSUM: dc8deedc1eede47cdaf46b9ad20783ae69526c42
+PODFILE CHECKSUM: 57dedf3b0fce1ddd1b1f242bc3a025d7717945ec
 
 COCOAPODS: 1.2.1
