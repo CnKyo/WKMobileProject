@@ -1,35 +1,35 @@
 //
-//  WKDiscoveryViewController.m
+//  WKExchangeViewController.m
 //  WKMobileProject
 //
 //  Created by mwi01 on 2017/10/12.
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
 
-#import "WKDiscoveryViewController.h"
-#import "WKHeader.h"
-#import "WKDiscoveryCell.h"
 #import "WKExchangeViewController.h"
-@interface WKDiscoveryViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import "WKHeader.h"
+#import "WKExchangeCell.h"
+#import "WKExchangeBarcodeView.h"
+@interface WKExchangeViewController ()
+<UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic) UITableView *tableView;
-
 @end
 
-@implementation WKDiscoveryViewController
-{
-    
-    NSMutableArray *mTableArr;
-    NSArray *mSTArr;
+@implementation WKExchangeViewController
 
+{
+    WKExchangeBarcodeView *mPopView;
+    NSMutableArray *mTableArr;
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"发现";
+    self.navigationItem.title = @"交流群";
     
     mTableArr = [NSMutableArray new];
-    mSTArr = @[@"中蜂交流群",@"我要运输",@"养蜂实时新闻",@"附近的蜂农"];
     [self initView];
+    [self initPopView];
 }
 - (void)initView{
     
@@ -44,7 +44,7 @@
     
     self.tableView.backgroundColor = COLOR(247, 247, 247);
     
-    UINib   *nib = [UINib nibWithNibName:@"WKDiscoveryCell" bundle:nil];
+    UINib   *nib = [UINib nibWithNibName:@"WKExchangeCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
     
     
@@ -53,12 +53,6 @@
         make.height.equalTo(self.view.mas_height);
     }];
     
-}
-    
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*
@@ -72,14 +66,14 @@
 */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return mSTArr.count;
+    return 3;
     
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 80;
+    return 90;
     
 }
 
@@ -90,8 +84,7 @@
     
     CellId = @"cell";
     
-    WKDiscoveryCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
-    cell.mName.text = mSTArr[indexPath.row];
+    WKExchangeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
     return cell;
     
     
@@ -101,10 +94,29 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     MLLog(@"点击了第：%ld",indexPath.row);
-    if (indexPath.row == 0) {
-        WKExchangeViewController *vc = [WKExchangeViewController new];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+    [self showPopView];
+}
+
+- (void)initPopView{
+    mPopView = [WKExchangeBarcodeView initView];
+    mPopView.frame = CGRectMake(0, DEVICE_Height, DEVICE_Width, DEVICE_Height);
+    [mPopView.mDissMissBTn addTarget:self action:@selector(dismissAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:mPopView];
+}
+- (void)showPopView{
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        CGRect mRRR = mPopView.frame;
+        mRRR.origin.y = 0;
+        mPopView.frame = mRRR;
+    }];
+}
+- (void)dismissAction{
+    [UIView animateWithDuration:0.25 animations:^{
+        CGRect mRRR = mPopView.frame;
+        mRRR.origin.y = DEVICE_Height;
+        mPopView.frame = mRRR;
+    }];
+    
 }
 @end

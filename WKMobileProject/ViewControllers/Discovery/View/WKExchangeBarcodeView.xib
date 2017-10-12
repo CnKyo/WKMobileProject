@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WKExchangeBarcodeView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_bc" translatesAutoresizingMaskIntoConstraints="NO" id="pvV-co-DZS">
+                    <rect key="frame" x="62.5" y="218.5" width="250" height="250"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="ESW-Wr-Une"/>
+                        <constraint firstAttribute="height" constant="250" id="URI-A6-K2x"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5I-LI-jxI">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="j5I-LI-jxI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="3wH-qm-gyj"/>
+                <constraint firstItem="pvV-co-DZS" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="Haj-pr-ceZ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="j5I-LI-jxI" secondAttribute="top" constant="20" id="efG-bq-EdG"/>
+                <constraint firstItem="pvV-co-DZS" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="mvN-rv-bz9"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="j5I-LI-jxI" secondAttribute="trailing" id="rRP-9e-mQu"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="j5I-LI-jxI" secondAttribute="bottom" id="rUL-2A-xrA"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="mDissMissBTn" destination="j5I-LI-jxI" id="wYs-LH-pd0"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_bc" width="78" height="77"/>
+    </resources>
+</document>

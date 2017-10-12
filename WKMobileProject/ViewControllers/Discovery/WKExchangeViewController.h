@@ -1,5 +1,5 @@
 //
-//  WKDiscoveryCell.h
+//  WKExchangeViewController.h
 //  WKMobileProject
 //
 //  Created by mwi01 on 2017/10/12.
@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WKDiscoveryCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *mName;
+@interface WKExchangeViewController : UIViewController
 
 @end

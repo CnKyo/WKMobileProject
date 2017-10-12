@@ -94,6 +94,11 @@
 		5263F05B1F8F702E00F80B4D /* WKGoPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F05A1F8F702E00F80B4D /* WKGoPayViewController.m */; };
 		5263F05F1F8F734600F80B4D /* WKDiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F05D1F8F734600F80B4D /* WKDiscoveryCell.m */; };
 		5263F0601F8F734600F80B4D /* WKDiscoveryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F05E1F8F734600F80B4D /* WKDiscoveryCell.xib */; };
+		5263F0B81F8F7CDF00F80B4D /* WKExchangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0B61F8F7CDF00F80B4D /* WKExchangeCell.m */; };
+		5263F0B91F8F7CDF00F80B4D /* WKExchangeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F0B71F8F7CDF00F80B4D /* WKExchangeCell.xib */; };
+		5263F0BC1F8F7D8700F80B4D /* WKExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0BB1F8F7D8700F80B4D /* WKExchangeViewController.m */; };
+		5263F0BF1F8F7E7D00F80B4D /* WKExchangeBarcodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0BE1F8F7E7D00F80B4D /* WKExchangeBarcodeView.m */; };
+		5263F0C11F8F7E8500F80B4D /* WKExchangeBarcodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F0C01F8F7E8500F80B4D /* WKExchangeBarcodeView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -263,6 +268,14 @@
 		5263F05C1F8F734600F80B4D /* WKDiscoveryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKDiscoveryCell.h; sourceTree = "<group>"; };
 		5263F05D1F8F734600F80B4D /* WKDiscoveryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKDiscoveryCell.m; sourceTree = "<group>"; };
 		5263F05E1F8F734600F80B4D /* WKDiscoveryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKDiscoveryCell.xib; sourceTree = "<group>"; };
+		5263F0B51F8F7CDF00F80B4D /* WKExchangeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKExchangeCell.h; sourceTree = "<group>"; };
+		5263F0B61F8F7CDF00F80B4D /* WKExchangeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKExchangeCell.m; sourceTree = "<group>"; };
+		5263F0B71F8F7CDF00F80B4D /* WKExchangeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKExchangeCell.xib; sourceTree = "<group>"; };
+		5263F0BA1F8F7D8700F80B4D /* WKExchangeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKExchangeViewController.h; sourceTree = "<group>"; };
+		5263F0BB1F8F7D8700F80B4D /* WKExchangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKExchangeViewController.m; sourceTree = "<group>"; };
+		5263F0BD1F8F7E7D00F80B4D /* WKExchangeBarcodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKExchangeBarcodeView.h; sourceTree = "<group>"; };
+		5263F0BE1F8F7E7D00F80B4D /* WKExchangeBarcodeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKExchangeBarcodeView.m; sourceTree = "<group>"; };
+		5263F0C01F8F7E8500F80B4D /* WKExchangeBarcodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKExchangeBarcodeView.xib; sourceTree = "<group>"; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD07EEDDCB555B036A1A24CA /* libPods-WKMobileProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -687,6 +700,8 @@
 				5263F00F1F8F336B00F80B4D /* View */,
 				5263F01E1F8F506100F80B4D /* WKDiscoveryViewController.h */,
 				5263F01F1F8F506100F80B4D /* WKDiscoveryViewController.m */,
+				5263F0BA1F8F7D8700F80B4D /* WKExchangeViewController.h */,
+				5263F0BB1F8F7D8700F80B4D /* WKExchangeViewController.m */,
 			);
 			path = Discovery;
 			sourceTree = "<group>";
@@ -697,6 +712,12 @@
 				5263F05C1F8F734600F80B4D /* WKDiscoveryCell.h */,
 				5263F05D1F8F734600F80B4D /* WKDiscoveryCell.m */,
 				5263F05E1F8F734600F80B4D /* WKDiscoveryCell.xib */,
+				5263F0B51F8F7CDF00F80B4D /* WKExchangeCell.h */,
+				5263F0B61F8F7CDF00F80B4D /* WKExchangeCell.m */,
+				5263F0B71F8F7CDF00F80B4D /* WKExchangeCell.xib */,
+				5263F0BD1F8F7E7D00F80B4D /* WKExchangeBarcodeView.h */,
+				5263F0BE1F8F7E7D00F80B4D /* WKExchangeBarcodeView.m */,
+				5263F0C01F8F7E8500F80B4D /* WKExchangeBarcodeView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -946,11 +967,13 @@
 				52315FF51F52A5AB0001BA21 /* WKLoginViewController.xib in Resources */,
 				5263F0581F8F6B1D00F80B4D /* WKGoPayCell.xib in Resources */,
 				315FFC0E1E97D3C600C78440 /* Assets.xcassets in Resources */,
+				5263F0B91F8F7CDF00F80B4D /* WKExchangeCell.xib in Resources */,
 				5263F0321F8F514E00F80B4D /* WKPersonCellThree.xib in Resources */,
 				315FFC0C1E97D3C600C78440 /* Main.storyboard in Resources */,
 				31A2220C1E99CFA10058A21B /* CTNetworkingConfiguration.plist in Resources */,
 				5263F0181F8F341400F80B4D /* WKNavLeftView.xib in Resources */,
 				5263F0601F8F734600F80B4D /* WKDiscoveryCell.xib in Resources */,
+				5263F0C11F8F7E8500F80B4D /* WKExchangeBarcodeView.xib in Resources */,
 				5263F02D1F8F514200F80B4D /* WKPersonCellTwo.xib in Resources */,
 				5263F0471F8F63E000F80B4D /* WKMyMsgCell.xib in Resources */,
 			);
@@ -1059,6 +1082,7 @@
 				315FFC031E97D3C600C78440 /* main.m in Sources */,
 				31A221AB1E99CCD00058A21B /* Util.m in Sources */,
 				31A222131E99D2B50058A21B /* WKBaseViewController.m in Sources */,
+				5263F0BF1F8F7E7D00F80B4D /* WKExchangeBarcodeView.m in Sources */,
 				31A221FE1E99CFA00058A21B /* CTCache.m in Sources */,
 				31A221F71E99CFA00058A21B /* NSMutableString+AXNetworkingMethods.m in Sources */,
 				31A221F51E99CFA00058A21B /* NSArray+AXNetworkingMethods.m in Sources */,
@@ -1069,6 +1093,8 @@
 				5263F03D1F8F61E800F80B4D /* WKMyPayListViewController.m in Sources */,
 				5263F0231F8F506F00F80B4D /* WKPersoncenterViewController.m in Sources */,
 				31A222061E99CFA10058A21B /* CTSignatureGenerator.m in Sources */,
+				5263F0B81F8F7CDF00F80B4D /* WKExchangeCell.m in Sources */,
+				5263F0BC1F8F7D8700F80B4D /* WKExchangeViewController.m in Sources */,
 				5263F0351F8F5C4600F80B4D /* WKMyCollectionViewController.m in Sources */,
 				31A2220D1E99CFA10058A21B /* GDMapService.m in Sources */,
 				31A2220A1E99CFA10058A21B /* CTAppContext.m in Sources */,
