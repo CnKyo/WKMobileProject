@@ -12,7 +12,7 @@
 
 @optional
 
-- (void)WKHomeStatusCellDelegateWithBtnAction:(NSInteger)mTag;
+- (void)WKHomeStatusCellDelegateWithBtnAction:(NSInteger)mTag withIndexPath:(NSIndexPath *)mIndexPath;
 
 @end
 
@@ -38,6 +38,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *mCheckCamBtn;
 ///k线图View
 @property (weak, nonatomic) IBOutlet UIView *mKLineView;
+
+@property (strong,nonatomic) NSIndexPath *mIndexPath;
 
 @property (weak,nonatomic) id<WKHomeStatusCellDelegate>delegate;
 

@@ -15,6 +15,7 @@
 #import "WKLoginViewController.h"
 #import "WKNavLeftView.h"
 #import "WKHomeStatusCell.h"
+#import "WKCameraViewController.h"
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource,AVSpeechSynthesizerDelegate,UIAlertViewDelegate,WKNavLeftViewDelegate,WKHomeStatusCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
@@ -27,7 +28,8 @@
     HDAlertView *alertView;
     
     NSMutableArray *mTableArr;
-    
+    NSArray *mSTableArr;
+
     WKNavLeftView *mNavLView;
 }
 @synthesize mTableView;
@@ -39,6 +41,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.title = @"状态";
+    [mTableArr addObject:[NSString stringWithFormat:@"https://tbm.alicdn.com/Y73o4CKjm22oPjIGMxw/7149iEtPiobvJOHhfVz%40%40ld.mp4"]];
+    [mTableArr addObject:[NSString stringWithFormat:@"https://tbm.alicdn.com/Y73o4CKjm22oPjIGMxw/7149iEtPiobvJOHhfVz%40%40ld.mp4"]];
+    mSTableArr = @[@"1号蜂巢",@"2号蜂巢"];
     [self initNavLeftView];
 
     mTableArr = [NSMutableArray new];
@@ -182,7 +187,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    return mSTableArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -192,7 +197,8 @@
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.delegate = self;
-    
+    cell.mIndexPath = indexPath;
+    cell.mName.text = mSTableArr[indexPath.row];
     return cell;
 }
 
@@ -232,17 +238,23 @@
     NSLog(@"---播放取消");
     
 }
-- (void)WKHomeStatusCellDelegateWithBtnAction:(NSInteger)mTag{
+- (void)WKHomeStatusCellDelegateWithBtnAction:(NSInteger)mTag withIndexPath:(NSIndexPath *)mIndexPath{
+
+    
     switch (mTag) {
         case 0:
             {
                 
             [self palyVoice:@"1号蜂巢。今天是9月28。农历八月初八。气温25度。天气。晴。空气质量。25度。优。风向。西北风。报警状态。正常"];
             }
+            break;
+
         case 1:
         {
-        
-        
+        WKCameraViewController *vc = [WKCameraViewController new];
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.mUrlString = @"https://tbm.alicdn.com/Y73o4CKjm22oPjIGMxw/7149iEtPiobvJOHhfVz%40%40ld.mp4";
+        [self.navigationController pushViewController:vc animated:YES];
         }
             break;
             

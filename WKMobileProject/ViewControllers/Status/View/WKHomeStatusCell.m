@@ -21,8 +21,8 @@
     // Configure the view for the selected state
 }
 - (IBAction)mBtnAction:(UIButton *)sender {
-    if ([self.delegate respondsToSelector:@selector(WKHomeStatusCellDelegateWithBtnAction:)]) {
-        [self.delegate WKHomeStatusCellDelegateWithBtnAction:sender.tag];
+    if ([self.delegate respondsToSelector:@selector(WKHomeStatusCellDelegateWithBtnAction:withIndexPath:)]) {
+        [self.delegate WKHomeStatusCellDelegateWithBtnAction:sender.tag withIndexPath:self.mIndexPath];
     }
     
 }
