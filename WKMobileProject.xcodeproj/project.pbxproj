@@ -99,6 +99,7 @@
 		5263F0BC1F8F7D8700F80B4D /* WKExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0BB1F8F7D8700F80B4D /* WKExchangeViewController.m */; };
 		5263F0BF1F8F7E7D00F80B4D /* WKExchangeBarcodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0BE1F8F7E7D00F80B4D /* WKExchangeBarcodeView.m */; };
 		5263F0C11F8F7E8500F80B4D /* WKExchangeBarcodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F0C01F8F7E8500F80B4D /* WKExchangeBarcodeView.xib */; };
+		5263F0C71F8F829000F80B4D /* WKTransetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0C61F8F829000F80B4D /* WKTransetViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -276,6 +277,10 @@
 		5263F0BD1F8F7E7D00F80B4D /* WKExchangeBarcodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKExchangeBarcodeView.h; sourceTree = "<group>"; };
 		5263F0BE1F8F7E7D00F80B4D /* WKExchangeBarcodeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKExchangeBarcodeView.m; sourceTree = "<group>"; };
 		5263F0C01F8F7E8500F80B4D /* WKExchangeBarcodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKExchangeBarcodeView.xib; sourceTree = "<group>"; };
+		5263F0C31F8F827300F80B4D /* WKSegmentControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKSegmentControl.h; sourceTree = "<group>"; };
+		5263F0C41F8F827300F80B4D /* WKSegmentControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKSegmentControl.m; sourceTree = "<group>"; };
+		5263F0C51F8F829000F80B4D /* WKTransetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKTransetViewController.h; sourceTree = "<group>"; };
+		5263F0C61F8F829000F80B4D /* WKTransetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKTransetViewController.m; sourceTree = "<group>"; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD07EEDDCB555B036A1A24CA /* libPods-WKMobileProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -346,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				523704D11F4E7B640046D674 /* WKMobileProject.entitlements */,
+				5263F0C21F8F827300F80B4D /* WKSegMentView */,
 				31A221A71E99CBA40058A21B /* WKHeaderFile */,
 				31A221A11E99CB5D0058A21B /* WKTool */,
 				31A221A21E99CB5D0058A21B /* WKViewControllers */,
@@ -702,6 +708,8 @@
 				5263F01F1F8F506100F80B4D /* WKDiscoveryViewController.m */,
 				5263F0BA1F8F7D8700F80B4D /* WKExchangeViewController.h */,
 				5263F0BB1F8F7D8700F80B4D /* WKExchangeViewController.m */,
+				5263F0C51F8F829000F80B4D /* WKTransetViewController.h */,
+				5263F0C61F8F829000F80B4D /* WKTransetViewController.m */,
 			);
 			path = Discovery;
 			sourceTree = "<group>";
@@ -802,6 +810,15 @@
 				5263F05A1F8F702E00F80B4D /* WKGoPayViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		5263F0C21F8F827300F80B4D /* WKSegMentView */ = {
+			isa = PBXGroup;
+			children = (
+				5263F0C31F8F827300F80B4D /* WKSegmentControl.h */,
+				5263F0C41F8F827300F80B4D /* WKSegmentControl.m */,
+			);
+			path = WKSegMentView;
 			sourceTree = "<group>";
 		};
 		7975C39D53A4E4C84C61C265 /* Pods */ = {
@@ -1071,6 +1088,7 @@
 				5263F0201F8F506100F80B4D /* WKDiscoveryViewController.m in Sources */,
 				5263F04A1F8F64CF00F80B4D /* WKMyMsgViewController.m in Sources */,
 				31A222021E99CFA00058A21B /* CTLogger.m in Sources */,
+				5263F0C71F8F829000F80B4D /* WKTransetViewController.m in Sources */,
 				52315FF41F52A5AB0001BA21 /* WKLoginViewController.m in Sources */,
 				5263F05F1F8F734600F80B4D /* WKDiscoveryCell.m in Sources */,
 				31A222011E99CFA00058A21B /* CTLocationManager.m in Sources */,
