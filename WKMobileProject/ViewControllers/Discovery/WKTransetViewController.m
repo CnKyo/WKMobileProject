@@ -9,6 +9,11 @@
 #import "WKTransetViewController.h"
 #import "WKSegmentControl.h"
 #import "WKHeader.h"
+#import <BAButton.h>
+#import "WKDriverCell.h"
+#import "WKReleaseViewController.h"
+#import "WKGoPayViewController.h"
+
 @interface WKTransetViewController ()
 <UITableViewDelegate,UITableViewDataSource,WKSegmentControlDelagate>
 @property (strong,nonatomic) UITableView *tableView;
@@ -26,8 +31,14 @@
     self.navigationItem.title = @"我要运输";
     
     mTableArr = [NSMutableArray new];
+    
+    CGRect mRFrame = CGRectMake(DEVICE_Width-60, 0, 60, 40);
+    
+    UIButton *mRightBtn = [UIButton ba_creatButtonWithFrame:mRFrame title:@"发布" selTitle:nil titleColor:[UIColor colorWithRed:0.223529411764706 green:0.533333333333333 blue:0.886274509803922 alpha:1.00] titleFont:[UIFont systemFontOfSize:14] image:nil selImage:nil padding:2 buttonPositionStyle:BAKit_ButtonLayoutTypeCenterImageRight viewRectCornerType:BAKit_ViewRectCornerTypeAllCorners viewCornerRadius:20 target:self selector:@selector(handleRightNaviButtonAction:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:mRightBtn];
     [self initView];
 }
+
 - (void)initView{
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero];
@@ -41,7 +52,7 @@
     
     self.tableView.backgroundColor = COLOR(247, 247, 247);
     
-    UINib   *nib = [UINib nibWithNibName:@"WKExchangeCell" bundle:nil];
+    UINib   *nib = [UINib nibWithNibName:@"WKDriverCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
     
     
@@ -51,7 +62,13 @@
     }];
     
 }
-
+- (void)handleRightNaviButtonAction:(UIButton *)sender{
+    
+    MLLog(@"左边的添加");
+    
+    WKReleaseViewController *vc = [WKReleaseViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 /*
 #pragma mark - Navigation
 
@@ -70,7 +87,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 90;
+    return 80;
     
 }
 
@@ -81,7 +98,7 @@
     
     CellId = @"cell";
     
-    WKExchangeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
+    WKDriverCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
     return cell;
     
     
@@ -91,6 +108,8 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     MLLog(@"点击了第：%ld",indexPath.row);
+    WKGoPayViewController *vc = [WKGoPayViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)WKDidSelectedIndex:(NSInteger)mIndex{
     MLLog(@"点击了%lu",(unsigned long)mIndex);

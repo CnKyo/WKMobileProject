@@ -100,6 +100,8 @@
 		5263F0BF1F8F7E7D00F80B4D /* WKExchangeBarcodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0BE1F8F7E7D00F80B4D /* WKExchangeBarcodeView.m */; };
 		5263F0C11F8F7E8500F80B4D /* WKExchangeBarcodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F0C01F8F7E8500F80B4D /* WKExchangeBarcodeView.xib */; };
 		5263F0C71F8F829000F80B4D /* WKTransetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0C61F8F829000F80B4D /* WKTransetViewController.m */; };
+		52AAA1381F8F8E3000AC777C /* WKDriverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AAA1361F8F8E3000AC777C /* WKDriverCell.m */; };
+		52AAA1391F8F8E3000AC777C /* WKDriverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AAA1371F8F8E3000AC777C /* WKDriverCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -281,6 +283,9 @@
 		5263F0C41F8F827300F80B4D /* WKSegmentControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKSegmentControl.m; sourceTree = "<group>"; };
 		5263F0C51F8F829000F80B4D /* WKTransetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKTransetViewController.h; sourceTree = "<group>"; };
 		5263F0C61F8F829000F80B4D /* WKTransetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKTransetViewController.m; sourceTree = "<group>"; };
+		52AAA1351F8F8E3000AC777C /* WKDriverCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKDriverCell.h; sourceTree = "<group>"; };
+		52AAA1361F8F8E3000AC777C /* WKDriverCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKDriverCell.m; sourceTree = "<group>"; };
+		52AAA1371F8F8E3000AC777C /* WKDriverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKDriverCell.xib; sourceTree = "<group>"; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD07EEDDCB555B036A1A24CA /* libPods-WKMobileProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -726,6 +731,9 @@
 				5263F0BD1F8F7E7D00F80B4D /* WKExchangeBarcodeView.h */,
 				5263F0BE1F8F7E7D00F80B4D /* WKExchangeBarcodeView.m */,
 				5263F0C01F8F7E8500F80B4D /* WKExchangeBarcodeView.xib */,
+				52AAA1351F8F8E3000AC777C /* WKDriverCell.h */,
+				52AAA1361F8F8E3000AC777C /* WKDriverCell.m */,
+				52AAA1371F8F8E3000AC777C /* WKDriverCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -987,6 +995,7 @@
 				5263F0B91F8F7CDF00F80B4D /* WKExchangeCell.xib in Resources */,
 				5263F0321F8F514E00F80B4D /* WKPersonCellThree.xib in Resources */,
 				315FFC0C1E97D3C600C78440 /* Main.storyboard in Resources */,
+				52AAA1391F8F8E3000AC777C /* WKDriverCell.xib in Resources */,
 				31A2220C1E99CFA10058A21B /* CTNetworkingConfiguration.plist in Resources */,
 				5263F0181F8F341400F80B4D /* WKNavLeftView.xib in Resources */,
 				5263F0601F8F734600F80B4D /* WKDiscoveryCell.xib in Resources */,
@@ -1120,6 +1129,7 @@
 				5263F0521F8F664E00F80B4D /* WKReleaseCell.m in Sources */,
 				52315FEA1F5285300001BA21 /* WKHomeTableViewCell.m in Sources */,
 				31A222041E99CFA10058A21B /* CTCommonParamsGenerator.m in Sources */,
+				52AAA1381F8F8E3000AC777C /* WKDriverCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

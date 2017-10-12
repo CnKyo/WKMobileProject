@@ -10,6 +10,7 @@
 #import "WKHeader.h"
 #import "WKDiscoveryCell.h"
 #import "WKExchangeViewController.h"
+#import "WKTransetViewController.h"
 @interface WKDiscoveryViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic) UITableView *tableView;
 
@@ -105,6 +106,19 @@
         WKExchangeViewController *vc = [WKExchangeViewController new];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
+    }else if (indexPath.row == 1){
+        
+        WKTransetViewController *vc = [WKTransetViewController new];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (indexPath.row == 2){
+        
+        WKTransetViewController *vc = [WKTransetViewController new];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        
+        
     }
 }
 @end

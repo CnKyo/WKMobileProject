@@ -22,7 +22,9 @@ target 'WKMobileProject' do
   pod 'AMap2DMap'
   pod 'AMapSearch'
   pod 'AMapLocation'
-  pod 'SDWebImage','~> 3.8.2'
+#  pod 'SDWebImage','~> 3.8.2'
+pod 'SDWebImage', '~> 4.0.0'
+
   pod 'SKTagView'
   pod 'JPush'
   pod 'LTNavigationBar'
@@ -44,12 +46,14 @@ target 'WKMobileProject' do
   pod 'WebViewJavascriptBridge','~> 5.0'
   #pod 'CardIO'
   pod 'DZNEmptyDataSet'
-  pod 'PYPhotoBrowser’,'~> 1.2.3'
+#  pod 'PYPhotoBrowser’,'~> 1.2.3'
   #pod 'BlocksKit', :git => 'https://github.com/zwaldowski/BlocksKit.git'
   pod 'PYSearch'
   pod 'HandyFrame'
   pod 'HDAlertView'
   pod 'BAButton'
+  
+  pod 'SDCycleScrollView','~> 1.73'
 
 
 end

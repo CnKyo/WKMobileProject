@@ -99,9 +99,18 @@
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyX-k6-GWh">
                         <rect key="frame" x="0.0" y="200" width="320" height="120"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_wether" translatesAutoresizingMaskIntoConstraints="NO" id="qEh-kr-ZD5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="qEh-kr-ZD5" secondAttribute="trailing" id="NR2-j9-pm0"/>
                             <constraint firstAttribute="height" constant="120" id="Ty1-87-p93"/>
+                            <constraint firstItem="qEh-kr-ZD5" firstAttribute="leading" secondItem="eyX-k6-GWh" secondAttribute="leading" id="VCT-GG-zIb"/>
+                            <constraint firstAttribute="bottom" secondItem="qEh-kr-ZD5" secondAttribute="bottom" id="wwk-I9-FVO"/>
+                            <constraint firstItem="qEh-kr-ZD5" firstAttribute="top" secondItem="eyX-k6-GWh" secondAttribute="top" id="xDx-Ae-Iw9"/>
                         </constraints>
                     </view>
                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qem-Hq-oX7">
@@ -151,5 +160,6 @@
     </objects>
     <resources>
         <image name="icon_voice" width="32" height="32"/>
+        <image name="icon_wether" width="529" height="118"/>
     </resources>
 </document>
