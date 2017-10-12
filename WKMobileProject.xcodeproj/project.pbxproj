@@ -92,6 +92,8 @@
 		5263F0571F8F6B1D00F80B4D /* WKGoPayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0551F8F6B1D00F80B4D /* WKGoPayCell.m */; };
 		5263F0581F8F6B1D00F80B4D /* WKGoPayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F0561F8F6B1D00F80B4D /* WKGoPayCell.xib */; };
 		5263F05B1F8F702E00F80B4D /* WKGoPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F05A1F8F702E00F80B4D /* WKGoPayViewController.m */; };
+		5263F05F1F8F734600F80B4D /* WKDiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F05D1F8F734600F80B4D /* WKDiscoveryCell.m */; };
+		5263F0601F8F734600F80B4D /* WKDiscoveryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F05E1F8F734600F80B4D /* WKDiscoveryCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -258,6 +260,9 @@
 		5263F0561F8F6B1D00F80B4D /* WKGoPayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKGoPayCell.xib; sourceTree = "<group>"; };
 		5263F0591F8F702E00F80B4D /* WKGoPayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKGoPayViewController.h; sourceTree = "<group>"; };
 		5263F05A1F8F702E00F80B4D /* WKGoPayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKGoPayViewController.m; sourceTree = "<group>"; };
+		5263F05C1F8F734600F80B4D /* WKDiscoveryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKDiscoveryCell.h; sourceTree = "<group>"; };
+		5263F05D1F8F734600F80B4D /* WKDiscoveryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKDiscoveryCell.m; sourceTree = "<group>"; };
+		5263F05E1F8F734600F80B4D /* WKDiscoveryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKDiscoveryCell.xib; sourceTree = "<group>"; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD07EEDDCB555B036A1A24CA /* libPods-WKMobileProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -689,6 +694,9 @@
 		5263F00F1F8F336B00F80B4D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5263F05C1F8F734600F80B4D /* WKDiscoveryCell.h */,
+				5263F05D1F8F734600F80B4D /* WKDiscoveryCell.m */,
+				5263F05E1F8F734600F80B4D /* WKDiscoveryCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -942,6 +950,7 @@
 				315FFC0C1E97D3C600C78440 /* Main.storyboard in Resources */,
 				31A2220C1E99CFA10058A21B /* CTNetworkingConfiguration.plist in Resources */,
 				5263F0181F8F341400F80B4D /* WKNavLeftView.xib in Resources */,
+				5263F0601F8F734600F80B4D /* WKDiscoveryCell.xib in Resources */,
 				5263F02D1F8F514200F80B4D /* WKPersonCellTwo.xib in Resources */,
 				5263F0471F8F63E000F80B4D /* WKMyMsgCell.xib in Resources */,
 			);
@@ -1040,6 +1049,7 @@
 				5263F04A1F8F64CF00F80B4D /* WKMyMsgViewController.m in Sources */,
 				31A222021E99CFA00058A21B /* CTLogger.m in Sources */,
 				52315FF41F52A5AB0001BA21 /* WKLoginViewController.m in Sources */,
+				5263F05F1F8F734600F80B4D /* WKDiscoveryCell.m in Sources */,
 				31A222011E99CFA00058A21B /* CTLocationManager.m in Sources */,
 				5263F0271F8F512900F80B4D /* WKPersonCellOne.m in Sources */,
 				31A221FB1E99CFA00058A21B /* UIDevice+IdentifierAddition.m in Sources */,
