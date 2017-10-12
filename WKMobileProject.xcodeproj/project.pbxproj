@@ -65,6 +65,8 @@
 		523704E11F4E7C3C0046D674 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704E01F4E7C3C0046D674 /* UserNotifications.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		523704E31F4E7C510046D674 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704E21F4E7C510046D674 /* libresolv.tbd */; };
 		523704E61F4EA8900046D674 /* WKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 523704E51F4EA8900046D674 /* WKModel.m */; };
+		5263F0161F8F340C00F80B4D /* WKNavLeftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263F0151F8F340C00F80B4D /* WKNavLeftView.m */; };
+		5263F0181F8F341400F80B4D /* WKNavLeftView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5263F0171F8F341400F80B4D /* WKNavLeftView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,6 +189,9 @@
 		523704E21F4E7C510046D674 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		523704E41F4EA8900046D674 /* WKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKModel.h; sourceTree = "<group>"; };
 		523704E51F4EA8900046D674 /* WKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKModel.m; sourceTree = "<group>"; };
+		5263F0141F8F340C00F80B4D /* WKNavLeftView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKNavLeftView.h; sourceTree = "<group>"; };
+		5263F0151F8F340C00F80B4D /* WKNavLeftView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKNavLeftView.m; sourceTree = "<group>"; };
+		5263F0171F8F341400F80B4D /* WKNavLeftView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKNavLeftView.xib; sourceTree = "<group>"; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD07EEDDCB555B036A1A24CA /* libPods-WKMobileProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -262,10 +267,9 @@
 				31A221A21E99CB5D0058A21B /* WKViewControllers */,
 				31A221A31E99CB5D0058A21B /* WKAPI */,
 				31A221A41E99CB5D0058A21B /* WKBaseView */,
+				5263F00D1F8F336B00F80B4D /* ViewControllers */,
 				315FFC041E97D3C600C78440 /* AppDelegate.h */,
 				315FFC051E97D3C600C78440 /* AppDelegate.m */,
-				315FFC071E97D3C600C78440 /* ViewController.h */,
-				315FFC081E97D3C600C78440 /* ViewController.m */,
 				52315FF11F52A5AB0001BA21 /* WKLoginViewController.h */,
 				52315FF21F52A5AB0001BA21 /* WKLoginViewController.m */,
 				52315FF31F52A5AB0001BA21 /* WKLoginViewController.xib */,
@@ -596,6 +600,66 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		5263F00D1F8F336B00F80B4D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5263F00E1F8F336B00F80B4D /* Discovery */,
+				5263F0101F8F336B00F80B4D /* PersonCenter */,
+				5263F0121F8F336B00F80B4D /* Status */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5263F00E1F8F336B00F80B4D /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				5263F00F1F8F336B00F80B4D /* View */,
+			);
+			path = Discovery;
+			sourceTree = "<group>";
+		};
+		5263F00F1F8F336B00F80B4D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5263F0101F8F336B00F80B4D /* PersonCenter */ = {
+			isa = PBXGroup;
+			children = (
+				5263F0111F8F336B00F80B4D /* View */,
+			);
+			path = PersonCenter;
+			sourceTree = "<group>";
+		};
+		5263F0111F8F336B00F80B4D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5263F0121F8F336B00F80B4D /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				315FFC071E97D3C600C78440 /* ViewController.h */,
+				315FFC081E97D3C600C78440 /* ViewController.m */,
+				5263F0131F8F336B00F80B4D /* View */,
+			);
+			path = Status;
+			sourceTree = "<group>";
+		};
+		5263F0131F8F336B00F80B4D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5263F0141F8F340C00F80B4D /* WKNavLeftView.h */,
+				5263F0151F8F340C00F80B4D /* WKNavLeftView.m */,
+				5263F0171F8F341400F80B4D /* WKNavLeftView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7975C39D53A4E4C84C61C265 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -755,6 +819,7 @@
 				315FFC0E1E97D3C600C78440 /* Assets.xcassets in Resources */,
 				315FFC0C1E97D3C600C78440 /* Main.storyboard in Resources */,
 				31A2220C1E99CFA10058A21B /* CTNetworkingConfiguration.plist in Resources */,
+				5263F0181F8F341400F80B4D /* WKNavLeftView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -838,6 +903,7 @@
 				31A221F81E99CFA00058A21B /* NSObject+AXNetworkingMethods.m in Sources */,
 				315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */,
 				31A221F61E99CFA00058A21B /* NSDictionary+AXNetworkingMethods.m in Sources */,
+				5263F0161F8F340C00F80B4D /* WKNavLeftView.m in Sources */,
 				31A221FD1E99CFA00058A21B /* CTAPIBaseManager.m in Sources */,
 				31A221F91E99CFA00058A21B /* NSString+AXNetworkingMethods.m in Sources */,
 				31A221FC1E99CFA00058A21B /* CTApiProxy.m in Sources */,
@@ -1010,7 +1076,7 @@
 				CODE_SIGN_ENTITLEMENTS = WKMobileProject/WKMobileProject.entitlements;
 				DEVELOPMENT_TEAM = 45YS2S94XQ;
 				INFOPLIST_FILE = WKMobileProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mw.washmachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1025,7 +1091,7 @@
 				CODE_SIGN_ENTITLEMENTS = WKMobileProject/WKMobileProject.entitlements;
 				DEVELOPMENT_TEAM = 45YS2S94XQ;
 				INFOPLIST_FILE = WKMobileProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mw.washmachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";

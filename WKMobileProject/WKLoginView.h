@@ -15,7 +15,7 @@
 /**
  按钮代理方法
 
- @param mTag 1:登录。2:qq登录。3:微信登录
+ @param mTag 0:注册。1:登录。2:qq登录。3:微信登录
  */
 - (void)WKLoginViewBtnActions:(NSInteger)mTag;
 
@@ -40,6 +40,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *mPwdTx;
 
 @property (weak, nonatomic) IBOutlet UIButton *mLoginBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *mRegistBtn;
 
 @property (weak, nonatomic) IBOutlet UIButton *mQQLogin;
 

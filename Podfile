@@ -49,5 +49,7 @@ target 'WKMobileProject' do
   pod 'PYSearch'
   pod 'HandyFrame'
   pod 'HDAlertView'
+  pod 'BAButton'
+
 
 end

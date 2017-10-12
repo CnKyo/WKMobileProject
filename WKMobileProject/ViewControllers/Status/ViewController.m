@@ -13,7 +13,8 @@
 #import <LKDBHelper.h>
 #import <AVFoundation/AVSpeechSynthesis.h>
 #import "WKLoginViewController.h"
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,AVSpeechSynthesizerDelegate,UIAlertViewDelegate>
+#import "WKNavLeftView.h"
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,AVSpeechSynthesizerDelegate,UIAlertViewDelegate,WKNavLeftViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
@@ -25,6 +26,8 @@
     HDAlertView *alertView;
     
     NSMutableArray *mTableArr;
+    
+    WKNavLeftView *mNavLView;
 }
 @synthesize mTableView;
 - (void)viewWillAppear:(BOOL)animated{
@@ -34,8 +37,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.title = @"首页";
-    
+    self.navigationItem.title = @"状态";
+    [self initNavLeftView];
 
     mTableArr = [NSMutableArray new];
     
@@ -65,6 +68,33 @@
     
     [self presentViewController:vc animated:YES completion:nil];
 }
+- (void)initNavLeftView{
+    
+//    mNavLView = [WKNavLeftView initView];
+//    mNavLView.frame = CGRectMake(0, 20, 124, 44);
+//    mNavLView.delegate = self;
+//
+//    self.navigationItem.titleView = mNavLView;
+    
+    //    UIBarButtonItem *releaseButtonItem = [[UIBarButtonItem alloc] initWithCustomView:mNavLView];
+    //    self.navigationItem.leftBarButtonItem = releaseButtonItem;
+    
+    UIButton *releaseButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [releaseButton setTitle:@"天气" forState:normal];
+    [releaseButton addTarget:self action:@selector(releaseInfo:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *releaseButtonItem = [[UIBarButtonItem alloc] initWithCustomView:releaseButton];
+    self.navigationItem.leftBarButtonItem = releaseButtonItem;
+    
+}
+- (void)releaseInfo:(UIButton *)sender{
+    
+    MLLog(@"左边的天气");
+}
+- (void)WKNavLeftViewDelegateWithBtnAction{
+    
+    MLLog(@"左边的天气");
+}
+
 - (IBAction)mClearndata:(id)sender {
     if (mTableArr.count<=0) {
         [SVProgressHUD showErrorWithStatus:@"没有数据!"];
