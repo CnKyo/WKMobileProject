@@ -1,26 +1,27 @@
 //
-//  WKMyMsgViewController.m
+//  WKWithDrawViewController.m
 //  WKMobileProject
 //
 //  Created by mwi01 on 2017/10/13.
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
 
-#import "WKMyMsgViewController.h"
+#import "WKWithDrawViewController.h"
 #import "WKHeader.h"
-#import "WKMyMsgCell.h"
-@interface WKMyMsgViewController ()
+#import "WKWithDrawCell.h"
+@interface WKWithDrawViewController ()
 
 @end
 
-@implementation WKMyMsgViewController
+@implementation WKWithDrawViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setMTitle:@"我的消息"];
+    [self setMTitle:@"提现"];
+    
     [self addTableView];
-    UINib   *nib = [UINib nibWithNibName:@"WKMyMsgCell" bundle:nil];
+    UINib   *nib = [UINib nibWithNibName:@"WKWithDrawCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
 }
 
@@ -38,10 +39,9 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 3;
+    return 1;
     
     
 }
@@ -49,7 +49,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    return 120;
+    return 45;
     
     
 }
@@ -60,7 +60,7 @@
     NSString *CellId = nil;
     CellId = @"cell";
     
-    WKMyMsgCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
+    WKWithDrawCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
     return cell;
     
     
@@ -70,7 +70,6 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     MLLog(@"点击了第：%ld",indexPath.row);
-    
     
 }
 @end

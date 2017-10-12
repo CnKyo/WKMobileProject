@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *mBackBtn;
 @property (weak, nonatomic) IBOutlet UILabel *mTitle;
 
+@property (weak, nonatomic) IBOutlet UIButton *mRightBtn;
 
 + (WKCustomNavView *)initView;
 

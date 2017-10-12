@@ -16,6 +16,12 @@
 #import "WKLeftViewCell.h"
 
 #import "WKPersoncenterViewController.h"
+
+#import "WKMyMoneyViewController.h"
+#import "WKMyCarViewController.h"
+#import "WKMyOrderListViewController.h"
+#import "WKMyMsgViewController.h"
+#import "WKSetUpViewController.h"
 @interface WKLeftViewController ()
 <UITableViewDelegate,UITableViewDataSource,WKLeftViewCellDelegate>
 @property (strong, nonatomic) UITableView *tableView;
@@ -121,6 +127,47 @@
 
         }
             break;
+        case 1:
+        {
+        WKMyMoneyViewController *vc = [WKMyMoneyViewController new];
+        
+        [self presentViewController:vc animated:YES completion:nil];
+        
+        }
+            break;
+        case 3:
+        {
+        WKMyCarViewController *vc = [WKMyCarViewController new];
+        
+        [self presentViewController:vc animated:YES completion:nil];
+        
+        }
+            break;
+        case 4:
+        {
+        WKMyOrderListViewController *vc = [WKMyOrderListViewController new];
+        
+        [self presentViewController:vc animated:YES completion:nil];
+        
+        }
+            break;
+        case 5:
+        {
+        WKMyMsgViewController *vc = [WKMyMsgViewController new];
+        
+        [self presentViewController:vc animated:YES completion:nil];
+        
+        }
+            break;
+        case 6:
+        {
+        WKSetUpViewController *vc = [WKSetUpViewController new];
+        
+        [self presentViewController:vc animated:YES completion:nil];
+        
+        }
+            break;
+            
             
         default:
             break;

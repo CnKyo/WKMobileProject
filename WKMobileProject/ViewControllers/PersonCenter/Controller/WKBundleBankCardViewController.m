@@ -1,26 +1,28 @@
 //
-//  WKMyMsgViewController.m
+//  WKBundleBankCardViewController.m
 //  WKMobileProject
 //
 //  Created by mwi01 on 2017/10/13.
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
 
-#import "WKMyMsgViewController.h"
+#import "WKBundleBankCardViewController.h"
 #import "WKHeader.h"
-#import "WKMyMsgCell.h"
-@interface WKMyMsgViewController ()
+#import "WKBundleBankCardCell.h"
+@interface WKBundleBankCardViewController ()
 
 @end
 
-@implementation WKMyMsgViewController
+@implementation WKBundleBankCardViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setMTitle:@"我的消息"];
+    [self setMTitle:@"绑定银行卡"];
+    
     [self addTableView];
-    UINib   *nib = [UINib nibWithNibName:@"WKMyMsgCell" bundle:nil];
+    
+    UINib   *nib = [UINib nibWithNibName:@"WKBundleBankCardCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
 }
 
@@ -38,10 +40,9 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 3;
+    return 1;
     
     
 }
@@ -49,7 +50,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    return 120;
+    return 45;
     
     
 }
@@ -60,7 +61,7 @@
     NSString *CellId = nil;
     CellId = @"cell";
     
-    WKMyMsgCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
+    WKBundleBankCardCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
     return cell;
     
     
@@ -70,7 +71,6 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     MLLog(@"点击了第：%ld",indexPath.row);
-    
     
 }
 @end

@@ -12,6 +12,9 @@
 @property (strong,nonatomic) NSString *mTitle;
 @property (strong,nonatomic) UITableView *tableView;
 
+@property (nonatomic,assign) BOOL mHiddenRightBtn;
 - (void)addTableView;
 - (void)setMTitle:(NSString *)mTitle;
+- (void)setMHiddenRightBtn:(BOOL)mHiddenRightBtn;
+- (void)rightBtnAction;
 @end

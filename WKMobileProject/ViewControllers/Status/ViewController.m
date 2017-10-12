@@ -49,9 +49,9 @@
     [self.navigationController.navigationBar setTranslucent:NO];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"icon_header"] style:UIBarButtonItemStylePlain target:self action:@selector(leftAction:)];
     self.navigationItem.title = @"首页";
-    CGRect mRFrame = CGRectMake(DEVICE_Width-80, 0, 80, 40);
+    CGRect mRFrame = CGRectMake(DEVICE_Width-50, 0, 40, 40);
 
-    UIButton *mRightBtn = [UIButton ba_creatButtonWithFrame:mRFrame title:@"+" selTitle:nil titleColor:[UIColor colorWithRed:0.223529411764706 green:0.533333333333333 blue:0.886274509803922 alpha:1.00] titleFont:[UIFont systemFontOfSize:18] image:nil selImage:nil padding:2 buttonPositionStyle:BAKit_ButtonLayoutTypeCenterImageRight viewRectCornerType:BAKit_ViewRectCornerTypeAllCorners viewCornerRadius:20 target:self selector:@selector(handleRightNaviButtonAction)];
+    UIButton *mRightBtn = [UIButton ba_creatButtonWithFrame:mRFrame title:nil selTitle:nil titleColor:[UIColor colorWithRed:0.223529411764706 green:0.533333333333333 blue:0.886274509803922 alpha:1.00] titleFont:[UIFont systemFontOfSize:14] image:[UIImage imageNamed:@"icon_jia"] selImage:nil padding:2 buttonPositionStyle:BAKit_ButtonLayoutTypeCenterImageRight viewRectCornerType:BAKit_ViewRectCornerTypeAllCorners viewCornerRadius:20 target:self selector:@selector(handleRightNaviButtonAction)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:mRightBtn];
 
     

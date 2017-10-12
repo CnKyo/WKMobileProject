@@ -24,8 +24,19 @@
     // Do any additional setup after loading the view.
     mNav = [WKCustomNavView initView];
     mNav.frame = CGRectMake(0, -20, DEVICE_Width, 84);
+    mNav.mRightBtn.hidden = YES;
     [mNav.mBackBtn addTarget:self action:@selector(mBackAction) forControlEvents:UIControlEventTouchUpInside];
+    [mNav.mRightBtn addTarget:self action:@selector(rightBtnAction) forControlEvents:UIControlEventTouchUpInside];
+
     [self.view addSubview:mNav];
+    
+}
+- (void)setMHiddenRightBtn:(BOOL)mHiddenRightBtn{
+    
+    mNav.mRightBtn.hidden = mHiddenRightBtn;
+}
+- (void)rightBtnAction{
+    
     
 }
 - (void)setMTitle:(NSString *)mTitle{

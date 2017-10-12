@@ -46,11 +46,23 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVK-K5-Llb">
+                            <rect key="frame" x="337" y="26" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="T3x-fF-4Eo"/>
+                                <constraint firstAttribute="height" constant="30" id="mSC-If-N23"/>
+                            </constraints>
+                            <state key="normal" image="icon_jia_white">
+                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.22780537610000001" green="0.53584480290000003" blue="0.89293801780000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="kBC-LJ-FK7" firstAttribute="centerY" secondItem="YSS-AF-GTM" secondAttribute="centerY" id="4wX-gz-eFt"/>
+                        <constraint firstItem="cVK-K5-Llb" firstAttribute="top" secondItem="YSS-AF-GTM" secondAttribute="top" constant="26" id="Ae9-O6-uKF"/>
                         <constraint firstItem="S9g-qu-4bd" firstAttribute="centerY" secondItem="YSS-AF-GTM" secondAttribute="centerY" constant="9" id="LWy-uw-kXv"/>
+                        <constraint firstAttribute="trailing" secondItem="cVK-K5-Llb" secondAttribute="trailing" constant="8" id="O7t-jr-BVg"/>
                         <constraint firstItem="XRO-ER-8NQ" firstAttribute="leading" secondItem="YSS-AF-GTM" secondAttribute="leading" constant="20" id="Rxz-5B-h0d"/>
                         <constraint firstItem="kBC-LJ-FK7" firstAttribute="leading" secondItem="YSS-AF-GTM" secondAttribute="leading" constant="8" id="XOg-NJ-Cd2"/>
                         <constraint firstItem="S9g-qu-4bd" firstAttribute="centerX" secondItem="YSS-AF-GTM" secondAttribute="centerX" id="wpx-dV-Qxh"/>
@@ -69,12 +81,14 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="mBackBtn" destination="kBC-LJ-FK7" id="CaR-PG-yya"/>
+                <outlet property="mRightBtn" destination="cVK-K5-Llb" id="6NG-kC-IUt"/>
                 <outlet property="mTitle" destination="S9g-qu-4bd" id="duu-fW-YQJ"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="-45"/>
         </view>
     </objects>
     <resources>
+        <image name="icon_jia_white" width="32" height="32"/>
         <image name="icon_left" width="32" height="32"/>
     </resources>
 </document>

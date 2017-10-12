@@ -1,29 +1,40 @@
 //
-//  WKMyMsgViewController.m
+//  WKMyCarViewController.m
 //  WKMobileProject
 //
 //  Created by mwi01 on 2017/10/13.
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
 
-#import "WKMyMsgViewController.h"
+#import "WKMyCarViewController.h"
+#import "WKMyCarCell.h"
 #import "WKHeader.h"
-#import "WKMyMsgCell.h"
-@interface WKMyMsgViewController ()
+#import <BAButton.h>
+#import "WKBundlePersonMsgViewController.h"
+@interface WKMyCarViewController ()
 
 @end
 
-@implementation WKMyMsgViewController
+@implementation WKMyCarViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setMTitle:@"我的消息"];
+    [self setMTitle:@"我的车辆"];
     [self addTableView];
-    UINib   *nib = [UINib nibWithNibName:@"WKMyMsgCell" bundle:nil];
+    
+    UINib   *nib = [UINib nibWithNibName:@"WKMyCarCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
+    
+    [self setMHiddenRightBtn:NO];
 }
-
+- (void)rightBtnAction{
+    
+    MLLog(@"添加车辆");
+    WKBundlePersonMsgViewController *vc = [WKBundlePersonMsgViewController new];
+    //        [self.navigationController pushViewController:vc animated:YES];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -38,19 +49,23 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView              // Default is 1 if not implemented
+{
+    
+    return 1;
+    
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 3;
+    
+    return 2;
     
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
-    return 120;
-    
+    return 80;
     
 }
 
@@ -60,8 +75,10 @@
     NSString *CellId = nil;
     CellId = @"cell";
     
-    WKMyMsgCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
+    WKMyCarCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+    
     
     
 }
@@ -69,8 +86,8 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    MLLog(@"点击了第：%ld",indexPath.row);
-    
     
 }
+
+
 @end

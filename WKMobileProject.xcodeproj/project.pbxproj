@@ -132,6 +132,24 @@
 		52EB5E6F1F8FEC90007A381B /* WKHomeOrderDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5E6D1F8FEC90007A381B /* WKHomeOrderDetailCell.xib */; };
 		52EB5E721F8FF505007A381B /* WKCustomNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E711F8FF505007A381B /* WKCustomNavView.m */; };
 		52EB5E741F8FF50E007A381B /* WKCustomNavView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5E731F8FF50E007A381B /* WKCustomNavView.xib */; };
+		52EB5E7A1F8FFF05007A381B /* WKMyMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E791F8FFF05007A381B /* WKMyMoneyViewController.m */; };
+		52EB5E871F90047C007A381B /* WKMyCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E861F90047C007A381B /* WKMyCarViewController.m */; };
+		52EB5E8B1F9004B7007A381B /* WKMyCarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E891F9004B7007A381B /* WKMyCarCell.m */; };
+		52EB5E8C1F9004B7007A381B /* WKMyCarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5E8A1F9004B7007A381B /* WKMyCarCell.xib */; };
+		52EB5E8F1F900681007A381B /* WKMyOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E8E1F900681007A381B /* WKMyOrderListViewController.m */; };
+		52EB5E921F90083C007A381B /* WKOrderDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E911F90083C007A381B /* WKOrderDetail.m */; };
+		52EB5E951F90091B007A381B /* WKMyMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E941F90091B007A381B /* WKMyMsgViewController.m */; };
+		52EB5E981F9009D0007A381B /* WKSetUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E971F9009D0007A381B /* WKSetUpViewController.m */; };
+		52EB5E9C1F900AED007A381B /* WKSetUpTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E9A1F900AED007A381B /* WKSetUpTableViewCell.m */; };
+		52EB5E9D1F900AED007A381B /* WKSetUpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5E9B1F900AED007A381B /* WKSetUpTableViewCell.xib */; };
+		52EB5EA01F900BA4007A381B /* WKSetUpBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E9F1F900BA4007A381B /* WKSetUpBottomView.m */; };
+		52EB5EA21F900BAC007A381B /* WKSetUpBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5EA11F900BAC007A381B /* WKSetUpBottomView.xib */; };
+		52EB5EA51F901485007A381B /* WKBundleBankCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5EA41F901485007A381B /* WKBundleBankCardViewController.m */; };
+		52EB5EA81F9014C8007A381B /* WKWithDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5EA71F9014C8007A381B /* WKWithDrawViewController.m */; };
+		52EB5EAC1F90151D007A381B /* WKBundleBankCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5EAA1F90151D007A381B /* WKBundleBankCardCell.m */; };
+		52EB5EAD1F90151D007A381B /* WKBundleBankCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5EAB1F90151D007A381B /* WKBundleBankCardCell.xib */; };
+		52EB5EB11F90168F007A381B /* WKWithDrawCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5EAF1F90168F007A381B /* WKWithDrawCell.m */; };
+		52EB5EB21F90168F007A381B /* WKWithDrawCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5EB01F90168F007A381B /* WKWithDrawCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -364,6 +382,37 @@
 		52EB5E701F8FF505007A381B /* WKCustomNavView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKCustomNavView.h; sourceTree = "<group>"; };
 		52EB5E711F8FF505007A381B /* WKCustomNavView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKCustomNavView.m; sourceTree = "<group>"; };
 		52EB5E731F8FF50E007A381B /* WKCustomNavView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKCustomNavView.xib; sourceTree = "<group>"; };
+		52EB5E781F8FFF05007A381B /* WKMyMoneyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKMyMoneyViewController.h; sourceTree = "<group>"; };
+		52EB5E791F8FFF05007A381B /* WKMyMoneyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKMyMoneyViewController.m; sourceTree = "<group>"; };
+		52EB5E851F90047C007A381B /* WKMyCarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKMyCarViewController.h; sourceTree = "<group>"; };
+		52EB5E861F90047C007A381B /* WKMyCarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKMyCarViewController.m; sourceTree = "<group>"; };
+		52EB5E881F9004B7007A381B /* WKMyCarCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKMyCarCell.h; sourceTree = "<group>"; };
+		52EB5E891F9004B7007A381B /* WKMyCarCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKMyCarCell.m; sourceTree = "<group>"; };
+		52EB5E8A1F9004B7007A381B /* WKMyCarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKMyCarCell.xib; sourceTree = "<group>"; };
+		52EB5E8D1F900681007A381B /* WKMyOrderListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKMyOrderListViewController.h; sourceTree = "<group>"; };
+		52EB5E8E1F900681007A381B /* WKMyOrderListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKMyOrderListViewController.m; sourceTree = "<group>"; };
+		52EB5E901F90083C007A381B /* WKOrderDetail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKOrderDetail.h; sourceTree = "<group>"; };
+		52EB5E911F90083C007A381B /* WKOrderDetail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKOrderDetail.m; sourceTree = "<group>"; };
+		52EB5E931F90091B007A381B /* WKMyMsgViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKMyMsgViewController.h; sourceTree = "<group>"; };
+		52EB5E941F90091B007A381B /* WKMyMsgViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKMyMsgViewController.m; sourceTree = "<group>"; };
+		52EB5E961F9009D0007A381B /* WKSetUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKSetUpViewController.h; sourceTree = "<group>"; };
+		52EB5E971F9009D0007A381B /* WKSetUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKSetUpViewController.m; sourceTree = "<group>"; };
+		52EB5E991F900AED007A381B /* WKSetUpTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKSetUpTableViewCell.h; sourceTree = "<group>"; };
+		52EB5E9A1F900AED007A381B /* WKSetUpTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKSetUpTableViewCell.m; sourceTree = "<group>"; };
+		52EB5E9B1F900AED007A381B /* WKSetUpTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKSetUpTableViewCell.xib; sourceTree = "<group>"; };
+		52EB5E9E1F900BA4007A381B /* WKSetUpBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKSetUpBottomView.h; sourceTree = "<group>"; };
+		52EB5E9F1F900BA4007A381B /* WKSetUpBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKSetUpBottomView.m; sourceTree = "<group>"; };
+		52EB5EA11F900BAC007A381B /* WKSetUpBottomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKSetUpBottomView.xib; sourceTree = "<group>"; };
+		52EB5EA31F901485007A381B /* WKBundleBankCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKBundleBankCardViewController.h; sourceTree = "<group>"; };
+		52EB5EA41F901485007A381B /* WKBundleBankCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKBundleBankCardViewController.m; sourceTree = "<group>"; };
+		52EB5EA61F9014C8007A381B /* WKWithDrawViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWithDrawViewController.h; sourceTree = "<group>"; };
+		52EB5EA71F9014C8007A381B /* WKWithDrawViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWithDrawViewController.m; sourceTree = "<group>"; };
+		52EB5EA91F90151D007A381B /* WKBundleBankCardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKBundleBankCardCell.h; sourceTree = "<group>"; };
+		52EB5EAA1F90151D007A381B /* WKBundleBankCardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKBundleBankCardCell.m; sourceTree = "<group>"; };
+		52EB5EAB1F90151D007A381B /* WKBundleBankCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKBundleBankCardCell.xib; sourceTree = "<group>"; };
+		52EB5EAE1F90168F007A381B /* WKWithDrawCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWithDrawCell.h; sourceTree = "<group>"; };
+		52EB5EAF1F90168F007A381B /* WKWithDrawCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWithDrawCell.m; sourceTree = "<group>"; };
+		52EB5EB01F90168F007A381B /* WKWithDrawCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKWithDrawCell.xib; sourceTree = "<group>"; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD07EEDDCB555B036A1A24CA /* libPods-WKMobileProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -883,6 +932,21 @@
 				52EB5E2F1F8FC15E007A381B /* WKMoveCell.h */,
 				52EB5E301F8FC15E007A381B /* WKMoveCell.m */,
 				52EB5E311F8FC15E007A381B /* WKMoveCell.xib */,
+				52EB5E881F9004B7007A381B /* WKMyCarCell.h */,
+				52EB5E891F9004B7007A381B /* WKMyCarCell.m */,
+				52EB5E8A1F9004B7007A381B /* WKMyCarCell.xib */,
+				52EB5E991F900AED007A381B /* WKSetUpTableViewCell.h */,
+				52EB5E9A1F900AED007A381B /* WKSetUpTableViewCell.m */,
+				52EB5E9B1F900AED007A381B /* WKSetUpTableViewCell.xib */,
+				52EB5E9E1F900BA4007A381B /* WKSetUpBottomView.h */,
+				52EB5E9F1F900BA4007A381B /* WKSetUpBottomView.m */,
+				52EB5EA11F900BAC007A381B /* WKSetUpBottomView.xib */,
+				52EB5EA91F90151D007A381B /* WKBundleBankCardCell.h */,
+				52EB5EAA1F90151D007A381B /* WKBundleBankCardCell.m */,
+				52EB5EAB1F90151D007A381B /* WKBundleBankCardCell.xib */,
+				52EB5EAE1F90168F007A381B /* WKWithDrawCell.h */,
+				52EB5EAF1F90168F007A381B /* WKWithDrawCell.m */,
+				52EB5EB01F90168F007A381B /* WKWithDrawCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -922,6 +986,22 @@
 			children = (
 				5263F0211F8F506F00F80B4D /* WKPersoncenterViewController.h */,
 				5263F0221F8F506F00F80B4D /* WKPersoncenterViewController.m */,
+				52EB5E781F8FFF05007A381B /* WKMyMoneyViewController.h */,
+				52EB5E791F8FFF05007A381B /* WKMyMoneyViewController.m */,
+				52EB5E851F90047C007A381B /* WKMyCarViewController.h */,
+				52EB5E861F90047C007A381B /* WKMyCarViewController.m */,
+				52EB5E8D1F900681007A381B /* WKMyOrderListViewController.h */,
+				52EB5E8E1F900681007A381B /* WKMyOrderListViewController.m */,
+				52EB5E901F90083C007A381B /* WKOrderDetail.h */,
+				52EB5E911F90083C007A381B /* WKOrderDetail.m */,
+				52EB5E931F90091B007A381B /* WKMyMsgViewController.h */,
+				52EB5E941F90091B007A381B /* WKMyMsgViewController.m */,
+				52EB5E961F9009D0007A381B /* WKSetUpViewController.h */,
+				52EB5E971F9009D0007A381B /* WKSetUpViewController.m */,
+				52EB5EA31F901485007A381B /* WKBundleBankCardViewController.h */,
+				52EB5EA41F901485007A381B /* WKBundleBankCardViewController.m */,
+				52EB5EA61F9014C8007A381B /* WKWithDrawViewController.h */,
+				52EB5EA71F9014C8007A381B /* WKWithDrawViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1178,6 +1258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52EB5E8C1F9004B7007A381B /* WKMyCarCell.xib in Resources */,
 				52315FEB1F5285300001BA21 /* WKHomeTableViewCell.xib in Resources */,
 				52EB5E741F8FF50E007A381B /* WKCustomNavView.xib in Resources */,
 				5263F0281F8F512900F80B4D /* WKPersonCellOne.xib in Resources */,
@@ -1194,6 +1275,7 @@
 				52315FF51F52A5AB0001BA21 /* WKLoginViewController.xib in Resources */,
 				52EB5E6F1F8FEC90007A381B /* WKHomeOrderDetailCell.xib in Resources */,
 				5263F0581F8F6B1D00F80B4D /* WKGoPayCell.xib in Resources */,
+				52EB5E9D1F900AED007A381B /* WKSetUpTableViewCell.xib in Resources */,
 				52EB5E3B1F8FC437007A381B /* WKRegistViewController.xib in Resources */,
 				315FFC0E1E97D3C600C78440 /* Assets.xcassets in Resources */,
 				5263F0B91F8F7CDF00F80B4D /* WKExchangeCell.xib in Resources */,
@@ -1201,8 +1283,10 @@
 				52AAA1391F8F8E3000AC777C /* WKDriverCell.xib in Resources */,
 				31A2220C1E99CFA10058A21B /* CTNetworkingConfiguration.plist in Resources */,
 				52EB5E451F8FCAF3007A381B /* WKBundlePersonMsgCell.xib in Resources */,
+				52EB5EA21F900BAC007A381B /* WKSetUpBottomView.xib in Resources */,
 				5263F0181F8F341400F80B4D /* WKNavLeftView.xib in Resources */,
 				52EB5E331F8FC15E007A381B /* WKMoveCell.xib in Resources */,
+				52EB5EB21F90168F007A381B /* WKWithDrawCell.xib in Resources */,
 				5263F0601F8F734600F80B4D /* WKDiscoveryCell.xib in Resources */,
 				52EB5E251F8FBBC4007A381B /* scancode.caf in Resources */,
 				52EB5E551F8FD2E7007A381B /* WKBundleFinishCell.xib in Resources */,
@@ -1210,6 +1294,7 @@
 				52EB5E671F8FDDD6007A381B /* WKLeftViewCell.xib in Resources */,
 				5263F02D1F8F514200F80B4D /* WKPersonCellTwo.xib in Resources */,
 				5263F0471F8F63E000F80B4D /* WKMyMsgCell.xib in Resources */,
+				52EB5EAD1F90151D007A381B /* WKBundleBankCardCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1288,7 +1373,10 @@
 				52315FEE1F529BDE0001BA21 /* WKLoginView.m in Sources */,
 				31A222081E99CFA10058A21B /* CTService.m in Sources */,
 				31A221FA1E99CFA00058A21B /* NSURLRequest+CTNetworkingMethods.m in Sources */,
+				52EB5EA01F900BA4007A381B /* WKSetUpBottomView.m in Sources */,
+				52EB5EB11F90168F007A381B /* WKWithDrawCell.m in Sources */,
 				52EB5E591F8FD7D7007A381B /* CKLeftSlideViewController.m in Sources */,
+				52EB5EA51F901485007A381B /* WKBundleBankCardViewController.m in Sources */,
 				315FFC091E97D3C600C78440 /* ViewController.m in Sources */,
 				52EB5DF21F8FAB11007A381B /* RKImageBrowser.m in Sources */,
 				31A222031E99CFA00058A21B /* CTURLResponse.m in Sources */,
@@ -1301,7 +1389,10 @@
 				315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */,
 				31A221F61E99CFA00058A21B /* NSDictionary+AXNetworkingMethods.m in Sources */,
 				5263F0161F8F340C00F80B4D /* WKNavLeftView.m in Sources */,
+				52EB5E7A1F8FFF05007A381B /* WKMyMoneyViewController.m in Sources */,
+				52EB5EA81F9014C8007A381B /* WKWithDrawViewController.m in Sources */,
 				5263F0411F8F622D00F80B4D /* WKMyPayListCell.m in Sources */,
+				52EB5E981F9009D0007A381B /* WKSetUpViewController.m in Sources */,
 				5263F02C1F8F514200F80B4D /* WKPersonCellTwo.m in Sources */,
 				31A221FD1E99CFA00058A21B /* CTAPIBaseManager.m in Sources */,
 				31A221F91E99CFA00058A21B /* NSString+AXNetworkingMethods.m in Sources */,
@@ -1317,6 +1408,8 @@
 				5263F0271F8F512900F80B4D /* WKPersonCellOne.m in Sources */,
 				52EB5E181F8FB21C007A381B /* WKCameraViewController.m in Sources */,
 				52EB5E6E1F8FEC90007A381B /* WKHomeOrderDetailCell.m in Sources */,
+				52EB5E951F90091B007A381B /* WKMyMsgViewController.m in Sources */,
+				52EB5E921F90083C007A381B /* WKOrderDetail.m in Sources */,
 				52EB5E321F8FC15E007A381B /* WKMoveCell.m in Sources */,
 				52EB5E241F8FBBC4007A381B /* NSString+QRCode.m in Sources */,
 				31A221FB1E99CFA00058A21B /* UIDevice+IdentifierAddition.m in Sources */,
@@ -1336,10 +1429,12 @@
 				31A221F51E99CFA00058A21B /* NSArray+AXNetworkingMethods.m in Sources */,
 				52EB5E271F8FBBC4007A381B /* ControlRunLoopTool.m in Sources */,
 				31A222051E99CFA10058A21B /* CTRequestGenerator.m in Sources */,
+				52EB5E8F1F900681007A381B /* WKMyOrderListViewController.m in Sources */,
 				31A222091E99CFA10058A21B /* CTServiceFactory.m in Sources */,
 				52EB5E4F1F8FCF98007A381B /* WKBundleCarCell.m in Sources */,
 				5263F01C1F8F471800F80B4D /* WKHomeStatusCell.m in Sources */,
 				52EB5DE91F8FA5DF007A381B /* WKOrderDetailCell.m in Sources */,
+				52EB5E9C1F900AED007A381B /* WKSetUpTableViewCell.m in Sources */,
 				52EB5E3F1F8FC46C007A381B /* WKRegistCell.m in Sources */,
 				5263F0231F8F506F00F80B4D /* WKPersoncenterViewController.m in Sources */,
 				31A222061E99CFA10058A21B /* CTSignatureGenerator.m in Sources */,
@@ -1347,11 +1442,14 @@
 				52EB5E141F8FB1FC007A381B /* ZGLVideoMaskView.m in Sources */,
 				52EB5E2B1F8FBBD9007A381B /* WKAddDeviceViewController.m in Sources */,
 				52EB5DE51F8FA182007A381B /* WKSegmentControl.m in Sources */,
+				52EB5E8B1F9004B7007A381B /* WKMyCarCell.m in Sources */,
+				52EB5EAC1F90151D007A381B /* WKBundleBankCardCell.m in Sources */,
 				5263F0BC1F8F7D8700F80B4D /* WKExchangeViewController.m in Sources */,
 				52EB5E481F8FCDC4007A381B /* WKBundlePersonMsgViewController.m in Sources */,
 				52EB5DF51F8FAD3B007A381B /* WKNearByViewController.m in Sources */,
 				31A2220D1E99CFA10058A21B /* GDMapService.m in Sources */,
 				52EB5E541F8FD2E7007A381B /* WKBundleFinishCell.m in Sources */,
+				52EB5E871F90047C007A381B /* WKMyCarViewController.m in Sources */,
 				31A2220A1E99CFA10058A21B /* CTAppContext.m in Sources */,
 				5263F0461F8F63E000F80B4D /* WKMyMsgCell.m in Sources */,
 				5263F0521F8F664E00F80B4D /* WKReleaseCell.m in Sources */,

@@ -1,26 +1,27 @@
 //
-//  WKMyMsgViewController.m
+//  WKOrderDetail.m
 //  WKMobileProject
 //
 //  Created by mwi01 on 2017/10/13.
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
 
-#import "WKMyMsgViewController.h"
+#import "WKOrderDetail.h"
 #import "WKHeader.h"
-#import "WKMyMsgCell.h"
-@interface WKMyMsgViewController ()
+#import "WKOrderDetailCell.h"
+#import "WKHomeOrderDetailCell.h"
+@interface WKOrderDetail ()
 
 @end
 
-@implementation WKMyMsgViewController
+@implementation WKOrderDetail
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [self setMTitle:@"我的消息"];
+    [self setMTitle:@"订单详情"];
     [self addTableView];
-    UINib   *nib = [UINib nibWithNibName:@"WKMyMsgCell" bundle:nil];
+    // Do any additional setup after loading the view.
+    UINib   *nib = [UINib nibWithNibName:@"WKHomeOrderDetailCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
 }
 
@@ -41,7 +42,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 3;
+    return 1;
     
     
 }
@@ -49,7 +50,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    return 120;
+    return 668;
     
     
 }
@@ -60,7 +61,7 @@
     NSString *CellId = nil;
     CellId = @"cell";
     
-    WKMyMsgCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
+    WKHomeOrderDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
     return cell;
     
     

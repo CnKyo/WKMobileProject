@@ -1,13 +1,13 @@
 //
-//  WKMyMsgViewController.h
+//  WKMyCarCell.h
 //  WKMobileProject
 //
 //  Created by mwi01 on 2017/10/13.
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
 
-#import "WKBaseViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface WKMyMsgViewController : WKBaseViewController
+@interface WKMyCarCell : UITableViewCell
 
 @end

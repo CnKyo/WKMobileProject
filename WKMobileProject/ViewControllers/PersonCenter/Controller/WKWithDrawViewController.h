@@ -1,5 +1,5 @@
 //
-//  WKMyMsgViewController.h
+//  WKWithDrawViewController.h
 //  WKMobileProject
 //
 //  Created by mwi01 on 2017/10/13.
@@ -8,6 +8,6 @@
 
 #import "WKBaseViewController.h"
 
-@interface WKMyMsgViewController : WKBaseViewController
+@interface WKWithDrawViewController : WKBaseViewController
 
 @end

@@ -13,7 +13,6 @@
 #import "WKHeader.h"
 
 @interface WKPersoncenterViewController ()
-@property (strong,nonatomic) UITableView *tableView;
 
 @end
 

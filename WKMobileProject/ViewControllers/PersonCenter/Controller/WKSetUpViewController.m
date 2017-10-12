@@ -1,27 +1,36 @@
 //
-//  WKMyMsgViewController.m
+//  WKSetUpViewController.m
 //  WKMobileProject
 //
 //  Created by mwi01 on 2017/10/13.
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
 
-#import "WKMyMsgViewController.h"
+#import "WKSetUpViewController.h"
 #import "WKHeader.h"
-#import "WKMyMsgCell.h"
-@interface WKMyMsgViewController ()
+#import "WKSetUpTableViewCell.h"
+
+#import "WKSetUpBottomView.h"
+
+
+@interface WKSetUpViewController ()
 
 @end
 
-@implementation WKMyMsgViewController
-
+@implementation WKSetUpViewController
+{
+    
+    WKSetUpBottomView *mBottomView;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [self setMTitle:@"我的消息"];
+    [self setMTitle:@"设置"];
+    
     [self addTableView];
-    UINib   *nib = [UINib nibWithNibName:@"WKMyMsgCell" bundle:nil];
+    // Do any additional setup after loading the view.
+    UINib   *nib = [UINib nibWithNibName:@"WKSetUpTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
+    [self initBottomView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,7 +50,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 3;
+    return 1;
     
     
 }
@@ -49,7 +58,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    return 120;
+    return 45;
     
     
 }
@@ -60,7 +69,7 @@
     NSString *CellId = nil;
     CellId = @"cell";
     
-    WKMyMsgCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
+    WKSetUpTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
     return cell;
     
     
@@ -70,7 +79,30 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     MLLog(@"点击了第：%ld",indexPath.row);
+    [self showBottomView];
     
+}
+
+- (void)initBottomView{
+    mBottomView = [WKSetUpBottomView initView];
+    mBottomView.frame = CGRectMake(0, DEVICE_Height, DEVICE_Width, 120);
+    [self.view addSubview:mBottomView];
+    
+}
+- (void)showBottomView{
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        CGRect mRR = mBottomView.frame;
+        mRR.origin.y = DEVICE_Height-120;
+        mBottomView.frame = mRR;
+    }];
+}
+- (void)dissmiddBottomView{
+    [UIView animateWithDuration:0.25 animations:^{
+        CGRect mRR = mBottomView.frame;
+        mRR.origin.y = DEVICE_Height;
+        mBottomView.frame = mRR;
+    }];
     
 }
 @end
