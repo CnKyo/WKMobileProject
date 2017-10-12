@@ -151,6 +151,10 @@ typedef enum {
     ZLPPTReleaseTypeWithSendDo = 1,//送东西办事情
 } ZLPPTReleaseType;//发布跑腿类型
 
+typedef NS_ENUM(NSUInteger,WKTransferType){
+    WKDriver = 0,//司机
+    WKOrder = 1,//订单
+} ;//运输类型
 
 //-----------------------
 //自定义的写在下面，通用的写在上面

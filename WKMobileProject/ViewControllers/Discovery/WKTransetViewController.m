@@ -13,7 +13,8 @@
 #import "WKDriverCell.h"
 #import "WKReleaseViewController.h"
 #import "WKGoPayViewController.h"
-
+#import "WKMyReleaseCell.h"
+#import "WKOrderDetailViewController.h"
 @interface WKTransetViewController ()
 <UITableViewDelegate,UITableViewDataSource,WKSegmentControlDelagate>
 @property (strong,nonatomic) UITableView *tableView;
@@ -23,13 +24,15 @@
 {
     NSMutableArray *mTableArr;
     WKSegmentControl *mSegmentView;
-
+    
+    WKTransferType mType;
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"我要运输";
-    
+    mType = 0;
     mTableArr = [NSMutableArray new];
     
     CGRect mRFrame = CGRectMake(DEVICE_Width-60, 0, 60, 40);
@@ -40,6 +43,9 @@
 }
 
 - (void)initView{
+    
+    mSegmentView = [WKSegmentControl initWithSegmentControlFrame:CGRectMake(0, 0, DEVICE_Width, 50) andTitleWithBtn:@[@"司机列表",@"我的订单"] andBackgroudColor:[UIColor whiteColor] andBtnSelectedColor:[UIColor blueColor] andBtnTitleColor:[UIColor blackColor] andUndeLineColor: [UIColor blueColor] andBtnTitleFont:[UIFont systemFontOfSize:15] andInterval:5 delegate:self andIsHiddenLine:YES andType:4];
+    //    [self.view addSubview:mSegmentView];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero];
     self.tableView.delegate = self;
@@ -55,10 +61,13 @@
     UINib   *nib = [UINib nibWithNibName:@"WKDriverCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
     
+    nib = [UINib nibWithNibName:@"WKMyReleaseCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"cell2"];
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
         make.height.equalTo(self.view.mas_height);
+        
     }];
     
 }
@@ -70,14 +79,24 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    return mSegmentView;
+    
 }
-*/
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    return 50;
+    
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return 3;
@@ -86,8 +105,14 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return 80;
+    if (mType == 0) {
+        return 80;
+        
+    }else{
+        
+        return 160;
+        
+    }
     
 }
 
@@ -95,11 +120,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSString *CellId = nil;
+    if (mType == 0) {
+        CellId = @"cell";
+        
+        WKDriverCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
+        return cell;
+    }else{
+        
+        CellId = @"cell2";
+        
+        WKMyReleaseCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
+        return cell;
+    }
     
-    CellId = @"cell";
-    
-    WKDriverCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
-    return cell;
     
     
 }
@@ -108,12 +141,20 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     MLLog(@"点击了第：%ld",indexPath.row);
-    WKGoPayViewController *vc = [WKGoPayViewController new];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (mType == 0) {
+        WKGoPayViewController *vc = [WKGoPayViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        WKOrderDetailViewController *vc = [WKOrderDetailViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
+    
 }
 - (void)WKDidSelectedIndex:(NSInteger)mIndex{
     MLLog(@"点击了%lu",(unsigned long)mIndex);
-    
+    mType = mIndex;
+    [self.tableView reloadData];
     
 }
 @end
