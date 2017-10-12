@@ -150,6 +150,16 @@
 		52EB5EAD1F90151D007A381B /* WKBundleBankCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5EAB1F90151D007A381B /* WKBundleBankCardCell.xib */; };
 		52EB5EB11F90168F007A381B /* WKWithDrawCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5EAF1F90168F007A381B /* WKWithDrawCell.m */; };
 		52EB5EB21F90168F007A381B /* WKWithDrawCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5EB01F90168F007A381B /* WKWithDrawCell.xib */; };
+		52EB5EBC1F90234D007A381B /* 1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5EB41F90234D007A381B /* 1@2x.png */; };
+		52EB5EBD1F90234D007A381B /* 2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5EB51F90234D007A381B /* 2@2x.png */; };
+		52EB5EBE1F90234D007A381B /* 3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5EB61F90234D007A381B /* 3@2x.png */; };
+		52EB5EBF1F90234D007A381B /* 4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5EB71F90234D007A381B /* 4@2x.png */; };
+		52EB5EC01F90234D007A381B /* 5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5EB81F90234D007A381B /* 5@2x.png */; };
+		52EB5EC11F90234D007A381B /* 6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5EB91F90234D007A381B /* 6@2x.png */; };
+		52EB5EC21F90234D007A381B /* YZNavigationMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5EBB1F90234D007A381B /* YZNavigationMenuView.m */; };
+		52EB5EC51F9026FD007A381B /* WKBarCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5EC41F9026FD007A381B /* WKBarCodeViewController.m */; };
+		52EB5EC81F902752007A381B /* WKMyBarCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5EC71F902752007A381B /* WKMyBarCodeView.m */; };
+		52EB5ECA1F902758007A381B /* WKMyBarCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5EC91F902758007A381B /* WKMyBarCodeView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -413,6 +423,19 @@
 		52EB5EAE1F90168F007A381B /* WKWithDrawCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWithDrawCell.h; sourceTree = "<group>"; };
 		52EB5EAF1F90168F007A381B /* WKWithDrawCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWithDrawCell.m; sourceTree = "<group>"; };
 		52EB5EB01F90168F007A381B /* WKWithDrawCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKWithDrawCell.xib; sourceTree = "<group>"; };
+		52EB5EB41F90234D007A381B /* 1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1@2x.png"; sourceTree = "<group>"; };
+		52EB5EB51F90234D007A381B /* 2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2@2x.png"; sourceTree = "<group>"; };
+		52EB5EB61F90234D007A381B /* 3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3@2x.png"; sourceTree = "<group>"; };
+		52EB5EB71F90234D007A381B /* 4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4@2x.png"; sourceTree = "<group>"; };
+		52EB5EB81F90234D007A381B /* 5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5@2x.png"; sourceTree = "<group>"; };
+		52EB5EB91F90234D007A381B /* 6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6@2x.png"; sourceTree = "<group>"; };
+		52EB5EBA1F90234D007A381B /* YZNavigationMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZNavigationMenuView.h; sourceTree = "<group>"; };
+		52EB5EBB1F90234D007A381B /* YZNavigationMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZNavigationMenuView.m; sourceTree = "<group>"; };
+		52EB5EC31F9026FD007A381B /* WKBarCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKBarCodeViewController.h; sourceTree = "<group>"; };
+		52EB5EC41F9026FD007A381B /* WKBarCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKBarCodeViewController.m; sourceTree = "<group>"; };
+		52EB5EC61F902752007A381B /* WKMyBarCodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKMyBarCodeView.h; sourceTree = "<group>"; };
+		52EB5EC71F902752007A381B /* WKMyBarCodeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKMyBarCodeView.m; sourceTree = "<group>"; };
+		52EB5EC91F902758007A381B /* WKMyBarCodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKMyBarCodeView.xib; sourceTree = "<group>"; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD07EEDDCB555B036A1A24CA /* libPods-WKMobileProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -960,6 +983,8 @@
 				52EB5E171F8FB21C007A381B /* WKCameraViewController.m */,
 				52EB5E291F8FBBD9007A381B /* WKAddDeviceViewController.h */,
 				52EB5E2A1F8FBBD9007A381B /* WKAddDeviceViewController.m */,
+				52EB5EC31F9026FD007A381B /* WKBarCodeViewController.h */,
+				52EB5EC41F9026FD007A381B /* WKBarCodeViewController.m */,
 				5263F0131F8F336B00F80B4D /* View */,
 			);
 			path = Status;
@@ -977,6 +1002,9 @@
 				52EB5E6B1F8FEC90007A381B /* WKHomeOrderDetailCell.h */,
 				52EB5E6C1F8FEC90007A381B /* WKHomeOrderDetailCell.m */,
 				52EB5E6D1F8FEC90007A381B /* WKHomeOrderDetailCell.xib */,
+				52EB5EC61F902752007A381B /* WKMyBarCodeView.h */,
+				52EB5EC71F902752007A381B /* WKMyBarCodeView.m */,
+				52EB5EC91F902758007A381B /* WKMyBarCodeView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1018,6 +1046,7 @@
 		52EB5DEE1F8FAB11007A381B /* WKOtherResource */ = {
 			isa = PBXGroup;
 			children = (
+				52EB5EB31F90234D007A381B /* YZNavigationMenuVIew */,
 				52EB5E561F8FD7D7007A381B /* CKLeftSlide */,
 				52EB5E191F8FBBC4007A381B /* ScanCode */,
 				52EB5E1F1F8FBBC4007A381B /* WKCountTimeLb */,
@@ -1105,6 +1134,21 @@
 				52EB5E651F8FDDD6007A381B /* WKLeftViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		52EB5EB31F90234D007A381B /* YZNavigationMenuVIew */ = {
+			isa = PBXGroup;
+			children = (
+				52EB5EB41F90234D007A381B /* 1@2x.png */,
+				52EB5EB51F90234D007A381B /* 2@2x.png */,
+				52EB5EB61F90234D007A381B /* 3@2x.png */,
+				52EB5EB71F90234D007A381B /* 4@2x.png */,
+				52EB5EB81F90234D007A381B /* 5@2x.png */,
+				52EB5EB91F90234D007A381B /* 6@2x.png */,
+				52EB5EBA1F90234D007A381B /* YZNavigationMenuView.h */,
+				52EB5EBB1F90234D007A381B /* YZNavigationMenuView.m */,
+			);
+			path = YZNavigationMenuVIew;
 			sourceTree = "<group>";
 		};
 		7975C39D53A4E4C84C61C265 /* Pods */ = {
@@ -1261,23 +1305,28 @@
 				52EB5E8C1F9004B7007A381B /* WKMyCarCell.xib in Resources */,
 				52315FEB1F5285300001BA21 /* WKHomeTableViewCell.xib in Resources */,
 				52EB5E741F8FF50E007A381B /* WKCustomNavView.xib in Resources */,
+				52EB5ECA1F902758007A381B /* WKMyBarCodeView.xib in Resources */,
 				5263F0281F8F512900F80B4D /* WKPersonCellOne.xib in Resources */,
 				5263F0421F8F622D00F80B4D /* WKMyPayListCell.xib in Resources */,
 				52EB5DEA1F8FA5DF007A381B /* WKOrderDetailCell.xib in Resources */,
+				52EB5EBD1F90234D007A381B /* 2@2x.png in Resources */,
 				52EB5E501F8FCF98007A381B /* WKBundleCarCell.xib in Resources */,
 				5263F0531F8F664E00F80B4D /* WKReleaseCell.xib in Resources */,
 				31A222001E99CFA00058A21B /* iPhoneTypeDefine.plist in Resources */,
 				5263F03A1F8F5CCA00F80B4D /* WKMyReleaseCell.xib in Resources */,
+				52EB5EBC1F90234D007A381B /* 1@2x.png in Resources */,
 				5263F01D1F8F471800F80B4D /* WKHomeStatusCell.xib in Resources */,
 				52EB5E401F8FC46C007A381B /* WKRegistCell.xib in Resources */,
 				52315FF01F529BE40001BA21 /* WKLoginView.xib in Resources */,
 				315FFC111E97D3C600C78440 /* LaunchScreen.storyboard in Resources */,
 				52315FF51F52A5AB0001BA21 /* WKLoginViewController.xib in Resources */,
 				52EB5E6F1F8FEC90007A381B /* WKHomeOrderDetailCell.xib in Resources */,
+				52EB5EC01F90234D007A381B /* 5@2x.png in Resources */,
 				5263F0581F8F6B1D00F80B4D /* WKGoPayCell.xib in Resources */,
 				52EB5E9D1F900AED007A381B /* WKSetUpTableViewCell.xib in Resources */,
 				52EB5E3B1F8FC437007A381B /* WKRegistViewController.xib in Resources */,
 				315FFC0E1E97D3C600C78440 /* Assets.xcassets in Resources */,
+				52EB5EBF1F90234D007A381B /* 4@2x.png in Resources */,
 				5263F0B91F8F7CDF00F80B4D /* WKExchangeCell.xib in Resources */,
 				5263F0321F8F514E00F80B4D /* WKPersonCellThree.xib in Resources */,
 				52AAA1391F8F8E3000AC777C /* WKDriverCell.xib in Resources */,
@@ -1285,9 +1334,11 @@
 				52EB5E451F8FCAF3007A381B /* WKBundlePersonMsgCell.xib in Resources */,
 				52EB5EA21F900BAC007A381B /* WKSetUpBottomView.xib in Resources */,
 				5263F0181F8F341400F80B4D /* WKNavLeftView.xib in Resources */,
+				52EB5EC11F90234D007A381B /* 6@2x.png in Resources */,
 				52EB5E331F8FC15E007A381B /* WKMoveCell.xib in Resources */,
 				52EB5EB21F90168F007A381B /* WKWithDrawCell.xib in Resources */,
 				5263F0601F8F734600F80B4D /* WKDiscoveryCell.xib in Resources */,
+				52EB5EBE1F90234D007A381B /* 3@2x.png in Resources */,
 				52EB5E251F8FBBC4007A381B /* scancode.caf in Resources */,
 				52EB5E551F8FD2E7007A381B /* WKBundleFinishCell.xib in Resources */,
 				5263F0C11F8F7E8500F80B4D /* WKExchangeBarcodeView.xib in Resources */,
@@ -1367,6 +1418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52EB5EC21F90234D007A381B /* YZNavigationMenuView.m in Sources */,
 				31A221FF1E99CFA00058A21B /* CTCachedObject.m in Sources */,
 				5263F0391F8F5CCA00F80B4D /* WKMyReleaseCell.m in Sources */,
 				523704E61F4EA8900046D674 /* WKModel.m in Sources */,
@@ -1397,6 +1449,7 @@
 				31A221FD1E99CFA00058A21B /* CTAPIBaseManager.m in Sources */,
 				31A221F91E99CFA00058A21B /* NSString+AXNetworkingMethods.m in Sources */,
 				52EB5E721F8FF505007A381B /* WKCustomNavView.m in Sources */,
+				52EB5EC51F9026FD007A381B /* WKBarCodeViewController.m in Sources */,
 				31A221FC1E99CFA00058A21B /* CTApiProxy.m in Sources */,
 				5263F0201F8F506100F80B4D /* WKDiscoveryViewController.m in Sources */,
 				52EB5E261F8FBBC4007A381B /* UIImage+Extend.m in Sources */,
@@ -1448,6 +1501,7 @@
 				52EB5E481F8FCDC4007A381B /* WKBundlePersonMsgViewController.m in Sources */,
 				52EB5DF51F8FAD3B007A381B /* WKNearByViewController.m in Sources */,
 				31A2220D1E99CFA10058A21B /* GDMapService.m in Sources */,
+				52EB5EC81F902752007A381B /* WKMyBarCodeView.m in Sources */,
 				52EB5E541F8FD2E7007A381B /* WKBundleFinishCell.m in Sources */,
 				52EB5E871F90047C007A381B /* WKMyCarViewController.m in Sources */,
 				31A2220A1E99CFA10058A21B /* CTAppContext.m in Sources */,

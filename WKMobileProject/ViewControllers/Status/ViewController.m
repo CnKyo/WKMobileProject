@@ -21,7 +21,10 @@
 #import "AppDelegate.h"
 #import "CKLeftSlideViewController.h"
 #import "WKOrderDetailViewController.h"
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,AVSpeechSynthesizerDelegate,UIAlertViewDelegate,WKNavLeftViewDelegate,WKHomeStatusCellDelegate>
+
+#import "YZNavigationMenuView.h"
+#import "WKBarCodeViewController.h"
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,AVSpeechSynthesizerDelegate,UIAlertViewDelegate,WKNavLeftViewDelegate,WKHomeStatusCellDelegate,YZNavigationMenuViewDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 
@@ -44,7 +47,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-   
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
     self.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setTranslucent:NO];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"icon_header"] style:UIBarButtonItemStylePlain target:self action:@selector(leftAction:)];
@@ -93,7 +97,42 @@
 }
 - (void)handleRightNaviButtonAction{
     MLLog(@"右边");
+    NSMutableArray *imageArray = [NSMutableArray arrayWithCapacity:0];
+    for (int i = 0; i < 6; i++) {
+        NSString *name = [NSString stringWithFormat:@"%d",i + 1];
+        UIImage *image  = [UIImage imageNamed:name];
+        [imageArray addObject:image];
+        
+    }
     
+    YZNavigationMenuView *menuView = [[YZNavigationMenuView alloc] initWithPositionOfDirection:CGPointMake(self.view.frame.size.width - 24, 0) images:imageArray titleArray:@[@"扫一扫",@"收款   ",]];
+    menuView.delegate = self;
+    [self.view addSubview:menuView];
+}
+- (void)navigationMenuView:(YZNavigationMenuView *)menuView clickedAtIndex:(NSInteger)index;
+{
+    NSLog(@"------我是第%ld栏",index + 1);
+    switch (index) {
+        case 0:
+        {
+        WKAddDeviceViewController *vc = [WKAddDeviceViewController new];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        }
+            break;
+        case 1:
+        {
+        
+        WKBarCodeViewController *vc = [WKBarCodeViewController new];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
