@@ -15,6 +15,7 @@
 #import "WKMyCollectionViewController.h"
 #import "WKMyPayListViewController.h"
 #import "WKMyMsgViewController.h"
+#import "WKMoveHistoryViewController.h"
 @interface WKPersoncenterViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic) UITableView *tableView;
 
@@ -32,7 +33,7 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"个人中心";
     mTableArr = [NSMutableArray new];
-    mSArr = @[@"我的发布",@"我的消费记录",@"我的消息"];
+    mSArr = @[@"我的发布",@"我的消费记录",@"我的消息",@"我的流动记录"];
     [self initView];
 }
 
@@ -160,9 +161,14 @@
             WKMyPayListViewController *vc = [WKMyPayListViewController new];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
+        }else if (indexPath.row == 2){
+            
+            WKMyPayListViewController *vc = [WKMyPayListViewController new];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
         }else{
             MLLog(@"其他 ");
-            WKMyMsgViewController *vc = [WKMyMsgViewController new];
+            WKMoveHistoryViewController *vc = [WKMoveHistoryViewController new];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
             

@@ -117,6 +117,9 @@
 		52EB5E271F8FBBC4007A381B /* ControlRunLoopTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E211F8FBBC4007A381B /* ControlRunLoopTool.m */; };
 		52EB5E281F8FBBC4007A381B /* CountDownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E231F8FBBC4007A381B /* CountDownLabel.m */; };
 		52EB5E2B1F8FBBD9007A381B /* WKAddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E2A1F8FBBD9007A381B /* WKAddDeviceViewController.m */; };
+		52EB5E2E1F8FC0FF007A381B /* WKMoveHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E2D1F8FC0FF007A381B /* WKMoveHistoryViewController.m */; };
+		52EB5E321F8FC15E007A381B /* WKMoveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E301F8FC15E007A381B /* WKMoveCell.m */; };
+		52EB5E331F8FC15E007A381B /* WKMoveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5E311F8FC15E007A381B /* WKMoveCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -327,6 +330,11 @@
 		52EB5E231F8FBBC4007A381B /* CountDownLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountDownLabel.m; sourceTree = "<group>"; };
 		52EB5E291F8FBBD9007A381B /* WKAddDeviceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKAddDeviceViewController.h; sourceTree = "<group>"; };
 		52EB5E2A1F8FBBD9007A381B /* WKAddDeviceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKAddDeviceViewController.m; sourceTree = "<group>"; };
+		52EB5E2C1F8FC0FF007A381B /* WKMoveHistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKMoveHistoryViewController.h; sourceTree = "<group>"; };
+		52EB5E2D1F8FC0FF007A381B /* WKMoveHistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKMoveHistoryViewController.m; sourceTree = "<group>"; };
+		52EB5E2F1F8FC15E007A381B /* WKMoveCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKMoveCell.h; sourceTree = "<group>"; };
+		52EB5E301F8FC15E007A381B /* WKMoveCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKMoveCell.m; sourceTree = "<group>"; };
+		52EB5E311F8FC15E007A381B /* WKMoveCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKMoveCell.xib; sourceTree = "<group>"; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD07EEDDCB555B036A1A24CA /* libPods-WKMobileProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -823,6 +831,9 @@
 				5263F0541F8F6B1D00F80B4D /* WKGoPayCell.h */,
 				5263F0551F8F6B1D00F80B4D /* WKGoPayCell.m */,
 				5263F0561F8F6B1D00F80B4D /* WKGoPayCell.xib */,
+				52EB5E2F1F8FC15E007A381B /* WKMoveCell.h */,
+				52EB5E301F8FC15E007A381B /* WKMoveCell.m */,
+				52EB5E311F8FC15E007A381B /* WKMoveCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -869,6 +880,8 @@
 				5263F04D1F8F65EC00F80B4D /* WKReleaseViewController.m */,
 				5263F0591F8F702E00F80B4D /* WKGoPayViewController.h */,
 				5263F05A1F8F702E00F80B4D /* WKGoPayViewController.m */,
+				52EB5E2C1F8FC0FF007A381B /* WKMoveHistoryViewController.h */,
+				52EB5E2D1F8FC0FF007A381B /* WKMoveHistoryViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1106,6 +1119,7 @@
 				52AAA1391F8F8E3000AC777C /* WKDriverCell.xib in Resources */,
 				31A2220C1E99CFA10058A21B /* CTNetworkingConfiguration.plist in Resources */,
 				5263F0181F8F341400F80B4D /* WKNavLeftView.xib in Resources */,
+				52EB5E331F8FC15E007A381B /* WKMoveCell.xib in Resources */,
 				5263F0601F8F734600F80B4D /* WKDiscoveryCell.xib in Resources */,
 				52EB5E251F8FBBC4007A381B /* scancode.caf in Resources */,
 				5263F0C11F8F7E8500F80B4D /* WKExchangeBarcodeView.xib in Resources */,
@@ -1185,6 +1199,7 @@
 			files = (
 				31A221FF1E99CFA00058A21B /* CTCachedObject.m in Sources */,
 				5263F0391F8F5CCA00F80B4D /* WKMyReleaseCell.m in Sources */,
+				52EB5E2E1F8FC0FF007A381B /* WKMoveHistoryViewController.m in Sources */,
 				523704E61F4EA8900046D674 /* WKModel.m in Sources */,
 				52315FEE1F529BDE0001BA21 /* WKLoginView.m in Sources */,
 				31A222081E99CFA10058A21B /* CTService.m in Sources */,
@@ -1214,6 +1229,7 @@
 				31A222011E99CFA00058A21B /* CTLocationManager.m in Sources */,
 				5263F0271F8F512900F80B4D /* WKPersonCellOne.m in Sources */,
 				52EB5E181F8FB21C007A381B /* WKCameraViewController.m in Sources */,
+				52EB5E321F8FC15E007A381B /* WKMoveCell.m in Sources */,
 				52EB5E241F8FBBC4007A381B /* NSString+QRCode.m in Sources */,
 				31A221FB1E99CFA00058A21B /* UIDevice+IdentifierAddition.m in Sources */,
 				31A2220B1E99CFA10058A21B /* CTLoggerConfiguration.m in Sources */,

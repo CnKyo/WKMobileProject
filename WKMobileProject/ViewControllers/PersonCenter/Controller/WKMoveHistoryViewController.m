@@ -1,28 +1,25 @@
 //
-//  WKReleaseViewController.m
+//  WKMoveHistoryViewController.m
 //  WKMobileProject
 //
 //  Created by mwi01 on 2017/10/12.
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
 
-#import "WKReleaseViewController.h"
+#import "WKMoveHistoryViewController.h"
 #import "WKHeader.h"
-#import "WKReleaseCell.h"
-#import "WKGoPayViewController.h"
-@interface WKReleaseViewController ()<UITableViewDelegate,UITableViewDataSource,WKReleaseCellDelegate>
+#import "WKMoveCell.h"
+@interface WKMoveHistoryViewController ()
+<UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic) UITableView *tableView;
-
-
 @end
 
-@implementation WKReleaseViewController
+@implementation WKMoveHistoryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"我要发布";
+    self.navigationItem.title = @"我的流动记录";
     [self initView];
-    
 }
 - (void)initView{
     
@@ -37,7 +34,7 @@
     
     self.tableView.backgroundColor = COLOR(247, 247, 247);
     
-    UINib   *nib = [UINib nibWithNibName:@"WKReleaseCell" bundle:nil];
+    UINib   *nib = [UINib nibWithNibName:@"WKMoveCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
     
     
@@ -47,30 +44,31 @@
     }];
     
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 /*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 1;
+    return 4;
     
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 820;
+    return 120;
     
 }
 
@@ -81,23 +79,15 @@
     
     CellId = @"cell";
     
-    WKReleaseCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
-    cell.delegate = self;
+    WKMoveCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
     return cell;
     
     
 }
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     MLLog(@"点击了第：%ld",indexPath.row);
-    
-}
-- (void)WKReleaseCellDelegateWithBtnAction:(NSInteger)mTag{
-    MLLog(@"点击了%ld个",mTag);
-    WKGoPayViewController *vc = [WKGoPayViewController new];
-    [self.navigationController pushViewController:vc animated:YES];
     
 }
 @end

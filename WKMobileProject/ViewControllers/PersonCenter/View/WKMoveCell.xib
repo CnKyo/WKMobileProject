@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="120" id="KGk-i7-Jjw" customClass="WKMoveCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lai-BX-hHD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="10"/>
+                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="0.19777397260273974" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="3oQ-2G-RB4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WWf-si-tLF"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间：2017-08-09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TyJ-1Z-eX0">
+                        <rect key="frame" x="8" y="18" width="307" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="目的地：重庆市九龙坡区杨家坪" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jsg-S4-qMi">
+                        <rect key="frame" x="8" y="78" width="307" height="27"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出发地：重庆市九龙坡区白市驿" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oad-VM-AqG">
+                        <rect key="frame" x="8" y="46" width="307" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="TyJ-1Z-eX0" firstAttribute="top" secondItem="lai-BX-hHD" secondAttribute="bottom" constant="8" id="Ghk-1z-hbs"/>
+                    <constraint firstItem="TyJ-1Z-eX0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="HZN-Ku-Qrw"/>
+                    <constraint firstItem="Jsg-S4-qMi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="M0l-OY-GTv"/>
+                    <constraint firstAttribute="bottom" secondItem="Jsg-S4-qMi" secondAttribute="bottom" constant="14.5" id="RsH-YB-NMJ"/>
+                    <constraint firstItem="Jsg-S4-qMi" firstAttribute="top" secondItem="Oad-VM-AqG" secondAttribute="bottom" constant="14" id="Zs1-Cb-Jrr"/>
+                    <constraint firstAttribute="trailing" secondItem="Oad-VM-AqG" secondAttribute="trailing" constant="5" id="agQ-25-Ckg"/>
+                    <constraint firstItem="Oad-VM-AqG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="awl-8P-0GL"/>
+                    <constraint firstAttribute="trailing" secondItem="Jsg-S4-qMi" secondAttribute="trailing" constant="5" id="d7T-Qd-31U"/>
+                    <constraint firstAttribute="trailing" secondItem="TyJ-1Z-eX0" secondAttribute="trailing" constant="5" id="osL-Pn-IPP"/>
+                    <constraint firstItem="Oad-VM-AqG" firstAttribute="top" secondItem="TyJ-1Z-eX0" secondAttribute="bottom" constant="10" id="sfc-cN-igw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="aW0-zy-SZf" firstAttribute="trailing" secondItem="lai-BX-hHD" secondAttribute="trailing" id="Urp-S4-dgh"/>
+                <constraint firstItem="lai-BX-hHD" firstAttribute="top" secondItem="aW0-zy-SZf" secondAttribute="top" id="kDs-5K-imq"/>
+                <constraint firstItem="lai-BX-hHD" firstAttribute="leading" secondItem="aW0-zy-SZf" secondAttribute="leading" id="noA-EJ-Ss2"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <point key="canvasLocation" x="42" y="92"/>
+        </tableViewCell>
+    </objects>
+</document>
