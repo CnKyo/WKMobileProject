@@ -16,6 +16,7 @@
 #import "WKNavLeftView.h"
 #import "WKHomeStatusCell.h"
 #import "WKCameraViewController.h"
+#import "WKAddDeviceViewController.h"
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource,AVSpeechSynthesizerDelegate,UIAlertViewDelegate,WKNavLeftViewDelegate,WKHomeStatusCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
@@ -97,6 +98,9 @@
 - (void)handleRightNaviButtonAction:(UIButton *)sender{
     
     MLLog(@"左边的添加");
+    WKAddDeviceViewController *vc = [WKAddDeviceViewController new];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)WKNavLeftViewDelegateWithBtnAction{
     

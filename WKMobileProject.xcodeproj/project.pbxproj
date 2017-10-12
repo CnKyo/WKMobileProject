@@ -111,6 +111,12 @@
 		52EB5E141F8FB1FC007A381B /* ZGLVideoMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E111F8FB1FC007A381B /* ZGLVideoMaskView.m */; };
 		52EB5E151F8FB1FC007A381B /* ZGLVideoPlyer.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E131F8FB1FC007A381B /* ZGLVideoPlyer.m */; };
 		52EB5E181F8FB21C007A381B /* WKCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E171F8FB21C007A381B /* WKCameraViewController.m */; };
+		52EB5E241F8FBBC4007A381B /* NSString+QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E1B1F8FBBC4007A381B /* NSString+QRCode.m */; };
+		52EB5E251F8FBBC4007A381B /* scancode.caf in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5E1C1F8FBBC4007A381B /* scancode.caf */; };
+		52EB5E261F8FBBC4007A381B /* UIImage+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E1E1F8FBBC4007A381B /* UIImage+Extend.m */; };
+		52EB5E271F8FBBC4007A381B /* ControlRunLoopTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E211F8FBBC4007A381B /* ControlRunLoopTool.m */; };
+		52EB5E281F8FBBC4007A381B /* CountDownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E231F8FBBC4007A381B /* CountDownLabel.m */; };
+		52EB5E2B1F8FBBD9007A381B /* WKAddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E2A1F8FBBD9007A381B /* WKAddDeviceViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -310,6 +316,17 @@
 		52EB5E131F8FB1FC007A381B /* ZGLVideoPlyer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGLVideoPlyer.m; sourceTree = "<group>"; };
 		52EB5E161F8FB21C007A381B /* WKCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKCameraViewController.h; sourceTree = "<group>"; };
 		52EB5E171F8FB21C007A381B /* WKCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKCameraViewController.m; sourceTree = "<group>"; };
+		52EB5E1A1F8FBBC4007A381B /* NSString+QRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QRCode.h"; sourceTree = "<group>"; };
+		52EB5E1B1F8FBBC4007A381B /* NSString+QRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QRCode.m"; sourceTree = "<group>"; };
+		52EB5E1C1F8FBBC4007A381B /* scancode.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = scancode.caf; sourceTree = "<group>"; };
+		52EB5E1D1F8FBBC4007A381B /* UIImage+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extend.h"; sourceTree = "<group>"; };
+		52EB5E1E1F8FBBC4007A381B /* UIImage+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extend.m"; sourceTree = "<group>"; };
+		52EB5E201F8FBBC4007A381B /* ControlRunLoopTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlRunLoopTool.h; sourceTree = "<group>"; };
+		52EB5E211F8FBBC4007A381B /* ControlRunLoopTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlRunLoopTool.m; sourceTree = "<group>"; };
+		52EB5E221F8FBBC4007A381B /* CountDownLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountDownLabel.h; sourceTree = "<group>"; };
+		52EB5E231F8FBBC4007A381B /* CountDownLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountDownLabel.m; sourceTree = "<group>"; };
+		52EB5E291F8FBBD9007A381B /* WKAddDeviceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKAddDeviceViewController.h; sourceTree = "<group>"; };
+		52EB5E2A1F8FBBD9007A381B /* WKAddDeviceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKAddDeviceViewController.m; sourceTree = "<group>"; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD07EEDDCB555B036A1A24CA /* libPods-WKMobileProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -817,6 +834,8 @@
 				315FFC081E97D3C600C78440 /* ViewController.m */,
 				52EB5E161F8FB21C007A381B /* WKCameraViewController.h */,
 				52EB5E171F8FB21C007A381B /* WKCameraViewController.m */,
+				52EB5E291F8FBBD9007A381B /* WKAddDeviceViewController.h */,
+				52EB5E2A1F8FBBD9007A381B /* WKAddDeviceViewController.m */,
 				5263F0131F8F336B00F80B4D /* View */,
 			);
 			path = Status;
@@ -866,6 +885,8 @@
 		52EB5DEE1F8FAB11007A381B /* WKOtherResource */ = {
 			isa = PBXGroup;
 			children = (
+				52EB5E191F8FBBC4007A381B /* ScanCode */,
+				52EB5E1F1F8FBBC4007A381B /* WKCountTimeLb */,
 				52EB5E0F1F8FB1FC007A381B /* ZGLVideoPlayer */,
 				52EB5DEF1F8FAB11007A381B /* UIBannerView */,
 			);
@@ -890,6 +911,29 @@
 				52EB5E131F8FB1FC007A381B /* ZGLVideoPlyer.m */,
 			);
 			path = ZGLVideoPlayer;
+			sourceTree = "<group>";
+		};
+		52EB5E191F8FBBC4007A381B /* ScanCode */ = {
+			isa = PBXGroup;
+			children = (
+				52EB5E1A1F8FBBC4007A381B /* NSString+QRCode.h */,
+				52EB5E1B1F8FBBC4007A381B /* NSString+QRCode.m */,
+				52EB5E1C1F8FBBC4007A381B /* scancode.caf */,
+				52EB5E1D1F8FBBC4007A381B /* UIImage+Extend.h */,
+				52EB5E1E1F8FBBC4007A381B /* UIImage+Extend.m */,
+			);
+			path = ScanCode;
+			sourceTree = "<group>";
+		};
+		52EB5E1F1F8FBBC4007A381B /* WKCountTimeLb */ = {
+			isa = PBXGroup;
+			children = (
+				52EB5E201F8FBBC4007A381B /* ControlRunLoopTool.h */,
+				52EB5E211F8FBBC4007A381B /* ControlRunLoopTool.m */,
+				52EB5E221F8FBBC4007A381B /* CountDownLabel.h */,
+				52EB5E231F8FBBC4007A381B /* CountDownLabel.m */,
+			);
+			path = WKCountTimeLb;
 			sourceTree = "<group>";
 		};
 		7975C39D53A4E4C84C61C265 /* Pods */ = {
@@ -1063,6 +1107,7 @@
 				31A2220C1E99CFA10058A21B /* CTNetworkingConfiguration.plist in Resources */,
 				5263F0181F8F341400F80B4D /* WKNavLeftView.xib in Resources */,
 				5263F0601F8F734600F80B4D /* WKDiscoveryCell.xib in Resources */,
+				52EB5E251F8FBBC4007A381B /* scancode.caf in Resources */,
 				5263F0C11F8F7E8500F80B4D /* WKExchangeBarcodeView.xib in Resources */,
 				5263F02D1F8F514200F80B4D /* WKPersonCellTwo.xib in Resources */,
 				5263F0471F8F63E000F80B4D /* WKMyMsgCell.xib in Resources */,
@@ -1161,6 +1206,7 @@
 				31A221FC1E99CFA00058A21B /* CTApiProxy.m in Sources */,
 				5263F0201F8F506100F80B4D /* WKDiscoveryViewController.m in Sources */,
 				5263F04A1F8F64CF00F80B4D /* WKMyMsgViewController.m in Sources */,
+				52EB5E261F8FBBC4007A381B /* UIImage+Extend.m in Sources */,
 				31A222021E99CFA00058A21B /* CTLogger.m in Sources */,
 				5263F0C71F8F829000F80B4D /* WKTransetViewController.m in Sources */,
 				52315FF41F52A5AB0001BA21 /* WKLoginViewController.m in Sources */,
@@ -1168,10 +1214,12 @@
 				31A222011E99CFA00058A21B /* CTLocationManager.m in Sources */,
 				5263F0271F8F512900F80B4D /* WKPersonCellOne.m in Sources */,
 				52EB5E181F8FB21C007A381B /* WKCameraViewController.m in Sources */,
+				52EB5E241F8FBBC4007A381B /* NSString+QRCode.m in Sources */,
 				31A221FB1E99CFA00058A21B /* UIDevice+IdentifierAddition.m in Sources */,
 				31A2220B1E99CFA10058A21B /* CTLoggerConfiguration.m in Sources */,
 				52EB5E151F8FB1FC007A381B /* ZGLVideoPlyer.m in Sources */,
 				5263F0571F8F6B1D00F80B4D /* WKGoPayCell.m in Sources */,
+				52EB5E281F8FBBC4007A381B /* CountDownLabel.m in Sources */,
 				31A222101E99D0520058A21B /* WKAPIManager.m in Sources */,
 				52EB5DED1F8FA99B007A381B /* WKOrderDetailViewController.m in Sources */,
 				315FFC031E97D3C600C78440 /* main.m in Sources */,
@@ -1181,6 +1229,7 @@
 				31A221FE1E99CFA00058A21B /* CTCache.m in Sources */,
 				31A221F71E99CFA00058A21B /* NSMutableString+AXNetworkingMethods.m in Sources */,
 				31A221F51E99CFA00058A21B /* NSArray+AXNetworkingMethods.m in Sources */,
+				52EB5E271F8FBBC4007A381B /* ControlRunLoopTool.m in Sources */,
 				31A222051E99CFA10058A21B /* CTRequestGenerator.m in Sources */,
 				5263F05B1F8F702E00F80B4D /* WKGoPayViewController.m in Sources */,
 				31A222091E99CFA10058A21B /* CTServiceFactory.m in Sources */,
@@ -1191,6 +1240,7 @@
 				31A222061E99CFA10058A21B /* CTSignatureGenerator.m in Sources */,
 				5263F0B81F8F7CDF00F80B4D /* WKExchangeCell.m in Sources */,
 				52EB5E141F8FB1FC007A381B /* ZGLVideoMaskView.m in Sources */,
+				52EB5E2B1F8FBBD9007A381B /* WKAddDeviceViewController.m in Sources */,
 				52EB5DE51F8FA182007A381B /* WKSegmentControl.m in Sources */,
 				5263F0BC1F8F7D8700F80B4D /* WKExchangeViewController.m in Sources */,
 				52EB5DF51F8FAD3B007A381B /* WKNearByViewController.m in Sources */,
