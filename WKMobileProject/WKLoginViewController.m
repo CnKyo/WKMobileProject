@@ -10,6 +10,7 @@
 #import "WKHeader.h"
 #import <Masonry.h>
 #import "WKLoginView.h"
+#import "WKRegistViewController.h"
 @interface WKLoginViewController ()<WKLoginViewDelegate>
 
 @end
@@ -52,11 +53,19 @@
 /**
  按钮代理方法
  
- @param mTag 1:登录。2:qq登录。3:微信登录
+ @param mTag 1:登录。2:qq登录。3:微信登录。 0:注册
  */
 - (void)WKLoginViewBtnActions:(NSInteger)mTag{
     MLLog(@"你惦记的按钮式：%ld",mTag);
     switch (mTag) {
+
+        case 0:
+        {
+        WKRegistViewController *vc = [[WKRegistViewController alloc] initWithNibName:@"WKRegistViewController" bundle:nil];
+        
+        [self presentViewController:vc animated:YES completion:nil];
+        }
+            break;
         case 1:
         {
 //        NSString *mIp = [Util wk_getIPAddress];
