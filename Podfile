@@ -19,7 +19,7 @@ target 'WKMobileProject' do
   pod 'LKDBHelper'
   pod 'MJExtension'
   pod 'MJRefresh'
-  pod 'AMap2DMap'
+  pod 'AMap3DMap'
   pod 'AMapSearch'
   pod 'AMapLocation'
 #  pod 'SDWebImage','~> 3.8.2'

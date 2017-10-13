@@ -16,6 +16,9 @@
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
 #endif
+
+#import <AMapFoundationKit/AMapFoundationKit.h>
+
 @interface AppDelegate ()<JPUSHRegisterDelegate>
 
 @end
@@ -24,6 +27,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [AMapServices sharedServices].apiKey = @"5b5bc2a34bc93348a801c807ae2aca03";
+
     // Override point for customization after application launch.
     
     //Required

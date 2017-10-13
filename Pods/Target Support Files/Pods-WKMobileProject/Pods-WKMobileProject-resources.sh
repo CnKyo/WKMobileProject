@@ -80,7 +80,7 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "AMap2DMap/MAMapKit.framework/AMap.bundle"
+  install_resource "AMap3DMap/MAMapKit.framework/AMap.bundle"
   install_resource "AlipaySDK-2.0/AlipaySDK.bundle"
   install_resource "DateTools/DateTools/DateTools/DateTools.bundle"
   install_resource "IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
@@ -94,7 +94,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "ShareSDK3/SDK/ShareSDK/Support/Optional/ShareSDKUI.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "AMap2DMap/MAMapKit.framework/AMap.bundle"
+  install_resource "AMap3DMap/MAMapKit.framework/AMap.bundle"
   install_resource "AlipaySDK-2.0/AlipaySDK.bundle"
   install_resource "DateTools/DateTools/DateTools/DateTools.bundle"
   install_resource "IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
