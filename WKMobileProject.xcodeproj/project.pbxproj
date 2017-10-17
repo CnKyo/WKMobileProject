@@ -1654,7 +1654,7 @@
 				INFOPLIST_FILE = WKMobileProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mw.washmachine;
+				PRODUCT_BUNDLE_IDENTIFIER = bee.eye.exchange.mw.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1669,7 +1669,7 @@
 				INFOPLIST_FILE = WKMobileProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mw.washmachine;
+				PRODUCT_BUNDLE_IDENTIFIER = bee.eye.exchange.mw.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
