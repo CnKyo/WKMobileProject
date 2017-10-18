@@ -699,7 +699,7 @@
 				TargetAttributes = {
 					315FFBFD1E97D3C600C78440 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 45YS2S94XQ;
+						DevelopmentTeam = 7U7AE55838;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1008,11 +1008,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WKMobileProject/WKMobileProject.entitlements;
-				DEVELOPMENT_TEAM = 45YS2S94XQ;
+				DEVELOPMENT_TEAM = 7U7AE55838;
 				INFOPLIST_FILE = WKMobileProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mw.washmachine;
+				PRODUCT_BUNDLE_IDENTIFIER = VIPVoice.mw.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1023,11 +1023,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WKMobileProject/WKMobileProject.entitlements;
-				DEVELOPMENT_TEAM = 45YS2S94XQ;
+				DEVELOPMENT_TEAM = 7U7AE55838;
 				INFOPLIST_FILE = WKMobileProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mw.washmachine;
+				PRODUCT_BUNDLE_IDENTIFIER = VIPVoice.mw.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

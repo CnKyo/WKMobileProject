@@ -32,6 +32,7 @@
 @property (nonatomic, strong) NSString *            time;              //
 
 @property (nonatomic, strong) NSString *            price;              //
+@property (nonatomic, assign) int                   num;              //
 
 
 @end

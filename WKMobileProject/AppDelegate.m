@@ -40,7 +40,7 @@
     
 #warning 极光推送在正式环境时一定铭记改状态
     
-    [JPUSHService setupWithOption:launchOptions appKey:@"1ff160bf7972557f87d74524" channel:@"25b4503e82ad1f91cfc56061" apsForProduction:NO];
+    [JPUSHService setupWithOption:launchOptions appKey:kAFAppJPushAppKey channel:@"25b4503e82ad1f91cfc56061" apsForProduction:NO];
     
     
     [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {

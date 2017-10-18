@@ -53,12 +53,8 @@
     self.view.backgroundColor = [UIColor colorWithRed:0.949019607843137 green:0.949019607843137 blue:0.949019607843137 alpha:1.00];
     
     
-    
+    mTableArr = [WKHomeModel searchWithSQL:@"HomeList"];
 
-    
-    
-    mTableArr = [WKHomeModel searchWithWhere:[NSString stringWithFormat:@"mId=1"]];
-    
     [mTableView reloadData];
     
     WKLoginViewController *vc = [[WKLoginViewController alloc] initWithNibName:@"WKLoginViewController" bundle:nil];
@@ -103,10 +99,10 @@
     mHome.mName = mJpush.aps.alert;
     mHome.mPrice = mJpush.price;
     mHome.mTime = mJpush.time;
-    mHome.mNo+=1;
+    mHome.mNo=mJpush.num;
     [mHome saveToDB];
     
-    mTableArr = [WKHomeModel searchWithWhere:[NSString stringWithFormat:@"mId=1"]];
+    mTableArr = [WKHomeModel searchWithSQL:@"HomeList"];
     
     [mTableView reloadData];
     

@@ -105,6 +105,9 @@ UITableViewCell *cell=[tableview cellForRowAtIndexPath:indexPath];\
 cell;\
 })\
 
+///极光推送APKey和scret
+static NSString* const  kAFAppJPushAppKey        = @"5712c9694943a6b9b8a75b94";
+static NSString* const  kAFAppJPushMasterSecret        = @"3fec58b2dfb10e5e58f73650";
 
 
 ///api访问地址

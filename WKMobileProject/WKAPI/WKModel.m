@@ -24,10 +24,13 @@
 @end
 
 @implementation WKHomeModel
-+ (NSString *)getPrimaryKey{
+//+ (NSString *)getPrimaryKey{
+//    
+//    return @"mId";
+//}
++(NSString *)getTableName{
     
-    return @"mId";
+    return @"HomeList";
 }
-
 
 @end
