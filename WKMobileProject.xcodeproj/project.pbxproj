@@ -68,11 +68,10 @@
 		529A9CA81F972A3500D48977 /* LLKeyValueStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 529A9CA41F972A3500D48977 /* LLKeyValueStore.m */; };
 		529A9CA91F972A3500D48977 /* YTKKeyValueStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 529A9CA71F972A3500D48977 /* YTKKeyValueStore.m */; };
 		529A9CAB1F97345100D48977 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 529A9CAA1F97345100D48977 /* libsqlite3.tbd */; };
-		529A9CBB1F9743D100D48977 /* JWBluetoothManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 529A9CAF1F9743D100D48977 /* JWBluetoothManage.m */; };
-		529A9CBC1F9743D100D48977 /* JWPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 529A9CB11F9743D100D48977 /* JWPrinter.m */; };
-		529A9CBE1F9743D100D48977 /* ProgressShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 529A9CB61F9743D100D48977 /* ProgressShow.m */; };
-		529A9CBF1F9743D100D48977 /* UIImage+Bitmap.m in Sources */ = {isa = PBXBuildFile; fileRef = 529A9CB81F9743D100D48977 /* UIImage+Bitmap.m */; };
-		529A9CC01F9743D100D48977 /* UIWebView+UIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 529A9CBA1F9743D100D48977 /* UIWebView+UIImage.m */; };
+		529A9CCB1F974EA400D48977 /* HLPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 529A9CC31F974EA400D48977 /* HLPrinter.m */; };
+		529A9CCC1F974EA400D48977 /* SEPrinterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 529A9CC61F974EA400D48977 /* SEPrinterManager.m */; };
+		529A9CCD1F974EA400D48977 /* UIImage+Bitmap.m in Sources */ = {isa = PBXBuildFile; fileRef = 529A9CC81F974EA400D48977 /* UIImage+Bitmap.m */; };
+		529A9CCE1F974EA400D48977 /* UIWebView+UIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 529A9CCA1F974EA400D48977 /* UIWebView+UIImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,17 +199,16 @@
 		529A9CA61F972A3500D48977 /* YTKKeyValueStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKKeyValueStore.h; sourceTree = "<group>"; };
 		529A9CA71F972A3500D48977 /* YTKKeyValueStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKKeyValueStore.m; sourceTree = "<group>"; };
 		529A9CAA1F97345100D48977 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		529A9CAD1F9743D100D48977 /* JWBluetoothBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWBluetoothBlocks.h; sourceTree = "<group>"; };
-		529A9CAE1F9743D100D48977 /* JWBluetoothManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWBluetoothManage.h; sourceTree = "<group>"; };
-		529A9CAF1F9743D100D48977 /* JWBluetoothManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWBluetoothManage.m; sourceTree = "<group>"; };
-		529A9CB01F9743D100D48977 /* JWPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWPrinter.h; sourceTree = "<group>"; };
-		529A9CB11F9743D100D48977 /* JWPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWPrinter.m; sourceTree = "<group>"; };
-		529A9CB51F9743D100D48977 /* ProgressShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressShow.h; sourceTree = "<group>"; };
-		529A9CB61F9743D100D48977 /* ProgressShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressShow.m; sourceTree = "<group>"; };
-		529A9CB71F9743D100D48977 /* UIImage+Bitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Bitmap.h"; sourceTree = "<group>"; };
-		529A9CB81F9743D100D48977 /* UIImage+Bitmap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Bitmap.m"; sourceTree = "<group>"; };
-		529A9CB91F9743D100D48977 /* UIWebView+UIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+UIImage.h"; sourceTree = "<group>"; };
-		529A9CBA1F9743D100D48977 /* UIWebView+UIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+UIImage.m"; sourceTree = "<group>"; };
+		529A9CC21F974EA400D48977 /* HLPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLPrinter.h; sourceTree = "<group>"; };
+		529A9CC31F974EA400D48977 /* HLPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLPrinter.m; sourceTree = "<group>"; };
+		529A9CC41F974EA400D48977 /* SEBLEConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEBLEConst.h; sourceTree = "<group>"; };
+		529A9CC51F974EA400D48977 /* SEPrinterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEPrinterManager.h; sourceTree = "<group>"; };
+		529A9CC61F974EA400D48977 /* SEPrinterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEPrinterManager.m; sourceTree = "<group>"; };
+		529A9CC71F974EA400D48977 /* UIImage+Bitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Bitmap.h"; sourceTree = "<group>"; };
+		529A9CC81F974EA400D48977 /* UIImage+Bitmap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Bitmap.m"; sourceTree = "<group>"; };
+		529A9CC91F974EA400D48977 /* UIWebView+UIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+UIImage.h"; sourceTree = "<group>"; };
+		529A9CCA1F974EA400D48977 /* UIWebView+UIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+UIImage.m"; sourceTree = "<group>"; };
+		529A9CCF1F97501C00D48977 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD07EEDDCB555B036A1A24CA /* libPods-WKMobileProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -282,7 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				523704D11F4E7B640046D674 /* WKMobileProject.entitlements */,
-				529A9CAC1F9743D100D48977 /* JWBluetoothPrinte */,
+				529A9CC11F974EA400D48977 /* BLEPrinter */,
 				529A9CA21F972A3500D48977 /* LLFMDB */,
 				31A221A71E99CBA40058A21B /* WKHeaderFile */,
 				31A221A11E99CB5D0058A21B /* WKTool */,
@@ -642,30 +640,20 @@
 			path = YTKKeyValueStore;
 			sourceTree = "<group>";
 		};
-		529A9CAC1F9743D100D48977 /* JWBluetoothPrinte */ = {
+		529A9CC11F974EA400D48977 /* BLEPrinter */ = {
 			isa = PBXGroup;
 			children = (
-				529A9CAD1F9743D100D48977 /* JWBluetoothBlocks.h */,
-				529A9CAE1F9743D100D48977 /* JWBluetoothManage.h */,
-				529A9CAF1F9743D100D48977 /* JWBluetoothManage.m */,
-				529A9CB01F9743D100D48977 /* JWPrinter.h */,
-				529A9CB11F9743D100D48977 /* JWPrinter.m */,
-				529A9CB21F9743D100D48977 /* JWProgressHUD */,
-				529A9CB71F9743D100D48977 /* UIImage+Bitmap.h */,
-				529A9CB81F9743D100D48977 /* UIImage+Bitmap.m */,
-				529A9CB91F9743D100D48977 /* UIWebView+UIImage.h */,
-				529A9CBA1F9743D100D48977 /* UIWebView+UIImage.m */,
+				529A9CC21F974EA400D48977 /* HLPrinter.h */,
+				529A9CC31F974EA400D48977 /* HLPrinter.m */,
+				529A9CC41F974EA400D48977 /* SEBLEConst.h */,
+				529A9CC51F974EA400D48977 /* SEPrinterManager.h */,
+				529A9CC61F974EA400D48977 /* SEPrinterManager.m */,
+				529A9CC71F974EA400D48977 /* UIImage+Bitmap.h */,
+				529A9CC81F974EA400D48977 /* UIImage+Bitmap.m */,
+				529A9CC91F974EA400D48977 /* UIWebView+UIImage.h */,
+				529A9CCA1F974EA400D48977 /* UIWebView+UIImage.m */,
 			);
-			path = JWBluetoothPrinte;
-			sourceTree = "<group>";
-		};
-		529A9CB21F9743D100D48977 /* JWProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				529A9CB51F9743D100D48977 /* ProgressShow.h */,
-				529A9CB61F9743D100D48977 /* ProgressShow.m */,
-			);
-			path = JWProgressHUD;
+			path = BLEPrinter;
 			sourceTree = "<group>";
 		};
 		7975C39D53A4E4C84C61C265 /* Pods */ = {
@@ -680,6 +668,7 @@
 		E268BC1B05380FDB2B866690 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				529A9CCF1F97501C00D48977 /* CoreBluetooth.framework */,
 				529A9CAA1F97345100D48977 /* libsqlite3.tbd */,
 				523704E21F4E7C510046D674 /* libresolv.tbd */,
 				523704E01F4E7C3C0046D674 /* UserNotifications.framework */,
@@ -902,16 +891,16 @@
 			files = (
 				31A221FF1E99CFA00058A21B /* CTCachedObject.m in Sources */,
 				523704E61F4EA8900046D674 /* WKModel.m in Sources */,
+				529A9CCB1F974EA400D48977 /* HLPrinter.m in Sources */,
 				52315FEE1F529BDE0001BA21 /* WKLoginView.m in Sources */,
 				31A222081E99CFA10058A21B /* CTService.m in Sources */,
-				529A9CBE1F9743D100D48977 /* ProgressShow.m in Sources */,
 				31A221FA1E99CFA00058A21B /* NSURLRequest+CTNetworkingMethods.m in Sources */,
 				529A9CA81F972A3500D48977 /* LLKeyValueStore.m in Sources */,
 				315FFC091E97D3C600C78440 /* ViewController.m in Sources */,
 				31A222031E99CFA00058A21B /* CTURLResponse.m in Sources */,
 				31A222071E99CFA10058A21B /* CTUDIDGenerator.m in Sources */,
 				31A221F81E99CFA00058A21B /* NSObject+AXNetworkingMethods.m in Sources */,
-				529A9CBF1F9743D100D48977 /* UIImage+Bitmap.m in Sources */,
+				529A9CCD1F974EA400D48977 /* UIImage+Bitmap.m in Sources */,
 				315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */,
 				31A221F61E99CFA00058A21B /* NSDictionary+AXNetworkingMethods.m in Sources */,
 				31A221FD1E99CFA00058A21B /* CTAPIBaseManager.m in Sources */,
@@ -923,21 +912,20 @@
 				31A222011E99CFA00058A21B /* CTLocationManager.m in Sources */,
 				31A221FB1E99CFA00058A21B /* UIDevice+IdentifierAddition.m in Sources */,
 				31A2220B1E99CFA10058A21B /* CTLoggerConfiguration.m in Sources */,
+				529A9CCC1F974EA400D48977 /* SEPrinterManager.m in Sources */,
 				31A222101E99D0520058A21B /* WKAPIManager.m in Sources */,
 				315FFC031E97D3C600C78440 /* main.m in Sources */,
 				31A221AB1E99CCD00058A21B /* Util.m in Sources */,
 				31A222131E99D2B50058A21B /* WKBaseViewController.m in Sources */,
 				31A221FE1E99CFA00058A21B /* CTCache.m in Sources */,
-				529A9CBB1F9743D100D48977 /* JWBluetoothManage.m in Sources */,
 				31A221F71E99CFA00058A21B /* NSMutableString+AXNetworkingMethods.m in Sources */,
+				529A9CCE1F974EA400D48977 /* UIWebView+UIImage.m in Sources */,
 				31A221F51E99CFA00058A21B /* NSArray+AXNetworkingMethods.m in Sources */,
 				31A222051E99CFA10058A21B /* CTRequestGenerator.m in Sources */,
-				529A9CBC1F9743D100D48977 /* JWPrinter.m in Sources */,
 				31A222091E99CFA10058A21B /* CTServiceFactory.m in Sources */,
 				31A222061E99CFA10058A21B /* CTSignatureGenerator.m in Sources */,
 				31A2220D1E99CFA10058A21B /* GDMapService.m in Sources */,
 				31A2220A1E99CFA10058A21B /* CTAppContext.m in Sources */,
-				529A9CC01F9743D100D48977 /* UIWebView+UIImage.m in Sources */,
 				52315FEA1F5285300001BA21 /* WKHomeTableViewCell.m in Sources */,
 				31A222041E99CFA10058A21B /* CTCommonParamsGenerator.m in Sources */,
 			);

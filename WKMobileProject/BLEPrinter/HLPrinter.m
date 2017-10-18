@@ -1,25 +1,26 @@
 //
-//  JWPrinter.m
-//  JWBluetoothPrinte
+//  HLPrinter.m
+//  HLBluetoothDemo
 //
-//  Created by 张竟巍 on 2017/6/16.
-//  Copyright © 2017年 张竟巍. All rights reserved.
+//  Created by Harvey on 16/5/3.
+//  Copyright © 2016年 Halley. All rights reserved.
 //
 
-#import "JWPrinter.h"
+#import "HLPrinter.h"
 
 #define kMargin 20
 #define kPadding 2
 #define kWidth 320
 
-@interface JWPrinter ()
+@interface HLPrinter ()
 
 /** 将要打印的排版后的数据 */
 @property (strong, nonatomic)   NSMutableData            *printerData;
 
 @end
 
-@implementation JWPrinter
+@implementation HLPrinter
+
 - (instancetype)init
 {
     self = [super init];
@@ -43,7 +44,7 @@
     // 3.设置字体:标准0x00，压缩0x01;
     Byte fontBytes[] = {0x1B,0x4D,0x00};
     [_printerData appendBytes:fontBytes length:sizeof(fontBytes)];
-    
+
 }
 
 #pragma mark - -------------基本操作----------------

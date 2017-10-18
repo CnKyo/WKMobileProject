@@ -14,7 +14,7 @@
 #import <AVFoundation/AVSpeechSynthesis.h>
 #import "WKLoginViewController.h"
 
-#import "JWBluetoothManage.h"
+#import "SEPrinterManager.h"
 
 #define WeakSelf __block __weak typeof(self)weakSelf = self;
 
@@ -23,8 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 @property (strong, nonatomic) NSMutableArray *mTableArr;
 
-@property (nonatomic, strong) NSMutableArray * dataSource; //设备列表
-@property (nonatomic, strong) NSMutableArray * rssisArray; //信号强度 可选择性使用
+@property (strong, nonatomic)   NSMutableArray              *deviceArray;  /**< 蓝牙设备个数 */
 @end
 
 @implementation ViewController
@@ -35,27 +34,57 @@
     
     WKHomeModel *mHome;
     
-    JWBluetoothManage * manage;
-
 }
 @synthesize mTableView;
 - (void)viewWillAppear:(BOOL)animated{
-    WeakSelf
     [super viewWillAppear:YES];
-    [manage autoConnectLastPeripheralCompletion:^(CBPeripheral *perpheral, NSError *error) {
-        if (!error) {
-            [ProgressShow alertView:self.view Message:@"连接成功！" cb:nil];
-            weakSelf.title = [NSString stringWithFormat:@"已连接-%@",perpheral.name];
-            dispatch_async(dispatch_get_main_queue(), ^{
-//                [weakSelf.mTableView reloadData];
-            
-            });
-        }else{
-            [ProgressShow alertView:self.view Message:error.domain cb:nil];
-        }
-    }];
-}
 
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    MLLog(@"viewWillDisappear");
+    
+    
+    [SVProgressHUD dismiss];
+    
+    for (CBPeripheral *peripheral in self.deviceArray) {
+        if ([peripheral.name isEqualToString:@"Printer001"]) {
+            [[SEPrinterManager sharedInstance] cancelPeripheral:peripheral];
+        }
+    }
+    
+    
+}
+- (void)initBlueToothe{
+    
+    [SVProgressHUD showWithStatus:@"正在链接设备..."];
+    
+    for (CBPeripheral *peripheral in self.deviceArray) {
+        if ([peripheral.name isEqualToString:@"Printer001"]) {
+            [[SEPrinterManager sharedInstance] connectPeripheral:peripheral completion:^(CBPeripheral *perpheral, NSError *error) {
+                if (error) {
+                    [SVProgressHUD showErrorWithStatus:@"连接失败"];
+                } else {
+                    [SVProgressHUD showSuccessWithStatus:@"连接成功"];
+                    [self performSelector:@selector(printTask) withObject:self afterDelay:1.0];
+
+                }
+                [self performSelector:@selector(XPSVPDissmiss) withObject:self afterDelay:1.0];
+            }];
+        }
+    }
+    
+    
+    
+}
+- (void)printTask{
+    [self printe];
+
+    
+}
+- (void)XPSVPDissmiss{
+    [SVProgressHUD dismiss];
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -63,9 +92,6 @@
 
     mHome = [WKHomeModel new];
     _mTableArr = [NSMutableArray new];
-    manage = [JWBluetoothManage sharedInstance];
-    self.dataSource = @[].mutableCopy;
-    self.rssisArray = @[].mutableCopy;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(getPushMessage:)
@@ -88,10 +114,19 @@
     [self presentViewController:vc animated:YES completion:nil];
     [self loadPrinter];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"打印" style:UIBarButtonItemStylePlain target:self action:@selector(printe)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"打印" style:UIBarButtonItemStylePlain target:self action:@selector(printe)];
 
 }
-
+- (void)printe{
+    //方式一：
+    HLPrinter *printer = [self getPrinter];
+    
+    NSData *mainData = [printer getFinalData];
+    [[SEPrinterManager sharedInstance] sendPrintData:mainData completion:^(CBPeripheral *connectPerpheral, BOOL completion, NSString *error) {
+        MLLog(@"写入结：%d---返回消息:%@",completion,error);
+    }];
+    
+}
 - (IBAction)mClearndata:(id)sender {
     if (_mTableArr.count<=0) {
         [SVProgressHUD showErrorWithStatus:@"没有数据!"];
@@ -147,8 +182,7 @@
     if (mHome.mPrint == 0) {
         
     }else{
-        [self loadPrinter];
-        [self print:mJpush.aps.alert];
+        [self initBlueToothe];
     }
 }
 - (void)palyVoice:(NSString *)mText{
@@ -189,97 +223,79 @@
 }
 #pragma mark----****----打印机
 - (void)loadPrinter{
-    WeakSelf
-    [manage beginScanPerpheralSuccess:^(NSArray<CBPeripheral *> *peripherals, NSArray<NSNumber *> *rssis) {
-        weakSelf.dataSource = [NSMutableArray arrayWithArray:peripherals];
-        weakSelf.rssisArray = [NSMutableArray arrayWithArray:rssis];
-        if (self.dataSource.count>0) {
-            for (CBPeripheral *peripheral in self.dataSource) {
-                if ([peripheral.name isEqualToString:@"Printer001"]) {
-                    [manage connectPeripheral:peripheral completion:^(CBPeripheral *perpheral, NSError *error) {
-                        if (!error) {
-                            [ProgressShow alertView:self.view Message:@"打印机连接成功！" cb:nil];
-                            dispatch_async(dispatch_get_main_queue(), ^{
-                                //                            [tableView reloadData];
-//                                [weakSelf printe];
-                            });
-                        }else{
-                            [ProgressShow alertView:self.view Message:error.domain cb:nil];
-                        }
-                    }];
-                }
-            }
-        }
-    } failure:^(CBManagerState status) {
-        [ProgressShow alertView:self.view Message:[ProgressShow getBluetoothErrorInfo:status] cb:nil];
-    }];
-//    manage.disConnectBlock = ^(CBPeripheral *perpheral, NSError *error) {
-//        MLLog(@"设备已经断开连接！");
-//        [SVProgressHUD showErrorWithStatus:@"打印机已经断开连接！"];
-//
-//    };
-    
-    
-    
-}
-- (void)print:(id)task{
-    if (manage.stage != JWScanStageCharacteristics) {
-        [ProgressShow alertView:self.view Message:@"打印机正在准备中..." cb:nil];
-        return;
-    }
-    JWPrinter *printer = [[JWPrinter alloc] init];
-    NSString *str1 = @"=============银智付=============";
-    [printer appendText:str1 alignment:HLTextAlignmentCenter];
-    [printer appendTitle:@"商户名称：" value:@"永和大豆浆"];
-    [printer appendTitle:@"商户编号：" value:@"1234567890"];
-    [printer appendTitle:@"订单编号：" value:@"MS1234567890"];
-    [printer appendTitle:@"交易类型：" value:@"微信支付"];
-    [printer appendTitle:@"交易时间：" value:@"2017-06-14"];
-    [printer appendTitle:@"金    额：" value:@"1000元"];
-    [printer appendFooter:@"欢迎使用银智付!"];
-    [printer appendNewLine];
-    NSData *mainData = [printer getFinalData];
-    [[JWBluetoothManage sharedInstance] sendPrintData:mainData completion:^(BOOL completion, CBPeripheral *connectPerpheral,NSString *error) {
-        if (completion) {
-            MLLog(@"打印成功");
-            [SVProgressHUD showSuccessWithStatus:@"打印成功！"];
-        }else{
-            MLLog(@"写入错误---:%@",error);
-            [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"写入错误---:%@",error]];
-            
-            
-        }
+    SEPrinterManager *mManager = [SEPrinterManager sharedInstance];
+    [mManager startScanPerpheralTimeout:10 Success:^(NSArray<CBPeripheral *> *perpherals,BOOL isTimeout) {
+        MLLog(@"perpherals:%@",perpherals);
+        _deviceArray = [NSMutableArray new];
+        [_deviceArray addObjectsFromArray:perpherals];
+    } failure:^(SEScanError error) {
+        MLLog(@"error:%ld",(long)error);
     }];
 }
-- (void)printe{
-    if (manage.stage != JWScanStageCharacteristics) {
-        [ProgressShow alertView:self.view Message:@"打印机正在准备中..." cb:nil];
-        return;
-    }
-    JWPrinter *printer = [[JWPrinter alloc] init];
-    NSString *str1 = @"=============银智付=============";
-    [printer appendText:str1 alignment:HLTextAlignmentCenter];
-    [printer appendTitle:@"商户名称：" value:@"永和大豆浆"];
-    [printer appendTitle:@"商户编号：" value:@"1234567890"];
-    [printer appendTitle:@"订单编号：" value:@"MS1234567890"];
-    [printer appendTitle:@"交易类型：" value:@"微信支付"];
-    [printer appendTitle:@"交易时间：" value:@"2017-06-14"];
-    [printer appendTitle:@"金    额：" value:@"1000元"];
-    [printer appendFooter:@"欢迎使用银智付!"];
-    [printer appendNewLine];
-    NSData *mainData = [printer getFinalData];
-    [[JWBluetoothManage sharedInstance] sendPrintData:mainData completion:^(BOOL completion, CBPeripheral *connectPerpheral,NSString *error) {
-        if (completion) {
-            MLLog(@"打印成功");
-            [SVProgressHUD showSuccessWithStatus:@"打印成功！"];
-        }else{
-            MLLog(@"写入错误---:%@",error);
-            [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"写入错误---:%@",error]];
 
-
-        }
-    }];
+#pragma mark----****----xprinter打印任务
+- (HLPrinter *)getPrinter
+{
+    HLPrinter *printer = [[HLPrinter alloc] init];
+    NSString *title = @"测试电商";
+    //    NSString *str1 = @"测试电商服务中心(销售单)";
+    [printer appendText:title alignment:HLTextAlignmentCenter fontSize:HLFontSizeTitleBig];
+    //    [printer appendText:str1 alignment:HLTextAlignmentCenter];
+    //    [printer appendBarCodeWithInfo:@"RN3456789012"];
+    [printer appendSeperatorLine];
+    
+    [printer appendTitle:@"时间:" value:@"2016-04-27 10:01:50" valueOffset:150];
+    [printer appendTitle:@"订单:" value:@"4000020160427100150" valueOffset:150];
+    [printer appendText:@"地址:深圳市南山区学府路东深大店" alignment:HLTextAlignmentLeft];
+    
+    [printer appendSeperatorLine];
+    [printer appendLeftText:@"商品" middleText:@"数量" rightText:@"单价" isTitle:YES];
+    CGFloat total = 0.0;
+    NSDictionary *dict1 = @{@"name":@"铅笔测试一下哈哈",@"amount":@"5",@"price":@"2.0"};
+    NSDictionary *dict2 = @{@"name":@"abcdefghijfdf",@"amount":@"1",@"price":@"1.0"};
+    NSDictionary *dict3 = @{@"name":@"abcde笔记本啊啊",@"amount":@"3",@"price":@"3.0"};
+    NSArray *goodsArray = @[dict1, dict2, dict3];
+    for (NSDictionary *dict in goodsArray) {
+        [printer appendLeftText:dict[@"name"] middleText:dict[@"amount"] rightText:dict[@"price"] isTitle:NO];
+        total += [dict[@"price"] floatValue] * [dict[@"amount"] intValue];
+    }
+    
+    [printer appendSeperatorLine];
+    NSString *totalStr = [NSString stringWithFormat:@"%.2f",total];
+    [printer appendTitle:@"总计:" value:totalStr];
+    [printer appendTitle:@"实收:" value:@"100.00"];
+    NSString *leftStr = [NSString stringWithFormat:@"%.2f",100.00 - total];
+    [printer appendTitle:@"找零:" value:leftStr];
+    
+    [printer appendSeperatorLine];
+    
+//    [printer appendText:@"位图方式二维码" alignment:HLTextAlignmentCenter];
+//    [printer appendQRCodeWithInfo:@"www.baidu.com"];
+    
+    //    [printer appendSeperatorLine];
+    //    [printer appendSeperatorLine];
+    //    [printer appendText:@" " alignment:HLTextAlignmentCenter];
+    //    [printer appendText:@" " alignment:HLTextAlignmentCenter];
+    
+    [printer appendFooter:nil];
+    //    [printer appendSeperatorLine];
+    //    [printer appendSeperatorLine];
+    //    [printer appendSeperatorLine];
+    
+    [printer appendText:@" " alignment:HLTextAlignmentCenter];
+    [printer appendText:@" " alignment:HLTextAlignmentCenter];
+    //    [printer appendText:@" " alignment:HLTextAlignmentCenter];
+    //    [printer appendText:@" " alignment:HLTextAlignmentCenter];
+    
+    //    [printer appendImage:[UIImage imageNamed:@"ico180"] alignment:HLTextAlignmentCenter maxWidth:300];
+    
+    // 你也可以利用UIWebView加载HTML小票的方式，这样可以在远程修改小票的样式和布局。
+    // 注意点：需要等UIWebView加载完成后，再截取UIWebView的屏幕快照，然后利用添加图片的方法，加进printer
+    // 截取屏幕快照，可以用UIWebView+UIImage中的catogery方法 - (UIImage *)imageForWebView
+    
+    return printer;
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
