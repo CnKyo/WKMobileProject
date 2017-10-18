@@ -16,7 +16,7 @@ target 'WKMobileProject' do
   pod 'AFNetworking'
   pod 'SVProgressHUD'
   pod 'IQKeyboardManager'
-  pod 'LKDBHelper'
+#  pod 'LKDBHelper'
   pod 'MJExtension'
   pod 'MJRefresh'
   pod 'AMap2DMap'
@@ -49,5 +49,7 @@ target 'WKMobileProject' do
   pod 'PYSearch'
   pod 'HandyFrame'
   pod 'HDAlertView'
+  pod 'BGFMDB' ,'~> 1.50'
+
 
 end

@@ -10,12 +10,13 @@
 #import "WKHeader.h"
 #import "WKHomeTableViewCell.h"
 
-#import <LKDBHelper.h>
+#import <BGFMDB.h>
 #import <AVFoundation/AVSpeechSynthesis.h>
 #import "WKLoginViewController.h"
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource,AVSpeechSynthesizerDelegate,UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
+@property (strong, nonatomic) NSMutableArray *mTableArr;
 
 @end
 
@@ -24,7 +25,8 @@
     AVSpeechSynthesizer *AVOice;
     HDAlertView *alertView;
     
-    NSMutableArray *mTableArr;
+    
+    WKHomeModel *mHome;
 }
 @synthesize mTableView;
 - (void)viewWillAppear:(BOOL)animated{
@@ -35,10 +37,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.title = @"首页";
-    
 
-    mTableArr = [NSMutableArray new];
-    
+    mHome = [WKHomeModel new];
+    _mTableArr = [NSMutableArray new];
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(getPushMessage:)
                                                  name:KAppFetchJPUSHService
@@ -52,9 +54,7 @@
     
     self.view.backgroundColor = [UIColor colorWithRed:0.949019607843137 green:0.949019607843137 blue:0.949019607843137 alpha:1.00];
     
-    
-    mTableArr = [WKHomeModel searchWithSQL:@"HomeList"];
-
+    [_mTableArr addObjectsFromArray:[WKHomeModel bg_findAll]];
     [mTableView reloadData];
     
     WKLoginViewController *vc = [[WKLoginViewController alloc] initWithNibName:@"WKLoginViewController" bundle:nil];
@@ -62,11 +62,13 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 - (IBAction)mClearndata:(id)sender {
-    if (mTableArr.count<=0) {
+    if (_mTableArr.count<=0) {
         [SVProgressHUD showErrorWithStatus:@"没有数据!"];
     }else{
         [self AlertViewShow:@"提示" alertViewMsg:@"确定要清空数据吗？" alertViewCancelBtnTiele:@"取消" alertTag:10];
+
     }
+
 }
 
 - (void)AlertViewShow:(NSString *)alerViewTitle alertViewMsg:(NSString *)msg alertViewCancelBtnTiele:(NSString *)cancelTitle alertTag:(int)tag{
@@ -82,10 +84,11 @@
     
     if( buttonIndex == 1)
         {
-        [WKHomeModel deleteWithWhere:[NSString stringWithFormat:@"1"]];
-        [mTableArr removeAllObjects];
+        [WKHomeModel bg_clear];
+        [_mTableArr removeAllObjects];
         [mTableView reloadData];
-        
+        [SVProgressHUD showSuccessWithStatus:@"数据清除成功!"];
+
         }
     
     
@@ -94,15 +97,17 @@
     NSDictionary * infoDic = notification.object;
     WKJPushObj *mJpush = [WKJPushObj mj_objectWithKeyValues:[infoDic objectForKey:@"pushObj"]];
     
-    WKHomeModel *mHome = [WKHomeModel new];
     mHome.mId = 1;
     mHome.mName = mJpush.aps.alert;
     mHome.mPrice = mJpush.price;
     mHome.mTime = mJpush.time;
     mHome.mNo=mJpush.num;
-    [mHome saveToDB];
-    
-    mTableArr = [WKHomeModel searchWithSQL:@"HomeList"];
+    [mHome bg_save];
+    NSArray *mBGFArr = [WKHomeModel bg_findAll];
+    if (mBGFArr.count >0) {
+        [_mTableArr removeAllObjects];
+    }
+    [_mTableArr addObjectsFromArray:mBGFArr];
     
     [mTableView reloadData];
     
@@ -153,7 +158,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return mTableArr.count;
+    return _mTableArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -162,7 +167,7 @@
     WKHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    [cell setMHome:mTableArr[indexPath.row]];
+    [cell setMHome:_mTableArr[indexPath.row]];
     return cell;
 }
 

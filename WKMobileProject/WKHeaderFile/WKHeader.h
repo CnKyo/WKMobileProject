@@ -27,6 +27,7 @@
 
 #import <MJExtension.h>
 
+#import "LLKeyValueStore.h"
 #define ColorRGB(_R_, _G_, _B_)       ([UIColor colorWithRed:_R_/255.0f green:_G_/255.0f blue:_B_/255.0f alpha:1])
 
 #define COLOR(r,g,b)                [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
@@ -104,6 +105,10 @@ NSIndexPath *indexPath = [tableview indexPathForRowAtPoint:subviewFrame.origin];
 UITableViewCell *cell=[tableview cellForRowAtIndexPath:indexPath];\
 cell;\
 })\
+
+///数据库表
+#define VIPVoiceListName @"VIPVoiceListName"
+#define VIPVoiceListID @"VIPVoiceListID"
 
 ///极光推送APKey和scret
 static NSString* const  kAFAppJPushAppKey        = @"5712c9694943a6b9b8a75b94";

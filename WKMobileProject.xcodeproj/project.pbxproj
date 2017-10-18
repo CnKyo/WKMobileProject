@@ -65,6 +65,9 @@
 		523704E11F4E7C3C0046D674 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704E01F4E7C3C0046D674 /* UserNotifications.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		523704E31F4E7C510046D674 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 523704E21F4E7C510046D674 /* libresolv.tbd */; };
 		523704E61F4EA8900046D674 /* WKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 523704E51F4EA8900046D674 /* WKModel.m */; };
+		529A9CA81F972A3500D48977 /* LLKeyValueStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 529A9CA41F972A3500D48977 /* LLKeyValueStore.m */; };
+		529A9CA91F972A3500D48977 /* YTKKeyValueStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 529A9CA71F972A3500D48977 /* YTKKeyValueStore.m */; };
+		529A9CAB1F97345100D48977 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 529A9CAA1F97345100D48977 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,6 +190,11 @@
 		523704E21F4E7C510046D674 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		523704E41F4EA8900046D674 /* WKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKModel.h; sourceTree = "<group>"; };
 		523704E51F4EA8900046D674 /* WKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKModel.m; sourceTree = "<group>"; };
+		529A9CA31F972A3500D48977 /* LLKeyValueStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLKeyValueStore.h; sourceTree = "<group>"; };
+		529A9CA41F972A3500D48977 /* LLKeyValueStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLKeyValueStore.m; sourceTree = "<group>"; };
+		529A9CA61F972A3500D48977 /* YTKKeyValueStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKKeyValueStore.h; sourceTree = "<group>"; };
+		529A9CA71F972A3500D48977 /* YTKKeyValueStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKKeyValueStore.m; sourceTree = "<group>"; };
+		529A9CAA1F97345100D48977 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		958741D6BFE29A6F7CB0FC7B /* Pods-WKMobileProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.debug.xcconfig"; sourceTree = "<group>"; };
 		AD07EEDDCB555B036A1A24CA /* libPods-WKMobileProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -198,6 +206,7 @@
 			files = (
 				523704E31F4E7C510046D674 /* libresolv.tbd in Frameworks */,
 				523704E11F4E7C3C0046D674 /* UserNotifications.framework in Frameworks */,
+				529A9CAB1F97345100D48977 /* libsqlite3.tbd in Frameworks */,
 				523704DF1F4E7C320046D674 /* AdSupport.framework in Frameworks */,
 				523704DD1F4E7C2C0046D674 /* libz.tbd in Frameworks */,
 				523704DB1F4E7C210046D674 /* Security.framework in Frameworks */,
@@ -257,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				523704D11F4E7B640046D674 /* WKMobileProject.entitlements */,
+				529A9CA21F972A3500D48977 /* LLFMDB */,
 				31A221A71E99CBA40058A21B /* WKHeaderFile */,
 				31A221A11E99CB5D0058A21B /* WKTool */,
 				31A221A21E99CB5D0058A21B /* WKViewControllers */,
@@ -596,6 +606,25 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		529A9CA21F972A3500D48977 /* LLFMDB */ = {
+			isa = PBXGroup;
+			children = (
+				529A9CA31F972A3500D48977 /* LLKeyValueStore.h */,
+				529A9CA41F972A3500D48977 /* LLKeyValueStore.m */,
+				529A9CA51F972A3500D48977 /* YTKKeyValueStore */,
+			);
+			path = LLFMDB;
+			sourceTree = "<group>";
+		};
+		529A9CA51F972A3500D48977 /* YTKKeyValueStore */ = {
+			isa = PBXGroup;
+			children = (
+				529A9CA61F972A3500D48977 /* YTKKeyValueStore.h */,
+				529A9CA71F972A3500D48977 /* YTKKeyValueStore.m */,
+			);
+			path = YTKKeyValueStore;
+			sourceTree = "<group>";
+		};
 		7975C39D53A4E4C84C61C265 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -608,6 +637,7 @@
 		E268BC1B05380FDB2B866690 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				529A9CAA1F97345100D48977 /* libsqlite3.tbd */,
 				523704E21F4E7C510046D674 /* libresolv.tbd */,
 				523704E01F4E7C3C0046D674 /* UserNotifications.framework */,
 				523704DE1F4E7C320046D674 /* AdSupport.framework */,
@@ -832,6 +862,7 @@
 				52315FEE1F529BDE0001BA21 /* WKLoginView.m in Sources */,
 				31A222081E99CFA10058A21B /* CTService.m in Sources */,
 				31A221FA1E99CFA00058A21B /* NSURLRequest+CTNetworkingMethods.m in Sources */,
+				529A9CA81F972A3500D48977 /* LLKeyValueStore.m in Sources */,
 				315FFC091E97D3C600C78440 /* ViewController.m in Sources */,
 				31A222031E99CFA00058A21B /* CTURLResponse.m in Sources */,
 				31A222071E99CFA10058A21B /* CTUDIDGenerator.m in Sources */,
@@ -839,6 +870,7 @@
 				315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */,
 				31A221F61E99CFA00058A21B /* NSDictionary+AXNetworkingMethods.m in Sources */,
 				31A221FD1E99CFA00058A21B /* CTAPIBaseManager.m in Sources */,
+				529A9CA91F972A3500D48977 /* YTKKeyValueStore.m in Sources */,
 				31A221F91E99CFA00058A21B /* NSString+AXNetworkingMethods.m in Sources */,
 				31A221FC1E99CFA00058A21B /* CTApiProxy.m in Sources */,
 				31A222021E99CFA00058A21B /* CTLogger.m in Sources */,

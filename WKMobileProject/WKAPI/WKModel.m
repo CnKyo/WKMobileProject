@@ -28,9 +28,9 @@
 //    
 //    return @"mId";
 //}
-+(NSString *)getTableName{
-    
-    return @"HomeList";
-}
+//+(NSString *)getTableName{
+//    
+//    return @"HomeList";
+//}
 
 @end
