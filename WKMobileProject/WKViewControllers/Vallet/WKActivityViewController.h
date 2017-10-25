@@ -6,8 +6,9 @@
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
 
-#import "WKBaseViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface WKActivityViewController : WKBaseViewController
+@interface WKActivityViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

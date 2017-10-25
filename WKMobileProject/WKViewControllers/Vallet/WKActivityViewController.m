@@ -9,7 +9,8 @@
 #import "WKActivityViewController.h"
 #import "WKActivityTableViewCell.h"
 #import "WKTaskDetailViewController.h"
-
+#import "UIScrollView+DREmptyDataSet.h"
+#import "UIScrollView+DRRefresh.h"
 @interface UIActivityViewController ()
 
 @end
@@ -20,17 +21,31 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"活动";
-    [self addTableView];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     UINib   *nib = [UINib nibWithNibName:@"WKActivityTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
-    [self addTableViewHeaderRefreshing];
-    [self addTableViewFootererRefreshing];
+    
+    __weak __typeof(self)weakSelf = self;
+    
+    [self.tableView setRefreshWithHeaderBlock:^{
+        [weakSelf tableViewHeaderReloadData];
+    } footerBlock:^{
+        [weakSelf tableViewFooterReloadData];
+    }];
+    
+    [self.tableView setupEmptyData:^{
+        [weakSelf tableViewHeaderReloadData];
+        
+    }];
+    [self.tableView headerBeginRefreshing];
+
 }
 - (void)tableViewHeaderReloadData{
-
+    [self.tableView headerEndRefreshing];
 }
 - (void)tableViewFooterReloadData{
-
+    [self.tableView footerEndRefreshing];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

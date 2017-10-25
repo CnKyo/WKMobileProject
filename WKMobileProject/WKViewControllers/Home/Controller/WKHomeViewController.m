@@ -63,7 +63,7 @@
     self.navigationItem.title = @"首页";
     
     if (SystemIsiOS11()) {
-        self.mTopMargin.constant = -90;
+        self.mTopMargin.constant = -94;
     }else{
         self.mTopMargin.constant = -44;
     }

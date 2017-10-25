@@ -110,13 +110,28 @@
                     <view key="view" contentMode="scaleToFill" id="QU0-6G-VVe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cW8-Ko-jbN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cW8-Ko-jbN" firstAttribute="leading" secondItem="QU0-6G-VVe" secondAttribute="leading" id="4Un-xY-YlR"/>
+                            <constraint firstItem="cW8-Ko-jbN" firstAttribute="top" secondItem="aQQ-TQ-dOj" secondAttribute="bottom" constant="-64" id="63H-Jv-UGh"/>
+                            <constraint firstAttribute="trailing" secondItem="cW8-Ko-jbN" secondAttribute="trailing" id="jVn-4u-LWo"/>
+                            <constraint firstItem="xit-Tx-lDU" firstAttribute="top" secondItem="cW8-Ko-jbN" secondAttribute="bottom" id="jyS-RP-XBY"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="o5e-BL-Fmj"/>
+                    <connections>
+                        <outlet property="tableView" destination="cW8-Ko-jbN" id="opo-Q2-fCv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NND-VU-L87" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="933"/>
+            <point key="canvasLocation" x="53.600000000000001" y="932.38380809595208"/>
         </scene>
         <!--Find View Controller-->
         <scene sceneID="N7n-jf-frz">
