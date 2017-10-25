@@ -247,13 +247,27 @@
                     <view key="view" contentMode="scaleToFill" id="yKt-Bx-LV6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.25490196079999999" green="0.58431372550000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4nb-M3-vC0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="4nb-M3-vC0" firstAttribute="leading" secondItem="yKt-Bx-LV6" secondAttribute="leading" id="4jX-uY-wkb"/>
+                            <constraint firstItem="4nb-M3-vC0" firstAttribute="top" secondItem="q3r-U1-EGZ" secondAttribute="bottom" constant="-64" id="hnk-s9-ezh"/>
+                            <constraint firstAttribute="trailing" secondItem="4nb-M3-vC0" secondAttribute="trailing" id="kh2-3j-NKa"/>
+                            <constraint firstItem="ArT-Nb-3lK" firstAttribute="top" secondItem="4nb-M3-vC0" secondAttribute="bottom" constant="-49" id="xhz-GT-BVP"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tMq-Er-JKw"/>
+                    <connections>
+                        <outlet property="tableView" destination="4nb-M3-vC0" id="D6v-JQ-XIN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rmt-Bf-IQV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="233"/>
+            <point key="canvasLocation" x="53.600000000000001" y="232.53373313343329"/>
         </scene>
         <!--Tabbar View Controller-->
         <scene sceneID="9D4-Fw-8et">
@@ -373,6 +387,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4oe-Px-RWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-598" y="5279"/>
+        </scene>
+        <!--My Task View Controller-->
+        <scene sceneID="mt5-0v-ZpN">
+            <objects>
+                <viewController id="3Je-rS-yvx" customClass="WKMyTaskViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="suF-Ly-XyY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qvg-BG-gzt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yar-J3-8cY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4s7-U2-Hcx">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4s7-U2-Hcx" firstAttribute="top" secondItem="suF-Ly-XyY" secondAttribute="bottom" constant="-20" id="0ku-bO-i8W"/>
+                            <constraint firstItem="Qvg-BG-gzt" firstAttribute="top" secondItem="4s7-U2-Hcx" secondAttribute="bottom" id="V7Q-Y3-jdh"/>
+                            <constraint firstAttribute="trailing" secondItem="4s7-U2-Hcx" secondAttribute="trailing" id="eCe-eS-Kpk"/>
+                            <constraint firstItem="4s7-U2-Hcx" firstAttribute="leading" secondItem="yar-J3-8cY" secondAttribute="leading" id="nHf-DW-ySZ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vID-6N-ITY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1340" y="2193.5532233883059"/>
         </scene>
     </scenes>
     <resources>

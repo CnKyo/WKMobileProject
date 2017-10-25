@@ -78,6 +78,7 @@
     
     mBannerArr = [NSMutableArray new];
     mFuncArr = [NSMutableArray new];
+    
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     self.mTableView.separatorStyle = UITableViewCellSelectionStyleNone;

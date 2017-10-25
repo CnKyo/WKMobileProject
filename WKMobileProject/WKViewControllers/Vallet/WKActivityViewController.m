@@ -23,6 +23,8 @@
     self.navigationItem.title = @"活动";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+
     UINib   *nib = [UINib nibWithNibName:@"WKActivityTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
     

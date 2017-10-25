@@ -22,32 +22,41 @@
 #import "WKConnectViewController.h"
 #import "WKMyWealthViewController.h"
 #import "WKMyTaskViewController.h"
-@interface WKUserViewController ()<WKUserInfoCellDelegate,WKUserInfoAdCellDelegate>
+#import "UIScrollView+DREmptyDataSet.h"
+#import "UIScrollView+DRRefresh.h"
+@interface WKUserViewController ()<WKUserInfoCellDelegate,WKUserInfoAdCellDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @end
 
 @implementation WKUserViewController
 {
-    UITableView *mTableView;
-    
+
     NSArray *mFuncArr;
 
+}
+//通过一个方法来找到这个黑线(findHairlineImageViewUnder):
+- (UIImageView *)findHairlineImageViewUnder:(UIView *)view {
+    if ([view isKindOfClass:UIImageView.class] && view.bounds.size.height <= 1.0) {
+        return (UIImageView *)view;
+    }
+    for (UIView *subview in view.subviews) {
+        UIImageView *imageView = [self findHairlineImageViewUnder:subview];
+        if (imageView) {
+            return imageView;
+        }
+    }
+    return nil;
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navBarHairlineImageView.hidden = YES;
-    
-    //去除导航栏下方的横线
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+
 }
 //在页面消失的时候就让navigationbar还原样式
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navBarHairlineImageView.hidden = NO;
     
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:nil];
 }
 
 - (void)viewDidLoad {
@@ -55,23 +64,20 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"个人中心";
     self.view.backgroundColor = M_CO;
+    self.tableArr = [NSMutableArray new];
     self.navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
+
+    UIButton *mRightBtn = [[UIButton alloc]initWithFrame:CGRectMake(DEVICE_Width-60,15,25,25)];
+    mRightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    mRightBtn.titleLabel.textAlignment = NSTextAlignmentRight;
+    [mRightBtn setImage:[UIImage imageNamed:@"icon_user_message"] forState:UIControlStateNormal];
+    [mRightBtn addTarget:self action:@selector(rightBtnAction)forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *mRightBartem = [[UIBarButtonItem alloc]initWithCustomView:mRightBtn];
+    self.navigationItem.rightBarButtonItem= mRightBartem;
     
-    [self addRightBtn:YES andTitel:nil andImage:[UIImage imageNamed:@"icon_user_message"]];
-    [self setRightBtnImage:@"icon_user_message"];
-    
-    UIView *mView = [UIView new];
-    mView.backgroundColor = M_CO;
-    [self.view addSubview:mView];
-    
-    mTableView = [UITableView new];
-    
-    mTableView.delegate = self;
-    mTableView.dataSource = self;
-    mTableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    [self.view addSubview:mTableView];
-    
-    self.tableView = mTableView;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     
     UINib   *nib = [UINib nibWithNibName:@"WKUserInfoCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"headerCell"];
@@ -82,27 +88,20 @@
     nib = [UINib nibWithNibName:@"WKUserFuncCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"funcCell"];
     
-    [mView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.view);
-        make.top.equalTo(self.view).offset(54);
-        if([[[WKGetDeviceInfo sharedLibrery]getDiviceName] isEqualToString:@"iphone X"]){
-            make.height.offset(35);
-        }else{
-            make.height.offset(15);
-        }
-        
-        make.bottom.equalTo(mTableView.mas_top);
-    }];
-    [mTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self.view);
-        make.top.equalTo(mView.mas_bottom);
-    }];
-    [self addTableViewHeaderRefreshing];
-
     
     mFuncArr = @[@"我的活动",@"我的洗衣",@"我的任务",@"我的订单",@"帮助中心",@"加入我们",@"联系我们"];
+    __weak __typeof(self)weakSelf = self;
+    
+    [self.tableView setRefreshWithHeaderBlock:^{
+        [weakSelf tableViewHeaderReloadData];
+    } footerBlock:^{
+
+    }];
+
+    [self.tableView headerBeginRefreshing];
 }
 - (void)tableViewHeaderReloadData{
+    [self.tableView headerEndRefreshing];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

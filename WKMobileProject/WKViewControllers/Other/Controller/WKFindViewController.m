@@ -39,18 +39,11 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navBarHairlineImageView.hidden = YES;
-    
-    //去除导航栏下方的横线
-//    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
 //在页面消失的时候就让navigationbar还原样式
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navBarHairlineImageView.hidden = NO;
-    
-//    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationController.navigationBar setShadowImage:nil];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -69,7 +62,9 @@
     mHeaderMessage.font = [UIFont systemFontOfSize:15]; 
     mHeaderMessage.textColor = [UIColor whiteColor];
     mHeaderMessage.textAlignment = NSTextAlignmentCenter;
+    
     self.tableView.tableHeaderView = mHeaderMessage;
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
