@@ -15,6 +15,11 @@
     // Initialization code
 }
 
+- (void)layoutSubviews{
+    
+    [super layoutSubviews];
+    self.mBgkView.backgroundColor = M_BCO;
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

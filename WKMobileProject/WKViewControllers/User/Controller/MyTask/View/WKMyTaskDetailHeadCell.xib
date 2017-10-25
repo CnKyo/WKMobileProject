@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,7 +38,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.22780537610000001" green="0.53584480290000003" blue="0.89293801780000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="3gV-fL-tjV" firstAttribute="top" secondItem="vVZ-FY-pb3" secondAttribute="bottom" constant="10" id="0Lb-bp-xCV"/>
                             <constraint firstAttribute="trailing" secondItem="vVZ-FY-pb3" secondAttribute="trailing" id="Diu-NY-t8k"/>
@@ -127,13 +126,16 @@
                     <constraint firstItem="m2s-ju-VEU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="c7p-dE-oft"/>
                     <constraint firstAttribute="bottomMargin" secondItem="evn-Cg-qTe" secondAttribute="bottom" constant="-8.5" id="cja-XV-ozq"/>
                     <constraint firstAttribute="trailingMargin" secondItem="mAP-st-mUM" secondAttribute="trailing" id="eQL-rp-hO2"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="m2s-ju-VEU" secondAttribute="trailing" constant="-8" id="lgK-dH-cMR"/>
                     <constraint firstAttribute="trailingMargin" secondItem="evn-Cg-qTe" secondAttribute="trailing" constant="-8" id="mPY-yZ-Ss7"/>
-                    <constraint firstItem="m2s-ju-VEU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="uZQ-Yn-N3X"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.95775061845779419" green="0.97365540266036987" blue="0.99559229612350464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="m2s-ju-VEU" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" id="AA8-SW-8in"/>
+                <constraint firstAttribute="trailing" secondItem="m2s-ju-VEU" secondAttribute="trailing" id="ZJj-cg-rKN"/>
+            </constraints>
             <connections>
+                <outlet property="mBgkView" destination="m2s-ju-VEU" id="IRB-dB-n8g"/>
                 <outlet property="mStatusContent" destination="3gV-fL-tjV" id="Q2o-e3-juH"/>
                 <outlet property="mStatusH" destination="DLK-yu-O77" id="Qg7-VS-GBw"/>
                 <outlet property="mStatusImg" destination="vVZ-FY-pb3" id="ZC4-bi-4GY"/>

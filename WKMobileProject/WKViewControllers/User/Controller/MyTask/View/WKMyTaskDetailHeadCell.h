@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WKHeader.h"
 @interface WKMyTaskDetailHeadCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIView *mBgkView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *mStatusImg;
 

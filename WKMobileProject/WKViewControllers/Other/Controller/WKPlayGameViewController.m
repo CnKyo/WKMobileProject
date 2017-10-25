@@ -5,10 +5,12 @@
 //  Created by mwi01 on 2017/5/16.
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
-
+#import "WKHeader.h"
 #import "WKPlayGameViewController.h"
 #import "WKPlayGameCell.h"
-@interface WKPlayGameViewController ()
+#import "UIScrollView+DREmptyDataSet.h"
+#import "UIScrollView+DRRefresh.h"
+@interface WKPlayGameViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
 
@@ -18,18 +20,37 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"玩游戏";
+    self.tableArr = [NSMutableArray new];
     
-    [self addTableView];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+
+    
     UINib   *nib = [UINib nibWithNibName:@"WKPlayGameCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
-    [self addTableViewHeaderRefreshing];
-    [self addTableViewFootererRefreshing];
+
+    __weak __typeof(self)weakSelf = self;
+    
+    [self.tableView setRefreshWithHeaderBlock:^{
+        [weakSelf tableViewHeaderReloadData];
+    } footerBlock:^{
+        [weakSelf tableViewFooterReloadData];
+    }];
+    
+    [self.tableView setupEmptyData:^{
+        [weakSelf tableViewHeaderReloadData];
+        
+    }];
+    [self.tableView headerBeginRefreshing];
 }
 - (void)tableViewHeaderReloadData{
+    [self.tableView headerEndRefreshing];
 
 }
 - (void)tableViewFooterReloadData{
-    
+    [self.tableView footerEndRefreshing];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,7 +120,7 @@
     MLLog(@"%ld行",indexPath.row);
     
     
-    [self showCustomViewType:WKCustomPopViewHaveTwoBtn andTitle:@"您的账户还有100000000个金币" andContentTx:@"本次游戏将消耗您120000个金币，您是否愿意玩本次游戏呢？" andOkBtntitle:@"确定" andCancelBtntitle:@"取消"];
+//    [self showCustomViewType:WKCustomPopViewHaveTwoBtn andTitle:@"您的账户还有100000000个金币" andContentTx:@"本次游戏将消耗您120000个金币，您是否愿意玩本次游戏呢？" andOkBtntitle:@"确定" andCancelBtntitle:@"取消"];
     
 }
 ///关闭按钮代理方法

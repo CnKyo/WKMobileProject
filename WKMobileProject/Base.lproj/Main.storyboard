@@ -388,10 +388,10 @@
             </objects>
             <point key="canvasLocation" x="-598" y="5279"/>
         </scene>
-        <!--My Task View Controller-->
+        <!--Play Game View Controller-->
         <scene sceneID="mt5-0v-ZpN">
             <objects>
-                <viewController id="3Je-rS-yvx" customClass="WKMyTaskViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="playGame" id="3Je-rS-yvx" customClass="WKPlayGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="suF-Ly-XyY"/>
                         <viewControllerLayoutGuide type="bottom" id="Qvg-BG-gzt"/>
@@ -413,6 +413,9 @@
                             <constraint firstItem="4s7-U2-Hcx" firstAttribute="leading" secondItem="yar-J3-8cY" secondAttribute="leading" id="nHf-DW-ySZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="4s7-U2-Hcx" id="fkd-SI-mCY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vID-6N-ITY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

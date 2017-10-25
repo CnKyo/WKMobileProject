@@ -221,7 +221,10 @@
 - (void)WKFindHeaderCellDelegateWithFuncClicked:(NSInteger)mIndex{
     MLLog(@"%ld",mIndex);
     if (mIndex == 0) {
-        WKPlayGameViewController *vc = [WKPlayGameViewController new];
+        
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        WKPlayGameViewController *vc = [story instantiateViewControllerWithIdentifier:@"playGame"];
         vc.hidesBottomBarWhenPushed = YES;
 //        [self pushViewController:vc];
         [self.navigationController pushViewController:vc animated:YES];
