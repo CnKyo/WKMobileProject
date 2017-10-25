@@ -10,7 +10,10 @@
 #import "WKFindTableViewCell.h"
 #import "WKFindHeaderCell.h"
 #import "WKPlayGameViewController.h"
-@interface WKFindViewController ()<WKFindHeaderCellDelegate>
+
+#import "UIScrollView+DREmptyDataSet.h"
+#import "UIScrollView+DRRefresh.h"
+@interface WKFindViewController ()<WKFindHeaderCellDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @end
 
@@ -19,78 +22,85 @@
     
     UILabel *mHeaderMessage;
     
-    UITableView *mTableView;
+}
+//通过一个方法来找到这个黑线(findHairlineImageViewUnder):
+- (UIImageView *)findHairlineImageViewUnder:(UIView *)view {
+    if ([view isKindOfClass:UIImageView.class] && view.bounds.size.height <= 1.0) {
+        return (UIImageView *)view;
+    }
+    for (UIView *subview in view.subviews) {
+        UIImageView *imageView = [self findHairlineImageViewUnder:subview];
+        if (imageView) {
+            return imageView;
+        }
+    }
+    return nil;
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navBarHairlineImageView.hidden = YES;
     
     //去除导航栏下方的横线
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
 //在页面消失的时候就让navigationbar还原样式
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navBarHairlineImageView.hidden = NO;
     
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:nil];
+//    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setShadowImage:nil];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"发现";
     
+    self.tableArr = [NSMutableArray new];
+    
     self.view.backgroundColor = M_CO;
     self.navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
     
     mHeaderMessage = [UILabel new];
+    mHeaderMessage.backgroundColor = M_BCO;
+    mHeaderMessage.frame = CGRectMake(0, 0, DEVICE_Width, 45);
     mHeaderMessage.text = @"重庆-多云  31-35度";
     mHeaderMessage.font = [UIFont systemFontOfSize:15]; 
     mHeaderMessage.textColor = [UIColor whiteColor];
     mHeaderMessage.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:mHeaderMessage];
+    self.tableView.tableHeaderView = mHeaderMessage;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     
-    mTableView = [UITableView new];
-    
-    mTableView.delegate = self;
-    mTableView.dataSource = self;
-    mTableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    [self.view addSubview:mTableView];
-
-    self.tableView = mTableView;
     UINib   *nib = [UINib nibWithNibName:@"WKFindTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
     nib = [UINib nibWithNibName:@"WKFindHeaderCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell2"];
+
+
+    __weak __typeof(self)weakSelf = self;
     
+    [self.tableView setRefreshWithHeaderBlock:^{
+        [weakSelf tableViewHeaderReloadData];
+    } footerBlock:^{
+        [weakSelf tableViewFooterReloadData];
+    }];
     
-    [mHeaderMessage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.view);
+    [self.tableView setupEmptyData:^{
+        [weakSelf tableViewHeaderReloadData];
         
-        if([[[WKGetDeviceInfo sharedLibrery]getDiviceName] isEqualToString:@"iphone X"] ){
-            make.top.equalTo(self.view).offset(74);
-        }else{
-            make.top.equalTo(self.view).offset(54);
-        }
-        make.height.offset(45);
-        make.bottom.equalTo(mTableView.mas_top);
     }];
-    
-    [mTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self.view);
-        make.top.equalTo(mHeaderMessage.mas_bottom);
-    }];
-    
-    [self addTableViewHeaderRefreshing];
-    [self addTableViewFootererRefreshing];
+    [self.tableView headerBeginRefreshing];
+
 }
 - (void)tableViewHeaderReloadData{
     [self.tableArr removeAllObjects];
     NSArray *mArr = @[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493210044049&di=ac402c2ce8259c98e5e4ea1b7aac4cac&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F209%2Fd%2F97.jpg",@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1493199772&di=66346cd79eed9c8cb4ec03c3734d0b31&src=http://img15.3lian.com/2015/f2/128/d/123.jpg",@"http://wmtp.net/wp-content/uploads/2017/04/0420_sweet945_1.jpeg",@"http://wmtp.net/wp-content/uploads/2017/04/0407_shouhui_1.jpeg"];
     [self.tableArr addObjectsFromArray:mArr];
-    
+    [self.tableView headerEndRefreshing];
+
     [self.tableView reloadData];
 }
 - (void)tableViewFooterReloadData{
@@ -218,7 +228,8 @@
     if (mIndex == 0) {
         WKPlayGameViewController *vc = [WKPlayGameViewController new];
         vc.hidesBottomBarWhenPushed = YES;
-        [self pushViewController:vc];
+//        [self pushViewController:vc];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 
 }

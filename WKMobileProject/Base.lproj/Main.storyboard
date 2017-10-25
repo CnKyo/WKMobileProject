@@ -144,9 +144,24 @@
                     <view key="view" contentMode="scaleToFill" id="7k5-pf-UcV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Upf-8e-iSB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Upf-8e-iSB" firstAttribute="leading" secondItem="7k5-pf-UcV" secondAttribute="leading" id="Woy-oX-y0p"/>
+                            <constraint firstAttribute="trailing" secondItem="Upf-8e-iSB" secondAttribute="trailing" id="jG8-Up-03K"/>
+                            <constraint firstItem="Upf-8e-iSB" firstAttribute="top" secondItem="p2Z-nX-XWb" secondAttribute="bottom" constant="-64" id="qeS-B6-XFG"/>
+                            <constraint firstItem="qgy-sX-le2" firstAttribute="top" secondItem="Upf-8e-iSB" secondAttribute="bottom" constant="-49" id="yfe-sW-fB0"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Id4-wF-C5m"/>
+                    <connections>
+                        <outlet property="tableView" destination="Upf-8e-iSB" id="oTo-Sg-cZw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5t-al-Jgp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

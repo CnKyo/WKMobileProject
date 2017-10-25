@@ -62,7 +62,8 @@
 #define IMG(_File_)                 [UIImage imageNamed:_File_]
 
 
-#define M_CO    [UIColor colorWithRed:65/255.0f green:149/255.0f blue:220/255.0f alpha:1.00]
+#define M_CO      [UIColor colorWithRed:0.24 green:0.48 blue:0.80 alpha:1.00]
+#define M_BCO    [UIColor colorWithRed:0.32 green:0.54 blue:0.82 alpha:1.00]
 
 #define VERSION [[UIDevice currentDevice].systemVersion doubleValue]
 
