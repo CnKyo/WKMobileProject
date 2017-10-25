@@ -284,6 +284,8 @@
 		52D02D391F41A26100B24618 /* WKRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D02D381F41A26100B24618 /* WKRecordViewController.m */; };
 		52D02D3D1F41A8CD00B24618 /* WKRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D02D3B1F41A8CD00B24618 /* WKRecordCell.m */; };
 		52D02D3E1F41A8CD00B24618 /* WKRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D02D3C1F41A8CD00B24618 /* WKRecordCell.xib */; };
+		52E1ADEB1FA090090082F9A5 /* WKBaseSuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1ADE91FA090090082F9A5 /* WKBaseSuperViewController.m */; };
+		52E1ADEC1FA090090082F9A5 /* WKBaseSuperViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E1ADEA1FA090090082F9A5 /* WKBaseSuperViewController.xib */; };
 		52EEE8601F42E3B400D7C985 /* WLUnitField.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEE85F1F42E3B400D7C985 /* WLUnitField.m */; };
 		52EEE8631F42EA9600D7C985 /* WKPwdTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EEE8621F42EA9600D7C985 /* WKPwdTextField.m */; };
 		52EFE1901EDECC74004CDA65 /* WKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EFE18F1EDECC74004CDA65 /* WKModel.m */; };
@@ -767,6 +769,9 @@
 		52D02D3A1F41A8CD00B24618 /* WKRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKRecordCell.h; sourceTree = "<group>"; };
 		52D02D3B1F41A8CD00B24618 /* WKRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKRecordCell.m; sourceTree = "<group>"; };
 		52D02D3C1F41A8CD00B24618 /* WKRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKRecordCell.xib; sourceTree = "<group>"; };
+		52E1ADE81FA090090082F9A5 /* WKBaseSuperViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKBaseSuperViewController.h; sourceTree = "<group>"; };
+		52E1ADE91FA090090082F9A5 /* WKBaseSuperViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKBaseSuperViewController.m; sourceTree = "<group>"; };
+		52E1ADEA1FA090090082F9A5 /* WKBaseSuperViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKBaseSuperViewController.xib; sourceTree = "<group>"; };
 		52EEE85E1F42E3B400D7C985 /* WLUnitField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLUnitField.h; sourceTree = "<group>"; };
 		52EEE85F1F42E3B400D7C985 /* WLUnitField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLUnitField.m; sourceTree = "<group>"; };
 		52EEE8611F42EA9600D7C985 /* WKPwdTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPwdTextField.h; sourceTree = "<group>"; };
@@ -1161,6 +1166,9 @@
 			children = (
 				31A222111E99D2B50058A21B /* WKBaseViewController.h */,
 				31A222121E99D2B50058A21B /* WKBaseViewController.m */,
+				52E1ADE81FA090090082F9A5 /* WKBaseSuperViewController.h */,
+				52E1ADE91FA090090082F9A5 /* WKBaseSuperViewController.m */,
+				52E1ADEA1FA090090082F9A5 /* WKBaseSuperViewController.xib */,
 			);
 			path = WKBaseViewController;
 			sourceTree = "<group>";
@@ -2308,6 +2316,7 @@
 				529D21581ECC533900766E2F /* MyWashDetailCell.xib in Resources */,
 				52BC43871F39BAF800B44FD6 /* WKGenericRegistCell.xib in Resources */,
 				5239D3301EF3B1EC00BAB3F3 /* home.html in Resources */,
+				52E1ADEC1FA090090082F9A5 /* WKBaseSuperViewController.xib in Resources */,
 				5214A3431F3C3A9500BE840D /* MyTaskTableViewCell.xib in Resources */,
 				5229760E1ECC2B3100FEB6D9 /* WKJoinusCell.xib in Resources */,
 				5217DDDA1EE1031500BE35ED /* WKMyWealthTableViewCell.xib in Resources */,
@@ -2478,6 +2487,7 @@
 				529D21601ECC579000766E2F /* WKMyOrderViewController.m in Sources */,
 				523FC24E1F381E6700EA7A6E /* WKGenericTextFiled.m in Sources */,
 				52D02D281F41814F00B24618 /* WKTaskSectionHeaderView.m in Sources */,
+				52E1ADEB1FA090090082F9A5 /* WKBaseSuperViewController.m in Sources */,
 				52A408501F613D970053B683 /* WKUserMsgDetailCell.m in Sources */,
 				52BC43641F39650C00B44FD6 /* WKTaskTableViewCell.m in Sources */,
 				52289D761ECAE99F00D8A6F5 /* WKPlayGameCell.m in Sources */,
