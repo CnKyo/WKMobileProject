@@ -20,10 +20,16 @@
 #import "WKGenericLoginViewController.h"
 
 #import "FCIPAddressGeocoder.h"
-
+#import "UIScrollView+DREmptyDataSet.h"
+#import "UIScrollView+DRRefresh.h"
 
 @interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate,NSNetworkMonitorProtocol>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
+
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mTopMargin;
+
+
 ///网络状态 
 @property (strong,nonatomic) NSString *mNetWorkStatus;
 
@@ -56,6 +62,12 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"首页";
     
+    if (SystemIsiOS11()) {
+        self.mTopMargin.constant = -90;
+    }else{
+        self.mTopMargin.constant = -44;
+    }
+    
   const  NSString *mDeviceInfo = [[WKGetDeviceInfo sharedLibrery] getDiviceName];
     MLLog(@"设备信息：%@",mDeviceInfo);
 
@@ -81,8 +93,21 @@
     [self.tableView registerNib:nib forCellReuseIdentifier:@"activityCell"];
 
     
-    [self addTableViewHeaderRefreshing];
-    [self addTableViewFootererRefreshing];
+//    [self addTableViewHeaderRefreshing];
+//    [self addTableViewFootererRefreshing];
+    __weak __typeof(self)weakSelf = self;
+
+    [self.tableView setRefreshWithHeaderBlock:^{
+        [weakSelf tableViewHeaderReloadData];
+    } footerBlock:^{
+        [weakSelf tableViewFooterReloadData];
+    }];
+
+    [self.tableView setupEmptyData:^{
+        [weakSelf tableViewHeaderReloadData];
+
+    }];
+    [self.tableView headerBeginRefreshing];
 }
 - (void)tableViewHeaderReloadData{
     [mBannerArr removeAllObjects];
@@ -100,7 +125,7 @@
     }
     [mBannerArr addObjectsFromArray:mArr];
 
-
+    [self.tableView headerEndRefreshing];
     
     [self.tableView reloadData];
     
@@ -118,6 +143,7 @@
         }
     }];
     [self judgeString];
+    
 }
 - (void)judgeString{
     
@@ -134,6 +160,7 @@
     }
 }
 - (void)tableViewFooterReloadData{
+    [self.tableView footerEndRefreshing];
 
 }
 -(void)networkStatusChangeNotification:(NSNotification *)notification

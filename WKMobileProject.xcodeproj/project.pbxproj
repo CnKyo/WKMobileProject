@@ -87,6 +87,8 @@
 		5217DDFB1EE15BAC00BE35ED /* WKBoundleToolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5217DDF91EE15BAC00BE35ED /* WKBoundleToolCell.m */; };
 		5217DDFC1EE15BAC00BE35ED /* WKBoundleToolCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5217DDFA1EE15BAC00BE35ED /* WKBoundleToolCell.xib */; };
 		5217DDFF1EE169C600BE35ED /* WKPwdText.m in Sources */ = {isa = PBXBuildFile; fileRef = 5217DDFE1EE169C600BE35ED /* WKPwdText.m */; };
+		521E3B721F9F42FB00CA3187 /* UIScrollView+DREmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 521E3B6F1F9F42FB00CA3187 /* UIScrollView+DREmptyDataSet.m */; };
+		521E3B731F9F42FB00CA3187 /* UIScrollView+DRRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 521E3B711F9F42FB00CA3187 /* UIScrollView+DRRefresh.m */; };
 		52289D721ECAE94700D8A6F5 /* WKPlayGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52289D711ECAE94700D8A6F5 /* WKPlayGameViewController.m */; };
 		52289D761ECAE99F00D8A6F5 /* WKPlayGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52289D741ECAE99F00D8A6F5 /* WKPlayGameCell.m */; };
 		52289D771ECAE99F00D8A6F5 /* WKPlayGameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52289D751ECAE99F00D8A6F5 /* WKPlayGameCell.xib */; };
@@ -462,6 +464,10 @@
 		5217DDFA1EE15BAC00BE35ED /* WKBoundleToolCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKBoundleToolCell.xib; sourceTree = "<group>"; };
 		5217DDFD1EE169C600BE35ED /* WKPwdText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPwdText.h; sourceTree = "<group>"; };
 		5217DDFE1EE169C600BE35ED /* WKPwdText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPwdText.m; sourceTree = "<group>"; };
+		521E3B6E1F9F42FB00CA3187 /* UIScrollView+DREmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+DREmptyDataSet.h"; sourceTree = "<group>"; };
+		521E3B6F1F9F42FB00CA3187 /* UIScrollView+DREmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+DREmptyDataSet.m"; sourceTree = "<group>"; };
+		521E3B701F9F42FB00CA3187 /* UIScrollView+DRRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+DRRefresh.h"; sourceTree = "<group>"; };
+		521E3B711F9F42FB00CA3187 /* UIScrollView+DRRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+DRRefresh.m"; sourceTree = "<group>"; };
 		52289D701ECAE94700D8A6F5 /* WKPlayGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPlayGameViewController.h; sourceTree = "<group>"; };
 		52289D711ECAE94700D8A6F5 /* WKPlayGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPlayGameViewController.m; sourceTree = "<group>"; };
 		52289D731ECAE99F00D8A6F5 /* WKPlayGameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKPlayGameCell.h; path = WKMobileProject/WKViewControllers/Other/Controller/WKPlayGameCell.h; sourceTree = SOURCE_ROOT; };
@@ -1011,6 +1017,7 @@
 			isa = PBXGroup;
 			children = (
 				529D8E5C1EDFFF1700BF0FDE /* WKMobileProject.entitlements */,
+				521E3B6D1F9F42FB00CA3187 /* WKQuikRefresh */,
 				5206239C1F5E7FB500E91A8E /* NSNetworkManager */,
 				523544821F4AD19F007983C8 /* FCIPAddressGeocoder */,
 				526ABF3F1F4538B500F0C335 /* FSCustomBUtton */,
@@ -1544,6 +1551,17 @@
 				5217DDFA1EE15BAC00BE35ED /* WKBoundleToolCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		521E3B6D1F9F42FB00CA3187 /* WKQuikRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				521E3B6E1F9F42FB00CA3187 /* UIScrollView+DREmptyDataSet.h */,
+				521E3B6F1F9F42FB00CA3187 /* UIScrollView+DREmptyDataSet.m */,
+				521E3B701F9F42FB00CA3187 /* UIScrollView+DRRefresh.h */,
+				521E3B711F9F42FB00CA3187 /* UIScrollView+DRRefresh.m */,
+			);
+			path = WKQuikRefresh;
 			sourceTree = "<group>";
 		};
 		52289D8F1ECB078500D8A6F5 /* EditUserInfo */ = {
@@ -2509,6 +2527,7 @@
 				522976201ECC391B00FEB6D9 /* WKJoinProgressView.m in Sources */,
 				52368FF51EC40949002524E5 /* WKWashBookingViewController.m in Sources */,
 				5279A7411EC95E1300999B3D /* WKWashGoPayViewController.m in Sources */,
+				521E3B731F9F42FB00CA3187 /* UIScrollView+DRRefresh.m in Sources */,
 				31A222021E99CFA00058A21B /* CTLogger.m in Sources */,
 				31507E931EA06E7E007B8345 /* UIViewController+GYDNav.m in Sources */,
 				5274A12F1ECD307A0002B252 /* WKConnectViewController.m in Sources */,
@@ -2561,6 +2580,7 @@
 				529D21641ECC580F00766E2F /* WKMyOrderCell.m in Sources */,
 				31A222061E99CFA10058A21B /* CTSignatureGenerator.m in Sources */,
 				5260EBF61F4421990021F42A /* TimeModel.m in Sources */,
+				521E3B721F9F42FB00CA3187 /* UIScrollView+DREmptyDataSet.m in Sources */,
 				52D02D2F1F4195F900B24618 /* WKChangeUserInfoViewController.m in Sources */,
 				5217DDD51EE1023A00BE35ED /* WKMyWealthViewController.m in Sources */,
 				5240A27D1EEFC482000A132A /* WKWebViewController.m in Sources */,

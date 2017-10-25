@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Y7c-qp-t3x">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Y7c-qp-t3x">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,7 +35,7 @@
                 <navigationController id="wMZ-wK-zcD" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我的" id="0Q2-gK-dlR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jZq-Da-Gbb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -52,7 +52,7 @@
                 <navigationController id="7ah-et-gCy" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="任务" id="VR5-j3-HA4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yU2-zm-Ltf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -88,7 +88,7 @@
                 <navigationController id="Fix-li-D88" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="活动" id="SnN-7f-7Og"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="e3a-Ip-2oR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -143,7 +143,7 @@
                 <navigationController id="oEz-H3-grV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="发现" id="3DS-aA-rtf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="55G-Pb-ECr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -160,7 +160,7 @@
                 <navigationController id="q4B-1M-zpU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="首页" id="khd-IS-Oiq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MoR-xh-3Sx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -184,14 +184,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qrh-fy-s8t">
-                                <rect key="frame" x="-4" y="20" width="383" height="598"/>
+                                <rect key="frame" x="-4" y="-30" width="388" height="648"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="qrh-fy-s8t" secondAttribute="trailing" constant="-20" id="4OY-Eh-aF4"/>
-                            <constraint firstItem="qrh-fy-s8t" firstAttribute="top" secondItem="Egc-UV-IHd" secondAttribute="bottom" constant="-44" id="CpG-7E-vag"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qrh-fy-s8t" secondAttribute="trailing" constant="-25" id="4OY-Eh-aF4"/>
+                            <constraint firstItem="qrh-fy-s8t" firstAttribute="top" secondItem="Egc-UV-IHd" secondAttribute="bottom" constant="-94" id="CpG-7E-vag"/>
                             <constraint firstItem="eaf-rI-4K9" firstAttribute="top" secondItem="qrh-fy-s8t" secondAttribute="bottom" id="TnH-5S-mvm"/>
                             <constraint firstItem="qrh-fy-s8t" firstAttribute="leading" secondItem="QNd-NS-Jut" secondAttribute="leadingMargin" constant="-20" id="i0G-qV-pcS"/>
                         </constraints>
@@ -199,6 +199,7 @@
                     <navigationItem key="navigationItem" id="jrs-PM-WmW"/>
                     <connections>
                         <outlet property="mTableView" destination="qrh-fy-s8t" id="23o-5Q-Lwq"/>
+                        <outlet property="mTopMargin" destination="CpG-7E-vag" id="qrr-gu-6dy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vqd-bP-xmj" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -47,7 +47,7 @@
     
     mHeaderMessage = [UILabel new];
     mHeaderMessage.text = @"重庆-多云  31-35度";
-    mHeaderMessage.font = [UIFont systemFontOfSize:15];
+    mHeaderMessage.font = [UIFont systemFontOfSize:15]; 
     mHeaderMessage.textColor = [UIColor whiteColor];
     mHeaderMessage.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:mHeaderMessage];
