@@ -13,10 +13,7 @@
 @end
 
 @implementation WKBaseSuperViewController
-{
-    WKCustomPopView *mCustomView;
-    
-}
+@synthesize mCustomView;
 //通过一个方法来找到这个黑线(findHairlineImageViewUnder):
 - (UIImageView *)findHairlineImageViewUnder:(UIView *)view {
     if ([view isKindOfClass:UIImageView.class] && view.bounds.size.height <= 1.0) {
@@ -30,12 +27,17 @@
     }
     return nil;
 }
-
+- (void)loadView{
+    
+    [super loadView];
+    
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = COLOR(247, 247, 247);
-
+    
     self.tableArr = [NSMutableArray array];
     
     self.tableView.delegate = self;
@@ -51,14 +53,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 #pragma mark ----****----设置左边的按钮
 /**
  设置左边的按钮
@@ -214,11 +216,13 @@
     if( [vc isKindOfClass:[WKBaseSuperViewController class] ] )
         {
         
-        [self.navigationController pushViewController:vc animated:YES];
+        [self.navigationController pushViewController:[vc initWithNibName:@"WKBaseSuperViewController" bundle:nil] animated:YES];
         }
     else
-        
+        {
         [self.navigationController pushViewController:vc animated:YES];
+        }
+    
     
     vc.hidesBottomBarWhenPushed = YES;
     
@@ -233,12 +237,12 @@
     if( [vc isKindOfClass:[WKBaseSuperViewController class] ] )
         {
         
-        
-        [self presentViewController:vc animated:YES completion:nil];
+        [self presentViewController:[vc initWithNibName:@"WKBaseSuperViewController" bundle:nil] animated:YES completion:nil];
         }
-    else
-        
+    else{
         [self presentViewController:vc animated:YES completion:nil];
+    }
+    
 }
 /**
  *  模态跳转返回上一级

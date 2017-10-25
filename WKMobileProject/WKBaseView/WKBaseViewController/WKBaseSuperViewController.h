@@ -20,6 +20,8 @@
 - (UIImageView *)findHairlineImageViewUnder:(UIView *)view;
 
 @property(nonatomic,strong) ZJJTimeCountDown * countDown;
+@property(nonatomic,strong) WKCustomPopView *mCustomView;
+
 /**
  列表数据源
  */
