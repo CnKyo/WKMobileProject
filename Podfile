@@ -51,7 +51,7 @@ target 'WKMobileProject' do
 #  pod 'NSNetworkManager'
   pod 'TSMessages'
   pod 'HexColors'
-
+  pod 'PGNetworkHelper', '>= 2.0'
 
 
 end

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E5053B007B687ED9F9FBC4CD0906C796'
+               BlueprintIdentifier = '860917CF7230576884A3C4DD827E8D25'
                BlueprintName = 'LLImagePickerView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libLLImagePickerView.a'>

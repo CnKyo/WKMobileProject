@@ -10,9 +10,11 @@
 #import "LLImagePickerCell.h"
 #import "LLImagePickerConst.h"
 #import "LLImagePickerManager.h"
-#import "ACAlertController.h"
+
 #import "TZImagePickerController.h"
 #import "MWPhotoBrowser.h"
+
+static NSInteger countOfRow;
 
 @interface LLImagePickerView ()<UICollectionViewDelegate,UICollectionViewDataSource,TZImagePickerControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MWPhotoBrowserDelegate>
 
@@ -39,9 +41,7 @@
 
 @end
 
-@implementation LLImagePickerView{
-    UIViewController *rootVC;
-}
+@implementation LLImagePickerView
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
@@ -69,16 +69,15 @@
     _type = LLImageTypePhotoAndCamera;
     _showDelete = YES;
     _showAddButton = YES;
-    _allowMultipleSelection = YES;
+    _allowMultipleSelection = YES;    
     _maxImageSelected = 9;
     _backgroundColor = [UIColor whiteColor];
-    rootVC = [self getTopController];
     [self configureCollectionView];
 }
 
 - (void)configureCollectionView {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-    layout.itemSize = CGSizeMake(self.width/4, self.width/4);
+    layout.itemSize = CGSizeMake(self.width/countOfRow, self.width/countOfRow);
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
     layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -98,7 +97,7 @@
 
 - (void)setShowAddButton:(BOOL)showAddButton {
     _showAddButton = showAddButton;
-    if (_mediaArray.count > 3 || _mediaArray.count == 0) {
+    if (_mediaArray.count > countOfRow - 1 || _mediaArray.count == 0) {
         [self layoutCollection];
     }
 }
@@ -149,7 +148,7 @@
 - (void)observeViewHeight:(LLImagePickerHeightBlock)value {
     _block = value;
     //预防先加载数据源的情况
-    if (_mediaArray.count > 3) {
+    if (_mediaArray.count > countOfRow - 1) {
         _block(_collectionView.height);
     }
 }
@@ -158,9 +157,15 @@
     _backBlock = backBlock;
 }
 
-+ (CGFloat)defaultViewHeight {
-    return LLPicker_ScreenWidth/4;
++ (instancetype)ImagePickerViewWithFrame:(CGRect)frame CountOfRow:(NSInteger)count{
+    countOfRow = count;
+    CGSize size = frame.size;
+    size.height = size.width / count;
+    frame.size = size;
+    LLImagePickerView *imagePickerV = [[LLImagePickerView alloc]initWithFrame:frame];
+    return imagePickerV;
 }
+
 
 - (void)reload {
     [self.collectionView reloadData];
@@ -240,14 +245,14 @@
                 break;
             case LLImageTypePhotoAndCamera:
             {
-                ACAlertController *alert = [[ACAlertController alloc] initWithActionSheetTitles:@[@"相册", @"相机"] cancelTitle:@"取消"];
-                [alert clickActionButton:^(NSInteger index) {
-                    if (index == 0) {
+                LLActionSheetView *alert = [[LLActionSheetView alloc]initWithTitleArray:@[@"相册",@"相机"] andShowCancel: YES];
+                alert.ClickIndex = ^(NSInteger index) {
+                    if (index == 1){
                         [weakSelf openAlbum];
-                    }else {
+                    }else if (index == 2){
                         [weakSelf openCamera];
                     }
-                }];
+                };
                 [alert show];
                 break;
             }
@@ -258,19 +263,20 @@
                 [self openVideo];
                 break;
             default:
-            {
-                ACAlertController *alert = [[ACAlertController alloc] initWithActionSheetTitles:@[@"相册", @"相机", @"录像", @"视频"] cancelTitle:@"取消"];
-                [alert clickActionButton:^(NSInteger index) {
-                    if (index == 0) {
-                        [weakSelf openAlbum];
-                    }else if (index == 1) {
-                        [weakSelf openCamera];
-                    }else if (index == 2) {
-                        [weakSelf openVideotape];
-                    }else {
+            {                
+                LLActionSheetView *alert = [[LLActionSheetView alloc]initWithTitleArray:@[@"相册", @"相机", @"录像", @"视频"] andShowCancel: YES];                
+                alert.ClickIndex = ^(NSInteger index) {
+                    NSLog(@"%zd",index);
+                    if (index == 4) {
                         [weakSelf openVideo];
+                    }else if (index == 3){
+                        [weakSelf openVideotape];
+                    }else if (index == 2){
+                        [weakSelf openCamera];
+                    }else if (index == 1){
+                        [weakSelf openAlbum];
                     }
-                }];
+                };
                 [alert show];
             }
                 break;
@@ -324,8 +330,9 @@
 - (void)layoutCollection {
     
     NSInteger allImageCount = _showAddButton ?(_mediaArray.count == _maxImageSelected ? _mediaArray.count : _mediaArray.count + 1 ): _mediaArray.count;
-    NSInteger maxRow = (allImageCount - 1) / 4 + 1;
-    _collectionView.height = allImageCount == 0 ? 0 : maxRow * LLPicker_ScreenWidth/4;
+    NSInteger maxRow = (allImageCount - 1) / countOfRow + 1;
+    _collectionView.height = allImageCount == 0 ? 0 : maxRow * self.collectionView.width/countOfRow;
+    
     self.height = _collectionView.height;
     //block回调
     !_block ?  : _block(_collectionView.height);
@@ -355,7 +362,7 @@
         imagePickController.selectedAssets = _selectedImageAssets;
     }
     
-    [rootVC presentViewController:imagePickController animated:YES completion:nil];
+    [[self viewController] presentViewController:imagePickController animated:YES completion:nil];
 }
 
 /** 相机 */
@@ -369,7 +376,7 @@
         picker.allowsEditing = YES;
         picker.sourceType = sourceType;
         
-     [rootVC presentViewController:picker animated:YES completion:nil];
+     [[self viewController] presentViewController:picker animated:YES completion:nil];
 
     }else{
         [UIAlertController showAlertWithTitle:@"该设备不支持拍照" message:nil actionTitles:@[@"确定"] cancelTitle:nil style:UIAlertControllerStyleAlert completion:nil];
@@ -391,7 +398,7 @@
         [UIAlertController showAlertWithTitle:@"当前设备不支持录像" message:nil actionTitles:@[@"确定"] cancelTitle:nil style:UIAlertControllerStyleAlert completion:nil];
     }
     
-     [rootVC presentViewController:picker animated:YES completion:nil];
+     [[self viewController] presentViewController:picker animated:YES completion:nil];
     
 }
 
@@ -404,7 +411,7 @@
     picker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:picker.sourceType];
     picker.allowsEditing = YES;
     
-    [rootVC presentViewController:picker animated:YES completion:nil];
+    [[self viewController] presentViewController:picker animated:YES completion:nil];
 }
 
 
@@ -488,7 +495,6 @@
             if (!_allowMultipleSelection) {
                 //用数组是否包含来判断是不成功的。。。
                 for (LLImagePickerModel *tmp in _selectedVideoModels) {
-                    // 新的写法
                     if ([tmp isEqual:model]) {
                         return ;
                     }
@@ -506,9 +512,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     [picker dismissViewControllerAnimated:YES completion:nil];
     
-    //媒体类型
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
-    //原图URL
     NSURL *imageAssetURL = [info objectForKey:UIImagePickerControllerReferenceURL];
     
     ///视频 和 录像
@@ -559,19 +563,6 @@
             });
         }];
     }
-}
-
-#pragma mark - private
-
-- (UIViewController *)getTopController{
-    
-    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    
-    while (topController.presentedViewController) {
-        topController = topController.presentedViewController;
-    }
-    
-    return topController;
 }
 
 

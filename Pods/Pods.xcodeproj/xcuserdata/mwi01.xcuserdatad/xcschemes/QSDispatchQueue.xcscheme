@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7CF2A86CA7A452E96E3A3743EBB60DC4'
+               BlueprintIdentifier = '8AE952C5F3B8A53BB148571403125B50'
                BlueprintName = 'QSDispatchQueue'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libQSDispatchQueue.a'>
