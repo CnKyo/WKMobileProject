@@ -9,17 +9,23 @@
 #import "WKEditUserinfoViewController.h"
 #import "WKEditUserInfoCell.h"
 #import "WKChangeUserInfoViewController.h"
-@interface WKEditUserinfoViewController ()<WKEditUserInfoCellDelegate>
+
+#import <RSKImageCropper/RSKImageCropper.h>
+#import <TZImagePickerController.h>
+@interface WKEditUserinfoViewController ()<WKEditUserInfoCellDelegate,TZImagePickerControllerDelegate>
 
 @end
 
 @implementation WKEditUserinfoViewController
-
+{
+    
+    UIImage *mHeaderImg;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"个人中心";
-    
+    mHeaderImg = [UIImage new];
     [self addTableView];
     UINib   *nib = [UINib nibWithNibName:@"WKEditUserInfoCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
@@ -96,8 +102,43 @@
         WKChangeUserInfoViewController *vc = [WKChangeUserInfoViewController new];
         vc.mType = WKChangePwd;
         [self pushViewController:vc];
+    }
+    else if (mType == 1){
+        TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
+        
+        // You can get the photos by block, the same as by delegate.
+        // 你可以通过block或者代理，来得到用户选择的照片.
+        [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+            
+        }];
+        [self presentViewController:imagePickerVc animated:YES completion:nil];
+        
     }else{
     
     }
+}
+- (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto{
+    
+}
+- (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto infos:(NSArray<NSDictionary *> *)infos{
+    
+}
+//- (void)imagePickerControllerDidCancel:(TZImagePickerController *)picker __attribute__((deprecated("Use -tz_imagePickerControllerDidCancel:.")));
+- (void)tz_imagePickerControllerDidCancel:(TZImagePickerController *)picker{
+    
+}
+
+// If user picking a video, this callback will be called.
+// If system version > iOS8,asset is kind of PHAsset class, else is ALAsset class.
+// 如果用户选择了一个视频，下面的handle会被执行
+// 如果系统版本大于iOS8，asset是PHAsset类的对象，否则是ALAsset类的对象
+- (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingVideo:(UIImage *)coverImage sourceAssets:(id)asset{
+    
+}
+
+// If user picking a gif image, this callback will be called.
+// 如果用户选择了一个gif图片，下面的handle会被执行
+- (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingGifImage:(UIImage *)animatedImage sourceAssets:(id)asset{
+    
 }
 @end

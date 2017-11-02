@@ -52,6 +52,6 @@ target 'WKMobileProject' do
   pod 'TSMessages'
   pod 'HexColors'
   pod 'PGNetworkHelper', '>= 2.0'
-
+  pod 'TZImagePickerController'
 
 end

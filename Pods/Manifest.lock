@@ -119,6 +119,7 @@ DEPENDENCIES:
   - SKTagView
   - SVProgressHUD
   - TSMessages
+  - TZImagePickerController
   - UITableView+FDTemplateLayoutCell
   - WebViewJavascriptBridge (~> 5.0)
   - WechatOpenSDK
@@ -178,6 +179,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
 
-PODFILE CHECKSUM: 1c3d6394fdb89df3c97140712226415c955860c9
+PODFILE CHECKSUM: 9142d0da167f8d4030748df37755bb87b1ecc10d
 
 COCOAPODS: 1.2.1
