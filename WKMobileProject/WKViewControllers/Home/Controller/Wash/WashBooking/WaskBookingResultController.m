@@ -59,7 +59,7 @@
     [mHeaderView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.top.equalTo(self.view).offset(64);
-        make.height.offset(240);
+        make.height.offset(260);
     }];
     
     mTableView = [UITableView new];

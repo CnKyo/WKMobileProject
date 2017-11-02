@@ -244,10 +244,12 @@
     
         mSectionView = [WKHomeHeaderSectionView initView];
         mSectionView.mTitle.text = @"- 推荐 -";
+        mSectionView.mTitle.textColor = [UIColor colorWithRed:0.28 green:0.8 blue:0.29 alpha:1];
         return mSectionView;
     }else{
         mSectionView = [WKHomeHeaderSectionView initView];
         mSectionView.mTitle.text = @"- 活动 -";
+        mSectionView.mTitle.textColor = [UIColor colorWithRed:0.97 green:0.47 blue:0.11 alpha:1];
         return mSectionView;
     }
     

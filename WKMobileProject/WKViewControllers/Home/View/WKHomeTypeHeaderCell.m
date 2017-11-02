@@ -55,10 +55,18 @@
         UIImageView *mShadow = [UIImageView new];
         mShadow.frame = CGRectMake(0, 200, 90, 40);
 //        mShadow.backgroundColor = COLOR(244, 248, 254);
-        mShadow.backgroundColor = [UIColor redColor];
+//        mShadow.backgroundColor = [UIColor redColor];
 
-        mShadow.image = [UIImage imageNamed:@"ZLHomeBanner_shadow"];
+        mShadow.image = [UIImage imageNamed:@"icon_new_activity"];
         [self.contentView addSubview:mShadow];
+        
+//        UILabel *mActivityLb = [UILabel new];
+//        mActivityLb.font = [UIFont systemFontOfSize:16];
+//        mActivityLb.frame = CGRectMake(0, 200, 90, 40);
+//        mActivityLb.text = @"最新活动 |";
+//        mActivityLb.textAlignment = NSTextAlignmentRight;
+//        mActivityLb.textColor = [UIColor colorWithRed:0.97 green:0.42 blue:0 alpha:1];
+//        [self.contentView addSubview:mActivityLb];
         
         __weak typeof(self)weakSelf = self;
 

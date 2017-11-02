@@ -217,6 +217,7 @@
     UIImage *mImg = Display[section]?[UIImage imageNamed:@"icon_up"]:[UIImage imageNamed:@"icon_down"];
     [_mHeaderView.mExtBtn setImage:mImg forState:0];
     [_mHeaderView.mExtBtn setTitle:mT forState:0];
+    [_mHeaderView.mExtBtn setTitleColor:[UIColor colorWithRed:0.81 green:0.81 blue:0.81 alpha:1] forState:0];
     
     
     return _mHeaderView;

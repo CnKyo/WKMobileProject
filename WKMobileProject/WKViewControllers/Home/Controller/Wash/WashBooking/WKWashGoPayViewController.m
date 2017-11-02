@@ -48,15 +48,12 @@ static float mDuration = 0.25;
     
     self.view.backgroundColor = M_CO;
     self.navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
+    
     mView = [WKPayWashView initView];
     mView.delegate = self;
-    mView.frame = CGRectMake(0, 64, DEVICE_Width, DEVICE_Height-64);
+    mView.frame = CGRectMake(0, 104, DEVICE_Width, DEVICE_Height-64);
     [self.view addSubview:mView];
-//    [mView mas_makeConstraints:^(MASConstraintMaker *make) {
-//
-//        make.top.equalTo(self.view).offset(64);
-//        make.right.left.bottom.equalTo(self.view);
-//    }];
+
 
     [self initSucessView];
     [self initErrorView];
