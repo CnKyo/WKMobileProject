@@ -16,7 +16,7 @@ target 'WKMobileProject' do
   pod 'YTKNetwork'
   pod 'SVProgressHUD'
   pod 'IQKeyboardManager'
-  pod 'LKDBHelper'
+#  pod 'LKDBHelper'
   pod 'MJExtension'
   pod 'MJRefresh'
   pod 'AMap2DMap'

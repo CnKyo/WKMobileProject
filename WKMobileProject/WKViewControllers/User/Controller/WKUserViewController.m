@@ -301,7 +301,7 @@
             break;
         case 1:
         {
-        
+        [SVProgressHUD showSuccessWithStatus:@"签到成功！"];
         }
             break;
         case 2:
