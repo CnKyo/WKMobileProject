@@ -21,4 +21,15 @@
     // Configure the view for the selected state
 }
 
+- (void)setMNews:(WKNews *)mNews{
+    
+//    @property (weak, nonatomic) IBOutlet UILabel *mName;
+//    @property (weak, nonatomic) IBOutlet UILabel *mSource;
+//    @property (weak, nonatomic) IBOutlet UIImageView *mImg;
+    
+    self.mName.text = mNews.title;
+    self.mSource.text = mNews.date;
+    [self.mImg sd_setImageWithURL:[NSURL URLWithString:mNews.thumbnail_pic_s] placeholderImage:nil];
+    
+}
 @end

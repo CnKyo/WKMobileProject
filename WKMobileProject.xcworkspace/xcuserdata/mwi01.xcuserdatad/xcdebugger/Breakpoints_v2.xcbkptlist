@@ -25,24 +25,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WKMobileProject/WKBaseView/WKWebView/WKWebViewController.m"
-            timestampString = "523872788.572467"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
-            landmarkName = "-userContentController:didReceiveScriptMessage:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "WKMobileProject/WKAPI/WKModel.m"
-            timestampString = "531570887.994024"
+            timestampString = "531581816.955976"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
@@ -74,7 +58,7 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKViewControllers/Login/Controller/WKGenericLoginViewController.m"
-                  timestampString = "531570888.397264"
+                  timestampString = "531581817.222396"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "151"
@@ -89,7 +73,7 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKViewControllers/Login/Controller/WKGenericLoginViewController.m"
-                  timestampString = "531570888.400125"
+                  timestampString = "531581817.237755"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "152"
@@ -122,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WKMobileProject/WKAPI/WKModel.m"
-            timestampString = "531570887.994308"
+            timestampString = "531581816.956156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"

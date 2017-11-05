@@ -124,9 +124,9 @@
             
         }
         
-        if (mDataSource.count > 0) {
+        if (mBannerDataSource.count > 0) {
             int mPage;
-            if (mDataSource.count>8) {
+            if (mBannerDataSource.count>8) {
                 mPage = 2;
             }else{
                 mPage = 1;
@@ -150,12 +150,12 @@
             CGRect mSRR = scrollView.frame;
             
             //创建8个
-            for (int i = 0; i < mDataSource.count; i++) {
+            for (int i = 0; i < mBannerDataSource.count; i++) {
                 if (i < 4) {
                     CGRect frame = CGRectMake(i*screen_width/4, 0, screen_width/4, 80);
                     
                     NSString *title = @"功能";
-                    NSString *imageStr = mDataSource[i];
+                    NSString *imageStr = mBannerDataSource[i];
                     WKCustomBtnView *btnView = [[WKCustomBtnView alloc] initWithZLCustomBtnViewFrame:frame Title:title ImageStr:imageStr];
                     btnView.tag = i;
                     [mBgkView1 addSubview:btnView];
@@ -168,7 +168,7 @@
                 }else if(i<8){
                     CGRect frame = CGRectMake((i-4)*screen_width/4, 80, screen_width/4, 80);
                     NSString *title = @"功能";
-                    NSString *imageStr = mDataSource[i];
+                    NSString *imageStr = mBannerDataSource[i];
                     WKCustomBtnView *btnView = [[WKCustomBtnView alloc] initWithZLCustomBtnViewFrame:frame Title:title ImageStr:imageStr];
                     btnView.tag = i;
                     [mBgkView1 addSubview:btnView];
@@ -179,7 +179,7 @@
                 }else if(i < 12){
                     CGRect frame = CGRectMake((i-8)*screen_width/4, 0, screen_width/4, 80);
                     NSString *title = @"功能";
-                    NSString *imageStr = mDataSource[i];
+                    NSString *imageStr = mBannerDataSource[i];
                     WKCustomBtnView *btnView = [[WKCustomBtnView alloc] initWithZLCustomBtnViewFrame:frame Title:title ImageStr:imageStr];
                     btnView.tag = i;
                     [mBgkView2 addSubview:btnView];
@@ -191,7 +191,7 @@
                 }else{
                     CGRect frame = CGRectMake((i-12)*screen_width/4, 80, screen_width/4, 80);
                     NSString *title = @"功能";
-                    NSString *imageStr = mDataSource[i];
+                    NSString *imageStr = mBannerDataSource[i];
                     WKCustomBtnView *btnView = [[WKCustomBtnView alloc] initWithZLCustomBtnViewFrame:frame Title:title ImageStr:imageStr];
                     btnView.tag = i;
                     [mBgkView2 addSubview:btnView];

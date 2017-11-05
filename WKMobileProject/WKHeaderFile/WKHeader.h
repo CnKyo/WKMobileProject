@@ -150,7 +150,11 @@ static NSString* const kMobTrainDemandKey                   = @"cdfd2af73a77";
 static NSString* const kMobTainAPIURLString                 = @"https://apicloud.mob.com/train/tickets/";
 static NSString* const kAPIAddressUrlString                 = @"www.lpp.com";
 
-static NSString* const kJUHEAPIAddressUrlString                 = @"www.lpp.com";
+static NSString* const kJUHEAPIAddressUrlString                 = @"http://v.juhe.cn";
+///聚合头条APIKEY
+static NSString* const kJUHEAPIKEY                          = @"40ef3b82ad8b5fb464203092d4511942";
+
+
 
 
 ///api访问地址

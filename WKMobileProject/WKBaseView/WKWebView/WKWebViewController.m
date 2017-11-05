@@ -50,8 +50,8 @@
                                       configuration:config];
     
     
-    NSURL *path = [[NSBundle mainBundle] URLForResource:@"index3" withExtension:@"html"];
-//    NSURL *path = [NSURL URLWithString:@"https://www.baidu.com"];
+//    NSURL *path = [[NSBundle mainBundle] URLForResource:@"index3" withExtension:@"html"];
+    NSURL *path = [NSURL URLWithString:self.mURLString];
 
     //设置缓存请求策略时间
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:path cachePolicy:1 timeoutInterval:30.0f];

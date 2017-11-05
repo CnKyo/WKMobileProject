@@ -150,7 +150,47 @@
 + (void)WKGetHomeList:(NSDictionary *)para block:(void(^)(WKBaseInfo *info,NSArray *mArr))block;
 
 @end
+@class WKJUHEObj;
+@interface WKNews  : NSObject
+///0：首页banner，1：推荐，2：活动
+@property (nonatomic,assign) NSNumber *uniquekey;
+///标题
+@property (nonatomic,strong) NSString *title;
+///图片url
+@property (nonatomic,strong) NSString *date;
+///跳转url
+@property (nonatomic,strong) NSString *category;
+@property (nonatomic,strong) NSString *author_name;
+
+@property (nonatomic,strong) NSString *url;
+
+@property (nonatomic,strong) NSString *thumbnail_pic_s;
+
+@property (nonatomic,strong) NSString *thumbnail_pic_s02;
+
+@property (nonatomic,strong) NSString *thumbnail_pic_s03;
 
 
+/**
+ 获取聚合新闻数据
+ 
+ @param para 参数
+ @param block 返回信息
+ */
++ (void)WKGetJuheNewsList:(NSDictionary *)para block:(void(^)(WKJUHEObj *info,NSArray *mArr))block;
 
+
+@end
+
+@interface WKJUHEObj : NSObject
+
+@property (nonatomic,strong) NSString *reason;
+
+@property (nonatomic,assign) int error_code;
+
+@property (assign,nonatomic) int status;
+
+@property (nonatomic,strong) id result;
+
+@end
 

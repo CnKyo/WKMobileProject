@@ -30,9 +30,9 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         //[APIClient loadDefault];
-        _sharedClient = [[WKHttpRequest alloc] initWithBaseURL:[NSURL URLWithString:kMobTainAPIURLString]];
+        _sharedClient = [[WKHttpRequest alloc] initWithBaseURL:[NSURL URLWithString:kJUHEAPIAddressUrlString]];
         _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
-        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain", nil];
         
         ;
         //_sharedClient.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -144,6 +144,7 @@
         MLLog(@"%@\n缓存路径为:  %@",responseObject,kPathCache);
 //        MLLog(@"responseObject----:%@",responseObject);
         
+        
         WKBaseInfo *info = [WKBaseInfo yy_modelWithJSON:responseObject];
         block(info);
 
@@ -159,6 +160,26 @@
     }];
 
 }
+- (void)WKJHGetDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKJUHEObj *info))block{
+    [[NSNetworkRequest sharedInstance] JHGET:url parameters:para cacheMode:NO successBlock:^(id responseObject) {
+        MLLog(@"%@\n缓存路径为:  %@",responseObject,kPathCache);
+        //        MLLog(@"responseObject----:%@",responseObject);
+        
+        
+        WKJUHEObj *info = [WKJUHEObj yy_modelWithJSON:responseObject];
+        
+        block(info);
+        
+        //        [TSMessage showNotificationWithTitle:@"GET请求成功,已缓存!" type:TSMessageNotificationTypeWarning];
+    } failureBlock:^(NSError *error) {
+        MLLog(@"%@",error);
+        //        [TSMessage showNotificationWithTitle:[NSString stringWithFormat:@"GET请求失败:%@",error.description] type:TSMessageNotificationTypeWarning];
+        
+        block(nil);
+        
+    }];
+}
+
 /**
  图片上传
  

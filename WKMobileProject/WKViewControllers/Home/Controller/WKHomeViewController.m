@@ -41,7 +41,7 @@
     NSMutableArray *mBannerArr;
     NSMutableArray *mFuncArr;
 
-    ///列表分组view
+    ///列表分组viewinf
     WKHomeHeaderSectionView *mSectionView;
     
     

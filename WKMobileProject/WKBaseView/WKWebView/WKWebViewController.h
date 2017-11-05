@@ -12,4 +12,5 @@
 
 @property (strong,nonatomic) NSString *mTitle;
 
+@property (strong,nonatomic) NSString *mURLString;
 @end

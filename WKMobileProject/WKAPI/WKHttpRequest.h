@@ -11,6 +11,7 @@
 #import "WKModel.h"
 #import "AppDelegate.h"
 @class WKBaseInfo;
+@class WKJUHEObj;
 @interface WKHttpRequest : AFHTTPSessionManager
 
 @property(nonatomic, strong) NSMutableDictionary *conDic;//存网络链接，便于取消
@@ -55,6 +56,8 @@
  *  @param block 请求成功的回调
  */
 - (void)WKGetDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKBaseInfo *info))block;
+- (void)WKJHGetDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKJUHEObj *info))block;
+
 /**
  图片上传
 

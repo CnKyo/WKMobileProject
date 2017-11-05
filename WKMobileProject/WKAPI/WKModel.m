@@ -241,3 +241,54 @@
     
 }
 @end
+@implementation WKNews  : NSObject
+
+/**
+ 获取聚合新闻数据
+ 
+ @param para 参数
+ @param block 返回信息
+ */
++ (void)WKGetJuheNewsList:(NSDictionary *)para block:(void(^)(WKJUHEObj *info,NSArray *mArr))block{
+    
+    MLLog(@"参数是：%@",para);
+    //
+    //    [[WKHttpRequest initJUHEApiClient] WKJHGetDataWithUrl:@"/toutiao/index" withPara:para block:^(WKJUHEObj *jhinfo) {
+    //        if (jhinfo.status
+    //            == kRetCodeSucess) {
+    //
+    //
+    //            block(jhinfo,nil);
+    //        }else{
+    //            block(jhinfo,nil);
+    //        }
+    //    }];
+    
+    [[WKHttpRequest initJUHEApiClient] WKJHGetDataWithUrl:@"/toutiao/index" withPara:para block:^(WKJUHEObj *info) {
+        if (info.error_code == 0) {
+            
+            NSMutableArray *mTempArr = [NSMutableArray new];
+            if ([info.result isKindOfClass:[NSDictionary class]]) {
+                NSArray *mListArr = [info.result objectForKey:@"data"];
+                if (mListArr.count > 0) {
+                    for (NSDictionary *dic in mListArr) {
+                        [mTempArr addObject:[WKNews yy_modelWithDictionary:dic]];
+                    }
+                }
+            }
+            
+            block(info,mTempArr);
+        }else{
+            block(info,nil);
+        }
+    }];
+    
+}
+
+@end
+
+@implementation WKJUHEObj  : NSObject
+
+@end
+
+
