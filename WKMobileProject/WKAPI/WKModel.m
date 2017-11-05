@@ -285,7 +285,7 @@
     
 }
 + (void)WKGetWeather:(NSDictionary *)para block:(void(^)(WKBaseInfo *info))block{
-    [[WKHttpRequest shareClient] WKGetDataWithUrl:@"weather/query" withPara:para block:^(WKBaseInfo *info) {
+    [[WKHttpRequest shareClient] WKGetDataWithUrl:@"v1/weather/query" withPara:para block:^(WKBaseInfo *info) {
         if (info.status == kRetCodeSucess) {
             
             block(info);
@@ -301,5 +301,26 @@
 @implementation WKJUHEObj  : NSObject
 
 @end
-
+@implementation WKWechatObj  : NSObject
++ (void)WKGetWechat:(NSDictionary *)para block:(void(^)(WKBaseInfo *info,NSArray *mArr))block{
+    [[WKHttpRequest shareClient] WKGetDataWithUrl:@"wx/article/category/query" withPara:para block:^(WKBaseInfo *info) {
+        if (info.status == kRetCodeSucess) {
+            
+            NSMutableArray *mTempArr = [NSMutableArray new];
+            if ([info.result isKindOfClass:[NSDictionary class]]) {
+                NSArray *mListArr = [info.result objectForKey:@"data"];
+                if (mListArr.count > 0) {
+                    for (NSDictionary *dic in mListArr) {
+                        [mTempArr addObject:[WKNews yy_modelWithDictionary:dic]];
+                    }
+                }
+            }
+            
+            block(info,mTempArr);
+        }else{
+            block(info,nil);
+        }
+    }];
+}
+@end
 

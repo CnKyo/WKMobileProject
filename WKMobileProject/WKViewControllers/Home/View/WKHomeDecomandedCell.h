@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+
+#import "WKHeader.h"
 ///设置代理方法
 @protocol WKHomeDecomandedCellDelegate <NSObject>
 
@@ -30,6 +32,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *mRightBtn;
 
 @property (assign,nonatomic) NSInteger mIndex;
+
+
 
 ///设置代理
 @property (weak,nonatomic) id<WKHomeDecomandedCellDelegate>delegate;

@@ -43,6 +43,9 @@
     NSMutableArray *mJHBannerArr;
 
     NSMutableArray *mFuncArr;
+    
+    NSMutableArray *mTuijianArr;
+    NSMutableArray *mActivityArr;
 
     ///列表分组viewinf
     WKHomeHeaderSectionView *mSectionView;
@@ -64,8 +67,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"首页";
-    
-    
+    mTuijianArr = [NSMutableArray new];
+    mActivityArr = [NSMutableArray new];
     UIImage *image = [self.tabBarItem.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.tabBarItem.selectedImage = image;
     [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:0.96 green:0.43 blue:0.01 alpha:1]} forState:UIControlStateSelected];
@@ -122,6 +125,9 @@
     [mBannerArr removeAllObjects];
     [mFuncArr removeAllObjects];
     [mJHBannerArr removeAllObjects];
+    [mActivityArr removeAllObjects];
+
+    [mTuijianArr removeAllObjects];
     NSArray *mFArr = @[@"icon_xiyiji",@"icon_jinbi"];
     NSArray *mTArr = @[@"洗衣机",@"金币充值"];
 
@@ -150,10 +156,61 @@
                 }
             }
             [mJHBannerArr addObjectsFromArray:mArr];
+//            [self.tableView headerEndRefreshing];
+//
+            [self.tableView reloadData];
+        
+        }else{
+            [SVProgressHUD dismiss];
+            
+        }
+        
+    }];
+    
+    NSMutableDictionary *mWechat = [NSMutableDictionary new];
+    [mWechat setObject:kJUHEAPIKEY forKey:@"key"];
+    [mWechat setObject:@"guoji" forKey:@"type"];
+ 
+    [WKNews WKGetJuheNewsList:mWechat block:^(WKJUHEObj *info, NSArray *mArr) {
+        
+        if (info.error_code == 0) {
+            [SVProgressHUD dismiss];
+            for (int i = 0; i<mArr.count; i++) {
+                WKNews *mNew = mArr[i];
+                [mTuijianArr addObject:mNew];
+                if (i==3) {
+                    break;
+                }
+            }
+            
+            [self.tableView reloadData];
+            
+        }else{
+            [SVProgressHUD dismiss];
+            
+        }
+        
+    }];
+    
+    NSMutableDictionary *mJunshi = [NSMutableDictionary new];
+    [mJunshi setObject:kJUHEAPIKEY forKey:@"key"];
+    [mJunshi setObject:@"junshi" forKey:@"type"];
+    
+    [WKNews WKGetJuheNewsList:mJunshi block:^(WKJUHEObj *info, NSArray *mArr) {
+        
+        if (info.error_code == 0) {
+            [SVProgressHUD dismiss];
+            for (int i = 0; i<mArr.count; i++) {
+                WKNews *mNew = mArr[i];
+                [mActivityArr addObject:mNew];
+                if (i==3) {
+                    break;
+                }
+            }
             [self.tableView headerEndRefreshing];
             
             [self.tableView reloadData];
-        
+            
         }else{
             [SVProgressHUD dismiss];
             
@@ -275,9 +332,9 @@
     if (section == 0) {
         return 1;
     }else if(section == 1){
-        return 4;
+        return mTuijianArr.count/2;
     }else{
-        return 4;
+        return mActivityArr.count;
     }
     
 }
@@ -318,13 +375,28 @@
         
         cell.delegate = self;
         
+        WKNews *mN1 = mTuijianArr[indexPath.row*2];
+        WKNews *mN2;
+        if ((indexPath.row+1)*2>mTuijianArr.count) {
+            cell.mrightImg.hidden = YES;
+        }else{
+            mN2 = mTuijianArr[indexPath.row*2+1];
+            cell.mrightImg.hidden = NO;
+
+        }
+        [cell.mLeftImg sd_setImageWithURL:[NSURL URLWithString:mN1.thumbnail_pic_s] placeholderImage:nil];
+        [cell.mrightImg sd_setImageWithURL:[NSURL URLWithString:mN2.thumbnail_pic_s] placeholderImage:nil];
+        
+        
         return cell;
     }else{
     
         reuseCellId = @"activityCell";
         
         WKHomeActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
-        
+        WKNews *mN = mActivityArr[indexPath.row];
+
+        [cell.mImg sd_setImageWithURL:[NSURL URLWithString:mN.thumbnail_pic_s] placeholderImage:nil];
         return cell;
 
     }
@@ -336,16 +408,21 @@
     if (indexPath.section == 2) {
         MLLog(@"%ld行",indexPath.row);
         
-        WKGenericLoginViewController *vc = [WKGenericLoginViewController new];
+//        WKGenericLoginViewController *vc = [WKGenericLoginViewController new];
+//        vc.hidesBottomBarWhenPushed = YES;
+//        vc.mLoginType = WKLogin;
+//        vc.mBlock = ^(NSInteger para) {
+//            if (para == 1) {
+//                [self addTableViewHeaderRefreshing];
+//
+//            }
+//        };
+//        [self presentModalViewController:vc];
+        WKNews *mN = mActivityArr[indexPath.row];
+        WKWebViewController *vc = [WKWebViewController new];
+        vc.mURLString = mN.url;
         vc.hidesBottomBarWhenPushed = YES;
-        vc.mLoginType = WKLogin;
-        vc.mBlock = ^(NSInteger para) {
-            if (para == 1) {
-                [self addTableViewHeaderRefreshing];
-
-            }
-        };
-        [self presentModalViewController:vc];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     
 }

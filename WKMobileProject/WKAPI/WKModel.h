@@ -196,3 +196,20 @@
 
 @end
 
+@interface WKWechatObj : NSObject
+
+@property (nonatomic,strong) NSString *pubTime;
+
+@property (nonatomic,assign) int cid;
+
+@property (assign,nonatomic) int id;
+@property (nonatomic,strong) NSString *sourceUrl;
+
+@property (nonatomic,strong) NSString *subTitle;
+
+@property (nonatomic,strong) NSString *title;
+
+
++ (void)WKGetWechat:(NSDictionary *)para block:(void(^)(WKBaseInfo *info,NSArray *mArr))block;
+@end
+
