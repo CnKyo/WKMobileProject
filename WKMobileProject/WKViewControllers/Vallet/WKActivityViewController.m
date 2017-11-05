@@ -11,12 +11,17 @@
 #import "WKTaskDetailViewController.h"
 #import "UIScrollView+DREmptyDataSet.h"
 #import "UIScrollView+DRRefresh.h"
+#import "WKWashPayResultView.h"
+
 @interface UIActivityViewController ()
 
 @end
 
 @implementation WKActivityViewController
+{
+    WKWashPayResultView *mSucessView;
 
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -41,7 +46,19 @@
         
     }];
     [self.tableView headerBeginRefreshing];
+    
+    [self.tableView removeFromSuperview];
 
+    [self initSucessView];
+}
+#pragma mark----****----初始化支付成功和失败view
+- (void)initSucessView{
+    mSucessView = [WKWashPayResultView initVIPSucessView];
+    mSucessView.frame = CGRectMake(0, 64, DEVICE_Width, DEVICE_Height);
+    mSucessView.mTopupMessageContent.hidden = YES;
+    mSucessView.mTopupStatus.text = @"建设中";
+    [mSucessView.mTopupBackBtn setTitle:@"敬请期待..." forState:0];
+    [self.view addSubview:mSucessView];
 }
 - (void)tableViewHeaderReloadData{
     [self.tableView headerEndRefreshing];

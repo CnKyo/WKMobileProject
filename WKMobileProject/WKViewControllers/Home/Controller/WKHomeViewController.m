@@ -62,6 +62,11 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"首页";
     
+    
+    UIImage *image = [self.tabBarItem.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.tabBarItem.selectedImage = image;
+    [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:0.96 green:0.43 blue:0.01 alpha:1]} forState:UIControlStateSelected];
+    
     if (SystemIsiOS11()) {
         self.mTopMargin.constant = -94;
     }else{

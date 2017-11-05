@@ -17,6 +17,8 @@
 
 + (instancetype)shareClient;
 
++ (instancetype)initJUHEApiClient;
+
 /**
  *  封装的get请求
  *

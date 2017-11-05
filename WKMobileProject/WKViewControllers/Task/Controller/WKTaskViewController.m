@@ -12,6 +12,8 @@
 #import "WKTaskDetailViewController.h"
 #import "FSCustomButton.h"
 #import "WKMyTaskViewController.h"
+#import "WKWashPayResultView.h"
+
 @interface WKTaskViewController ()<WKTaskHeaderCellDelegate>
 
 @end
@@ -21,12 +23,14 @@
     
     ///banner数据源
     NSMutableArray *mBannerArr;
+    WKWashPayResultView *mSucessView;
+
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"任务赚财富";
-    
+
     mBannerArr = [NSMutableArray new];
 
     [self addTableView];
@@ -37,22 +41,32 @@
     [self addTableViewHeaderRefreshing];
     [self addTableViewFootererRefreshing];
     
+    [self.tableView removeFromSuperview];
     
-    FSCustomButton *mLeftBtn = [[FSCustomButton alloc] initWithFrame:CGRectMake(0, 220, 120, 40)];
-    mLeftBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-    [mLeftBtn setTitle:@"我的任务" forState:UIControlStateNormal];
-    [mLeftBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [mLeftBtn setImage:[UIImage imageNamed:@"task_money"] forState:UIControlStateNormal];
-    mLeftBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -50, 0, 0);
-    mLeftBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -60, 0, 0);
-//    [mLeftBtn setBackgroundColor:[UIColor redColor]];
-    [mLeftBtn addTarget:self action:@selector(myTaskOrder) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *mLeftItem = [[UIBarButtonItem alloc]initWithCustomView:mLeftBtn];
-    self.navigationItem.leftBarButtonItem = mLeftItem;
+//    FSCustomButton *mLeftBtn = [[FSCustomButton alloc] initWithFrame:CGRectMake(0, 220, 120, 40)];
+//    mLeftBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+//    [mLeftBtn setTitle:@"我的任务" forState:UIControlStateNormal];
+//    [mLeftBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [mLeftBtn setImage:[UIImage imageNamed:@"task_money"] forState:UIControlStateNormal];
+//    mLeftBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -50, 0, 0);
+//    mLeftBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -60, 0, 0);
+//    [mLeftBtn addTarget:self action:@selector(myTaskOrder) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *mLeftItem = [[UIBarButtonItem alloc]initWithCustomView:mLeftBtn];
+//    self.navigationItem.leftBarButtonItem = mLeftItem;
+//
+//    [self addRightBtn:YES andTitel:nil andImage:[UIImage imageNamed:@"service"]];
+//    [self setRightBtnImage:@"service"];
+    [self initSucessView];
 
-    [self addRightBtn:YES andTitel:nil andImage:[UIImage imageNamed:@"service"]];
-    [self setRightBtnImage:@"service"];
-    
+}
+#pragma mark----****----初始化支付成功和失败view
+- (void)initSucessView{
+    mSucessView = [WKWashPayResultView initVIPSucessView];
+    mSucessView.frame = CGRectMake(0, 64, DEVICE_Width, DEVICE_Height);
+    mSucessView.mTopupMessageContent.hidden = YES;
+    mSucessView.mTopupStatus.text = @"建设中";
+    [mSucessView.mTopupBackBtn setTitle:@"敬请期待..." forState:0];
+    [self.view addSubview:mSucessView];
 }
 - (void)myTaskOrder{
     MLLog(@"我的任务");

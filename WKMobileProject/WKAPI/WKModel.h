@@ -56,6 +56,46 @@
 
 @end
 
+@interface WKUser : NSObject
+
+@property (nonatomic,strong) NSString *user_name;
+@property (nonatomic,assign) NSInteger user_id;
+
+
+/**
+ 手机号码登录
+
+ @param param 参数
+ @param block 返回信息
+ */
++ (void)WKUserLoginWithMobile:(NSDictionary *)param block:(void(^)(WKBaseInfo *info))block;
+
+
+/**
+ 验证码登录
+
+ @param param 参数
+ @param block 返回信息
+ */
++ (void)WKVeryfyLogin:(NSDictionary *)param block:(void(^)(WKBaseInfo *info))block;
+
+/**
+ 获取验证码
+
+ @param param 参数
+ @param block 返回信息
+ */
++ (void)WKGetVeryfyCode:(NSDictionary *)param block:(void(^)(WKBaseInfo *info))block;
+
+/**
+ 注册
+
+ @param param 参数
+ @param block 返回信息
+ */
++ (void)WKUserRegist:(NSDictionary *)param block:(void(^)(WKBaseInfo *info))block;
+@end
+
 @class body;
 @interface WKModel : NSObject
 
@@ -89,3 +129,28 @@
 @property (nonatomic,strong) NSString *mFuncImg;
 
 @end
+
+@interface WKHome  : NSObject
+///0：首页banner，1：推荐，2：活动
+@property (nonatomic,assign) NSNumber *banner_type;
+///标题
+@property (nonatomic,strong) NSString *banner_title;
+///图片url
+@property (nonatomic,strong) NSString *banner_img;
+///跳转url
+@property (nonatomic,strong) NSString *banner_skip_content;
+
+
+/**
+ 获取首页数据
+
+ @param para 参数
+ @param block 返回信息
+ */
++ (void)WKGetHomeList:(NSDictionary *)para block:(void(^)(WKBaseInfo *info,NSArray *mArr))block;
+
+@end
+
+
+
+

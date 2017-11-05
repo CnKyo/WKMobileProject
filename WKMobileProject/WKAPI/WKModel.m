@@ -119,6 +119,89 @@
 
 @end
 
+@implementation WKUser : NSObject
+/**
+ 手机号码登录
+ 
+ @param param 参数
+ @param block 返回信息
+ */
++ (void)WKUserLoginWithMobile:(NSDictionary *)param block:(void(^)(WKBaseInfo *info))block{
+    
+    MLLog(@"参数是：%@",param);
+    
+    [[WKHttpRequest shareClient] WKGetDataWithUrl:@"/login/login.php" withPara:param block:^(WKBaseInfo *info) {
+        if (info.status
+            == kRetCodeSucess) {
+            
+          
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+}
+/**
+ 验证码登录
+ 
+ @param param 参数
+ @param block 返回信息
+ */
++ (void)WKVeryfyLogin:(NSDictionary *)param block:(void(^)(WKBaseInfo *info))block{
+    MLLog(@"参数是：%@",param);
+    
+    [[WKHttpRequest shareClient] WKGetDataWithUrl:@"/login/code_login.php" withPara:param block:^(WKBaseInfo *info) {
+        if (info.status
+            == kRetCodeSucess) {
+            
+            
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+}
+/**
+ 获取验证码
+ 
+ @param param 参数
+ @param block 返回信息
+ */
++ (void)WKGetVeryfyCode:(NSDictionary *)param block:(void(^)(WKBaseInfo *info))block{
+    MLLog(@"参数是：%@",param);
+    
+    [[WKHttpRequest shareClient] WKGetDataWithUrl:@"/code/login_code.php" withPara:param block:^(WKBaseInfo *info) {
+        if (info.status
+            == kRetCodeSucess) {
+            
+            
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+}
+/**
+ 注册
+ 
+ @param param 参数
+ @param block 返回信息
+ */
++ (void)WKUserRegist:(NSDictionary *)param block:(void(^)(WKBaseInfo *info))block{
+    MLLog(@"参数是：%@",param);
+    
+    [[WKHttpRequest shareClient] WKGetDataWithUrl:@"/login/register.php" withPara:param block:^(WKBaseInfo *info) {
+        if (info.status
+            == kRetCodeSucess) {
+            
+            
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+}
+@end
 @implementation WKModel : NSObject
 
 @end
@@ -132,4 +215,29 @@
 @implementation WKFunc
 
 
+@end
+
+@implementation WKHome  : NSObject
+/**
+ 获取首页数据
+ 
+ @param para 参数
+ @param block 返回信息
+ */
++ (void)WKGetHomeList:(NSDictionary *)para block:(void(^)(WKBaseInfo *info,NSArray *mArr))block{
+    
+    MLLog(@"参数是：%@",para);
+    
+    [[WKHttpRequest shareClient] WKGetDataWithUrl:@"/index/index.php" withPara:para block:^(WKBaseInfo *info) {
+        if (info.status
+            == kRetCodeSucess) {
+            
+            
+            block(info,nil);
+        }else{
+            block(info,nil);
+        }
+    }];
+    
+}
 @end

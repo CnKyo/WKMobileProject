@@ -140,6 +140,7 @@
 		5239D3421EF3B29B00BAB3F3 /* muwu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5239D33E1EF3B29B00BAB3F3 /* muwu.jpg */; };
 		5239D3431EF3B29B00BAB3F3 /* shuijiao.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5239D33F1EF3B29B00BAB3F3 /* shuijiao.jpg */; };
 		5239D3441EF3B29B00BAB3F3 /* yuantiao.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5239D3401EF3B29B00BAB3F3 /* yuantiao.jpg */; };
+		523D330C1FAEFE500048BB5C /* WKCustomTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 523D330B1FAEFE500048BB5C /* WKCustomTab.m */; };
 		523FC24E1F381E6700EA7A6E /* WKGenericTextFiled.m in Sources */ = {isa = PBXBuildFile; fileRef = 523FC24D1F381E6700EA7A6E /* WKGenericTextFiled.m */; };
 		5240A27D1EEFC482000A132A /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5240A27C1EEFC482000A132A /* WKWebViewController.m */; };
 		5240A27F1EEFC68F000A132A /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 5240A27E1EEFC68F000A132A /* test.html */; };
@@ -548,6 +549,8 @@
 		5239D33E1EF3B29B00BAB3F3 /* muwu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = muwu.jpg; sourceTree = "<group>"; };
 		5239D33F1EF3B29B00BAB3F3 /* shuijiao.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shuijiao.jpg; sourceTree = "<group>"; };
 		5239D3401EF3B29B00BAB3F3 /* yuantiao.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yuantiao.jpg; sourceTree = "<group>"; };
+		523D330A1FAEFE500048BB5C /* WKCustomTab.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKCustomTab.h; sourceTree = "<group>"; };
+		523D330B1FAEFE500048BB5C /* WKCustomTab.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKCustomTab.m; sourceTree = "<group>"; };
 		523FC24C1F381E6700EA7A6E /* WKGenericTextFiled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKGenericTextFiled.h; sourceTree = "<group>"; };
 		523FC24D1F381E6700EA7A6E /* WKGenericTextFiled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKGenericTextFiled.m; sourceTree = "<group>"; };
 		5240A27B1EEFC482000A132A /* WKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
@@ -1196,6 +1199,8 @@
 				31507E951EA06EA5007B8345 /* WKBaseNavViewController.m */,
 				31632CB51EAAFE850057B161 /* WKTabbarViewController.h */,
 				31632CB61EAAFE850057B161 /* WKTabbarViewController.m */,
+				523D330A1FAEFE500048BB5C /* WKCustomTab.h */,
+				523D330B1FAEFE500048BB5C /* WKCustomTab.m */,
 			);
 			path = WKNav;
 			sourceTree = "<group>";
@@ -2623,6 +2628,7 @@
 				31507EAB1EA06FEA007B8345 /* WKFindViewController.m in Sources */,
 				52D02D3D1F41A8CD00B24618 /* WKRecordCell.m in Sources */,
 				522976271ECC3D9300FEB6D9 /* WKMyActivityViewController.m in Sources */,
+				523D330C1FAEFE500048BB5C /* WKCustomTab.m in Sources */,
 				5217DDE01EE1059600BE35ED /* UIButton+Layout.m in Sources */,
 				529D21521ECC50E800766E2F /* WKMyWashCell.m in Sources */,
 				31507E961EA06EA5007B8345 /* WKBaseNavViewController.m in Sources */,

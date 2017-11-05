@@ -19,12 +19,12 @@
 
 - (NSString *)offlineApiBaseUrl
 {
-    return kMobTainAPIURLString;
+    return kAPIAddressUrlString;
 }
 
 - (NSString *)onlineApiBaseUrl
 {
-    return kMobTainAPIURLString;
+    return kAPIAddressUrlString;
 }
 
 - (NSString *)offlineApiVersion

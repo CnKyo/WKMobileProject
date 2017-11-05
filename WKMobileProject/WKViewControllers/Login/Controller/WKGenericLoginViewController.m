@@ -142,10 +142,24 @@
     switch (mTag) {
         case 1:
         {
-//        [self dismissViewController];
-        [self dismissViewControllerAnimated:YES completion:^{
-            self.mBlock(1);
+        
+        NSMutableDictionary *mPara = [NSMutableDictionary new];
+        [mPara setObject:@"18623330775" forKey:@"mobile"];
+        [mPara setObject:@"123456" forKey:@"password"];
+        
+        [SVProgressHUD showWithStatus:@"登录中。。。"];
+        [WKUser WKUserLoginWithMobile:mPara block:^(WKBaseInfo *info) {
+            if (info.status == kRetCodeSucess) {
+                [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
+                [self dismissViewControllerAnimated:YES completion:^{
+                    self.mBlock(1);
+                }];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"登录失败!"];
+            }
         }];
+        
+
         }
             break;
         case 2:

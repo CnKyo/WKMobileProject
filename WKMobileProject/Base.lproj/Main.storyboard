@@ -33,7 +33,7 @@
         <scene sceneID="o3c-FX-gBi">
             <objects>
                 <navigationController id="wMZ-wK-zcD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" id="0Q2-gK-dlR"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="wode01" selectedImage="wode02" id="0Q2-gK-dlR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jZq-Da-Gbb">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -50,7 +50,7 @@
         <scene sceneID="sx4-90-JCS">
             <objects>
                 <navigationController id="7ah-et-gCy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="任务" id="VR5-j3-HA4"/>
+                    <tabBarItem key="tabBarItem" title="任务" image="renwu01" selectedImage="renwu02" id="VR5-j3-HA4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yU2-zm-Ltf">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -86,7 +86,7 @@
         <scene sceneID="nN0-t6-YG0">
             <objects>
                 <navigationController id="Fix-li-D88" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="活动" id="SnN-7f-7Og"/>
+                    <tabBarItem key="tabBarItem" title="活动" image="huodong02" id="SnN-7f-7Og"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="e3a-Ip-2oR">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -171,7 +171,7 @@
         <scene sceneID="JWP-h7-Lkj">
             <objects>
                 <navigationController id="oEz-H3-grV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="发现" id="3DS-aA-rtf"/>
+                    <tabBarItem key="tabBarItem" title="发现" image="faxian02" id="3DS-aA-rtf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="55G-Pb-ECr">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -188,7 +188,7 @@
         <scene sceneID="7MY-oH-BtV">
             <objects>
                 <navigationController id="q4B-1M-zpU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" id="khd-IS-Oiq"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="le01" id="khd-IS-Oiq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MoR-xh-3Sx">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -278,6 +278,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.97574561829999995" green="0.58092361690000005" blue="0.2751699984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="q4B-1M-zpU" kind="relationship" relationship="viewControllers" id="UvY-20-kP7"/>
@@ -423,9 +425,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="faxian02" width="18" height="19"/>
+        <image name="huodong02" width="19" height="19"/>
+        <image name="le01" width="16" height="19"/>
+        <image name="renwu01" width="19" height="19"/>
+        <image name="renwu02" width="19" height="19"/>
         <image name="scancode_box" width="260" height="260"/>
         <image name="scancode_light" width="60" height="72"/>
         <image name="scancode_light_select" width="60" height="72"/>
         <image name="scancode_photo" width="60" height="72"/>
+        <image name="wode01" width="16" height="19"/>
+        <image name="wode02" width="16" height="19"/>
     </resources>
 </document>

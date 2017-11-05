@@ -25,6 +25,22 @@
     });
     return _sharedClient;
 }
++ (instancetype)initJUHEApiClient{
+    static WKHttpRequest *_sharedClient = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        //[APIClient loadDefault];
+        _sharedClient = [[WKHttpRequest alloc] initWithBaseURL:[NSURL URLWithString:kMobTainAPIURLString]];
+        _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
+        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+        
+        ;
+        //_sharedClient.requestSerializer = [AFJSONRequestSerializer serializer];
+        _sharedClient.requestSerializer.HTTPShouldHandleCookies = YES;
+        //_sharedClient.requestSerializer.Content = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+    });
+    return _sharedClient;
+}
 + (void)WKGetNetDataWith:(NSString*)str withDic:(NSDictionary*)dic andSuccess:(void(^)(NSDictionary* dictionary))successBlock  andFailure:(void(^)())failueBlock{
     
     AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializer];
@@ -124,7 +140,7 @@
 - (void)WKGetDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKBaseInfo *info))block{
 
 
-    [[NSNetworkRequest sharedInstance] GET:url parameters:para cacheMode:YES successBlock:^(id responseObject) {
+    [[NSNetworkRequest sharedInstance] GET:url parameters:para cacheMode:NO successBlock:^(id responseObject) {
         MLLog(@"%@\n缓存路径为:  %@",responseObject,kPathCache);
 //        MLLog(@"responseObject----:%@",responseObject);
         
