@@ -34,7 +34,7 @@ static AFHTTPSessionManager *manager;
                     successBlock:(SuccessBlock)successBlock
                     failureBlock:(FailureBlock)failureBlock{
     
-    manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kMobTainAPIURLString]]; //设置请求参数的类型
+    manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kMobWeatherAPIURLString]]; //设置请求参数的类型
     
     [manager.requestSerializer setTimeoutInterval:TIMEOUT]; //设置请求的超时时间
     

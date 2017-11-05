@@ -36,6 +36,9 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
+        
+        NSMutableArray *mFuncArr = [NSMutableArray new];
+        
         UIView *mBannerView = [UIView new];
         [self addSubview:mBannerView];
         
@@ -61,8 +64,13 @@
             NSMutableArray *mImgUrl = [NSMutableArray new];
             
             
-            for (NSString *mBanner in mBannerDataSource) {
-                [mImgUrl addObject:mBanner];
+            for (int i = 0;i<mBannerDataSource.count;i++) {
+                WKNews *mNew = mBannerDataSource[i];
+                [mImgUrl addObject:mNew.thumbnail_pic_s];
+                if (i==4) {
+                    break;
+                }
+                
             }
             
             mScrollerView = [[RKImageBrowser alloc] initWithFrame:CGRectMake(0, 0, screen_width, 170)];
@@ -123,10 +131,17 @@
             
             
         }
-        
-        if (mBannerDataSource.count > 0) {
+        for (int i = 0;i<mBannerDataSource.count;i++) {
+            WKNews *mNew = mBannerDataSource[i];
+            [mFuncArr addObject:mNew];
+            if (i==3) {
+                break;
+            }
+            
+        }
+        if (mFuncArr.count > 0) {
             int mPage;
-            if (mBannerDataSource.count>8) {
+            if (mFuncArr.count>8) {
                 mPage = 2;
             }else{
                 mPage = 1;
@@ -150,12 +165,12 @@
             CGRect mSRR = scrollView.frame;
             
             //创建8个
-            for (int i = 0; i < mBannerDataSource.count; i++) {
+            for (int i = 0; i < mFuncArr.count; i++) {
                 if (i < 4) {
                     CGRect frame = CGRectMake(i*screen_width/4, 0, screen_width/4, 80);
-                    
+                    WKNews *mNew = mFuncArr[i];
                     NSString *title = @"功能";
-                    NSString *imageStr = mBannerDataSource[i];
+                    NSString *imageStr = mNew.thumbnail_pic_s02;
                     WKCustomBtnView *btnView = [[WKCustomBtnView alloc] initWithZLCustomBtnViewFrame:frame Title:title ImageStr:imageStr];
                     btnView.tag = i;
                     [mBgkView1 addSubview:btnView];
@@ -167,8 +182,9 @@
                     mSRR.size.height = 180/2;
                 }else if(i<8){
                     CGRect frame = CGRectMake((i-4)*screen_width/4, 80, screen_width/4, 80);
+                    WKNews *mNew = mFuncArr[i];
                     NSString *title = @"功能";
-                    NSString *imageStr = mBannerDataSource[i];
+                    NSString *imageStr = mNew.thumbnail_pic_s02;
                     WKCustomBtnView *btnView = [[WKCustomBtnView alloc] initWithZLCustomBtnViewFrame:frame Title:title ImageStr:imageStr];
                     btnView.tag = i;
                     [mBgkView1 addSubview:btnView];
@@ -178,8 +194,9 @@
                     mSRR.size.height = 180;
                 }else if(i < 12){
                     CGRect frame = CGRectMake((i-8)*screen_width/4, 0, screen_width/4, 80);
+                    WKNews *mNew = mFuncArr[i];
                     NSString *title = @"功能";
-                    NSString *imageStr = mBannerDataSource[i];
+                    NSString *imageStr = mNew.thumbnail_pic_s02;
                     WKCustomBtnView *btnView = [[WKCustomBtnView alloc] initWithZLCustomBtnViewFrame:frame Title:title ImageStr:imageStr];
                     btnView.tag = i;
                     [mBgkView2 addSubview:btnView];
@@ -190,8 +207,9 @@
                     
                 }else{
                     CGRect frame = CGRectMake((i-12)*screen_width/4, 80, screen_width/4, 80);
+                    WKNews *mNew = mFuncArr[i];
                     NSString *title = @"功能";
-                    NSString *imageStr = mBannerDataSource[i];
+                    NSString *imageStr = mNew.thumbnail_pic_s02;
                     WKCustomBtnView *btnView = [[WKCustomBtnView alloc] initWithZLCustomBtnViewFrame:frame Title:title ImageStr:imageStr];
                     btnView.tag = i;
                     [mBgkView2 addSubview:btnView];

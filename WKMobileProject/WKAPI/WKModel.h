@@ -150,6 +150,7 @@
 + (void)WKGetHomeList:(NSDictionary *)para block:(void(^)(WKBaseInfo *info,NSArray *mArr))block;
 
 @end
+@class WKBaseInfo;
 @class WKJUHEObj;
 @interface WKNews  : NSObject
 ///0：首页banner，1：推荐，2：活动
@@ -179,6 +180,7 @@
  */
 + (void)WKGetJuheNewsList:(NSDictionary *)para block:(void(^)(WKJUHEObj *info,NSArray *mArr))block;
 
++ (void)WKGetWeather:(NSDictionary *)para block:(void(^)(WKBaseInfo *info))block;
 
 @end
 

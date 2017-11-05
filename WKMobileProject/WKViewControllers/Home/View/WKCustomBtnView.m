@@ -23,7 +23,7 @@
     self = [super initWithFrame:mFrame];
     if (self) {
         //
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(mFrame.size.width/2-22, 15, 44, 44)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(mFrame.size.width/2-22, 15, 40, 44)];
         
         //        [imageView sd_setImageWithURL:[NSURL URLWithString:mImageStr] placeholderImage:[UIImage imageNamed:@"ZLDefault_Green"]];
         if ([Util isUrl:mImageStr]) {

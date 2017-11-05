@@ -16,6 +16,7 @@
 
 #import "WKWebViewController.h"
 
+#import "NNDeviceInformation.h"
 @interface WKFindViewController ()<WKFindHeaderCellDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @end
@@ -96,30 +97,109 @@
     
 }
 - (void)tableViewHeaderReloadData{
-    [self.tableArr removeAllObjects];
     
-    NSMutableDictionary *para = [NSMutableDictionary new];
-    [para setObject:kJUHEAPIKEY forKey:@"key"];
-    [para setObject:@"keji" forKey:@"type"];
-    
+
     [SVProgressHUD showWithStatus:@"正在加载..."];
-    [WKNews WKGetJuheNewsList:para block:^(WKJUHEObj *info, NSArray *mArr) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        MLLog(@"=== 执行A ===");
+        [self.tableArr removeAllObjects];
+
+        NSMutableDictionary *para = [NSMutableDictionary new];
+        [para setObject:kJUHEAPIKEY forKey:@"key"];
+        [para setObject:@"keji" forKey:@"type"];
         
-        if (info.error_code == 0) {
-            [SVProgressHUD dismiss];
-            [self.tableArr addObjectsFromArray:mArr];
-            [self.tableView reloadData];
-        }else{
-            [SVProgressHUD dismiss];
+        [WKNews WKGetJuheNewsList:para block:^(WKJUHEObj *info, NSArray *mArr) {
             
-        }
+            if (info.error_code == 0) {
+                [SVProgressHUD dismiss];
+                [self.tableArr addObjectsFromArray:mArr];
+                [self.tableView reloadData];
+
+            }else{
+                [SVProgressHUD dismiss];
+                
+            }
+            
+        }];
+    });
+    dispatch_async(dispatch_get_main_queue(), ^{
+        MLLog(@"=== 执行B ===");
+        NSMutableDictionary *weather = [NSMutableDictionary new];
+        [weather setObject:kMobTrainDemandKey forKey:@"key"];
+        [weather setObject:[NNDeviceInformation getDeviceIPAdress] forKey:@"ip"];
+        
+        [weather setObject:@"" forKey:@"province"];
+        [WKNews WKGetWeather:weather block:^(WKBaseInfo *info) {
+            if (info.status == kRetCodeSucess) {
+                
+            }else{
+                
+            }
+        }];
+    });
+    dispatch_async(dispatch_get_main_queue(), ^{
+        MLLog(@"=== 执行C ===");
+        [mBannerArr removeAllObjects];
+
+        NSMutableDictionary *bannerpara = [NSMutableDictionary new];
+        [bannerpara setObject:kJUHEAPIKEY forKey:@"key"];
+        [bannerpara setObject:@"shehui" forKey:@"type"];
+        
+
+        [WKNews WKGetJuheNewsList:bannerpara block:^(WKJUHEObj *info, NSArray *mArr) {
+            
+            if (info.error_code == 0) {
+                [SVProgressHUD dismiss];
+                [mBannerArr addObjectsFromArray:mArr];
+                [self.tableView reloadData];
+
+            }else{
+                [SVProgressHUD dismiss];
+                
+            }
+            
+        }];
+    });
+    dispatch_group_t group = dispatch_group_create();
+    
+    // 这里执行三次
+    dispatch_queue_t aaa = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_group_enter(group);
+    dispatch_async(aaa,^{
+        
+        dispatch_group_leave(group);
+        NSLog(@"=== 任务 1 完成 ===");
+
+        
+    });
+    dispatch_queue_t bbb = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_group_enter(group);
+    dispatch_async(bbb,^{
+        
+        dispatch_group_leave(group);
+        NSLog(@"=== 任务 2 完成 ===");
+
+        
+    });
+    
+    dispatch_queue_t ccc = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_group_enter(group);
+    dispatch_async(ccc,^{
+        
+        dispatch_group_leave(group);
+        NSLog(@"=== 任务 3 完成 ===");
+
+    });
+    // 三次结束
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        NSLog(@"=== 任务 M 完成 ===");
         [self.tableView headerEndRefreshing];
         
-    }];
+    });
     
     
-    NSArray *mArr = @[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493210044049&di=ac402c2ce8259c98e5e4ea1b7aac4cac&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F209%2Fd%2F97.jpg",@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1493199772&di=66346cd79eed9c8cb4ec03c3734d0b31&src=http://img15.3lian.com/2015/f2/128/d/123.jpg",@"http://wmtp.net/wp-content/uploads/2017/04/0420_sweet945_1.jpeg",@"http://wmtp.net/wp-content/uploads/2017/04/0407_shouhui_1.jpeg"];
-    [mBannerArr addObjectsFromArray:mArr];
+    
+    
     
 }
 - (void)tableViewFooterReloadData{
@@ -209,7 +289,7 @@
         reuseCellId = @"cell";
         
         WKFindTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
-
+        
         [cell setMNews:self.tableArr[indexPath.row]];
         return cell;
         
@@ -239,6 +319,21 @@
  */
 - (void)WKFindHeaderCellDelegateWithBannerClicked:(NSInteger)mIndex{
     MLLog(@"%ld",mIndex);
+    //    NSMutableArray *mImgUrl = [NSMutableArray new];
+    //    for (int i = 0;i<mBannerArr.count;i++) {
+    //        WKNews *mNew = mBannerArr[i];
+    //        [mImgUrl addObject:mNew];
+    //        if (i==4) {
+    //            break;
+    //        }
+    //
+    //    }
+    
+    WKNews *mNew = mBannerArr[mIndex];
+    WKWebViewController *vc = [WKWebViewController new];
+    vc.mURLString = mNew.url;
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 

@@ -14,7 +14,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         //[APIClient loadDefault];
-        _sharedClient = [[WKHttpRequest alloc] initWithBaseURL:[NSURL URLWithString:kMobTainAPIURLString]];
+        _sharedClient = [[WKHttpRequest alloc] initWithBaseURL:[NSURL URLWithString:kMobWeatherAPIURLString]];
         _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
         _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
         

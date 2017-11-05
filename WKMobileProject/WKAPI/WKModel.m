@@ -284,6 +284,17 @@
     }];
     
 }
++ (void)WKGetWeather:(NSDictionary *)para block:(void(^)(WKBaseInfo *info))block{
+    [[WKHttpRequest shareClient] WKGetDataWithUrl:@"weather/query" withPara:para block:^(WKBaseInfo *info) {
+        if (info.status == kRetCodeSucess) {
+            
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+    
+}
 
 @end
 

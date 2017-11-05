@@ -286,6 +286,7 @@
 		52D02D391F41A26100B24618 /* WKRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D02D381F41A26100B24618 /* WKRecordViewController.m */; };
 		52D02D3D1F41A8CD00B24618 /* WKRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D02D3B1F41A8CD00B24618 /* WKRecordCell.m */; };
 		52D02D3E1F41A8CD00B24618 /* WKRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D02D3C1F41A8CD00B24618 /* WKRecordCell.xib */; };
+		52E14CF21FAF4C9A00236431 /* NNDeviceInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E14CF11FAF4C9900236431 /* NNDeviceInformation.m */; };
 		52E1ADEB1FA090090082F9A5 /* WKBaseSuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1ADE91FA090090082F9A5 /* WKBaseSuperViewController.m */; };
 		52E1ADEC1FA090090082F9A5 /* WKBaseSuperViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E1ADEA1FA090090082F9A5 /* WKBaseSuperViewController.xib */; };
 		52E1ADEF1FA095270082F9A5 /* WKTestViewcontrollerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1ADEE1FA095270082F9A5 /* WKTestViewcontrollerViewController.m */; };
@@ -777,6 +778,8 @@
 		52D02D3A1F41A8CD00B24618 /* WKRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKRecordCell.h; sourceTree = "<group>"; };
 		52D02D3B1F41A8CD00B24618 /* WKRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKRecordCell.m; sourceTree = "<group>"; };
 		52D02D3C1F41A8CD00B24618 /* WKRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKRecordCell.xib; sourceTree = "<group>"; };
+		52E14CF01FAF4C9900236431 /* NNDeviceInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNDeviceInformation.h; sourceTree = "<group>"; };
+		52E14CF11FAF4C9900236431 /* NNDeviceInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNDeviceInformation.m; sourceTree = "<group>"; };
 		52E1ADE81FA090090082F9A5 /* WKBaseSuperViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKBaseSuperViewController.h; sourceTree = "<group>"; };
 		52E1ADE91FA090090082F9A5 /* WKBaseSuperViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKBaseSuperViewController.m; sourceTree = "<group>"; };
 		52E1ADEA1FA090090082F9A5 /* WKBaseSuperViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKBaseSuperViewController.xib; sourceTree = "<group>"; };
@@ -1038,6 +1041,7 @@
 			isa = PBXGroup;
 			children = (
 				529D8E5C1EDFFF1700BF0FDE /* WKMobileProject.entitlements */,
+				52E14CEF1FAF4C9900236431 /* WKGetDeviceInfo */,
 				522D1F1D1FAC6E470037137D /* WKPregressBar */,
 				521E3B6D1F9F42FB00CA3187 /* WKQuikRefresh */,
 				5206239C1F5E7FB500E91A8E /* NSNetworkManager */,
@@ -2150,6 +2154,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		52E14CEF1FAF4C9900236431 /* WKGetDeviceInfo */ = {
+			isa = PBXGroup;
+			children = (
+				52E14CF01FAF4C9900236431 /* NNDeviceInformation.h */,
+				52E14CF11FAF4C9900236431 /* NNDeviceInformation.m */,
+			);
+			path = WKGetDeviceInfo;
+			sourceTree = "<group>";
+		};
 		52EEE85D1F42E3B400D7C985 /* WLUnitField */ = {
 			isa = PBXGroup;
 			children = (
@@ -2648,6 +2661,7 @@
 				523544851F4AD19F007983C8 /* FCIPAddressGeocoder.m in Sources */,
 				529D8E861EE010B300BF0FDE /* ControlRunLoopTool.m in Sources */,
 				31632CBE1EAB02AF0057B161 /* WKTrainDemandCell.m in Sources */,
+				52E14CF21FAF4C9A00236431 /* NNDeviceInformation.m in Sources */,
 				52289D931ECB07A900D8A6F5 /* WKEditUserinfoViewController.m in Sources */,
 				524E3EF91ECACD5B00EF0224 /* WKFindHeaderCell.m in Sources */,
 				5217DDE91EE138E700BE35ED /* WKMyWealthRecordViewController.m in Sources */,

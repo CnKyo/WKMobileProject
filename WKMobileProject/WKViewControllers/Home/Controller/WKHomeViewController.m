@@ -22,6 +22,7 @@
 #import "FCIPAddressGeocoder.h"
 #import "UIScrollView+DREmptyDataSet.h"
 #import "UIScrollView+DRRefresh.h"
+#import "WKWebViewController.h"
 
 @interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate,NSNetworkMonitorProtocol>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
@@ -39,6 +40,8 @@
 
     ///banner数据源
     NSMutableArray *mBannerArr;
+    NSMutableArray *mJHBannerArr;
+
     NSMutableArray *mFuncArr;
 
     ///列表分组viewinf
@@ -83,7 +86,7 @@
     
     mBannerArr = [NSMutableArray new];
     mFuncArr = [NSMutableArray new];
-    
+    mJHBannerArr = [NSMutableArray new];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
     self.mTableView.separatorStyle = UITableViewCellSelectionStyleNone;
@@ -118,8 +121,8 @@
 - (void)tableViewHeaderReloadData{
     [mBannerArr removeAllObjects];
     [mFuncArr removeAllObjects];
-    NSArray *mArr = @[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493210044049&di=ac402c2ce8259c98e5e4ea1b7aac4cac&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F209%2Fd%2F97.jpg",@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1493199772&di=66346cd79eed9c8cb4ec03c3734d0b31&src=http://img15.3lian.com/2015/f2/128/d/123.jpg",@"http://wmtp.net/wp-content/uploads/2017/04/0420_sweet945_1.jpeg",@"http://wmtp.net/wp-content/uploads/2017/04/0407_shouhui_1.jpeg"];
-    NSArray *mFArr = @[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493210044049&di=ac402c2ce8259c98e5e4ea1b7aac4cac&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F209%2Fd%2F97.jpg",@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1493199772&di=66346cd79eed9c8cb4ec03c3734d0b31&src=http://img15.3lian.com/2015/f2/128/d/123.jpg"];
+    [mJHBannerArr removeAllObjects];
+    NSArray *mFArr = @[@"icon_xiyiji",@"icon_jinbi"];
     NSArray *mTArr = @[@"洗衣机",@"金币充值"];
 
     for (int i=0; i<mFArr.count; i++) {
@@ -129,26 +132,34 @@
         [mFuncArr addObject:mFC];
 
     }
-    [mBannerArr addObjectsFromArray:mArr];
 
-    [self.tableView headerEndRefreshing];
     
-    [self.tableView reloadData];
-    
-    NSMutableDictionary *para = [NSMutableDictionary new];
-    [para setObject:kMobTrainDemandKey forKey:@"key"];
-    [para setObject:@"K688" forKey:@"trainno"];
-    
-    [self showWithLoading:@"loading..."];
-    [WKBaseInfo WKFindTrainNumber:para block:^(WKBaseInfo *info, NSArray *list) {
-        if (info.status == kRetCodeSucess) {
-            [self showSucess:info.msg];
+    NSMutableDictionary *bannerpara = [NSMutableDictionary new];
+    [bannerpara setObject:kJUHEAPIKEY forKey:@"key"];
+    [bannerpara setObject:@"guonei" forKey:@"type"];
+    [SVProgressHUD showWithStatus:@"正在加载..."];
+    [WKNews WKGetJuheNewsList:bannerpara block:^(WKJUHEObj *info, NSArray *mArr) {
+        
+        if (info.error_code == 0) {
+            [SVProgressHUD dismiss];
+            for (int i = 0; i<mArr.count; i++) {
+                WKNews *mNew = mArr[i];
+            [mBannerArr addObject:mNew.thumbnail_pic_s];
+                if (i==4) {
+                    break;
+                }
+            }
+            [mJHBannerArr addObjectsFromArray:mArr];
+            [self.tableView headerEndRefreshing];
             
+            [self.tableView reloadData];
+        
         }else{
-            [self showError:info.msg];
+            [SVProgressHUD dismiss];
+            
         }
+        
     }];
-    [self judgeString];
     
 }
 - (void)judgeString{
@@ -292,7 +303,7 @@
     if (indexPath.section == 0) {
         reuseCellId = @"normalCell";
         
-        WKHomeTypeHeaderCell  *cell = [[WKHomeTypeHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellId andBannerDataSource:mBannerArr andDataSource:mFuncArr andScrollerLabelTx:[NSString stringWithFormat:@"%@            ",@"这是跑马风这是跑马风这是跑马风这是跑马风"]];
+        WKHomeTypeHeaderCell  *cell = [[WKHomeTypeHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellId andBannerDataSource:mBannerArr andDataSource:mFuncArr andScrollerLabelTx:[NSString stringWithFormat:@"%@            ",@"重庆电信双11狂欢节，天天秒杀抢不停"]];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -345,6 +356,10 @@
 - (void)WKHomeScrollerLabelDidSelected{
     MLLog(@"跑马灯");
     
+    WKWebViewController *vc = [WKWebViewController new];
+    vc.mURLString = @"http://cq.189.cn/cms/picAdv.htm?id=21354&intaid=cq-sy-jdt-02-";
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 
 }
 /**
@@ -382,18 +397,17 @@
  @param mIndex 索引
  */
 - (void)WKHomeBannerDidSelectedWithIndex:(NSInteger)mIndex{
-//    MLLog(@"%ld",mIndex);
-//    WKWebViewController *vc = [WKWebViewController new];
-//    vc.mTitle = @"测试页面";
-//    vc.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
-
  
-    [WKProgressView WKShowView:self.view andStatus:WKProgressError WithTitle:@"成功" andContent:@"这是什么？" andBtnTitle:@"重新加载" andImgSRC:@"icon_paysucess" andBlock:^(WKProgressView *progressView, NSInteger btnIndex) {
-        MLLog(@"%ld",btnIndex);
+//    [WKProgressView WKShowView:self.view andStatus:WKProgressError WithTitle:@"成功" andContent:@"这是什么？" andBtnTitle:@"重新加载" andImgSRC:@"icon_paysucess" andBlock:^(WKProgressView *progressView, NSInteger btnIndex) {
+//        MLLog(@"%ld",btnIndex);
+//
+//    }];
 
-    }];
-    
+    WKNews *mNew = mJHBannerArr[mIndex];
+    WKWebViewController *vc = [WKWebViewController new];
+    vc.mURLString = mNew.url;
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
