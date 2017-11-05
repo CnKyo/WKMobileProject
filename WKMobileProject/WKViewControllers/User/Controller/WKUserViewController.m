@@ -188,7 +188,7 @@
         
         WKUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
+        [cell setMPressValue:@"0.5"];
         cell.delegete = self;
 
         return cell;

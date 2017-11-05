@@ -85,7 +85,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"WKWashTableCell" bundle:nil] forCellReuseIdentifier:@"cell"];
 
     [self addTableViewHeaderRefreshing];
-    [self addTableViewFootererRefreshing];
+//    [self addTableViewFootererRefreshing];
 }
 - (void)WKWashHeaderViewBtnAction:(NSInteger)mTag{
     switch (mTag) {

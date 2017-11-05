@@ -117,6 +117,7 @@
 		522976271ECC3D9300FEB6D9 /* WKMyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522976261ECC3D9300FEB6D9 /* WKMyActivityViewController.m */; };
 		5229762B1ECC413F00FEB6D9 /* WKSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5229762A1ECC413F00FEB6D9 /* WKSegmentControl.m */; };
 		522976301ECC418D00FEB6D9 /* MyWashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5229762F1ECC418D00FEB6D9 /* MyWashViewController.m */; };
+		522D1F201FAC6E470037137D /* ZYProGressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 522D1F1F1FAC6E470037137D /* ZYProGressView.m */; };
 		523544851F4AD19F007983C8 /* FCIPAddressGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 523544841F4AD19F007983C8 /* FCIPAddressGeocoder.m */; };
 		52368FE91EC3FA15002524E5 /* WKWashTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52368FE81EC3FA15002524E5 /* WKWashTableHeaderView.m */; };
 		52368FEB1EC3FA1D002524E5 /* WKWashTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52368FEA1EC3FA1D002524E5 /* WKWashTableHeaderView.xib */; };
@@ -517,6 +518,8 @@
 		5229762A1ECC413F00FEB6D9 /* WKSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKSegmentControl.m; sourceTree = "<group>"; };
 		5229762E1ECC418D00FEB6D9 /* MyWashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWashViewController.h; sourceTree = "<group>"; };
 		5229762F1ECC418D00FEB6D9 /* MyWashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWashViewController.m; sourceTree = "<group>"; };
+		522D1F1E1FAC6E470037137D /* ZYProGressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYProGressView.h; sourceTree = "<group>"; };
+		522D1F1F1FAC6E470037137D /* ZYProGressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYProGressView.m; sourceTree = "<group>"; };
 		523544831F4AD19F007983C8 /* FCIPAddressGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCIPAddressGeocoder.h; sourceTree = "<group>"; };
 		523544841F4AD19F007983C8 /* FCIPAddressGeocoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCIPAddressGeocoder.m; sourceTree = "<group>"; };
 		52368FE71EC3FA15002524E5 /* WKWashTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWashTableHeaderView.h; sourceTree = "<group>"; };
@@ -1032,6 +1035,7 @@
 			isa = PBXGroup;
 			children = (
 				529D8E5C1EDFFF1700BF0FDE /* WKMobileProject.entitlements */,
+				522D1F1D1FAC6E470037137D /* WKPregressBar */,
 				521E3B6D1F9F42FB00CA3187 /* WKQuikRefresh */,
 				5206239C1F5E7FB500E91A8E /* NSNetworkManager */,
 				523544821F4AD19F007983C8 /* FCIPAddressGeocoder */,
@@ -1687,6 +1691,15 @@
 				529D21561ECC533900766E2F /* MyWashDetailCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		522D1F1D1FAC6E470037137D /* WKPregressBar */ = {
+			isa = PBXGroup;
+			children = (
+				522D1F1E1FAC6E470037137D /* ZYProGressView.h */,
+				522D1F1F1FAC6E470037137D /* ZYProGressView.m */,
+			);
+			path = WKPregressBar;
 			sourceTree = "<group>";
 		};
 		523544821F4AD19F007983C8 /* FCIPAddressGeocoder */ = {
@@ -2548,6 +2561,7 @@
 				522976201ECC391B00FEB6D9 /* WKJoinProgressView.m in Sources */,
 				52368FF51EC40949002524E5 /* WKWashBookingViewController.m in Sources */,
 				5279A7411EC95E1300999B3D /* WKWashGoPayViewController.m in Sources */,
+				522D1F201FAC6E470037137D /* ZYProGressView.m in Sources */,
 				521E3B731F9F42FB00CA3187 /* UIScrollView+DRRefresh.m in Sources */,
 				31A222021E99CFA00058A21B /* CTLogger.m in Sources */,
 				31507E931EA06E7E007B8345 /* UIViewController+GYDNav.m in Sources */,

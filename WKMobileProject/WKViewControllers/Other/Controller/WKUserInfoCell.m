@@ -33,6 +33,11 @@
     
 }
 
-
+- (void)setMPressValue:(NSString *)mPressValue{
+    [self.mProgress removeFromSuperview];
+    self.mProgress = [[ZYProGressView alloc]initWithFrame:CGRectMake(0, 0, self.mProgressView.frame.size.width, self.mProgressView.frame.size.height)];
+    self.mProgress.progressValue = mPressValue;
+    [self.mProgressView addSubview:self.mProgress];
+}
 
 @end

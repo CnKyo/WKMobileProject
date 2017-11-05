@@ -252,8 +252,7 @@
         mSectionView.mTitle.textColor = [UIColor colorWithRed:0.97 green:0.47 blue:0.11 alpha:1];
         return mSectionView;
     }
-    
-    
+        
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

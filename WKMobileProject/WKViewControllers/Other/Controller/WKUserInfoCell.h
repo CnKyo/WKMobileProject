@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WKHeader.h"
+#import "ZYProGressView.h"
 @protocol WKUserInfoCellDelegate <NSObject>
 
 @optional
@@ -39,5 +40,9 @@
 @property (weak, nonatomic) IBOutlet WPHotspotLabel *mGold;
 ///设置代理
 @property (weak,nonatomic)id<WKUserInfoCellDelegate>delegete;
+
+@property (strong,nonatomic) ZYProGressView *mProgress;
+
+@property (strong,nonatomic) NSString *mPressValue;
 
 @end

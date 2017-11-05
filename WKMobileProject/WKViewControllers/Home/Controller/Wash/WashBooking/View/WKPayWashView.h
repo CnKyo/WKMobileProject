@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WPHotspotLabel.h>
 ///
 @protocol WKPayWashViewDelegate <NSObject>
 
@@ -25,11 +26,11 @@
 
 @interface WKPayWashView : UIView
 ///详情
-@property (weak, nonatomic) IBOutlet UILabel *mDetailTx;
+@property (weak, nonatomic) IBOutlet WPHotspotLabel *mDetailTx;
 ///倒计时
 @property (weak, nonatomic) IBOutlet UILabel *mCountTimeTx;
 ///支付金额
-@property (weak, nonatomic) IBOutlet UILabel *mPayPriceTx;
+@property (weak, nonatomic) IBOutlet WPHotspotLabel *mPayPriceTx;
 ///支付按钮
 @property (weak, nonatomic) IBOutlet UIButton *mPayBtn;
 ///设置嗲里
