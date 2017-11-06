@@ -24,6 +24,7 @@
 #import "UIScrollView+DRRefresh.h"
 #import "WKWebViewController.h"
 
+#import <BGFMDB.h>
 @interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate,NSNetworkMonitorProtocol>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
@@ -115,15 +116,21 @@
                                                object:nil];
 }
 - (void)getUserInfo{
-    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-    NSString *filePath = [documentPath stringByAppendingPathComponent:@"cache001"];
-    ZLPlafarmtLogin *model = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
-    MLLog(@"接档用户信息是：%@",model);
+   
+    NSArray *mUserArr = [ZLPlafarmtLogin bg_findAll];
     
-    if ([model.open_id isEqualToString:@""] || model.open_id.length<=0) {
+    if (mUserArr.count>0) {
+        ZLPlafarmtLogin *mUserInfo = mUserArr[0];
+        MLLog(@"接档用户信息是：%@",mUserArr);
+        if ([mUserInfo.open_id isEqualToString:@""] || mUserInfo.open_id.length<=0) {
+            [self gotoLogin];
+            
+        }
+    }else{
         [self gotoLogin];
 
     }
+   
 }
 - (void)getPushMessage{
     __weak __typeof(self)weakSelf = self;

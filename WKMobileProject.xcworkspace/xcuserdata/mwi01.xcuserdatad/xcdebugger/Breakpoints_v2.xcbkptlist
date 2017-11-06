@@ -121,13 +121,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WKMobileProject/WKViewControllers/Home/Controller/WKHomeViewController.m"
-            timestampString = "531666052.54011"
+            filePath = "WKMobileProject/WKViewControllers/Login/Controller/WKGenericLoginViewController.m"
+            timestampString = "531666052.540195"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "-getUserInfo"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
+            landmarkName = "-WKQQAndWechatLogin:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -137,13 +137,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WKMobileProject/WKViewControllers/Login/Controller/WKGenericLoginViewController.m"
-            timestampString = "531666052.540195"
+            filePath = "WKMobileProject/WKViewControllers/Home/Controller/WKHomeViewController.m"
+            timestampString = "531667246.649658"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
-            landmarkName = "-WKQQAndWechatLogin:"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "-getUserInfo"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

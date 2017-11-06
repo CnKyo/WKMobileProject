@@ -14,7 +14,7 @@
 #import "WKHeader.h"
 #import "QUShareSDK.h"
 #import <JPush/JPUSHService.h>
-
+#import <BGFMDB.h>
 @interface WKGenericLoginViewController ()<WKGenericLoginCellDelegate>
 
 @end
@@ -261,6 +261,7 @@
         MLLog(@"第撒放登录得到的用户信息是：%@",user);
 
         if (user != nil) {
+            [ZLPlafarmtLogin bg_clear];
             MLLog(@"三方登录返回的数据-----：%@",user);
             MLLog(@"%@",user.uid);
             if (mType == SSDKPlatformTypeQQ) {
@@ -276,9 +277,8 @@
             mLoginObj.sys_t = @"ios";
             mLoginObj.jpush = [JPUSHService registrationID];
             
-            NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-            NSString *filePath = [documentPath stringByAppendingPathComponent:@"cache001"];
-            [NSKeyedArchiver archiveRootObject:mLoginObj toFile:filePath];
+            [mLoginObj bg_save];
+           
                 [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
                 [self dismissViewControllerAnimated:YES completion:^{
                     self.mBlock(1);

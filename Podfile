@@ -57,5 +57,7 @@ target 'WKMobileProject' do
   pod 'HexColors'
   pod 'PGNetworkHelper', '>= 2.0'
   pod 'TZImagePickerController'
+  pod 'BGFMDB' ,'~> 1.50'
+
 
 end
