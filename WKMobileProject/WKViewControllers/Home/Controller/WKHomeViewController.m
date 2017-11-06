@@ -122,6 +122,7 @@
     [self.tableView headerBeginRefreshing];
     [self gotoLogin];
 }
+
 - (void)gotoLogin{
     WKGenericLoginViewController *vc = [WKGenericLoginViewController new];
     vc.hidesBottomBarWhenPushed = YES;
