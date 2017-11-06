@@ -21,7 +21,10 @@
 #import "FCIPAddressGeocoder.h"
 #import "GetIPAddress.h"
 
-@interface WKFindViewController ()<WKFindHeaderCellDelegate,UITableViewDataSource,UITableViewDelegate>
+
+#import "CurentLocation.h"
+
+@interface WKFindViewController ()<WKFindHeaderCellDelegate,UITableViewDataSource,UITableViewDelegate,MMApBlockCoordinate>
 
 @end
 
@@ -101,26 +104,33 @@
     
     
 }
-//- (void)updateAddress{
-//
-//    [FCIPAddressGeocoder setDefaultService:FCIPAddressGeocoderServiceFreeGeoIP];
-//    //你可以使用共享实例
-//    //或者创建一个新的geocoder，它使用安装在你自己的服务器上的FreeGeoIP服务的自定义实例
-//    FCIPAddressGeocoder * geocoder = [[FCIPAddressGeocoder alloc ] initWithService:FCIPAddressGeocoderServiceFreeGeoIP andURL:[NNDeviceInformation getDeviceIPAdress]];
-//    geocoder.canUseOtherServicesAsFallback = YES;
-//    [geocoder geocode:^(BOOL success) {
-//        if (success == YES) {
-//            geocoder.location.coordinate;
-//        }else{
-//
-//        }
-//    }];
-//    [geocoder isGeocoding];
-//
-//}
+- (void)updateAddress{
+
+    [CurentLocation sharedManager].delegate = self;
+    [[CurentLocation sharedManager] getUSerLocation];
+
+}
+#pragma mark----maplitdelegate
+- (void)MMapreturnLatAndLng:(NSDictionary *)mCoordinate{
+    
+    MLLog(@"定位成功之后返回的东东：%@",mCoordinate);
+    NSMutableDictionary *weather = [NSMutableDictionary new];
+    [weather setObject:kMobTrainDemandKey forKey:@"key"];
+    [weather setObject:[GetIPAddress getIPAddress:YES] forKey:@"ip"];
+    [weather setObject:[NSString stringWithFormat:@"%@-%@",[mCoordinate objectForKey:@"shi"],[mCoordinate objectForKey:@"xian"]] forKey:@"province"];
+    [WKNews WKGetWeather:weather block:^(WKBaseInfo *info) {
+        if (info.status == kRetCodeSucess) {
+            
+        }else{
+            
+        }
+    }];
+    
+}
 - (void)tableViewHeaderReloadData{
     
-
+    [self updateAddress];
+    
     [SVProgressHUD showWithStatus:@"正在加载..."];
     dispatch_async(dispatch_get_main_queue(), ^{
         MLLog(@"=== 执行A ===");
@@ -147,17 +157,7 @@
     });
     dispatch_async(dispatch_get_main_queue(), ^{
         MLLog(@"=== 执行B ===");
-        NSMutableDictionary *weather = [NSMutableDictionary new];
-        [weather setObject:kMobTrainDemandKey forKey:@"key"];
-        [weather setObject:[GetIPAddress getIPAddress:YES] forKey:@"ip"];
-        [weather setObject:@"" forKey:@"province"];
-        [WKNews WKGetWeather:weather block:^(WKBaseInfo *info) {
-            if (info.status == kRetCodeSucess) {
-                
-            }else{
-                
-            }
-        }];
+ 
     });
     dispatch_async(dispatch_get_main_queue(), ^{
         MLLog(@"=== 执行C ===");
