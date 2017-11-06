@@ -12,6 +12,9 @@
 #import "WKGenericLoginCell.h"
 
 #import "WKHeader.h"
+#import "QUShareSDK.h"
+#import <JPush/JPUSHService.h>
+
 @interface WKGenericLoginViewController ()<WKGenericLoginCellDelegate>
 
 @end
@@ -239,6 +242,68 @@
 //    [self dismissViewControllerAnimated:YES completion:^{
 //        self.mBlock(1);
 //    }];
+    
+    SSDKPlatformType mType;
+    if (mTag == 1) {
+        mType = SSDKPlatformTypeQQ;
+    }else{
+        mType = SSDKPlatformTypeWechat;
+    }
+    [SVProgressHUD showWithStatus:@"正在登录中..."];
+    
+    [[QUShareSDK shared] getUserInfoWithType:mType call:^(SSDKUser *user, NSError *error) {
+        if (user != nil) {
+            MLLog(@"三方登录返回的数据-----：%@",user);
+            MLLog(@"%@",user.uid);
+            if (mType == SSDKPlatformTypeQQ) {
+                mLoginObj.open_id = user.credential.uid;
+                mLoginObj.photo = [user.rawData objectForKey:@"figureurl_qq_2"];
+            }else if (mType == SSDKPlatformTypeWechat){
+                mLoginObj.open_id = [user.rawData objectForKey:@"openid"];
+                mLoginObj.photo = [user.rawData objectForKey:@"headimgurl"];
+            }
+            mLoginObj.nick_name = [user.rawData objectForKey:@"nickname"];
+            mLoginObj.app_v = [Util getAppVersion];
+            mLoginObj.sys_v = [Util getDeviceModel];
+            mLoginObj.sys_t = @"ios";
+            mLoginObj.jpush = [JPUSHService registrationID];
+            
+//            [SVProgressHUD showErrorWithStatus:@"正在登录中..."];
+//            [[APIClient sharedClient] ZLPlaframtLogin:mLoginObj block:^(APIObject *info,ZLUserInfo *mUser) {
+//                if (info.code == RESP_STATUS_YES) {
+//                    [self showSuccessStatus:info.msg];
+//                    if (mUser.user_phone.length<=0) {
+//                        otherLoginViewController *vc = [[otherLoginViewController alloc] initWithNibName:@"otherLoginViewController" bundle:nil];
+//                        vc.mUserInfo = [ZLUserInfo new];
+//                        vc.mUserInfo = mUser;
+//                        vc.mOpenId = mLoginObj.open_id;
+//                        vc.block = ^(NSString *mPhone,NSString *mPwd){
+//
+//                            mMainView.mLoginPhoneTx.text = mPhone;
+//                            mMainView.mLoginPwdTx.text = mPwd;
+//                            [self ZLLoginWithLoginAction];
+//                        };
+//                        [self pushViewController:vc];
+//                    }else{
+//                        [ZLUserInfo updateUserInfo:mUser];
+//
+//                        [[NSNotificationCenter defaultCenter] postNotificationName:MyUserInfoChangedNotification object:nil];
+//                        [[NSNotificationCenter defaultCenter] postNotificationName:UpDateSystemCoupNotification object:nil];
+//                        [self showSuccessStatus:@"登录成功！"];
+//                        [self performSelector:@selector(dismissViewController) withObject:nil afterDelay:0.5];
+//
+//                    }
+//
+//                }else{
+//                    [SVProgressHUD showErrorWithStatus:info.msg];
+//                }
+//            }];
+            
+        } else {
+            MLLog(@"%@",error);
+            [SVProgressHUD showErrorWithStatus:error.description];
+        }
+    }];
     
 }
 @end

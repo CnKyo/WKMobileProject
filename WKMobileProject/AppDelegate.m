@@ -15,6 +15,13 @@
 #endif
 // 如果需要使用idfa功能所需要引入的头文件（可选）
 #import <AdSupport/AdSupport.h>
+
+#import "QUShareSDK.h"
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+#import <WXApi.h>
 @interface AppDelegate ()<JPUSHRegisterDelegate>
 
 @end
@@ -82,6 +89,8 @@
     }];
     [self initJpush];
     [self initLabriary];
+    [[QUShareSDK shared] applicationDidFinishLaunchingWithOptions:launchOptions];
+    [WXApi registerApp:ShareSDK_WeChat_AppId];
     return YES;
 }
 

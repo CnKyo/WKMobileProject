@@ -162,7 +162,8 @@ static NSString* const kJUHEAPIKEY                          = @"aa785f7f417055c4
 static NSString *ShareSDK_AppKey                            = @"11070552590dc";
 static NSString *ShareSDK_QQ_AppId                          = @"1105204239";
 static NSString *ShareSDK_QQ_AppKey                         = @"5SShQsbv5YgKswaF";
-static NSString *ShareSDK_WeChat_AppId                      = @"wxf8feb845b3a4d04e";
+
+static NSString *ShareSDK_WeChat_AppId                      = @"wx0bab4e7d58fccfac";
 static NSString *ShareSDK_WeChat_AppSecret                  = @"5060f2cb199015e81b74c6d5fc26e4a6";
 
 
