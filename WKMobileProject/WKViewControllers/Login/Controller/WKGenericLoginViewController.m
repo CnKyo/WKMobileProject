@@ -261,7 +261,7 @@
         MLLog(@"第撒放登录得到的用户信息是：%@",user);
 
         if (user != nil) {
-            [ZLPlafarmtLogin bg_clear];
+//            [ZLPlafarmtLogin bg_clear];
             MLLog(@"三方登录返回的数据-----：%@",user);
             MLLog(@"%@",user.uid);
             if (mType == SSDKPlatformTypeQQ) {
@@ -278,7 +278,8 @@
             mLoginObj.jpush = [JPUSHService registrationID];
             
             [mLoginObj bg_save];
-           
+            NSArray *mUserArr = [ZLPlafarmtLogin bg_findAll];
+
                 [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
                 [self dismissViewControllerAnimated:YES completion:^{
                     self.mBlock(1);
