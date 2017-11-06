@@ -138,7 +138,9 @@
     self.questionArr = [[NSMutableArray alloc]initWithObjects:questionText1,questionText2,questionText3,questionText4,questionText5,questionText6, nil];
     
     self.answerArr = [[NSMutableArray alloc] initWithObjects:answerText1,answerText2,answerText3,answerText4,answerText5,answerText6, nil];
-    [self.tableView reloadData];
+    
+  
+   
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

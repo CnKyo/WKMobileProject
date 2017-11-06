@@ -297,7 +297,7 @@
  @param para 参数
  @param block 返回值
  */
-+ (void)MWFindSchoolList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block;
++ (void)MWFindSchoolList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr,int totleMoney))block;
 /**
  查询洗衣机
  
@@ -345,3 +345,18 @@
 @end
 
 
+
+@interface MWDeviceInfo : NSObject
+
+@property (nonatomic,strong) NSString *location_name;
+
+@property (nonatomic,assign) int device_id;
+@property (nonatomic,assign) int money;
+
+@property (nonatomic,assign) int school_id;
+
+@property (nonatomic,strong) NSString *school_name;
+
+@property (nonatomic,assign) int sum_money;
+
+@end

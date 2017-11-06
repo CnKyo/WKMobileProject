@@ -27,8 +27,31 @@
     [self addTableView];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"WKWashBookingCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    [self addTableViewHeaderRefreshing];
+    
 }
-
+- (void)tableViewHeaderReloadData{
+//    NSArray *mUserArr = [ZLPlafarmtLogin bg_findAll];
+//
+//    if (mUserArr.count>0) {
+//        ZLPlafarmtLogin *mUserInfo = mUserArr[0];
+//        MLLog(@"接档用户信息是：%@",mUserArr);
+        NSMutableDictionary *para = [NSMutableDictionary new];
+        [para setObject:@"2" forKey:@"school_id"];
+        [MWBaseObj MWFindSchoolList:para block:^(MWBaseObj *info, NSArray *mArr,int totleMoney) {
+            if (info.err_code == 1) {
+                [self.tableArr removeAllObjects];
+                
+                [self.tableArr addObjectsFromArray:mArr];
+                [self.tableView reloadData];
+            }else{
+                [SVProgressHUD showErrorWithStatus:info.err_msg];
+            }
+        }];
+        
+        
+//    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -53,7 +76,7 @@
 {
     
     
-    return 3;
+    return self.tableArr.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
