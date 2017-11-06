@@ -150,7 +150,7 @@ static NSString* const kMobTrainDemandKey                   = @"cdfd2af73a77";
 static NSString* const kMobTainAPIURLString                 = @"https://apicloud.mob.com/train/tickets/";
 ///天气API接口地址
 static NSString* const kMobWeatherAPIURLString                 = @"http://apicloud.mob.com/";
-static NSString* const kLeSchoolAPIURLString                 = @"http://xxlaundry.aboutnew.net/wx/";
+static NSString* const kLeSchoolAPIURLString                 = @"http://xxlaundry.aboutnew.net/";
 
 static NSString* const kAPIAddressUrlString                 = @"www.lpp.com";
 

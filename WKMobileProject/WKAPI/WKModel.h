@@ -284,5 +284,64 @@
  */
 +(MWBaseObj *)infoWithReLoginErrorMessage:(NSString *)errMsg;
 
+/**
+ 获取学校列表
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetSchoolList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block;
+/**
+ 查询学校
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWFindSchoolList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block;
+/**
+ 查询洗衣机
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWFindDeviceList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block;
+/**
+ 查询洗衣机信息
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWFindDeviceInfo:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block;
+/**
+ 添加功能
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWAddDeviceFunc:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+/**
+ 查询任务
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWFindTaskList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block;
+
+/**
+ 操作洗衣机
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWControlDevice:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+/**
+ 获取洗衣机状态
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetDeviceStatus:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
 
 @end
+
+
