@@ -131,12 +131,17 @@
             
             
         }
-        for (int i = 0;i<mBannerDataSource.count;i++) {
-            WKNews *mNew = mBannerDataSource[i];
-            [mFuncArr addObject:mNew];
-            if (i==3) {
-                break;
-            }
+        
+        NSArray *mTT = @[@"玩游戏",@"看直播",@"笑一笑",@"读小说"];
+        NSArray *mII = @[@"icon_game",@"icon_zhibo",@"icon_xiaoyixiao",@"icon_kxs"];
+
+        
+        for (int i = 0;i<mTT.count;i++) {
+            WKFunc *mFunc = [WKFunc new];
+            mFunc.mFuncImg = mII[i];
+            mFunc.mFuncName = mTT[i];
+            [mFuncArr addObject:mFunc];
+  
             
         }
         if (mFuncArr.count > 0) {
@@ -168,9 +173,10 @@
             for (int i = 0; i < mFuncArr.count; i++) {
                 if (i < 4) {
                     CGRect frame = CGRectMake(i*screen_width/4, 0, screen_width/4, 80);
-                    WKNews *mNew = mFuncArr[i];
-                    NSString *title = @"功能";
-                    NSString *imageStr = mNew.thumbnail_pic_s02;
+                    WKFunc *mFunc = mFuncArr[i];
+                    
+                    NSString *title = mFunc.mFuncName;
+                    NSString *imageStr = mFunc.mFuncImg;
                     WKCustomBtnView *btnView = [[WKCustomBtnView alloc] initWithZLCustomBtnViewFrame:frame Title:title ImageStr:imageStr];
                     btnView.tag = i;
                     [mBgkView1 addSubview:btnView];
@@ -182,9 +188,10 @@
                     mSRR.size.height = 180/2;
                 }else if(i<8){
                     CGRect frame = CGRectMake((i-4)*screen_width/4, 80, screen_width/4, 80);
-                    WKNews *mNew = mFuncArr[i];
-                    NSString *title = @"功能";
-                    NSString *imageStr = mNew.thumbnail_pic_s02;
+                    WKFunc *mFunc = mFuncArr[i];
+                    
+                    NSString *title = mFunc.mFuncName;
+                    NSString *imageStr = mFunc.mFuncImg;
                     WKCustomBtnView *btnView = [[WKCustomBtnView alloc] initWithZLCustomBtnViewFrame:frame Title:title ImageStr:imageStr];
                     btnView.tag = i;
                     [mBgkView1 addSubview:btnView];
@@ -194,9 +201,10 @@
                     mSRR.size.height = 180;
                 }else if(i < 12){
                     CGRect frame = CGRectMake((i-8)*screen_width/4, 0, screen_width/4, 80);
-                    WKNews *mNew = mFuncArr[i];
-                    NSString *title = @"功能";
-                    NSString *imageStr = mNew.thumbnail_pic_s02;
+                    WKFunc *mFunc = mFuncArr[i];
+                    
+                    NSString *title = mFunc.mFuncName;
+                    NSString *imageStr = mFunc.mFuncImg;
                     WKCustomBtnView *btnView = [[WKCustomBtnView alloc] initWithZLCustomBtnViewFrame:frame Title:title ImageStr:imageStr];
                     btnView.tag = i;
                     [mBgkView2 addSubview:btnView];
@@ -207,9 +215,10 @@
                     
                 }else{
                     CGRect frame = CGRectMake((i-12)*screen_width/4, 80, screen_width/4, 80);
-                    WKNews *mNew = mFuncArr[i];
-                    NSString *title = @"功能";
-                    NSString *imageStr = mNew.thumbnail_pic_s02;
+                    WKFunc *mFunc = mFuncArr[i];
+                    
+                    NSString *title = mFunc.mFuncName;
+                    NSString *imageStr = mFunc.mFuncImg;
                     WKCustomBtnView *btnView = [[WKCustomBtnView alloc] initWithZLCustomBtnViewFrame:frame Title:title ImageStr:imageStr];
                     btnView.tag = i;
                     [mBgkView2 addSubview:btnView];

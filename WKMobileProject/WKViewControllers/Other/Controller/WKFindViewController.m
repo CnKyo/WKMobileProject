@@ -17,6 +17,10 @@
 #import "WKWebViewController.h"
 
 #import "NNDeviceInformation.h"
+
+#import "FCIPAddressGeocoder.h"
+#import "GetIPAddress.h"
+
 @interface WKFindViewController ()<WKFindHeaderCellDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @end
@@ -95,7 +99,25 @@
     }];
     [self.tableView headerBeginRefreshing];
     
+    
 }
+//- (void)updateAddress{
+//
+//    [FCIPAddressGeocoder setDefaultService:FCIPAddressGeocoderServiceFreeGeoIP];
+//    //你可以使用共享实例
+//    //或者创建一个新的geocoder，它使用安装在你自己的服务器上的FreeGeoIP服务的自定义实例
+//    FCIPAddressGeocoder * geocoder = [[FCIPAddressGeocoder alloc ] initWithService:FCIPAddressGeocoderServiceFreeGeoIP andURL:[NNDeviceInformation getDeviceIPAdress]];
+//    geocoder.canUseOtherServicesAsFallback = YES;
+//    [geocoder geocode:^(BOOL success) {
+//        if (success == YES) {
+//            geocoder.location.coordinate;
+//        }else{
+//
+//        }
+//    }];
+//    [geocoder isGeocoding];
+//
+//}
 - (void)tableViewHeaderReloadData{
     
 
@@ -126,8 +148,7 @@
         MLLog(@"=== 执行B ===");
         NSMutableDictionary *weather = [NSMutableDictionary new];
         [weather setObject:kMobTrainDemandKey forKey:@"key"];
-        [weather setObject:[NNDeviceInformation getDeviceIPAdress] forKey:@"ip"];
-        
+        [weather setObject:[GetIPAddress getIPAddress:YES] forKey:@"ip"];
         [weather setObject:@"" forKey:@"province"];
         [WKNews WKGetWeather:weather block:^(WKBaseInfo *info) {
             if (info.status == kRetCodeSucess) {
@@ -194,6 +215,8 @@
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         NSLog(@"=== 任务 M 完成 ===");
         [self.tableView headerEndRefreshing];
+        [SVProgressHUD dismiss];
+
         
     });
     
@@ -340,18 +363,56 @@
 /**
  功能按钮点击代理方法
  
- @param mIndex 返回索引
+ @param mIndex 返回索引  1:玩游戏。2:看直播。3:笑一笑。 4:读小说
  */
 - (void)WKFindHeaderCellDelegateWithFuncClicked:(NSInteger)mIndex{
     MLLog(@"%ld",mIndex);
-    if (mIndex == 0) {
-        
-        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
-        WKPlayGameViewController *vc = [story instantiateViewControllerWithIdentifier:@"playGame"];
+//    if (mIndex == 0) {
+//
+//        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//
+//        WKPlayGameViewController *vc = [story instantiateViewControllerWithIdentifier:@"playGame"];
+//        vc.hidesBottomBarWhenPushed = YES;
+//        //        [self pushViewController:vc];
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
+    switch (mIndex) {
+        case 0:
+        {
+        WKWebViewController *vc = [WKWebViewController new];
+        vc.mURLString = @"http://h5.265g.com/?mid=15";
         vc.hidesBottomBarWhenPushed = YES;
-        //        [self pushViewController:vc];
         [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case 1:
+        {
+        WKWebViewController *vc = [WKWebViewController new];
+        vc.mURLString = @"https://www.douyu.com/";
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case 2:
+        {
+        WKWebViewController *vc = [WKWebViewController new];
+        vc.mURLString = @"http://www.hao123.com/gaoxiao";
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        }
+            break;
+        case 3:
+        {
+        WKWebViewController *vc = [WKWebViewController new];
+        vc.mURLString = @"http://hao123.zongheng.com/store/c2/w0/s0/p1/all.html";
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
+        default:
+            break;
     }
     
 }

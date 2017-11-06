@@ -360,7 +360,7 @@
     if (indexPath.section == 0) {
         reuseCellId = @"normalCell";
         
-        WKHomeTypeHeaderCell  *cell = [[WKHomeTypeHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellId andBannerDataSource:mBannerArr andDataSource:mFuncArr andScrollerLabelTx:[NSString stringWithFormat:@"%@            ",@"重庆电信双11狂欢节，天天秒杀抢不停"]];
+        WKHomeTypeHeaderCell  *cell = [[WKHomeTypeHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellId andBannerDataSource:mBannerArr andDataSource:mFuncArr andScrollerLabelTx:[NSString stringWithFormat:@"%@            ",@"重庆电信iphone8首发，0元购手机，流量不限量"]];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -434,7 +434,7 @@
     MLLog(@"跑马灯");
     
     WKWebViewController *vc = [WKWebViewController new];
-    vc.mURLString = @"http://cq.189.cn/cms/picAdv.htm?id=21354&intaid=cq-sy-jdt-02-";
+    vc.mURLString = @"http://cq.189.cn/cms/picAdv.htm?id=21329?gzh-cqwt";
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 

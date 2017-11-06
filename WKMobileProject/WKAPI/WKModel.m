@@ -285,7 +285,7 @@
     
 }
 + (void)WKGetWeather:(NSDictionary *)para block:(void(^)(WKBaseInfo *info))block{
-    [[WKHttpRequest shareClient] WKGetDataWithUrl:@"v1/weather/query" withPara:para block:^(WKBaseInfo *info) {
+    [[WKHttpRequest shareClient] WKGetDataWithUrl:@"v1/weather/ip" withPara:para block:^(WKBaseInfo *info) {
         if (info.status == kRetCodeSucess) {
             
             block(info);
