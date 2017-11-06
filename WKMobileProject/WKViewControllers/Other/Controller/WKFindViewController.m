@@ -138,6 +138,7 @@
                 [self.tableView reloadData];
 
             }else{
+                [SVProgressHUD showErrorWithStatus:info.reason];
                 [SVProgressHUD dismiss];
                 
             }
@@ -175,6 +176,7 @@
                 [self.tableView reloadData];
 
             }else{
+                [SVProgressHUD showErrorWithStatus:info.reason];
                 [SVProgressHUD dismiss];
                 
             }

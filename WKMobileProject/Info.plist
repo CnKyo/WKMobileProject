@@ -82,6 +82,7 @@
 	<string>乐校园想访问您的相册?</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>location</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

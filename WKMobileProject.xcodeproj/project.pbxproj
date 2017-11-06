@@ -781,6 +781,8 @@
 		52D02D3C1F41A8CD00B24618 /* WKRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKRecordCell.xib; sourceTree = "<group>"; };
 		52D2DC261FB001B0004FBDC2 /* GetIPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetIPAddress.h; sourceTree = "<group>"; };
 		52D2DC271FB001B0004FBDC2 /* GetIPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetIPAddress.m; sourceTree = "<group>"; };
+		52D2DC291FB03A65004FBDC2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		52D2DC2A1FB03A6D004FBDC2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		52E14CF01FAF4C9900236431 /* NNDeviceInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNDeviceInformation.h; sourceTree = "<group>"; };
 		52E14CF11FAF4C9900236431 /* NNDeviceInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNDeviceInformation.m; sourceTree = "<group>"; };
 		52E1ADE81FA090090082F9A5 /* WKBaseSuperViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKBaseSuperViewController.h; sourceTree = "<group>"; };
@@ -2199,6 +2201,8 @@
 		E268BC1B05380FDB2B866690 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				52D2DC2A1FB03A6D004FBDC2 /* CoreLocation.framework */,
+				52D2DC291FB03A65004FBDC2 /* MapKit.framework */,
 				529D8E891EE01F4300BF0FDE /* Photos.framework */,
 				529D8E6D1EE000A800BF0FDE /* libsqlite3.0.tbd */,
 				529D8E6B1EE0008F00BF0FDE /* AVFoundation.framework */,

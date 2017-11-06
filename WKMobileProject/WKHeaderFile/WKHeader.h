@@ -155,8 +155,8 @@ static NSString* const kAPIAddressUrlString                 = @"www.lpp.com";
 
 static NSString* const kJUHEAPIAddressUrlString                 = @"http://v.juhe.cn";
 ///聚合头条APIKEY
-static NSString* const kJUHEAPIKEY                          = @"40ef3b82ad8b5fb464203092d4511942";
-
+//static NSString* const kJUHEAPIKEY                          = @"40ef3b82ad8b5fb464203092d4511942";
+static NSString* const kJUHEAPIKEY                          = @"aa785f7f417055c4ae72a49191381d17";
 
 
 

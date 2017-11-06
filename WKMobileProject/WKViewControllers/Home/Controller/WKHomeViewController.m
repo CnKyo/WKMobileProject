@@ -140,12 +140,37 @@
     }
 
     
+//    NSMutableDictionary *mWechatP = [NSMutableDictionary new];
+//    [mWechatP setObject:kMobTrainDemandKey forKey:@"key"];
+//    [mWechatP setObject:@"2" forKey:@"cid"];
+//    [mWechatP setObject:@"1" forKey:@"page"];
+//    [mWechatP setObject:@"4" forKey:@"size"];
+//
+//
+//    [WKWechatObj WKGetWechat:mWechatP block:^(WKBaseInfo *info, NSArray *mArr) {
+//
+//        if (info.status == kRetCodeSucess) {
+//            [SVProgressHUD dismiss];
+//            for (WKWechatObj *mWechat in mArr) {
+//                [mBannerArr addObject:mWechat.thumbnails];
+//
+//            }
+//
+//
+//            [self.tableView reloadData];
+//
+//        }else{
+//            [SVProgressHUD dismiss];
+//        }
+//
+//    }];
+    
     NSMutableDictionary *bannerpara = [NSMutableDictionary new];
     [bannerpara setObject:kJUHEAPIKEY forKey:@"key"];
     [bannerpara setObject:@"guonei" forKey:@"type"];
     [SVProgressHUD showWithStatus:@"正在加载..."];
     [WKNews WKGetJuheNewsList:bannerpara block:^(WKJUHEObj *info, NSArray *mArr) {
-        
+
         if (info.error_code == 0) {
             [SVProgressHUD dismiss];
             for (int i = 0; i<mArr.count; i++) {
@@ -159,38 +184,39 @@
 //            [self.tableView headerEndRefreshing];
 //
             [self.tableView reloadData];
-        
+
         }else{
+            [SVProgressHUD showErrorWithStatus:info.reason];
             [SVProgressHUD dismiss];
-            
+
+
         }
-        
+
     }];
     
     NSMutableDictionary *mWechat = [NSMutableDictionary new];
-    [mWechat setObject:kJUHEAPIKEY forKey:@"key"];
-    [mWechat setObject:@"guoji" forKey:@"type"];
- 
-    [WKNews WKGetJuheNewsList:mWechat block:^(WKJUHEObj *info, NSArray *mArr) {
-        
-        if (info.error_code == 0) {
+    [mWechat setObject:kMobTrainDemandKey forKey:@"key"];
+    [mWechat setObject:@"1" forKey:@"cid"];
+    [mWechat setObject:@"1" forKey:@"page"];
+    [mWechat setObject:@"4" forKey:@"size"];
+
+    
+    [WKWechatObj WKGetWechat:mWechat block:^(WKBaseInfo *info, NSArray *mArr) {
+
+        if (info.status == kRetCodeSucess) {
             [SVProgressHUD dismiss];
-            for (int i = 0; i<mArr.count; i++) {
-                WKNews *mNew = mArr[i];
-                [mTuijianArr addObject:mNew];
-                if (i==3) {
-                    break;
-                }
-            }
+  
+                [mTuijianArr addObjectsFromArray:mArr];
+   
             
             [self.tableView reloadData];
             
         }else{
             [SVProgressHUD dismiss];
-            
         }
         
     }];
+    
     
     NSMutableDictionary *mJunshi = [NSMutableDictionary new];
     [mJunshi setObject:kJUHEAPIKEY forKey:@"key"];
@@ -212,8 +238,9 @@
             [self.tableView reloadData];
             
         }else{
+            [SVProgressHUD showErrorWithStatus:info.reason];
+
             [SVProgressHUD dismiss];
-            
         }
         
     }];
@@ -375,8 +402,8 @@
         
         cell.delegate = self;
         
-        WKNews *mN1 = mTuijianArr[indexPath.row*2];
-        WKNews *mN2;
+        WKWechatObj *mN1 = mTuijianArr[indexPath.row*2];
+        WKWechatObj *mN2;
         if ((indexPath.row+1)*2>mTuijianArr.count) {
             cell.mrightImg.hidden = YES;
         }else{
@@ -384,8 +411,8 @@
             cell.mrightImg.hidden = NO;
 
         }
-        [cell.mLeftImg sd_setImageWithURL:[NSURL URLWithString:mN1.thumbnail_pic_s] placeholderImage:nil];
-        [cell.mrightImg sd_setImageWithURL:[NSURL URLWithString:mN2.thumbnail_pic_s] placeholderImage:nil];
+        [cell.mLeftImg sd_setImageWithURL:[NSURL URLWithString:mN1.thumbnails] placeholderImage:nil];
+        [cell.mrightImg sd_setImageWithURL:[NSURL URLWithString:mN2.thumbnails] placeholderImage:nil];
         
         
         return cell;
