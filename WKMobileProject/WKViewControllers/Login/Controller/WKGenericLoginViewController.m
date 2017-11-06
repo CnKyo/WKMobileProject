@@ -225,4 +225,13 @@
     }
     
 }
+/**
+ 微信QQ登录
+ 
+ @param mTag 1:QQ。 2:微信。
+ */
+- (void)WKQQAndWechatLogin:(NSInteger)mTag{
+    MLLog(@"XXXXXX:%ld",mTag);
+    
+}
 @end

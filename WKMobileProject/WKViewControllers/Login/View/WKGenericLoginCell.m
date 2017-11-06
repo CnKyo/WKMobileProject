@@ -67,6 +67,14 @@
     
 }
 
+- (IBAction)mOtherLogin:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(WKQQAndWechatLogin:)]) {
+            [self.delegate WKQQAndWechatLogin:sender.tag];
+    }
+
+}
+
+
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     
     if ([self.delegate respondsToSelector:@selector(WKGenericRegistCellDelegateWithTextFieldEditingWithTag:andText:)]) {

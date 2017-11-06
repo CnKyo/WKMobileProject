@@ -120,6 +120,19 @@
 
     }];
     [self.tableView headerBeginRefreshing];
+    [self gotoLogin];
+}
+- (void)gotoLogin{
+    WKGenericLoginViewController *vc = [WKGenericLoginViewController new];
+    vc.hidesBottomBarWhenPushed = YES;
+    vc.mLoginType = WKLogin;
+    vc.mBlock = ^(NSInteger para) {
+        if (para == 1) {
+            [self addTableViewHeaderRefreshing];
+            
+        }
+    };
+    [self presentModalViewController:vc];
 }
 - (void)tableViewHeaderReloadData{
     [mBannerArr removeAllObjects];
@@ -435,16 +448,7 @@
     if (indexPath.section == 2) {
         MLLog(@"%ld行",indexPath.row);
         
-//        WKGenericLoginViewController *vc = [WKGenericLoginViewController new];
-//        vc.hidesBottomBarWhenPushed = YES;
-//        vc.mLoginType = WKLogin;
-//        vc.mBlock = ^(NSInteger para) {
-//            if (para == 1) {
-//                [self addTableViewHeaderRefreshing];
-//
-//            }
-//        };
-//        [self presentModalViewController:vc];
+
         WKNews *mN = mActivityArr[indexPath.row];
         WKWebViewController *vc = [WKWebViewController new];
         vc.mURLString = mN.url;

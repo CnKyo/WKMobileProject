@@ -59,6 +59,14 @@
  */
 - (void)WKGenericRegistCellDelegateWithTextFieldEditingWithTag:(NSInteger)mTag andText:(NSString *)mText;
 
+
+/**
+ 微信QQ登录
+
+ @param mTag 1:QQ。 2:微信。
+ */
+- (void)WKQQAndWechatLogin:(NSInteger)mTag;
+
 @end
 
 @interface WKGenericLoginCell : UITableViewCell<UITextFieldDelegate,MZTimerLabelDelegate>
@@ -120,6 +128,12 @@
  注册按钮
  */
 @property (weak, nonatomic) IBOutlet UIButton *mRegistBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *mQQLogin;
+
+@property (weak, nonatomic) IBOutlet UIButton *mWechatLogin;
+
+
 
 /**
  去登录按钮
