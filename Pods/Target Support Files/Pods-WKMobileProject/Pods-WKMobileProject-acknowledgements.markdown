@@ -1127,11 +1127,6 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
 
-## WechatOpenSDK
-
-Copyright 2017 tencent.com. All rights reserved.
-
-
 ## YHPDFImageLoader
 
 MIT License

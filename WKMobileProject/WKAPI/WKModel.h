@@ -219,3 +219,18 @@
 + (void)WKGetWechat:(NSDictionary *)para block:(void(^)(WKBaseInfo *info,NSArray *mArr))block;
 @end
 
+
+#pragma mark-----****----三方登录
+///
+@interface ZLPlafarmtLogin : NSObject
+
+@property (nonatomic, strong) NSString *            open_id;                ///
+@property (nonatomic, strong) NSString *            nick_name;              ///
+@property (nonatomic, strong) NSString *            photo;                  ///
+@property (nonatomic, strong) NSString *            jpush;                  ///
+@property (nonatomic, strong) NSString *            app_v;                  ///
+@property (nonatomic, strong) NSString *            sys_v;                  ///
+@property (nonatomic, strong) NSString *            sys_t;                  ///
+
+
+@end

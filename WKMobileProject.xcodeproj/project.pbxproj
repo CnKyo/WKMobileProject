@@ -288,6 +288,7 @@
 		52D02D3E1F41A8CD00B24618 /* WKRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D02D3C1F41A8CD00B24618 /* WKRecordCell.xib */; };
 		52D2DC281FB001B0004FBDC2 /* GetIPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC271FB001B0004FBDC2 /* GetIPAddress.m */; };
 		52D2DC2E1FB03C05004FBDC2 /* CurentLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC2D1FB03C05004FBDC2 /* CurentLocation.m */; };
+		52D2DC321FB04B4F004FBDC2 /* QUShareSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC311FB04B4F004FBDC2 /* QUShareSDK.m */; };
 		52E14CF21FAF4C9A00236431 /* NNDeviceInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E14CF11FAF4C9900236431 /* NNDeviceInformation.m */; };
 		52E1ADEB1FA090090082F9A5 /* WKBaseSuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1ADE91FA090090082F9A5 /* WKBaseSuperViewController.m */; };
 		52E1ADEC1FA090090082F9A5 /* WKBaseSuperViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E1ADEA1FA090090082F9A5 /* WKBaseSuperViewController.xib */; };
@@ -786,6 +787,8 @@
 		52D2DC2A1FB03A6D004FBDC2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		52D2DC2C1FB03C05004FBDC2 /* CurentLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurentLocation.h; sourceTree = "<group>"; };
 		52D2DC2D1FB03C05004FBDC2 /* CurentLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurentLocation.m; sourceTree = "<group>"; };
+		52D2DC301FB04B4F004FBDC2 /* QUShareSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUShareSDK.h; sourceTree = "<group>"; };
+		52D2DC311FB04B4F004FBDC2 /* QUShareSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUShareSDK.m; sourceTree = "<group>"; };
 		52E14CF01FAF4C9900236431 /* NNDeviceInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNDeviceInformation.h; sourceTree = "<group>"; };
 		52E14CF11FAF4C9900236431 /* NNDeviceInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNDeviceInformation.m; sourceTree = "<group>"; };
 		52E1ADE81FA090090082F9A5 /* WKBaseSuperViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKBaseSuperViewController.h; sourceTree = "<group>"; };
@@ -1049,6 +1052,7 @@
 			isa = PBXGroup;
 			children = (
 				529D8E5C1EDFFF1700BF0FDE /* WKMobileProject.entitlements */,
+				52D2DC2F1FB04B4F004FBDC2 /* WKShareSDK */,
 				52D2DC2B1FB03C05004FBDC2 /* ZLCurrentLocation */,
 				52D2DC251FB001B0004FBDC2 /* WKIPaddress */,
 				52E14CEF1FAF4C9900236431 /* WKGetDeviceInfo */,
@@ -2182,6 +2186,15 @@
 			path = ZLCurrentLocation;
 			sourceTree = "<group>";
 		};
+		52D2DC2F1FB04B4F004FBDC2 /* WKShareSDK */ = {
+			isa = PBXGroup;
+			children = (
+				52D2DC301FB04B4F004FBDC2 /* QUShareSDK.h */,
+				52D2DC311FB04B4F004FBDC2 /* QUShareSDK.m */,
+			);
+			path = WKShareSDK;
+			sourceTree = "<group>";
+		};
 		52E14CEF1FAF4C9900236431 /* WKGetDeviceInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -2529,6 +2542,7 @@
 				52BC43601F39649200B44FD6 /* WKTaskViewController.m in Sources */,
 				52AC36491EC2C086000866D4 /* SXMarquee.m in Sources */,
 				52AC364B1EC2C086000866D4 /* UIColor+Wonderful.m in Sources */,
+				52D2DC321FB04B4F004FBDC2 /* QUShareSDK.m in Sources */,
 				31A222081E99CFA10058A21B /* CTService.m in Sources */,
 				5214A3351F3C055100BE840D /* MZTimerLabel.m in Sources */,
 				524E3EEF1ECAA34600EF0224 /* WKBuyGoldCell.m in Sources */,
