@@ -148,7 +148,10 @@
     switch (mTag) {
         case 1:
         {
-        
+//            [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
+//            [self dismissViewControllerAnimated:YES completion:^{
+//                self.mBlock(1);
+//            }];
 //        NSMutableDictionary *mPara = [NSMutableDictionary new];
 //        [mPara setObject:@"18623330775" forKey:@"mobile"];
 //        [mPara setObject:@"123456" forKey:@"password"];
@@ -243,6 +246,7 @@
 //        self.mBlock(1);
 //    }];
     
+    
     SSDKPlatformType mType;
     if (mTag == 1) {
         mType = SSDKPlatformTypeQQ;
@@ -252,6 +256,8 @@
     [SVProgressHUD showWithStatus:@"正在登录中..."];
     
     [[QUShareSDK shared] getUserInfoWithType:mType call:^(SSDKUser *user, NSError *error) {
+        MLLog(@"第撒放登录得到的用户信息是：%@",user);
+
         if (user != nil) {
             MLLog(@"三方登录返回的数据-----：%@",user);
             MLLog(@"%@",user.uid);
@@ -268,6 +274,13 @@
             mLoginObj.sys_t = @"ios";
             mLoginObj.jpush = [JPUSHService registrationID];
             
+            NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+            NSString *filePath = [documentPath stringByAppendingPathComponent:@"cache001"];
+            [NSKeyedArchiver archiveRootObject:mLoginObj toFile:filePath];
+                [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
+                [self dismissViewControllerAnimated:YES completion:^{
+                    self.mBlock(1);
+                }];
 //            [SVProgressHUD showErrorWithStatus:@"正在登录中..."];
 //            [[APIClient sharedClient] ZLPlaframtLogin:mLoginObj block:^(APIObject *info,ZLUserInfo *mUser) {
 //                if (info.code == RESP_STATUS_YES) {

@@ -289,6 +289,7 @@
 		52D2DC281FB001B0004FBDC2 /* GetIPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC271FB001B0004FBDC2 /* GetIPAddress.m */; };
 		52D2DC2E1FB03C05004FBDC2 /* CurentLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC2D1FB03C05004FBDC2 /* CurentLocation.m */; };
 		52D2DC321FB04B4F004FBDC2 /* QUShareSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC311FB04B4F004FBDC2 /* QUShareSDK.m */; };
+		52D2DC351FB066AB004FBDC2 /* WKWechatLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC341FB066AB004FBDC2 /* WKWechatLoginManager.m */; };
 		52E14CF21FAF4C9A00236431 /* NNDeviceInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E14CF11FAF4C9900236431 /* NNDeviceInformation.m */; };
 		52E1ADEB1FA090090082F9A5 /* WKBaseSuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1ADE91FA090090082F9A5 /* WKBaseSuperViewController.m */; };
 		52E1ADEC1FA090090082F9A5 /* WKBaseSuperViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E1ADEA1FA090090082F9A5 /* WKBaseSuperViewController.xib */; };
@@ -789,6 +790,8 @@
 		52D2DC2D1FB03C05004FBDC2 /* CurentLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurentLocation.m; sourceTree = "<group>"; };
 		52D2DC301FB04B4F004FBDC2 /* QUShareSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUShareSDK.h; sourceTree = "<group>"; };
 		52D2DC311FB04B4F004FBDC2 /* QUShareSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUShareSDK.m; sourceTree = "<group>"; };
+		52D2DC331FB066AB004FBDC2 /* WKWechatLoginManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWechatLoginManager.h; sourceTree = "<group>"; };
+		52D2DC341FB066AB004FBDC2 /* WKWechatLoginManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWechatLoginManager.m; sourceTree = "<group>"; };
 		52E14CF01FAF4C9900236431 /* NNDeviceInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNDeviceInformation.h; sourceTree = "<group>"; };
 		52E14CF11FAF4C9900236431 /* NNDeviceInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNDeviceInformation.m; sourceTree = "<group>"; };
 		52E1ADE81FA090090082F9A5 /* WKBaseSuperViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKBaseSuperViewController.h; sourceTree = "<group>"; };
@@ -2149,6 +2152,8 @@
 			children = (
 				52BC43721F39B44600B44FD6 /* WKGenericLoginViewController.h */,
 				52BC43731F39B44600B44FD6 /* WKGenericLoginViewController.m */,
+				52D2DC331FB066AB004FBDC2 /* WKWechatLoginManager.h */,
+				52D2DC341FB066AB004FBDC2 /* WKWechatLoginManager.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2616,6 +2621,7 @@
 				526B7D831ECC64B900A43DCF /* WKMyGoldenCell.m in Sources */,
 				31A221FC1E99CFA00058A21B /* CTApiProxy.m in Sources */,
 				52EEE8631F42EA9600D7C985 /* WKPwdTextField.m in Sources */,
+				52D2DC351FB066AB004FBDC2 /* WKWechatLoginManager.m in Sources */,
 				5279A7671EC9AB9000999B3D /* WKTopupCollectionReusableView.m in Sources */,
 				52AC366C1EC3039B000866D4 /* WKWashViewController.m in Sources */,
 				5260EBEF1F43DDD10021F42A /* WKMyTaskDetailCommitCell.m in Sources */,

@@ -10,6 +10,8 @@
 #import "WKHeader.h"
 #import "WKHttpRequest.h"
 #import "NSNetworkManager.h"
+
+#import "WKBDModel.h"
 @interface WKBaseInfo : NSObject
 
 @property (nonatomic,strong) NSString *msg;
@@ -222,7 +224,7 @@
 
 #pragma mark-----****----三方登录
 ///
-@interface ZLPlafarmtLogin : NSObject
+@interface ZLPlafarmtLogin : WKBDModel
 
 @property (nonatomic, strong) NSString *            open_id;                ///
 @property (nonatomic, strong) NSString *            nick_name;              ///

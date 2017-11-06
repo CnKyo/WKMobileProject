@@ -82,41 +82,6 @@
                                                 break;
                                             }
                                         }];
-//    [ShareSDK registerApp:ShareSDK_AppKey
-//          activePlatforms:@[@(SSDKPlatformTypeQQ),
-//                            @(SSDKPlatformTypeWechat),
-//                            @(SSDKPlatformTypeMail),
-//                            @(SSDKPlatformTypeSMS),
-//                            @(SSDKPlatformTypeCopy)]
-//                 onImport:^(SSDKPlatformType platformType) {
-//                     switch (platformType)
-//                     {
-//                         case SSDKPlatformTypeWechat:
-//                             [ShareSDKConnector connectWeChat:[WXApi class]];
-//                             break;
-//                         case SSDKPlatformTypeQQ:
-//                             [ShareSDKConnector connectQQ:[QQApiInterface class] tencentOAuthClass:[TencentOAuth class]];
-//                             break;
-//                         default:
-//                             break;
-//                     }
-//                 }
-//          onConfiguration:^(SSDKPlatformType platformType, NSMutableDictionary *appInfo) {
-//              switch (platformType)
-//              {
-//                  case SSDKPlatformTypeWechat:
-//                      [appInfo SSDKSetupWeChatByAppId:ShareSDK_WeChat_AppId
-//                                            appSecret:ShareSDK_WeChat_AppSecret];
-//                      break;
-//                  case SSDKPlatformTypeQQ:
-//                      [appInfo SSDKSetupQQByAppId:ShareSDK_QQ_AppId
-//                                           appKey:ShareSDK_QQ_AppKey
-//                                         authType:SSDKAuthTypeBoth];
-//                      break;
-//                  default:
-//                      break;
-//              }
-//          }];
     
     return YES;
 }
