@@ -125,6 +125,8 @@
         if ([mUserInfo.open_id isEqualToString:@""] || mUserInfo.open_id.length<=0) {
             [self gotoLogin];
             
+        }else{
+            [self getPushMessage];
         }
     }else{
         [self gotoLogin];
@@ -222,6 +224,8 @@
             [mJHBannerArr addObjectsFromArray:mArr];
 //            [self.tableView headerEndRefreshing];
 //
+            [self.tableView headerEndRefreshing];
+
             [self.tableView reloadData];
 
         }else{
@@ -247,7 +251,8 @@
   
                 [mTuijianArr addObjectsFromArray:mArr];
    
-            
+            [self.tableView headerEndRefreshing];
+
             [self.tableView reloadData];
             
         }else{

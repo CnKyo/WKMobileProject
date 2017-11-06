@@ -35,10 +35,19 @@
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hc8-48-2uj">
                         <rect key="frame" x="204" y="25" width="40" height="20"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_dj" translatesAutoresizingMaskIntoConstraints="NO" id="q5P-XE-40S">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="20"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="q5P-XE-40S" secondAttribute="trailing" id="AgQ-7b-bf4"/>
+                            <constraint firstAttribute="bottom" secondItem="q5P-XE-40S" secondAttribute="bottom" id="GC0-td-4Ch"/>
+                            <constraint firstItem="q5P-XE-40S" firstAttribute="leading" secondItem="hc8-48-2uj" secondAttribute="leading" id="J8N-ef-SBd"/>
                             <constraint firstAttribute="width" constant="40" id="JIw-CC-tKU"/>
                             <constraint firstAttribute="height" constant="20" id="JlI-4p-Mmc"/>
+                            <constraint firstItem="q5P-XE-40S" firstAttribute="top" secondItem="hc8-48-2uj" secondAttribute="top" id="zl2-Oq-hD7"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="llO-8B-Cbi">
@@ -208,4 +217,7 @@
             <point key="canvasLocation" x="33" y="42"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icon_dj" width="61" height="32"/>
+    </resources>
 </document>

@@ -224,7 +224,7 @@
 
 #pragma mark-----****----三方登录
 ///
-@interface ZLPlafarmtLogin : WKBDModel
+@interface ZLPlafarmtLogin : NSObject
 
 @property (nonatomic, strong) NSString *            open_id;                ///
 @property (nonatomic, strong) NSString *            nick_name;              ///

@@ -11,6 +11,7 @@
 @interface WKUserFuncCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *mName;
+@property (weak, nonatomic) IBOutlet UIImageView *mImage;
 
 
 @end

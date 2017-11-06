@@ -22,13 +22,13 @@
 @implementation WKGenericLoginViewController
 {
     ZLPlafarmtLogin *mLoginObj;
-
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
+    mLoginObj = [ZLPlafarmtLogin new];
     [self addTableView];
     
     UINib   *nib = [UINib nibWithNibName:@"WKGenericHeaderCell" bundle:nil];
@@ -154,23 +154,23 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
             
         }];
-//        NSMutableDictionary *mPara = [NSMutableDictionary new];
-//        [mPara setObject:@"18623330775" forKey:@"mobile"];
-//        [mPara setObject:@"123456" forKey:@"password"];
-//
-//        [SVProgressHUD showWithStatus:@"登录中。。。"];
-//        [WKUser WKUserLoginWithMobile:mPara block:^(WKBaseInfo *info) {
-//            if (info.status == kRetCodeSucess) {
-//                [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
-//                [self dismissViewControllerAnimated:YES completion:^{
-//                    self.mBlock(1);
-//                }];
-//            }else{
-//                [SVProgressHUD showErrorWithStatus:@"登录失败!"];
-//            }
-//        }];
+        //        NSMutableDictionary *mPara = [NSMutableDictionary new];
+        //        [mPara setObject:@"18623330775" forKey:@"mobile"];
+        //        [mPara setObject:@"123456" forKey:@"password"];
+        //
+        //        [SVProgressHUD showWithStatus:@"登录中。。。"];
+        //        [WKUser WKUserLoginWithMobile:mPara block:^(WKBaseInfo *info) {
+        //            if (info.status == kRetCodeSucess) {
+        //                [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
+        //                [self dismissViewControllerAnimated:YES completion:^{
+        //                    self.mBlock(1);
+        //                }];
+        //            }else{
+        //                [SVProgressHUD showErrorWithStatus:@"登录失败!"];
+        //            }
+        //        }];
         
-
+        
         }
             break;
         case 2:
@@ -192,7 +192,7 @@
             break;
         case 5:
         {
-//        [self dismissViewController];
+        //        [self dismissViewController];
         [self dismissViewControllerAnimated:YES completion:^{
             self.mBlock(1);
         }];
@@ -243,10 +243,10 @@
  */
 - (void)WKQQAndWechatLogin:(NSInteger)mTag{
     MLLog(@"XXXXXX:%ld",mTag);
-//    [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
-//    [self dismissViewControllerAnimated:YES completion:^{
-//        self.mBlock(1);
-//    }];
+    //    [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
+    //    [self dismissViewControllerAnimated:YES completion:^{
+    //        self.mBlock(1);
+    //    }];
     
     
     SSDKPlatformType mType;
@@ -259,9 +259,8 @@
     
     [[QUShareSDK shared] getUserInfoWithType:mType call:^(SSDKUser *user, NSError *error) {
         MLLog(@"第撒放登录得到的用户信息是：%@",user);
-
+        
         if (user != nil) {
-//            [ZLPlafarmtLogin bg_clear];
             MLLog(@"三方登录返回的数据-----：%@",user);
             MLLog(@"%@",user.uid);
             if (mType == SSDKPlatformTypeQQ) {
@@ -277,46 +276,17 @@
             mLoginObj.sys_t = @"ios";
             mLoginObj.jpush = [JPUSHService registrationID];
             
-            [mLoginObj bg_save];
-            NSArray *mUserArr = [ZLPlafarmtLogin bg_findAll];
-
-                [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
-                [self dismissViewControllerAnimated:YES completion:^{
-                    self.mBlock(1);
-                    [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
-
-                }];
-//            [SVProgressHUD showErrorWithStatus:@"正在登录中..."];
-//            [[APIClient sharedClient] ZLPlaframtLogin:mLoginObj block:^(APIObject *info,ZLUserInfo *mUser) {
-//                if (info.code == RESP_STATUS_YES) {
-//                    [self showSuccessStatus:info.msg];
-//                    if (mUser.user_phone.length<=0) {
-//                        otherLoginViewController *vc = [[otherLoginViewController alloc] initWithNibName:@"otherLoginViewController" bundle:nil];
-//                        vc.mUserInfo = [ZLUserInfo new];
-//                        vc.mUserInfo = mUser;
-//                        vc.mOpenId = mLoginObj.open_id;
-//                        vc.block = ^(NSString *mPhone,NSString *mPwd){
-//
-//                            mMainView.mLoginPhoneTx.text = mPhone;
-//                            mMainView.mLoginPwdTx.text = mPwd;
-//                            [self ZLLoginWithLoginAction];
-//                        };
-//                        [self pushViewController:vc];
-//                    }else{
-//                        [ZLUserInfo updateUserInfo:mUser];
-//
-//                        [[NSNotificationCenter defaultCenter] postNotificationName:MyUserInfoChangedNotification object:nil];
-//                        [[NSNotificationCenter defaultCenter] postNotificationName:UpDateSystemCoupNotification object:nil];
-//                        [self showSuccessStatus:@"登录成功！"];
-//                        [self performSelector:@selector(dismissViewController) withObject:nil afterDelay:0.5];
-//
-//                    }
-//
-//                }else{
-//                    [SVProgressHUD showErrorWithStatus:info.msg];
-//                }
-//            }];
             
+            [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
+            [self dismissViewControllerAnimated:YES completion:^{
+                self.mBlock(1);
+                [ZLPlafarmtLogin bg_clear];
+                [mLoginObj bg_save];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
+                
+            }];
+       
         } else {
             MLLog(@"%@",error);
             [SVProgressHUD showErrorWithStatus:error.description];

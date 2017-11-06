@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WKHeader.h"
 #import "ZYProGressView.h"
+
 @protocol WKUserInfoCellDelegate <NSObject>
 
 @optional
@@ -45,4 +46,5 @@
 
 @property (strong,nonatomic) NSString *mPressValue;
 
+@property (strong,nonatomic) ZLPlafarmtLogin *mUserInfo;
 @end

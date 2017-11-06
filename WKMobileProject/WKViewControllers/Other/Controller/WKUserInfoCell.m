@@ -40,4 +40,9 @@
     [self.mProgressView addSubview:self.mProgress];
 }
 
+- (void)setMUserInfo:(ZLPlafarmtLogin *)mUserInfo{
+    self.mUserName.text = mUserInfo.nick_name;
+    [self.mAvator sd_setImageWithURL:[NSURL URLWithString:mUserInfo.photo] placeholderImage:nil];
+    
+}
 @end

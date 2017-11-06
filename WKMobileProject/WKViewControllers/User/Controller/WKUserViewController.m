@@ -24,6 +24,8 @@
 #import "WKMyTaskViewController.h"
 #import "UIScrollView+DREmptyDataSet.h"
 #import "UIScrollView+DRRefresh.h"
+
+#import <BGFMDB.h>
 @interface WKUserViewController ()<WKUserInfoCellDelegate,WKUserInfoAdCellDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @end
@@ -32,6 +34,10 @@
 {
 
     NSArray *mFuncArr;
+    NSArray *mIamgeArr;
+
+    
+    ZLPlafarmtLogin *mUserInfo;
 
 }
 //通过一个方法来找到这个黑线(findHairlineImageViewUnder):
@@ -90,6 +96,7 @@
     
     
     mFuncArr = @[@"我的活动",@"我的洗衣",@"我的任务",@"我的订单",@"帮助中心",@"加入我们",@"联系我们"];
+    mIamgeArr = @[@"my_activity",@"my_laundry",@"my_task",@"my_order",@"help",@"join_us",@"contact_us"];
     __weak __typeof(self)weakSelf = self;
     
     [self.tableView setRefreshWithHeaderBlock:^{
@@ -99,9 +106,40 @@
     }];
 
     [self.tableView headerBeginRefreshing];
+    
+    NSArray *mUserArr = [ZLPlafarmtLogin bg_findAll];
+    
+    if (mUserArr.count>0) {
+        mUserInfo = mUserArr[0];
+        MLLog(@"接档用户信息是：%@",mUserArr);
+       
+    }
 }
 - (void)tableViewHeaderReloadData{
-    [self.tableView headerEndRefreshing];
+    NSMutableDictionary *mWechat = [NSMutableDictionary new];
+    [mWechat setObject:kMobTrainDemandKey forKey:@"key"];
+    [mWechat setObject:@"3" forKey:@"cid"];
+    [mWechat setObject:@"1" forKey:@"page"];
+    [mWechat setObject:@"2" forKey:@"size"];
+    
+    
+    [WKWechatObj WKGetWechat:mWechat block:^(WKBaseInfo *info, NSArray *mArr) {
+        
+        if (info.status == kRetCodeSucess) {
+            [SVProgressHUD dismiss];
+            [self.tableArr removeAllObjects];
+            [self.tableArr addObjectsFromArray:mArr];
+            
+            
+            [self.tableView reloadData];
+            
+        }else{
+            [SVProgressHUD dismiss];
+        }
+        [self.tableView headerEndRefreshing];
+
+        
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -158,7 +196,7 @@
     if (section == 0) {
         return 1;
     }else if(section == 1){
-        return 4;
+        return self.tableArr.count/2;
     }else{
         return mFuncArr.count;
     }
@@ -189,6 +227,7 @@
         WKUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setMPressValue:@"0.5"];
+        [cell setMUserInfo:mUserInfo];
         cell.delegete = self;
 
         return cell;
@@ -200,6 +239,18 @@
         
         cell.delegete = self;
         
+        WKWechatObj *mN1 = self.tableArr[indexPath.row*2];
+        WKWechatObj *mN2;
+        if ((indexPath.row+1)*2>self.tableArr.count) {
+            cell.mRightImg.hidden = YES;
+        }else{
+            mN2 = self.tableArr[indexPath.row*2+1];
+            cell.mRightImg.hidden = NO;
+            
+        }
+        [cell.mLeftImg sd_setImageWithURL:[NSURL URLWithString:mN1.thumbnails] placeholderImage:nil];
+        [cell.mRightImg sd_setImageWithURL:[NSURL URLWithString:mN2.thumbnails] placeholderImage:nil];
+        
         return cell;
     }else{
         
@@ -207,6 +258,7 @@
         
         WKUserFuncCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
         cell.mName.text = mFuncArr[indexPath.row];
+        cell.mImage.image = [UIImage imageNamed:mIamgeArr[indexPath.row]];
         return cell;
         
     }
