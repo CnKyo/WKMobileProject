@@ -276,16 +276,28 @@
             mLoginObj.sys_t = @"ios";
             mLoginObj.jpush = [JPUSHService registrationID];
             
+            NSMutableDictionary *para = [NSMutableDictionary new];
+            [para setObject:mLoginObj.open_id forKey:@"openid"];
             
-            [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
-            [self dismissViewControllerAnimated:YES completion:^{
-                self.mBlock(1);
-                [ZLPlafarmtLogin bg_clear];
-                [mLoginObj bg_save];
-                
-                [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
-                
+  
+            [ZLPlafarmtLogin WKRegistWechatOpenId:para block:^(MWBaseObj *info) {
+                if (info.err_code == 0) {
+                    mLoginObj.token = [[info.data objectForKey:@"user_info"] objectForKey:@"token"];
+                    mLoginObj.userId = [[info.data objectForKey:@"user_info"] objectForKey:@"user_id"];
+                    [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
+                    [self dismissViewControllerAnimated:YES completion:^{
+                        self.mBlock(1);
+                        [ZLPlafarmtLogin bg_clear];
+                        [mLoginObj bg_save];
+                        
+                        [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
+                        
+                    }];
+                }else{
+                    [SVProgressHUD showErrorWithStatus:info.err_msg];
+                }
             }];
+           
        
         } else {
             MLLog(@"%@",error);

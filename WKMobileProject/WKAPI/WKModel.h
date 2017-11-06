@@ -224,6 +224,7 @@
 
 #pragma mark-----****----三方登录
 ///
+@class MWBaseObj;
 @interface ZLPlafarmtLogin : NSObject
 
 @property (nonatomic, strong) NSString *            open_id;                ///
@@ -233,6 +234,55 @@
 @property (nonatomic, strong) NSString *            app_v;                  ///
 @property (nonatomic, strong) NSString *            sys_v;                  ///
 @property (nonatomic, strong) NSString *            sys_t;                  ///
+@property (nonatomic, strong) NSString *            token;                  ///
+@property (nonatomic, strong) NSString *            userId;                  ///
+
++ (void)WKRegistWechatOpenId:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+@end
+
+@interface MWBaseObj : NSObject
+
+@property (nonatomic,strong) NSString *err_msg;
+
+@property (nonatomic,assign) int err_code;
+
+@property (assign,nonatomic) long time;
+
+@property (assign,nonatomic) double utility_time;
+
+@property (nonatomic,strong) id data;
+
+/**
+ 返回错误
+ 
+ @param error 错误
+ @return 返回baseinfo
+ */
++(MWBaseObj *)infoWithError:(NSError *)error;
+
+/**
+ 返回错误信息
+ 
+ @param errMsg 信息
+ @return 返回baseinfo
+ */
++(MWBaseObj *)infoWithErrorMessage:(NSString *)errMsg;
+
+/**
+ 返回成功信息
+ 
+ @param successMsg 信息
+ @return 返回baseinfo
+ */
++(MWBaseObj *)infoWithSuccessMessage:(NSString *)successMsg;
+
+/**
+ 需要登录
+ 
+ @param errMsg 错误信息
+ @return 返回baseinfo
+ */
++(MWBaseObj *)infoWithReLoginErrorMessage:(NSString *)errMsg;
 
 
 @end

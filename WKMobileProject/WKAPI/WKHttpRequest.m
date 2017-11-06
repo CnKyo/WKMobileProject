@@ -9,6 +9,22 @@
 #import "WKHttpRequest.h"
 #import "NSNetworkManager.h"
 @implementation WKHttpRequest
++ (instancetype)initClient{
+    static WKHttpRequest *_sharedClient = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        //[APIClient loadDefault];
+        _sharedClient = [[WKHttpRequest alloc] initWithBaseURL:[NSURL URLWithString:kLeSchoolAPIURLString]];
+        _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
+        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+        
+        ;
+        //_sharedClient.requestSerializer = [AFJSONRequestSerializer serializer];
+        _sharedClient.requestSerializer.HTTPShouldHandleCookies = YES;
+        //_sharedClient.requestSerializer.Content = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+    });
+    return _sharedClient;
+}
 + (instancetype)shareClient{
     static WKHttpRequest *_sharedClient = nil;
     static dispatch_once_t onceToken;
@@ -41,6 +57,7 @@
     });
     return _sharedClient;
 }
+
 + (void)WKGetNetDataWith:(NSString*)str withDic:(NSDictionary*)dic andSuccess:(void(^)(NSDictionary* dictionary))successBlock  andFailure:(void(^)())failueBlock{
     
     AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializer];
@@ -92,6 +109,33 @@
         }
     }];
 }
+#pragma mark----****----*  封装的get请求
+/**
+ *  封装的get请求
+ *
+ *  @param url          url
+ *  @param para          参数
+ *  @param block 请求成功的回调
+ */
+- (void)WKGetDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKBaseInfo *info))block{
+    [[NSNetworkRequest sharedInstance] GET:url parameters:para cacheMode:NO successBlock:^(id responseObject) {
+        MLLog(@"%@\n缓存路径为:  %@",responseObject,kPathCache);
+        //        MLLog(@"responseObject----:%@",responseObject);
+        
+        
+        WKJUHEObj *info = [WKJUHEObj yy_modelWithJSON:responseObject];
+        
+        block(info);
+        
+        //        [TSMessage showNotificationWithTitle:@"GET请求成功,已缓存!" type:TSMessageNotificationTypeWarning];
+    } failureBlock:^(NSError *error) {
+        MLLog(@"%@",error);
+        //        [TSMessage showNotificationWithTitle:[NSString stringWithFormat:@"GET请求失败:%@",error.description] type:TSMessageNotificationTypeWarning];
+        
+        block(nil);
+        
+    }];
+}
 #pragma mark----****----*  封装的post请求
 /**
  *  封装的post请求
@@ -129,6 +173,8 @@
     }];
 
 }
+
+
 #pragma mark----****----*  封装的get请求
 /**
  *  封装的get请求
@@ -137,10 +183,10 @@
  *  @param para          参数
  *  @param block 请求成功的回调
  */
-- (void)WKGetDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKBaseInfo *info))block{
+- (void)WKMWGetDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKBaseInfo *info))block{
 
 
-    [[NSNetworkRequest sharedInstance] GET:url parameters:para cacheMode:NO successBlock:^(id responseObject) {
+    [[NSNetworkRequest sharedInstance] MWGET:url parameters:para cacheMode:NO successBlock:^(id responseObject) {
         MLLog(@"%@\n缓存路径为:  %@",responseObject,kPathCache);
 //        MLLog(@"responseObject----:%@",responseObject);
         
@@ -160,6 +206,20 @@
     }];
 
 }
+- (void)WKMWPostDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(MWBaseObj *info))block{
+    [[NSNetworkRequest sharedInstance] MWPOST:url parameters:para cacheMode:NO successBlock:^(id responseObject) {
+        MLLog(@"responseObject----:%@",responseObject);
+        
+        MWBaseObj *info = [MWBaseObj yy_modelWithJSON:responseObject];
+        block(info);
+    } failureBlock:^(NSError *error) {
+        MWBaseObj *info = [MWBaseObj infoWithError:error];
+        info.err_code = kRetCodeError;
+        
+        block(info);
+    }];
+}
+
 - (void)WKJHGetDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKJUHEObj *info))block{
     [[NSNetworkRequest sharedInstance] JHGET:url parameters:para cacheMode:NO successBlock:^(id responseObject) {
         MLLog(@"%@\n缓存路径为:  %@",responseObject,kPathCache);

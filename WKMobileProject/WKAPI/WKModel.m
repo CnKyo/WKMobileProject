@@ -325,4 +325,80 @@
 @end
 
 @implementation ZLPlafarmtLogin
++ (void)WKRegistWechatOpenId:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+
+    [[WKHttpRequest initClient] WKMWPostDataWithUrl:@"user.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+    
+}
+@end
+
+
+
+
+
+@implementation MWBaseObj
+
+/**
+ 返回错误
+ 
+ @param error 错误
+ @return 返回baseinfo
+ */
++(MWBaseObj *)infoWithError:(NSError *)error{
+    MWBaseObj *info = [[MWBaseObj alloc] init];
+    NSString *des = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+    if (des.length > 0)
+        info.err_msg = des;
+    else
+        info.err_msg = @"网络请示失败，请检查网络";
+    info.err_code = kRetCodeError;
+    return info;
+}
+
+/**
+ 返回错误信息
+ 
+ @param errMsg 信息
+ @return 返回baseinfo
+ */
++(MWBaseObj *)infoWithErrorMessage:(NSString *)errMsg{
+    MWBaseObj *info = [[MWBaseObj alloc] init];
+    info.err_msg       = errMsg;
+    info.err_code = kRetCodeError;
+    return info;
+}
+
+/**
+ 返回成功信息
+ 
+ @param successMsg 信息
+ @return 返回baseinfo
+ */
++(MWBaseObj *)infoWithSuccessMessage:(NSString *)successMsg{
+    MWBaseObj *info = [[MWBaseObj alloc] init];
+    info.err_msg       = successMsg;
+    info.err_code = kRetCodeSucess;
+    return info;
+}
+
+/**
+ 需要登录
+ 
+ @param errMsg 错误信息
+ @return 返回baseinfo
+ */
++(MWBaseObj *)infoWithReLoginErrorMessage:(NSString *)errMsg{
+    MWBaseObj *info = [[MWBaseObj alloc] init];
+    info.err_msg       = errMsg.length>0 ? errMsg : @"请登录";
+    info.err_code = kRetCodeNeedLogin;
+    return info;
+}
+
+
 @end

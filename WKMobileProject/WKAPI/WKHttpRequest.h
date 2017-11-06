@@ -10,11 +10,14 @@
 #import "WKHeader.h"
 #import "WKModel.h"
 #import "AppDelegate.h"
+@class MWBaseObj;
 @class WKBaseInfo;
 @class WKJUHEObj;
 @interface WKHttpRequest : AFHTTPSessionManager
 
 @property(nonatomic, strong) NSMutableDictionary *conDic;//存网络链接，便于取消
+
++ (instancetype)initClient;
 
 + (instancetype)shareClient;
 
@@ -47,6 +50,7 @@
  *  @param block 请求成功的回调
  */
 - (void)WKPostDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKBaseInfo *info))block;
+
 #pragma mark----****----*  封装的get请求
 /**
  *  封装的get请求
@@ -57,6 +61,9 @@
  */
 - (void)WKGetDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKBaseInfo *info))block;
 - (void)WKJHGetDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKJUHEObj *info))block;
+- (void)WKMWGetDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKBaseInfo *info))block;
+
+- (void)WKMWPostDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(MWBaseObj *info))block;
 
 /**
  图片上传

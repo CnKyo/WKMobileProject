@@ -122,7 +122,7 @@
     if (mUserArr.count>0) {
         ZLPlafarmtLogin *mUserInfo = mUserArr[0];
         MLLog(@"接档用户信息是：%@",mUserArr);
-        if ([mUserInfo.open_id isEqualToString:@""] || mUserInfo.open_id.length<=0) {
+        if ([mUserInfo.userId isEqualToString:@""] || mUserInfo.userId.length<=0) {
             [self gotoLogin];
             
         }else{
