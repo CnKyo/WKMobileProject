@@ -174,6 +174,10 @@ static NSString* const  kAFAppDotNetApiBaseURLString        = @"https://app.chin
 static NSString* const  kAFAppDotNetApiExtraURLString       = @"/api/app/client";
 static NSString* const  kAFAppDotNetApiServiceURLString     = @"/api/app/service";
 static NSString* const  kAFAppDotNetImgBaseURLString        = @"http://resource.china-cr.com/resource";
+
+
+static NSString* const  KAppFetchJPUSHService        = @"loginNotify";
+
 ///错误
 static int const  kRetCodeError        = 10002;
 ///接口维护

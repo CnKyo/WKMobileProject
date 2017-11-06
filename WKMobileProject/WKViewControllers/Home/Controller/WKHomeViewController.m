@@ -107,22 +107,40 @@
     
 //    [self addTableViewHeaderRefreshing];
 //    [self addTableViewFootererRefreshing];
-    __weak __typeof(self)weakSelf = self;
 
+    [self getUserInfo];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(getPushMessage)
+                                                 name:KAppFetchJPUSHService
+                                               object:nil];
+}
+- (void)getUserInfo{
+    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString *filePath = [documentPath stringByAppendingPathComponent:@"cache001"];
+    ZLPlafarmtLogin *model = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    MLLog(@"接档用户信息是：%@",model);
+    
+    if ([model.open_id isEqualToString:@""] || model.open_id.length<=0) {
+        [self gotoLogin];
+
+    }
+}
+- (void)getPushMessage{
+    __weak __typeof(self)weakSelf = self;
+    
     [self.tableView setRefreshWithHeaderBlock:^{
         [weakSelf tableViewHeaderReloadData];
     } footerBlock:^{
         [weakSelf tableViewFooterReloadData];
     }];
-
+    
     [self.tableView setupEmptyData:^{
         [weakSelf tableViewHeaderReloadData];
-
+        
     }];
     [self.tableView headerBeginRefreshing];
-    [self gotoLogin];
-}
 
+}
 - (void)gotoLogin{
     WKGenericLoginViewController *vc = [WKGenericLoginViewController new];
     vc.hidesBottomBarWhenPushed = YES;

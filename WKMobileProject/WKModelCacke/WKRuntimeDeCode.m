@@ -8,6 +8,7 @@
 //
 
 #import "WKRuntimeDeCode.h"
+#import <objc/runtime.h>
 
 @implementation WKRuntimeDeCode
 
