@@ -90,21 +90,20 @@
         MLLog(@"接档用户信息是：%@",mUserArr);
         if (![mUserInfo.userId isEqualToString:@""] || mUserInfo.userId.length>0) {
             NSMutableDictionary *para = [NSMutableDictionary new];
-            [para setObject:mUserInfo.token forKey:@"token"];
-            [para setObject:mUserInfo.userId forKey:@"uid"];
+//            [para setObject:mUserInfo.token forKey:@"token"];
+//            [para setObject:mUserInfo.userId forKey:@"uid"];
+            [para setObject:@"eHgyMDE3MDkwNTAyNDUxNzYwNzU0OTI5" forKey:@"device_code"];
 
-            [MWBaseObj MWFindTaskList:para block:^(MWBaseObj *info, NSArray *mArr) {
-                
-                if (info.err_code == 1) {
-                    [self.tableArr removeAllObjects];
+            [para setObject:@"348963" forKey:@"uid"];
+            [para setObject:@"dXQyMDE3MTEwNzE3MTAxNTg3OTIxNDgy" forKey:@"token"];
+
+            [MWBaseObj MWFindDeviceInfo:para block:^(MWBaseObj *info, MWBookingObj *mArr) {
+                if (info.err_code == 0) {
                     
-                    [self.tableArr addObjectsFromArray:mArr];
-                    [self.tableView reloadData];
                 }else{
                     [SVProgressHUD showErrorWithStatus:info.err_msg];
                 }
             }];
-
         }
     }
     

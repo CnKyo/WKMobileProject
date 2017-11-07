@@ -22,6 +22,7 @@
 }
 - (void)layoutSubviews{
     self.mTextField.delegate = self;
+    self.mCodeBtn.layer.cornerRadius = self.mScanBtn.layer.cornerRadius = 4;
 }
 - (IBAction)mBtnAction:(UIButton *)sender {
     if ([self.delegate respondsToSelector:@selector(WKQuikWashDelegateWithAddressBookBtnClicked:)]) {

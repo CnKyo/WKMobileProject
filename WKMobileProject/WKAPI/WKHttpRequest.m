@@ -183,7 +183,7 @@
  *  @param para          参数
  *  @param block 请求成功的回调
  */
-- (void)WKMWGetDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKBaseInfo *info))block{
+- (void)WKMWGetDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(MWBaseObj *info))block{
 
 
     [[NSNetworkRequest sharedInstance] MWGET:url parameters:para cacheMode:NO successBlock:^(id responseObject) {
@@ -191,15 +191,15 @@
 //        MLLog(@"responseObject----:%@",responseObject);
         
         
-        WKBaseInfo *info = [WKBaseInfo yy_modelWithJSON:responseObject];
+        MWBaseObj *info = [MWBaseObj yy_modelWithJSON:responseObject];
         block(info);
 
 //        [TSMessage showNotificationWithTitle:@"GET请求成功,已缓存!" type:TSMessageNotificationTypeWarning];
     } failureBlock:^(NSError *error) {
         MLLog(@"%@",error);
 //        [TSMessage showNotificationWithTitle:[NSString stringWithFormat:@"GET请求失败:%@",error.description] type:TSMessageNotificationTypeWarning];
-        WKBaseInfo *info = [WKBaseInfo infoWithError:error];
-        info.status = kRetCodeError;
+        MWBaseObj *info = [MWBaseObj infoWithError:error];
+        info.err_code = kRetCodeError;
         
         block(info);
 

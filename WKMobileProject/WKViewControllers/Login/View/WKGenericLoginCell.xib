@@ -98,69 +98,28 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="khT-i9-2Yr">
                         <rect key="frame" x="60" y="319" width="200" height="80"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBn-CX-VhC">
-                                <rect key="frame" x="0.0" y="0.0" width="100" height="80"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZLLoginWithTencent" translatesAutoresizingMaskIntoConstraints="NO" id="aUq-e8-Y9S">
-                                        <rect key="frame" x="30" y="11" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="4aH-PY-Xqp"/>
-                                            <constraint firstAttribute="height" constant="40" id="Y1A-yt-LEh"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QQ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8c7-Rx-My8">
-                                        <rect key="frame" x="0.0" y="58" width="100" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmE-7I-Dad">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="80"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal">
-                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="mOtherLogin:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="s5H-KW-xvv"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="5jV-D0-sFE"/>
-                                    <constraint firstItem="VmE-7I-Dad" firstAttribute="leading" secondItem="ZBn-CX-VhC" secondAttribute="leading" id="EUW-3h-ef5"/>
-                                    <constraint firstAttribute="trailing" secondItem="8c7-Rx-My8" secondAttribute="trailing" id="GHd-cA-Eci"/>
-                                    <constraint firstAttribute="height" constant="80" id="Kfw-kh-stM"/>
-                                    <constraint firstItem="8c7-Rx-My8" firstAttribute="top" secondItem="aUq-e8-Y9S" secondAttribute="bottom" constant="7" id="UyG-Vg-UWV"/>
-                                    <constraint firstAttribute="trailing" secondItem="VmE-7I-Dad" secondAttribute="trailing" id="Zfk-OP-n2D"/>
-                                    <constraint firstItem="aUq-e8-Y9S" firstAttribute="centerX" secondItem="ZBn-CX-VhC" secondAttribute="centerX" id="ady-u9-lPn"/>
-                                    <constraint firstAttribute="bottom" secondItem="8c7-Rx-My8" secondAttribute="bottom" constant="5" id="cHZ-FR-c8f"/>
-                                    <constraint firstItem="8c7-Rx-My8" firstAttribute="leading" secondItem="ZBn-CX-VhC" secondAttribute="leading" id="o2h-TX-zj9"/>
-                                    <constraint firstItem="VmE-7I-Dad" firstAttribute="top" secondItem="ZBn-CX-VhC" secondAttribute="top" id="uym-vC-idi"/>
-                                    <constraint firstAttribute="bottom" secondItem="VmE-7I-Dad" secondAttribute="bottom" id="wWu-vS-7TB"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpJ-mb-g6i">
-                                <rect key="frame" x="100" y="0.0" width="100" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="80"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZLLoginWithWechat" translatesAutoresizingMaskIntoConstraints="NO" id="pad-Po-75v">
-                                        <rect key="frame" x="30" y="11" width="40" height="40"/>
+                                        <rect key="frame" x="80" y="5" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="Pp8-Bf-f4e"/>
-                                            <constraint firstAttribute="height" constant="40" id="il3-1L-9Ir"/>
+                                            <constraint firstAttribute="width" constant="40" id="JQs-mw-wqZ"/>
+                                            <constraint firstAttribute="height" constant="40" id="iTr-zw-7Ol"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7q-Rv-KuK">
-                                        <rect key="frame" x="0.0" y="55" width="100" height="20"/>
+                                        <rect key="frame" x="85" y="55" width="30" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="Pfb-uS-f7L"/>
+                                            <constraint firstAttribute="width" constant="30" id="rTx-u8-fkz"/>
+                                            <constraint firstAttribute="height" constant="20" id="uCI-Eh-82y"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGe-6o-wxS">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="80"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal">
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -172,31 +131,25 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="OGe-6o-wxS" firstAttribute="top" secondItem="qpJ-mb-g6i" secondAttribute="top" id="Cnd-iI-Odh"/>
-                                    <constraint firstAttribute="trailing" secondItem="n7q-Rv-KuK" secondAttribute="trailing" id="HUD-Dw-ZpO"/>
-                                    <constraint firstItem="OGe-6o-wxS" firstAttribute="leading" secondItem="qpJ-mb-g6i" secondAttribute="leading" id="JCd-xX-XMf"/>
-                                    <constraint firstItem="pad-Po-75v" firstAttribute="centerX" secondItem="qpJ-mb-g6i" secondAttribute="centerX" id="Mzh-c9-X9n"/>
-                                    <constraint firstItem="n7q-Rv-KuK" firstAttribute="top" secondItem="pad-Po-75v" secondAttribute="bottom" constant="4" id="PxV-f4-Lsl"/>
-                                    <constraint firstItem="n7q-Rv-KuK" firstAttribute="leading" secondItem="qpJ-mb-g6i" secondAttribute="leading" id="c7L-UQ-iJd"/>
-                                    <constraint firstAttribute="trailing" secondItem="OGe-6o-wxS" secondAttribute="trailing" id="c8S-dK-eHp"/>
-                                    <constraint firstItem="pad-Po-75v" firstAttribute="top" secondItem="qpJ-mb-g6i" secondAttribute="top" constant="11" id="ce4-vk-txR"/>
-                                    <constraint firstAttribute="bottom" secondItem="OGe-6o-wxS" secondAttribute="bottom" id="d5C-na-3vy"/>
+                                    <constraint firstAttribute="trailing" secondItem="OGe-6o-wxS" secondAttribute="trailing" id="0YY-0f-yGp"/>
+                                    <constraint firstItem="n7q-Rv-KuK" firstAttribute="centerX" secondItem="qpJ-mb-g6i" secondAttribute="centerX" id="0j3-Wd-Jiw"/>
+                                    <constraint firstItem="pad-Po-75v" firstAttribute="centerX" secondItem="qpJ-mb-g6i" secondAttribute="centerX" id="8xY-fv-JxF"/>
+                                    <constraint firstItem="n7q-Rv-KuK" firstAttribute="top" secondItem="pad-Po-75v" secondAttribute="bottom" constant="10" id="JV7-vh-raV"/>
+                                    <constraint firstAttribute="bottom" secondItem="OGe-6o-wxS" secondAttribute="bottom" id="TaE-hV-OAM"/>
+                                    <constraint firstItem="OGe-6o-wxS" firstAttribute="top" secondItem="qpJ-mb-g6i" secondAttribute="top" id="WQ3-RH-85G"/>
+                                    <constraint firstItem="OGe-6o-wxS" firstAttribute="leading" secondItem="qpJ-mb-g6i" secondAttribute="leading" id="YJ5-G0-xdP"/>
+                                    <constraint firstItem="pad-Po-75v" firstAttribute="top" secondItem="qpJ-mb-g6i" secondAttribute="top" constant="5" id="Yie-yP-kPA"/>
+                                    <constraint firstAttribute="width" constant="200" id="mX6-Di-JMT"/>
+                                    <constraint firstAttribute="height" constant="80" id="u72-ZA-w74"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZBn-CX-VhC" firstAttribute="leading" secondItem="khT-i9-2Yr" secondAttribute="leading" id="0hs-7F-3xg"/>
-                            <constraint firstItem="qpJ-mb-g6i" firstAttribute="leading" secondItem="ZBn-CX-VhC" secondAttribute="trailing" id="0nd-R0-l1C"/>
                             <constraint firstAttribute="width" constant="200" id="6kk-yR-xng"/>
-                            <constraint firstAttribute="trailing" secondItem="qpJ-mb-g6i" secondAttribute="trailing" id="Ex8-jU-EMa"/>
-                            <constraint firstItem="qpJ-mb-g6i" firstAttribute="height" secondItem="ZBn-CX-VhC" secondAttribute="height" id="SSo-yc-Se0"/>
+                            <constraint firstItem="qpJ-mb-g6i" firstAttribute="centerX" secondItem="khT-i9-2Yr" secondAttribute="centerX" id="GC8-5J-EJe"/>
                             <constraint firstAttribute="height" constant="80" id="fhJ-yN-RXU"/>
-                            <constraint firstItem="ZBn-CX-VhC" firstAttribute="top" secondItem="khT-i9-2Yr" secondAttribute="top" id="hVg-vb-sfT"/>
-                            <constraint firstItem="qpJ-mb-g6i" firstAttribute="width" secondItem="ZBn-CX-VhC" secondAttribute="width" id="kh9-Ly-4JG"/>
-                            <constraint firstItem="qpJ-mb-g6i" firstAttribute="top" secondItem="khT-i9-2Yr" secondAttribute="top" id="lj3-uX-UTE"/>
-                            <constraint firstAttribute="bottom" secondItem="ZBn-CX-VhC" secondAttribute="bottom" id="ltW-68-j3a"/>
-                            <constraint firstAttribute="bottom" secondItem="qpJ-mb-g6i" secondAttribute="bottom" id="n7r-Ua-0nT"/>
+                            <constraint firstItem="qpJ-mb-g6i" firstAttribute="centerY" secondItem="khT-i9-2Yr" secondAttribute="centerY" id="tCa-XS-Kq5"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -235,7 +188,6 @@
                 <outlet property="mGoRegistBtn" destination="wJk-NB-bvV" id="bp3-8X-0B8"/>
                 <outlet property="mLoginBtn" destination="8l5-Wg-D2z" id="JcO-sr-bJY"/>
                 <outlet property="mPwdTx" destination="XB9-eW-Gmq" id="7QV-sf-N5x"/>
-                <outlet property="mQQLogin" destination="VmE-7I-Dad" id="g9Y-fQ-rZJ"/>
                 <outlet property="mUserNameTx" destination="POv-xa-vdO" id="Z8Y-OS-nyL"/>
                 <outlet property="mVerifyCodeLoginBtn" destination="esu-Z5-KXy" id="PUW-6k-BRJ"/>
                 <outlet property="mWechatLogin" destination="OGe-6o-wxS" id="fyr-wJ-hfq"/>
@@ -244,7 +196,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ZLLoginWithTencent" width="89" height="90"/>
         <image name="ZLLoginWithWechat" width="89" height="90"/>
     </resources>
 </document>

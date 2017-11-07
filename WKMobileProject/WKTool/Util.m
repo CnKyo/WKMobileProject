@@ -1326,7 +1326,16 @@
     
     return [mText substringWithRange:NSMakeRange(mLocation, mLength)];
 }
+/**
+ 截取字符串后X位
+ 
+ @param length 长度
+ @return 返回值
+ */
++ (NSString *)WKCutBackString:(NSInteger)length mText:(NSString *)mText{
     
+    return [mText substringFromIndex:mText.length-length];
+}
     ///是否有优惠券
 + (BOOL)iscoupon:(int)mCoupon{
     

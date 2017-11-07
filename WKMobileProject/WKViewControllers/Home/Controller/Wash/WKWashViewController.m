@@ -110,9 +110,11 @@
             break;
         case 3:
         {
-
-        WKQuikWashViewController *vc = [WKQuikWashViewController new];
+        UIStoryboard *board = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        WKScanDeviceViewController *vc = [board instantiateViewControllerWithIdentifier:@"scan"];;
         [self pushViewController:vc];
+//        WKQuikWashViewController *vc = [WKQuikWashViewController new];
+//        [self pushViewController:vc];
         MLLog(@"立即使用");
         }
             break;
@@ -141,7 +143,7 @@
     
     self.answerArr = [[NSMutableArray alloc] initWithObjects:answerText1,answerText2,answerText3,answerText4,answerText5,answerText6, nil];
     
-  
+    [self.tableView reloadData];
    
 }
 - (void)didReceiveMemoryWarning {

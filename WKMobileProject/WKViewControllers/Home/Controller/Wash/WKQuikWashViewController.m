@@ -18,12 +18,13 @@
 {
     
     NSString *mCode;
+    MWDeviceCode *mDeviceCodeObj;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"立即使用";
-    
+    mDeviceCodeObj = [MWDeviceCode new];
     [self addTableView];
     
     UINib   *nib = [UINib nibWithNibName:@"WKQuikWashTableViewCell" bundle:nil];
@@ -103,9 +104,41 @@
         if (mCode.length<=0) {
             
         }else{
-            WaskBookingResultController *vc = [WaskBookingResultController new];
-            vc.mCode = mCode;
-            [self pushViewController:vc];
+            
+            NSArray *mUserArr = [ZLPlafarmtLogin bg_findAll];
+            
+            if (mUserArr.count>0) {
+                ZLPlafarmtLogin *mUserInfo = mUserArr[0];
+                MLLog(@"接档用户信息是：%@",mUserArr);
+                if ([mUserInfo.userId isEqualToString:@""] || mUserInfo.userId.length<=0) {
+                    
+                }else{
+                    
+                    NSMutableDictionary *para = [NSMutableDictionary new];
+//                    [para setObject:mUserInfo.userId forKey:@"uid"];
+//                    [para setObject:mUserInfo.token forKey:@"token"];
+//                    [para setObject:NumberWithInt(348963) forKey:@"uid"];
+//                    [para setObject:@"dXQyMDE3MTEwNzExMjc0MDkzNDgxNTEz" forKey:@"token"];
+//                    [para setObject:[Util WKCutBackString:4 mText:mCode] forKey:@"id"];
+                    
+                    
+                      [para setObject:@"eHgyMDE3MDkwNTAyNDUxNzYwNzU1OTg5" forKey:@"q"];
+                    [MWBaseObj MWWashToCode:para block:^(MWBaseObj *info, MWDeviceCode *mDeviceCode) {
+                        if (info.err_code == 0) {
+                            mDeviceCodeObj = mDeviceCode;
+                            WaskBookingResultController *vc = [WaskBookingResultController new];
+                            vc.mCode = mDeviceCode.device_code;
+                            [self pushViewController:vc];
+                        }else{
+                            [SVProgressHUD showErrorWithStatus:info.err_msg];
+                        }
+                    }];
+                    
+                }
+                
+            }
+            
+
         }
         
         }

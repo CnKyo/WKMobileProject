@@ -304,7 +304,7 @@
 @implementation WKWechatObj  : NSObject
 + (void)WKGetWechat:(NSDictionary *)para block:(void(^)(WKBaseInfo *info,NSArray *mArr))block{
     [[WKHttpRequest shareClient] WKGetDataWithUrl:@"wx/article/search" withPara:para block:^(WKBaseInfo *info) {
-        if (info.status == kRetCodeSucess) {
+        if (info.status == 0) {
             NSMutableArray *mTempArr = [NSMutableArray new];
 
             if ([info.result isKindOfClass:[NSDictionary class]]) {
@@ -463,10 +463,15 @@
  @param para 参数
  @param block 返回值
  */
-+ (void)MWFindDeviceInfo:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block{
++ (void)MWFindDeviceInfo:(NSDictionary *)para block:(void(^)(MWBaseObj *info,MWBookingObj *mArr))block{
     [[WKHttpRequest initClient] WKMWPostDataWithUrl:@"wx/wash.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
-            block(info,nil);
+            if ([info.data isKindOfClass:[NSDictionary class]]) {
+                block(info,[MWBookingObj yy_modelWithDictionary:info.data]);
+            }else{
+                block(info,nil);
+
+            }
         }else{
             block(info,nil);
         }
@@ -533,6 +538,30 @@
         }
     }];
 }
+/**
+ 编号洗衣获取deviceCode
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWWashToCode:(NSMutableDictionary *)para block:(void(^)(MWBaseObj *info,MWDeviceCode *mDeviceCode))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initClient] WKMWPostDataWithUrl:@"qr/" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            block(info,[MWDeviceCode yy_modelWithDictionary:info.data]);
+        }else{
+            block(info,nil);
+        }
+    }];
+//    [[WKHttpRequest initClient] WKMWGetDataWithUrl:@"qr/" withPara:para block:^(MWBaseObj *info) {
+//        if (info.err_code == 0) {
+//            block(info,[MWDeviceCode yy_modelWithDictionary:info.data]);
+//        }else{
+//            block(info,nil);
+//        }
+//    }];
+
+}
 @end
 
 @implementation MWDeviceInfo
@@ -540,4 +569,15 @@
 @implementation MWSchoolInfo
 @end
 
+@implementation MWDeviceCode
+@end
+
+@implementation MWBookingObj
++ (NSDictionary *)modelContainerPropertyGenericClass{
+    
+    return @{@"features":@"MWBookingFeatureObj"};
+}
+@end
+@implementation MWBookingFeatureObj
+@end
 

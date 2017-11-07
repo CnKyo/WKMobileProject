@@ -366,6 +366,14 @@
      @return 返回结果
      */
 + (NSString *)ZLCutStringWithText:(NSString *)mText andRangeWithLocation:(NSInteger)mLocation andRangeWithLength:(NSInteger)mLength;
+
+/**
+ 截取字符串后X位
+
+ @param length 长度
+ @return 返回值
+ */
++ (NSString *)WKCutBackString:(NSInteger)length mText:(NSString *)mText;
 #pragma mark----是否有优惠券
     ///是否有优惠券
 + (BOOL)iscoupon:(int)mCoupon;

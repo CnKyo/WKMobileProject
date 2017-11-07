@@ -288,7 +288,9 @@
         }
         
     }];
+    [self.tableView headerEndRefreshing];
     
+    [self.tableView reloadData];
 }
 - (void)judgeString{
     

@@ -241,6 +241,10 @@
 @end
 
 @class MWSchoolInfo;
+@class MWDeviceCode;
+@class MWBookingObj;
+
+
 @interface MWBaseObj : NSObject
 
 @property (nonatomic,strong) NSString *err_msg;
@@ -312,7 +316,7 @@
  @param para 参数
  @param block 返回值
  */
-+ (void)MWFindDeviceInfo:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block;
++ (void)MWFindDeviceInfo:(NSDictionary *)para block:(void(^)(MWBaseObj *info,MWBookingObj *mArr))block;
 /**
  添加功能
  
@@ -343,6 +347,14 @@
  */
 + (void)MWGetDeviceStatus:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
 
+/**
+ 编号洗衣获取deviceCode
+
+ @param mCode 编号
+ @param block 返回值
+ */
++ (void)MWWashToCode:(NSMutableDictionary *)para block:(void(^)(MWBaseObj *info,MWDeviceCode *mDeviceCode))block;
+
 @end
 
 
@@ -364,6 +376,44 @@
 @interface MWSchoolInfo : NSObject
 @property (nonatomic,strong) NSString *school_name;
 @property (nonatomic,strong) NSString *sum_money;
+@end
+
+@interface MWDeviceCode : NSObject
+@property (nonatomic,strong) NSString *device_code;
+@property (nonatomic,strong) NSString *device_id;
+@property (nonatomic,strong) NSString *end_time;
+@property (nonatomic,strong) NSString *location_name;
+@property (nonatomic,strong) NSString *run_status;
+
+@end
+///扫描洗衣机后的对象
+@interface MWBookingObj : NSObject
+@property (nonatomic,strong) NSString *add_person;
+@property (nonatomic,strong) NSString *add_time;
+@property (nonatomic,strong) NSString *area;
+@property (nonatomic,strong) NSString *birth_time;
+@property (nonatomic,strong) NSString *brand_name;
+@property (nonatomic,strong) NSString *device_code;
+@property (nonatomic,strong) NSString *device_id;
+@property (nonatomic,strong) NSString *device_model;
+@property (nonatomic,strong) NSString *device_type;
+@property (nonatomic,strong) NSArray *features;
+@property (nonatomic,strong) NSString *lat;
+@property (nonatomic,strong) NSString *lng;
+@property (nonatomic,strong) NSString *location_name;
+@property (nonatomic,assign) int pre;
+@property (nonatomic,assign) int school_id;
 
 
 @end
+@interface MWBookingFeatureObj : NSObject
+@property (nonatomic,assign) int device_id;
+@property (nonatomic,assign) int feature_id;
+@property (nonatomic,strong) NSString *feature_name;
+
+@property (nonatomic,assign) int feature_time;
+@property (nonatomic,assign) int feature_val;
+@property (nonatomic,assign) int price;
+
+@end
+
