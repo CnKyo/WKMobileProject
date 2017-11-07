@@ -291,6 +291,9 @@
 		52D2DC281FB001B0004FBDC2 /* GetIPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC271FB001B0004FBDC2 /* GetIPAddress.m */; };
 		52D2DC2E1FB03C05004FBDC2 /* CurentLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC2D1FB03C05004FBDC2 /* CurentLocation.m */; };
 		52D2DC321FB04B4F004FBDC2 /* QUShareSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D2DC311FB04B4F004FBDC2 /* QUShareSDK.m */; };
+		52DC82BF1FB143E2003750E6 /* WKQuikWashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DC82BE1FB143E2003750E6 /* WKQuikWashViewController.m */; };
+		52DC82C31FB14459003750E6 /* WKQuikWashTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DC82C11FB14459003750E6 /* WKQuikWashTableViewCell.m */; };
+		52DC82C41FB14459003750E6 /* WKQuikWashTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52DC82C21FB14459003750E6 /* WKQuikWashTableViewCell.xib */; };
 		52E14CF21FAF4C9A00236431 /* NNDeviceInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E14CF11FAF4C9900236431 /* NNDeviceInformation.m */; };
 		52E1ADEB1FA090090082F9A5 /* WKBaseSuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1ADE91FA090090082F9A5 /* WKBaseSuperViewController.m */; };
 		52E1ADEC1FA090090082F9A5 /* WKBaseSuperViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E1ADEA1FA090090082F9A5 /* WKBaseSuperViewController.xib */; };
@@ -795,6 +798,11 @@
 		52D2DC2D1FB03C05004FBDC2 /* CurentLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurentLocation.m; sourceTree = "<group>"; };
 		52D2DC301FB04B4F004FBDC2 /* QUShareSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUShareSDK.h; sourceTree = "<group>"; };
 		52D2DC311FB04B4F004FBDC2 /* QUShareSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUShareSDK.m; sourceTree = "<group>"; };
+		52DC82BD1FB143E2003750E6 /* WKQuikWashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKQuikWashViewController.h; sourceTree = "<group>"; };
+		52DC82BE1FB143E2003750E6 /* WKQuikWashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKQuikWashViewController.m; sourceTree = "<group>"; };
+		52DC82C01FB14459003750E6 /* WKQuikWashTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKQuikWashTableViewCell.h; sourceTree = "<group>"; };
+		52DC82C11FB14459003750E6 /* WKQuikWashTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKQuikWashTableViewCell.m; sourceTree = "<group>"; };
+		52DC82C21FB14459003750E6 /* WKQuikWashTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKQuikWashTableViewCell.xib; sourceTree = "<group>"; };
 		52E14CF01FAF4C9900236431 /* NNDeviceInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNDeviceInformation.h; sourceTree = "<group>"; };
 		52E14CF11FAF4C9900236431 /* NNDeviceInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNDeviceInformation.m; sourceTree = "<group>"; };
 		52E1ADE81FA090090082F9A5 /* WKBaseSuperViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKBaseSuperViewController.h; sourceTree = "<group>"; };
@@ -2070,6 +2078,11 @@
 			children = (
 				52AC366A1EC3039B000866D4 /* WKWashViewController.h */,
 				52AC366B1EC3039B000866D4 /* WKWashViewController.m */,
+				52DC82BD1FB143E2003750E6 /* WKQuikWashViewController.h */,
+				52DC82BE1FB143E2003750E6 /* WKQuikWashViewController.m */,
+				52DC82C01FB14459003750E6 /* WKQuikWashTableViewCell.h */,
+				52DC82C11FB14459003750E6 /* WKQuikWashTableViewCell.m */,
+				52DC82C21FB14459003750E6 /* WKQuikWashTableViewCell.xib */,
 				529D8E761EE0107C00BF0FDE /* ScanDevice */,
 				5279A7491EC9895A00999B3D /* MyWashBooking */,
 				52368FF11EC4092F002524E5 /* WashBooking */,
@@ -2471,6 +2484,7 @@
 				5279A73E1EC94C6700999B3D /* WKPayWashView.xib in Resources */,
 				5279A7521EC989F200999B3D /* WKOperatorMyWashBookingView.xib in Resources */,
 				5279A7361EC9428A00999B3D /* WKBookingResultCell.xib in Resources */,
+				52DC82C41FB14459003750E6 /* WKQuikWashTableViewCell.xib in Resources */,
 				5239D3421EF3B29B00BAB3F3 /* muwu.jpg in Resources */,
 				315FFC0C1E97D3C600C78440 /* Main.storyboard in Resources */,
 				31A2220C1E99CFA10058A21B /* CTNetworkingConfiguration.plist in Resources */,
@@ -2612,6 +2626,7 @@
 				529D8E491EDFF9E100BF0FDE /* WKMarqueeBar.m in Sources */,
 				52D02D331F41963500B24618 /* WKChangeUserInfoCell.m in Sources */,
 				529D21681ECC5E3A00766E2F /* WKMyOrderDetailViewController.m in Sources */,
+				52DC82C31FB14459003750E6 /* WKQuikWashTableViewCell.m in Sources */,
 				31632CC81EAB6EFB0057B161 /* WKUIButtonCorners.m in Sources */,
 				526B7D7F1ECC646000A43DCF /* WKMygoldenViewController.m in Sources */,
 				526ABF451F4538B500F0C335 /* CALayer+FSUI.m in Sources */,
@@ -2691,6 +2706,7 @@
 				31A222061E99CFA10058A21B /* CTSignatureGenerator.m in Sources */,
 				5260EBF61F4421990021F42A /* TimeModel.m in Sources */,
 				521E3B721F9F42FB00CA3187 /* UIScrollView+DREmptyDataSet.m in Sources */,
+				52DC82BF1FB143E2003750E6 /* WKQuikWashViewController.m in Sources */,
 				52D02D2F1F4195F900B24618 /* WKChangeUserInfoViewController.m in Sources */,
 				5217DDD51EE1023A00BE35ED /* WKMyWealthViewController.m in Sources */,
 				5240A27D1EEFC482000A132A /* WKWebViewController.m in Sources */,

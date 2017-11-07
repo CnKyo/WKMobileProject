@@ -240,6 +240,7 @@
 + (void)WKRegistWechatOpenId:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
 @end
 
+@class MWSchoolInfo;
 @interface MWBaseObj : NSObject
 
 @property (nonatomic,strong) NSString *err_msg;
@@ -297,7 +298,7 @@
  @param para 参数
  @param block 返回值
  */
-+ (void)MWFindSchoolList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr,int totleMoney))block;
++ (void)MWFindSchoolList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr,MWSchoolInfo *mSchool))block;
 /**
  查询洗衣机
  
@@ -358,5 +359,11 @@
 @property (nonatomic,strong) NSString *school_name;
 
 @property (nonatomic,assign) int sum_money;
+
+@end
+@interface MWSchoolInfo : NSObject
+@property (nonatomic,strong) NSString *school_name;
+@property (nonatomic,strong) NSString *sum_money;
+
 
 @end

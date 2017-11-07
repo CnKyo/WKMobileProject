@@ -10,4 +10,7 @@
 
 @interface WaskBookingResultController : WKBaseViewController
 
+@property(strong,nonatomic) MWDeviceInfo *mDeviceInfo;
+@property(strong,nonatomic) NSString *mCode;
+
 @end

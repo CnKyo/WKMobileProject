@@ -421,23 +421,24 @@
  @param para 参数
  @param block 返回值
  */
-+ (void)MWFindSchoolList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr,int totleMoney))block{
++ (void)MWFindSchoolList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr,MWSchoolInfo *mSchool))block{
     [[WKHttpRequest initClient] WKMWPostDataWithUrl:@"debug/tj.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 1) {
             
             NSMutableArray *mTempArr = [NSMutableArray new];
-            NSString*mNum;
-            mNum = [NSString stringWithFormat:@"%@",[info.data objectForKey:@"sum_money"]];
+            MWSchoolInfo *mSchoolInfo = [MWSchoolInfo new];
+            mSchoolInfo.sum_money = [NSString stringWithFormat:@"%@",[info.data objectForKey:@"sum_money"]];
 
             if ([info.data isKindOfClass:[NSDictionary class]]) {
                 for (NSDictionary *dic in [info.data objectForKey:@"arr"]) {
+                    mSchoolInfo.school_name = [dic objectForKey:@"school_name"];
                     [mTempArr addObject:[MWDeviceInfo yy_modelWithDictionary:dic]];
                 }
             }
       
-            block(info,mTempArr,[mNum intValue]);
+            block(info,mTempArr,mSchoolInfo);
         }else{
-            block(info,nil,0);
+            block(info,nil,nil);
         }
     }];
 }
@@ -536,3 +537,7 @@
 
 @implementation MWDeviceInfo
 @end
+@implementation MWSchoolInfo
+@end
+
+

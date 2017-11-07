@@ -17,11 +17,12 @@
 @implementation WKWashBookingViewController
 {
     WKWashBookingHeaderView *mHeaderView;
+    MWSchoolInfo *mSchoolInfo;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    mSchoolInfo = [MWSchoolInfo new];
     self.navigationItem.title = @"预约洗衣";
     
     [self addTableView];
@@ -38,10 +39,11 @@
 //        MLLog(@"接档用户信息是：%@",mUserArr);
         NSMutableDictionary *para = [NSMutableDictionary new];
         [para setObject:@"2" forKey:@"school_id"];
-        [MWBaseObj MWFindSchoolList:para block:^(MWBaseObj *info, NSArray *mArr,int totleMoney) {
-            if (info.err_code == 1) {
+    [MWBaseObj MWFindSchoolList:para block:^(MWBaseObj *info, NSArray *mArr, MWSchoolInfo *mSchool) {
+        
+        if (info.err_code == 1) {
                 [self.tableArr removeAllObjects];
-                
+            mSchoolInfo = mSchool;
                 [self.tableArr addObjectsFromArray:mArr];
                 [self.tableView reloadData];
             }else{
@@ -85,6 +87,9 @@
     [cell setMType:WKBusy];
     cell.delegate = self;
     cell.mIndexPath = indexPath;
+    MWDeviceInfo *mDevice = self.tableArr[indexPath.row];
+    cell.mContent.text = mDevice.location_name;
+    cell.mWaiting.text = mDevice.school_name;
     return cell;
     
     
@@ -101,12 +106,16 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     mHeaderView = [WKWashBookingHeaderView initView];
+    mHeaderView.mContent.text = mSchoolInfo.school_name;
     return mHeaderView;
     
 }
 - (void)WKWashBookingCellBtnAction:(NSIndexPath *)mIndexPath{
     MLLog(@"点击了%ld行",mIndexPath.row);
+    MWDeviceInfo *mDevice = self.tableArr[mIndexPath.row];
+
     WaskBookingResultController *vc = [WaskBookingResultController new];
+    vc.mDeviceInfo = mDevice;
     [self pushViewController:vc];
 }
 

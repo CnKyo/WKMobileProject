@@ -11,6 +11,8 @@
 #import "UIImage+Extend.h"
 #import "ControlRunLoopTool.h"
 #import "CountDownLabel.h"
+#import "WaskBookingResultController.h"
+
 const static CGFloat animationTime = 2.5f;//扫描时长
 
 @interface WKScanDeviceViewController ()<AVCaptureMetadataOutputObjectsDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
@@ -266,11 +268,29 @@ const static CGFloat animationTime = 2.5f;//扫描时长
 -(void)dealwithResult:(NSString*)result
 {
     [self playScanCodeSound];
-    [self showMessage:result title:@"扫描结果" andler:^(UIAlertAction *action) {
-        [self startScan];
-    }];
+//    [self showMessage:result title:@"扫描结果" andler:^(UIAlertAction *action) {
+//        [self startScan];
+//    }];
+    [self judgeString:result];
 }
-
+- (void)judgeString:(NSString *)mText{
+    
+    BOOL mJ = [Util WKJudgeString:@"eHgyMDE3MDkwNTAyNDUxNzYwNzM4NDA4" toString:@"eHgyMDE3MDkwNTAyNDUxNzYwNz"];
+    if (mJ) {
+        NSString *mCurrentString = [Util WK_StringToString:@"http://xxlaundry.aboutnew.net/qr/?qbarcode111222=eHgyMDE3MDkwNTAyNDUxNzYwNzg5NTMx" toString:@"eHgy"];
+        [self showSucess:@"有"];
+        MLLog(@"包含了：%@",mCurrentString);
+        
+        WaskBookingResultController *vc = [WaskBookingResultController new];
+//        vc.mDeviceInfo = mDevice;
+        [self pushViewController:vc];
+        
+    }else{
+        [self showError:@"没有"];
+        MLLog(@"不包含");
+        
+    }
+}
 //播放提示音
 - (void)playScanCodeSound
 {

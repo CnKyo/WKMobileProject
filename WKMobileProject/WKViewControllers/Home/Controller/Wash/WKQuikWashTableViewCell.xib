@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="241" id="KGk-i7-Jjw" customClass="WKQuikWashTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="241"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="240.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入洗衣机上的编号开始洗衣" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIl-7X-88p">
+                        <rect key="frame" x="8" y="19" width="304" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8k-NK-grO">
+                        <rect key="frame" x="8" y="122" width="304" height="46"/>
+                        <color key="backgroundColor" red="0.97574561829999995" green="0.58092361690000005" blue="0.2751699984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="46" id="zOG-Re-4BL"/>
+                        </constraints>
+                        <state key="normal" title="编号洗衣">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="mBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UcB-B5-Af8"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odU-nZ-Goq">
+                        <rect key="frame" x="8" y="189" width="304" height="46"/>
+                        <color key="backgroundColor" red="0.016115671023726463" green="0.74644356966018677" blue="0.0090717775747179985" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="46" id="43s-td-pyG"/>
+                        </constraints>
+                        <state key="normal" title="扫描洗衣">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="mBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1Ww-Qo-OUr"/>
+                        </connections>
+                    </button>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yDS-Oj-7DV">
+                        <rect key="frame" x="8" y="57" width="304" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="LTJ-lL-gO5"/>
+                        </constraints>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="yDS-Oj-7DV" firstAttribute="top" secondItem="XIl-7X-88p" secondAttribute="bottom" constant="18.5" id="FQK-LP-pbF"/>
+                    <constraint firstItem="Z8k-NK-grO" firstAttribute="top" secondItem="yDS-Oj-7DV" secondAttribute="bottom" constant="25" id="KSH-Ft-T8y"/>
+                    <constraint firstItem="odU-nZ-Goq" firstAttribute="top" secondItem="Z8k-NK-grO" secondAttribute="bottom" constant="21" id="Qzd-7m-eqz"/>
+                    <constraint firstItem="odU-nZ-Goq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="UPg-Te-Q1R"/>
+                    <constraint firstAttribute="trailing" secondItem="XIl-7X-88p" secondAttribute="trailing" constant="8" id="Xwk-ru-bJy"/>
+                    <constraint firstItem="XIl-7X-88p" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Y0a-Ra-5Ma"/>
+                    <constraint firstItem="Z8k-NK-grO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="YpX-hM-V5n"/>
+                    <constraint firstAttribute="trailing" secondItem="odU-nZ-Goq" secondAttribute="trailing" constant="8" id="lVj-us-ZGc"/>
+                    <constraint firstItem="XIl-7X-88p" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="mX0-ec-paB"/>
+                    <constraint firstAttribute="trailing" secondItem="Z8k-NK-grO" secondAttribute="trailing" constant="8" id="nHU-Sq-R6C"/>
+                    <constraint firstAttribute="trailing" secondItem="yDS-Oj-7DV" secondAttribute="trailing" constant="8" id="pLU-kz-813"/>
+                    <constraint firstItem="yDS-Oj-7DV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="xDL-qv-OGg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="mCodeBtn" destination="Z8k-NK-grO" id="5QR-6O-02V"/>
+                <outlet property="mScanBtn" destination="odU-nZ-Goq" id="hpc-cv-38P"/>
+                <outlet property="mTextField" destination="yDS-Oj-7DV" id="AvY-7n-3KW"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="125.5"/>
+        </tableViewCell>
+    </objects>
+</document>

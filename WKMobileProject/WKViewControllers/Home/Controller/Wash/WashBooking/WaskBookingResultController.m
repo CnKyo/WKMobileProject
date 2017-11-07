@@ -79,8 +79,37 @@
     
 //    [self addTableViewHeaderRefreshing];
 //    [self addTableViewFootererRefreshing];
+    [self bookingResult];
 }
+- (void)bookingResult{
+    
+    NSArray *mUserArr = [ZLPlafarmtLogin bg_findAll];
+    
+    if (mUserArr.count>0) {
+        ZLPlafarmtLogin *mUserInfo = mUserArr[0];
+        MLLog(@"接档用户信息是：%@",mUserArr);
+        if (![mUserInfo.userId isEqualToString:@""] || mUserInfo.userId.length>0) {
+            NSMutableDictionary *para = [NSMutableDictionary new];
+            [para setObject:mUserInfo.token forKey:@"token"];
+            [para setObject:mUserInfo.userId forKey:@"uid"];
 
+            [MWBaseObj MWFindTaskList:para block:^(MWBaseObj *info, NSArray *mArr) {
+                
+                if (info.err_code == 1) {
+                    [self.tableArr removeAllObjects];
+                    
+                    [self.tableArr addObjectsFromArray:mArr];
+                    [self.tableView reloadData];
+                }else{
+                    [SVProgressHUD showErrorWithStatus:info.err_msg];
+                }
+            }];
+
+        }
+    }
+    
+   
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
