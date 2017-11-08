@@ -27,7 +27,7 @@
 #import <UIImageView+CornerRadius.h>
 #import "UIView+RoundedCorners.h"
 #import "WKUIButtonCorners.h"
-#import "UIViewController+GYDNav.h"
+//#import "UIViewController+GYDNav.h"
 #import <YYModel.h>
 #import <UIImageView+WebCache.h>
 

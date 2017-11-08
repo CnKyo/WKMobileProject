@@ -22,7 +22,7 @@
 - (void)layoutSubviews{
 
     self.mLoginOutBtn.layer.cornerRadius = 3.0f;
-    self.mAvator.layer.cornerRadius = self.mAvator.frame.size.width/2;
+    [self.mAvator zy_cornerRadiusRoundingRect];
 }
 
 - (IBAction)mBtnAction:(UIButton *)sender {

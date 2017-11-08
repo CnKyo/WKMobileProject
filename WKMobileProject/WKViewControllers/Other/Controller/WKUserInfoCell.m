@@ -25,8 +25,7 @@
     [super layoutSubviews];
     self.contentView.backgroundColor = M_BCO;
     [self.mSignBtn setButtonRoundedCornersWithView:self.contentView andCorners:UIRectCornerAllCorners radius:3.0];
-    self.mAvator.layer.cornerRadius = self.mAvator.frame.size.width/2;
-
+    [self.mAvator zy_cornerRadiusRoundingRect];
 }
 - (IBAction)mHeadBtnAction:(UIButton *)sender {
     if ([self.delegete respondsToSelector:@selector(WKUserInfoCellDelegateWithBtnClicked:)]) {

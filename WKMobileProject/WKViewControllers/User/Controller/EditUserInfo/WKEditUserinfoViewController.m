@@ -22,7 +22,6 @@
 {
     
     UIImage *mHeaderImg;
-    WKUser *mUserInfo;
 
 }
 - (void)viewDidLoad {
@@ -33,13 +32,9 @@
     [self addTableView];
     UINib   *nib = [UINib nibWithNibName:@"WKEditUserInfoCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
-    NSArray *mUserArr = [WKUser bg_findAll];
-    
-    if (mUserArr.count>0) {
-        mUserInfo = mUserArr[0];
-        MLLog(@"接档用户信息是：%@",mUserArr);
-        
-    }
+ 
+    [self.tableView reloadData];
+ 
 }
 
 - (void)didReceiveMemoryWarning {
