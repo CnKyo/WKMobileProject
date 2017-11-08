@@ -141,7 +141,8 @@
     
     WKUserMsgViewController *vc = [WKUserMsgViewController new];
     vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+//    [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+[self.navigationController pushViewController:vc animated:YES];
 }
 /*
 #pragma mark - Navigation
@@ -264,21 +265,24 @@
             {
             WKMyActivityViewController *vc = [WKMyActivityViewController new];
             vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+//            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+            [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
             case 1:
             {
             MyWashViewController *vc = [MyWashViewController new];
             vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+//            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+            [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
             case 2:
             {
             WKMyTaskViewController *vc = [WKMyTaskViewController new];
             vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+//            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+            [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
             case 3:
@@ -287,7 +291,8 @@
 
       
             vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+//            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+            [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
             case 4:
@@ -297,14 +302,16 @@
             vc.mType = WKHelpCenter;
 
             vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+//            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+            [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
             case 5:
             {
             WKJoinusViewController *vc = [WKJoinusViewController new];
             vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+//            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+            [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
             case 6:
@@ -312,7 +319,8 @@
             WKConnectViewController *vc = [WKConnectViewController new];
             vc.mType = WKConnectUs;
             vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+//            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+            [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
                 
@@ -337,7 +345,8 @@
         {
         WKEditUserinfoViewController *vc = [WKEditUserinfoViewController new];
         vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+//        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+        [self.navigationController pushViewController:vc animated:YES];
         
         }
             break;
@@ -350,14 +359,16 @@
         {
         WKMyWealthViewController *vc = [WKMyWealthViewController new];
         vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+//        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+        [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 3:
         {
         WKMygoldenViewController *vc = [WKMygoldenViewController new];
         vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+//        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+        [self.navigationController pushViewController:vc animated:YES];
         }
             break;
             

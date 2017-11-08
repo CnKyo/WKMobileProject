@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		31507E931EA06E7E007B8345 /* UIViewController+GYDNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 31507E921EA06E7E007B8345 /* UIViewController+GYDNav.m */; };
 		31507E961EA06EA5007B8345 /* WKBaseNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31507E951EA06EA5007B8345 /* WKBaseNavViewController.m */; };
 		31507EA51EA06FD2007B8345 /* WKHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31507EA41EA06FD2007B8345 /* WKHomeViewController.m */; };
 		31507EA81EA06FE0007B8345 /* WKUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31507EA71EA06FE0007B8345 /* WKUserViewController.m */; };
@@ -324,8 +323,6 @@
 /* Begin PBXFileReference section */
 		26A28E8D6E0DC80F8B4AF8C5 /* Pods-WKMobileProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKMobileProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-WKMobileProject/Pods-WKMobileProject.release.xcconfig"; sourceTree = "<group>"; };
 		285F832FE5BF65B9424B1FEA /* libPods-WKMobileProjectUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProjectUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		31507E911EA06E7E007B8345 /* UIViewController+GYDNav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GYDNav.h"; sourceTree = "<group>"; };
-		31507E921EA06E7E007B8345 /* UIViewController+GYDNav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GYDNav.m"; sourceTree = "<group>"; };
 		31507E941EA06EA5007B8345 /* WKBaseNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBaseNavViewController.h; sourceTree = "<group>"; };
 		31507E951EA06EA5007B8345 /* WKBaseNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBaseNavViewController.m; sourceTree = "<group>"; };
 		31507EA31EA06FD2007B8345 /* WKHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHomeViewController.h; sourceTree = "<group>"; };
@@ -1225,8 +1222,6 @@
 		31A221A61E99CB8B0058A21B /* WKNav */ = {
 			isa = PBXGroup;
 			children = (
-				31507E911EA06E7E007B8345 /* UIViewController+GYDNav.h */,
-				31507E921EA06E7E007B8345 /* UIViewController+GYDNav.m */,
 				31507E941EA06EA5007B8345 /* WKBaseNavViewController.h */,
 				31507E951EA06EA5007B8345 /* WKBaseNavViewController.m */,
 				31632CB51EAAFE850057B161 /* WKTabbarViewController.h */,
@@ -2653,7 +2648,6 @@
 				522D1F201FAC6E470037137D /* ZYProGressView.m in Sources */,
 				521E3B731F9F42FB00CA3187 /* UIScrollView+DRRefresh.m in Sources */,
 				31A222021E99CFA00058A21B /* CTLogger.m in Sources */,
-				31507E931EA06E7E007B8345 /* UIViewController+GYDNav.m in Sources */,
 				5274A12F1ECD307A0002B252 /* WKConnectViewController.m in Sources */,
 				52289D851ECAF8A500D8A6F5 /* WKUserFuncCell.m in Sources */,
 				31A222011E99CFA00058A21B /* CTLocationManager.m in Sources */,

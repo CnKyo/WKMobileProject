@@ -86,7 +86,7 @@
     [NSNetworkMonitor registerNetworkNotification:self];
     _mNetWorkStatus = [NSNetworkMonitor currentNetworkStatusString];
 
-    self.d_navBarAlpha = 0;
+//    self.d_navBarAlpha = 0;
     
     mBannerArr = [NSMutableArray new];
     mFuncArr = [NSMutableArray new];
@@ -505,21 +505,25 @@
     if (mIndex == 0) {
         WKWashViewController *vc = [WKWashViewController new];
         vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+//        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     else if (mIndex == 1){
         WKBuyGoldenViewController *vc = [WKBuyGoldenViewController new];
         vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
-       ;
+//        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+        [self.navigationController pushViewController:vc animated:YES];
+       
     }else if (mIndex == 2){
         WKBuyGoldenViewController *vc = [WKBuyGoldenViewController new];
         vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+//        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+        [self.navigationController pushViewController:vc animated:YES];
     }else{
         WKVipTopupViewController *vc = [WKVipTopupViewController new];
         vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+//        [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+        [self.navigationController pushViewController:vc animated:YES];
 
     }
 }
