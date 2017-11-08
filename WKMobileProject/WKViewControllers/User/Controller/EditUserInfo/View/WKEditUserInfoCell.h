@@ -39,6 +39,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *mLoginOutBtn;
 ///设置代理
 @property (weak,nonatomic)id<WKEditUserInfoCellDelegate>delegate;
-@property (strong,nonatomic) ZLPlafarmtLogin *mUserInfo;
+@property (strong,nonatomic) WKUser *mUserInfo;
 
 @end

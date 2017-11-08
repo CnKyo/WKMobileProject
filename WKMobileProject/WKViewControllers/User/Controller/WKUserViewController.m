@@ -37,7 +37,7 @@
     NSArray *mIamgeArr;
 
     
-    ZLPlafarmtLogin *mUserInfo;
+    WKUser *mUserInfo;
 
 }
 //通过一个方法来找到这个黑线(findHairlineImageViewUnder):
@@ -107,7 +107,7 @@
 
     [self.tableView headerBeginRefreshing];
     
-    NSArray *mUserArr = [ZLPlafarmtLogin bg_findAll];
+    NSArray *mUserArr = [WKUser bg_findAll];
     
     if (mUserArr.count>0) {
         mUserInfo = mUserArr[0];

@@ -22,6 +22,8 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <WXApi.h>
+
+#import "WKGenericLoginViewController.h"
 @interface AppDelegate ()<JPUSHRegisterDelegate,WXApiDelegate>
 
 @end
@@ -202,5 +204,14 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     // Required, iOS 7 Support
     [JPUSHService handleRemoteNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
+}
+
+#pragma mark----****----需要登录
+- (void)gotoLogin{
+    WKGenericLoginViewController *vc = [WKGenericLoginViewController new];
+    vc.hidesBottomBarWhenPushed = YES;
+    vc.mLoginType = WKLogin;
+    [(UINavigationController*)((UITabBarController*)self.window.rootViewController).selectedViewController presentViewController:vc animated:YES completion:nil];
+
 }
 @end

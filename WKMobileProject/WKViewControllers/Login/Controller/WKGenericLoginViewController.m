@@ -21,14 +21,14 @@
 
 @implementation WKGenericLoginViewController
 {
-    ZLPlafarmtLogin *mLoginObj;
+    WKUser *mUserInfo;
     
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    mLoginObj = [ZLPlafarmtLogin new];
+    mUserInfo = [WKUser new];
     [self addTableView];
     
     UINib   *nib = [UINib nibWithNibName:@"WKGenericHeaderCell" bundle:nil];
@@ -264,32 +264,32 @@
             MLLog(@"三方登录返回的数据-----：%@",user);
             MLLog(@"%@",user.uid);
             if (mType == SSDKPlatformTypeQQ) {
-                mLoginObj.open_id = user.credential.uid;
-                mLoginObj.photo = [user.rawData objectForKey:@"figureurl_qq_2"];
+                mUserInfo.open_id = user.credential.uid;
+                mUserInfo.photo = [user.rawData objectForKey:@"figureurl_qq_2"];
             }else if (mType == SSDKPlatformTypeWechat){
-                mLoginObj.open_id = [user.rawData objectForKey:@"openid"];
-                mLoginObj.photo = [user.rawData objectForKey:@"headimgurl"];
+                mUserInfo.open_id = [user.rawData objectForKey:@"openid"];
+                mUserInfo.photo = [user.rawData objectForKey:@"headimgurl"];
             }
-            mLoginObj.nick_name = [user.rawData objectForKey:@"nickname"];
-            mLoginObj.app_v = [Util getAppVersion];
-            mLoginObj.sys_v = [Util getDeviceModel];
-            mLoginObj.sys_t = @"ios";
-            mLoginObj.jpush = [JPUSHService registrationID];
+            mUserInfo.nick_name = [user.rawData objectForKey:@"nickname"];
+            mUserInfo.app_v = [Util getAppVersion];
+            mUserInfo.sys_v = [Util getDeviceModel];
+            mUserInfo.sys_t = @"ios";
+            mUserInfo.jpush = [JPUSHService registrationID];
             
             NSMutableDictionary *para = [NSMutableDictionary new];
-            [para setObject:mLoginObj.open_id forKey:@"openid"];
+            [para setObject:mUserInfo.open_id forKey:@"openid"];
             
   
-            [ZLPlafarmtLogin WKRegistWechatOpenId:para block:^(MWBaseObj *info) {
+            [WKUser WKRegistWechatOpenId:para block:^(MWBaseObj *info) {
                 if (info.err_code == 0) {
-                    mLoginObj.token = [[info.data objectForKey:@"user_info"] objectForKey:@"token"];
-                    mLoginObj.userId = [[info.data objectForKey:@"user_info"] objectForKey:@"user_id"];
+                    mUserInfo.token = [[info.data objectForKey:@"user_info"] objectForKey:@"token"];
+                    mUserInfo.userId = [[info.data objectForKey:@"user_info"] objectForKey:@"user_id"];
                     [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
                     [self dismissViewControllerAnimated:YES completion:^{
                         self.mBlock(1);
-                        [ZLPlafarmtLogin bg_clear];
-                        [mLoginObj bg_save];
-                        
+//                        [WKUser bg_clear];
+//                        [mUserInfo bg_save];
+                        [WKUser saveUserInfo:[info.data objectForKey:@"user_info"]];
                         [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
                         
                     }];

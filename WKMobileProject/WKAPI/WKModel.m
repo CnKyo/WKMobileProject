@@ -120,6 +120,66 @@
 @end
 
 @implementation WKUser : NSObject
+
+static WKUser *g_user = nil;
+
++ (WKUser *)currentUser{
+    if (g_user) {
+        return g_user;
+    }
+    @synchronized(self) {
+        if (!g_user) {
+            g_user = [WKUser loadUserInfo];
+        }
+        return g_user;
+    }
+}
++(void)saveUserInfo:(id)info
+{
+    info = [Util delNUll:info];
+    NSUserDefaults* def = [NSUserDefaults standardUserDefaults];
+    [def setObject:info forKey:@"userInfo"];
+    [def synchronize];
+}
++ (WKUser *)loadUserInfo{
+    NSUserDefaults* def = [NSUserDefaults standardUserDefaults];
+    NSDictionary* dat = [def objectForKey:@"userInfo"];
+    if( dat )
+        {
+        WKUser* tu = [WKUser yy_modelWithDictionary:dat];
+        return tu;
+        }
+    return nil;
+}
++(NSDictionary*)loadUserJson
+{
+    NSUserDefaults* def = [NSUserDefaults standardUserDefaults];
+    return [def objectForKey:@"userInfo"];
+}
+
++(void)cleanUserInfo
+{
+    NSUserDefaults* def = [NSUserDefaults standardUserDefaults];
+    [def setObject:nil forKey:@"userInfo"];
+    [def synchronize];
+}
+
+//判断是否需要登录
++(BOOL)isNeedLogin
+{
+    return [WKUser currentUser] == nil;
+}
++ (void)WKRegistWechatOpenId:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    
+    [[WKHttpRequest initClient] WKMWPostDataWithUrl:@"wx/user.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+    
+}
 /**
  手机号码登录
  
@@ -323,23 +383,6 @@
     }];
 }
 @end
-
-@implementation ZLPlafarmtLogin
-+ (void)WKRegistWechatOpenId:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
-
-    [[WKHttpRequest initClient] WKMWPostDataWithUrl:@"wx/user.php" withPara:para block:^(MWBaseObj *info) {
-        if (info.err_code == 0) {
-            block(info);
-        }else{
-            block(info);
-        }
-    }];
-    
-}
-@end
-
-
-
 
 
 @implementation MWBaseObj

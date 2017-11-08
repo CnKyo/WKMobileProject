@@ -46,5 +46,5 @@
 
 @property (strong,nonatomic) NSString *mPressValue;
 
-@property (strong,nonatomic) ZLPlafarmtLogin *mUserInfo;
+@property (strong,nonatomic) WKUser *mUserInfo;
 @end

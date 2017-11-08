@@ -57,12 +57,38 @@
 + (void)WKFindTrainNumber:(NSDictionary *)param block:(void(^)(WKBaseInfo *info,NSArray *list))block;
 
 @end
+@class MWBaseObj;
 
 @interface WKUser : NSObject
 
 @property (nonatomic,strong) NSString *user_name;
 @property (nonatomic,assign) NSInteger user_id;
 
+@property (nonatomic, strong) NSString *            open_id;                ///
+@property (nonatomic, strong) NSString *            nick_name;              ///
+@property (nonatomic, strong) NSString *            photo;                  ///
+@property (nonatomic, strong) NSString *            jpush;                  ///
+@property (nonatomic, strong) NSString *            app_v;                  ///
+@property (nonatomic, strong) NSString *            sys_v;                  ///
+@property (nonatomic, strong) NSString *            sys_t;                  ///
+@property (nonatomic, strong) NSString *            token;                  ///
+@property (nonatomic, strong) NSString *            userId;                  ///
+
+@property (nonatomic,strong) NSString *create_time;
+@property (nonatomic,strong) NSString *headimgurl;
+@property (nonatomic, strong) NSString *            nickname;              ///
+@property (nonatomic, strong) NSString *            regip;              ///
+@property (nonatomic, strong) NSString *            school_id;                  ///
+@property (nonatomic, strong) NSString *            wxoid;                  ///
++(void)saveUserInfo:(id)info;
+
+///返回当前用户信息
++(WKUser *)currentUser;
+
+///判断是否需要登录
++(BOOL)isNeedLogin;
+
++ (void)WKRegistWechatOpenId:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
 
 /**
  手机号码登录
@@ -222,23 +248,6 @@
 @end
 
 
-#pragma mark-----****----三方登录
-///
-@class MWBaseObj;
-@interface ZLPlafarmtLogin : NSObject
-
-@property (nonatomic, strong) NSString *            open_id;                ///
-@property (nonatomic, strong) NSString *            nick_name;              ///
-@property (nonatomic, strong) NSString *            photo;                  ///
-@property (nonatomic, strong) NSString *            jpush;                  ///
-@property (nonatomic, strong) NSString *            app_v;                  ///
-@property (nonatomic, strong) NSString *            sys_v;                  ///
-@property (nonatomic, strong) NSString *            sys_t;                  ///
-@property (nonatomic, strong) NSString *            token;                  ///
-@property (nonatomic, strong) NSString *            userId;                  ///
-
-+ (void)WKRegistWechatOpenId:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
-@end
 
 @class MWSchoolInfo;
 @class MWDeviceCode;

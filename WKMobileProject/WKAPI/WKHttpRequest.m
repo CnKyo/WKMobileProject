@@ -8,6 +8,7 @@
 
 #import "WKHttpRequest.h"
 #import "NSNetworkManager.h"
+#import "AppDelegate.h"
 @implementation WKHttpRequest
 + (instancetype)initClient{
     static WKHttpRequest *_sharedClient = nil;
@@ -206,12 +207,20 @@
     }];
 
 }
+#pragma mark----****----洗衣机总接口
 - (void)WKMWPostDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(MWBaseObj *info))block{
     [[NSNetworkRequest sharedInstance] MWPOST:url parameters:para cacheMode:NO successBlock:^(id responseObject) {
         MLLog(@"responseObject----:%@",responseObject);
         
         MWBaseObj *info = [MWBaseObj yy_modelWithJSON:responseObject];
-        block(info);
+///如果需要登录就在这里判断
+        //        if (info.err_code == 1) {
+//            [((AppDelegate*)[UIApplication sharedApplication].delegate) performSelector:@selector(gotoLogin) withObject:nil afterDelay:0.4f];
+//            block(nil);
+//        }else{
+            block(info);
+//        }
+        
     } failureBlock:^(NSError *error) {
         MWBaseObj *info = [MWBaseObj infoWithError:error];
         info.err_code = kRetCodeError;

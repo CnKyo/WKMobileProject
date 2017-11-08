@@ -31,7 +31,7 @@
     
 }
 
-- (void)setMUserInfo:(ZLPlafarmtLogin *)mUserInfo{
+- (void)setMUserInfo:(WKUser *)mUserInfo{
     [self.mAvator sd_setImageWithURL:[NSURL URLWithString:mUserInfo.photo] placeholderImage:nil];
     self.mUserName.text = mUserInfo.nick_name;
 }
