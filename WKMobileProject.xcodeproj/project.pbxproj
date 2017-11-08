@@ -59,6 +59,7 @@
 		31A222131E99D2B50058A21B /* WKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A222121E99D2B50058A21B /* WKBaseViewController.m */; };
 		31E289411EB21A47006C9756 /* WKHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E289401EB21A47006C9756 /* WKHttpRequest.m */; };
 		438D7113768A3061C072BCE4 /* libPods-WKMobileProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BDC79F377B749380AF0636A /* libPods-WKMobileProject.a */; };
+		5204BF0F1FB2FC8600583025 /* WKUIButtonOneClick.m in Sources */ = {isa = PBXBuildFile; fileRef = 5204BF0E1FB2FC8600583025 /* WKUIButtonOneClick.m */; };
 		520623AA1F5E7FB500E91A8E /* NSNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5206239E1F5E7FB500E91A8E /* NSNetworkCache.m */; };
 		520623AB1F5E7FB500E91A8E /* NSNetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 520623A21F5E7FB500E91A8E /* NSNetworkMonitor.m */; };
 		520623AC1F5E7FB500E91A8E /* NSNetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 520623A51F5E7FB500E91A8E /* NSNetworkRequest.m */; };
@@ -423,6 +424,8 @@
 		31E2893F1EB21A47006C9756 /* WKHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHttpRequest.h; sourceTree = "<group>"; };
 		31E289401EB21A47006C9756 /* WKHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHttpRequest.m; sourceTree = "<group>"; };
 		3BDC79F377B749380AF0636A /* libPods-WKMobileProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKMobileProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5204BF0D1FB2FC8600583025 /* WKUIButtonOneClick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKUIButtonOneClick.h; sourceTree = "<group>"; };
+		5204BF0E1FB2FC8600583025 /* WKUIButtonOneClick.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKUIButtonOneClick.m; sourceTree = "<group>"; };
 		5206239D1F5E7FB500E91A8E /* NSNetworkCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNetworkCache.h; sourceTree = "<group>"; };
 		5206239E1F5E7FB500E91A8E /* NSNetworkCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSNetworkCache.m; sourceTree = "<group>"; };
 		5206239F1F5E7FB500E91A8E /* NSNetworkInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNetworkInterface.h; sourceTree = "<group>"; };
@@ -1063,6 +1066,7 @@
 			isa = PBXGroup;
 			children = (
 				529D8E5C1EDFFF1700BF0FDE /* WKMobileProject.entitlements */,
+				5204BF0C1FB2FC5E00583025 /* WKUIbuttonOneClick */,
 				52D2DC2F1FB04B4F004FBDC2 /* WKShareSDK */,
 				52D2DC2B1FB03C05004FBDC2 /* ZLCurrentLocation */,
 				52D2DC251FB001B0004FBDC2 /* WKIPaddress */,
@@ -1455,6 +1459,15 @@
 				31A221F41E99CFA00058A21B /* GDMapService.m */,
 			);
 			path = GDMapService;
+			sourceTree = "<group>";
+		};
+		5204BF0C1FB2FC5E00583025 /* WKUIbuttonOneClick */ = {
+			isa = PBXGroup;
+			children = (
+				5204BF0D1FB2FC8600583025 /* WKUIButtonOneClick.h */,
+				5204BF0E1FB2FC8600583025 /* WKUIButtonOneClick.m */,
+			);
+			path = WKUIbuttonOneClick;
 			sourceTree = "<group>";
 		};
 		5206239C1F5E7FB500E91A8E /* NSNetworkManager */ = {
@@ -2722,6 +2735,7 @@
 				52289D721ECAE94700D8A6F5 /* WKPlayGameViewController.m in Sources */,
 				524E3EF41ECAAEC900EF0224 /* WKActivityTableViewCell.m in Sources */,
 				5217DDF71EE15B4D00BE35ED /* WKBoundleToolViewController.m in Sources */,
+				5204BF0F1FB2FC8600583025 /* WKUIButtonOneClick.m in Sources */,
 				52A408491F6131750053B683 /* WKUserMsgDetailViewController.m in Sources */,
 				52AC36341EC2A059000866D4 /* FDAlertView.m in Sources */,
 				5217DDFB1EE15BAC00BE35ED /* WKBoundleToolCell.m in Sources */,
