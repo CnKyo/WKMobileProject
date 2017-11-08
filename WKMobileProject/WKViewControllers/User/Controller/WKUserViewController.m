@@ -36,9 +36,6 @@
     NSArray *mFuncArr;
     NSArray *mIamgeArr;
 
-    
-    WKUser *mUserInfo;
-
 }
 //通过一个方法来找到这个黑线(findHairlineImageViewUnder):
 - (UIImageView *)findHairlineImageViewUnder:(UIView *)view {
@@ -107,13 +104,6 @@
 
     [self.tableView headerBeginRefreshing];
     
-    NSArray *mUserArr = [WKUser bg_findAll];
-    
-    if (mUserArr.count>0) {
-        mUserInfo = mUserArr[0];
-        MLLog(@"接档用户信息是：%@",mUserArr);
-       
-    }
 }
 - (void)tableViewHeaderReloadData{
     NSMutableDictionary *mWechat = [NSMutableDictionary new];
@@ -227,7 +217,7 @@
         WKUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setMPressValue:@"0.5"];
-        [cell setMUserInfo:mUserInfo];
+        [cell setMUserInfo:[WKUser currentUser]];
         cell.delegete = self;
 
         return cell;

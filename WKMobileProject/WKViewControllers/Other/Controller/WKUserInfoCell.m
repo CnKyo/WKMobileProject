@@ -25,6 +25,8 @@
     [super layoutSubviews];
     self.contentView.backgroundColor = M_BCO;
     [self.mSignBtn setButtonRoundedCornersWithView:self.contentView andCorners:UIRectCornerAllCorners radius:3.0];
+    self.mAvator.layer.cornerRadius = self.mAvator.frame.size.width/2;
+
 }
 - (IBAction)mHeadBtnAction:(UIButton *)sender {
     if ([self.delegete respondsToSelector:@selector(WKUserInfoCellDelegateWithBtnClicked:)]) {
@@ -41,8 +43,8 @@
 }
 
 - (void)setMUserInfo:(WKUser *)mUserInfo{
-    self.mUserName.text = mUserInfo.nick_name;
-    [self.mAvator sd_setImageWithURL:[NSURL URLWithString:mUserInfo.photo] placeholderImage:nil];
+    self.mUserName.text = mUserInfo.nickname;
+    [self.mAvator sd_setImageWithURL:[NSURL URLWithString:mUserInfo.headimgurl] placeholderImage:nil];
     
 }
 @end

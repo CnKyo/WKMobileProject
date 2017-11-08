@@ -116,23 +116,7 @@
                                                object:nil];
 }
 - (void)getUserInfo{
-   
-//    NSArray *mUserArr = [WKUser bg_findAll];
-//
-//    if (mUserArr.count>0) {
-//        WKUser *mUserInfo = mUserArr[0];
-//        MLLog(@"接档用户信息是：%@",mUserArr);
-//        if ([mUserInfo.userId isEqualToString:@""] || mUserInfo.userId.length<=0) {
-//            [self gotoLogin];
-//
-//        }else{
-//            [self getPushMessage];
-//        }
-//    }else{
-//        [self gotoLogin];
-//
-//    }
-    
+
     if ([WKUser currentUser].user_id <= 0 ) {
         [self gotoLogin];
 
@@ -254,7 +238,7 @@
     
     [WKWechatObj WKGetWechat:mWechat block:^(WKBaseInfo *info, NSArray *mArr) {
 
-        if (info.status == kRetCodeSucess) {
+        if (info.status == 0) {
             [SVProgressHUD dismiss];
   
                 [mTuijianArr addObjectsFromArray:mArr];

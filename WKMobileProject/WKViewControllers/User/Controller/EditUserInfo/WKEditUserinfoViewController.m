@@ -80,7 +80,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     cell.delegate = self;
-    [cell setMUserInfo:mUserInfo];
+    [cell setMUserInfo:[WKUser currentUser]];
     return cell;
    
     

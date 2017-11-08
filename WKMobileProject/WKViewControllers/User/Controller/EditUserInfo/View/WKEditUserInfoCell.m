@@ -22,6 +22,7 @@
 - (void)layoutSubviews{
 
     self.mLoginOutBtn.layer.cornerRadius = 3.0f;
+    self.mAvator.layer.cornerRadius = self.mAvator.frame.size.width/2;
 }
 
 - (IBAction)mBtnAction:(UIButton *)sender {
@@ -32,7 +33,7 @@
 }
 
 - (void)setMUserInfo:(WKUser *)mUserInfo{
-    [self.mAvator sd_setImageWithURL:[NSURL URLWithString:mUserInfo.photo] placeholderImage:nil];
-    self.mUserName.text = mUserInfo.nick_name;
+    [self.mAvator sd_setImageWithURL:[NSURL URLWithString:mUserInfo.headimgurl] placeholderImage:nil];
+    self.mUserName.text = mUserInfo.nickname;
 }
 @end
