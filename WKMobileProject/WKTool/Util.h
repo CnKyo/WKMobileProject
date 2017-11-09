@@ -250,7 +250,7 @@
 #pragma maek----保存时间（时间从现在开始加上15分钟，时间格式：2015-09-01 14:30:30）
 ///保存时间（时间从现在开始加上15分钟，时间格式：2015-09-01 14:30:30）
 + (void)WKSaveDBTime;
-+ (void)WKSaveInternetTime；
++ (void)WKSaveInternetTime;
 #pragma maek----取出保存的时间，返回格式：2015-09-01 14:30:30
 ///取出保存的时间，返回格式：2015-09-01 14:30:30
 + (NSString *)WKGetDBTime;
