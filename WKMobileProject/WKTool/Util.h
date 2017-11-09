@@ -235,11 +235,38 @@
     
 #pragma mark----2015-09-01 14:30－16:30转 9月1日 14:30-16:30
 + (NSString *)mFirstStr:(NSString *)mFirstStr andSecondStr:(NSString *)secondStr;
+#pragma mark----获取当前时间 2015-09-01 14:30：30
++ (NSString *)WKGetCurrentTimeDate;
+#pragma mark----获取当前时间戳14478212545(单位是秒)
++ (NSString *)WKGetCurrentTimeStamp;
 #pragma mark----时间转时间戳（utc时间戳） 2015-09-01 14:30 转14478212545
 + (int)mTimeToInt:(NSDate *)dateStr;
+#pragma mark----时间戳（utc时间戳）转时间 14478212545转2015-09-01 14:30
++ (NSString *)WKTimeIntervalToDate:(NSString *)dateDate;
 #pragma maek----时间戳转换成分钟或者小时
 + (NSString *)mDuration:(int)Duration;
-    
+#pragma maek----当前时间+15分钟后的时间,返回格式：2015-09-01 14:30:30
++ (NSString *)WKCurrentTimePlusTo15Min:(int)Duration;
+#pragma maek----保存时间（时间从现在开始加上15分钟，时间格式：2015-09-01 14:30:30）
+///保存时间（时间从现在开始加上15分钟，时间格式：2015-09-01 14:30:30）
++ (void)WKSaveDBTime;
++ (void)WKSaveInternetTime；
+#pragma maek----取出保存的时间，返回格式：2015-09-01 14:30:30
+///取出保存的时间，返回格式：2015-09-01 14:30:30
++ (NSString *)WKGetDBTime;
+#pragma maek----清除保存的时间数据
+///清除保存的时间数据
++ (void)WKClearnAllDBTime;
++ (NSString *)WKGetNetWorkTime;
+
+#pragma maek----获取网络时间
+/**
+ 获取网络时间
+
+ @param success 成功回调
+ @param failure 失败的回调
+ */
++ (void)WKGetInternetDateWithSuccess:(void(^)(NSTimeInterval timeInterval))success failure:(void(^)(NSError *error))failure;
 #pragma mark----label添加下划线
     ///label添加下划线
 +(NSMutableAttributedString *)labelWithUnderline:(NSString *)mString;

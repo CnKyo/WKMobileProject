@@ -61,18 +61,15 @@
 
 @interface WKUser : NSObject
 
-@property (nonatomic,strong) NSString *user_name;
-@property (nonatomic,assign) NSInteger user_id;
+@property (nonatomic,assign) NSString *user_id;
 
 @property (nonatomic, strong) NSString *            open_id;                ///
-@property (nonatomic, strong) NSString *            nick_name;              ///
 @property (nonatomic, strong) NSString *            photo;                  ///
 @property (nonatomic, strong) NSString *            jpush;                  ///
 @property (nonatomic, strong) NSString *            app_v;                  ///
 @property (nonatomic, strong) NSString *            sys_v;                  ///
 @property (nonatomic, strong) NSString *            sys_t;                  ///
 @property (nonatomic, strong) NSString *            token;                  ///
-@property (nonatomic, strong) NSString *            userId;                  ///
 
 @property (nonatomic,strong) NSString *create_time;
 @property (nonatomic,strong) NSString *headimgurl;
@@ -424,5 +421,10 @@
 @property (nonatomic,assign) int feature_val;
 @property (nonatomic,assign) int price;
 
+@end
+
+
+@interface MWTaskTimeCunt : NSObject
+@property (nonatomic,strong) NSString *mTime;
 @end
 

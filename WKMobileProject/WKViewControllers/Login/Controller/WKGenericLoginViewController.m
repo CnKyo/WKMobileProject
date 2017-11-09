@@ -151,6 +151,9 @@
         [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
         [self dismissViewControllerAnimated:YES completion:^{
             self.mBlock(1);
+            if ([Util WKGetDBTime].length<=0 || [[Util WKGetDBTime] isEqualToString:@""]) {
+                [Util WKSaveDBTime];
+            }
             [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
             
         }];
@@ -270,7 +273,7 @@
                 mUserInfo.open_id = [user.rawData objectForKey:@"openid"];
                 mUserInfo.photo = [user.rawData objectForKey:@"headimgurl"];
             }
-            mUserInfo.nick_name = [user.rawData objectForKey:@"nickname"];
+//            mUserInfo.nick_name = [user.rawData objectForKey:@"nickname"];
             mUserInfo.app_v = [Util getAppVersion];
             mUserInfo.sys_v = [Util getDeviceModel];
             mUserInfo.sys_t = @"ios";
@@ -283,7 +286,7 @@
             [WKUser WKRegistWechatOpenId:para block:^(MWBaseObj *info) {
                 if (info.err_code == 0) {
                     mUserInfo.token = [[info.data objectForKey:@"user_info"] objectForKey:@"token"];
-                    mUserInfo.userId = [[info.data objectForKey:@"user_info"] objectForKey:@"user_id"];
+                    mUserInfo.user_id = [[info.data objectForKey:@"user_info"] objectForKey:@"user_id"];
                     [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
                     [self dismissViewControllerAnimated:YES completion:^{
                         self.mBlock(1);

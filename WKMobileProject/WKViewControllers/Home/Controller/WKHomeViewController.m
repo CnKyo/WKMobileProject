@@ -68,6 +68,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"首页";
+        
     mTuijianArr = [NSMutableArray new];
     mActivityArr = [NSMutableArray new];
     UIImage *image = [self.tabBarItem.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

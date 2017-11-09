@@ -46,8 +46,9 @@
 }
 - (void)tableViewHeaderReloadData{
     MLLog(@"刷头");
-    
-    NSArray *arr = @[@"2017-2-5 12:10:06",
+
+
+    NSArray *arr = @[[Util WKGetDBTime],
                      @"2017-3-5 12:10:06",
                      @"2017-7-10 18:6:16",
                      @"2017-8-5 18:10:06",
@@ -76,7 +77,7 @@
     for (int i = 0; i < arr.count; i ++) {
         
         TimeModel *model = [TimeModel new];
-        model.endTime = arr[i];
+        model.endTime = arr[i]; 
         [self.tableArr addObject:model];
     }
     

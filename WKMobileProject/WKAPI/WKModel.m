@@ -507,6 +507,8 @@ static WKUser *g_user = nil;
  @param block 返回值
  */
 + (void)MWFindDeviceInfo:(NSDictionary *)para block:(void(^)(MWBaseObj *info,MWBookingObj *mArr))block{
+    MLLog(@"参数是：%@",para);
+
     [[WKHttpRequest initClient] WKMWPostDataWithUrl:@"wx/wash.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
             if ([info.data isKindOfClass:[NSDictionary class]]) {
@@ -542,6 +544,8 @@ static WKUser *g_user = nil;
  @param block 返回值
  */
 + (void)MWFindTaskList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block{
+    MLLog(@"参数是：%@",para);
+
     [[WKHttpRequest initClient] WKMWPostDataWithUrl:@"wx/device_tasks.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
             block(info,nil);
@@ -622,5 +626,9 @@ static WKUser *g_user = nil;
 }
 @end
 @implementation MWBookingFeatureObj
+@end
+
+
+@implementation MWTaskTimeCunt
 @end
 

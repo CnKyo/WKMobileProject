@@ -83,12 +83,9 @@
 }
 - (void)bookingResult{
     
-    NSArray *mUserArr = [WKUser bg_findAll];
     
-    if (mUserArr.count>0) {
-        WKUser *mUserInfo = mUserArr[0];
-        MLLog(@"接档用户信息是：%@",mUserArr);
-        if (![mUserInfo.userId isEqualToString:@""] || mUserInfo.userId.length>0) {
+    if ([WKUser currentUser].user_id.length>0) {
+     
             NSMutableDictionary *para = [NSMutableDictionary new];
 //            [para setObject:mUserInfo.token forKey:@"token"];
 //            [para setObject:mUserInfo.userId forKey:@"uid"];
@@ -105,9 +102,6 @@
                 }
             }];
         }
-    }
-    
-   
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

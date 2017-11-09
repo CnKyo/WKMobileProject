@@ -995,10 +995,222 @@
     return tt;
     
 }
+#pragma mark----获取当前时间 2015-09-01 14:30：30
++ (NSString *)WKGetCurrentTimeDate{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    
+    //现在时间,你可以输出来看下是什么格式
+    
+    NSDate *datenow = [NSDate date];
+    
+    //----------将nsdate按formatter格式转成nsstring
+    
+    NSString *currentTimeString = [formatter stringFromDate:datenow];
+    
+    NSLog(@"currentTimeString =  %@",currentTimeString);
+    
+    return currentTimeString;
+}
+#pragma mark----获取当前时间戳14478212545
++ (NSString *)WKGetCurrentTimeStamp{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
+    
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"]; // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    
+    //设置时区,这个对于时间的处理有时很重要
+    
+    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
+    
+    [formatter setTimeZone:timeZone];
+    
+    NSDate *datenow = [NSDate date];//现在时间,你可以输出来看下是什么格式
+    
+    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];
+    
+    return timeSp;
+}
 + (int)mTimeToInt:(NSDate *)dateStr{
     
     int finalitime = [[NSString stringWithFormat:@"%f",[dateStr timeIntervalSince1970]]intValue]-3600*8;
     return finalitime;
+}
+#pragma mark----时间戳（utc时间戳）转时间 14478212545转2015-09-01 14:30
++ (NSString *)WKTimeIntervalToDate:(NSString *)dateDate{
+    // 格式化时间
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    formatter.timeZone = [NSTimeZone timeZoneWithName:@"beijing"];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    // 毫秒值转化为秒
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[dateDate doubleValue]];
+    NSString* dateString = [formatter stringFromDate:date];
+    return dateString;
+}
+#pragma maek----当前时间+15分钟后的时间,返回格式：2015-09-01 14:30:30
++ (NSString *)WKCurrentTimePlusTo15Min:(int)Duration{
+
+    ///获取当前时间戳
+    NSString *mNowTime = [self WKGetCurrentTimeStamp];
+    int mNowTimestamp = [mNowTime intValue]+Duration;
+    return [self WKTimeIntervalToDate:[NSString stringWithFormat:@"%d",mNowTimestamp]];
+}
+#pragma maek----清除保存的时间数据
+///清除保存的时间数据
++ (void)WKClearnAllDBTime{
+    [MWTaskTimeCunt bg_clear];
+}
+#pragma maek----保存时间（时间从现在开始加上15分钟，时间格式：2015-09-01 14:30:30）
+///保存时间（时间从现在开始加上15分钟，时间格式：2015-09-01 14:30:30）
++ (void)WKSaveDBTime{
+    NSString *mTime = [Util WKCurrentTimePlusTo15Min:900];
+    MLLog(@"当前时间是：%@",mTime);
+    MWTaskTimeCunt *mTimeCunt = [MWTaskTimeCunt new];
+    mTimeCunt.mTime = mTime;
+    [mTimeCunt bg_save];
+}
+#pragma maek----保存时间（时间从现在开始加上15分钟，时间格式：2015-09-01 14:30:30）
+///保存时间（时间从现在开始加上15分钟，时间格式：2015-09-01 14:30:30）
++ (void)WKSaveInternetTime{
+    ///如果成功获取到网络时间则保存网络时间否则保存本地时间
+    [Util WKGetInternetDateWithSuccess:^(NSTimeInterval timeInterval) {
+        MLLog(@"%f",timeInterval);
+        MWTaskTimeCunt *mTime = [MWTaskTimeCunt new];
+        mTime.mTime = [self WKTimeIntervalToDate:[NSString stringWithFormat:@"%.f",timeInterval+900]];
+        [mTime bg_save];
+    } failure:^(NSError *error) {
+        MLLog(@"%@",error);
+        NSString *mTime = [Util WKCurrentTimePlusTo15Min:900];
+        MLLog(@"当前时间是：%@",mTime);
+        MWTaskTimeCunt *mTimeCunt = [MWTaskTimeCunt new];
+        mTimeCunt.mTime = mTime;
+        [mTimeCunt bg_save];
+    }];
+}
+#pragma maek----取出保存的时间，返回格式：2015-09-01 14:30:30
+///取出保存的时间，返回格式：2015-09-01 14:30:30
++ (NSString *)WKGetDBTime{
+    NSArray *mTimeArr = [MWTaskTimeCunt bg_findAll];
+    if (mTimeArr.count>0) {
+        MLLog(@"查找出来的数据是：%@",mTimeArr);
+        MWTaskTimeCunt *mNewTime = [mTimeArr lastObject];
+        MLLog(@"查找出来的数据是：%@",mNewTime);
+        return mNewTime.mTime;
+    }else{
+        return nil;
+    }
+ 
+}
+
+#pragma maek----获取网络时间
+/**
+ 获取网络时间
+ 
+ @param success 成功回调
+ @param failure 失败的回调
+ */
++ (void)WKGetInternetDateWithSuccess:(void(^)(NSTimeInterval timeInterval))success failure:(void(^)(NSError *error))failure{
+    //1.创建URL
+    
+    NSString *urlString = @"http://m.baidu.com";
+    
+    urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
+    //2.创建request请求对象
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    
+    [request setURL:[NSURL URLWithString: urlString]];
+    
+    [request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
+    
+    [request setTimeoutInterval:5];
+    
+    [request setHTTPShouldHandleCookies:FALSE];
+    
+    [request setHTTPMethod:@"GET"];
+    
+    //3.创建URLSession对象
+    
+    NSURLSession *session = [NSURLSession sharedSession]; //4.设置数据返回回调的block
+    
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        if (error == nil && response != nil) {
+            
+            //这么做的原因是简体中文下的手机不能识别“MMM”，只能识别“MM”
+            
+            NSArray *monthEnglishArray = @[@"Jan",@"Feb",@"Mar",@"Apr",@"May",@"Jun",@"Jul",@"Aug",@"Sept",@"Sep",@"Oct",@"Nov",@"Dec"];
+            
+            NSArray *monthNumArray = @[@"01",@"02",@"03",@"04",@"05",@"06",@"07",@"08",@"09",@"09",@"10",@"11",@"12"];
+            
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            
+            NSDictionary *allHeaderFields = [httpResponse allHeaderFields];
+            
+            NSString *dateStr = [allHeaderFields objectForKey:@"Date"];
+            
+            dateStr = [dateStr substringFromIndex:5];
+            
+            dateStr = [dateStr substringToIndex:[dateStr length]-4];
+            
+            dateStr = [dateStr stringByAppendingString:@" +0000"];
+            
+            //当前语言是中文的话，识别不了英文缩写
+            
+            for (NSInteger i = 0 ; i < monthEnglishArray.count ; i++) {
+                
+                NSString *monthEngStr = monthEnglishArray[i];
+                
+                NSString *monthNumStr = monthNumArray[i];
+                
+                dateStr = [dateStr stringByReplacingOccurrencesOfString:monthEngStr withString:monthNumStr];
+                
+            }
+            
+            NSDateFormatter *dMatter = [[NSDateFormatter alloc] init];
+            
+            [dMatter setDateFormat:@"dd MM yyyy HH:mm:ss Z"];
+            
+            NSDate *netDate = [dMatter dateFromString:dateStr];
+            
+            NSTimeInterval timeInterval = [netDate timeIntervalSince1970];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                success(timeInterval);
+                
+            });
+            
+        }else{
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                failure(error);
+                
+            });
+            
+        }
+        
+    }];
+    
+    //4、执行网络请求
+    
+    [task resume];
+    
+//    作者：读月鱼
+//    链接：http://www.jianshu.com/p/c7a9efcb431f
+//    來源：简书
+//    著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 }
 + (NSString *)mDuration:(int)Duration{
     

@@ -280,10 +280,26 @@ const static CGFloat animationTime = 2.5f;//扫描时长
         NSString *mCurrentString = [Util WK_StringToString:@"http://xxlaundry.aboutnew.net/qr/?qbarcode111222=eHgyMDE3MDkwNTAyNDUxNzYwNzg5NTMx" toString:@"eHgy"];
         [self showSucess:@"有"];
         MLLog(@"包含了：%@",mCurrentString);
+        [SVProgressHUD showWithStatus:@"正在操作中..."];
         
-        WaskBookingResultController *vc = [WaskBookingResultController new];
-//        vc.mDeviceInfo = mDevice;
-        [self pushViewController:vc];
+        NSMutableDictionary *para = [NSMutableDictionary new];
+//        [para setObject:[WKUser currentUser].user_id forKey:@"uid"];
+//        [para setObject:[WKUser currentUser].token forKey:@"token"];
+
+        [para setObject:NumberWithInt(348963) forKey:@"uid"];
+        [para setObject:@"dXQyMDE3MTEwNzExMjc0MDkzNDgxNTEz" forKey:@"token"];
+
+        [MWBaseObj MWFindTaskList:para block:^(MWBaseObj *info, NSArray *mArr) {
+            if (info.err_code == 1) {
+                [SVProgressHUD dismiss];
+                WaskBookingResultController *vc = [WaskBookingResultController new];
+                //        vc.mDeviceInfo = mDevice;
+                [self pushViewController:vc];
+            }else{
+                [SVProgressHUD showErrorWithStatus:info.err_msg];
+            }
+        }];
+
         
     }else{
         [self showError:@"没有"];

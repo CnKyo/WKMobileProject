@@ -104,25 +104,17 @@
         if (mCode.length<=0) {
             
         }else{
-            
-            NSArray *mUserArr = [WKUser bg_findAll];
-            
-            if (mUserArr.count>0) {
-                WKUser *mUserInfo = mUserArr[0];
-                MLLog(@"接档用户信息是：%@",mUserArr);
-                if ([mUserInfo.userId isEqualToString:@""] || mUserInfo.userId.length<=0) {
-                    
-                }else{
-                    
+ 
+            if ([WKUser currentUser].user_id.length>0) {
                     NSMutableDictionary *para = [NSMutableDictionary new];
-//                    [para setObject:mUserInfo.userId forKey:@"uid"];
-//                    [para setObject:mUserInfo.token forKey:@"token"];
-//                    [para setObject:NumberWithInt(348963) forKey:@"uid"];
-//                    [para setObject:@"dXQyMDE3MTEwNzExMjc0MDkzNDgxNTEz" forKey:@"token"];
-//                    [para setObject:[Util WKCutBackString:4 mText:mCode] forKey:@"id"];
+                    //                    [para setObject:mUserInfo.userId forKey:@"uid"];
+                    //                    [para setObject:mUserInfo.token forKey:@"token"];
+                    //                    [para setObject:NumberWithInt(348963) forKey:@"uid"];
+                    //                    [para setObject:@"dXQyMDE3MTEwNzExMjc0MDkzNDgxNTEz" forKey:@"token"];
+                    //                    [para setObject:[Util WKCutBackString:4 mText:mCode] forKey:@"id"];
                     
                     
-                      [para setObject:@"eHgyMDE3MDkwNTAyNDUxNzYwNzU1OTg5" forKey:@"q"];
+                    [para setObject:@"eHgyMDE3MDkwNTAyNDUxNzYwNzU1OTg5" forKey:@"q"];
                     [MWBaseObj MWWashToCode:para block:^(MWBaseObj *info, MWDeviceCode *mDeviceCode) {
                         if (info.err_code == 0) {
                             mDeviceCodeObj = mDeviceCode;
@@ -133,12 +125,12 @@
                             [SVProgressHUD showErrorWithStatus:info.err_msg];
                         }
                     }];
+                }else{
+                    
+                   
                     
                 }
-                
-            }
             
-
         }
         
         }
