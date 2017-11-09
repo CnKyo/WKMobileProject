@@ -74,11 +74,17 @@
     self.tabBarItem.selectedImage = image;
     [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:0.96 green:0.43 blue:0.01 alpha:1]} forState:UIControlStateSelected];
     
-    if (SystemIsiOS11()) {
+    const NSString *deviceName = [[DeviceInfoManager sharedManager] getDeviceName];
+    MLLog(@"deviceName:%@",deviceName);
+    if ([[[WKGetDeviceInfo sharedLibrery] getDiviceName] isEqualToString:@"Global_iPhone_X"] || [[[WKGetDeviceInfo sharedLibrery] getDiviceName] isEqualToString:@"Chinese_iPhone_X"]) {
         self.mTopMargin.constant = -94;
+
     }else{
         self.mTopMargin.constant = -44;
+
+        
     }
+
     
   const  NSString *mDeviceInfo = [[WKGetDeviceInfo sharedLibrery] getDiviceName];
     MLLog(@"设备信息：%@",mDeviceInfo);

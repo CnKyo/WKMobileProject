@@ -24,6 +24,8 @@
 #import <WXApi.h>
 
 #import "WKGenericLoginViewController.h"
+#import "NSData+CRC32.h"
+
 @interface AppDelegate ()<JPUSHRegisterDelegate,WXApiDelegate>
 
 @end
@@ -93,6 +95,8 @@
     [self initLabriary];
     [[QUShareSDK shared] applicationDidFinishLaunchingWithOptions:launchOptions];
     [WXApi registerApp:ShareSDK_WeChat_AppId];
+    
+    
     return YES;
 }
 
@@ -130,6 +134,26 @@
 #pragma mark----****----注册APNS并上报device
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    // 获取各种数据
+    NSMutableData *sendData = [[NSMutableData alloc] initWithData:deviceToken];
+    int32_t checksum = [deviceToken crc32];
+    int32_t swapped = CFSwapInt32LittleToHost(checksum);
+    char *a = (char*) &swapped;
+    [sendData appendBytes:a length:sizeof(4)];
+    
+    //检验
+    //    Byte *b1 = (Byte *)[sendData bytes];
+    //    for (int i = 0; i < sendData.length; i++) {
+    //        NSLog(@"b1[%d] == %d",i,b1[i]);
+    //    }
+    NSString *device_token_crc32 = [sendData base64EncodedStringWithOptions:0];
+    //    NSLog(@"b1:%@",[sendData base64EncodedStringWithOptions:0]);
+    //保存获取到的数据
+    NSString *device_token = [NSString stringWithFormat:@"%@",deviceToken];
+    [[NSUserDefaults standardUserDefaults]setObject:device_token forKey:@"device_token"];
+    [[NSUserDefaults standardUserDefaults]setObject:device_token_crc32 forKey:@"device_token_crc32"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
     
     /// Required - 注册 DeviceToken
     [JPUSHService registerDeviceToken:deviceToken];

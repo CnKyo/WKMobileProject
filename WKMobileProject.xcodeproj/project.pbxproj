@@ -255,6 +255,12 @@
 		52AC366C1EC3039B000866D4 /* WKWashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC366B1EC3039B000866D4 /* WKWashViewController.m */; };
 		52AC366F1EC314CD000866D4 /* WKWashHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC366E1EC314CD000866D4 /* WKWashHeaderView.m */; };
 		52AC36711EC314D2000866D4 /* WKWashHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AC36701EC314D2000866D4 /* WKWashHeaderView.xib */; };
+		52B2AE0D1FB4010000C4DE9A /* NetWorkInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B2AE021FB400FE00C4DE9A /* NetWorkInfoManager.m */; };
+		52B2AE0E1FB4010000C4DE9A /* DeviceDataLibrery.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B2AE041FB400FF00C4DE9A /* DeviceDataLibrery.m */; };
+		52B2AE0F1FB4010000C4DE9A /* NSData+CRC32.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B2AE051FB400FF00C4DE9A /* NSData+CRC32.m */; };
+		52B2AE101FB4010000C4DE9A /* WPFInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B2AE091FB400FF00C4DE9A /* WPFInfo.m */; };
+		52B2AE111FB4010000C4DE9A /* BatteryInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B2AE0A1FB400FF00C4DE9A /* BatteryInfoManager.m */; };
+		52B2AE121FB4010000C4DE9A /* DeviceInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B2AE0B1FB400FF00C4DE9A /* DeviceInfoManager.m */; };
 		52B724651EF137A800551108 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 52B724641EF137A800551108 /* index.html */; };
 		52B724681EF13D9F00551108 /* index1.html in Resources */ = {isa = PBXBuildFile; fileRef = 52B724661EF13D9F00551108 /* index1.html */; };
 		52B724691EF13D9F00551108 /* jquery.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 52B724671EF13D9F00551108 /* jquery.min.js */; };
@@ -739,6 +745,18 @@
 		52AC366D1EC314CD000866D4 /* WKWashHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWashHeaderView.h; sourceTree = "<group>"; };
 		52AC366E1EC314CD000866D4 /* WKWashHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWashHeaderView.m; sourceTree = "<group>"; };
 		52AC36701EC314D2000866D4 /* WKWashHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKWashHeaderView.xib; sourceTree = "<group>"; };
+		52B2AE011FB400FE00C4DE9A /* DeviceInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfoManager.h; sourceTree = "<group>"; };
+		52B2AE021FB400FE00C4DE9A /* NetWorkInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkInfoManager.m; sourceTree = "<group>"; };
+		52B2AE031FB400FE00C4DE9A /* WPFInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPFInfo.h; sourceTree = "<group>"; };
+		52B2AE041FB400FF00C4DE9A /* DeviceDataLibrery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceDataLibrery.m; sourceTree = "<group>"; };
+		52B2AE051FB400FF00C4DE9A /* NSData+CRC32.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CRC32.m"; sourceTree = "<group>"; };
+		52B2AE061FB400FF00C4DE9A /* BatteryInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatteryInfoManager.h; sourceTree = "<group>"; };
+		52B2AE071FB400FF00C4DE9A /* DeviceDataLibrery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceDataLibrery.h; sourceTree = "<group>"; };
+		52B2AE081FB400FF00C4DE9A /* NSData+CRC32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CRC32.h"; sourceTree = "<group>"; };
+		52B2AE091FB400FF00C4DE9A /* WPFInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPFInfo.m; sourceTree = "<group>"; };
+		52B2AE0A1FB400FF00C4DE9A /* BatteryInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatteryInfoManager.m; sourceTree = "<group>"; };
+		52B2AE0B1FB400FF00C4DE9A /* DeviceInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoManager.m; sourceTree = "<group>"; };
+		52B2AE0C1FB4010000C4DE9A /* NetWorkInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkInfoManager.h; sourceTree = "<group>"; };
 		52B724641EF137A800551108 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		52B724661EF13D9F00551108 /* index1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index1.html; sourceTree = "<group>"; };
 		52B724671EF13D9F00551108 /* jquery.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.min.js; sourceTree = "<group>"; };
@@ -2231,6 +2249,18 @@
 			children = (
 				52E14CF01FAF4C9900236431 /* NNDeviceInformation.h */,
 				52E14CF11FAF4C9900236431 /* NNDeviceInformation.m */,
+				52B2AE061FB400FF00C4DE9A /* BatteryInfoManager.h */,
+				52B2AE0A1FB400FF00C4DE9A /* BatteryInfoManager.m */,
+				52B2AE071FB400FF00C4DE9A /* DeviceDataLibrery.h */,
+				52B2AE041FB400FF00C4DE9A /* DeviceDataLibrery.m */,
+				52B2AE011FB400FE00C4DE9A /* DeviceInfoManager.h */,
+				52B2AE0B1FB400FF00C4DE9A /* DeviceInfoManager.m */,
+				52B2AE0C1FB4010000C4DE9A /* NetWorkInfoManager.h */,
+				52B2AE021FB400FE00C4DE9A /* NetWorkInfoManager.m */,
+				52B2AE081FB400FF00C4DE9A /* NSData+CRC32.h */,
+				52B2AE051FB400FF00C4DE9A /* NSData+CRC32.m */,
+				52B2AE031FB400FE00C4DE9A /* WPFInfo.h */,
+				52B2AE091FB400FF00C4DE9A /* WPFInfo.m */,
 			);
 			path = WKGetDeviceInfo;
 			sourceTree = "<group>";
@@ -2579,6 +2609,8 @@
 				5214A3351F3C055100BE840D /* MZTimerLabel.m in Sources */,
 				524E3EEF1ECAA34600EF0224 /* WKBuyGoldCell.m in Sources */,
 				52368FFE1EC412F0002524E5 /* WKWashBookingCell.m in Sources */,
+				52B2AE0E1FB4010000C4DE9A /* DeviceDataLibrery.m in Sources */,
+				52B2AE0F1FB4010000C4DE9A /* NSData+CRC32.m in Sources */,
 				31A221FA1E99CFA00058A21B /* NSURLRequest+CTNetworkingMethods.m in Sources */,
 				5214A32F1F3C037900BE840D /* ZJJTimeCountDown.m in Sources */,
 				522976111ECC2B3F00FEB6D9 /* WKJoinusViewController.m in Sources */,
@@ -2607,6 +2639,7 @@
 				523FC24E1F381E6700EA7A6E /* WKGenericTextFiled.m in Sources */,
 				52D02D281F41814F00B24618 /* WKTaskSectionHeaderView.m in Sources */,
 				52E1ADEB1FA090090082F9A5 /* WKBaseSuperViewController.m in Sources */,
+				52B2AE101FB4010000C4DE9A /* WPFInfo.m in Sources */,
 				52A408501F613D970053B683 /* WKUserMsgDetailCell.m in Sources */,
 				52BC43641F39650C00B44FD6 /* WKTaskTableViewCell.m in Sources */,
 				52289D761ECAE99F00D8A6F5 /* WKPlayGameCell.m in Sources */,
@@ -2617,6 +2650,7 @@
 				5279A73C1EC94C5D00999B3D /* WKPayWashView.m in Sources */,
 				5279A74D1EC9896E00999B3D /* WKMyWashBookingViewController.m in Sources */,
 				31507EAE1EA06FF6007B8345 /* WKActivityViewController.m in Sources */,
+				52B2AE111FB4010000C4DE9A /* BatteryInfoManager.m in Sources */,
 				52E1ADF21FA09A5B0082F9A5 /* WKSecondViewController.m in Sources */,
 				524E3EFE1ECACD7300EF0224 /* WKFindTableViewCell.m in Sources */,
 				52C7F3621FB091C40063FC20 /* WKBDModel.m in Sources */,
@@ -2660,6 +2694,7 @@
 				5279A7411EC95E1300999B3D /* WKWashGoPayViewController.m in Sources */,
 				522D1F201FAC6E470037137D /* ZYProGressView.m in Sources */,
 				521E3B731F9F42FB00CA3187 /* UIScrollView+DRRefresh.m in Sources */,
+				52B2AE0D1FB4010000C4DE9A /* NetWorkInfoManager.m in Sources */,
 				31A222021E99CFA00058A21B /* CTLogger.m in Sources */,
 				5274A12F1ECD307A0002B252 /* WKConnectViewController.m in Sources */,
 				52289D851ECAF8A500D8A6F5 /* WKUserFuncCell.m in Sources */,
@@ -2750,6 +2785,7 @@
 				31A2220A1E99CFA10058A21B /* CTAppContext.m in Sources */,
 				31A222041E99CFA10058A21B /* CTCommonParamsGenerator.m in Sources */,
 				520623AD1F5E7FB500E91A8E /* Reachability.m in Sources */,
+				52B2AE121FB4010000C4DE9A /* DeviceInfoManager.m in Sources */,
 				52E1ADEF1FA095270082F9A5 /* WKTestViewcontrollerViewController.m in Sources */,
 				529D8E791EE0109200BF0FDE /* WKScanDeviceViewController.m in Sources */,
 			);
