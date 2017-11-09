@@ -69,7 +69,7 @@
         //        self.tableView.emptyDataSetSource = self;
         //        self.tableView.emptyDataSetDelegate = self;
         self.tableView.tableFooterView = [UIView new];
-        
+        self.tableView.estimatedRowHeight = 0;
 //        if([[[WKGetDeviceInfo sharedLibrery]getDiviceName] isEqualToString:@"iphone X"] || SystemIsiOS11()){
 //            self.tableView.estimatedSectionHeaderHeight=0;
 //
