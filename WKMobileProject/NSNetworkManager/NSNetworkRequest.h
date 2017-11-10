@@ -23,6 +23,8 @@
 
 @interface NSNetworkRequest : NSObject NSNetworkSingletonH(Instance)
 
+-(void)BaiDuGET:(NSString *)urlString parameters:(NSDictionary *)parameters cacheMode:(NSURLRequestCacheMode)cacheMode successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+
 /**
  * @brief GET请求
  */
@@ -36,6 +38,9 @@
 
 
 -(void)MWPOST:(NSString *)urlString parameters:(NSDictionary *)parameters cacheMode:(NSURLRequestCacheMode)cacheMode successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+
+-(void)MWFormPOST:(NSString *)urlString parameters:(NSDictionary *)parameters cacheMode:(NSURLRequestCacheMode)cacheMode successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+
 
 /**
  * @brief POST请求

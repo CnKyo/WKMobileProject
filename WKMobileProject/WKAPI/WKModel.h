@@ -428,3 +428,52 @@
 @property (nonatomic,strong) NSString *mTime;
 @end
 
+@class MWBaiDuWeatherObj;
+@interface MWBaiDuApiBaseObj : NSObject
+@property (nonatomic,assign) int errNum;
+@property (nonatomic,strong) NSString *errMsg;
+@property (nonatomic,assign) id retData;
+
+
++ (void)WKGetBaiDuWeather:(NSDictionary *)para block:(void(^)(MWBaiDuApiBaseObj *info,MWBaiDuWeatherObj *mWeatherInfo))block;
+
+@end
+
+@interface MWBaiDuWeatherObj : NSObject
+///城市
+@property (nonatomic,strong) NSString *city;
+///城市拼音
+@property (nonatomic,strong) NSString *pinyin;
+///城市编码
+@property (nonatomic,strong) NSString *citycode;
+///日期
+@property (nonatomic,strong) NSString *date;
+///时间
+@property (nonatomic,strong) NSString *time;
+///邮编
+@property (nonatomic,strong) NSString *postCode;
+///经度
+@property (nonatomic,strong) NSString *longitude;
+///纬度
+@property (nonatomic,strong) NSString *latitude;
+///海拔
+@property (nonatomic,strong) NSString *altitude;
+///天气情况
+@property (nonatomic,strong) NSString *weather;
+///气温
+@property (nonatomic,strong) NSString *temp;
+///最低气温
+@property (nonatomic,strong) NSString *l_tmp;
+///最高气温
+@property (nonatomic,strong) NSString *h_tmp;
+///风向
+@property (nonatomic,strong) NSString *WD;
+///风力
+@property (nonatomic,strong) NSString *WS;
+///日出时间
+@property (nonatomic,strong) NSString *sunrise;
+///日落时间
+@property (nonatomic,strong) NSString *sunset;
+///
+@end
+

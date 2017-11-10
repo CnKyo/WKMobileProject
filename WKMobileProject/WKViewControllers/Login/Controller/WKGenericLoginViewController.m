@@ -151,9 +151,9 @@
         [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
         [self dismissViewControllerAnimated:YES completion:^{
             self.mBlock(1);
-            if ([Util WKGetDBTime].length<=0 || [[Util WKGetDBTime] isEqualToString:@""]) {
-                [Util WKSaveDBTime];
-            }
+//            if ([Util WKGetDBTime].length<=0 || [[Util WKGetDBTime] isEqualToString:@""]) {
+//                [Util WKSaveDBTime];
+//            }
             [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
             
         }];
@@ -282,7 +282,7 @@
             NSMutableDictionary *para = [NSMutableDictionary new];
             [para setObject:mUserInfo.open_id forKey:@"openid"];
             
-  
+            
             [WKUser WKRegistWechatOpenId:para block:^(MWBaseObj *info) {
                 if (info.err_code == 0) {
                     mUserInfo.token = [[info.data objectForKey:@"user_info"] objectForKey:@"token"];

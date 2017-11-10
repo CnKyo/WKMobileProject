@@ -115,16 +115,18 @@
     
     MLLog(@"定位成功之后返回的东东：%@",mCoordinate);
     NSMutableDictionary *weather = [NSMutableDictionary new];
-    [weather setObject:kMobTrainDemandKey forKey:@"key"];
-    [weather setObject:[GetIPAddress getIPAddress:YES] forKey:@"ip"];
-    [weather setObject:[NSString stringWithFormat:@"%@-%@",[mCoordinate objectForKey:@"shi"],[mCoordinate objectForKey:@"xian"]] forKey:@"province"];
-    [WKNews WKGetWeather:weather block:^(WKBaseInfo *info) {
-        if (info.status == kRetCodeSucess) {
+//    [weather setObject:kMobTrainDemandKey forKey:@"key"];
+//    [weather setObject:[GetIPAddress getIPAddress:YES] forKey:@"ip"];
+    [weather setObject:[NSString stringWithFormat:@"%@",[mCoordinate objectForKey:@"shi"]] forKey:@"cityname"];
+ 
+    [MWBaiDuApiBaseObj WKGetBaiDuWeather:weather block:^(MWBaiDuApiBaseObj *info, MWBaiDuWeatherObj *mWeatherInfo) {
+        if (info.errNum == 0) {
             
         }else{
-            
+            [SVProgressHUD showErrorWithStatus:info.errMsg];
         }
     }];
+    
     
 }
 - (void)tableViewHeaderReloadData{

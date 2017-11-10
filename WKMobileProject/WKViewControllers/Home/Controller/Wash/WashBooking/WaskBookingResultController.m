@@ -23,7 +23,7 @@
 @implementation WaskBookingResultController{
     WKWashBookingHeaderView *mHeaderView;
     UITableView *mTableView;
-
+    
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -49,7 +49,7 @@
     self.view.backgroundColor = M_CO;
     
     self.btnTag = defaultTag; //self.btnTag = defaultTag+1  表示默认选择第二个，依次类推
-
+    
     self.navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
     // Do any additional setup after loading the view.
     mHeaderView = [WKWashBookingHeaderView initBookingView];
@@ -77,31 +77,34 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self.tableView registerNib:[UINib nibWithNibName:@"WKBookingResultCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
-//    [self addTableViewHeaderRefreshing];
-//    [self addTableViewFootererRefreshing];
+    //    [self addTableViewHeaderRefreshing];
+    //    [self addTableViewFootererRefreshing];
     [self bookingResult];
 }
 - (void)bookingResult{
     
     
     if ([WKUser currentUser].user_id.length>0) {
-     
-            NSMutableDictionary *para = [NSMutableDictionary new];
-//            [para setObject:mUserInfo.token forKey:@"token"];
-//            [para setObject:mUserInfo.userId forKey:@"uid"];
-            [para setObject:@"eHgyMDE3MDkwNTAyNDUxNzYwNzU0OTI5" forKey:@"device_code"];
+        
+        NSMutableDictionary *para = [NSMutableDictionary new];
+        
+        [para setObject:[WKUser currentUser].token forKey:@"token"];
+        [para setObject:[WKUser currentUser].user_id forKey:@"uid"];
+        [para setObject:_mCode forKey:@"device_code"];
+        
+//        [para setObject:@"348963" forKey:@"uid"];
+//        [para setObject:@"dXQyMDE3MTExMDA5NTU0MjE3ODg0NTI1" forKey:@"token"];
+        MLLog(@"参数是：%@",para);
 
-            [para setObject:@"348963" forKey:@"uid"];
-            [para setObject:@"dXQyMDE3MTEwNzE3MTAxNTg3OTIxNDgy" forKey:@"token"];
-
-            [MWBaseObj MWFindDeviceInfo:para block:^(MWBaseObj *info, MWBookingObj *mArr) {
-                if (info.err_code == 0) {
-                    
-                }else{
-                    [SVProgressHUD showErrorWithStatus:info.err_msg];
-                }
-            }];
-        }
+        [MWBaseObj MWFindDeviceInfo:para block:^(MWBaseObj *info, MWBookingObj *mArr) {
+            if (info.err_code == 0) {
+                
+            }else{
+                [SVProgressHUD showErrorWithStatus:info.err_msg];
+                [self popViewController];
+            }
+        }];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -109,14 +112,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
@@ -141,20 +144,20 @@
     customCell.mBtn.tag = defaultTag+indexPath.row;
     if (customCell.mBtn.tag == self.btnTag) {
         [customCell.mBtn setBackgroundColor:[UIColor colorWithRed:0.976470588235294 green:0.580392156862745 blue:0.274509803921569 alpha:1.00]];
-
+        
         customCell.isSelect = YES;
-
+        
     }else{
         [customCell.mBtn setBackgroundColor:[UIColor colorWithRed:0.733333333333333 green:0.772549019607843 blue:0.819607843137255 alpha:1.00]];
-
+        
         customCell.isSelect = NO;
-
+        
     }
     __weak WKChoiceWashTableViewCell *weakCell = customCell;
     [customCell setBtnSelectBlock:^(BOOL choice,NSInteger btnTag){
         if (choice) {
             [weakCell.mBtn setBackgroundColor:[UIColor colorWithRed:0.976470588235294 green:0.580392156862745 blue:0.274509803921569 alpha:1.00]];
-
+            
             self.btnTag = btnTag;
             MLLog(@"$$$$$$%ld",(long)btnTag);
             [self.tableView reloadData];
@@ -162,7 +165,7 @@
         else{
             //选中一个之后，再次点击，是未选中状态，图片仍然设置为选中的图片，记录下tag，刷新tableView，这个else 也可以注释不用，tag只记录选中的就可以
             [weakCell.mBtn setBackgroundColor:[UIColor colorWithRed:0.733333333333333 green:0.772549019607843 blue:0.819607843137255 alpha:1.00]];
-
+            
             self.btnTag = btnTag;
             [self.tableView reloadData];
             MLLog(@"#####%ld",(long)btnTag);
@@ -173,7 +176,7 @@
     
     
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-
+    
     return cell;
     
     
@@ -204,7 +207,7 @@
     [mOkBtn setTitle:@"付款" forState:0];
     [mOkBtn addTarget:self action:@selector(mPayAction) forControlEvents:UIControlEventTouchUpInside];
     [mView addSubview:mOkBtn];
-
+    
     [mOkBtn setButtonRoundedCornersWithView:mView andCorners:UIRectCornerAllCorners radius:3.0];
     return mView;
 }
@@ -218,7 +221,7 @@
 }
 - (void)WKWashBookingCellBtnAction:(NSIndexPath *)mIndexPath{
     MLLog(@"点击了%ld行",mIndexPath.row);
-
+    
 }
 
 @end

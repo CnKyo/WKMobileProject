@@ -13,14 +13,27 @@
 @class MWBaseObj;
 @class WKBaseInfo;
 @class WKJUHEObj;
+@class MWBaiDuApiBaseObj;
 @interface WKHttpRequest : AFHTTPSessionManager
 
 @property(nonatomic, strong) NSMutableDictionary *conDic;//存网络链接，便于取消
+///百度api的
++ (instancetype)initBaiDuAPI;
+#pragma mark----****----*  封装的get请求
+/**
+ *  封装的get请求
+ *
+ *  @param url          url
+ *  @param para          参数
+ *  @param block 请求成功的回调
+ */
+- (void)WKBaiDuGetDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(MWBaiDuApiBaseObj *info))block;
 
+///乐校园的
 + (instancetype)initClient;
-
+///mob的
 + (instancetype)shareClient;
-
+///聚合数据的
 + (instancetype)initJUHEApiClient;
 
 /**

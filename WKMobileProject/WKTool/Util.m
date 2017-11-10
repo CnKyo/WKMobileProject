@@ -1965,22 +1965,11 @@
     if (mText.length<=0 || [mText isEqualToString:@""]) {
         return nil;
     }else{
-        ///下面屏蔽的这个方法不科学
-//        NSArray *mArr = [mText componentsSeparatedByString:mString];
-//        
-//        for (int i = 0; i<mArr.count; i++) {
-//            NSString *mImgStr = mArr[i];
-//            
-//            if (mImgStr.length>0) {
-//                [mmNewStringArr addObject:mImgStr];
-//            }
-//        }
-//        return mmNewStringArr[1];
         ///万能截取
         NSString *mCurrentStr = [NSString stringWithFormat:@"%@%@",mText,@"!"];
         
         NSRange range;
-        range.location = [mCurrentStr rangeOfString:mString].location;
+        range.location = [mCurrentStr rangeOfString:mString].location+2;
         range.length = [mCurrentStr rangeOfString:@"!"].location-range.location;
         NSString *result = [mCurrentStr substringWithRange:range];
         MLLog(@"result = %@", result);

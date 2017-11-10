@@ -275,25 +275,25 @@ const static CGFloat animationTime = 2.5f;//扫描时长
 }
 - (void)judgeString:(NSString *)mText{
     
-    BOOL mJ = [Util WKJudgeString:@"eHgyMDE3MDkwNTAyNDUxNzYwNzM4NDA4" toString:@"eHgyMDE3MDkwNTAyNDUxNzYwNz"];
+    BOOL mJ = [Util WKJudgeString:mText toString:@"q="];
     if (mJ) {
-        NSString *mCurrentString = [Util WK_StringToString:@"http://xxlaundry.aboutnew.net/qr/?qbarcode111222=eHgyMDE3MDkwNTAyNDUxNzYwNzg5NTMx" toString:@"eHgy"];
+        NSString *mCurrentString = [Util WK_StringToString:mText toString:@"q="];
         [self showSucess:@"有"];
         MLLog(@"包含了：%@",mCurrentString);
         [SVProgressHUD showWithStatus:@"正在操作中..."];
         
         NSMutableDictionary *para = [NSMutableDictionary new];
-//        [para setObject:[WKUser currentUser].user_id forKey:@"uid"];
-//        [para setObject:[WKUser currentUser].token forKey:@"token"];
+        [para setObject:[WKUser currentUser].user_id forKey:@"uid"];
+        [para setObject:[WKUser currentUser].token forKey:@"token"];
 
-        [para setObject:NumberWithInt(348963) forKey:@"uid"];
-        [para setObject:@"dXQyMDE3MTEwNzExMjc0MDkzNDgxNTEz" forKey:@"token"];
+//        [para setObject:NumberWithInt(348963) forKey:@"uid"];
+//        [para setObject:@"dXQyMDE3MTEwNzExMjc0MDkzNDgxNTEz" forKey:@"token"];
 
         [MWBaseObj MWFindTaskList:para block:^(MWBaseObj *info, NSArray *mArr) {
             if (info.err_code == 1) {
                 [SVProgressHUD dismiss];
                 WaskBookingResultController *vc = [WaskBookingResultController new];
-                //        vc.mDeviceInfo = mDevice;
+                vc.mCode = mCurrentString;
                 [self pushViewController:vc];
             }else{
                 [SVProgressHUD showErrorWithStatus:info.err_msg];

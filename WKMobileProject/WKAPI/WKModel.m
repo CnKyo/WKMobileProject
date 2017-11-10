@@ -632,3 +632,24 @@ static WKUser *g_user = nil;
 @implementation MWTaskTimeCunt
 @end
 
+@implementation MWBaiDuApiBaseObj
++ (void)WKGetBaiDuWeather:(NSDictionary *)para block:(void(^)(MWBaiDuApiBaseObj *info,MWBaiDuWeatherObj *mWeatherInfo))block{
+    
+    MLLog(@"参数是：%@",para);
+    
+    [[WKHttpRequest initBaiDuAPI] WKBaiDuGetDataWithUrl:@"microservice/weather" withPara:para block:^(MWBaiDuApiBaseObj *info) {
+        if (info.errNum == 0) {
+            block(info,[MWBaiDuWeatherObj yy_modelWithDictionary:info.retData]);
+        }else{
+            block(info,nil);
+        }
+    }];
+    
+}
+
+@end
+
+@implementation MWBaiDuWeatherObj
+
+@end
+

@@ -92,7 +92,7 @@
     [self.tableView registerNib:nib forCellReuseIdentifier:@"funcCell"];
     
     
-    mFuncArr = @[@"我的活动",@"我的洗衣",@"我的任务",@"我的订单",@"帮助中心",@"加入我们",@"联系我们"];
+    mFuncArr = @[@"我的活动",@"我的洗衣",@"我的任务",@"帮助中心",@"加入我们",@"联系我们"];
     mIamgeArr = @[@"my_activity",@"my_laundry",@"my_task",@"my_order",@"help",@"join_us",@"contact_us"];
     __weak __typeof(self)weakSelf = self;
     
@@ -285,17 +285,17 @@
             [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
+//            case 3:
+//            {
+//            WKMyOrderViewController *vc = [WKMyOrderViewController new];
+//
+//
+//            vc.hidesBottomBarWhenPushed = YES;
+////            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
+//            [self.navigationController pushViewController:vc animated:YES];
+//            }
+//                break;
             case 3:
-            {
-            WKMyOrderViewController *vc = [WKMyOrderViewController new];
-
-      
-            vc.hidesBottomBarWhenPushed = YES;
-//            [self.navigationController d_pushViewController:vc fromAlpha:0 toAlpha:1];
-            [self.navigationController pushViewController:vc animated:YES];
-            }
-                break;
-            case 4:
             {
             WKConnectViewController *vc = [WKConnectViewController new];
  
@@ -306,7 +306,7 @@
             [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
-            case 5:
+            case 4:
             {
             WKJoinusViewController *vc = [WKJoinusViewController new];
             vc.hidesBottomBarWhenPushed = YES;
@@ -314,7 +314,7 @@
             [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
-            case 6:
+            case 5:
             {
             WKConnectViewController *vc = [WKConnectViewController new];
             vc.mType = WKConnectUs;

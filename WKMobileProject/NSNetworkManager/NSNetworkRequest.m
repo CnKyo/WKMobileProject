@@ -27,6 +27,92 @@ NSString *const DownloadDirectory = @"DownloadDirectory"; //下载目录
 static const NSUInteger TIMEOUT = 15;
 static AFHTTPSessionManager *manager;
 
++(void)BaiDuStartRequestWithUrlString:(NSString *)urlString
+                      parameters:(NSDictionary *)parameters
+                     requestType:(NSURLRequestType)requestType
+                       cacheMode:(NSURLRequestCacheMode)cacheMode
+                    successBlock:(SuccessBlock)successBlock
+                    failureBlock:(FailureBlock)failureBlock{
+    
+    manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaiDuAPIURLString]]; //设置请求参数的类型
+    
+    [manager.requestSerializer setTimeoutInterval:TIMEOUT]; //设置请求的超时时间
+    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer]; //设置服务器返回结果的类型:JSON
+    manager.operationQueue.maxConcurrentOperationCount = 4; //请求队列的最大并发数
+#pragma mark - token设置
+    [manager.requestSerializer setValue:@"" forHTTPHeaderField:@"accesstoken"];
+    
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",
+                                                         @"text/json",
+                                                         @"text/javascript",
+                                                         @"text/html",
+                                                         @"text/plain", nil];
+    //GET
+    if (requestType == NSURLRequestTypeGet) {
+        if (cacheMode == NSURLRequestCacheModeNone) {
+            [manager GET:urlString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+                //
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                successBlock ? successBlock(responseObject) :nil;
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                failureBlock ? failureBlock(error) : nil;
+            }];
+        }else{
+            [manager GET:urlString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+                //
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                successBlock ? successBlock(responseObject) :nil;
+                [NSNetworkCache saveDataCache:responseObject forkey:urlString];
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                successBlock([NSNetworkCache readCache:urlString]);
+            }];
+        }
+    }else if (requestType == NSURLRequestTypePost){
+        //POST
+        if (cacheMode == NSURLRequestCacheModeNone) {
+            [manager POST:urlString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+                //
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                successBlock ? successBlock(responseObject) :nil;
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                failureBlock(error);
+            }];
+        }else{
+            [manager POST:urlString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+                //
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                successBlock(responseObject);
+                [NSNetworkCache saveDataCache:responseObject forkey:urlString];
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                successBlock([NSNetworkCache readCache:urlString]);
+            }];
+        }
+    }else if (requestType == NSURLRequestTypePut){
+        //PUT
+        [manager PUT:urlString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            successBlock ? successBlock(responseObject) :nil;
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            failureBlock ? failureBlock(error) : nil;
+        }];
+    }else if (requestType == NSURLRequestTypePatch){
+        //PATCH
+        [manager PATCH:urlString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            successBlock ? successBlock(responseObject) :nil;
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            failureBlock ? failureBlock(error) : nil;
+        }];
+    }else if (requestType == NSURLRequestTypeDelete){
+        //DELETE
+        [manager DELETE:urlString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            successBlock(responseObject);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            failureBlock ? failureBlock(error) : nil;
+        }];
+    }
+    
+}
+
 +(void)startRequestWithUrlString:(NSString *)urlString
                       parameters:(NSDictionary *)parameters
                      requestType:(NSURLRequestType)requestType
@@ -112,6 +198,39 @@ static AFHTTPSessionManager *manager;
     }
     
 }
++(void)MWStartFormDataRequestWithURLString:(NSString *)urlString
+                                parameters:(NSDictionary *)parameters
+                               requestType:(NSURLRequestType)requestType
+                                 cacheMode:(NSURLRequestCacheMode)cacheMode
+                              successBlock:(SuccessBlock)successBlock
+                              failureBlock:(FailureBlock)failureBlock{
+    
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        [formData appendPartWithFormData:[@"11230953" dataUsingEncoding:NSUTF8StringEncoding] name:@"uid"];
+        [formData appendPartWithFileData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"myText" ofType:@"txt"]] name:@"file" fileName:@"myText.txt" mimeType:@"text/plain"];
+    } error:nil];
+    
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    
+    NSURLSessionUploadTask *uploadTask;
+    uploadTask = [manager
+                  uploadTaskWithStreamedRequest:request
+                  progress:^(NSProgress * _Nonnull uploadProgress) {
+                  }
+                  completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+                      if (error) {
+                          NSLog(@"Error: %@", error);
+                      } else {
+                          NSLog(@"%@ %@", response, responseObject);
+                      }
+                  }];
+    
+    [uploadTask resume];
+
+    
+}
 +(void)MWStartRequestWithUrlString:(NSString *)urlString
                       parameters:(NSDictionary *)parameters
                      requestType:(NSURLRequestType)requestType
@@ -120,16 +239,16 @@ static AFHTTPSessionManager *manager;
                     failureBlock:(FailureBlock)failureBlock{
     
     
-    MLLog(@"请求的URL：%@",urlString);
 
     manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kLeSchoolAPIURLString]]; //设置请求参数的类型
-    
+    MLLog(@"请求的URL链接是：%@%@",manager.baseURL,urlString);
+
     [manager.requestSerializer setTimeoutInterval:TIMEOUT]; //设置请求的超时时间
     
     manager.responseSerializer = [AFJSONResponseSerializer serializer]; //设置服务器返回结果的类型:JSON
     manager.operationQueue.maxConcurrentOperationCount = 4; //请求队列的最大并发数
 #pragma mark - token设置
-    [manager.requestSerializer setValue:@"" forHTTPHeaderField:@"accesstoken"];
+//    [manager.requestSerializer setValue:@"" forHTTPHeaderField:@"accesstoken"];
     
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",
                                                          @"text/json",
@@ -334,6 +453,22 @@ static AFHTTPSessionManager *manager;
                                        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                                    }];
 }
+-(void)BaiDuGET:(NSString *)urlString parameters:(NSDictionary *)parameters cacheMode:(NSURLRequestCacheMode)cacheMode successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    [NSNetworkRequest BaiDuStartRequestWithUrlString:urlString
+                                     parameters:parameters
+                                    requestType:NSURLRequestTypeGet
+                                      cacheMode:cacheMode
+                                   successBlock:^(id responseObject) {
+                                       successBlock ? successBlock(responseObject) :nil;
+                                       [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                                   } failureBlock:^(NSError *error) {
+                                       failureBlock ? failureBlock(error) : nil;
+                                       [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                                   }];
+}
 
 #pragma mark - 聚合GET
 -(void)JHGET:(NSString *)urlString parameters:(NSDictionary *)parameters cacheMode:(NSURLRequestCacheMode)cacheMode successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
@@ -374,7 +509,93 @@ static AFHTTPSessionManager *manager;
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     }];
 }
+-(void)MWFormPOST:(NSString *)urlString parameters:(NSDictionary *)parameters cacheMode:(NSURLRequestCacheMode)cacheMode successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [NSNetworkRequest MWFormStartRequestWithUrlString:urlString parameters:parameters requestType:NSURLRequestTypePost cacheMode:cacheMode successBlock:^(id responseObject) {
+        successBlock ? successBlock(responseObject) :nil;
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    } failureBlock:^(NSError *error) {
+        failureBlock ? failureBlock(error) : nil;
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    }];
+}
++(void)MWFormStartRequestWithUrlString:(NSString *)urlString
+                        parameters:(NSDictionary *)parameters
+                       requestType:(NSURLRequestType)requestType
+                         cacheMode:(NSURLRequestCacheMode)cacheMode
+                      successBlock:(SuccessBlock)successBlock
+                      failureBlock:(FailureBlock)failureBlock{
+    
+    MLLog(@"----****----\n请求的链接:%@\n请求的参数：%@\n----****----",[NSString stringWithFormat:@"%@%@",kLeSchoolAPIURLString,urlString],parameters)
+    //配置AF
+    AFHTTPSessionManager *manage = [AFHTTPSessionManager manager];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kLeSchoolAPIURLString,urlString]]];
+    request.HTTPMethod = @"POST";
+    
+    
+    
+    // 设置请求头 的 Content-Type格式
+    
+    [request setValue:@"application/multipart/form-data" forHTTPHeaderField:@"Content-Type"];
+    
+    NSString *postStr = [NSString stringWithFormat:@"content=%@",parameters];
+    
+    [request setHTTPBody:[postStr dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    // 请求数据
+    
+    NSURLSessionDataTask * dataTask = [manage dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        
+        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+        
+        NSInteger responseStatusCode = [httpResponse statusCode];
+        
+        MLLog(@"---------%@ %ld %@", httpResponse, (long)responseStatusCode ,responseObject);
+        
+        if (responseStatusCode == 200) {
+            
 
+            // 成功后的处理
+            successBlock ? successBlock(responseObject) :nil;
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            
+        }else {
+            
+            // 失败后的处理
+            failureBlock ? failureBlock(error) : nil;
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            
+        }
+        
+    }];
+    
+    [dataTask resume];
+    
+    
+//    [manage.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+//    manage.requestSerializer = [AFHTTPRequestSerializer serializer];
+//    manage.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    manage.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html", @"text/json", @"text/javascript",@"text/plain",@"multipart/form-data",@"image/jpeg", @"image/png", @"application/octet-stream", nil];
+//
+//    [manage POST:[NSString stringWithFormat:@"%@%@",kLeSchoolAPIURLString,urlString] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//        //当提交一张图片或一个文件的时候 name 可以随便设置，服务端直接能拿到，如果服务端需要根据name去取不同文件的时候，则appendPartWithFileData 方法中的 name 需要根据form的中的name一一对应
+////        [formData appendPartWithFormData:[NSJSONSerialization dataWithJSONObject:parameters options:NSJSONWritingPrettyPrinted error:nil] name:@"data"];
+////        [formData appendPartWithFileData: data_f name:@"photoF" fileName:@"a.jpg" mimeType:@"image/jpeg"];
+////        [formData appendPartWithFileData: data_s name:@"photoS" fileName:@"b.jpg" mimeType:@"image/jpeg"];
+//    } progress:^(NSProgress * _Nonnull uploadProgress) {
+//
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSDictionary *responseDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+//        successBlock ? successBlock(responseDic) :nil;
+//        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        failureBlock ? failureBlock(error) : nil;
+//        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+//    }];
+    
+}
 #pragma mark - PUT
 -(void)PUT:(NSString *)urlString parameters:(NSDictionary *)parameters successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;

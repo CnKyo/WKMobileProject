@@ -10,6 +10,49 @@
 #import "NSNetworkManager.h"
 #import "AppDelegate.h"
 @implementation WKHttpRequest
+///百度api的
++ (instancetype)initBaiDuAPI{
+    static WKHttpRequest *_sharedClient = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        //[APIClient loadDefault];
+        _sharedClient = [[WKHttpRequest alloc] initWithBaseURL:[NSURL URLWithString:kBaiDuAPIURLString]];
+        _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
+        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+        
+        ;
+        //_sharedClient.requestSerializer = [AFJSONRequestSerializer serializer];
+        _sharedClient.requestSerializer.HTTPShouldHandleCookies = YES;
+        //_sharedClient.requestSerializer.Content = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+    });
+    return _sharedClient;
+}
+/**
+ *  封装的get请求
+ *
+ *  @param url          url
+ *  @param para          参数
+ *  @param block 请求成功的回调
+ */
+- (void)WKBaiDuGetDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(MWBaiDuApiBaseObj *info))block{
+    [[NSNetworkRequest sharedInstance] BaiDuGET:url parameters:para cacheMode:NO successBlock:^(id responseObject) {
+        MLLog(@"%@\n缓存路径为:  %@",responseObject,kPathCache);
+        //        MLLog(@"responseObject----:%@",responseObject);
+        
+        
+        MWBaiDuApiBaseObj *info = [MWBaiDuApiBaseObj yy_modelWithJSON:responseObject];
+        
+        block(info);
+        
+        //        [TSMessage showNotificationWithTitle:@"GET请求成功,已缓存!" type:TSMessageNotificationTypeWarning];
+    } failureBlock:^(NSError *error) {
+        MLLog(@"%@",error);
+        //        [TSMessage showNotificationWithTitle:[NSString stringWithFormat:@"GET请求失败:%@",error.description] type:TSMessageNotificationTypeWarning];
+        
+        block(nil);
+        
+    }];
+}
 + (instancetype)initClient{
     static WKHttpRequest *_sharedClient = nil;
     static dispatch_once_t onceToken;
@@ -209,7 +252,7 @@
 }
 #pragma mark----****----洗衣机总接口
 - (void)WKMWPostDataWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(MWBaseObj *info))block{
-    [[NSNetworkRequest sharedInstance] MWPOST:url parameters:para cacheMode:NO successBlock:^(id responseObject) {
+    [[NSNetworkRequest sharedInstance] MWFormPOST:url parameters:para cacheMode:NO successBlock:^(id responseObject) {
         MLLog(@"responseObject----:%@",responseObject);
         
         MWBaseObj *info = [MWBaseObj yy_modelWithJSON:responseObject];
