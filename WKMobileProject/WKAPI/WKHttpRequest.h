@@ -17,6 +17,10 @@
 @interface WKHttpRequest : AFHTTPSessionManager
 
 @property(nonatomic, strong) NSMutableDictionary *conDic;//存网络链接，便于取消
+///本地api地址
++ (instancetype)initLocalApiclient;
+- (void)MWPostWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(MWBaseObj *info))block;
+
 ///百度api的
 + (instancetype)initBaiDuAPI;
 #pragma mark----****----*  封装的get请求

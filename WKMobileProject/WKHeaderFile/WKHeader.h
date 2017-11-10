@@ -192,6 +192,11 @@ static NSString* const  kAFAppDotNetImgBaseURLString        = @"http://resource.
 
 static NSString* const  KAppFetchJPUSHService        = @"loginNotify";
 
+///本地Host api访问地址
+static NSString* const kLocalAPIUrlString                 = @"http://www.lpp.com/";
+//static NSString* const kLocalAPIUrlString                 = @"192.168.31.44";
+
+
 ///错误
 static int const  kRetCodeError        = 10002;
 ///接口维护

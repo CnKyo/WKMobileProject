@@ -77,6 +77,10 @@
 @property (nonatomic, strong) NSString *            regip;              ///
 @property (nonatomic, strong) NSString *            school_id;                  ///
 @property (nonatomic, strong) NSString *            wxoid;                  ///
+
+@property (nonatomic, strong) NSString *            mobile;                  ///
+@property (nonatomic, strong) NSString *            password;                  ///
+
 +(void)saveUserInfo:(id)info;
 
 ///返回当前用户信息
@@ -295,6 +299,13 @@
  */
 +(MWBaseObj *)infoWithReLoginErrorMessage:(NSString *)errMsg;
 
+/**
+ 手机号码登录
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWLoginWithPhone:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
 /**
  获取学校列表
 

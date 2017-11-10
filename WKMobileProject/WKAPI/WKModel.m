@@ -442,7 +442,22 @@ static WKUser *g_user = nil;
     info.err_code = kRetCodeNeedLogin;
     return info;
 }
-
+/**
+ 手机号码登录
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWLoginWithPhone:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/login/login.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+}
 /**
  获取学校列表
  

@@ -10,6 +10,38 @@
 #import "NSNetworkManager.h"
 #import "AppDelegate.h"
 @implementation WKHttpRequest
+///本地api地址
++ (instancetype)initLocalApiclient{
+    static WKHttpRequest *_sharedClient = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        //[APIClient loadDefault];
+        _sharedClient = [[WKHttpRequest alloc] initWithBaseURL:[NSURL URLWithString:kLocalAPIUrlString]];
+        _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
+        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+        
+        ;
+        //_sharedClient.requestSerializer = [AFJSONRequestSerializer serializer];
+        _sharedClient.requestSerializer.HTTPShouldHandleCookies = YES;
+        //_sharedClient.requestSerializer.Content = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+    });
+    return _sharedClient;
+}
+- (void)MWPostWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(MWBaseObj *info))block{
+    [[NSNetworkRequest sharedInstance] MWPOSTWithUrl:url parameters:para cacheMode:NO successBlock:^(id responseObject) {
+        MLLog(@"responseObject----:%@",responseObject);
+        
+        MWBaseObj *info = [MWBaseObj yy_modelWithJSON:responseObject];
+        block(info);
+    } failureBlock:^(NSError *error) {
+        MWBaseObj *info = [MWBaseObj infoWithError:error];
+        info.err_code = 1;
+        
+        block(info);
+    }];
+    
+}
+
 ///百度api的
 + (instancetype)initBaiDuAPI{
     static WKHttpRequest *_sharedClient = nil;

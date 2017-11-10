@@ -148,30 +148,27 @@
     switch (mTag) {
         case 1:
         {
-        [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
-        [self dismissViewControllerAnimated:YES completion:^{
-            self.mBlock(1);
-//            if ([Util WKGetDBTime].length<=0 || [[Util WKGetDBTime] isEqualToString:@""]) {
-//                [Util WKSaveDBTime];
-//            }
-            [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
+        if (mUserInfo.password.length<=0 || mUserInfo.mobile.length<=0) {
+            [SVProgressHUD showErrorWithStatus:@"请输入手机号和密码！"];
+            return;
+        }else{
             
-        }];
-        //        NSMutableDictionary *mPara = [NSMutableDictionary new];
-        //        [mPara setObject:@"18623330775" forKey:@"mobile"];
-        //        [mPara setObject:@"123456" forKey:@"password"];
-        //
-        //        [SVProgressHUD showWithStatus:@"登录中。。。"];
-        //        [WKUser WKUserLoginWithMobile:mPara block:^(WKBaseInfo *info) {
-        //            if (info.status == kRetCodeSucess) {
-        //                [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
-        //                [self dismissViewControllerAnimated:YES completion:^{
-        //                    self.mBlock(1);
-        //                }];
-        //            }else{
-        //                [SVProgressHUD showErrorWithStatus:@"登录失败!"];
-        //            }
-        //        }];
+            [MWBaseObj MWLoginWithPhone:@{@"mobile":mUserInfo.mobile,@"password":mUserInfo.password} block:^(MWBaseObj *info) {
+                if (info.err_code == 0) {
+                    [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
+                    [self dismissViewControllerAnimated:YES completion:^{
+                        self.mBlock(1);
+                        //            if ([Util WKGetDBTime].length<=0 || [[Util WKGetDBTime] isEqualToString:@""]) {
+                        //                [Util WKSaveDBTime];
+                        //            }
+                        [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
+                        
+                    }];
+                }else{
+                    [SVProgressHUD showErrorWithStatus:info.err_msg];
+                }
+            }];
+        }
         
         
         }
@@ -224,7 +221,37 @@
  */
 - (void)WKGenericRegistCellDelegateWithTextFieldEditingWithTag:(NSInteger)mTag andText:(NSString *)mText{
     MLLog(@"tag是：%ld----输入的内容是：%@",mTag,mText);
-    
+    switch (mTag) {
+        case 1:
+        {
+        }
+            break;
+        case 6:
+        {
+        
+        }
+            break;
+        case 20:
+        {
+        mUserInfo.password = mText;
+        
+        }
+            break;
+        case 11:
+        {
+        mUserInfo.mobile = mText;
+        
+        }
+            break;
+        case 50:
+        {
+        
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 /**
  * 协议中的方法，获取返回按钮的点击事件
@@ -273,7 +300,7 @@
                 mUserInfo.open_id = [user.rawData objectForKey:@"openid"];
                 mUserInfo.photo = [user.rawData objectForKey:@"headimgurl"];
             }
-//            mUserInfo.nick_name = [user.rawData objectForKey:@"nickname"];
+            //            mUserInfo.nick_name = [user.rawData objectForKey:@"nickname"];
             mUserInfo.app_v = [Util getAppVersion];
             mUserInfo.sys_v = [Util getDeviceModel];
             mUserInfo.sys_t = @"ios";
@@ -290,8 +317,8 @@
                     [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
                     [self dismissViewControllerAnimated:YES completion:^{
                         self.mBlock(1);
-//                        [WKUser bg_clear];
-//                        [mUserInfo bg_save];
+                        //                        [WKUser bg_clear];
+                        //                        [mUserInfo bg_save];
                         [WKUser saveUserInfo:[info.data objectForKey:@"user_info"]];
                         [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
                         
@@ -300,8 +327,8 @@
                     [SVProgressHUD showErrorWithStatus:info.err_msg];
                 }
             }];
-           
-       
+            
+            
         } else {
             MLLog(@"%@",error);
             [SVProgressHUD showErrorWithStatus:error.description];
