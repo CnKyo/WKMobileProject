@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WKHeader.h"
 @interface WKPlayGameCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *mImg;
 @property (weak, nonatomic) IBOutlet UILabel *mName;
 @property (weak, nonatomic) IBOutlet UILabel *mPayPrice;
+
+@property (strong, nonatomic) MWGameObj *mGame;
 
 @end

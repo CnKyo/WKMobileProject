@@ -42,8 +42,10 @@
 }
 
 - (void)setMUserInfo:(WKUser *)mUserInfo{
-    self.mUserName.text = mUserInfo.nickname;
-    [self.mAvator sd_setImageWithURL:[NSURL URLWithString:mUserInfo.headimgurl] placeholderImage:nil];
+    
+    self.mGold.text = [NSString stringWithFormat:@"%@个",mUserInfo.gold];
+    self.mUserName.text = [NSString stringWithFormat:@"%@  %@",mUserInfo.nickname,mUserInfo.mobile];
+    [self.mAvator sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mUserInfo.user_img]] placeholderImage:nil];
     
 }
 @end

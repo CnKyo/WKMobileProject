@@ -347,7 +347,8 @@
      @return 返回json字符串
      */
 + (NSString *)arrToJson:(NSArray *)arr;
-    
+
++ (NSDictionary *)stringToDictionary:(NSString *)mString;
 #pragma mark----过滤非法字符
 + (BOOL)isHaveIllegalChar:(NSString *)str;
 #pragma mark----过滤emoji表情

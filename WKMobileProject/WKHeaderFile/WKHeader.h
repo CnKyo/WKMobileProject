@@ -162,7 +162,7 @@ static NSString* const kMobWeatherAPIURLString                 = @"http://apiclo
 
 static NSString* const kLeSchoolAPIURLString                 = @"http://xxlaundry.aboutnew.net/";
 ///百度接口api
-static NSString* const kBaiDuAPIURLString                 = @"http://apistore.baidu.com/";
+static NSString* const kBaiDuAPIURLString                 = @"http://jisutqybmf.market.alicloudapi.com/";
 
 
 static NSString* const kAPIAddressUrlString                 = @"www.lpp.com";

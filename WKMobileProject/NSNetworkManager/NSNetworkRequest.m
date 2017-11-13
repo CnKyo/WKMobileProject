@@ -34,6 +34,8 @@ static AFHTTPSessionManager *manager;
                     successBlock:(SuccessBlock)successBlock
                     failureBlock:(FailureBlock)failureBlock{
     
+    MLLog(@"请求的URL链接是：%@%@",manager.baseURL,urlString);
+
     manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaiDuAPIURLString]]; //设置请求参数的类型
     
     [manager.requestSerializer setTimeoutInterval:TIMEOUT]; //设置请求的超时时间

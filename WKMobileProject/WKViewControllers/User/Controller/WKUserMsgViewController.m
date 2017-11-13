@@ -29,6 +29,17 @@
     
 }
 - (void)tableViewHeaderReloadData{
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    [self.tableArr removeAllObjects];
+    [MWBaseObj MWGetMessageList:@{@"member_id":[WKUser currentUser].member_id,@"message_id":@"0"} block:^(MWBaseObj *info, NSArray *mList) {
+        if (info.err_code == 0) {
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            [self.tableArr addObjectsFromArray:mList];
+            [self.tableView reloadData];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+    }];
 }
 - (void)tableViewFooterReloadData{
 
@@ -73,7 +84,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
-    return 4;
+    return self.tableArr.count;
  
     
 }
@@ -96,7 +107,9 @@
     reuseCellId = @"cell";
     
     WKUserMsgCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+    [cell setMMSG:self.tableArr[indexPath.row]];
     return cell;
     
     
@@ -107,6 +120,7 @@
     MLLog(@"%ld行",indexPath.row);
     
     WKUserMsgDetailViewController *vc = [WKUserMsgDetailViewController new];
+    vc.mMsg = self.tableArr[indexPath.row];
     [self pushViewController:vc];
 }
 

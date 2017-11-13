@@ -54,7 +54,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WKUserMsgDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    cell.mContent.text = @"编者按：近来网络上热议的有关谋生、生育、养老的话题其实都多多少少跟社会的老龄化和不均衡的人口结构相关。无论是“为了下一代死守北上广”还是“是否应该开放代孕”，都包含着深深的担忧和无奈。日本人比中国人更早遇到这些问题，也警醒得更早。听过这些日本老人的故事之后，你又有哪些想法呢？欢迎分享到评论区";
+    
+    cell.mTime.text = _mMsg.title;
+    
+    cell.mContent.text = _mMsg.content;
     return cell;
 }
 

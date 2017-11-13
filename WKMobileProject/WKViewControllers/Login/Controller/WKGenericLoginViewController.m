@@ -29,6 +29,7 @@
     // Do any additional setup after loading the view.
     
     mUserInfo = [WKUser new];
+    
     [self addTableView];
     
     UINib   *nib = [UINib nibWithNibName:@"WKGenericHeaderCell" bundle:nil];

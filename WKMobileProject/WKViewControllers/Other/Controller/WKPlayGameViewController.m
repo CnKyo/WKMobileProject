@@ -11,12 +11,15 @@
 #import "UIScrollView+DREmptyDataSet.h"
 #import "UIScrollView+DRRefresh.h"
 #import "WKTestViewcontrollerViewController.h"
-@interface WKPlayGameViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface WKPlayGameViewController ()<UITableViewDataSource,UITableViewDelegate,WKCustomPopViewDelegate>
 
 @end
 
 @implementation WKPlayGameViewController
+{
+    WKCustomPopView *mCustomView;
 
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -46,8 +49,19 @@
     [self.tableView headerBeginRefreshing];
 }
 - (void)tableViewHeaderReloadData{
-    
-    [self.tableView headerEndRefreshing];
+    [self.tableArr removeAllObjects];
+    [SVProgressHUD showWithStatus:@"正在加载中..."];
+    [MWBaseObj MWFetchGameList:@{} block:^(MWBaseObj *info, NSArray *mList) {
+        if (info.err_code == 0) {
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            [self.tableArr addObjectsFromArray:mList];
+            [self.tableView reloadData];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+        [self.tableView headerEndRefreshing];
+
+    }];
 
 }
 - (void)tableViewFooterReloadData{
@@ -89,7 +103,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
-    return 14;
+    return self.tableArr.count;
 
 }
 
@@ -111,7 +125,7 @@
     
     WKPlayGameCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+    [cell setMGame:self.tableArr[indexPath.row]];
     return cell;
     
     
@@ -122,8 +136,9 @@
     MLLog(@"%ld行",indexPath.row);
 //    WKTestViewcontrollerViewController *vc = [[WKTestViewcontrollerViewController alloc] initWithNibName:@"WKBaseSuperViewController" bundle:nil];
 //    [self.navigationController pushViewController:vc animated:YES];
-    
-//    [self showCustomViewType:WKCustomPopViewHaveTwoBtn andTitle:@"您的账户还有100000000个金币" andContentTx:@"本次游戏将消耗您120000个金币，您是否愿意玩本次游戏呢？" andOkBtntitle:@"确定" andCancelBtntitle:@"取消"];
+    MWGameObj *mGame = self.tableArr[indexPath.row];
+    NSString *mcontent = [NSString stringWithFormat:@"本次游戏将消耗您%d个金币，您是否愿意玩本次游戏呢？",mGame.pay_coin_num];
+    [self showCustomViewType:WKCustomPopViewHaveTwoBtn andTitle:@"您的账户还有100000000个金币" andContentTx:mcontent andOkBtntitle:@"确定" andCancelBtntitle:@"取消"];
     
 }
 ///关闭按钮代理方法
@@ -138,4 +153,26 @@
 - (void)WKCustomPopViewWithOkBtnAction{
     MLLog(@"确定");
 }
+#pragma mark----****----自定义弹出框
+/**
+ 自定义弹出框
+ 
+ @param mType 弹出框类型
+ @param mTitle 标题
+ @param mContent 内容
+ @param mOkTitle 确定按钮
+ @param mCancelTitle 取消按钮
+ */
+- (void)showCustomViewType:(WKCustomPopViewType)mType andTitle:(NSString *)mTitle andContentTx:(NSString *)mContent andOkBtntitle:(NSString *)mOkTitle andCancelBtntitle:(NSString *)mCancelTitle{
+    
+    FDAlertView *alert = [[FDAlertView alloc] init];
+    mCustomView = [WKCustomPopView initViewType:mType andTitle:mTitle andContentTx:mContent andOkBtntitle:mOkTitle andCancelBtntitle:mCancelTitle];
+    mCustomView.delegate = self;
+    
+    mCustomView.frame = CGRectMake(30, 0, self.view.bounds.size.width-60, 250);
+    alert.contentView = mCustomView;
+    [alert show];
+    
+}
+
 @end

@@ -9,5 +9,6 @@
 #import "WKBaseViewController.h"
 
 @interface WKUserMsgDetailViewController : WKBaseViewController
+@property (strong, nonatomic)  MWMessageObj *mMsg;
 
 @end

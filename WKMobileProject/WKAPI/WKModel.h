@@ -527,6 +527,38 @@
  @param block 返回值
  */
 + (void)MWGetFindList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mBannerArr,NSArray *mList))block;
+#pragma mark----****----获取玩游戏列表
+/**
+ 获取玩游戏列表
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWFetchGameList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block;
+#pragma mark----****----获取消息列表
+/**
+ 获取消息列表和读取消息
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetMessageList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block;
+#pragma mark----****----用户签到
+/**
+ 用户签到
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWUserSign:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+#pragma mark----****----更新用户信息
+/**
+ 更新用户信息
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWReFreshUserInfo:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
 @end
 
 
@@ -596,12 +628,12 @@
 
 @class MWBaiDuWeatherObj;
 @interface MWBaiDuApiBaseObj : NSObject
-@property (nonatomic,assign) int errNum;
-@property (nonatomic,strong) NSString *errMsg;
-@property (nonatomic,assign) id retData;
+@property (nonatomic,assign) int status;
+@property (nonatomic,strong) NSString *msg;
+@property (nonatomic,assign) id result;
 
 
-+ (void)WKGetBaiDuWeather:(NSDictionary *)para block:(void(^)(MWBaiDuApiBaseObj *info,MWBaiDuWeatherObj *mWeatherInfo))block;
++ (void)WKGetBaiDuWeather:(NSString *)mCity andJingdu:(NSString *)mJ andWeidu:(NSString *)mW block:(void(^)(MWBaiDuApiBaseObj *info))block;
 
 @end
 
@@ -692,5 +724,50 @@
 @property (nonatomic,assign) int mPrice;
 ///支付方式1:微信。2:支付宝。
 @property (nonatomic,assign) NSInteger mPayType;
+
+@end
+
+
+
+@interface MWGameObj : NSObject
+
+@property (nonatomic,strong) NSString *add_person;
+@property (nonatomic,assign) int add_time;
+@property (nonatomic,strong) NSString *game_id;
+@property (nonatomic,strong) NSString *game_logo;
+@property (nonatomic,strong) NSString *game_name;
+@property (nonatomic,strong) NSString *game_status;
+@property (nonatomic,strong) NSString *game_type;
+@property (nonatomic,strong) NSString *game_url;
+@property (nonatomic,assign) int pay_coin_num;
+
+@end
+///定位对象
+@interface MWLocationInfo : NSObject
+
+@property (nonatomic,strong) NSArray *detail;
+@property (nonatomic,strong) NSString *Street;
+@property (nonatomic,strong) NSString *Country;
+@property (nonatomic,strong) NSString *jing;
+@property (nonatomic,strong) NSString *wei;
+@property (nonatomic,strong) NSString *shi;
+@property (nonatomic,strong) NSString *xian;
+
+@end
+
+@interface MWMessageObj : NSObject
+
+@property (nonatomic,assign) int add_time;
+@property (nonatomic,strong) NSString *content;
+@property (nonatomic,strong) NSString *income_expenditure;
+@property (nonatomic,strong) NSString *member_id;
+@property (nonatomic,strong) NSString *message_id;
+@property (nonatomic,strong) NSString *money;
+@property (nonatomic,strong) NSString *read_time;
+@property (nonatomic,strong) NSString *riches_arrive_status;
+@property (nonatomic,strong) NSString *stauts;
+@property (nonatomic,strong) NSString *title;
+@property (nonatomic,strong) NSString *typeid;
+
 
 @end

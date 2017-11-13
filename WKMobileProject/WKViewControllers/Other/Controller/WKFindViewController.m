@@ -115,18 +115,27 @@
 - (void)MMapreturnLatAndLng:(NSDictionary *)mCoordinate{
     
     MLLog(@"定位成功之后返回的东东：%@",mCoordinate);
-    NSMutableDictionary *weather = [NSMutableDictionary new];
-//    [weather setObject:kMobTrainDemandKey forKey:@"key"];
-//    [weather setObject:[GetIPAddress getIPAddress:YES] forKey:@"ip"];
-    [weather setObject:[NSString stringWithFormat:@"%@",[mCoordinate objectForKey:@"shi"]] forKey:@"cityname"];
- 
-    [MWBaiDuApiBaseObj WKGetBaiDuWeather:weather block:^(MWBaiDuApiBaseObj *info, MWBaiDuWeatherObj *mWeatherInfo) {
-        if (info.errNum == 0) {
-            
-        }else{
-            [SVProgressHUD showErrorWithStatus:info.errMsg];
+    NSArray *mLArr = [MWLocationInfo bg_findAll];
+    if (mLArr.count>0) {
+        MWLocationInfo *mLocation = mLArr[0];
+        NSMutableDictionary *para = [NSMutableDictionary new];
+        if (mLocation.shi) {
+            [para setObject:mLocation.shi forKey:@"city"];
         }
-    }];
+        if (mLocation.jing.length>0) {
+            [para setObject:[NSString stringWithFormat:@"%@,%@",mLocation.wei,mLocation.jing] forKey:@"location"];
+            
+        }
+        [MWBaiDuApiBaseObj WKGetBaiDuWeather:mLocation.shi andJingdu:nil andWeidu:nil block:^(MWBaiDuApiBaseObj *info) {
+            if (info.status == 0) {
+                
+            }else{
+                
+            }
+        }];
+    }else{
+        [self updateAddress];
+    }
     
     
 }
@@ -302,9 +311,15 @@
     switch (mIndex) {
         case 0:
         {
-        WKWebViewController *vc = [WKWebViewController new];
-        vc.mURLString = @"http://h5.265g.com/?mid=15";
+//        WKWebViewController *vc = [WKWebViewController new];
+//        vc.mURLString = @"http://h5.265g.com/?mid=15";
+//        vc.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:vc animated:YES];
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        WKPlayGameViewController *vc = [story instantiateViewControllerWithIdentifier:@"playGame"];
         vc.hidesBottomBarWhenPushed = YES;
+        //        [self pushViewController:vc];
         [self.navigationController pushViewController:vc animated:YES];
         }
             break;

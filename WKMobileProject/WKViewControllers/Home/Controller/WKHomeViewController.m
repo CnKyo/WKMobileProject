@@ -25,7 +25,10 @@
 #import "WKWebViewController.h"
 
 #import <BGFMDB.h>
-@interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate,NSNetworkMonitorProtocol>
+
+#import "CurentLocation.h"
+
+@interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate,NSNetworkMonitorProtocol,MMApBlockCoordinate>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
 
@@ -121,6 +124,46 @@
                                              selector:@selector(getPushMessage)
                                                  name:KAppFetchJPUSHService
                                                object:nil];
+    
+    NSArray *mLArr = [MWLocationInfo bg_findAll];
+    if (mLArr.count>0) {
+        MWLocationInfo *mLocation = mLArr[0];
+        NSMutableDictionary *para = [NSMutableDictionary new];
+        if (mLocation.shi) {
+            [para setObject:mLocation.shi forKey:@"city"];
+        }
+        if (mLocation.jing.length>0) {
+            [para setObject:[NSString stringWithFormat:@"%@,%@",mLocation.wei,mLocation.jing] forKey:@"location"];
+
+        }
+        [MWBaiDuApiBaseObj WKGetBaiDuWeather:mLocation.shi andJingdu:nil andWeidu:nil block:^(MWBaiDuApiBaseObj *info) {
+            if (info.status == 0) {
+                
+            }else{
+                
+            }
+        }];
+    }else{
+        [self updateAddress];
+    }
+    
+    
+}
+#pragma mark----****----获取定位信息
+- (void)updateAddress{
+    
+    [CurentLocation sharedManager].delegate = self;
+    [[CurentLocation sharedManager] getUSerLocation];
+    
+}
+#pragma mark----maplitdelegate
+- (void)MMapreturnLatAndLng:(NSDictionary *)mCoordinate{
+    
+    MLLog(@"定位成功之后返回的东东：%@",mCoordinate);
+    [MWLocationInfo bg_clear];
+    MWLocationInfo *mLocation = [MWLocationInfo yy_modelWithDictionary:mCoordinate];
+    [mLocation bg_save];
+    
 }
 - (void)getUserInfo{
 

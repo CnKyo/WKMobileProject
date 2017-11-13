@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WKHeader.h"
 @interface WKUserMsgCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *mName;
 @property (weak, nonatomic) IBOutlet UILabel *mTime;
-
+@property (strong, nonatomic)  MWMessageObj *mMSG;
 @end

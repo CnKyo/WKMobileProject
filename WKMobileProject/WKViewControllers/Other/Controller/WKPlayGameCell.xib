@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,9 +16,16 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Az7-ru-nee">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="15"/>
+                        <color key="backgroundColor" red="0.96854597330000003" green="0.96868151430000005" blue="0.96850329639999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="vqP-R8-hWX"/>
+                        </constraints>
+                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nI9-8j-3ZI">
                         <rect key="frame" x="15" y="27.5" width="45" height="45"/>
                         <constraints>
@@ -49,27 +56,24 @@
                             <constraint firstAttribute="height" constant="15" id="Pdw-pA-mzk"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Az7-ru-nee">
-                        <rect key="frame" x="0.0" y="85" width="320" height="15"/>
-                        <color key="backgroundColor" red="0.96854597330000003" green="0.96868151430000005" blue="0.96850329639999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="2ze-BZ-9H5" secondAttribute="trailing" id="2O6-lR-TlZ"/>
                     <constraint firstItem="2ze-BZ-9H5" firstAttribute="leading" secondItem="3fw-6a-F27" secondAttribute="trailing" constant="8" id="CJ8-vl-Wcb"/>
-                    <constraint firstItem="Az7-ru-nee" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="PaH-AV-81l"/>
-                    <constraint firstItem="Az7-ru-nee" firstAttribute="top" secondItem="nI9-8j-3ZI" secondAttribute="bottom" constant="12.5" id="QrX-B7-4pr"/>
                     <constraint firstItem="3fw-6a-F27" firstAttribute="leading" secondItem="gfB-EG-3sm" secondAttribute="trailing" constant="-3" id="TId-7u-fE0"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Az7-ru-nee" secondAttribute="bottom" constant="-8" id="av5-9C-rjG"/>
                     <constraint firstItem="3fw-6a-F27" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="e1q-cS-Hfm"/>
                     <constraint firstItem="gfB-EG-3sm" firstAttribute="leading" secondItem="nI9-8j-3ZI" secondAttribute="trailing" constant="8" id="fR9-tb-RsJ"/>
                     <constraint firstItem="gfB-EG-3sm" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="j7t-aa-Be5"/>
                     <constraint firstItem="nI9-8j-3ZI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="keu-9D-3qH"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Az7-ru-nee" secondAttribute="trailing" constant="-8" id="ssf-b0-yfH"/>
                     <constraint firstItem="2ze-BZ-9H5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="tr3-cQ-aFm"/>
                     <constraint firstItem="nI9-8j-3ZI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="vnN-mf-FEL"/>
                 </constraints>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="Az7-ru-nee" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" id="by6-Ah-QEL"/>
+                <constraint firstAttribute="trailing" secondItem="Az7-ru-nee" secondAttribute="trailing" id="jRg-so-4tr"/>
+                <constraint firstItem="Az7-ru-nee" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" id="zw3-Oj-k8Q"/>
+            </constraints>
             <connections>
                 <outlet property="mImg" destination="nI9-8j-3ZI" id="ihF-PX-kxW"/>
                 <outlet property="mName" destination="gfB-EG-3sm" id="ekx-7D-lKE"/>

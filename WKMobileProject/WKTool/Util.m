@@ -1415,6 +1415,31 @@
     return [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
     
 }
++ (NSDictionary *)stringToDictionary:(NSString *)mString{
+    if (mString == nil) {
+        
+        return nil;
+        
+    }
+    
+    NSData *jsonData = [mString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *err;
+    
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                         
+                                                        options:NSJSONReadingMutableContainers
+                         
+                                                          error:&err];
+    
+    if(err) {
+        NSLog(@"json解析失败：%@",err);
+        return nil;
+    }else{
+        return dic;
+    }
+
+}
 + (CGFloat)labelTextWithWidth:(NSString *)str{
     CGSize strsize = [str sizeWithFont:[UIFont boldSystemFontOfSize:14]];
     return strsize.width;

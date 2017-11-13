@@ -519,7 +519,15 @@ static WKUser *g_user = nil;
     MLLog(@"参数是：%@",para);
     [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/login/code_login.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
-            block(info);
+            if ([info.data isKindOfClass:[NSDictionary class]]) {
+                
+                [WKUser saveUserInfo:info.data];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
+                block(info);
+            }else{
+                block(info);
+            }
         }else{
             block(info);
         }
@@ -813,6 +821,101 @@ static WKUser *g_user = nil;
         }
     }];
 }
+#pragma mark----****----获取玩游戏列表
+/**
+ 获取玩游戏列表
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWFetchGameList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/game/index.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            NSMutableArray *mLArr = [NSMutableArray new];
+            if ([info.data isKindOfClass:[NSArray class]]) {
+                for (NSDictionary *dic in info.data) {
+                    [mLArr addObject:[MWGameObj yy_modelWithDictionary:dic]];
+                }
+            }
+            
+            block(info,mLArr);
+        }else{
+            block(info,nil);
+        }
+    }];
+}
+#pragma mark----****----获取消息列表
+/**
+ 获取消息列表
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetMessageList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/member/member_message.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            NSMutableArray *mLArr = [NSMutableArray new];
+            if ([info.data isKindOfClass:[NSArray class]]) {
+                for (NSDictionary *dic in info.data) {
+                    [mLArr addObject:[MWMessageObj yy_modelWithDictionary:dic]];
+                }
+            }
+            
+            block(info,mLArr);
+        }else{
+            block(info,nil);
+        }
+    }];
+}
+#pragma mark----****----用户签到
+/**
+ 用户签到
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWUserSign:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/member/member_message.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            NSMutableArray *mLArr = [NSMutableArray new];
+            if ([info.data isKindOfClass:[NSArray class]]) {
+                for (NSDictionary *dic in info.data) {
+                    [mLArr addObject:[MWGameObj yy_modelWithDictionary:dic]];
+                }
+            }
+            
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+}
+/**
+ 更新用户信息
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWReFreshUserInfo:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/member/personal.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            if ([info.data isKindOfClass:[NSDictionary class]]) {
+                
+                [WKUser saveUserInfo:info.data];
+                
+                block(info);
+            }else{
+                block(info);
+            }
+        }else{
+            block(info);
+        }
+    }];
+}
 @end
 
 @implementation MWDeviceInfo
@@ -837,17 +940,44 @@ static WKUser *g_user = nil;
 @end
 
 @implementation MWBaiDuApiBaseObj
-+ (void)WKGetBaiDuWeather:(NSDictionary *)para block:(void(^)(MWBaiDuApiBaseObj *info,MWBaiDuWeatherObj *mWeatherInfo))block{
-    
++ (void)WKGetBaiDuWeather:(NSString *)mCity andJingdu:(NSString *)mJ andWeidu:(NSString *)mW block:(void(^)(MWBaiDuApiBaseObj *info))block{
+    NSMutableDictionary *para = [NSMutableDictionary new];
+    [para setObject:mCity forKey:@"city"];
+
     MLLog(@"参数是：%@",para);
     
-    [[WKHttpRequest initBaiDuAPI] WKBaiDuGetDataWithUrl:@"microservice/weather" withPara:para block:^(MWBaiDuApiBaseObj *info) {
-        if (info.errNum == 0) {
-            block(info,[MWBaiDuWeatherObj yy_modelWithDictionary:info.retData]);
-        }else{
-            block(info,nil);
-        }
-    }];
+//    [[WKHttpRequest initBaiDuAPI] WKBaiDuGetDataWithUrl:@"weather/query" withPara:para block:^(MWBaiDuApiBaseObj *info) {
+//        if (info.status == 0) {
+//            block(info,[MWBaiDuWeatherObj yy_modelWithDictionary:info.result]);
+//        }else{
+//            block(info,nil);
+//        }
+//    }];
+    
+    NSString *appcode = @"e91dafba851d476b9c74160491d8588d";
+    NSString *host = @"http://jisutqybmf.market.alicloudapi.com";
+    NSString *path = @"/weather/query";
+    NSString *method = @"GET";
+    NSString *querys = [NSString stringWithFormat:@"?city=%@",mCity];
+    NSString *url = [NSString stringWithFormat:@"%@%@%@",  host,  path , querys];
+    NSString *bodys = @"";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString: url]  cachePolicy:1  timeoutInterval:  5];
+    request.HTTPMethod  =  method;
+    [request addValue:  [NSString  stringWithFormat:@"APPCODE %@" ,  appcode]  forHTTPHeaderField:  @"Authorization"];
+    NSURLSession *requestSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    NSURLSessionDataTask *task = [requestSession dataTaskWithRequest:request
+                                                   completionHandler:^(NSData * _Nullable body , NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                       MLLog(@"Response object: %@" , response);
+                                                       NSString *bodyString = [[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding];
+                                                       
+                                                       MWBaiDuApiBaseObj *info = [MWBaiDuApiBaseObj yy_modelWithJSON:[Util stringToDictionary:bodyString]];
+                                                       block(info);
+                                                       //打印应答中的body
+                                                       MLLog(@"Response body: %@" , info);
+                                                   }];
+    
+    [task resume];
     
 }
 
@@ -869,3 +999,13 @@ static WKUser *g_user = nil;
 
 @end
 
+@implementation MWGameObj
+
+@end
+@implementation MWLocationInfo
+
+@end
+
+@implementation MWMessageObj
+
+@end
