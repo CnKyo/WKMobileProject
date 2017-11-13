@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "WKHeader.h"
 @interface WKActivityTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *mName;
 
 @property (weak, nonatomic) IBOutlet UIImageView *mImg;
 
+@property (strong, nonatomic) WKHome *mActObj;
 
 @end

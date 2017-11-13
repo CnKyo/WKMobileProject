@@ -15,6 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *mSource;
 @property (weak, nonatomic) IBOutlet UIImageView *mImg;
 
-@property (strong,nonatomic) WKNews *mNews;
+@property (strong,nonatomic) MWDiscoveryObj *mNews;
 
 @end

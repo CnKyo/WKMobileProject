@@ -24,8 +24,8 @@
             NSMutableArray *mImgUrl = [NSMutableArray new];
             
             
-            for (NSString *mBanner in data) {
-                [mImgUrl addObject:mBanner];
+            for (WKHome *mBanner in data) {
+                [mImgUrl addObject:[Util currentSourceImgUrl:mBanner.banner_img]];
             }
             
             _mScrollerView = [[RKImageBrowser alloc] initWithFrame:CGRectMake(0, 0, screen_width, 200)];

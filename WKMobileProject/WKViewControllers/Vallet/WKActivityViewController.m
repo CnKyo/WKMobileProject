@@ -21,11 +21,14 @@
 {
     WKWashPayResultView *mSucessView;
 
+    NSMutableArray *mTableArr;
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"活动";
+    mTableArr = [NSMutableArray new];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
@@ -47,9 +50,9 @@
     }];
     [self.tableView headerBeginRefreshing];
     
-    [self.tableView removeFromSuperview];
-
-    [self initSucessView];
+//    [self.tableView removeFromSuperview];
+//
+//    [self initSucessView];
 }
 #pragma mark----****----初始化支付成功和失败view
 - (void)initSucessView{
@@ -61,7 +64,20 @@
     [self.view addSubview:mSucessView];
 }
 - (void)tableViewHeaderReloadData{
-    [self.tableView headerEndRefreshing];
+    [mTableArr removeAllObjects];
+   [SVProgressHUD showWithStatus:@"正在加载中..."];
+    
+    [MWBaseObj MWFetchActivityList:@{} block:^(MWBaseObj *info, NSArray *mArr) {
+        if (info.err_code == 0) {
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            [mTableArr addObjectsFromArray:mArr];
+            [self.tableView reloadData];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+        [self.tableView headerEndRefreshing];
+
+    }];
 }
 - (void)tableViewFooterReloadData{
     [self.tableView footerEndRefreshing];
@@ -96,7 +112,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return mTableArr.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -114,8 +130,8 @@
     
     WKActivityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    [cell.mImg sd_setImageWithURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493210044049&di=ac402c2ce8259c98e5e4ea1b7aac4cac&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F209%2Fd%2F97.jpg"] placeholderImage:nil];
+    [cell setMActObj:mTableArr[indexPath.row]];
+//    [cell.mImg sd_setImageWithURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493210044049&di=ac402c2ce8259c98e5e4ea1b7aac4cac&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F209%2Fd%2F97.jpg"] placeholderImage:nil];
     
     return cell;
     
@@ -126,7 +142,9 @@
     MLLog(@"点击了%ld行",indexPath.row);
     WKTaskDetailViewController *vc = [WKTaskDetailViewController new];
     vc.mType = WKActivityDetail;
+    vc.mAct = mTableArr[indexPath.row];
     vc.hidesBottomBarWhenPushed = YES;
+    
     [self.navigationController pushViewController:vc animated:YES];
 
 }

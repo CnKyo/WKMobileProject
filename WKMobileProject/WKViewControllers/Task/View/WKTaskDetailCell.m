@@ -21,4 +21,9 @@
     // Configure the view for the selected state
 }
 
+- (void)setMTask:(MWTaskObj *)mTask{
+    self.mTitle.text = mTask.task_title;
+    self.mContent.text = mTask.task_step;
+}
+
 @end

@@ -61,6 +61,14 @@
 
 @interface WKUser : NSObject
 
+
+@property (nonatomic, strong) NSString *            password;
+@property (nonatomic, strong) NSString *            verifycode;
+@property (nonatomic, strong) NSString *            recommender_mobile;
+
+@property (nonatomic, strong) NSString *            token;
+@property (nonatomic, strong) NSString *            mobile;
+
 @property (nonatomic,assign) NSString *user_id;
 
 @property (nonatomic, strong) NSString *            open_id;                ///
@@ -69,7 +77,6 @@
 @property (nonatomic, strong) NSString *            app_v;                  ///
 @property (nonatomic, strong) NSString *            sys_v;                  ///
 @property (nonatomic, strong) NSString *            sys_t;                  ///
-@property (nonatomic, strong) NSString *            token;                  ///
 
 @property (nonatomic,strong) NSString *create_time;
 @property (nonatomic,strong) NSString *headimgurl;
@@ -78,8 +85,77 @@
 @property (nonatomic, strong) NSString *            school_id;                  ///
 @property (nonatomic, strong) NSString *            wxoid;                  ///
 
-@property (nonatomic, strong) NSString *            mobile;                  ///
-@property (nonatomic, strong) NSString *            password;                  ///
+///登录用户返回信息
+@property (nonatomic, strong) NSString *            ISP;                  ///
+@property (nonatomic, strong) NSString *            add_time;                  ///
+@property (nonatomic, strong) NSString *            appid;                  ///
+@property (nonatomic, strong) NSString *            appname;                  ///
+@property (nonatomic, strong) NSString *            badges;                  ///
+@property (nonatomic, strong) NSString *            certificates;                  ///
+@property (nonatomic, strong) NSString *            cityid;                  ///
+@property (nonatomic, strong) NSString *            consume;                  ///
+@property (nonatomic, strong) NSString *            credit_detail;                  ///
+@property (nonatomic, strong) NSString *            credits;                  ///
+@property (nonatomic, strong) NSString *            email;                  ///
+@property (nonatomic, strong) NSString *            final_login_time;                  ///
+
+@property (nonatomic, strong) NSString *            frozenCredit;                  ///
+@property (nonatomic, strong) NSString *            gid;                  ///
+@property (nonatomic, strong) NSString *            gold;                  ///
+@property (nonatomic, strong) NSString *            grade_credits;                  ///
+@property (nonatomic, strong) NSString *            gradeid;                  ///
+@property (nonatomic, strong) NSString *            groupexpiry;                  ///
+@property (nonatomic, strong) NSString *            guid;                  ///
+@property (nonatomic, strong) NSString *            hash;                  ///
+@property (nonatomic, strong) NSString *            identifier;                  ///
+@property (nonatomic, strong) NSString *            im_token;                  ///
+@property (nonatomic, strong) NSString *            inviteid;                  ///
+@property (nonatomic, strong) NSString *            ip;                  ///
+@property (nonatomic, strong) NSString *            isVerify;                  ///
+@property (nonatomic, strong) NSString *            is_bind_paypwd;                  ///
+@property (nonatomic, strong) NSString *            jobid;                  ///
+@property (nonatomic, strong) NSString *            jpush_id;                  ///
+@property (nonatomic, strong) NSString *            last_login_device;                  ///
+@property (nonatomic, strong) NSString *            last_login_device_type;                  ///
+@property (nonatomic, strong) NSString *            last_login_time;                  ///
+@property (nonatomic, strong) NSString *            last_login_udid;                  ///
+@property (nonatomic, strong) NSString *            member_id;                  ///
+@property (nonatomic, strong) NSString *            member_name;                  ///
+@property (nonatomic, strong) NSString *            myData;                  ///
+@property (nonatomic, strong) NSString *            nick_name;                  ///
+              ///
+///
+///
+@property (nonatomic, strong) NSString *            paypassword;                  ///
+@property (nonatomic, strong) NSString *            reg_device_token;                  ///
+@property (nonatomic, strong) NSString *            reg_udid;                  ///
+@property (nonatomic, strong) NSString *            rewards;                  ///
+@property (nonatomic, strong) NSString *            salt;                  ///
+@property (nonatomic, strong) NSString *            school_name;                  ///
+
+@property (nonatomic, strong) NSString *            schoolid;                  ///
+@property (nonatomic, strong) NSString *            signature;                  ///
+@property (nonatomic, strong) NSString *            status;                  ///
+@property (nonatomic, strong) NSString *            type;                  ///
+@property (nonatomic, strong) NSString *            type_name;                  ///
+@property (nonatomic, strong) NSString *            update_time;                  ///
+@property (nonatomic, strong) NSString *            user_img;                  ///
+@property (nonatomic, strong) NSString *            user_name;                  ///
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 +(void)saveUserInfo:(id)info;
 
@@ -159,6 +235,8 @@
 
 @end
 
+@class MWBaseObj;
+@class WKBanner;
 @interface WKHome  : NSObject
 ///0：首页banner，1：推荐，2：活动
 @property (nonatomic,assign) NSNumber *banner_type;
@@ -169,6 +247,17 @@
 ///跳转url
 @property (nonatomic,strong) NSString *banner_skip_content;
 
+@property (nonatomic,strong) NSString *add_person;
+@property (nonatomic,strong) NSString *add_time;
+@property (nonatomic,strong) NSString *banner_content;
+@property (nonatomic,strong) NSString *banner_skip_type;
+@property (nonatomic,strong) NSString *banner_status;
+@property (nonatomic,strong) NSString *isshow;
+@property (nonatomic,strong) NSString *sort;
+@property (nonatomic,strong) NSString *banner_id;
+
+
+
 
 /**
  获取首页数据
@@ -176,7 +265,14 @@
  @param para 参数
  @param block 返回信息
  */
-+ (void)WKGetHomeList:(NSDictionary *)para block:(void(^)(WKBaseInfo *info,NSArray *mArr))block;
++ (void)WKGetHomeList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mBannerArr,NSArray *mTuijianArr,NSArray *mActivityArr))block;
+
+@end
+@interface WKBanner  : NSObject
+///0:顶部banner。 1：推荐。2:活动。
+@property (nonatomic,assign) int type;
+
+@property (nonatomic,strong) NSArray *List;
 
 @end
 @class WKBaseInfo;
@@ -253,7 +349,7 @@
 @class MWSchoolInfo;
 @class MWDeviceCode;
 @class MWBookingObj;
-
+@class MWTaskObj;
 
 @interface MWBaseObj : NSObject
 
@@ -306,6 +402,30 @@
  @param block 返回值
  */
 + (void)MWLoginWithPhone:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+
+/**
+ 获取验证码
+
+ @param para 参数
+ @param block 返回值i
+ */
++ (void)MWGetMobileVeryfyCode:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+
+/**
+ 验证码登录
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWVeryfyCodeLogin:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+
+/**
+ 注册
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWRegist:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
 /**
  获取学校列表
 
@@ -372,6 +492,41 @@
  */
 + (void)MWWashToCode:(NSMutableDictionary *)para block:(void(^)(MWBaseObj *info,MWDeviceCode *mDeviceCode))block;
 
+
+#pragma mark----****----获取我的任务列表
+/**
+ 获取我的任务列表
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetTaskList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mBannerArr,NSArray *mList))block;
+#pragma mark----****----领取任务
+/**
+ 领取任务
+
+ @param para 参数
+ @param block 返回值
+ */
++(void)MWFetchTask:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+
+#pragma mark----****----获取活动列表
+/**
+ 获取活动列表
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWFetchActivityList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block;
+
+#pragma mark----****----获取发现首页数据
+/**
+ 获取发现首页数据
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetFindList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mBannerArr,NSArray *mList))block;
 @end
 
 
@@ -488,3 +643,54 @@
 ///
 @end
 
+
+@interface MWTaskObj : NSObject
+@property (nonatomic,strong) NSString *add_person;
+@property (nonatomic,strong) NSString *add_time;
+@property (nonatomic,strong) NSString *allowed_num;
+@property (nonatomic,strong) NSString *complete_time;
+@property (nonatomic,strong) NSString *experience;
+@property (nonatomic,strong) NSString *isshow;
+@property (nonatomic,strong) NSString *istop;
+@property (nonatomic,strong) NSString *reward_riches;
+@property (nonatomic,strong) NSString *reward_time;
+@property (nonatomic,strong) NSString *task_add_time;
+@property (nonatomic,strong) NSString *task_choose_num;
+@property (nonatomic,strong) NSString *task_complete_rate;
+@property (nonatomic,strong) NSString *task_describe;
+@property (nonatomic,strong) NSString *task_end_time;
+@property (nonatomic,strong) NSString *task_id;
+@property (nonatomic,strong) NSString *task_image;
+@property (nonatomic,strong) NSString *task_leave_num;
+@property (nonatomic,strong) NSString *task_notices;
+@property (nonatomic,strong) NSString *task_price;
+@property (nonatomic,strong) NSString *task_status;
+@property (nonatomic,strong) NSString *task_step;
+@property (nonatomic,strong) NSString *task_title;
+@property (nonatomic,strong) NSString *task_total_num;
+@property (nonatomic,strong) NSString *task_type;
+
+@end
+
+@interface MWDiscoveryObj : NSObject
+@property (nonatomic,strong) NSString *add_person;
+@property (nonatomic,strong) NSString *add_time;
+@property (nonatomic,strong) NSString *func_img;
+@property (nonatomic,strong) NSString *func_skip_content;
+@property (nonatomic,strong) NSString *func_title;
+@property (nonatomic,strong) NSString *func_type;
+@property (nonatomic,strong) NSString *id;
+@property (nonatomic,strong) NSString *sort;
+
+@end
+
+///买金币
+@interface MWBuyGold : NSObject
+///数量
+@property (nonatomic,strong) NSString *mNum;
+///价格
+@property (nonatomic,assign) int mPrice;
+///支付方式1:微信。2:支付宝。
+@property (nonatomic,assign) NSInteger mPayType;
+
+@end

@@ -22,9 +22,12 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reg_top_bg" translatesAutoresizingMaskIntoConstraints="NO" id="avn-FF-Mo5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCi-08-o32">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCi-08-o32">
                         <rect key="frame" x="139" y="65" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="V9S-DV-Nmx"/>
+                            <constraint firstAttribute="width" constant="42" id="gs2-hp-i9e"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -35,6 +38,8 @@
                     <constraint firstItem="avn-FF-Mo5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="Ldu-Ps-HGb"/>
                     <constraint firstAttribute="bottomMargin" secondItem="avn-FF-Mo5" secondAttribute="bottom" constant="-8.5" id="WEM-4b-z0l"/>
                     <constraint firstItem="avn-FF-Mo5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="dAd-i1-2C2"/>
+                    <constraint firstItem="uCi-08-o32" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="tYM-Oy-Cf6"/>
+                    <constraint firstItem="uCi-08-o32" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="tam-ai-ndQ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

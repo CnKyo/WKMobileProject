@@ -40,13 +40,13 @@
 @implementation WKHomeViewController{
 
     ///banner数据源
-    NSMutableArray *mBannerArr;
+    NSMutableArray *mTopBannerArr;
     NSMutableArray *mJHBannerArr;
 
     NSMutableArray *mFuncArr;
     
-    NSMutableArray *mTuijianArr;
-    NSMutableArray *mActivityArr;
+    NSMutableArray *mRecommend;
+    NSMutableArray *mActArr;
 
     ///列表分组viewinf
     WKHomeHeaderSectionView *mSectionView;
@@ -69,8 +69,8 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"首页";
         
-    mTuijianArr = [NSMutableArray new];
-    mActivityArr = [NSMutableArray new];
+    mRecommend = [NSMutableArray new];
+    mActArr = [NSMutableArray new];
     UIImage *image = [self.tabBarItem.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.tabBarItem.selectedImage = image;
     [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:0.96 green:0.43 blue:0.01 alpha:1]} forState:UIControlStateSelected];
@@ -95,7 +95,7 @@
 
 //    self.d_navBarAlpha = 0;
     
-    mBannerArr = [NSMutableArray new];
+    mTopBannerArr = [NSMutableArray new];
     mFuncArr = [NSMutableArray new];
     mJHBannerArr = [NSMutableArray new];
     self.mTableView.delegate = self;
@@ -124,7 +124,8 @@
 }
 - (void)getUserInfo{
 
-    if ([WKUser currentUser].user_id <= 0 ) {
+    if ([WKUser currentUser].member_id <= 0 ) {
+        MLLog(@"用户信息:%@",[WKUser currentUser]);
         [self gotoLogin];
 
     }else{
@@ -162,12 +163,12 @@
     [self presentModalViewController:vc];
 }
 - (void)tableViewHeaderReloadData{
-    [mBannerArr removeAllObjects];
+    [mTopBannerArr removeAllObjects];
     [mFuncArr removeAllObjects];
     [mJHBannerArr removeAllObjects];
-    [mActivityArr removeAllObjects];
+    [mActArr removeAllObjects];
 
-    [mTuijianArr removeAllObjects];
+    [mRecommend removeAllObjects];
     NSArray *mFArr = @[@"icon_xiyiji",@"icon_jinbi"];
     NSArray *mTArr = @[@"洗衣机",@"金币充值"];
 
@@ -178,24 +179,68 @@
         [mFuncArr addObject:mFC];
 
     }
+    [SVProgressHUD showWithStatus:@"正在加载..."];
+    [WKHome WKGetHomeList:@{} block:^(MWBaseObj *info, NSArray *mBannerArr, NSArray *mTuijianArr, NSArray *mActivityArr) {
+        [SVProgressHUD dismiss];
+        if (info.err_code == 0) {
+            [mTopBannerArr addObjectsFromArray:mBannerArr];
+            [mRecommend addObjectsFromArray:mTuijianArr];
+            [mActArr addObjectsFromArray:mActivityArr];
 
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+        [self.tableView headerEndRefreshing];
+        
+        [self.tableView reloadData];
+    }];
     
-//    NSMutableDictionary *mWechatP = [NSMutableDictionary new];
-//    [mWechatP setObject:kMobTrainDemandKey forKey:@"key"];
-//    [mWechatP setObject:@"2" forKey:@"cid"];
-//    [mWechatP setObject:@"1" forKey:@"page"];
-//    [mWechatP setObject:@"4" forKey:@"size"];
+//    NSMutableDictionary *bannerpara = [NSMutableDictionary new];
+//    [bannerpara setObject:kJUHEAPIKEY forKey:@"key"];
+//    [bannerpara setObject:@"guonei" forKey:@"type"];
+//    [SVProgressHUD showWithStatus:@"正在加载..."];
+//    [WKNews WKGetJuheNewsList:bannerpara block:^(WKJUHEObj *info, NSArray *mArr) {
 //
-//
-//    [WKWechatObj WKGetWechat:mWechatP block:^(WKBaseInfo *info, NSArray *mArr) {
-//
-//        if (info.status == kRetCodeSucess) {
+//        if (info.error_code == 0) {
 //            [SVProgressHUD dismiss];
-//            for (WKWechatObj *mWechat in mArr) {
-//                [mBannerArr addObject:mWechat.thumbnails];
-//
+//            for (int i = 0; i<mArr.count; i++) {
+//                WKNews *mNew = mArr[i];
+//            [mTopBannerArr addObject:mNew.thumbnail_pic_s];
+//                if (i==4) {
+//                    break;
+//                }
 //            }
+//            [mJHBannerArr addObjectsFromArray:mArr];
+////            [self.tableView headerEndRefreshing];
+////
+//            [self.tableView headerEndRefreshing];
 //
+//            [self.tableView reloadData];
+//
+//        }else{
+//            [SVProgressHUD showErrorWithStatus:info.reason];
+//            [SVProgressHUD dismiss];
+//
+//
+//        }
+//
+//    }];
+//
+//    NSMutableDictionary *mWechat = [NSMutableDictionary new];
+//    [mWechat setObject:kMobTrainDemandKey forKey:@"key"];
+//    [mWechat setObject:@"1" forKey:@"cid"];
+//    [mWechat setObject:@"1" forKey:@"page"];
+//    [mWechat setObject:@"4" forKey:@"size"];
+//
+//
+//    [WKWechatObj WKGetWechat:mWechat block:^(WKBaseInfo *info, NSArray *mArr) {
+//
+//        if (info.status == 0) {
+//            [SVProgressHUD dismiss];
+//
+//                [mRecommend addObjectsFromArray:mArr];
+//
+//            [self.tableView headerEndRefreshing];
 //
 //            [self.tableView reloadData];
 //
@@ -204,92 +249,35 @@
 //        }
 //
 //    }];
-    
-    NSMutableDictionary *bannerpara = [NSMutableDictionary new];
-    [bannerpara setObject:kJUHEAPIKEY forKey:@"key"];
-    [bannerpara setObject:@"guonei" forKey:@"type"];
-    [SVProgressHUD showWithStatus:@"正在加载..."];
-    [WKNews WKGetJuheNewsList:bannerpara block:^(WKJUHEObj *info, NSArray *mArr) {
-
-        if (info.error_code == 0) {
-            [SVProgressHUD dismiss];
-            for (int i = 0; i<mArr.count; i++) {
-                WKNews *mNew = mArr[i];
-            [mBannerArr addObject:mNew.thumbnail_pic_s];
-                if (i==4) {
-                    break;
-                }
-            }
-            [mJHBannerArr addObjectsFromArray:mArr];
+//
+//
+//    NSMutableDictionary *mJunshi = [NSMutableDictionary new];
+//    [mJunshi setObject:kJUHEAPIKEY forKey:@"key"];
+//    [mJunshi setObject:@"junshi" forKey:@"type"];
+//
+//    [WKNews WKGetJuheNewsList:mJunshi block:^(WKJUHEObj *info, NSArray *mArr) {
+//
+//        if (info.error_code == 0) {
+//            [SVProgressHUD dismiss];
+//            for (int i = 0; i<mArr.count; i++) {
+//                WKNews *mNew = mArr[i];
+//                [mActArr addObject:mNew];
+//                if (i==3) {
+//                    break;
+//                }
+//            }
 //            [self.tableView headerEndRefreshing];
 //
-            [self.tableView headerEndRefreshing];
+//            [self.tableView reloadData];
+//
+//        }else{
+//            [SVProgressHUD showErrorWithStatus:info.reason];
+//
+//            [SVProgressHUD dismiss];
+//        }
+//
+//    }];
 
-            [self.tableView reloadData];
-
-        }else{
-            [SVProgressHUD showErrorWithStatus:info.reason];
-            [SVProgressHUD dismiss];
-
-
-        }
-
-    }];
-    
-    NSMutableDictionary *mWechat = [NSMutableDictionary new];
-    [mWechat setObject:kMobTrainDemandKey forKey:@"key"];
-    [mWechat setObject:@"1" forKey:@"cid"];
-    [mWechat setObject:@"1" forKey:@"page"];
-    [mWechat setObject:@"4" forKey:@"size"];
-
-    
-    [WKWechatObj WKGetWechat:mWechat block:^(WKBaseInfo *info, NSArray *mArr) {
-
-        if (info.status == 0) {
-            [SVProgressHUD dismiss];
-  
-                [mTuijianArr addObjectsFromArray:mArr];
-   
-            [self.tableView headerEndRefreshing];
-
-            [self.tableView reloadData];
-            
-        }else{
-            [SVProgressHUD dismiss];
-        }
-        
-    }];
-    
-    
-    NSMutableDictionary *mJunshi = [NSMutableDictionary new];
-    [mJunshi setObject:kJUHEAPIKEY forKey:@"key"];
-    [mJunshi setObject:@"junshi" forKey:@"type"];
-    
-    [WKNews WKGetJuheNewsList:mJunshi block:^(WKJUHEObj *info, NSArray *mArr) {
-        
-        if (info.error_code == 0) {
-            [SVProgressHUD dismiss];
-            for (int i = 0; i<mArr.count; i++) {
-                WKNews *mNew = mArr[i];
-                [mActivityArr addObject:mNew];
-                if (i==3) {
-                    break;
-                }
-            }
-            [self.tableView headerEndRefreshing];
-            
-            [self.tableView reloadData];
-            
-        }else{
-            [SVProgressHUD showErrorWithStatus:info.reason];
-
-            [SVProgressHUD dismiss];
-        }
-        
-    }];
-    [self.tableView headerEndRefreshing];
-    
-    [self.tableView reloadData];
 }
 - (void)judgeString{
     
@@ -386,16 +374,25 @@
     if (section == 0) {
             return nil;
     }else if(section == 1){
-    
-        mSectionView = [WKHomeHeaderSectionView initView];
-        mSectionView.mTitle.text = @"- 推荐 -";
-        mSectionView.mTitle.textColor = [UIColor colorWithRed:0.28 green:0.8 blue:0.29 alpha:1];
-        return mSectionView;
+        if (mRecommend.count<=0) {
+            return nil;
+        }else{
+            mSectionView = [WKHomeHeaderSectionView initView];
+            mSectionView.mTitle.text = @"- 推荐 -";
+            mSectionView.mTitle.textColor = [UIColor colorWithRed:0.28 green:0.8 blue:0.29 alpha:1];
+            return mSectionView;
+        }
+        
     }else{
-        mSectionView = [WKHomeHeaderSectionView initView];
-        mSectionView.mTitle.text = @"- 活动 -";
-        mSectionView.mTitle.textColor = [UIColor colorWithRed:0.97 green:0.47 blue:0.11 alpha:1];
-        return mSectionView;
+        if (mActArr.count<=0) {
+            return nil;
+        }else{
+            mSectionView = [WKHomeHeaderSectionView initView];
+            mSectionView.mTitle.text = @"- 活动 -";
+            mSectionView.mTitle.textColor = [UIColor colorWithRed:0.97 green:0.47 blue:0.11 alpha:1];
+            return mSectionView;
+        }
+
     }
         
 }
@@ -404,9 +401,10 @@
     if (section == 0) {
         return 1;
     }else if(section == 1){
-        return mTuijianArr.count/2;
+        return mRecommend.count%2==0?mRecommend.count/2:mRecommend.count/2+1;
+        
     }else{
-        return mActivityArr.count;
+        return mActArr.count;
     }
     
 }
@@ -432,7 +430,7 @@
     if (indexPath.section == 0) {
         reuseCellId = @"normalCell";
         
-        WKHomeTypeHeaderCell  *cell = [[WKHomeTypeHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellId andBannerDataSource:mBannerArr andDataSource:mFuncArr andScrollerLabelTx:[NSString stringWithFormat:@"%@            ",@"重庆电信iphone8首发，0元购手机，流量不限量"]];
+        WKHomeTypeHeaderCell  *cell = [[WKHomeTypeHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellId andBannerDataSource:mTopBannerArr andDataSource:mFuncArr andScrollerLabelTx:[NSString stringWithFormat:@"%@            ",@"重庆电信iphone8首发，0元购手机，流量不限量"]];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -447,17 +445,20 @@
         
         cell.delegate = self;
         
-        WKWechatObj *mN1 = mTuijianArr[indexPath.row*2];
-        WKWechatObj *mN2;
-        if ((indexPath.row+1)*2>mTuijianArr.count) {
+        WKHome *mN1 = mRecommend[indexPath.row*2];
+        WKHome *mN2;
+        if ((indexPath.row+1)*2>mRecommend.count) {
             cell.mrightImg.hidden = YES;
+            cell.mIndex = indexPath.row*2;
+
         }else{
-            mN2 = mTuijianArr[indexPath.row*2+1];
+            mN2 = mRecommend[indexPath.row*2+1];
             cell.mrightImg.hidden = NO;
+            cell.mRIndex = indexPath.row*2+1;
 
         }
-        [cell.mLeftImg sd_setImageWithURL:[NSURL URLWithString:mN1.thumbnails] placeholderImage:nil];
-        [cell.mrightImg sd_setImageWithURL:[NSURL URLWithString:mN2.thumbnails] placeholderImage:nil];
+        [cell.mLeftImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mN1.banner_img]] placeholderImage:nil];
+        [cell.mrightImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mN2.banner_img]] placeholderImage:nil];
         
         
         return cell;
@@ -466,9 +467,9 @@
         reuseCellId = @"activityCell";
         
         WKHomeActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
-        WKNews *mN = mActivityArr[indexPath.row];
+        WKHome *mN = mActArr[indexPath.row];
 
-        [cell.mImg sd_setImageWithURL:[NSURL URLWithString:mN.thumbnail_pic_s] placeholderImage:nil];
+        [cell.mImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mN.banner_img]] placeholderImage:nil];
         return cell;
 
     }
@@ -481,13 +482,37 @@
         MLLog(@"%ld行",indexPath.row);
         
 
-        WKNews *mN = mActivityArr[indexPath.row];
+        WKHome *mN = mActArr[indexPath.row];
+        if (mN.banner_skip_content.length>0 || mN.banner_skip_content !=nil) {
+            WKWebViewController *vc = [WKWebViewController new];
+            vc.mURLString = mN.banner_skip_content;
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+       
+    }
+    
+}
+///左边按钮的代理方法
+- (void)WKHomeDecomandedCellDelegateWithLeftBtnClicked:(NSInteger)mIndex{
+    WKHome *mN = mRecommend[mIndex];
+    if (mN.banner_skip_content.length>0 || mN.banner_skip_content !=nil) {
         WKWebViewController *vc = [WKWebViewController new];
-        vc.mURLString = mN.url;
+        vc.mURLString = mN.banner_skip_content;
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
-    
+}
+////右边按钮的代理方法
+- (void)WKHomeDecomandedCellDelegateWithRightBtnClicked:(NSInteger)mIndex{
+    WKHome *mN = mRecommend[mIndex];
+    if (mN.banner_skip_content.length>0 || mN.banner_skip_content !=nil) {
+        WKWebViewController *vc = [WKWebViewController new];
+        vc.mURLString = mN.banner_skip_content;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+
 }
 #pragma mark----****----跑马灯+语音播放
 /**
@@ -547,11 +572,15 @@
 //
 //    }];
 
-    WKNews *mNew = mJHBannerArr[mIndex];
-    WKWebViewController *vc = [WKWebViewController new];
-    vc.mURLString = mNew.url;
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+    WKHome *mNew = mTopBannerArr[mIndex];
+    if (mNew.banner_skip_content.length>0 || mNew.banner_skip_content !=nil) {
+        WKWebViewController *vc = [WKWebViewController new];
+        vc.mURLString = mNew.banner_skip_content;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+
+
 }
 
 

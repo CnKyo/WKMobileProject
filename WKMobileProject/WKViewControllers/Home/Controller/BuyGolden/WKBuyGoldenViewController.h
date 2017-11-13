@@ -9,5 +9,5 @@
 #import "WKBaseViewController.h"
 
 @interface WKBuyGoldenViewController : WKBaseViewController
-
+@property (strong,nonatomic) MWBuyGold *mGoldObj;
 @end

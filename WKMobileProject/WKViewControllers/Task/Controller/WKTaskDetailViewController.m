@@ -41,6 +41,49 @@
     [self addTableViewHeaderRefreshing];
 }
 - (void)tableViewHeaderReloadData{
+    
+    [SVProgressHUD showWithStatus:@"正在加载..."];
+    
+    NSMutableDictionary *para = [NSMutableDictionary new];
+    if (_mType == WKTaskDetail) {
+        [self.tableArr removeAllObjects];
+        [para setObject:_mTask.task_id forKey:@"task_id"];
+
+        WKUser *mU = [WKUser currentUser];
+        MLLog(@"用户信息:%@",mU);
+        
+        [MWBaseObj MWGetTaskList:para block:^(MWBaseObj *info, NSArray *mBannerArr,NSArray *mList) {
+            if (info.err_code == 0) {
+                [SVProgressHUD dismiss];
+                [self.tableArr addObjectsFromArray:mList];
+                [self.tableView reloadData];
+                
+            }else{
+                [SVProgressHUD showErrorWithStatus:info.err_msg];
+            }
+            
+        }];
+    }else{
+    //    mT = @"活动详情";
+        [self.tableArr removeAllObjects];
+        [para setObject:_mAct.banner_id forKey:@"banner_id"];
+        
+        WKUser *mU = [WKUser currentUser];
+        MLLog(@"用户信息:%@",mU);
+        
+        [MWBaseObj MWFetchActivityList:para block:^(MWBaseObj *info, NSArray *mArr) {
+            if (info.err_code == 0) {
+                [SVProgressHUD dismiss];
+                [self.tableArr addObjectsFromArray:mArr];
+                [self.tableView reloadData];
+                
+            }else{
+                [SVProgressHUD showErrorWithStatus:info.err_msg];
+            }
+            
+        }];
+        
+    }
 
 }
 
@@ -86,7 +129,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (_mType == WKTaskDetail) {
-        return 4;
+        return self.tableArr.count;
     }else{
         if (section == 0) {
             return 0;
@@ -99,24 +142,43 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (_mType == WKTaskDetail) {
         WKTaskSectionHeaderView *mHeaderView = [WKTaskSectionHeaderView initView];
-        
+        mHeaderView.mTaskName.text = _mTask.task_title;
+        mHeaderView.mPrice.text = [NSString stringWithFormat:@"¥%@/次",_mTask.task_price];
+        mHeaderView.mResidue.text = [NSString stringWithFormat:@"剩余%@次",_mTask.task_leave_num];
+        mHeaderView.mTaskTime.text = [NSString stringWithFormat:@"任务截止日期：%@",_mTask.task_end_time];
         return mHeaderView;
     }else{
         if (section == 0) {
-            _mScrollerView = [[RKImageBrowser alloc] initWithFrame:CGRectMake(0, 0, screen_width, 150)];
-            _mScrollerView.backgroundColor = [UIColor whiteColor];
-            [_mScrollerView setBrowserWithImagesArray:@[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493210044049&di=ac402c2ce8259c98e5e4ea1b7aac4cac&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F209%2Fd%2F97.jpg",@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1493199772&di=66346cd79eed9c8cb4ec03c3734d0b31&src=http://img15.3lian.com/2015/f2/128/d/123.jpg",@"http://wmtp.net/wp-content/uploads/2017/04/0420_sweet945_1.jpeg",@"http://wmtp.net/wp-content/uploads/2017/04/0407_shouhui_1.jpeg"]];
-            __weak __typeof(self)weakSelf = self;
+            NSMutableArray *mImgs = [NSMutableArray new];
+            if (self.tableArr.count<=0) {
+                return nil;
+            }else{
+                for (int i =0; i<self.tableArr.count; i++) {
+                    WKHome *mBa = self.tableArr[i];
+                    [mImgs addObject:[Util currentSourceImgUrl:mBa.banner_img]];
+                }
+                _mScrollerView = [[RKImageBrowser alloc] initWithFrame:CGRectMake(0, 0, screen_width, 150)];
+                _mScrollerView.backgroundColor = [UIColor whiteColor];
+                [_mScrollerView setBrowserWithImagesArray:mImgs];
+                __weak __typeof(self)weakSelf = self;
+                
+                _mScrollerView.didselectRowBlock = ^(NSInteger clickRow) {
+                    MLLog(@"333点击了图片%ld", clickRow);
+                    
+                };
+                
+                return _mScrollerView;
+            }
             
-            _mScrollerView.didselectRowBlock = ^(NSInteger clickRow) {
-                MLLog(@"333点击了图片%ld", clickRow);
-   
-            };
-            
-            return _mScrollerView;
         }else{
             WKTaskSectionHeaderView *mHeaderView = [WKTaskSectionHeaderView initActivityView];
             
+            if (self.tableArr.count == 1) {
+                WKHome *mObj = self.tableArr[0];
+                mHeaderView.mTaskName.text = mObj.banner_title;
+                mHeaderView.mTaskTime.text = [NSString stringWithFormat:@"发布时间：%@",mObj.add_time];
+
+            }
             return mHeaderView;
         }
         
@@ -151,13 +213,25 @@
         return 0;
     }
 }
+#pragma mark----****----领取任务
 - (void)mFetchTaskAction:(UIButton *)sender{
 
     MLLog(@"领取任务");
-    [WKProgressView WKShowView:self.view andStatus:WKProgressSucess WithTitle:@"成功" andContent:@"这是什么？" andBtnTitle:@"重新加载" andImgSRC:@"icon_paysucess" andBlock:^(WKProgressView *progressView, NSInteger btnIndex) {
-        MLLog(@"%ld",btnIndex);
-        
+    [SVProgressHUD showWithStatus:@"正在领取..."];
+    [MWBaseObj MWFetchTask:@{@"task_id":_mTask.task_id,@"member_id":[WKUser currentUser].member_id} block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            [self performSelector:@selector(popViewController) withObject:nil afterDelay:0.5];
+            
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
     }];
+    
+//    [WKProgressView WKShowView:self.view andStatus:WKProgressSucess WithTitle:@"成功" andContent:@"这是什么？" andBtnTitle:@"重新加载" andImgSRC:@"icon_paysucess" andBlock:^(WKProgressView *progressView, NSInteger btnIndex) {
+//        MLLog(@"%ld",btnIndex);
+//
+//    }];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -181,6 +255,7 @@
     if (_mType == WKTaskDetail) {
         cell.backgroundColor = [UIColor whiteColor];
         cell.mLine.hidden = YES;
+        [cell setMTask:_mTask];
         
     }else{
         cell.backgroundColor = [UIColor colorWithRed:0.952941176470588 green:0.968627450980392 blue:0.992156862745098 alpha:1.00];

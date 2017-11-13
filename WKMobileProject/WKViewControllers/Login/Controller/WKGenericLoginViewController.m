@@ -148,26 +148,73 @@
     switch (mTag) {
         case 1:
         {
-        if (mUserInfo.password.length<=0 || mUserInfo.mobile.length<=0) {
-            [SVProgressHUD showErrorWithStatus:@"请输入手机号和密码！"];
-            return;
+        if (self.mLoginType == WKVerifyCode) {
+            if (mUserInfo.mobile.length<=0 || mUserInfo.password.length<=0) {
+                [SVProgressHUD showErrorWithStatus:@"请输入手机号和验证码！"];
+                return;
+            }else{
+                [SVProgressHUD showWithStatus:@"正在登录..."];
+
+                [MWBaseObj MWVeryfyCodeLogin:@{@"mobile":mUserInfo.mobile,@"password":mUserInfo.verifycode} block:^(MWBaseObj *info) {
+                    if (info.err_code == 0) {
+                        [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
+                        [self dismissViewControllerAnimated:YES completion:^{
+                            self.mBlock(1);
+
+                            [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
+                            
+                        }];
+                    }else{
+                        [SVProgressHUD showErrorWithStatus:info.err_msg];
+                    }
+                }];
+            }
+        }else if (self.mLoginType == WKRegist){
+            if (mUserInfo.password.length<=0 || mUserInfo.user_name.length<=0 || mUserInfo.verifycode.length <= 0) {
+                [SVProgressHUD showErrorWithStatus:@"请完善注册信息！"];
+                return;
+            }else{
+                [SVProgressHUD showWithStatus:@"正在注册..."];
+
+                [MWBaseObj MWRegist:@{@"mobile":mUserInfo.mobile,@"password":mUserInfo.password,@"verifycode":mUserInfo.verifycode,@"school_name":mUserInfo.school_name} block:^(MWBaseObj *info) {
+                    if (info.err_code == 0) {
+                        [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
+                        [self dismissViewControllerAnimated:YES completion:^{
+                            self.mBlock(1);
+                            //            if ([Util WKGetDBTime].length<=0 || [[Util WKGetDBTime] isEqualToString:@""]) {
+                            //                [Util WKSaveDBTime];
+                            //            }
+                            [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
+                            
+                        }];
+                    }else{
+                        [SVProgressHUD showErrorWithStatus:info.err_msg];
+                    }
+                }];
+            }
         }else{
-            
-            [MWBaseObj MWLoginWithPhone:@{@"mobile":mUserInfo.mobile,@"password":mUserInfo.password} block:^(MWBaseObj *info) {
-                if (info.err_code == 0) {
-                    [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
-                    [self dismissViewControllerAnimated:YES completion:^{
-                        self.mBlock(1);
-                        //            if ([Util WKGetDBTime].length<=0 || [[Util WKGetDBTime] isEqualToString:@""]) {
-                        //                [Util WKSaveDBTime];
-                        //            }
-                        [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
-                        
-                    }];
-                }else{
-                    [SVProgressHUD showErrorWithStatus:info.err_msg];
-                }
-            }];
+            if (mUserInfo.password.length<=0 || mUserInfo.mobile.length<=0) {
+                [SVProgressHUD showErrorWithStatus:@"请输入手机号和密码！"];
+                return;
+            }else{
+                [SVProgressHUD showWithStatus:@"正在登录..."];
+
+                [MWBaseObj MWLoginWithPhone:@{@"mobile":mUserInfo.mobile,@"password":mUserInfo.password} block:^(MWBaseObj *info) {
+                    if (info.err_code == 0) {
+                        [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
+                        [self dismissViewControllerAnimated:YES completion:^{
+                            self.mBlock(1);
+                            //            if ([Util WKGetDBTime].length<=0 || [[Util WKGetDBTime] isEqualToString:@""]) {
+                            //                [Util WKSaveDBTime];
+                            //            }
+                            [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
+                            
+                        }];
+                    }else{
+                        [SVProgressHUD showErrorWithStatus:info.err_msg];
+                    }
+                }];
+            }
         }
         
         
@@ -183,11 +230,29 @@
         {
         self.mLoginType = WKVerifyCode;
         [self.tableView reloadData];
+
         }
             break;
         case 4:
         {
-        
+        if (mUserInfo.mobile.length<=0) {
+            [SVProgressHUD showErrorWithStatus:@"请输入手机号码！"];
+            return;
+        }
+        [SVProgressHUD showWithStatus:@"正在获取发送验证码..."];
+        int mType;
+        if (self.mLoginType == WKRegist) {
+            mType = 0;
+        }else{
+            mType = 1;
+        }
+        [MWBaseObj MWGetMobileVeryfyCode:@{@"mobile":mUserInfo.mobile,@"type":NumberWithInt(mType)} block:^(MWBaseObj *info) {
+            if (info.err_code == 0) {
+                [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            }else{
+                [SVProgressHUD showErrorWithStatus:info.err_msg];
+            }
+        }];
         }
             break;
         case 5:
@@ -224,11 +289,13 @@
     switch (mTag) {
         case 1:
         {
+        mUserInfo.user_name = mText;
+
         }
             break;
         case 6:
         {
-        
+        mUserInfo.verifycode = mText;
         }
             break;
         case 20:
@@ -245,7 +312,7 @@
             break;
         case 50:
         {
-        
+        mUserInfo.school_name = mText;
         }
             break;
             

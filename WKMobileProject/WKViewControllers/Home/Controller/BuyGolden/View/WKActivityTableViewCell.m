@@ -21,4 +21,9 @@
     // Configure the view for the selected state
 }
 
+- (void)setMActObj:(WKHome *)mActObj{
+    [self.mImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mActObj.banner_img]] placeholderImage:nil];
+    self.mName.text = mActObj.banner_title;
+}
+
 @end

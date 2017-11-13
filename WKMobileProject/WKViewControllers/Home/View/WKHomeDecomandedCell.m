@@ -43,7 +43,7 @@
 }
 - (IBAction)mRightAction:(id)sender {
     if ([self.delegate respondsToSelector:@selector(WKHomeDecomandedCellDelegateWithRightBtnClicked:)]) {
-        [self.delegate WKHomeDecomandedCellDelegateWithRightBtnClicked:self.mIndex];
+        [self.delegate WKHomeDecomandedCellDelegateWithRightBtnClicked:self.mRIndex];
     }
     
 }

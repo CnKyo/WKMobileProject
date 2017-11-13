@@ -22,7 +22,7 @@
 {
     
     ///banner数据源
-    NSMutableArray *mBannerArr;
+    NSMutableArray *mBannerList;
     WKWashPayResultView *mSucessView;
 
 }
@@ -31,7 +31,7 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"任务赚财富";
 
-    mBannerArr = [NSMutableArray new];
+    mBannerList = [NSMutableArray new];
 
     [self addTableView];
     
@@ -41,22 +41,22 @@
     [self addTableViewHeaderRefreshing];
     [self addTableViewFootererRefreshing];
     
-    [self.tableView removeFromSuperview];
+//    [self.tableView removeFromSuperview];
     
-//    FSCustomButton *mLeftBtn = [[FSCustomButton alloc] initWithFrame:CGRectMake(0, 220, 120, 40)];
-//    mLeftBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-//    [mLeftBtn setTitle:@"我的任务" forState:UIControlStateNormal];
-//    [mLeftBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    [mLeftBtn setImage:[UIImage imageNamed:@"task_money"] forState:UIControlStateNormal];
-//    mLeftBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -50, 0, 0);
-//    mLeftBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -60, 0, 0);
-//    [mLeftBtn addTarget:self action:@selector(myTaskOrder) forControlEvents:UIControlEventTouchUpInside];
-//    UIBarButtonItem *mLeftItem = [[UIBarButtonItem alloc]initWithCustomView:mLeftBtn];
-//    self.navigationItem.leftBarButtonItem = mLeftItem;
-//
-//    [self addRightBtn:YES andTitel:nil andImage:[UIImage imageNamed:@"service"]];
-//    [self setRightBtnImage:@"service"];
-    [self initSucessView];
+    FSCustomButton *mLeftBtn = [[FSCustomButton alloc] initWithFrame:CGRectMake(0, 220, 120, 40)];
+    mLeftBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    [mLeftBtn setTitle:@"我的任务" forState:UIControlStateNormal];
+    [mLeftBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [mLeftBtn setImage:[UIImage imageNamed:@"task_money"] forState:UIControlStateNormal];
+    mLeftBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -50, 0, 0);
+    mLeftBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -60, 0, 0);
+    [mLeftBtn addTarget:self action:@selector(myTaskOrder) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *mLeftItem = [[UIBarButtonItem alloc]initWithCustomView:mLeftBtn];
+    self.navigationItem.leftBarButtonItem = mLeftItem;
+
+    [self addRightBtn:YES andTitel:nil andImage:[UIImage imageNamed:@"service"]];
+    [self setRightBtnImage:@"service"];
+//    [self initSucessView];
 
 }
 #pragma mark----****----初始化支付成功和失败view
@@ -80,27 +80,66 @@
 
 }
 - (void)tableViewHeaderReloadData{
-    [mBannerArr removeAllObjects];
-    NSArray *mArr = @[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493210044049&di=ac402c2ce8259c98e5e4ea1b7aac4cac&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2F2014%2Ff4%2F209%2Fd%2F97.jpg",@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1493199772&di=66346cd79eed9c8cb4ec03c3734d0b31&src=http://img15.3lian.com/2015/f2/128/d/123.jpg",@"http://wmtp.net/wp-content/uploads/2017/04/0420_sweet945_1.jpeg",@"http://wmtp.net/wp-content/uploads/2017/04/0407_shouhui_1.jpeg"];
-    [mBannerArr addObjectsFromArray:mArr];
     
-    [self.tableView reloadData];
+    self.mPage = 0;
+    [self.tableArr removeAllObjects];
+    [mBannerList removeAllObjects];
     
+    [SVProgressHUD showWithStatus:@"正在加载..."];
     NSMutableDictionary *para = [NSMutableDictionary new];
-    [para setObject:kMobTrainDemandKey forKey:@"key"];
-    [para setObject:@"K688" forKey:@"trainno"];
+    if ([WKUser currentUser].token.length>0) {
+        [para setObject:[WKUser currentUser].token forKey:@"token"];
+    }else{
+        [para setObject:NumberWithInt(self.mPage) forKey:@"page"];
+        [para setObject:NumberWithInt(0) forKey:@"task_id"];
+    }
+
     
-    [self showWithLoading:@"loading..."];
-    [WKBaseInfo WKFindTrainNumber:para block:^(WKBaseInfo *info, NSArray *list) {
-        if (info.status == kRetCodeSucess) {
-            [self showSucess:info.msg];
+    WKUser *mU = [WKUser currentUser];
+    MLLog(@"用户信息:%@",mU);
+    
+    [MWBaseObj MWGetTaskList:para block:^(MWBaseObj *info, NSArray *mBannerArr,NSArray *mList) {
+        if (info.err_code == 0) {
+            [SVProgressHUD dismiss];
+            [mBannerList addObjectsFromArray:mBannerArr];
+            [self.tableArr addObjectsFromArray:mList];
+            [self.tableView reloadData];
+
         }else{
-            [self showError:info.msg];
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
         }
+        
     }];
 }
 - (void)tableViewFooterReloadData{
+    self.mPage+=10;
+    [mBannerList removeAllObjects];
+
+    [SVProgressHUD showWithStatus:@"正在加载..."];
+    NSMutableDictionary *para = [NSMutableDictionary new];
+    if ([WKUser currentUser].token.length>0) {
+        [para setObject:[WKUser currentUser].token forKey:@"token"];
+    }else{
+        [para setObject:NumberWithInt(self.mPage) forKey:@"page"];
+        [para setObject:NumberWithInt(0) forKey:@"task_id"];
+    }
     
+    
+    WKUser *mU = [WKUser currentUser];
+    MLLog(@"用户信息:%@",mU);
+    
+    [MWBaseObj MWGetTaskList:para block:^(MWBaseObj *info, NSArray *mBannerArr,NSArray *mList) {
+        if (info.err_code == 0) {
+            [SVProgressHUD dismiss];
+            [mBannerList addObjectsFromArray:mBannerArr];
+            [self.tableArr addObjectsFromArray:mList];
+            [self.tableView reloadData];
+            
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -137,7 +176,7 @@
     if (section == 0) {
         return 1;
     }else {
-        return 4;
+        return self.tableArr.count;
     }
     
 }
@@ -165,12 +204,12 @@
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        
+        [cell setMTask:self.tableArr[indexPath.row]];
         return cell;
     }else{
         static NSString *cellID = @"cellID";
        
-        WKTaskHeaderCell *cell = [[WKTaskHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID data:mBannerArr];
+        WKTaskHeaderCell *cell = [[WKTaskHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID data:mBannerList];
         cell.delegate = self;
         return cell;
         
@@ -184,6 +223,7 @@
         MLLog(@"%ld行",indexPath.row);
         WKTaskDetailViewController *vc = [WKTaskDetailViewController new];
         vc.mType = WKTaskDetail;
+        vc.mTask = self.tableArr[indexPath.row];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
 
@@ -192,6 +232,13 @@
 }
 - (void)WKTaskHeaderCellBannerClicked:(NSInteger)mIndex{
     MLLog(@"选择了:%ld",mIndex);
+    WKHome *mNew = mBannerList[mIndex];
+    if (mNew.banner_skip_content.length>0 || mNew.banner_skip_content !=nil) {
+        WKWebViewController *vc = [WKWebViewController new];
+        vc.mURLString = mNew.banner_skip_content;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 
 }
 

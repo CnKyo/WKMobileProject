@@ -284,23 +284,49 @@ static WKUser *g_user = nil;
  @param para 参数
  @param block 返回信息
  */
-+ (void)WKGetHomeList:(NSDictionary *)para block:(void(^)(WKBaseInfo *info,NSArray *mArr))block{
-    
++ (void)WKGetHomeList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mBannerArr,NSArray *mTuijianArr,NSArray *mActivityArr))block{
+
     MLLog(@"参数是：%@",para);
     
-    [[WKHttpRequest shareClient] WKGetDataWithUrl:@"/index/index.php" withPara:para block:^(WKBaseInfo *info) {
-        if (info.status
-            == kRetCodeSucess) {
+    [[WKHttpRequest shareClient] MWPostWithUrl:@"controller/index/index.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
             
+            NSMutableArray *mBARR = [NSMutableArray new];
+            NSMutableArray *mTARR = [NSMutableArray new];
+            NSMutableArray *mAARR = [NSMutableArray new];
+
+            if ([info.data isKindOfClass:[NSDictionary class]]) {
+                if ([[info.data objectForKey:@"banner"] isKindOfClass:[NSArray class]]) {
+                    for (NSDictionary *dic in [info.data objectForKey:@"banner"]) {
+                        [mBARR addObject:[WKHome yy_modelWithDictionary:dic]];
+                    }
+                }
+                if ([[info.data objectForKey:@"recommend"] isKindOfClass:[NSArray class]]) {
+                    for (NSDictionary *dic in [info.data objectForKey:@"recommend"]) {
+                        [mTARR addObject:[WKHome yy_modelWithDictionary:dic]];
+                    }
+                }
+                if ([[info.data objectForKey:@"activity"] isKindOfClass:[NSArray class]]) {
+                    for (NSDictionary *dic in [info.data objectForKey:@"activity"]) {
+                        [mAARR addObject:[WKHome yy_modelWithDictionary:dic]];
+                    }
+                }
             
-            block(info,nil);
+                
+            }
+            
+            block(info,mBARR,mTARR,mAARR);
         }else{
-            block(info,nil);
+            block(info,nil,nil,nil);
         }
     }];
     
 }
 @end
+
+@implementation WKBanner  : NSObject
+@end
+
 @implementation WKNews  : NSObject
 
 /**
@@ -452,11 +478,69 @@ static WKUser *g_user = nil;
     MLLog(@"参数是：%@",para);
     [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/login/login.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
+            if ([info.data isKindOfClass:[NSDictionary class]]) {
+
+                [WKUser saveUserInfo:info.data];
+
+                [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
+                block(info);
+            }else{
+                block(info);
+            }
+        }else{
+            block(info);
+        }
+    }];
+}
+/**
+ 获取验证码
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetMobileVeryfyCode:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/code/login_code.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
             block(info);
         }else{
             block(info);
         }
     }];
+    
+}
+/**
+ 验证码登录
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWVeryfyCodeLogin:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/login/code_login.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+}
+/**
+ 注册
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWRegist:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/login/register.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+    
 }
 /**
  获取学校列表
@@ -624,6 +708,111 @@ static WKUser *g_user = nil;
 //    }];
 
 }
+
+#pragma mark----****----获取我的任务列表
+/**
+ 获取我的任务列表
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetTaskList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mBannerArr,NSArray *mList))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/task_member/index.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            NSMutableArray *mBannerA = [NSMutableArray new];
+            NSMutableArray *mArr = [NSMutableArray new];
+            if ([info.data isKindOfClass:[NSDictionary class]]) {
+                for (NSDictionary *dic in [info.data objectForKey:@"banner_list"]) {
+                    [mBannerA addObject:[WKHome yy_modelWithDictionary:dic]];
+                }
+                if ([[info.data objectForKey:@"task_list"] isKindOfClass:[NSArray class]]) {
+                    for (NSDictionary *mdic in [info.data objectForKey:@"task_list"]) {
+                        [mArr addObject:[MWTaskObj yy_modelWithDictionary:mdic]];
+                    }
+                }else if([[info.data objectForKey:@"task_list"] isKindOfClass:[NSDictionary class]]){
+                    [mArr addObject:[MWTaskObj yy_modelWithDictionary:[info.data objectForKey:@"task_list"]]];
+                }
+           
+            }
+            
+            block(info,mBannerA,mArr);
+        }else{
+            block(info,nil,nil);
+        }
+    }];
+}
+/**
+ 领取任务
+ 
+ @param para 参数
+ @param block 返回值
+ */
++(void)MWFetchTask:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    MLLog(@"参数是：%@",para);                           
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/take_member/add_task.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+}
+#pragma mark----****----获取活动列表
+/**
+ 获取活动列表
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWFetchActivityList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/activity/index.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            NSMutableArray *mList = [NSMutableArray new];
+            if ([info.data isKindOfClass:[NSArray class]]) {
+                for (NSDictionary *dic in info.data) {
+                    [mList addObject:[WKHome yy_modelWithDictionary:dic]];
+                }
+            }
+            block(info,mList);
+        }else{
+            block(info,nil);
+        }
+    }];
+}
+#pragma mark----****----获取发现首页数据
+/**
+ 获取发现首页数据
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetFindList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mBannerArr,NSArray *mList))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/func/index.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            NSMutableArray *mBArr = [NSMutableArray new];
+            NSMutableArray *mLArr = [NSMutableArray new];
+            if ([info.data isKindOfClass:[NSDictionary class]]) {
+                if ([[info.data objectForKey:@"banner_list"] isKindOfClass:[NSArray class]]) {
+                    for (NSDictionary *dic in [info.data objectForKey:@"banner_list"]) {
+                        [mBArr addObject:[WKHome yy_modelWithDictionary:dic]];
+                    }
+                }
+                if ([[info.data objectForKey:@"func_list"] isKindOfClass:[NSArray class]]) {
+                    for (NSDictionary *dic in [info.data objectForKey:@"func_list"]) {
+                        [mLArr addObject:[MWDiscoveryObj yy_modelWithDictionary:dic]];
+                    }
+                }
+               
+            }
+            block(info,mBArr,mLArr);
+        }else{
+            block(info,nil,nil);
+        }
+    }];
+}
 @end
 
 @implementation MWDeviceInfo
@@ -665,6 +854,18 @@ static WKUser *g_user = nil;
 @end
 
 @implementation MWBaiDuWeatherObj
+
+@end
+
+
+@implementation MWTaskObj
+
+@end
+@implementation MWDiscoveryObj
+
+@end
+
+@implementation MWBuyGold
 
 @end
 

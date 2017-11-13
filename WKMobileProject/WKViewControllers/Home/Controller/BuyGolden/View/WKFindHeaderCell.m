@@ -65,8 +65,8 @@
             
             
             for (int i = 0;i<mBannerDataSource.count;i++) {
-                WKNews *mNew = mBannerDataSource[i];
-                [mImgUrl addObject:mNew.thumbnail_pic_s];
+                WKHome *mNew = mBannerDataSource[i];
+                [mImgUrl addObject:[Util currentSourceImgUrl:mNew.banner_img]];
                 if (i==4) {
                     break;
                 }

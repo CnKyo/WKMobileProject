@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WKHeader.h"
 @interface WKTaskTableViewCell : UITableViewCell
 
 /**
@@ -29,5 +29,7 @@
  次数
  */
 @property (weak, nonatomic) IBOutlet UILabel *mTimes;
+
+@property (strong,nonatomic) MWTaskObj *mTask;
 
 @end

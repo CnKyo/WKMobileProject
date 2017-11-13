@@ -18,7 +18,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
@@ -26,15 +26,15 @@
     [super layoutSubviews];
     _mTypeArr = [NSMutableArray new];
     
-//    [self.mGoPayBtn setButtonRoundedCornersWithView:self.contentView.superview andCorners:UIRectCornerAllCorners radius:3.0];
-//    [self.mFriendPayBtn setButtonRoundedCornersWithView:self.contentView.superview andCorners:UIRectCornerAllCorners radius:3.0];
+    //    [self.mGoPayBtn setButtonRoundedCornersWithView:self.contentView.superview andCorners:UIRectCornerAllCorners radius:3.0];
+    //    [self.mFriendPayBtn setButtonRoundedCornersWithView:self.contentView.superview andCorners:UIRectCornerAllCorners radius:3.0];
     
     self.mGoPayBtn.layer.cornerRadius = 3.0;
     self.mFriendPayBtn.layer.cornerRadius = 3.0;
 }
 - (IBAction)mSelectedPayType:(UIButton *)sender {
     [_mTypeArr removeAllObjects];
-
+    
     switch (sender.tag) {
         case 1:
         {
@@ -49,7 +49,7 @@
             sender.selected = NO;
             [_mTypeArr removeAllObjects];
         }
-
+        
         }
             break;
         case 2:
@@ -64,7 +64,7 @@
             sender.selected = NO;
             [_mTypeArr removeAllObjects];
         }
-
+        
         }
             break;
         default:
@@ -82,7 +82,7 @@
     if ([self.delegate respondsToSelector:@selector(WKPayVIPTopupCellDelegeteWithPayType:)]) {
         [self.delegate WKPayVIPTopupCellDelegeteWithPayType:mtype];
     }
-
+    
 }
 
 - (IBAction)mGoPay:(UIButton *)sender {

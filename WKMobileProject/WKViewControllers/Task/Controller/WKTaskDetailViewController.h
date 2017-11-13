@@ -18,4 +18,8 @@
 
 @property (nonatomic,strong) RKImageBrowser  *mScrollerView;
 
+@property (strong,nonatomic) MWTaskObj *mTask;
+
+@property (strong,nonatomic) WKHome *mAct;
+
 @end

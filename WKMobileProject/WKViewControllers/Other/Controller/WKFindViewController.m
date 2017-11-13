@@ -33,7 +33,7 @@
     
     UILabel *mHeaderMessage;
     
-    NSMutableArray *mBannerArr;
+    NSMutableArray *mBannerList;
     
 }
 //通过一个方法来找到这个黑线(findHairlineImageViewUnder):
@@ -62,9 +62,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"发现";
-    
+    [self updateAddress];
+
     self.tableArr = [NSMutableArray new];
-    mBannerArr = [NSMutableArray new];
+    mBannerList = [NSMutableArray new];
     self.view.backgroundColor = M_CO;
     self.navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
     
@@ -130,101 +131,21 @@
     
 }
 - (void)tableViewHeaderReloadData{
+    [mBannerList removeAllObjects];
+    [self.tableArr removeAllObjects];
+    [SVProgressHUD showWithStatus:@"加载中..."];
     
-    [self updateAddress];
-    
-    [SVProgressHUD showWithStatus:@"正在加载..."];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        MLLog(@"=== 执行A ===");
-        [self.tableArr removeAllObjects];
-
-        NSMutableDictionary *para = [NSMutableDictionary new];
-        [para setObject:kJUHEAPIKEY forKey:@"key"];
-        [para setObject:@"keji" forKey:@"type"];
-        
-        [WKNews WKGetJuheNewsList:para block:^(WKJUHEObj *info, NSArray *mArr) {
-            
-            if (info.error_code == 0) {
-                [SVProgressHUD dismiss];
-                [self.tableArr addObjectsFromArray:mArr];
-                [self.tableView reloadData];
-
-            }else{
-                [SVProgressHUD showErrorWithStatus:info.reason];
-                [SVProgressHUD dismiss];
-                
-            }
-            
-        }];
-    });
-    dispatch_async(dispatch_get_main_queue(), ^{
-        MLLog(@"=== 执行B ===");
- 
-    });
-    dispatch_async(dispatch_get_main_queue(), ^{
-        MLLog(@"=== 执行C ===");
-        [mBannerArr removeAllObjects];
-
-        NSMutableDictionary *bannerpara = [NSMutableDictionary new];
-        [bannerpara setObject:kJUHEAPIKEY forKey:@"key"];
-        [bannerpara setObject:@"shehui" forKey:@"type"];
-        
-
-        [WKNews WKGetJuheNewsList:bannerpara block:^(WKJUHEObj *info, NSArray *mArr) {
-            
-            if (info.error_code == 0) {
-                [SVProgressHUD dismiss];
-                [mBannerArr addObjectsFromArray:mArr];
-                [self.tableView reloadData];
-
-            }else{
-                [SVProgressHUD showErrorWithStatus:info.reason];
-                [SVProgressHUD dismiss];
-                
-            }
-            
-        }];
-    });
-    dispatch_group_t group = dispatch_group_create();
-    
-    // 这里执行三次
-    dispatch_queue_t aaa = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_group_enter(group);
-    dispatch_async(aaa,^{
-        
-        dispatch_group_leave(group);
-        NSLog(@"=== 任务 1 完成 ===");
-
-        
-    });
-    dispatch_queue_t bbb = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_group_enter(group);
-    dispatch_async(bbb,^{
-        
-        dispatch_group_leave(group);
-        NSLog(@"=== 任务 2 完成 ===");
-
-        
-    });
-    
-    dispatch_queue_t ccc = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_group_enter(group);
-    dispatch_async(ccc,^{
-        
-        dispatch_group_leave(group);
-        NSLog(@"=== 任务 3 完成 ===");
-
-    });
-    // 三次结束
-    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-        NSLog(@"=== 任务 M 完成 ===");
+    [MWBaseObj MWGetFindList:@{} block:^(MWBaseObj *info, NSArray *mBannerArr, NSArray *mList) {
+        if (info.err_code == 0) {
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            [mBannerList addObjectsFromArray:mBannerArr];
+            [self.tableArr addObjectsFromArray:mList];
+            [self.tableView reloadData];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
         [self.tableView headerEndRefreshing];
-        [SVProgressHUD dismiss];
-
-        
-    });
-    
-    
+    }];
     
     
     
@@ -307,7 +228,7 @@
         reuseCellId = @"cell2";
         
         
-        WKFindHeaderCell *cell = [[WKFindHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellId andBannerDataSource:mBannerArr andDataSource:self.tableArr];
+        WKFindHeaderCell *cell = [[WKFindHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellId andBannerDataSource:mBannerList andDataSource:self.tableArr];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.delegate = self;
         return cell;
@@ -329,11 +250,16 @@
     if (indexPath.section == 1) {
         MLLog(@"%ld行",indexPath.row);
         
-        WKNews *mNew = self.tableArr[indexPath.row];
-        WKWebViewController *vc = [WKWebViewController new];
-        vc.mURLString = mNew.url;
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
+        MWDiscoveryObj *mNew = self.tableArr[indexPath.row];
+        if ([Util isUrl:mNew.func_skip_content]) {
+            WKWebViewController *vc = [WKWebViewController new];
+
+            vc.mURLString = mNew.func_skip_content;
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+
     }
     
 }
@@ -346,21 +272,14 @@
  */
 - (void)WKFindHeaderCellDelegateWithBannerClicked:(NSInteger)mIndex{
     MLLog(@"%ld",mIndex);
-    //    NSMutableArray *mImgUrl = [NSMutableArray new];
-    //    for (int i = 0;i<mBannerArr.count;i++) {
-    //        WKNews *mNew = mBannerArr[i];
-    //        [mImgUrl addObject:mNew];
-    //        if (i==4) {
-    //            break;
-    //        }
-    //
-    //    }
     
-    WKNews *mNew = mBannerArr[mIndex];
-    WKWebViewController *vc = [WKWebViewController new];
-    vc.mURLString = mNew.url;
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+    WKHome *mNew = mBannerList[mIndex];
+    if ([Util isUrl:mNew.banner_skip_content]) {
+        WKWebViewController *vc = [WKWebViewController new];
+        vc.mURLString = mNew.banner_skip_content;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     
 }
 

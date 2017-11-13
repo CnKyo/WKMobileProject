@@ -46,6 +46,7 @@
     [self.tableView headerBeginRefreshing];
 }
 - (void)tableViewHeaderReloadData{
+    
     [self.tableView headerEndRefreshing];
 
 }

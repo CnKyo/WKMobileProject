@@ -25,7 +25,7 @@ static float mDuration = 0.25;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"确认订单";
-    
+    self.mGoldObj = [MWBuyGold new];
     [self addTableView];
     UINib   *nib = [UINib nibWithNibName:@"WKBuyGoldCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
@@ -82,6 +82,15 @@ static float mDuration = 0.25;
     WKBuyGoldCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    if (self.mGoldObj.mNum.length<=0 || [self.mGoldObj.mNum isEqualToString:@""]) {
+        self.mGoldObj.mNum = @"0";
+    }
+    
+    NSDictionary* style1 = @{@"color": [UIColor colorWithRed:0.97 green:0.58 blue:0.27 alpha:1]};
+    cell.mPayPrice.attributedText = [[NSString stringWithFormat:@"应支付金额：<color>¥%@元</color>",self.mGoldObj.mNum] attributedStringWithStyleBook:style1];
+    
+    cell.mExplain.text = @"金币使用说明：/n1：付款前务必和好友再次确认，避免是欺诈行为。/n2:如果发生退款，钱将退还到您的微信账号。";
+    
     cell.delegate = self;
     
     return cell;
@@ -94,6 +103,7 @@ static float mDuration = 0.25;
  */
 - (void)WKBuyGoldCellDelegateWithPayType:(NSInteger)mType{
     MLLog(@"选择了：%ld",mType);
+    self.mGoldObj.mPayType = mType;
 }
 /**
  选择直接支付还是微信好友支付
@@ -111,7 +121,9 @@ static float mDuration = 0.25;
  */
 - (void)WKBuyGoldCellDelegateCurrentTextField:(NSString *)mText{
     MLLog(@"输入了：%@",mText);
-
+ 
+    self.mGoldObj.mNum = mText;
+    [self.tableView reloadData];
 }
 #pragma mark----****----初始化支付成功和失败view
 - (void)initSucessView{

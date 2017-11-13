@@ -33,6 +33,7 @@
 
 @property (assign,nonatomic) NSInteger mIndex;
 
+@property (assign,nonatomic) NSInteger mRIndex;
 
 
 ///设置代理

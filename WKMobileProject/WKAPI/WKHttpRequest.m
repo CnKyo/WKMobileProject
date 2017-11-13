@@ -34,6 +34,8 @@
         MWBaseObj *info = [MWBaseObj yy_modelWithJSON:responseObject];
         block(info);
     } failureBlock:^(NSError *error) {
+        
+        MLLog(@"错了：%@",error.description);
         MWBaseObj *info = [MWBaseObj infoWithError:error];
         info.err_code = 1;
         
