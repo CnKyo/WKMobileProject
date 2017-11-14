@@ -16,23 +16,52 @@
 {
     WKSegmentControl *mSegmentView;
     
+    
+    NSInteger mType;
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"金币";
-    
+    self.navigationItem.title = @"金币记录";
+    mType = 0;
     [self addTableView];
     UINib   *nib = [UINib nibWithNibName:@"WKMyGoldenCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
     [self addTableViewHeaderRefreshing];
     [self addTableViewFootererRefreshing];
+    
+    mSegmentView = [WKSegmentControl initWithSegmentControlFrame:CGRectMake(0, 0, DEVICE_Width, 50) andTitleWithBtn:@[@"全部",@"待付款",@"已完成"] andBackgroudColor:[UIColor whiteColor] andBtnSelectedColor:[UIColor whiteColor] andBtnTitleColor:[UIColor blackColor] andUndeLineColor: [UIColor whiteColor] andBtnTitleFont:[UIFont systemFontOfSize:15] andInterval:5 delegate:self andIsHiddenLine:YES andType:4];
 }
 - (void)tableViewHeaderReloadData{
     MLLog(@"刷头");
+    self.mPage = 0;
+    [self.tableArr removeAllObjects];
+    [MWBaseObj MWGetGoldHistoryList:@{@"member_id":[WKUser currentUser].member_id,@"income_expenditure":[NSString stringWithFormat:@"%ld",mType],@"page":NumberWithInt(self.mPage)} block:^(MWBaseObj *info, NSArray *mList) {
+        if (info.err_code == 0) {
+            
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            [self.tableArr addObjectsFromArray:mList];
+            [self.tableView reloadData];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+    }];
+    
 }
 - (void)tableViewFooterReloadData{
     MLLog(@"刷尾");
+    self.mPage += 10;
+    [MWBaseObj MWGetGoldHistoryList:@{@"member_id":[WKUser currentUser].member_id,@"income_expenditure":[NSString stringWithFormat:@"%ld",mType],@"page":NumberWithInt(self.mPage)} block:^(MWBaseObj *info, NSArray *mList) {
+        if (info.err_code == 0) {
+            
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            [self.tableArr addObjectsFromArray:mList];
+            [self.tableView reloadData];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,6 +81,10 @@
 #pragma mark----****---- 分段选择控件
 ///选择了哪一个？
 - (void)WKDidSelectedIndex:(NSInteger)mIndex{
+    mType = mIndex;
+    if (mIndex == 2) {
+        mType = -1;
+    }
     [self tableViewHeaderReloadData];
 }
 
@@ -65,21 +98,13 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    UIView *mSection = [UIView new];
-    
-    mSegmentView = [WKSegmentControl initWithSegmentControlFrame:CGRectMake(0, 0, DEVICE_Width, 50) andTitleWithBtn:@[@"全部",@"待付款",@"已完成"] andBackgroudColor:[UIColor whiteColor] andBtnSelectedColor:[UIColor whiteColor] andBtnTitleColor:[UIColor blackColor] andUndeLineColor: [UIColor whiteColor] andBtnTitleFont:[UIFont systemFontOfSize:15] andInterval:5 delegate:self andIsHiddenLine:YES andType:4];
-    [mSection addSubview:mSegmentView];
-    
-    UIView *mLineView = [UIView new];
-    mLineView.backgroundColor = [UIColor colorWithRed:0.956862745098039 green:0.972549019607843 blue:0.996078431372549 alpha:1.00];
-    mLineView.frame = CGRectMake(0, 50, DEVICE_Width, 10);
-    [mSection addSubview:mLineView];
-    return mSection;
+
+    return mSegmentView;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UIButton *mBtn = [UIButton new];
     mBtn.backgroundColor = [UIColor colorWithRed:0.972549019607843 green:0.584313725490196 blue:0.270588235294118 alpha:1.00];
-    [mBtn setTitle:@"一共1000个金币" forState:0];
+    [mBtn setTitle:[NSString stringWithFormat:@"一共%@个金币",[WKUser currentUser].gold] forState:0];
     return mBtn;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -91,7 +116,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.tableArr.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -109,7 +134,7 @@
     
     WKMyGoldenCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+    [cell setMGold:self.tableArr[indexPath.row]];
     return cell;
     
 }

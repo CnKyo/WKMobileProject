@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WKHeader.h"
 
 @interface MyWashDetailCell : UITableViewCell
 ///洗衣类型
@@ -19,5 +20,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *mWashTime;
 ///原因
 @property (weak, nonatomic) IBOutlet UILabel *mReason;
+@property (strong,nonatomic) MWWashOrderObj *mWashObj;
 
 @end

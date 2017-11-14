@@ -878,14 +878,8 @@ static WKUser *g_user = nil;
  */
 + (void)MWUserSign:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
     MLLog(@"参数是：%@",para);
-    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/member/member_message.php" withPara:para block:^(MWBaseObj *info) {
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/member/member_report.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
-            NSMutableArray *mLArr = [NSMutableArray new];
-            if ([info.data isKindOfClass:[NSArray class]]) {
-                for (NSDictionary *dic in info.data) {
-                    [mLArr addObject:[MWGameObj yy_modelWithDictionary:dic]];
-                }
-            }
             
             block(info);
         }else{
@@ -899,20 +893,213 @@ static WKUser *g_user = nil;
  @param para 参数
  @param block 返回值
  */
-+ (void)MWReFreshUserInfo:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
++ (void)MWReFreshUserInfo:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mActArr,BOOL mSign))block{
     MLLog(@"参数是：%@",para);
     [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/member/personal.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
+            NSMutableArray *mTempArr = [NSMutableArray new];
+            BOOL mS = false;
             if ([info.data isKindOfClass:[NSDictionary class]]) {
+                if ([[info.data objectForKey:@"member_list"] isKindOfClass:[NSDictionary class]]) {
+                    [WKUser saveUserInfo:[info.data objectForKey:@"member_list"]];
+                }
+                if ([info.data objectForKey:@"banner_list"] != nil) {
+                    if ([[info.data objectForKey:@"banner_list"] isKindOfClass:[NSArray class]]) {
+                        for (NSDictionary *dic in [info.data objectForKey:@"banner_list"]) {
+                            [mTempArr addObject:[WKHome yy_modelWithDictionary:dic]];
+                        }
+                    }
+                }
                 
-                [WKUser saveUserInfo:info.data];
-                
-                block(info);
+                if ([[info.data objectForKey:@"typeid"] isKindOfClass:[NSNumber class]]) {
+                    int mNumber = [[info.data objectForKey:@"typeid"] intValue];
+                    if (mNumber == 0) {
+                        mS = NO;
+                    }else{
+                        mS = YES;
+
+                    }
+                }
+               
+                block(info,mTempArr,mS);
             }else{
-                block(info);
+                block(info,mTempArr,NO);
             }
         }else{
+            block(info,nil,NO);
+        }
+    }];
+}
+/**
+ 帮助中心和联系我们
+ 
+ @param para 参数
+ @param mtype 类型
+ @param block 返回值
+ */
++ (void)MWGetHelpCenter:(NSDictionary *)para andType:(int)mtype block:(void(^)(MWBaseObj *info,NSArray *mArr,NSArray *mList))block{
+
+    MLLog(@"参数是：%@",para);
+    
+    NSString *mUrl = nil;
+    
+    if (mtype == 2) {
+        mUrl = @"controller/help/help_list.php";
+    }else{
+        mUrl = @"controller/contact/contact_us.php";
+    }
+    
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:mUrl withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            NSMutableArray *mTempArr = [NSMutableArray new];
+            if (mtype == 1) {
+                if ([info.data isKindOfClass:[NSDictionary class]]) {
+            
+                        if ([[info.data objectForKey:@"contact_us_list"] isKindOfClass:[NSArray class]]) {
+                            for (NSDictionary *dic in [info.data objectForKey:@"contact_us_list"]) {
+                                [mTempArr addObject:[MWConntactUsObj yy_modelWithDictionary:dic]];
+                            }
+                        }
+
+                    block(info,nil,mTempArr);
+                }else{
+                    block(info,nil,mTempArr);
+                }
+            }else{
+                if ([info.data isKindOfClass:[NSDictionary class]]) {
+                    
+                    if ([[info.data objectForKey:@"h_list"] isKindOfClass:[NSDictionary class]]) {
+                        [mTempArr addObject:[MWHelpCenterObj yy_modelWithDictionary:[info.data objectForKey:@"h_list"]]];
+                        
+                    }
+                    
+                    block(info,nil,mTempArr);
+                }else{
+                    block(info,nil,mTempArr);
+                }
+            }
+        }else{
+            block(info,nil,nil);
+        }
+    }];
+}
+#pragma mark----****----获取加入我们
+/**
+ 获取加入我们
+ 
+ @param block 返回值
+ */
++ (void)MWGetJoinUs:(void(^)(MWBaseObj *info,NSArray *mArr))block{
+ 
+    
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/join/join_list.php" withPara:@{} block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            NSMutableArray *mTempArr = [NSMutableArray new];
+            if ([info.data isKindOfClass:[NSDictionary class]]) {
+                
+                [mTempArr addObject:[MWJoinUsObj yy_modelWithDictionary:info.data]];
+                
+                block(info,mTempArr);
+            }else{
+                block(info,mTempArr);
+            }
+        }else{
+            block(info,nil);
+        }
+    }];
+}
+#pragma mark----****----申请加入我们
+/**
+ 申请加入我们
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWApplyJoinUs:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    MLLog(@"参数是：%@",para);
+    
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/join/join_order.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+    
             block(info);
+
+        }else{
+            block(info);
+        }
+    }];
+}
+#pragma mark----****----获取金币列表
+/**
+ 获取金币列表
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetGoldHistoryList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block{
+    MLLog(@"参数是：%@",para);
+    
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/gold/index.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            NSMutableArray *mTempArr = [NSMutableArray new];
+            if ([info.data isKindOfClass:[NSArray class]]) {
+                for (NSDictionary *dic in info.data) {
+                    [mTempArr addObject:[MWGoldListObj yy_modelWithDictionary:dic]];
+                }
+            }
+            block(info,mTempArr);
+            
+        }else{
+            block(info,nil);
+        }
+    }];
+}
+#pragma mark----****----获取洗衣机订单列表
+/**
+ 获取洗衣机订单列表
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetMyWashOrderList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block{
+    MLLog(@"参数是：%@",para);
+    
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/member/member_wash_order.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            NSMutableArray *mTempArr = [NSMutableArray new];
+            if ([info.data isKindOfClass:[NSArray class]]) {
+                for (NSDictionary *dic in info.data) {
+                    [mTempArr addObject:[MWWashOrderObj yy_modelWithDictionary:dic]];
+                }
+            }
+            block(info,mTempArr);
+            
+        }else{
+            block(info,nil);
+        }
+    }];
+}
+#pragma mark----****---- 获取我的任务订单列表
+/**
+ 获取我的任务订单列表
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGETMyTaskOrderList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block{
+    MLLog(@"参数是：%@",para);
+    
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/take_member/task_record.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            NSMutableArray *mTempArr = [NSMutableArray new];
+            if ([info.data isKindOfClass:[NSArray class]]) {
+                for (NSDictionary *dic in info.data) {
+                    [mTempArr addObject:[MWWashOrderObj yy_modelWithDictionary:dic]];
+                }
+            }
+            block(info,mTempArr);
+            
+        }else{
+            block(info,nil);
         }
     }];
 }
@@ -1007,5 +1194,22 @@ static WKUser *g_user = nil;
 @end
 
 @implementation MWMessageObj
+
+@end
+
+@implementation MWJoinUsObj
+
+@end
+@implementation MWConntactUsObj
+
+@end
+@implementation MWHelpCenterObj
+
+@end
+@implementation MWGoldListObj
+
+@end
+
+@implementation MWWashOrderObj
 
 @end

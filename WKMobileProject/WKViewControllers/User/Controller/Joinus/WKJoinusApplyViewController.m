@@ -24,12 +24,17 @@
     NSMutableArray *mSexArr;
     
     WKJoinProgressView *mView;
+    
+    MWJoinUsObj *mJoinUs;
+    
+    NSInteger mSex;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"加入我们";
-    
+    mSex = 0;
+    mJoinUs = [MWJoinUsObj new];
     mSexArr = [NSMutableArray new];
     [self.mCommitBtn setButtonRoundedCornersWithView:self.view andCorners:UIRectCornerAllCorners radius:3.0];
     
@@ -87,6 +92,8 @@
     }else{
         mtype = 0;
     }
+    mSex = mtype;
+
 }
 
 /*
@@ -100,21 +107,55 @@
 */
 
 - (IBAction)mcommitAction:(id)sender {
-    [self showSucessView];
+    
+    [SVProgressHUD showWithStatus:@"正在提交中..."];
+    if (self.mNameTx.text.length==0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入您的姓名！"];
+        return;
+    }
+    if (self.mPhoneTx.text.length==0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入您的联系方式！"];
+        return;
+    }
+    if (![Util isMobileNumber:self.mPhoneTx.text]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码！"];
+        return;
+    }
+    if (self.mBuildingNumTx.text.length==0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入您的楼栋编号！"];
+        return;
+    }
+    if (mSex==0) {
+        [SVProgressHUD showErrorWithStatus:@"请选择您的性别！"];
+        return;
+    }
+    [MWBaseObj MWApplyJoinUs:@{@"member_id":[WKUser currentUser].member_id,@"user_name":self.mNameTx.text,@"mobile":self.mPhoneTx.text,@"building_num":self.mBuildingNumTx.text,@"sex":[NSString stringWithFormat:@"%ld",(long)mSex],@"join_list_id":_mJoinObj.join_id} block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            [self showSucessView];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+        [SVProgressHUD dismiss];
+    }];
 }
 
 #pragma mark----****----提交成功view
 - (void)initSucessView{
     mView = [WKJoinProgressView initView];
-//    mView.frame = CGRectMake(0, 0, DEVICE_Width, DEVICE_Height);
+//    mView.frame = CGRectMake(0, DEVICE_Height, DEVICE_Width, DEVICE_Height);
+    mView.alpha = 0;
     [mView.mBackBtn addTarget:self action:@selector(mReturnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:mView];
+    
     [mView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.bottom.equalTo(self.view).offset(0);
     }];
 }
 - (void)showSucessView{
     [UIView animateWithDuration:0.25 animations:^{
+        mView.alpha = 1;
+
         CGRect mF = mView.frame;
         mF.origin.y = 64;
         mView.frame = mF;
@@ -123,6 +164,7 @@
 }
 - (void)hiddenSucessView{
     [UIView animateWithDuration:0.25 animations:^{
+        mView.alpha = 1;
         CGRect mF = mView.frame;
         mF.origin.y = DEVICE_Height;
         mView.frame = mF;

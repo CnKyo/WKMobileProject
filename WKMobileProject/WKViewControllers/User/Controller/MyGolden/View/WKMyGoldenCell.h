@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WKHeader.h"
 @interface WKMyGoldenCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *mName;
 @property (weak, nonatomic) IBOutlet UILabel *mNum;
 @property (weak, nonatomic) IBOutlet UILabel *mTime;
+
+@property (strong, nonatomic) MWGoldListObj *mGold;
 
 @end

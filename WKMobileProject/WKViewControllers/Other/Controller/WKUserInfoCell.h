@@ -47,4 +47,6 @@
 @property (strong,nonatomic) NSString *mPressValue;
 
 @property (strong,nonatomic) WKUser *mUserInfo;
+
+@property (assign,nonatomic) BOOL mSign;
 @end

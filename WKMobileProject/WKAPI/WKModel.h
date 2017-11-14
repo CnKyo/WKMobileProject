@@ -558,7 +558,55 @@
  @param para 参数
  @param block 返回值
  */
-+ (void)MWReFreshUserInfo:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
++ (void)MWReFreshUserInfo:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mActArr,BOOL mSign))block;
+#pragma mark----****----帮助中心和联系我们
+/**
+ 帮助中心和联系我们
+
+ @param para 参数
+ @param mtype 类型
+ @param block 返回值
+ */
++ (void)MWGetHelpCenter:(NSDictionary *)para andType:(int)mtype block:(void(^)(MWBaseObj *info,NSArray *mArr,NSArray *mList))block;
+#pragma mark----****----获取加入我们
+/**
+ 获取加入我们
+
+ @param block 返回值
+ */
++ (void)MWGetJoinUs:(void(^)(MWBaseObj *info,NSArray *mArr))block;
+#pragma mark----****----申请加入我们
+/**
+ 申请加入我们
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWApplyJoinUs:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+#pragma mark----****----获取金币列表
+/**
+ 获取金币列表
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetGoldHistoryList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block;
+#pragma mark----****----获取洗衣机订单列表
+/**
+ 获取洗衣机订单列表
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetMyWashOrderList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block;
+#pragma mark----****---- 获取我的任务订单列表
+/**
+ 获取我的任务订单列表
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGETMyTaskOrderList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block;
 @end
 
 
@@ -769,5 +817,81 @@
 @property (nonatomic,strong) NSString *title;
 @property (nonatomic,strong) NSString *typeid;
 
+
+@end
+@interface MWJoinUsObj : NSObject
+@property (nonatomic,strong) NSString *add_time;
+@property (nonatomic,strong) NSString *content;
+@property (nonatomic,strong) NSString *join_id;
+@property (nonatomic,strong) NSString *join_img;
+@property (nonatomic,strong) NSString *join_mode;
+@property (nonatomic,strong) NSString *join_status;
+@property (nonatomic,strong) NSString *requirement;
+@property (nonatomic,strong) NSString *task_or_active;
+@property (nonatomic,strong) NSString *title;
+
+///加入我们表单数据
+@property (nonatomic,strong) NSString *mName;
+@property (nonatomic,strong) NSString *mPhone;
+@property (nonatomic,strong) NSString *mAddress;
+@property (nonatomic,strong) NSString *mSex;
+
+
+@end
+@interface MWConntactUsObj : NSObject
+@property (nonatomic,strong) NSString *add_time;
+@property (nonatomic,strong) NSString *admin_id;
+@property (nonatomic,strong) NSString *contact_us_id;
+@property (nonatomic,strong) NSString *tel;
+@property (nonatomic,strong) NSString *us_title;
+
+
+@end
+
+@interface MWHelpCenterObj : NSObject
+@property (nonatomic,strong) NSString *add_person;
+@property (nonatomic,strong) NSString *help_id;
+@property (nonatomic,strong) NSString *help_logo;
+@property (nonatomic,strong) NSString *help_number;
+@property (nonatomic,strong) NSString *help_title;
+@property (nonatomic,strong) NSString *help_type;
+
+
+@end
+
+@interface MWGoldListObj : NSObject
+@property (nonatomic,strong) NSString *add_time;
+@property (nonatomic,strong) NSString *content;
+@property (nonatomic,strong) NSString *income_expenditure;
+@property (nonatomic,strong) NSString *member_id;
+@property (nonatomic,strong) NSString *message_id;
+@property (nonatomic,strong) NSString *money;
+@property (nonatomic,strong) NSString *read_time;
+@property (nonatomic,strong) NSString *riches_arrive_status;
+@property (nonatomic,strong) NSString *stauts;
+@property (nonatomic,strong) NSString *title;
+@property (nonatomic,strong) NSString *typeid;
+
+
+@end
+
+@interface MWWashOrderObj : NSObject
+@property (nonatomic,strong) NSString *add_time;
+@property (nonatomic,strong) NSString *device_id;
+@property (nonatomic,strong) NSString *location_name;
+@property (nonatomic,strong) NSString *member_id;
+@property (nonatomic,strong) NSString *order_id;
+@property (nonatomic,strong) NSString *order_no;
+@property (nonatomic,strong) NSString *order_pay_type;
+@property (nonatomic,strong) NSString *order_price;
+@property (nonatomic,strong) NSString *order_type;
+@property (nonatomic,strong) NSString *pay_status;
+@property (nonatomic,strong) NSString *pay_time;
+@property (nonatomic,strong) NSString *school_id;
+@property (nonatomic,strong) NSString *wash_feature;
+@property (nonatomic,strong) NSString *wash_feature_name;
+@property (nonatomic,strong) NSString *wash_id;
+@property (nonatomic,strong) NSString *wash_remark;
+@property (nonatomic,strong) NSString *wash_time;
 
 @end

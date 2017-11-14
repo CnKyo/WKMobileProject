@@ -9,5 +9,5 @@
 #import "WKBaseViewController.h"
 
 @interface WKJoinusApplyViewController : WKBaseViewController
-
+@property (strong,nonatomic) MWJoinUsObj *mJoinObj;
 @end

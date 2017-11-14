@@ -9,5 +9,6 @@
 #import "WKBaseViewController.h"
 
 @interface WKMyWashDetailViewController : WKBaseViewController
-
+@property (strong,nonatomic) MWWashOrderObj *mWash;
+@property (assign,nonatomic) NSInteger mType;
 @end

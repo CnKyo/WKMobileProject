@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WKHeader.h"
 @interface WKConnectCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *mImg;
@@ -19,5 +19,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *mConnectBtn;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mWcontraints;
+
+
+@property (strong, nonatomic)  MWConntactUsObj *mConnectObj;
+@property (strong, nonatomic)  MWHelpCenterObj *mHelpObj;
 
 @end

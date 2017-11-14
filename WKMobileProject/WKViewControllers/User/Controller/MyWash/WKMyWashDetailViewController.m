@@ -26,6 +26,19 @@
 }
 - (void)tableViewHeaderReloadData{
     MLLog(@"刷头");
+    [SVProgressHUD showWithStatus:@"正在加载中..."];
+    [self.tableArr removeAllObjects];
+    
+    [MWBaseObj MWGetMyWashOrderList:@{@"member_id":[WKUser currentUser].member_id,@"page":NumberWithInt(0),@"order_type":[NSString stringWithFormat:@"%ld",_mType],@"order_id":_mWash.order_id} block:^(MWBaseObj *info, NSArray *mList) {
+        if (info.err_code == 0) {
+            
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            [self.tableArr addObjectsFromArray:mList];
+            [self.tableView reloadData];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,7 +83,7 @@
     
     MyWashDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+    [cell setMWashObj:_mWash];
     return cell;
     
 }

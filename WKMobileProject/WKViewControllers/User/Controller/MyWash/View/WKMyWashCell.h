@@ -25,5 +25,8 @@
 @property (strong,nonatomic) NSIndexPath *mIndexPath;
 
 @property (weak,nonatomic) id<WKMyWashCellDelegate>delegate;
+@property (strong,nonatomic) MWWashOrderObj *mWashObj;
+
+
 
 @end

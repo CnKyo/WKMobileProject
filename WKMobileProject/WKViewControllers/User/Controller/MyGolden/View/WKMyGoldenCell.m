@@ -21,4 +21,9 @@
     // Configure the view for the selected state
 }
 
+- (void)setMGold:(MWGoldListObj *)mGold{
+    self.mNum.text = [NSString stringWithFormat:@"+%@",mGold.money];
+    self.mName.text = mGold.title;
+    self.mTime.text = mGold.content;
+}
 @end

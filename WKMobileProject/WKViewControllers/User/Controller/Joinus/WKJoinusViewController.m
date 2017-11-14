@@ -27,9 +27,28 @@
     [self addTableView];
     UINib   *nib = [UINib nibWithNibName:@"WKJoinusCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
+    
+    [self addTableViewHeaderRefreshing];
+
 
 }
-
+- (void)tableViewHeaderReloadData{
+    MLLog(@"刷头");
+    
+    [self.tableArr removeAllObjects];
+    [MWBaseObj MWGetJoinUs:^(MWBaseObj *info, NSArray *mArr) {
+        if (info.err_code == 0) {
+            [self.tableArr addObjectsFromArray:mArr];
+            [self.tableView reloadData];
+            
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+        
+        
+    }];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -75,6 +94,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     mHeaderView = [WKJoinusHeaderFooterSectionView initHeaderView];
+    
     return mHeaderView;
     
     
@@ -107,6 +127,9 @@
 - (void)joinAction{
     MLLog(@"加入我们");
     WKJoinusApplyViewController *vc = [[WKJoinusApplyViewController alloc] initWithNibName:@"WKJoinusApplyViewController" bundle:nil];
+    if (self.tableArr.count>0) {
+        vc.mJoinObj = self.tableArr[0];
+    }
     [self pushViewController:vc];
 }
 @end

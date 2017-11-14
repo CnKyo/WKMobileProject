@@ -35,6 +35,8 @@
 
     NSArray *mFuncArr;
     NSArray *mIamgeArr;
+    
+    BOOL isSign;
 
 }
 //通过一个方法来找到这个黑线(findHairlineImageViewUnder):
@@ -106,21 +108,13 @@
     
 }
 - (void)tableViewHeaderReloadData{
-    NSMutableDictionary *mWechat = [NSMutableDictionary new];
-    [mWechat setObject:kMobTrainDemandKey forKey:@"key"];
-    [mWechat setObject:@"3" forKey:@"cid"];
-    [mWechat setObject:@"1" forKey:@"page"];
-    [mWechat setObject:@"2" forKey:@"size"];
-    
-    
-    [WKWechatObj WKGetWechat:mWechat block:^(WKBaseInfo *info, NSArray *mArr) {
+    [self.tableArr removeAllObjects];
+
+    [MWBaseObj MWReFreshUserInfo:@{@"member_id":[WKUser currentUser].member_id} block:^(MWBaseObj *info,NSArray *mActArr,BOOL mSign) {
         
-        if (info.status == kRetCodeSucess) {
+       if (info.err_code == 0) {
             [SVProgressHUD dismiss];
-            [self.tableArr removeAllObjects];
-            [self.tableArr addObjectsFromArray:mArr];
-            
-            
+           isSign = mSign;
             [self.tableView reloadData];
             
         }else{
@@ -219,6 +213,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setMPressValue:@"0.5"];
         [cell setMUserInfo:[WKUser currentUser]];
+        [cell setMSign:isSign];
         cell.delegete = self;
 
         return cell;
@@ -352,7 +347,16 @@
             break;
         case 1:
         {
-        [SVProgressHUD showSuccessWithStatus:@"签到成功！"];
+        [SVProgressHUD showWithStatus:@"正在签到..."];
+        [MWBaseObj MWUserSign:@{@"member_id":[WKUser currentUser].member_id} block:^(MWBaseObj *info) {
+            if (info.err_code == 0) {
+                [SVProgressHUD showSuccessWithStatus:@"签到成功！"];
+                [self tableViewHeaderReloadData];
+
+            }else{
+                [SVProgressHUD showErrorWithStatus:info.err_msg];
+            }
+        }];
         }
             break;
         case 2:

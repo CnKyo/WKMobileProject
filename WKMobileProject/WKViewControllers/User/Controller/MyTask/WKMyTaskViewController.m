@@ -19,14 +19,16 @@
 {
     WKSegmentControl *mSegmentView;
     UITableView *mTableView;
-    
+    NSInteger mType;
+
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"我的任务";
     
-   
+    mType = 1;
+
     mSegmentView = [WKSegmentControl initWithSegmentControlFrame:CGRectMake(0, 0, DEVICE_Width, 50) andTitleWithBtn:@[@"执行中",@"已提交",@"已结束"] andBackgroudColor:[UIColor whiteColor] andBtnSelectedColor:[UIColor whiteColor] andBtnTitleColor:[UIColor blackColor] andUndeLineColor: [UIColor whiteColor] andBtnTitleFont:[UIFont systemFontOfSize:15] andInterval:5 delegate:self andIsHiddenLine:YES andType:4];
     
     mTableView = [UITableView new];
@@ -47,8 +49,8 @@
 - (void)tableViewHeaderReloadData{
     MLLog(@"刷头");
 
-
-    NSArray *arr = @[[Util WKGetDBTime],
+//[Util WKGetDBTime]
+    NSArray *arr = @[@"2017-12-5 12:10:06",
                      @"2017-3-5 12:10:06",
                      @"2017-7-10 18:6:16",
                      @"2017-8-5 18:10:06",
@@ -72,18 +74,22 @@
                      @"2017-10-5 18:10:06",
                      @"2017-8-5 18:10:06",
                      ];
+    MLLog(@"刷头");
+    self.mPage = 0;
     
-    
-    for (int i = 0; i < arr.count; i ++) {
-        
-        TimeModel *model = [TimeModel new];
-        model.endTime = arr[i]; 
-        [self.tableArr addObject:model];
-    }
-    
-    //移除过时数据
-    //    [self removeOutDate];
-    [self.tableView reloadData];
+    [SVProgressHUD showWithStatus:@"正在加载中..."];
+    [self.tableArr removeAllObjects];
+ 
+    [MWBaseObj MWGetMyWashOrderList:@{@"member_id":[WKUser currentUser].member_id,@"complete_status":[NSString stringWithFormat:@"%ld",mType],@"task_id":@"0",@"page":NumberWithInt(self.mPage)} block:^(MWBaseObj *info, NSArray *mList) {
+        if (info.err_code == 0) {
+            
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            [self.tableArr addObjectsFromArray:mList];
+            [self.tableView reloadData];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+    }];
     
 }
 - (void)tableViewFooterReloadData{
@@ -122,6 +128,8 @@
 #pragma mark----****---- 分段选择控件
 ///选择了哪一个？
 - (void)WKDidSelectedIndex:(NSInteger)mIndex{
+    mType = mIndex+1;
+
     [self tableViewHeaderReloadData];
 }
 

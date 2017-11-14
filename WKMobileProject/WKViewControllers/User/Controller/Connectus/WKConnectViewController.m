@@ -13,15 +13,21 @@
 @end
 
 @implementation WKConnectViewController
-
+{
+    NSString *mHImg;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSString *mTitle = nil;
     if (_mType == 1) {
         mTitle = @"联系我们";
+        mHImg = @"contact_us_03";
     }else{
         mTitle = @"帮助中心";
+        
+        mHImg = @"help_center_03";
+
     }
     self.navigationItem.title = mTitle;
     
@@ -32,6 +38,20 @@
 }
 - (void)tableViewHeaderReloadData{
     MLLog(@"刷头");
+
+    [self.tableArr removeAllObjects];
+    [MWBaseObj MWGetHelpCenter:@{} andType:_mType block:^(MWBaseObj *info,NSArray *mArr,NSArray *mList) {
+        if (info.err_code == 0) {
+            [self.tableArr addObjectsFromArray:mList];
+            [self.tableView reloadData];
+            
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+        
+
+    }];
+
 }
 
 
@@ -65,6 +85,7 @@
     mImg.backgroundColor = [UIColor colorWithRed:0.956862745098039 green:0.972549019607843 blue:0.996078431372549 alpha:1.00];
 
     mImg.frame = CGRectMake(15, 15, DEVICE_Width-30, 180);
+    mImg.image = [UIImage imageNamed:mHImg];
     [mSection addSubview:mImg];
 
     return mSection;
@@ -76,7 +97,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.tableArr.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -96,8 +117,10 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (_mType == 2) {
         cell.mWcontraints.constant = 0;
+        [cell setMHelpObj:self.tableArr[indexPath.row]];
     }else{
         cell.mWcontraints.constant = 50;
+        [cell setMConnectObj:self.tableArr[indexPath.row]];
     }
     return cell;
     

@@ -42,10 +42,21 @@
 }
 
 - (void)setMUserInfo:(WKUser *)mUserInfo{
-    
+    self.mTreasure.text = [NSString stringWithFormat:@"%@",mUserInfo.rewards];
     self.mGold.text = [NSString stringWithFormat:@"%@个",mUserInfo.gold];
     self.mUserName.text = [NSString stringWithFormat:@"%@  %@",mUserInfo.nickname,mUserInfo.mobile];
     [self.mAvator sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mUserInfo.user_img]] placeholderImage:nil];
     
+}
+- (void)setMSign:(BOOL)mSign{
+    if (mSign == YES) {
+        [self.mSignBtn setBackgroundColor:[UIColor lightGrayColor]];
+        self.mSignBtn.enabled = NO;
+        [self.mSignBtn setTitle:@"已签到" forState:0];
+    }else{
+        [self.mSignBtn setBackgroundColor:[UIColor colorWithRed:0.97 green:0.58 blue:0.27 alpha:1]];
+        self.mSignBtn.enabled = YES;
+        [self.mSignBtn setTitle:@"签到" forState:0];
+    }
 }
 @end
