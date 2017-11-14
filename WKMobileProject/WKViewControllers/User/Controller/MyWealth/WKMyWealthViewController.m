@@ -77,7 +77,20 @@
     [self addTableViewFootererRefreshing];
 }
 - (void)tableViewHeaderReloadData{
+    [SVProgressHUD showWithStatus:@"正在加载中..."];
+    [self.tableArr removeAllObjects];
     
+    [MWBaseObj MWGetMyWealth:@{@"member_id":[WKUser currentUser].member_id} block:^(MWBaseObj *info, NSArray *mList) {
+        if (info.err_code == 0) {
+            
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            [self.tableArr addObjectsFromArray:mList];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+        [self.tableView reloadData];
+        
+    }];
 }
 - (void)tableViewFooterReloadData{
     

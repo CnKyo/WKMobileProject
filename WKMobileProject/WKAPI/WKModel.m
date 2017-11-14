@@ -1103,6 +1103,32 @@ static WKUser *g_user = nil;
         }
     }];
 }
+#pragma mark----****----  获取我的财富值
+/**
+ 获取我的财富值
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetMyWealth:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block{
+    MLLog(@"参数是：%@",para);
+    
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/riches/riches_list.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            NSMutableArray *mTempArr = [NSMutableArray new];
+            if ([info.data isKindOfClass:[NSArray class]]) {
+                for (NSDictionary *dic in info.data) {
+                    [mTempArr addObject:[MWWashOrderObj yy_modelWithDictionary:dic]];
+                }
+            }
+            block(info,mTempArr);
+            
+        }else{
+            block(info,nil);
+        }
+    }];
+    
+}
 @end
 
 @implementation MWDeviceInfo

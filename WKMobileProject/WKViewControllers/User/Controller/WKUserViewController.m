@@ -101,6 +101,7 @@
     [self.tableView setRefreshWithHeaderBlock:^{
         [weakSelf tableViewHeaderReloadData];
     } footerBlock:^{
+        [self.tableView footerEndRefreshing];
 
     }];
 

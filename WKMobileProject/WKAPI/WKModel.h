@@ -607,6 +607,14 @@
  @param block 返回值
  */
 + (void)MWGETMyTaskOrderList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block;
+#pragma mark----****----  获取我的财富值
+/**
+ 获取我的财富值
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetMyWealth:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block;
 @end
 
 
