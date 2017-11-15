@@ -21,10 +21,9 @@
 #import "FCIPAddressGeocoder.h"
 #import "GetIPAddress.h"
 
+#import "OnlyLocationManager.h"
 
-#import "CurentLocation.h"
-
-@interface WKFindViewController ()<WKFindHeaderCellDelegate,UITableViewDataSource,UITableViewDelegate,MMApBlockCoordinate>
+@interface WKFindViewController ()<WKFindHeaderCellDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @end
 
@@ -103,42 +102,102 @@
     }];
     [self.tableView headerBeginRefreshing];
     
+    [self updateAddress];
     
 }
 - (void)updateAddress{
-
-    [CurentLocation sharedManager].delegate = self;
-    [[CurentLocation sharedManager] getUSerLocation];
-
-}
-#pragma mark----maplitdelegate
-- (void)MMapreturnLatAndLng:(NSDictionary *)mCoordinate{
-    
-    MLLog(@"定位成功之后返回的东东：%@",mCoordinate);
     NSArray *mLArr = [MWLocationInfo bg_findAll];
     if (mLArr.count>0) {
         MWLocationInfo *mLocation = mLArr[0];
         NSMutableDictionary *para = [NSMutableDictionary new];
-        if (mLocation.shi) {
-            [para setObject:mLocation.shi forKey:@"city"];
+        if (mLocation.mLocationObj.city) {
+            [para setObject:mLocation.mLocationObj.city forKey:@"city"];
         }
-        if (mLocation.jing.length>0) {
-            [para setObject:[NSString stringWithFormat:@"%@,%@",mLocation.wei,mLocation.jing] forKey:@"location"];
+        if (mLocation.mCoordinate.latitude) {
+            [para setObject:[NSString stringWithFormat:@"%f,%f",mLocation.mCoordinate.latitude,mLocation.mCoordinate.longitude] forKey:@"location"];
             
         }
         [MWBaiDuApiBaseObj WKGetBaiDuWeather:mLocation.shi andJingdu:nil andWeidu:nil block:^(MWBaiDuApiBaseObj *info) {
             if (info.status == 0) {
                 
             }else{
-                
+                [OnlyLocationManager shareManager:NO needVO:YES initCallBack:^(LocationInitType type, CLLocationManager *manager) {
+                    
+                } resultCallBack:^(CLLocationCoordinate2D coordinate, CLLocation *location, OnlyLocationVO *locationVO) {
+                    [self locationSuccess:locationVO];
+                }];
             }
         }];
     }else{
-        [self updateAddress];
+        [OnlyLocationManager shareManager:NO needVO:YES initCallBack:^(LocationInitType type, CLLocationManager *manager) {
+            
+        } resultCallBack:^(CLLocationCoordinate2D coordinate, CLLocation *location, OnlyLocationVO *locationVO) {
+            [self locationSuccess:locationVO];
+        }];
+        
     }
+
+
+}
+-(void)locationSuccess:(OnlyLocationVO *)locationVO{
+//    [MWLocationInfo bg_clear];
+    MWLocationInfo *mLocation = [MWLocationInfo new];
+    mLocation.mLocationObj = locationVO.addressComponent;
+    mLocation.mCoordinate = locationVO.location;
+//    [mLocation bg_save];
+   
+        NSMutableDictionary *para = [NSMutableDictionary new];
+        if (mLocation.mLocationObj.city) {
+            [para setObject:mLocation.mLocationObj.city forKey:@"city"];
+        }
+        if (mLocation.mCoordinate.latitude) {
+            [para setObject:[NSString stringWithFormat:@"%f,%f",mLocation.mCoordinate.latitude,mLocation.mCoordinate.longitude] forKey:@"location"];
+            
+        }
+        [MWBaiDuApiBaseObj WKGetBaiDuWeather:mLocation.mLocationObj.city andJingdu:nil andWeidu:nil block:^(MWBaiDuApiBaseObj *info) {
+            if (info.status == 0) {
+                
+            }else{
+                [OnlyLocationManager shareManager:NO needVO:YES initCallBack:^(LocationInitType type, CLLocationManager *manager) {
+                    
+                } resultCallBack:^(CLLocationCoordinate2D coordinate, CLLocation *location, OnlyLocationVO *locationVO) {
+                    [self locationSuccess:locationVO];
+                }];
+            }
+        }];
     
     
 }
+-(void)locationStateChange:(NSNotification* )noti{
+    OnlyLocationManager* manager = [OnlyLocationManager getLocationManager];
+    NSLog(@"%ld",manager.state);
+    
+    NSString* stateStr = @"初始化";
+    switch (manager.state) {
+        case 0:
+            stateStr = @"初始化失败";
+            break;
+        case 1:
+            stateStr = @"定位中";
+            break;
+        case 2:
+            stateStr = @"已获取初始位置并持续定位中";
+            break;
+        case 3:
+            stateStr = @"已定位，正在逆地理编码";
+            break;
+        case 4:
+            stateStr = @"已定位，逆地理编码完成";
+            break;
+        case 5:
+            stateStr = @"已定位，逆地理编码失败";
+            break;
+    }
+    
+    NSLog(@"%@",stateStr);
+    self.title = stateStr;
+}
+
 - (void)tableViewHeaderReloadData{
     [mBannerList removeAllObjects];
     [self.tableArr removeAllObjects];

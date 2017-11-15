@@ -12,6 +12,8 @@
 #import "NSNetworkManager.h"
 
 #import "WKBDModel.h"
+
+#import "OnlyLocationManager.h"
 @interface WKBaseInfo : NSObject
 
 @property (nonatomic,strong) NSString *msg;
@@ -483,7 +485,7 @@
 /**
  编号洗衣获取deviceCode
 
- @param mCode 编号
+ @param para 编号
  @param block 返回值
  */
 + (void)MWWashToCode:(NSMutableDictionary *)para block:(void(^)(MWBaseObj *info,MWDeviceCode *mDeviceCode))block;
@@ -836,6 +838,10 @@
 @property (nonatomic,strong) NSString *wei;
 @property (nonatomic,strong) NSString *shi;
 @property (nonatomic,strong) NSString *xian;
+
+@property (nonatomic,strong) OnlyLocationComponentVO *mLocationObj;
+@property (nonatomic,assign) CLLocationCoordinate2D  mCoordinate;
+
 
 @end
 

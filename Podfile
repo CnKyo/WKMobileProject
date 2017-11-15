@@ -44,11 +44,13 @@ target 'WKMobileProject' do
   pod 'ZYCornerRadius', '~> 1.0.2'
   pod 'YYModel'
   pod 'QSDispatchQueue'
-  pod 'SDWebImage', '~>3.7.2'
+#  pod 'SDWebImage', '~>3.7.2'
+    pod 'SDWebImage', '~>4.0.0'
+
   #内存泄漏检测
 #  pod 'MLeaksFinder'
   pod 'MBProgressHUD'
-  pod 'LLImagePickerView'
+#  pod 'LLImagePickerView'
   pod 'YHPDFImageLoader'
   #网络检测
   pod 'YYCache'
@@ -58,6 +60,6 @@ target 'WKMobileProject' do
   pod 'PGNetworkHelper', '>= 2.0'
   pod 'TZImagePickerController'
   pod 'BGFMDB' ,'~> 1.50'
-
+#  pod 'HXWeiboPhotoPicker' '~> 2.1.1'
 
 end

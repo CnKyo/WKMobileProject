@@ -26,9 +26,9 @@
 
 #import <BGFMDB.h>
 
-#import "CurentLocation.h"
+#import "OnlyLocationManager.h"
 
-@interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate,NSNetworkMonitorProtocol,MMApBlockCoordinate>
+@interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate,NSNetworkMonitorProtocol>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
 
@@ -125,46 +125,78 @@
                                                  name:KAppFetchJPUSHService
                                                object:nil];
     
-    NSArray *mLArr = [MWLocationInfo bg_findAll];
-    if (mLArr.count>0) {
-        MWLocationInfo *mLocation = mLArr[0];
-        NSMutableDictionary *para = [NSMutableDictionary new];
-        if (mLocation.shi) {
-            [para setObject:mLocation.shi forKey:@"city"];
-        }
-        if (mLocation.jing.length>0) {
-            [para setObject:[NSString stringWithFormat:@"%@,%@",mLocation.wei,mLocation.jing] forKey:@"location"];
-
-        }
-        [MWBaiDuApiBaseObj WKGetBaiDuWeather:mLocation.shi andJingdu:nil andWeidu:nil block:^(MWBaiDuApiBaseObj *info) {
-            if (info.status == 0) {
-                
-            }else{
-                
-            }
-        }];
-    }else{
+//    NSArray *mLArr = [MWLocationInfo bg_findAll];
+//    if (mLArr.count>0) {
+//        MWLocationInfo *mLocation = mLArr[0];
+//        NSMutableDictionary *para = [NSMutableDictionary new];
+//        if (mLocation.mLocationObj.city) {
+//            [para setObject:mLocation.mLocationObj.city forKey:@"city"];
+//        }
+//        if (mLocation.mCoordinate.latitude) {
+//            [para setObject:[NSString stringWithFormat:@"%f,%f",mLocation.mCoordinate.latitude,mLocation.mCoordinate.longitude] forKey:@"location"];
+//
+//        }
+//        [MWBaiDuApiBaseObj WKGetBaiDuWeather:mLocation.shi andJingdu:nil andWeidu:nil block:^(MWBaiDuApiBaseObj *info) {
+//            if (info.status == 0) {
+//
+//            }else{
+//                [self updateAddress];
+//
+//            }
+//        }];
+//    }else{
         [self updateAddress];
-    }
-    
+//    }
+
     
 }
 #pragma mark----****----获取定位信息
 - (void)updateAddress{
     
-    [CurentLocation sharedManager].delegate = self;
-    [[CurentLocation sharedManager] getUSerLocation];
+    [OnlyLocationManager shareManager:NO needVO:YES initCallBack:^(LocationInitType type, CLLocationManager *manager) {
+        
+    } resultCallBack:^(CLLocationCoordinate2D coordinate, CLLocation *location, OnlyLocationVO *locationVO) {
+//        [self locationSuccess:locationVO];
+    }];
     
 }
-#pragma mark----maplitdelegate
-- (void)MMapreturnLatAndLng:(NSDictionary *)mCoordinate{
+//-(void)locationSuccess:(OnlyLocationVO *)locationVO{
+//    [MWLocationInfo bg_clear];
+//    MWLocationInfo *mLocation = [MWLocationInfo new];
+//    mLocation.mLocationObj = locationVO.addressComponent;
+//    mLocation.mCoordinate = locationVO.location;
+//    [mLocation bg_save];
+//}
+-(void)locationStateChange:(NSNotification* )noti{
+    OnlyLocationManager* manager = [OnlyLocationManager getLocationManager];
+    NSLog(@"%ld",manager.state);
     
-    MLLog(@"定位成功之后返回的东东：%@",mCoordinate);
-    [MWLocationInfo bg_clear];
-    MWLocationInfo *mLocation = [MWLocationInfo yy_modelWithDictionary:mCoordinate];
-    [mLocation bg_save];
+    NSString* stateStr = @"初始化";
+    switch (manager.state) {
+        case 0:
+            stateStr = @"初始化失败";
+            break;
+        case 1:
+            stateStr = @"定位中";
+            break;
+        case 2:
+            stateStr = @"已获取初始位置并持续定位中";
+            break;
+        case 3:
+            stateStr = @"已定位，正在逆地理编码";
+            break;
+        case 4:
+            stateStr = @"已定位，逆地理编码完成";
+            break;
+        case 5:
+            stateStr = @"已定位，逆地理编码失败";
+            break;
+    }
     
+    NSLog(@"%@",stateStr);
+    self.title = stateStr;
 }
+
 - (void)getUserInfo{
 
     if ([WKUser currentUser].member_id <= 0 ) {

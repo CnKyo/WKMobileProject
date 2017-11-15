@@ -164,9 +164,9 @@
  */
 - (void)WKMyTaskDetailCommitCellWithReturnImgs:(NSArray *)mImgArr{
     if (mImgArr.count>0) {
-        for (LLImagePickerModel *model in mImgArr) {
+        for (HXPhotoModel *model in mImgArr) {
             // 在这里取到模型的数据
-            MLLog(@"%@",model.imageUrlString);
+            MLLog(@"%@",model.fileURL);
         }
         
     }

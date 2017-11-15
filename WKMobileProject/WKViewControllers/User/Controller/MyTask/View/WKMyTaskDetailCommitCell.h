@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "WKHeader.h"
 #import <IQTextView.h>
+#import "HXPhotoViewController.h"
+#import "HXPhotoView.h"
 
-#import <LLImagePickerView.h>
+static const CGFloat kPhotoViewMargin = 12.0;
 
 @protocol WKMyTaskDetailCommitCellDelagate <NSObject>
 
@@ -39,7 +41,7 @@
 
 @end
 
-@interface WKMyTaskDetailCommitCell : UITableViewCell<UITextViewDelegate>
+@interface WKMyTaskDetailCommitCell : UITableViewCell<UITextViewDelegate,HXPhotoViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *mUpLoadView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mUploadViewH;
@@ -65,6 +67,7 @@
 @property (weak, nonatomic) IBOutlet IQTextView *mNoteTxView;
 
 @property (weak,nonatomic) id<WKMyTaskDetailCommitCellDelagate>delegate;
-
+@property (strong, nonatomic) HXPhotoManager *manager;
+@property (strong, nonatomic) HXPhotoView *photoView;
 - (void)initPickView;
 @end
