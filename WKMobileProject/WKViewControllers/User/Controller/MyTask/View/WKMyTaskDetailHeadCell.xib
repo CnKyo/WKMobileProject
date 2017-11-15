@@ -146,7 +146,7 @@
                 <outlet property="mTaskResidueNum" destination="Ypt-Ip-SrD" id="btM-en-InZ"/>
                 <outlet property="mTaskStatus" destination="mAP-st-mUM" id="0xJ-4n-dMj"/>
             </connections>
-            <point key="canvasLocation" x="46" y="76"/>
+            <point key="canvasLocation" x="-31" y="49"/>
         </tableViewCell>
     </objects>
 </document>

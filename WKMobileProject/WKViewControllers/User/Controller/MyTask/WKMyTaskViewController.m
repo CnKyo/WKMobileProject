@@ -20,13 +20,13 @@
     WKSegmentControl *mSegmentView;
     UITableView *mTableView;
     NSInteger mType;
-
+    NSMutableArray *mTableArr;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"我的任务";
-    
+    mTableArr = [NSMutableArray new];
     mType = 1;
 
     mSegmentView = [WKSegmentControl initWithSegmentControlFrame:CGRectMake(0, 0, DEVICE_Width, 50) andTitleWithBtn:@[@"执行中",@"已提交",@"已结束"] andBackgroudColor:[UIColor whiteColor] andBtnSelectedColor:[UIColor whiteColor] andBtnTitleColor:[UIColor blackColor] andUndeLineColor: [UIColor whiteColor] andBtnTitleFont:[UIFont systemFontOfSize:15] andInterval:5 delegate:self andIsHiddenLine:YES andType:4];
@@ -48,61 +48,64 @@
 }
 - (void)tableViewHeaderReloadData{
     MLLog(@"刷头");
-
-//[Util WKGetDBTime]
-    NSArray *arr = @[@"2017-12-5 12:10:06",
-                     @"2017-3-5 12:10:06",
-                     @"2017-7-10 18:6:16",
-                     @"2017-8-5 18:10:06",
-                     @"2017-10-5 18:10:06",
-                     @"2017-7-10 18:6:16",
-                     @"2017-8-5 18:10:06",
-                     @"2017-9-5 18:10:06",
-                     @"2017-10-5 18:10:06",
-                     @"2017-6-5 12:10:06",
-                     @"2020-7-10 18:6:16",
-                     @"2017-8-5 18:10:06",
-                     @"2017-9-5 18:10:06",
-                     @"2017-10-5 18:10:06",
-                     @"2017-8-5 18:10:06",
-                     @"2017-9-5 18:10:06",
-                     @"2017-10-5 18:10:06",
-                     @"2017-8-5 18:10:06",
-                     @"2007-10-5 18:10:06",
-                     @"2017-8-5 18:10:06",
-                     @"2017-9-5 18:10:06",
-                     @"2017-10-5 18:10:06",
-                     @"2017-8-5 18:10:06",
-                     ];
-    MLLog(@"刷头");
+    
     self.mPage = 0;
     
     [SVProgressHUD showWithStatus:@"正在加载中..."];
     [self.tableArr removeAllObjects];
- 
-    [MWBaseObj MWGetMyWashOrderList:@{@"member_id":[WKUser currentUser].member_id,@"complete_status":[NSString stringWithFormat:@"%ld",mType],@"task_id":@"0",@"page":NumberWithInt(self.mPage)} block:^(MWBaseObj *info, NSArray *mList) {
+    [mTableArr removeAllObjects];
+    [MWBaseObj MWGETMyTaskOrderList:@{@"member_id":[WKUser currentUser].member_id,@"complete_status":[NSString stringWithFormat:@"%ld",mType],@"page":NumberWithInt(self.mPage)} block:^(MWBaseObj *info, NSArray *mList) {
         if (info.err_code == 0) {
             
             [SVProgressHUD showSuccessWithStatus:info.err_msg];
-            [self.tableArr addObjectsFromArray:mList];
-            [self.tableView reloadData];
+            [mTableArr addObjectsFromArray:mList];
+            for (MWMyTaskOrderObj *mTask in mList) {
+                
+                    TimeModel *model = [TimeModel new];
+                    model.endTime = [Util WKTimeIntervalToDate:mTask.task_end_time];
+                    [self.tableArr addObject:model];
+
+            }
         }else{
             [SVProgressHUD showErrorWithStatus:info.err_msg];
         }
+        [self.tableView reloadData];
+
     }];
     
 }
 - (void)tableViewFooterReloadData{
     MLLog(@"刷尾");
+    self.mPage += 10;
+    
+    [SVProgressHUD showWithStatus:@"正在加载中..."];
+    [MWBaseObj MWGETMyTaskOrderList:@{@"member_id":[WKUser currentUser].member_id,@"complete_status":[NSString stringWithFormat:@"%ld",mType],@"page":NumberWithInt(self.mPage)} block:^(MWBaseObj *info, NSArray *mList) {
+        if (info.err_code == 0) {
+            
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            [mTableArr addObjectsFromArray:mList];
+            for (MWMyTaskOrderObj *mTask in mList) {
+                
+                TimeModel *model = [TimeModel new];
+                model.endTime = [Util WKTimeIntervalToDate:mTask.task_end_time];
+                [self.tableArr addObject:model];
+                
+            }
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+        [self.tableView reloadData];
+
+    }];
 }
 //移除过时数据
 - (void)removeOutDate{
     
-    for (NSInteger i = self.tableArr.count-1; i >= 0; i--) {
+    for (NSInteger i = mTableArr.count-1; i >= 0; i--) {
         
-        TimeModel *model = self.tableArr[i];
+        TimeModel *model = mTableArr[i];
         if ([self.countDown isOutDateWithModel:model]) {
-            [self.tableArr removeObject:model];
+            [mTableArr removeObject:model];
         }
     }
 }
@@ -172,11 +175,12 @@
     cell.mIndexPath = indexPath;
     
     TimeModel *model = self.tableArr[indexPath.row];
+
     //必须设置所显示的行
     cell.mCountTime.indexPath = indexPath;
     //在不设置为过时自动删除情况下 滑动过快的时候时间不会闪
     cell.mCountTime.text = [self.countDown countDownWithModel:model timeLabel:cell.mCountTime];
-    
+    [cell setMTask:mTableArr[indexPath.row]];
     
     return cell;
     
@@ -186,6 +190,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     WKMyTaskDetailViewController *vc = [WKMyTaskDetailViewController new];
     vc.mStatus = indexPath.row+1;
+    vc.mTask = mTableArr[indexPath.row];
+    vc.mTaskType = mType;
     [self pushViewController:vc];
 }
 - (void)MyTaskTableViewCellDelegateWithBtnAction:(NSIndexPath *)mIndexPath{

@@ -8,7 +8,7 @@
 
 #import "ZJJTimeCountDown.h"
 #import "ZJJTimeCountDownDateTool.h"
-
+#import "WKHeader.h"
 @interface ZJJTimeCountDownModel:NSObject
 @property (nonatomic ,strong) ZJJTimeCountDownLabel *timeLabel;
 @property (nonatomic ,strong) NSString *time;
@@ -319,8 +319,11 @@
          NSAssert(NO, @"请查看ZJJTimeCountDownLabel类的timeKey属性是否已经设置，如果设置，请检查是否在视图初始化时设置");
     }
     NSString *serverEndTime = [model valueForKey:timeLabel.timeKey];
+    
     NSDate * sjDate = [NSDate date];   //手机时间
+    
     NSInteger sjInteger = [sjDate timeIntervalSince1970];  // 手机当前时间戳
+    
     long long endTimeTamp = 0;
     switch (self.timeStyle) {
         case ZJJCountDownTimeStyleNormal:

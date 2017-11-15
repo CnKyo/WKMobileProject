@@ -66,5 +66,5 @@
 
 @property (weak,nonatomic) id<WKMyTaskDetailCommitCellDelagate>delegate;
 
-
+- (void)initPickView;
 @end

@@ -31,4 +31,11 @@
     
 }
 
+- (void)setMTask:(MWMyTaskOrderObj *)mTask{
+
+    [self.mImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mTask.task_image]] placeholderImage:[UIImage imageNamed:@"icon_task"]];
+    self.mName.text = mTask.task_title;
+    self.mPrice.text = [NSString stringWithFormat:@"¥%@/次",mTask.task_price];
+    self.mContent.text = [NSString stringWithFormat:@"已领取%@次 任务通过率%@",mTask.task_choose_num,mTask.task_complete_rate];
+}
 @end

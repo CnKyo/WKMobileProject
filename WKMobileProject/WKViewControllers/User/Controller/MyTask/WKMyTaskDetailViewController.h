@@ -11,5 +11,7 @@
 @interface WKMyTaskDetailViewController : WKBaseViewController
 
 @property (assign,nonatomic) WKTaskStatus mStatus;
+@property (strong,nonatomic) MWMyTaskOrderObj *mTask;
+@property (assign,nonatomic) NSInteger mTaskType;
 
 @end

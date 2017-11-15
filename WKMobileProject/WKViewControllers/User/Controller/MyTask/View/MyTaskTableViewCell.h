@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WKCountLabel.h"
+#import "WKHeader.h"
 @protocol MyTaskTableViewCellDelegate <NSObject>
 
 @optional
@@ -33,5 +34,8 @@
 @property (assign,nonatomic) NSIndexPath *mIndexPath;
 
 @property (weak,nonatomic) id <MyTaskTableViewCellDelegate>delegate;
+
+@property (strong,nonatomic) MWMyTaskOrderObj *mTask;
+
 
 @end

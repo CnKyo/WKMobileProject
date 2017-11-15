@@ -36,8 +36,27 @@
     
     nib = [UINib nibWithNibName:@"WKMyTaskDetailCommitCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"commitCell"];
-}
+    
+    [self addTableViewHeaderRefreshing];
 
+}
+- (void)tableViewHeaderReloadData{
+    MLLog(@"刷头");
+        
+    [SVProgressHUD showWithStatus:@"正在加载中..."];
+    [MWBaseObj MWGetMyTaskOrderDetail:@{@"task_id":_mTask.task_id} block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+           
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+        [self.tableView reloadData];
+        
+    }];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -60,13 +79,6 @@
     
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    return nil;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return CGFLOAT_MIN;
-}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
@@ -120,6 +132,7 @@
             WKMyTaskDetailCommitCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.delegate = self;
+            [cell initPickView];
             return cell;
         }else{
             reuseCellId = @"detailCell";

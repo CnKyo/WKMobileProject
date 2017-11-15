@@ -607,6 +607,14 @@
  @param block 返回值
  */
 + (void)MWGETMyTaskOrderList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block;
+#pragma mark----****---- 获取我的任务订单详情
+/**
+ 获取我的任务订单详情
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetMyTaskOrderDetail:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
 #pragma mark----****----  获取我的财富值
 /**
  获取我的财富值
@@ -901,5 +909,17 @@
 @property (nonatomic,strong) NSString *wash_id;
 @property (nonatomic,strong) NSString *wash_remark;
 @property (nonatomic,strong) NSString *wash_time;
+
+@end
+
+@interface MWMyTaskOrderObj : NSObject
+@property (nonatomic,strong) NSString *task_choose_num;
+@property (nonatomic,strong) NSString *task_complete_rate;
+@property (nonatomic,strong) NSString *task_end_time;
+@property (nonatomic,strong) NSString *task_id;
+@property (nonatomic,strong) NSString *task_image;
+@property (nonatomic,strong) NSString *task_price;
+@property (nonatomic,strong) NSString *task_record_id;
+@property (nonatomic,strong) NSString *task_title;
 
 @end
