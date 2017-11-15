@@ -54,7 +54,7 @@
     ///列表分组viewinf
     WKHomeHeaderSectionView *mSectionView;
     
-    
+    MWHomeNoticeObj *mNoticeObj;
 
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -71,7 +71,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"首页";
-        
+    mNoticeObj = [MWHomeNoticeObj new];
     mRecommend = [NSMutableArray new];
     mActArr = [NSMutableArray new];
     UIImage *image = [self.tabBarItem.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -223,13 +223,17 @@
 
     }
     [SVProgressHUD showWithStatus:@"正在加载..."];
-    [WKHome WKGetHomeList:@{} block:^(MWBaseObj *info, NSArray *mBannerArr, NSArray *mTuijianArr, NSArray *mActivityArr) {
+    [WKHome WKGetHomeList:@{} block:^(MWBaseObj *info, NSArray *mBannerArr, NSArray *mTuijianArr, NSArray *mActivityArr,NSArray *mNoticeArr) {
         [SVProgressHUD dismiss];
         if (info.err_code == 0) {
             [mTopBannerArr addObjectsFromArray:mBannerArr];
             [mRecommend addObjectsFromArray:mTuijianArr];
             [mActArr addObjectsFromArray:mActivityArr];
 
+            if (mNoticeArr.count>0) {
+                mNoticeObj = mNoticeArr[0];
+            }
+            
         }else{
             [SVProgressHUD showErrorWithStatus:info.err_msg];
         }
@@ -473,7 +477,7 @@
     if (indexPath.section == 0) {
         reuseCellId = @"normalCell";
         
-        WKHomeTypeHeaderCell  *cell = [[WKHomeTypeHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellId andBannerDataSource:mTopBannerArr andDataSource:mFuncArr andScrollerLabelTx:[NSString stringWithFormat:@"%@            ",@"重庆电信iphone8首发，0元购手机，流量不限量"]];
+        WKHomeTypeHeaderCell  *cell = [[WKHomeTypeHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellId andBannerDataSource:mTopBannerArr andDataSource:mFuncArr andScrollerLabelTx:[NSString stringWithFormat:@"%@            ",mNoticeObj.content]];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         

@@ -123,10 +123,18 @@
 @property (nonatomic, strong) NSString *            member_name;                  ///
 @property (nonatomic, strong) NSString *            myData;                  ///
 @property (nonatomic, strong) NSString *            nick_name;                  ///
+@property (nonatomic, assign) int                   sign_number;                  ///
+
+
               ///
 ///
-///
+///支付密码
 @property (nonatomic, strong) NSString *            paypassword;                  ///
+///提现账户
+@property (nonatomic, strong) NSString *            pay_number;                  ///
+///提现账户类型
+@property (nonatomic, strong) NSString *            pay_type;                  ///
+
 @property (nonatomic, strong) NSString *            reg_device_token;                  ///
 @property (nonatomic, strong) NSString *            reg_udid;                  ///
 @property (nonatomic, strong) NSString *            rewards;                  ///
@@ -141,19 +149,6 @@
 @property (nonatomic, strong) NSString *            update_time;                  ///
 @property (nonatomic, strong) NSString *            user_img;                  ///
 @property (nonatomic, strong) NSString *            user_name;                  ///
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -265,7 +260,7 @@
  @param para 参数
  @param block 返回信息
  */
-+ (void)WKGetHomeList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mBannerArr,NSArray *mTuijianArr,NSArray *mActivityArr))block;
++ (void)WKGetHomeList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mBannerArr,NSArray *mTuijianArr,NSArray *mActivityArr,NSArray *mNoticeArr))block;
 
 @end
 @interface WKBanner  : NSObject
@@ -350,6 +345,7 @@
 @class MWDeviceCode;
 @class MWBookingObj;
 @class MWTaskObj;
+@class MWMyRewardsObj;
 
 @interface MWBaseObj : NSObject
 
@@ -622,7 +618,31 @@
  @param para 参数
  @param block 返回值
  */
-+ (void)MWGetMyWealth:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block;
++ (void)MWGetMyWealth:(NSDictionary *)para block:(void(^)(MWBaseObj *info,MWMyRewardsObj *mRewardsObj))block;
+#pragma mark----****----  获取我的财富记录
+/**
+ 获取我的财富记录
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetMyWealthHistoryList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block;
+#pragma mark----****----  绑定收款工具
+/**
+ 绑定收款工具
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWBundleTool:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+#pragma mark----****----  用户提现
+/**
+ 用户提现
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWUserWithDraw:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
 @end
 
 
@@ -923,3 +943,48 @@
 @property (nonatomic,strong) NSString *task_title;
 
 @end
+
+@interface MWMyRewardsObj : NSObject
+@property (nonatomic,strong) NSString *arrived_cash;
+@property (nonatomic,strong) NSString *arrived_riches;
+@property (nonatomic,strong) NSString *arriving_cash;
+@property (nonatomic,strong) NSString *arriving_riches;
+@property (nonatomic,strong) NSString *member_id;
+@property (nonatomic,strong) NSString *riches_id;
+@property (nonatomic,strong) NSString *total_riches;
+
+@end
+
+@interface MWRichesHistoryObj : NSObject
+@property (nonatomic,strong) NSString *day_time;
+@property (nonatomic,strong) NSString *member_id;
+@property (nonatomic,strong) NSString *money;
+@property (nonatomic,strong) NSString *order_no;
+@property (nonatomic,strong) NSString *riches_arrive_status;
+@property (nonatomic,strong) NSString *riches_record_id;
+@property (nonatomic,strong) NSString *riches_title;
+@property (nonatomic,strong) NSString *riches_type;
+@property (nonatomic,strong) NSString *income_expenditure;
+
+
+@end
+
+@interface MWBundleToolObj : NSObject
+@property (nonatomic,strong) NSString *mPayType;
+@property (nonatomic,strong) NSString *mAcount;
+@property (nonatomic,strong) NSString *mPwd;
+@property (nonatomic,strong) NSString *mCPwd;
+@property (nonatomic,strong) NSString *mMoney;
+
+
+@end
+
+@interface MWHomeNoticeObj : NSObject
+@property (nonatomic,strong) NSString *add_time;
+@property (nonatomic,strong) NSString *admin_id;
+@property (nonatomic,strong) NSString *content;
+@property (nonatomic,strong) NSString *notice_id;
+
+@end
+
+

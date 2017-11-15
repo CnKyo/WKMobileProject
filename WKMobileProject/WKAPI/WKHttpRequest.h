@@ -97,6 +97,20 @@
 + (void)WKPostUploadWithUrl:(NSString *)urlStr parameters:(id)parameters fileData:(NSData *)fileData name:(NSString *)name fileName:(NSString *)fileName fileType:(NSString *)fileType success:(void (^)(id responseObject))success fail:(void (^)())fail;
 
 + (void)WKPostUploadWithUrl:(NSString *)urlStr  uploadImages:(NSArray *)images completion:(void(^)(NSString *url,NSError *error))uploadBlock andPramaDic:(NSDictionary *)paramaDic;
+#pragma mark----****----MW文件上传接口
+/**
+ 文件上传接口
+
+ @param urlStr url
+ @param para 参数
+ @param fileData 文件
+ @param name 名称
+ @param fileName 文件名称
+ @param fileType 文件类型
+ @param success 请求成功的回调
+ @param fail 请求失败的回调
+ */
+- (void)MWPostFileWithUrl:(NSString *)urlStr andPara:(NSDictionary *)para fileData:(NSData *)fileData name:(NSString *)name fileName:(NSString *)fileName fileType:(NSString *)fileType success:(void (^)(id responseObject))success fail:(void (^)())fail;
 
 + (NSString*)nowTime:(NSString*)dateType;
 

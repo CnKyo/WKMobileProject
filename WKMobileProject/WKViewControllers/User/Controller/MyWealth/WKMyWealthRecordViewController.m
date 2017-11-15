@@ -27,10 +27,42 @@
     [self addTableViewFootererRefreshing];
 }
 - (void)tableViewHeaderReloadData{
+    MLLog(@"刷头");
+    self.mPage = 0;
     
+    [SVProgressHUD showWithStatus:@"正在加载中..."];
+    [self.tableArr removeAllObjects];
+    
+    [MWBaseObj MWGetMyWealthHistoryList:@{@"member_id":[WKUser currentUser].member_id,@"page":NumberWithInt(self.mPage)} block:^(MWBaseObj *info, NSArray *mList) {
+        if (info.err_code == 0) {
+            
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            [self.tableArr addObjectsFromArray:mList];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+        [self.tableView reloadData];
+        
+    }];
 }
 - (void)tableViewFooterReloadData{
+    MLLog(@"刷尾");
+
+    self.mPage += 10;
     
+    [SVProgressHUD showWithStatus:@"正在加载中..."];
+    
+    [MWBaseObj MWGetMyWealthHistoryList:@{@"member_id":[WKUser currentUser].member_id,@"page":NumberWithInt(self.mPage)} block:^(MWBaseObj *info, NSArray *mList) {
+        if (info.err_code == 0) {
+            
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            [self.tableArr addObjectsFromArray:mList];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+        [self.tableView reloadData];
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,13 +87,13 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.tableArr.count;
     
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WKMyWealthRecordCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
+    [cell setMRiches:self.tableArr[indexPath.row]];
     return cell;
     
 }

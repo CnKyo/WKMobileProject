@@ -145,7 +145,7 @@
         mHeaderView.mTaskName.text = _mTask.task_title;
         mHeaderView.mPrice.text = [NSString stringWithFormat:@"¥%@/次",_mTask.task_price];
         mHeaderView.mResidue.text = [NSString stringWithFormat:@"剩余%@次",_mTask.task_leave_num];
-        mHeaderView.mTaskTime.text = [NSString stringWithFormat:@"任务截止日期：%@",_mTask.task_end_time];
+        mHeaderView.mTaskTime.text = [NSString stringWithFormat:@"任务截止日期：%@",[Util WKTimeIntervalToDate:_mTask.task_end_time]];
         return mHeaderView;
     }else{
         if (section == 0) {

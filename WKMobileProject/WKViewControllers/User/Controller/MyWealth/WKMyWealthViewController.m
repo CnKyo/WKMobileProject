@@ -20,6 +20,7 @@
 {
     UITableView *mTableView;
     
+    MWMyRewardsObj *mRewards;
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -43,6 +44,7 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"我的财富值";
     self.view.backgroundColor = M_CO;
+    mRewards = [MWMyRewardsObj new];
     self.navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
     
     UIView *mView = [UIView new];
@@ -73,18 +75,25 @@
         make.top.equalTo(mView.mas_bottom);
     }];
     
+    [self addRightBtn:YES andTitel:@"财富记录" andImage:nil];
+    
     [self addTableViewHeaderRefreshing];
-    [self addTableViewFootererRefreshing];
+    //    [self addTableViewFootererRefreshing];
+}
+- (void)rightBtnAction{
+    MLLog(@"财富记录");
+    WKMyWealthRecordViewController *vc = [WKMyWealthRecordViewController new];
+    [self pushViewController:vc];
 }
 - (void)tableViewHeaderReloadData{
     [SVProgressHUD showWithStatus:@"正在加载中..."];
     [self.tableArr removeAllObjects];
     
-    [MWBaseObj MWGetMyWealth:@{@"member_id":[WKUser currentUser].member_id} block:^(MWBaseObj *info, NSArray *mList) {
+    [MWBaseObj MWGetMyWealth:@{@"member_id":[WKUser currentUser].member_id} block:^(MWBaseObj *info, MWMyRewardsObj *mRewardsObj) {
         if (info.err_code == 0) {
             
             [SVProgressHUD showSuccessWithStatus:info.err_msg];
-            [self.tableArr addObjectsFromArray:mList];
+            mRewards = mRewardsObj;
         }else{
             [SVProgressHUD showErrorWithStatus:info.err_msg];
         }
@@ -113,7 +122,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
-    return 2;
+    return 1;
     
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -131,14 +140,14 @@
     if (indexPath.section == 0) {
         WKMyWealthTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
-        cell.delegate = self;
         
+        cell.delegate = self;
+        [cell setMMyRewards:mRewards];
         return cell;
     }else{
         WKFetchWealthCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell2" forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+        
         return cell;
     }
     
@@ -200,15 +209,39 @@
         case 1:
         {
         MLLog(@"绑定首款工具");
-        WKBoundleToolViewController *vc= [WKBoundleToolViewController new];
-        [self pushViewController:vc];
+        
+        if ([WKUser currentUser].pay_type.length==0 || [[WKUser currentUser].pay_type isEqualToString:@"0"]) {
+            WKBoundleToolViewController *vc= [WKBoundleToolViewController new];
+            [self pushViewController:vc];
+        }else{
+            [SVProgressHUD showSuccessWithStatus:@"您已绑定了收款工具，无需重复绑定！"];
+            
+        }
         }
             break;
         case 2:
         {
         MLLog(@"提现");
-        WKRecordViewController *vc = [WKRecordViewController new];
-        [self pushViewController:vc];
+        if ([WKUser currentUser].pay_type.length==0 || [[WKUser currentUser].pay_type isEqualToString:@"0"]) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"您还未绑定受款工具哦！" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"去绑定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                WKBoundleToolViewController *vc= [WKBoundleToolViewController new];
+                [self pushViewController:vc];
+            }];
+            
+            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+            
+            [alert addAction:ok];
+            [alert addAction:cancel];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+        }else{
+            WKRecordViewController *vc = [WKRecordViewController new];
+            [self pushViewController:vc];
+        }
+        
         
         }
             break;

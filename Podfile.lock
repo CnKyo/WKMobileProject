@@ -22,7 +22,7 @@ PODS:
   - AMapFoundation (1.4.2)
   - AMapLocation (2.5.0):
     - AMapFoundation (~> 1.4)
-  - AMapSearch (5.4.0):
+  - AMapSearch (5.5.0):
     - AMapFoundation (~> 1.4)
   - BGFMDB (1.51):
     - BGFMDB/BG (= 1.51)
@@ -51,7 +51,7 @@ PODS:
   - MBProgressHUD (0.9.2)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.15)
-  - MOBFoundation (3.0.5)
+  - MOBFoundation (3.0.6)
   - MWPhotoBrowser (2.1.2):
     - DACircularProgress (~> 2.3)
     - MBProgressHUD (~> 0.9)
@@ -142,7 +142,7 @@ SPEC CHECKSUMS:
   AMap2DMap: 003fa70526983a1469ae6fc3323a6ee8b5ccf53c
   AMapFoundation: 6c0471c9a6a0ad17dad46e3d800ad56ca170f82a
   AMapLocation: d02bd8c0081b0bc51b2e4cf89925ef57448263c9
-  AMapSearch: 97042f81c1c8ea8adc4b1dadf1b1a688210aa141
+  AMapSearch: dc9958acfb61b58dcbce79736bf14a39dde7506f
   BGFMDB: a396ad1f7917adbc19bc7070fb9ee30e0e39df80
   CustomIOSAlertView: cc4fa8e36219be3fd5ebcd40789f5b4aaae0f38e
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
@@ -162,7 +162,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: 9af70f5f9327a2cf87f0fb5929f35fcc2fa638ea
-  MOBFoundation: 9166eb08ad9e99cfdd7fd1765707ea2250192e9e
+  MOBFoundation: 6f6ec1c2513278551f1a808b5692e983d99e5069
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
   PGNetworkHelper: 829dfea7c1d4b26c4473696147201d56e0c2b136
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2

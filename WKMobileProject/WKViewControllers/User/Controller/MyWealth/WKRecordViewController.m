@@ -13,11 +13,14 @@
 @end
 
 @implementation WKRecordViewController
-
+{
+    MWBundleToolObj *mAcountInfo;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"我要提现";
+    mAcountInfo = [MWBundleToolObj new];
     [self addTableView];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"WKRecordCell" bundle:nil] forCellReuseIdentifier:@"cell"];
@@ -54,7 +57,7 @@
     WKRecordCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+    [cell setMUserInfo:[WKUser currentUser]];
     return cell;
 
     
@@ -73,6 +76,13 @@
  */
 - (void)WKRecordCellWithRecordMoney:(NSString *)mText{
     MLLog(@"提现金额是：%@",mText);
+    int mT = [mText intValue];
+    int mU = [[WKUser currentUser].rewards intValue];
+    if (mU<mT) {
+        [SVProgressHUD showErrorWithStatus:@"账户余额不足！"];
+        return;
+    }
+    mAcountInfo.mMoney = mText;
 }
 
 /**
@@ -82,6 +92,7 @@
  */
 - (void)WKRecordCellWithRecordPwd:(NSString *)mText{
     MLLog(@"提现密码是：%@",mText);
+    mAcountInfo.mPwd = mText;
 }
 
 /**
@@ -89,6 +100,23 @@
  */
 - (void)WKRecordCellWithRecordBtnClicked{
     MLLog(@"提现");
+    if (mAcountInfo.mMoney.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入提现金额！"];
+        return;
+    }
+    if (mAcountInfo.mPwd.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入提现密码！"];
+        return;
+    }
+    [SVProgressHUD showWithStatus:@"正在操作中..."];
+    [MWBaseObj MWUserWithDraw:@{@"member_id":[WKUser currentUser].member_id,@"money":mAcountInfo.mMoney,@"password":mAcountInfo.mPwd} block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            [self popViewController];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+    }];
 }
 
 @end

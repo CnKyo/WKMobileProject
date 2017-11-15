@@ -284,7 +284,7 @@ static WKUser *g_user = nil;
  @param para 参数
  @param block 返回信息
  */
-+ (void)WKGetHomeList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mBannerArr,NSArray *mTuijianArr,NSArray *mActivityArr))block{
++ (void)WKGetHomeList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mBannerArr,NSArray *mTuijianArr,NSArray *mActivityArr,NSArray *mNoticeArr))block{
 
     MLLog(@"参数是：%@",para);
     
@@ -294,6 +294,7 @@ static WKUser *g_user = nil;
             NSMutableArray *mBARR = [NSMutableArray new];
             NSMutableArray *mTARR = [NSMutableArray new];
             NSMutableArray *mAARR = [NSMutableArray new];
+            NSMutableArray *mNARR = [NSMutableArray new];
 
             if ([info.data isKindOfClass:[NSDictionary class]]) {
                 if ([[info.data objectForKey:@"banner"] isKindOfClass:[NSArray class]]) {
@@ -312,12 +313,17 @@ static WKUser *g_user = nil;
                     }
                 }
             
+                if ([[info.data objectForKey:@"notice_list"] isKindOfClass:[NSArray class]]) {
+                    for (NSDictionary *dic in [info.data objectForKey:@"notice_list"]) {
+                        [mNARR addObject:[MWHomeNoticeObj yy_modelWithDictionary:dic]];
+                    }
+                }
                 
             }
             
-            block(info,mBARR,mTARR,mAARR);
+            block(info,mBARR,mTARR,mAARR,mNARR);
         }else{
-            block(info,nil,nil,nil);
+            block(info,nil,nil,nil,nil);
         }
     }];
     
@@ -1130,15 +1136,42 @@ static WKUser *g_user = nil;
  @param para 参数
  @param block 返回值
  */
-+ (void)MWGetMyWealth:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block{
++ (void)MWGetMyWealth:(NSDictionary *)para block:(void(^)(MWBaseObj *info,MWMyRewardsObj *mRewardsObj))block{
     MLLog(@"参数是：%@",para);
     
     [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/riches/riches_list.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
+
+            if ([info.data isKindOfClass:[NSDictionary class]]) {
+                block(info,[MWMyRewardsObj yy_modelWithDictionary:info.data]);
+            }else{
+                block(info,nil);
+            }
+            
+            
+        }else{
+            block(info,nil);
+        }
+    }];
+    
+}
+#pragma mark----****----  获取我的财富记录
+/**
+ 获取我的财富记录
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetMyWealthHistoryList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block{
+    MLLog(@"参数是：%@",para);
+    
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/riches/index.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            
             NSMutableArray *mTempArr = [NSMutableArray new];
             if ([info.data isKindOfClass:[NSArray class]]) {
                 for (NSDictionary *dic in info.data) {
-                    [mTempArr addObject:[MWWashOrderObj yy_modelWithDictionary:dic]];
+                    [mTempArr addObject:[MWRichesHistoryObj yy_modelWithDictionary:dic]];
                 }
             }
             block(info,mTempArr);
@@ -1147,7 +1180,46 @@ static WKUser *g_user = nil;
             block(info,nil);
         }
     }];
+}
+#pragma mark----****----  绑定收款工具
+/**
+ 绑定收款工具
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWBundleTool:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    MLLog(@"参数是：%@",para);
     
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/member/pay_type.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+         
+            block(info);
+            
+        }else{
+            block(info);
+        }
+    }];
+}
+#pragma mark----****----  用户提现
+/**
+ 用户提现
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWUserWithDraw:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    MLLog(@"参数是：%@",para);
+    
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/riches/riches_record_list.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            
+            block(info);
+            
+        }else{
+            block(info);
+        }
+    }];
 }
 @end
 
@@ -1263,3 +1335,17 @@ static WKUser *g_user = nil;
 
 @end
 
+
+@implementation MWMyRewardsObj
+
+@end
+
+@implementation MWRichesHistoryObj
+
+@end
+@implementation MWBundleToolObj
+
+@end
+@implementation MWHomeNoticeObj
+
+@end

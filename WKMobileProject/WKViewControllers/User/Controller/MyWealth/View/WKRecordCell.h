@@ -55,5 +55,6 @@
 
 @property (weak,nonatomic) id <WKRecordCellDelegate>delegate;
 
+@property (strong,nonatomic) WKUser *mUserInfo;
 
 @end

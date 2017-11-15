@@ -44,4 +44,6 @@
 ///设置代理
 @property (weak,nonatomic) id<WKMyWealthTableViewCellDelegate>delegate;
 
+@property (strong, nonatomic) MWMyRewardsObj *mMyRewards;
+
 @end

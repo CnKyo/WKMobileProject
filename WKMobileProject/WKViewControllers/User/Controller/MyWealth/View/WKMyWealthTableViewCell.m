@@ -41,5 +41,13 @@
     }
 }
 
+- (void)setMMyRewards:(MWMyRewardsObj *)mMyRewards{
+    NSDictionary* style1 = @{@"sfont": [UIFont systemFontOfSize:12],@"bfont": [UIFont systemFontOfSize:30]};
+    self.mTotleWealth.attributedText = [[NSString stringWithFormat:@"<sfont>¥</sfont><bfont>%@</bfont>",mMyRewards.total_riches] attributedStringWithStyleBook:style1];
+    self.mWealthAlreadyToMoney.text = [NSString stringWithFormat:@"¥%@",mMyRewards.arrived_cash];
+    self.mWealthIng.text = [NSString stringWithFormat:@"¥%@",mMyRewards.arriving_cash];
+    self.mWithDrawAlreadyToMoney.text = [NSString stringWithFormat:@"¥%@",mMyRewards.arrived_riches];
+    self.mWithDrawIng.text = [NSString stringWithFormat:@"¥%@",mMyRewards.arriving_riches];
 
+}
 @end

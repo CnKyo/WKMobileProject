@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -229,7 +229,6 @@
                     <constraint firstItem="mDf-MJ-UTa" firstAttribute="height" secondItem="Ldn-hS-ceI" secondAttribute="height" id="4ei-aM-ccT"/>
                     <constraint firstItem="Ivl-Ka-jUF" firstAttribute="top" secondItem="h9J-9u-AnM" secondAttribute="bottom" id="5m5-Tu-5MQ"/>
                     <constraint firstItem="h9J-9u-AnM" firstAttribute="width" secondItem="NED-aE-d31" secondAttribute="width" id="7Bb-UC-7nl"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="SGI-mU-BcZ" secondAttribute="trailing" constant="-8" id="8k3-cE-0ug"/>
                     <constraint firstItem="Ivl-Ka-jUF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="8pz-S5-Gci"/>
                     <constraint firstItem="9DJ-sd-YCn" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="98f-AT-eIF"/>
                     <constraint firstItem="mDf-MJ-UTa" firstAttribute="top" secondItem="Ivl-Ka-jUF" secondAttribute="bottom" id="9L6-U1-l7f"/>
@@ -242,7 +241,6 @@
                     <constraint firstAttribute="trailingMargin" secondItem="h9J-9u-AnM" secondAttribute="trailing" constant="-8" id="c21-5e-3AE"/>
                     <constraint firstAttribute="trailingMargin" secondItem="mDf-MJ-UTa" secondAttribute="trailing" constant="-8" id="enb-OB-cjf"/>
                     <constraint firstItem="mDf-MJ-UTa" firstAttribute="width" secondItem="Ldn-hS-ceI" secondAttribute="width" id="f03-2T-k6H"/>
-                    <constraint firstItem="SGI-mU-BcZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="f54-5i-jmn"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Ivl-Ka-jUF" secondAttribute="trailing" constant="-8" id="icw-6S-6u1"/>
                     <constraint firstItem="SGI-mU-BcZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="jAj-rn-E6v"/>
                     <constraint firstAttribute="trailingMargin" secondItem="wdy-4P-bNX" secondAttribute="trailing" id="nBS-xh-KAj"/>
@@ -253,6 +251,10 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="SGI-mU-BcZ" secondAttribute="trailing" id="4Ry-n6-B3f"/>
+                <constraint firstItem="SGI-mU-BcZ" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" id="SLc-S2-kUs"/>
+            </constraints>
             <connections>
                 <outlet property="mBgkView" destination="SGI-mU-BcZ" id="7TO-2M-oV8"/>
                 <outlet property="mBoundleTool" destination="wdy-4P-bNX" id="BLf-6j-uZL"/>

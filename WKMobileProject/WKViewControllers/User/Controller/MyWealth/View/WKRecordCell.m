@@ -69,4 +69,15 @@
     }
 }
 
+- (void)setMUserInfo:(WKUser *)mUserInfo{
+    self.mMMoney.text = [NSString stringWithFormat:@"可提现金额：%@",mUserInfo.rewards];
+    NSString *mT = mUserInfo.pay_type;
+    if ([mT isEqualToString:@"1"]) {
+        mT = @"微信";
+    }else{
+        mT = @"支付宝";
+    }
+    self.mToolName.text = [NSString stringWithFormat:@"收款工具：%@",mT];
+    self.mAcount.text = [NSString stringWithFormat:@"收款账户：%@",mUserInfo.pay_number];
+}
 @end

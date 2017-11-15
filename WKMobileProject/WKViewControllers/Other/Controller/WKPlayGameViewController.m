@@ -138,7 +138,7 @@
 //    [self.navigationController pushViewController:vc animated:YES];
     MWGameObj *mGame = self.tableArr[indexPath.row];
     NSString *mcontent = [NSString stringWithFormat:@"本次游戏将消耗您%d个金币，您是否愿意玩本次游戏呢？",mGame.pay_coin_num];
-    [self showCustomViewType:WKCustomPopViewHaveTwoBtn andTitle:@"您的账户还有100000000个金币" andContentTx:mcontent andOkBtntitle:@"确定" andCancelBtntitle:@"取消"];
+    [self showCustomViewType:WKCustomPopViewHaveTwoBtn andTitle:[NSString stringWithFormat:@"您的账户还有%@个金币",[WKUser currentUser].gold] andContentTx:mcontent andOkBtntitle:@"确定" andCancelBtntitle:@"取消"];
     
 }
 ///关闭按钮代理方法

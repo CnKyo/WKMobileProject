@@ -123,10 +123,16 @@
     }
 }
 - (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto{
+    MLLog(@"结果是：%@",assets);
+    if (photos.count>0) {
+        UIImage *mSelectedImage = photos[0];
+        [self upLoadImage:UIImageJPEGRepresentation(mSelectedImage, 1.0)];
+    }
     
 }
 - (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto infos:(NSArray<NSDictionary *> *)infos{
-    
+    MLLog(@"结果是：%@  %@",assets,infos);
+
 }
 //- (void)imagePickerControllerDidCancel:(TZImagePickerController *)picker __attribute__((deprecated("Use -tz_imagePickerControllerDidCancel:.")));
 - (void)tz_imagePickerControllerDidCancel:(TZImagePickerController *)picker{
@@ -138,12 +144,32 @@
 // 如果用户选择了一个视频，下面的handle会被执行
 // 如果系统版本大于iOS8，asset是PHAsset类的对象，否则是ALAsset类的对象
 - (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingVideo:(UIImage *)coverImage sourceAssets:(id)asset{
-    
+    MLLog(@"结果是：%@  %@",asset,coverImage);
+
 }
 
 // If user picking a gif image, this callback will be called.
 // 如果用户选择了一个gif图片，下面的handle会被执行
 - (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingGifImage:(UIImage *)animatedImage sourceAssets:(id)asset{
+    MLLog(@"结果是：%@  %@",asset,animatedImage);
+
+}
+
+- (void)upLoadImage:(NSData *)mImgData{
+    [SVProgressHUD showWithStatus:@"文件上传中..."];
     
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyyMMddHHmmss";
+    NSString *timeStr = [formatter stringFromDate:[NSDate date]];
+    NSString *fileName = [NSString stringWithFormat:@"%@_0.png",timeStr];
+
+    
+    [[WKHttpRequest initLocalApiclient] MWPostFileWithUrl:@"upLoadImg" andPara:@{@"userId":[WKUser currentUser].member_id} fileData:mImgData name:@"uploadFile0" fileName:fileName fileType:@"image/jpg/png" success:^(id responseObject) {
+        if (responseObject) {
+            MLLog(@"responseObject:%@",responseObject);
+        }
+    } fail:^{
+        MLLog(@"error:");
+    }];
 }
 @end

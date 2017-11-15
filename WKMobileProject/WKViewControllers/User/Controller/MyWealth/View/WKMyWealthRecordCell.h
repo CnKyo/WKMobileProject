@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WKHeader.h"
 @interface WKMyWealthRecordCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *mName;
@@ -16,5 +16,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *mStatus;
 
+@property (strong, nonatomic)  MWRichesHistoryObj *mRiches;
 
 @end

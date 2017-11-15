@@ -21,4 +21,28 @@
     // Configure the view for the selected state
 }
 
+- (void)setMRiches:(MWRichesHistoryObj *)mRiches{
+    self.mName.text = mRiches.riches_title;
+    NSString *mJ = mRiches.income_expenditure;
+    if ([mJ isEqualToString:@"-1"]){
+        mJ = @"-";
+        
+    }else{
+        mJ = @"+";
+        
+    }
+    self.mMoney.text = [NSString stringWithFormat:@"%@ %@",mJ,mRiches.money];
+    NSString *mS = mRiches.riches_arrive_status;
+    if ([mS isEqualToString:@"1"]) {
+        mS = @"处理中";
+    }else if ([mS isEqualToString:@"1"]){
+        mS = @"到账中";
+
+    }else{
+        mS = @"已到账";
+
+    }
+    self.mStatus.text = mS;
+
+}
 @end
