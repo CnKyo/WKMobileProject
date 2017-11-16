@@ -424,7 +424,7 @@
  @return 返回baseinfo
  */
 +(MWBaseObj *)infoWithReLoginErrorMessage:(NSString *)errMsg;
-
+#pragma mark----****----手机号码登录
 /**
  手机号码登录
 
@@ -432,7 +432,14 @@
  @param block 返回值
  */
 + (void)MWLoginWithPhone:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+#pragma mark----****----退出操作
+/**
+ 退出操作
 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWLogOut:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
 /**
  获取验证码
 
@@ -644,7 +651,7 @@
  @param para 参数
  @param block 返回值
  */
-+ (void)MWGetMyTaskOrderDetail:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
++ (void)MWGetMyTaskOrderDetail:(NSDictionary *)para block:(void(^)(MWBaseObj *info,MWTaskObj *mTaskDetailObj))block;
 #pragma mark----****----  获取我的财富值
 /**
  获取我的财富值

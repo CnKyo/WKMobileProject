@@ -220,18 +220,22 @@
     [SVProgressHUD showWithStatus:@"正在领取..."];
     [MWBaseObj MWFetchTask:@{@"task_id":_mTask.task_id,@"member_id":[WKUser currentUser].member_id} block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
-            [SVProgressHUD showSuccessWithStatus:info.err_msg];
-            [self performSelector:@selector(popViewController) withObject:nil afterDelay:0.5];
+            [WKProgressView WKShowView:self.view andStatus:WKProgressSucess WithTitle:@"任务领取成功" andContent:@"您已成功领取任务，赶紧去做任务吧！\n任务完成后，请到“我的任务”提交任务单。" andBtnTitle:@"返回" andImgSRC:@"icon_paysucess" andBlock:^(WKProgressView *progressView, NSInteger btnIndex) {
+                MLLog(@"%ld",btnIndex);
+                [self popViewController];
+            }];
             
         }else{
-            [SVProgressHUD showErrorWithStatus:info.err_msg];
+            [WKProgressView WKShowView:self.view andStatus:WKProgressError WithTitle:@"任务领取失败" andContent:info.err_msg andBtnTitle:@"返回重试" andImgSRC:@"icon_paysucess" andBlock:^(WKProgressView *progressView, NSInteger btnIndex) {
+                MLLog(@"%ld",btnIndex);
+//                [self popViewController];
+            }];
         }
+        [SVProgressHUD dismiss];
+
     }];
     
-//    [WKProgressView WKShowView:self.view andStatus:WKProgressSucess WithTitle:@"成功" andContent:@"这是什么？" andBtnTitle:@"重新加载" andImgSRC:@"icon_paysucess" andBlock:^(WKProgressView *progressView, NSInteger btnIndex) {
-//        MLLog(@"%ld",btnIndex);
-//
-//    }];
+
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

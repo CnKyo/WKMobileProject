@@ -91,10 +91,10 @@
     _manager.lookLivePhoto = YES;
     _manager.outerCamera = NO;
     _manager.cameraType = HXPhotoManagerCameraTypeFullScreen;
-    _manager.photoMaxNum = 4;
-    _manager.videoMaxNum = 4;
-    _manager.maxNum = 8;
-    _manager.videoMaxDuration = 500.f;
+    _manager.photoMaxNum = 3;
+    _manager.videoMaxNum = 0;
+    _manager.maxNum = 3;
+    _manager.videoMaxDuration = 0.f;
     _manager.saveSystemAblum = NO;
     _manager.style = HXPhotoAlbumStylesSystem;
     //        _manager.reverseDate = YES;
@@ -106,7 +106,7 @@
         //            [navBar setBackgroundImage:[UIImage imageNamed:@"APPCityPlayer_bannerGame"] forBarMetrics:UIBarMetricsDefault];
     };
     HXPhotoView *photoView = [HXPhotoView photoManager:self.manager];
-    photoView.frame = CGRectMake(0, 0, DEVICE_Width-20, self.mUpLoadView.ct_height);
+    photoView.frame = CGRectMake(0, 0, DEVICE_Width-40, self.mUpLoadView.ct_height-20);
     photoView.delegate = self;
     photoView.backgroundColor = [UIColor whiteColor];
     [self.mUpLoadView addSubview:photoView];
@@ -115,8 +115,8 @@
 - (void)photoView:(HXPhotoView *)photoView changeComplete:(NSArray<HXPhotoModel *> *)allList photos:(NSArray<HXPhotoModel *> *)photos videos:(NSArray<HXPhotoModel *> *)videos original:(BOOL)isOriginal {
     NSSLog(@"所有:%ld - 照片:%ld - 视频:%ld",allList.count,photos.count,videos.count);
     NSSLog(@"所有:%@ - 照片:%@ - 视频:%@",allList,photos,videos);
-    if (photos.count>4) {
-        [SVProgressHUD showErrorWithStatus:@"选择的图片不能超过4张！"];
+    if (photos.count>3) {
+        [SVProgressHUD showErrorWithStatus:@"选择的图片不能超过3张！"];
         return;
     }else{
         if ([self.delegate respondsToSelector:@selector(WKMyTaskDetailCommitCellWithReturnImgs:)]) {

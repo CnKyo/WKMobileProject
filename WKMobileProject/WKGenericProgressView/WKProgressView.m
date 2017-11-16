@@ -28,7 +28,7 @@
     [view.mSecondBtn setTitle:mBtnTitle forState:0];
     view.mStatusImg.image = [UIImage imageNamed:mImgSRC];
     if (mStatus == WKProgressSucess) {
-        view.backgroundColor = M_CO;
+        view.backgroundColor = M_BCO;
         view.mTitle.textColor = [UIColor whiteColor];
         view.mContent.textColor = [UIColor whiteColor];
         
@@ -52,7 +52,7 @@
 + (WKProgressView *)shareView:(UIView *)mView{
     WKProgressView *view = [[[NSBundle mainBundle] loadNibNamed:@"WKProgressView" owner:self options:nil] objectAtIndex:0];
     view.mFirstBtn.layer.cornerRadius = view.mSecondBtn.layer.cornerRadius = 4;
-    view.backgroundColor = M_CO;
+    view.backgroundColor = M_BCO;
     view.frame = mView.bounds;
     return view;
 }

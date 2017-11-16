@@ -118,7 +118,7 @@
     }else{
         [WKJUHEObj MWGetAFanDaWeather:@{@"key":kAFanDaAppKey,@"cityname":[MWLocationInfo currentLocationInfo].city} block:^(WKJUHEObj *info,MWWeatherObj *mWeather) {
             if (info.error_code == 0) {
-                mHeaderMessage.text = [NSString stringWithFormat:@"%@-%@ %@度",mWeather.city_name,mWeather.weather.info,mWeather.weather.temperature];
+                mHeaderMessage.text = [NSString stringWithFormat:@"%@-%@ %@度",mWeather.weather.temperature,mWeather.weather.info,mWeather.city_name];
             }else{
                 mHeaderMessage.text = @"获取天气失败，请重新打开定位后再试！";
 

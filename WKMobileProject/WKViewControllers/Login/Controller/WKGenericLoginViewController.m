@@ -160,7 +160,7 @@
                     if (info.err_code == 0) {
                         [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
                         [self dismissViewControllerAnimated:YES completion:^{
-                            self.mBlock(1);
+//                            self.mBlock(1);
 
                             [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
                             
@@ -181,7 +181,7 @@
                     if (info.err_code == 0) {
                         [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
                         [self dismissViewControllerAnimated:YES completion:^{
-                            self.mBlock(1);
+//                            self.mBlock(1);
                             //            if ([Util WKGetDBTime].length<=0 || [[Util WKGetDBTime] isEqualToString:@""]) {
                             //                [Util WKSaveDBTime];
                             //            }
@@ -204,11 +204,9 @@
                     if (info.err_code == 0) {
                         [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
                         [self dismissViewControllerAnimated:YES completion:^{
-                            self.mBlock(1);
-                            //            if ([Util WKGetDBTime].length<=0 || [[Util WKGetDBTime] isEqualToString:@""]) {
-                            //                [Util WKSaveDBTime];
-                            //            }
-                            [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
+//                            self.mBlock(1);
+                    
+//                            [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];
                             
                         }];
                     }else{

@@ -18,7 +18,7 @@
 - (void)layoutSubviews{
     
     [super layoutSubviews];
-    self.mBgkView.backgroundColor = M_BCO;
+    self.mBgkView.backgroundColor = M_CO;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

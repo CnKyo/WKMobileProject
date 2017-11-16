@@ -564,6 +564,26 @@ static WKUser *g_user = nil;
         }
     }];
 }
+#pragma mark----****----退出操作
+/**
+ 退出操作
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWLogOut:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/member/logout.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            [WKUser cleanUserInfo];
+            [((AppDelegate*)[UIApplication sharedApplication].delegate) performSelector:@selector(gotoLogin) withObject:nil afterDelay:0.4f];
+            block(info);
+         
+        }else{
+            block(info);
+        }
+    }];
+}
 /**
  获取验证码
  
@@ -1182,16 +1202,16 @@ static WKUser *g_user = nil;
  @param para 参数
  @param block 返回值
  */
-+ (void)MWGetMyTaskOrderDetail:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
++ (void)MWGetMyTaskOrderDetail:(NSDictionary *)para block:(void(^)(MWBaseObj *info,MWTaskObj *mTaskDetailObj))block{
     MLLog(@"参数是：%@",para);
     
     [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/task_member/index.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
 
-            block(info);
+            block(info,[MWTaskObj yy_modelWithDictionary:[info.data objectForKey:@"task_list"]]);
             
         }else{
-            block(info);
+            block(info,nil);
         }
     }];
 }

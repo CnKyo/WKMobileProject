@@ -26,7 +26,7 @@
 #import "UIScrollView+DRRefresh.h"
 
 #import <BGFMDB.h>
-@interface WKUserViewController ()<WKUserInfoCellDelegate,WKUserInfoAdCellDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface WKUserViewController ()<WKUserInfoCellDelegate,WKUserInfoAdCellDelegate,UITableViewDataSource,UITableViewDelegate,WKCustomPopViewDelegate>
 
 @end
 
@@ -37,6 +37,8 @@
     NSArray *mIamgeArr;
     
     BOOL isSign;
+
+    WKCustomPopView *mCustomView;
 
 }
 //通过一个方法来找到这个黑线(findHairlineImageViewUnder):
@@ -71,7 +73,7 @@
     self.view.backgroundColor = M_CO;
     self.tableArr = [NSMutableArray new];
     self.navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
-
+    
     UIButton *mRightBtn = [[UIButton alloc]initWithFrame:CGRectMake(DEVICE_Width-60,15,25,25)];
     mRightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     mRightBtn.titleLabel.textAlignment = NSTextAlignmentRight;
@@ -83,6 +85,20 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    
+    UIView *mFooterView = [UIView new];
+    mFooterView.frame = CGRectMake(0, 0, DEVICE_Width, 80);
+    mFooterView.backgroundColor = [UIColor whiteColor];
+    
+    UIButton *mLogOut = [UIButton new];
+    mLogOut.layer.cornerRadius = 4;
+    mLogOut.frame = CGRectMake(10, 30, DEVICE_Width-20, 50);
+    mLogOut.backgroundColor = [UIColor colorWithRed:0.97 green:0.58 blue:0.27 alpha:1];
+    [mLogOut setTitle:@"退出" forState:0];
+    [mLogOut addTarget:self action:@selector(mLogOutAction) forControlEvents:UIControlEventTouchUpInside];
+    [mFooterView addSubview:mLogOut];
+    
+    self.tableView.tableFooterView = mFooterView;
     
     UINib   *nib = [UINib nibWithNibName:@"WKUserInfoCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"headerCell"];
@@ -106,6 +122,17 @@
     }];
 
     [self.tableView headerBeginRefreshing];
+    
+}
+- (void)mLogOutAction{
+    [SVProgressHUD showWithStatus:@"退出中..."];
+    [MWBaseObj MWLogOut:@{@"member_id":[WKUser currentUser].member_id} block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            [SVProgressHUD showSuccessWithStatus:@"请重新登录!"];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+    }];
     
 }
 - (void)tableViewHeaderReloadData{
@@ -351,7 +378,9 @@
         [SVProgressHUD showWithStatus:@"正在签到..."];
         [MWBaseObj MWUserSign:@{@"member_id":[WKUser currentUser].member_id} block:^(MWBaseObj *info) {
             if (info.err_code == 0) {
-                [SVProgressHUD showSuccessWithStatus:@"签到成功！"];
+                [SVProgressHUD dismiss];
+                [self showCustomViewType:WKCustomPopViewSucess andTitle:@"签到成功" andContentTx:@"恭喜你，签到成功获得1金币!" andOkBtntitle:@"确定" andCancelBtntitle:nil];
+                
                 [self tableViewHeaderReloadData];
 
             }else{
@@ -400,4 +429,38 @@
     MLLog(@"选择的是:%ld",mIndexPath.row);
 
 }
+#pragma mark----****----自定义弹出框
+/**
+ 自定义弹出框
+ 
+ @param mType 弹出框类型
+ @param mTitle 标题
+ @param mContent 内容
+ @param mOkTitle 确定按钮
+ @param mCancelTitle 取消按钮
+ */
+- (void)showCustomViewType:(WKCustomPopViewType)mType andTitle:(NSString *)mTitle andContentTx:(NSString *)mContent andOkBtntitle:(NSString *)mOkTitle andCancelBtntitle:(NSString *)mCancelTitle{
+    
+    FDAlertView *alert = [[FDAlertView alloc] init];
+    mCustomView = [WKCustomPopView initViewType:mType andTitle:mTitle andContentTx:mContent andOkBtntitle:mOkTitle andCancelBtntitle:mCancelTitle];
+    mCustomView.delegate = self;
+    
+    mCustomView.frame = CGRectMake(30, 0, self.view.bounds.size.width-60, 250);
+    alert.contentView = mCustomView;
+    [alert show];
+    
+}
+///关闭按钮代理方法
+- (void)WKCustomPopViewWithCloseBtnAction{
+    MLLog(@"关闭");
+}
+///取消按钮代理方法
+- (void)WKCustomPopViewWithCancelBtnAction{
+    MLLog(@"取消");
+}
+///确定按钮代理方法
+- (void)WKCustomPopViewWithOkBtnAction{
+    MLLog(@"确定");
+}
+
 @end

@@ -18,6 +18,8 @@
 @implementation WKMyTaskDetailViewController
 {
     NSInteger mImgNum;
+    
+    MWTaskObj *mMyTask;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,7 +27,7 @@
     self.navigationItem.title = @"任务详情";
     
     mImgNum = 0;
-    
+    mMyTask = [MWTaskObj new];
     [self addTableView];
     
     UINib   *nib = [UINib nibWithNibName:@"WKMyTaskDetailHeadCell" bundle:nil];
@@ -44,9 +46,9 @@
     MLLog(@"刷头");
         
     [SVProgressHUD showWithStatus:@"正在加载中..."];
-    [MWBaseObj MWGetMyTaskOrderDetail:@{@"task_id":_mTask.task_id} block:^(MWBaseObj *info) {
+    [MWBaseObj MWGetMyTaskOrderDetail:@{@"task_id":_mTask.task_id} block:^(MWBaseObj *info,MWTaskObj *mTaskDetailObj) {
         if (info.err_code == 0) {
-            
+            mMyTask = mTaskDetailObj;
             [SVProgressHUD showSuccessWithStatus:info.err_msg];
            
         }else{
@@ -100,7 +102,7 @@
     }else{
         if (_mStatus == Going) {
             
-            return 410;
+            return 450;
         }else{
             return 90;
         }
