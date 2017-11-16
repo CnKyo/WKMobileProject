@@ -99,4 +99,17 @@
                     successBlock:(SuccessBlock)successBlock
                     failureBlock:(FailureBlock)failureBlock;
 
+#pragma mark----****----阿凡达数据请求
+/**
+ 阿凡达数据请求
+
+ @param urlString 请求链接
+ @param parameters 请求参数
+ @param cacheMode 是否缓存
+ @param successBlock 成功block
+ @param failureBlock 错误block
+ */
+-(void)MWAFanDaPOSTWithUrl:(NSString *)urlString parameters:(NSDictionary *)parameters cacheMode:(NSURLRequestCacheMode)cacheMode successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+
+
 @end

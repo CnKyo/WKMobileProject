@@ -123,6 +123,7 @@
 
 static WKUser *g_user = nil;
 
+
 + (WKUser *)currentUser{
     if (g_user) {
         return g_user;
@@ -392,6 +393,71 @@ static WKUser *g_user = nil;
 
 @implementation WKJUHEObj  : NSObject
 
+/**
+ 返回错误
+ 
+ @param error 错误
+ @return 返回baseinfo
+ */
++(WKJUHEObj *)infoWithError:(NSError *)error{
+    WKJUHEObj *info = [[WKJUHEObj alloc] init];
+    NSString *des = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+    if (des.length > 0)
+        info.reason = des;
+    else
+        info.reason = @"网络请示失败，请检查网络";
+    info.error_code = kRetCodeError;
+    return info;
+}
+
+/**
+ 返回错误信息
+ 
+ @param errMsg 信息
+ @return 返回baseinfo
+ */
++(WKJUHEObj *)infoWithErrorMessage:(NSString *)errMsg{
+    WKJUHEObj *info = [[WKJUHEObj alloc] init];
+    info.reason       = errMsg;
+    info.error_code = kRetCodeError;
+    return info;
+}
+
+/**
+ 返回成功信息
+ 
+ @param successMsg 信息
+ @return 返回baseinfo
+ */
++(WKJUHEObj *)infoWithSuccessMessage:(NSString *)successMsg{
+    WKJUHEObj *info = [[WKJUHEObj alloc] init];
+    info.reason       = successMsg;
+    info.error_code = kRetCodeSucess;
+    return info;
+}
+#pragma mark----****---- 阿凡达天气请求
+/**
+ 阿凡达天气请求
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetAFanDaWeather:(NSDictionary *)para block:(void(^)(WKJUHEObj *info,MWWeatherObj *mWeather))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initAFanDaApiClient] MWAFanDaPostWithUrl:@"Weather/Query" withPara:para block:^(WKJUHEObj *info) {
+        if (info.error_code == 0) {
+            if ([info.result isKindOfClass:[NSDictionary class]]) {
+                block(info,[MWWeatherObj yy_modelWithDictionary:[info.result objectForKey:@"realtime"]]);
+
+            }else{
+                block(info,nil);
+
+            }
+        }else{
+            block(info,nil);
+        }
+    }];
+}
 @end
 @implementation WKWechatObj  : NSObject
 + (void)WKGetWechat:(NSDictionary *)para block:(void(^)(WKBaseInfo *info,NSArray *mArr))block{
@@ -1245,46 +1311,6 @@ static WKUser *g_user = nil;
 @end
 
 @implementation MWBaiDuApiBaseObj
-+ (void)WKGetBaiDuWeather:(NSString *)mCity andJingdu:(NSString *)mJ andWeidu:(NSString *)mW block:(void(^)(MWBaiDuApiBaseObj *info))block{
-    NSMutableDictionary *para = [NSMutableDictionary new];
-    [para setObject:mCity forKey:@"city"];
-
-    MLLog(@"参数是：%@",para);
-    
-//    [[WKHttpRequest initBaiDuAPI] WKBaiDuGetDataWithUrl:@"weather/query" withPara:para block:^(MWBaiDuApiBaseObj *info) {
-//        if (info.status == 0) {
-//            block(info,[MWBaiDuWeatherObj yy_modelWithDictionary:info.result]);
-//        }else{
-//            block(info,nil);
-//        }
-//    }];
-    
-    NSString *appcode = @"e91dafba851d476b9c74160491d8588d";
-    NSString *host = @"http://jisutqybmf.market.alicloudapi.com";
-    NSString *path = @"/weather/query";
-    NSString *method = @"GET";
-    NSString *querys = [NSString stringWithFormat:@"?city=%@",mCity];
-    NSString *url = [NSString stringWithFormat:@"%@%@%@",  host,  path , querys];
-    NSString *bodys = @"";
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString: url]  cachePolicy:1  timeoutInterval:  5];
-    request.HTTPMethod  =  method;
-    [request addValue:  [NSString  stringWithFormat:@"APPCODE %@" ,  appcode]  forHTTPHeaderField:  @"Authorization"];
-    NSURLSession *requestSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    NSURLSessionDataTask *task = [requestSession dataTaskWithRequest:request
-                                                   completionHandler:^(NSData * _Nullable body , NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                                                       MLLog(@"Response object: %@" , response);
-                                                       NSString *bodyString = [[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding];
-                                                       
-                                                       MWBaiDuApiBaseObj *info = [MWBaiDuApiBaseObj yy_modelWithJSON:[Util stringToDictionary:bodyString]];
-                                                       block(info);
-                                                       //打印应答中的body
-                                                       MLLog(@"Response body: %@" , info);
-                                                   }];
-    
-    [task resume];
-    
-}
 
 @end
 
@@ -1307,8 +1333,44 @@ static WKUser *g_user = nil;
 @implementation MWGameObj
 
 @end
+#pragma mark----****----定位信息对象
+///定位对象
 @implementation MWLocationInfo
 
+static MWLocationInfo *mLocation = nil;
+
++ (MWLocationInfo *)currentLocationInfo{
+    if (mLocation) {
+        return mLocation;
+    }
+    @synchronized(self) {
+        if (!mLocation) {
+            NSArray *mLArr = [MWLocationInfo bg_findAll];
+            if (mLArr.count>0) {
+                mLocation = mLArr[0];
+            }else{
+                mLocation = nil;
+            }
+            
+        }
+        return mLocation;
+    }
+}
++(void)saveLocationInfo:(id)info
+{
+    info = [Util delNUll:info];
+    NSUserDefaults* def = [NSUserDefaults standardUserDefaults];
+    [def setObject:info forKey:@"locationInfo"];
+    [def synchronize];
+}
+
+
++(void)cleanLocationInfo
+{
+    NSUserDefaults* def = [NSUserDefaults standardUserDefaults];
+    [def setObject:nil forKey:@"locationInfo"];
+    [def synchronize];
+}
 @end
 
 @implementation MWMessageObj
@@ -1347,5 +1409,15 @@ static WKUser *g_user = nil;
 
 @end
 @implementation MWHomeNoticeObj
+
+@end
+
+@implementation MWWeatherObj
+
+@end
+@implementation MWWeatherInfo
+
+@end
+@implementation MWWeatherWindInfo
 
 @end

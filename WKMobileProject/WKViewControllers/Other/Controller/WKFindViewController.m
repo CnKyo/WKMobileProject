@@ -22,8 +22,9 @@
 #import "GetIPAddress.h"
 
 #import "OnlyLocationManager.h"
+#import "CurentLocation.h"
 
-@interface WKFindViewController ()<WKFindHeaderCellDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface WKFindViewController ()<WKFindHeaderCellDelegate,UITableViewDataSource,UITableViewDelegate,MMApBlockCoordinate>
 
 @end
 
@@ -71,7 +72,7 @@
     mHeaderMessage = [UILabel new];
     mHeaderMessage.backgroundColor = M_BCO;
     mHeaderMessage.frame = CGRectMake(0, 0, DEVICE_Width, 45);
-    mHeaderMessage.text = @"重庆-多云  31-35度";
+    mHeaderMessage.text = @"正在获取天气信息...";
     mHeaderMessage.font = [UIFont systemFontOfSize:15];
     mHeaderMessage.textColor = [UIColor whiteColor];
     mHeaderMessage.textAlignment = NSTextAlignmentCenter;
@@ -105,66 +106,57 @@
     [self updateAddress];
     
 }
-- (void)updateAddress{
-    NSArray *mLArr = [MWLocationInfo bg_findAll];
-    if (mLArr.count>0) {
-        MWLocationInfo *mLocation = mLArr[0];
-        NSMutableDictionary *para = [NSMutableDictionary new];
-        if (mLocation.mLocationObj.city) {
-            [para setObject:mLocation.mLocationObj.city forKey:@"city"];
-        }
-        if (mLocation.mCoordinate.latitude) {
-            [para setObject:[NSString stringWithFormat:@"%f,%f",mLocation.mCoordinate.latitude,mLocation.mCoordinate.longitude] forKey:@"location"];
-            
-        }
-        [MWBaiDuApiBaseObj WKGetBaiDuWeather:mLocation.shi andJingdu:nil andWeidu:nil block:^(MWBaiDuApiBaseObj *info) {
-            if (info.status == 0) {
-                
+#pragma mark----maplitdelegate
+- (void)MMapreturnLatAndLng:(NSDictionary *)mCoordinate{
+    MLLog(@"定位成功之后返回的东东：%@",mCoordinate);
+}
+- (void)loadWeather{
+    MLLog(@"定位信息：%@",[MWLocationInfo currentLocationInfo].latitude);
+    if ([MWLocationInfo currentLocationInfo].latitude.length ==  0) {
+        [self updateAddress];
+        
+    }else{
+        [WKJUHEObj MWGetAFanDaWeather:@{@"key":kAFanDaAppKey,@"cityname":[MWLocationInfo currentLocationInfo].city} block:^(WKJUHEObj *info,MWWeatherObj *mWeather) {
+            if (info.error_code == 0) {
+                mHeaderMessage.text = [NSString stringWithFormat:@"%@-%@ %@度",mWeather.city_name,mWeather.weather.info,mWeather.weather.temperature];
             }else{
-                [OnlyLocationManager shareManager:NO needVO:YES initCallBack:^(LocationInitType type, CLLocationManager *manager) {
-                    
-                } resultCallBack:^(CLLocationCoordinate2D coordinate, CLLocation *location, OnlyLocationVO *locationVO) {
-                    [self locationSuccess:locationVO];
-                }];
+                mHeaderMessage.text = @"获取天气失败，请重新打开定位后再试！";
+
             }
         }];
-    }else{
-        [OnlyLocationManager shareManager:NO needVO:YES initCallBack:^(LocationInitType type, CLLocationManager *manager) {
-            
-        } resultCallBack:^(CLLocationCoordinate2D coordinate, CLLocation *location, OnlyLocationVO *locationVO) {
-            [self locationSuccess:locationVO];
-        }];
-        
     }
-
-
+}
+#pragma mark----****----获取定位信息
+- (void)updateAddress{
+    
+    [CurentLocation sharedManager].delegate = self;
+    [[CurentLocation sharedManager] getUSerLocation];
+    
+    [OnlyLocationManager shareManager:NO needVO:YES initCallBack:^(LocationInitType type, CLLocationManager *manager) {
+        
+    } resultCallBack:^(CLLocationCoordinate2D coordinate, CLLocation *location, OnlyLocationVO *locationVO) {
+        [self locationSuccess:locationVO];
+    }];
+    
 }
 -(void)locationSuccess:(OnlyLocationVO *)locationVO{
-//    [MWLocationInfo bg_clear];
-    MWLocationInfo *mLocation = [MWLocationInfo new];
-    mLocation.mLocationObj = locationVO.addressComponent;
-    mLocation.mCoordinate = locationVO.location;
-//    [mLocation bg_save];
-   
-        NSMutableDictionary *para = [NSMutableDictionary new];
-        if (mLocation.mLocationObj.city) {
-            [para setObject:mLocation.mLocationObj.city forKey:@"city"];
-        }
-        if (mLocation.mCoordinate.latitude) {
-            [para setObject:[NSString stringWithFormat:@"%f,%f",mLocation.mCoordinate.latitude,mLocation.mCoordinate.longitude] forKey:@"location"];
-            
-        }
-        [MWBaiDuApiBaseObj WKGetBaiDuWeather:mLocation.mLocationObj.city andJingdu:nil andWeidu:nil block:^(MWBaiDuApiBaseObj *info) {
-            if (info.status == 0) {
-                
-            }else{
-                [OnlyLocationManager shareManager:NO needVO:YES initCallBack:^(LocationInitType type, CLLocationManager *manager) {
-                    
-                } resultCallBack:^(CLLocationCoordinate2D coordinate, CLLocation *location, OnlyLocationVO *locationVO) {
-                    [self locationSuccess:locationVO];
-                }];
-            }
-        }];
+    [MWLocationInfo bg_clear];
+    MWLocationInfo *mLocationInfo = [MWLocationInfo new];
+    mLocationInfo.district = locationVO.addressComponent.district;
+    mLocationInfo.city = locationVO.addressComponent.city;
+    mLocationInfo.country = locationVO.addressComponent.country;
+    mLocationInfo.adcode = locationVO.addressComponent.adcode;
+    mLocationInfo.street = locationVO.addressComponent.street;
+    mLocationInfo.distance = locationVO.addressComponent.distance;
+    mLocationInfo.street_number = locationVO.addressComponent.street_number;
+    mLocationInfo.country_code = locationVO.addressComponent.country_code;
+    mLocationInfo.direction = locationVO.addressComponent.direction;
+    mLocationInfo.province = locationVO.addressComponent.province;
+    
+    mLocationInfo.latitude = [NSString stringWithFormat:@"%f",locationVO.location.latitude];
+    mLocationInfo.longitude = [NSString stringWithFormat:@"%f",locationVO.location.longitude];
+    
+    [mLocationInfo bg_save];
     
     
 }
@@ -199,6 +191,8 @@
 }
 
 - (void)tableViewHeaderReloadData{
+    [self loadWeather];
+
     [mBannerList removeAllObjects];
     [self.tableArr removeAllObjects];
     [SVProgressHUD showWithStatus:@"加载中..."];

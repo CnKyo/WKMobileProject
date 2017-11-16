@@ -306,6 +306,7 @@
 
 @end
 
+@class MWWeatherObj;
 @interface WKJUHEObj : NSObject
 
 @property (nonatomic,strong) NSString *reason;
@@ -315,6 +316,37 @@
 @property (assign,nonatomic) int status;
 
 @property (nonatomic,strong) id result;
+/**
+ 返回错误
+ 
+ @param error 错误
+ @return 返回baseinfo
+ */
++(WKJUHEObj *)infoWithError:(NSError *)error;
+
+/**
+ 返回错误信息
+ 
+ @param errMsg 信息
+ @return 返回baseinfo
+ */
++(WKJUHEObj *)infoWithErrorMessage:(NSString *)errMsg;
+
+/**
+ 返回成功信息
+ 
+ @param successMsg 信息
+ @return 返回baseinfo
+ */
++(WKJUHEObj *)infoWithSuccessMessage:(NSString *)successMsg;
+#pragma mark----****---- 阿凡达天气请求
+/**
+ 阿凡达天气请求
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGetAFanDaWeather:(NSDictionary *)para block:(void(^)(WKJUHEObj *info,MWWeatherObj *mWeather))block;
 
 @end
 
@@ -719,8 +751,6 @@
 @property (nonatomic,assign) id result;
 
 
-+ (void)WKGetBaiDuWeather:(NSString *)mCity andJingdu:(NSString *)mJ andWeidu:(NSString *)mW block:(void(^)(MWBaiDuApiBaseObj *info))block;
-
 @end
 
 @interface MWBaiDuWeatherObj : NSObject
@@ -828,20 +858,28 @@
 @property (nonatomic,assign) int pay_coin_num;
 
 @end
+#pragma mark----****----定位信息对象
 ///定位对象
 @interface MWLocationInfo : NSObject
+@property (nonatomic,copy) NSString* district;
+@property (nonatomic,copy) NSString* city;
+@property (nonatomic,copy) NSString* country;
+@property (nonatomic,copy) NSString* adcode;
+@property (nonatomic,copy) NSString* street;
+@property (nonatomic,copy) NSString* distance;
+@property (nonatomic,copy) NSString* street_number;
+@property (nonatomic,copy) NSString* country_code;
+@property (nonatomic,copy) NSString* direction;
+@property (nonatomic,copy) NSString* province;
 
-@property (nonatomic,strong) NSArray *detail;
-@property (nonatomic,strong) NSString *Street;
-@property (nonatomic,strong) NSString *Country;
-@property (nonatomic,strong) NSString *jing;
-@property (nonatomic,strong) NSString *wei;
-@property (nonatomic,strong) NSString *shi;
-@property (nonatomic,strong) NSString *xian;
+@property (nonatomic,copy) NSString* latitude;
+@property (nonatomic,copy) NSString* longitude;
 
-@property (nonatomic,strong) OnlyLocationComponentVO *mLocationObj;
-@property (nonatomic,assign) CLLocationCoordinate2D  mCoordinate;
 
++ (void)saveLocationInfo:(id)info;
++ (void)cleanLocationInfo;
+///返回当前位置信息
++(MWLocationInfo *)currentLocationInfo;
 
 @end
 
@@ -992,5 +1030,35 @@
 @property (nonatomic,strong) NSString *notice_id;
 
 @end
+@class MWWeatherInfo;
+@class MWWeatherWindInfo;
+@interface MWWeatherObj : NSObject
+@property (nonatomic,strong) NSString *city_code;
+@property (nonatomic,strong) NSString *city_name;
+@property (nonatomic,strong) NSString *dataUptime;
+@property (nonatomic,strong) NSString *date;
+@property (nonatomic,strong) NSString *moon;
+@property (nonatomic,strong) NSString *time;
+@property (nonatomic,strong) NSString *week;
+@property (nonatomic,strong) MWWeatherInfo *weather;
+@property (nonatomic,strong) MWWeatherWindInfo *wind;
 
+
+@end
+
+@interface MWWeatherInfo : NSObject
+@property (nonatomic,strong) NSString *humidity;
+@property (nonatomic,strong) NSString *img;
+@property (nonatomic,strong) NSString *info;
+@property (nonatomic,strong) NSString *temperature;
+
+@end
+
+@interface MWWeatherWindInfo : NSObject
+@property (nonatomic,strong) NSString *direct;
+@property (nonatomic,strong) NSString *offset;
+@property (nonatomic,strong) NSString *power;
+@property (nonatomic,strong) NSString *windspeed;
+
+@end
 

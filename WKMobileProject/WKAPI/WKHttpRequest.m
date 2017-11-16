@@ -424,4 +424,46 @@
     
     [self.conDic setObject:arr forKey:key];
 }
+#pragma mark----****----阿凡达数据请求
+///阿凡达数据请求
++ (instancetype)initAFanDaApiClient{
+    static WKHttpRequest *_sharedClient = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        //[APIClient loadDefault];
+        _sharedClient = [[WKHttpRequest alloc] initWithBaseURL:[NSURL URLWithString:kAFanDaURLString]];
+        _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
+        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+        
+        ;
+        //_sharedClient.requestSerializer = [AFJSONRequestSerializer serializer];
+        _sharedClient.requestSerializer.HTTPShouldHandleCookies = YES;
+        //_sharedClient.requestSerializer.Content = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+    });
+    return _sharedClient;
+}
+#pragma mark----****----阿凡达数据请求
+/**
+ 阿凡达数据请求
+ 
+ @param url url
+ @param para 参数
+ @param block 返回值
+ */
+- (void)MWAFanDaPostWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKJUHEObj *info))block{
+    [[NSNetworkRequest sharedInstance] MWAFanDaPOSTWithUrl:url parameters:para cacheMode:NO successBlock:^(id responseObject) {
+        MLLog(@"responseObject----:%@",responseObject);
+        
+        WKJUHEObj *info = [WKJUHEObj yy_modelWithJSON:responseObject];
+        block(info);
+    } failureBlock:^(NSError *error) {
+        
+        MLLog(@"错了：%@",error.description);
+        WKJUHEObj *info = [WKJUHEObj infoWithError:error];
+        info.error_code = 1;
+        
+        block(info);
+    }];
+}
+
 @end

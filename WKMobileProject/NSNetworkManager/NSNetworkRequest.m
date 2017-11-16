@@ -409,6 +409,124 @@ static AFHTTPSessionManager *manager;
     }
     
 }
+#pragma mark----****----阿凡达数据请求
+/**
+ 阿凡达数据请求
+ 
+ @param urlString 请求链接
+ @param parameters 请求参数
+ @param cacheMode 是否缓存
+ @param successBlock 成功block
+ @param failureBlock 错误block
+ */
+-(void)MWAFanDaPOSTWithUrl:(NSString *)urlString parameters:(NSDictionary *)parameters cacheMode:(NSURLRequestCacheMode)cacheMode successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [NSNetworkRequest MWAFanDaAPIRequestWithUrlString:urlString parameters:parameters requestType:NSURLRequestTypePost cacheMode:cacheMode successBlock:^(id responseObject) {
+        successBlock ? successBlock(responseObject) :nil;
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    } failureBlock:^(NSError *error) {
+        failureBlock ? failureBlock(error) : nil;
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    }];
+}
+#pragma mark----****----阿凡达数据请求
+/**
+ 阿凡达数据请求
+ 
+ @param urlString 请求链接
+ @param parameters 请求参数
+ @param cacheMode 是否缓存
+ @param successBlock 成功block
+ @param failureBlock 错误block
+ */
++(void)MWAFanDaAPIRequestWithUrlString:(NSString *)urlString
+                      parameters:(NSDictionary *)parameters
+                     requestType:(NSURLRequestType)requestType
+                       cacheMode:(NSURLRequestCacheMode)cacheMode
+                    successBlock:(SuccessBlock)successBlock
+                    failureBlock:(FailureBlock)failureBlock{
+    
+    
+    
+    manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kAFanDaURLString]]; //设置请求参数的类型
+    MLLog(@"请求的URL链接是：%@%@",manager.baseURL,urlString);
+    
+    [manager.requestSerializer setTimeoutInterval:TIMEOUT]; //设置请求的超时时间
+    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer]; //设置服务器返回结果的类型:JSON
+    manager.operationQueue.maxConcurrentOperationCount = 4; //请求队列的最大并发数
+#pragma mark - token设置
+    //    [manager.requestSerializer setValue:@"" forHTTPHeaderField:@"accesstoken"];
+    
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",
+                                                         @"text/json",
+                                                         @"text/javascript",
+                                                         @"text/html",
+                                                         @"text/plain", nil];
+    //GET
+    if (requestType == NSURLRequestTypeGet) {
+        if (cacheMode == NSURLRequestCacheModeNone) {
+            [manager GET:urlString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+                //
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                successBlock ? successBlock(responseObject) :nil;
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                failureBlock ? failureBlock(error) : nil;
+            }];
+        }else{
+            [manager GET:urlString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+                //
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                successBlock ? successBlock(responseObject) :nil;
+                [NSNetworkCache saveDataCache:responseObject forkey:urlString];
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                successBlock([NSNetworkCache readCache:urlString]);
+            }];
+        }
+    }else if (requestType == NSURLRequestTypePost){
+        //POST
+        if (cacheMode == NSURLRequestCacheModeNone) {
+            [manager POST:urlString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+                //
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                successBlock ? successBlock(responseObject) :nil;
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                failureBlock(error);
+            }];
+        }else{
+            [manager POST:urlString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+                //
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                successBlock(responseObject);
+                [NSNetworkCache saveDataCache:responseObject forkey:urlString];
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                successBlock([NSNetworkCache readCache:urlString]);
+            }];
+        }
+    }else if (requestType == NSURLRequestTypePut){
+        //PUT
+        [manager PUT:urlString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            successBlock ? successBlock(responseObject) :nil;
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            failureBlock ? failureBlock(error) : nil;
+        }];
+    }else if (requestType == NSURLRequestTypePatch){
+        //PATCH
+        [manager PATCH:urlString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            successBlock ? successBlock(responseObject) :nil;
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            failureBlock ? failureBlock(error) : nil;
+        }];
+    }else if (requestType == NSURLRequestTypeDelete){
+        //DELETE
+        [manager DELETE:urlString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            successBlock(responseObject);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            failureBlock ? failureBlock(error) : nil;
+        }];
+    }
+    
+}
 /**
  * @brief GET请求
  */

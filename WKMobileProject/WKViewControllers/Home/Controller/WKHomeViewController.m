@@ -27,8 +27,8 @@
 #import <BGFMDB.h>
 
 #import "OnlyLocationManager.h"
-
-@interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate,NSNetworkMonitorProtocol>
+#import "CurentLocation.h"
+@interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate,NSNetworkMonitorProtocol,MMApBlockCoordinate>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
 
@@ -80,14 +80,9 @@
     
     const NSString *deviceName = [[DeviceInfoManager sharedManager] getDeviceName];
     MLLog(@"deviceName:%@",deviceName);
-    if ([[[WKGetDeviceInfo sharedLibrery] getDiviceName] isEqualToString:@"Global_iPhone_X"] || [[[WKGetDeviceInfo sharedLibrery] getDiviceName] isEqualToString:@"Chinese_iPhone_X"]) {
-        self.mTopMargin.constant = -94;
 
-    }else{
         self.mTopMargin.constant = -44;
 
-        
-    }
 
     
   const  NSString *mDeviceInfo = [[WKGetDeviceInfo sharedLibrery] getDiviceName];
@@ -125,48 +120,64 @@
                                                  name:KAppFetchJPUSHService
                                                object:nil];
     
-//    NSArray *mLArr = [MWLocationInfo bg_findAll];
-//    if (mLArr.count>0) {
-//        MWLocationInfo *mLocation = mLArr[0];
-//        NSMutableDictionary *para = [NSMutableDictionary new];
-//        if (mLocation.mLocationObj.city) {
-//            [para setObject:mLocation.mLocationObj.city forKey:@"city"];
-//        }
-//        if (mLocation.mCoordinate.latitude) {
-//            [para setObject:[NSString stringWithFormat:@"%f,%f",mLocation.mCoordinate.latitude,mLocation.mCoordinate.longitude] forKey:@"location"];
-//
-//        }
-//        [MWBaiDuApiBaseObj WKGetBaiDuWeather:mLocation.shi andJingdu:nil andWeidu:nil block:^(MWBaiDuApiBaseObj *info) {
-//            if (info.status == 0) {
-//
-//            }else{
-//                [self updateAddress];
-//
-//            }
-//        }];
-//    }else{
-        [self updateAddress];
-//    }
 
     
+
+    
+}
+#pragma mark----maplitdelegate
+- (void)MMapreturnLatAndLng:(NSDictionary *)mCoordinate{
+        MLLog(@"定位成功之后返回的东东：%@",mCoordinate);
+}
+- (void)loadWeather{
+    MLLog(@"定位信息：%@",[MWLocationInfo currentLocationInfo].latitude);
+    if ([MWLocationInfo currentLocationInfo].latitude.length ==  0) {
+        [self updateAddress];
+        
+    }else{
+        [WKJUHEObj MWGetAFanDaWeather:@{@"key":kAFanDaAppKey,@"cityname":[MWLocationInfo currentLocationInfo].city} block:^(WKJUHEObj *info,MWWeatherObj *mWeather) {
+            if (info.error_code == 0) {
+                
+            }else{
+                
+            }
+        }];
+    }
 }
 #pragma mark----****----获取定位信息
 - (void)updateAddress{
     
+    [CurentLocation sharedManager].delegate = self;
+    [[CurentLocation sharedManager] getUSerLocation];
+    
     [OnlyLocationManager shareManager:NO needVO:YES initCallBack:^(LocationInitType type, CLLocationManager *manager) {
         
     } resultCallBack:^(CLLocationCoordinate2D coordinate, CLLocation *location, OnlyLocationVO *locationVO) {
-//        [self locationSuccess:locationVO];
+        [self locationSuccess:locationVO];
     }];
     
 }
-//-(void)locationSuccess:(OnlyLocationVO *)locationVO{
-//    [MWLocationInfo bg_clear];
-//    MWLocationInfo *mLocation = [MWLocationInfo new];
-//    mLocation.mLocationObj = locationVO.addressComponent;
-//    mLocation.mCoordinate = locationVO.location;
-//    [mLocation bg_save];
-//}
+-(void)locationSuccess:(OnlyLocationVO *)locationVO{
+    [MWLocationInfo bg_clear];
+    MWLocationInfo *mLocationInfo = [MWLocationInfo new];
+    mLocationInfo.district = locationVO.addressComponent.district;
+    mLocationInfo.city = locationVO.addressComponent.city;
+    mLocationInfo.country = locationVO.addressComponent.country;
+    mLocationInfo.adcode = locationVO.addressComponent.adcode;
+    mLocationInfo.street = locationVO.addressComponent.street;
+    mLocationInfo.distance = locationVO.addressComponent.distance;
+    mLocationInfo.street_number = locationVO.addressComponent.street_number;
+    mLocationInfo.country_code = locationVO.addressComponent.country_code;
+    mLocationInfo.direction = locationVO.addressComponent.direction;
+    mLocationInfo.province = locationVO.addressComponent.province;
+
+    mLocationInfo.latitude = [NSString stringWithFormat:@"%f",locationVO.location.latitude];
+    mLocationInfo.longitude = [NSString stringWithFormat:@"%f",locationVO.location.longitude];
+
+    [mLocationInfo bg_save];
+    
+
+}
 -(void)locationStateChange:(NSNotification* )noti{
     OnlyLocationManager* manager = [OnlyLocationManager getLocationManager];
     NSLog(@"%ld",manager.state);
@@ -238,6 +249,7 @@
     [self presentModalViewController:vc];
 }
 - (void)tableViewHeaderReloadData{
+    [self loadWeather];
     [mTopBannerArr removeAllObjects];
     [mFuncArr removeAllObjects];
     [mJHBannerArr removeAllObjects];
@@ -273,89 +285,7 @@
         
         [self.tableView reloadData];
     }];
-    
-//    NSMutableDictionary *bannerpara = [NSMutableDictionary new];
-//    [bannerpara setObject:kJUHEAPIKEY forKey:@"key"];
-//    [bannerpara setObject:@"guonei" forKey:@"type"];
-//    [SVProgressHUD showWithStatus:@"正在加载..."];
-//    [WKNews WKGetJuheNewsList:bannerpara block:^(WKJUHEObj *info, NSArray *mArr) {
-//
-//        if (info.error_code == 0) {
-//            [SVProgressHUD dismiss];
-//            for (int i = 0; i<mArr.count; i++) {
-//                WKNews *mNew = mArr[i];
-//            [mTopBannerArr addObject:mNew.thumbnail_pic_s];
-//                if (i==4) {
-//                    break;
-//                }
-//            }
-//            [mJHBannerArr addObjectsFromArray:mArr];
-////            [self.tableView headerEndRefreshing];
-////
-//            [self.tableView headerEndRefreshing];
-//
-//            [self.tableView reloadData];
-//
-//        }else{
-//            [SVProgressHUD showErrorWithStatus:info.reason];
-//            [SVProgressHUD dismiss];
-//
-//
-//        }
-//
-//    }];
-//
-//    NSMutableDictionary *mWechat = [NSMutableDictionary new];
-//    [mWechat setObject:kMobTrainDemandKey forKey:@"key"];
-//    [mWechat setObject:@"1" forKey:@"cid"];
-//    [mWechat setObject:@"1" forKey:@"page"];
-//    [mWechat setObject:@"4" forKey:@"size"];
-//
-//
-//    [WKWechatObj WKGetWechat:mWechat block:^(WKBaseInfo *info, NSArray *mArr) {
-//
-//        if (info.status == 0) {
-//            [SVProgressHUD dismiss];
-//
-//                [mRecommend addObjectsFromArray:mArr];
-//
-//            [self.tableView headerEndRefreshing];
-//
-//            [self.tableView reloadData];
-//
-//        }else{
-//            [SVProgressHUD dismiss];
-//        }
-//
-//    }];
-//
-//
-//    NSMutableDictionary *mJunshi = [NSMutableDictionary new];
-//    [mJunshi setObject:kJUHEAPIKEY forKey:@"key"];
-//    [mJunshi setObject:@"junshi" forKey:@"type"];
-//
-//    [WKNews WKGetJuheNewsList:mJunshi block:^(WKJUHEObj *info, NSArray *mArr) {
-//
-//        if (info.error_code == 0) {
-//            [SVProgressHUD dismiss];
-//            for (int i = 0; i<mArr.count; i++) {
-//                WKNews *mNew = mArr[i];
-//                [mActArr addObject:mNew];
-//                if (i==3) {
-//                    break;
-//                }
-//            }
-//            [self.tableView headerEndRefreshing];
-//
-//            [self.tableView reloadData];
-//
-//        }else{
-//            [SVProgressHUD showErrorWithStatus:info.reason];
-//
-//            [SVProgressHUD dismiss];
-//        }
-//
-//    }];
+  
 
 }
 - (void)judgeString{

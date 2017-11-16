@@ -166,8 +166,9 @@ static NSString* const kBaiDuAPIURLString                 = @"http://jisutqybmf.
 
 
 static NSString* const kAPIAddressUrlString                 = @"www.lpp.com";
-
+#pragma mark----****----聚合URL
 static NSString* const kJUHEAPIAddressUrlString                 = @"http://v.juhe.cn";
+#pragma mark----****----聚合头条APIKEY
 ///聚合头条APIKEY
 //static NSString* const kJUHEAPIKEY                          = @"40ef3b82ad8b5fb464203092d4511942";
 static NSString* const kJUHEAPIKEY                          = @"aa785f7f417055c4ae72a49191381d17";
@@ -189,13 +190,18 @@ static NSString* const  kAFAppDotNetApiExtraURLString       = @"/api/app/client"
 static NSString* const  kAFAppDotNetApiServiceURLString     = @"/api/app/service";
 static NSString* const  kAFAppDotNetImgBaseURLString        = @"http://resource.china-cr.com/resource";
 
-
+#pragma mark----****----登录通知
 static NSString* const  KAppFetchJPUSHService        = @"loginNotify";
-
+#pragma mark----****----本地Host api访问地址
 ///本地Host api访问地址
 static NSString* const kLocalAPIUrlString                 = @"http://www.lpp.com/";
 //static NSString* const kLocalAPIUrlString                 = @"192.168.31.44/";
-
+#pragma mark----****----阿凡达数据APPKey
+///阿凡达数据APPKey
+static NSString* const kAFanDaAppKey                 = @"015b8433f2294d4f90d6b25a262a7af7";
+#pragma mark----****----阿凡达数据URL
+///阿凡达数据URL
+static NSString* const kAFanDaURLString                 = @"http://api.avatardata.cn/";
 
 ///错误
 static int const  kRetCodeError        = 10002;

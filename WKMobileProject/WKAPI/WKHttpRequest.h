@@ -114,4 +114,17 @@
 
 + (NSString*)nowTime:(NSString*)dateType;
 
+#pragma mark----****----阿凡达数据请求
+///阿凡达数据请求
++ (instancetype)initAFanDaApiClient;
+#pragma mark----****----阿凡达数据请求
+/**
+ 阿凡达数据请求
+
+ @param url url
+ @param para 参数
+ @param block 返回值
+ */
+- (void)MWAFanDaPostWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKJUHEObj *info))block;
+
 @end
