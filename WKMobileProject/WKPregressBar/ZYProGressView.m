@@ -60,7 +60,7 @@
     }
     _progressValue = progressValue;
     [UIView animateWithDuration:_time animations:^{
-        viewTop.frame = CGRectMake(viewTop.frame.origin.x, viewTop.frame.origin.y, viewBottom.frame.size.width*[progressValue floatValue], viewTop.frame.size.height);
+        viewTop.frame = CGRectMake(viewTop.frame.origin.x, viewTop.frame.origin.y, (viewBottom.frame.size.width*[progressValue floatValue])/100.0, viewTop.frame.size.height);
     }];
 }
 

@@ -10,10 +10,14 @@
 #import "WKHeader.h"
 #import "WKModel.h"
 #import "AppDelegate.h"
+
 @class MWBaseObj;
 @class WKBaseInfo;
 @class WKJUHEObj;
 @class MWBaiDuApiBaseObj;
+
+typedef void (^TableArrBlock)(NSString *tableArr, MWBaseObj* info);
+
 @interface WKHttpRequest : AFHTTPSessionManager
 
 @property(nonatomic, strong) NSMutableDictionary *conDic;//存网络链接，便于取消
@@ -127,4 +131,26 @@
  */
 - (void)MWAFanDaPostWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(WKJUHEObj *info))block;
 
+
+#pragma mark----****----图片上传
+/**
+ 图片上传
+
+ @param tag tag
+ @param uploadDatas 图片文件
+ @param type 图片类型
+ @param path 文件路径
+ @param callback 返回值
+ */
+-(void)fileUploadWithTag:(NSObject *)tag uploadDatas:(NSArray *)uploadDatas type:(NSInteger)type path:(NSString *)path call:(TableArrBlock)callback;
+/**
+ *  上传图片方法
+ *
+ *  @param tag        tag
+ *  @param URLString  请求地址
+ *  @param parameters 参数
+ *  @param block      返回值
+ *  @param callback   返回值
+ */
+-(void)postWithTag:(NSObject *)tag path:(NSString *)URLString parameters:(id)parameters constructingBodyWithBlockBack:(void (^)(id <AFMultipartFormData> formData))block call:(void (^)(NSError *error, id responseObject))callback;
 @end

@@ -876,7 +876,7 @@
 @property (nonatomic,copy) NSString* longitude;
 
 
-+ (void)saveLocationInfo:(id)info;
++ (void)saveLocationInfo:(id)Obj;
 + (void)cleanLocationInfo;
 ///返回当前位置信息
 +(MWLocationInfo *)currentLocationInfo;
@@ -1062,3 +1062,8 @@
 
 @end
 
+#pragma mark -  文件上传返回对象
+@interface FileUploadResponseObject : NSObject
+@property(nonatomic,assign) NSInteger               type;         //!< 上传格式
+@property(nonatomic,strong) NSString *              name;            //!< 上传文件路径
+@end

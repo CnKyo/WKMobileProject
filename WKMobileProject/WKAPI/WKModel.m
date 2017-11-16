@@ -830,7 +830,7 @@ static WKUser *g_user = nil;
  */
 +(void)MWFetchTask:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
     MLLog(@"参数是：%@",para);                           
-    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/take_member/add_task.php" withPara:para block:^(MWBaseObj *info) {
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/task_member/add_task.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
             block(info);
         }else{
@@ -1356,20 +1356,18 @@ static MWLocationInfo *mLocation = nil;
         return mLocation;
     }
 }
-+(void)saveLocationInfo:(id)info
++ (void)saveLocationInfo:(id)Obj
 {
-    info = [Util delNUll:info];
-    NSUserDefaults* def = [NSUserDefaults standardUserDefaults];
-    [def setObject:info forKey:@"locationInfo"];
-    [def synchronize];
+    
+    MWLocationInfo *mLocation = [MWLocationInfo yy_modelWithDictionary:Obj];
+    [mLocation bg_save];
+    
 }
 
 
 +(void)cleanLocationInfo
 {
-    NSUserDefaults* def = [NSUserDefaults standardUserDefaults];
-    [def setObject:nil forKey:@"locationInfo"];
-    [def synchronize];
+    [MWLocationInfo bg_clear];
 }
 @end
 
@@ -1420,4 +1418,6 @@ static MWLocationInfo *mLocation = nil;
 @end
 @implementation MWWeatherWindInfo
 
+@end
+@implementation FileUploadResponseObject
 @end

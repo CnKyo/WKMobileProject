@@ -212,7 +212,7 @@
         
         WKUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell setMPressValue:@"0.5"];
+        [cell setMPressValue:@"18"];
         [cell setMUserInfo:[WKUser currentUser]];
         [cell setMSign:isSign];
         cell.delegete = self;

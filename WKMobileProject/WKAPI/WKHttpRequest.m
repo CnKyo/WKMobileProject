@@ -466,4 +466,94 @@
     }];
 }
 
+
+#pragma mark----****----图片上传
+/**
+ 图片上传
+ 
+ @param tag <#tag description#>
+ @param uploadDatas <#uploadDatas description#>
+ @param type <#type description#>
+ @param path <#path description#>
+ @param callback <#callback description#>
+ */
+-(void)fileUploadWithTag:(NSObject *)tag uploadDatas:(NSArray *)uploadDatas type:(NSInteger)type path:(NSString *)path call:(TableArrBlock)callback{
+    WKUser *user = [WKUser currentUser];
+    if (user.member_id.length == 0) {
+        
+        NSMutableDictionary* paramDic = [NSMutableDictionary dictionary];
+        [paramDic setObject:[NSString stringWithFormat:@"%ld",type] forKey:@"type"];
+        [paramDic setObject:path forKey:@"path"];
+        [paramDic setObject:user.member_id forKey:@"user_id"];
+        
+        [self postWithTag:tag path:@"upLoadImg.php" parameters:paramDic constructingBodyWithBlockBack:^(id<AFMultipartFormData> formData) {
+            NSString *mimeType = nil;
+            NSString *fileExt = nil;
+            
+            switch (type) {
+                case kFileType_photo:
+                    fileExt = @".png";
+                    mimeType = @"image/jpg/png";
+                    break;
+                case kFileType_video:
+                    fileExt = @".mp4";
+                    mimeType = @"video/mpeg4";
+                    break;
+                default:
+                    break;
+            }
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            formatter.dateFormat = @"yyyyMMddHHmmss";
+            NSString *timeStr = [formatter stringFromDate:[NSDate date]];
+            
+            for (int i=0; i<uploadDatas.count; i++) {
+                NSString *fileName = [NSString stringWithFormat:@"%@_%i%@",timeStr, i, fileExt];
+                NSString *name = [NSString stringWithFormat:@"uploadFile%i", i];
+                [formData appendPartWithFileData:uploadDatas[i] name:name fileName:fileName mimeType:mimeType];
+            }
+            
+        } call:^(NSError *error, id responseObject) {
+            MWBaseObj *info = nil;
+            if (error == nil) {
+                NSLog(@"\n\n ---APIObject----result:-----------%@", responseObject);
+                info = [MWBaseObj yy_modelWithDictionary:responseObject];
+                if (info==nil)
+                    info = [MWBaseObj infoWithErrorMessage:@"网络错误"];
+            } else {
+                NSLog(@"\n\n ---APIObject----result error:-----------%@", error);
+                info = [MWBaseObj infoWithError:error];
+            }
+            
+            if (info.err_code == 0) {
+//                NSString *newArr = [FileUploadResponseObject yy_modelWithDictionary:info.data];
+                callback(nil, info);
+            } else
+                callback(nil, info);
+            
+        }];
+    } else
+        callback(nil, [MWBaseObj infoWithErrorMessage:@"请重新登陆"]);
+}
+/**
+ *  上传图片方法
+ *
+ *  @param tag        tag
+ *  @param URLString  请求地址
+ *  @param parameters 参数
+ *  @param block      返回值
+ *  @param callback   返回值
+ */
+-(void)postWithTag:(NSObject *)tag path:(NSString *)URLString parameters:(id)parameters constructingBodyWithBlockBack:(void (^)(id <AFMultipartFormData> formData))block call:(void (^)(NSError *error, id responseObject))callback{
+    NSString *key = NSStringFromClass([tag class]);
+    id operation = nil;
+    operation = [self POST:URLString parameters:parameters constructingBodyWithBlock:block progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        callback(nil, responseObject);
+        [self removeConnection:operation group:key];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        callback(error, nil);
+        [self removeConnection:operation group:key];
+    }];
+    [self addConnection:operation group:key];
+}
 @end

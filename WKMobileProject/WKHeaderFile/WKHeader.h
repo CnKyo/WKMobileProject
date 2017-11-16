@@ -303,7 +303,10 @@ typedef NS_ENUM(NSInteger,WKTaskStatus) {
     Returned = 4,///已返回
     
 };
-
+typedef NS_ENUM(NSInteger,kFileType) {
+    kFileType_photo = 1,//
+    kFileType_video = 2,//
+} ; //文件类型（1-图片，2-音频）
 //-----------------------
 //自定义的写在下面，通用的写在上面
 //-----------------------

@@ -167,9 +167,11 @@
     [[WKHttpRequest initLocalApiclient] MWPostFileWithUrl:@"upLoadImg" andPara:@{@"userId":[WKUser currentUser].member_id} fileData:mImgData name:@"uploadFile0" fileName:fileName fileType:@"image/jpg/png" success:^(id responseObject) {
         if (responseObject) {
             MLLog(@"responseObject:%@",responseObject);
+            [SVProgressHUD dismiss];
         }
     } fail:^{
         MLLog(@"error:");
+        [SVProgressHUD dismiss];
     }];
 }
 @end
