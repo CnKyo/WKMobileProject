@@ -181,7 +181,11 @@
     //在不设置为过时自动删除情况下 滑动过快的时候时间不会闪
     cell.mCountTime.text = [self.countDown countDownWithModel:model timeLabel:cell.mCountTime];
     [cell setMTask:mTableArr[indexPath.row]];
-    
+    if(mType == 2 || mType == 3){
+        cell.mCommitBtn.hidden = YES;
+    }else{
+        cell.mCommitBtn.hidden = NO;
+    }
     return cell;
     
 }
@@ -189,16 +193,32 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     WKMyTaskDetailViewController *vc = [WKMyTaskDetailViewController new];
-    vc.mStatus = indexPath.row+1;
+    vc.mStatus = mType+1;
     vc.mTask = mTableArr[indexPath.row];
     vc.mTaskType = mType;
     [self pushViewController:vc];
 }
 - (void)MyTaskTableViewCellDelegateWithBtnAction:(NSIndexPath *)mIndexPath{
     MLLog(@"点击了第：%ld个",mIndexPath.row);
-    WKMyTaskDetailViewController *vc = [WKMyTaskDetailViewController new];
-    vc.mStatus = mIndexPath.row+1;
-    [self pushViewController:vc];
+//    WKMyTaskDetailViewController *vc = [WKMyTaskDetailViewController new];
+//    vc.mStatus = mIndexPath.row+1;
+//    [self pushViewController:vc];
+    MWMyTaskOrderObj *mTask = mTableArr[mIndexPath.row];
+
+    [SVProgressHUD showWithStatus:@"正在提交..."];
+    [MWBaseObj MWCommitTaskOrder:@{@"member_id":[WKUser currentUser].member_id,@"task_record_id":mTask.task_record_id} block:^(MWBaseObj *info) {
+        if(info.err_code == 0){
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            
+            [self tableViewHeaderReloadData];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+        [SVProgressHUD dismiss];
+        
+    }];
+    
+    
 }
 
 @end

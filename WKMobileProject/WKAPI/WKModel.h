@@ -703,6 +703,15 @@
  @param block 返回值
  */
 + (void)MWGETMyTaskOrderList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block;
+    
+#pragma mark----****---- 提交任务
+/**
+ 提交任务
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWCommitTaskOrder:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
 #pragma mark----****---- 获取我的任务订单详情
 /**
  获取我的任务订单详情

@@ -18,7 +18,7 @@
 @implementation WKPlayGameViewController
 {
     WKCustomPopView *mCustomView;
-
+    FDAlertView *WKCustomAlertView;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -144,14 +144,18 @@
 ///关闭按钮代理方法
 - (void)WKCustomPopViewWithCloseBtnAction{
     MLLog(@"关闭");
+    [WKCustomAlertView hide];
+
 }
 ///取消按钮代理方法
 - (void)WKCustomPopViewWithCancelBtnAction{
     MLLog(@"取消");
+    [WKCustomAlertView hide];
 }
 ///确定按钮代理方法
 - (void)WKCustomPopViewWithOkBtnAction{
     MLLog(@"确定");
+    [WKCustomAlertView hide];
 }
 #pragma mark----****----自定义弹出框
 /**
@@ -165,13 +169,13 @@
  */
 - (void)showCustomViewType:(WKCustomPopViewType)mType andTitle:(NSString *)mTitle andContentTx:(NSString *)mContent andOkBtntitle:(NSString *)mOkTitle andCancelBtntitle:(NSString *)mCancelTitle{
     
-    FDAlertView *alert = [[FDAlertView alloc] init];
+    WKCustomAlertView = [[FDAlertView alloc] init];
     mCustomView = [WKCustomPopView initViewType:mType andTitle:mTitle andContentTx:mContent andOkBtntitle:mOkTitle andCancelBtntitle:mCancelTitle];
     mCustomView.delegate = self;
     
     mCustomView.frame = CGRectMake(30, 0, self.view.bounds.size.width-60, 250);
-    alert.contentView = mCustomView;
-    [alert show];
+    WKCustomAlertView.contentView = mCustomView;
+    [WKCustomAlertView show];
     
 }
 

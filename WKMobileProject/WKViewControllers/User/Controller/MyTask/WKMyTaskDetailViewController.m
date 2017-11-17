@@ -41,6 +41,36 @@
     
     [self addTableViewHeaderRefreshing];
 
+    
+    UIView *mFooterView = [UIView new];
+    mFooterView.frame = CGRectMake(0, 0, DEVICE_Width, 80);
+    mFooterView.backgroundColor = [UIColor whiteColor];
+    
+    UIButton *mLogOut = [UIButton new];
+    mLogOut.layer.cornerRadius = 4;
+    mLogOut.frame = CGRectMake(0, 15, DEVICE_Width, 50);
+    mLogOut.backgroundColor = [UIColor colorWithRed:0.97 green:0.58 blue:0.27 alpha:1];
+    [mLogOut setTitle:@"提交任务" forState:0];
+    [mLogOut addTarget:self action:@selector(mCommitAction) forControlEvents:UIControlEventTouchUpInside];
+    [mFooterView addSubview:mLogOut];
+    
+    self.tableView.tableFooterView = mFooterView;
+    
+}
+- (void)mCommitAction{
+    [SVProgressHUD showWithStatus:@"正在提交..."];
+    [MWBaseObj MWCommitTaskOrder:@{@"member_id":[WKUser currentUser].member_id,@"task_record_id":_mTask.task_record_id} block:^(MWBaseObj *info) {
+        if(info.err_code == 0){
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            [self popViewController];
+//            [self tableViewHeaderReloadData];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+        [SVProgressHUD dismiss];
+        
+    }];
+        
 }
 - (void)tableViewHeaderReloadData{
     MLLog(@"刷头");
@@ -89,7 +119,7 @@
         if (_mStatus == Going) {
             return 1;
         }else{
-            return 5;
+            return 1;
         }
     }
     
@@ -126,6 +156,15 @@
             cell.mStatusH.constant = 20;
             
         }
+    
+        cell.mTaskName.text = _mTask.task_title;
+        cell.mTaskPrice.text = [NSString stringWithFormat:@"任务酬劳：%@元",mMyTask.task_price];
+        cell.mTaskEndTime.text = [NSString stringWithFormat:@"任务截止时间:%@",[Util WKTimeIntervalToDate:mMyTask.complete_time]];
+        cell.mStatusContent.text = [NSString stringWithFormat:@"进行中,请耐心等待!"];
+        cell.mTaskStatus.text = [NSString stringWithFormat:@"当前任务状态：%@",_mTask.task_complete_rate];
+        cell.mTaskExplain.text = mMyTask.task_describe;
+        cell.mTaskResidueNum.text = [NSString stringWithFormat:@"任务剩余量：%@",mMyTask.task_leave_num];
+        
         return cell;
     }else{
         if (_mStatus == Going) {
@@ -141,6 +180,8 @@
             
             WKTaskDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.mTitle.text = mMyTask.task_title;
+            cell.mContent.text = mMyTask.task_step;
             return cell;
         }
         

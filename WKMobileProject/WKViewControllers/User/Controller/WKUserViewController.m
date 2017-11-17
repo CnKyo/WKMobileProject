@@ -40,6 +40,7 @@
 
     WKCustomPopView *mCustomView;
 
+    FDAlertView *WKCustomAlerView;
 }
 //通过一个方法来找到这个黑线(findHairlineImageViewUnder):
 - (UIImageView *)findHairlineImageViewUnder:(UIView *)view {
@@ -440,26 +441,30 @@
  */
 - (void)showCustomViewType:(WKCustomPopViewType)mType andTitle:(NSString *)mTitle andContentTx:(NSString *)mContent andOkBtntitle:(NSString *)mOkTitle andCancelBtntitle:(NSString *)mCancelTitle{
     
-    FDAlertView *alert = [[FDAlertView alloc] init];
+    WKCustomAlerView = [[FDAlertView alloc] init];
     mCustomView = [WKCustomPopView initViewType:mType andTitle:mTitle andContentTx:mContent andOkBtntitle:mOkTitle andCancelBtntitle:mCancelTitle];
     mCustomView.delegate = self;
     
     mCustomView.frame = CGRectMake(30, 0, self.view.bounds.size.width-60, 250);
-    alert.contentView = mCustomView;
-    [alert show];
+    WKCustomAlerView.contentView = mCustomView;
+    [WKCustomAlerView show];
     
 }
 ///关闭按钮代理方法
 - (void)WKCustomPopViewWithCloseBtnAction{
     MLLog(@"关闭");
+    [WKCustomAlerView hide];
+
 }
 ///取消按钮代理方法
 - (void)WKCustomPopViewWithCancelBtnAction{
     MLLog(@"取消");
+    [WKCustomAlerView hide];
 }
 ///确定按钮代理方法
 - (void)WKCustomPopViewWithOkBtnAction{
     MLLog(@"确定");
+    [WKCustomAlerView hide];
     [self tableViewHeaderReloadData];
 
 }
