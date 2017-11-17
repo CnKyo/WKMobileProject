@@ -52,6 +52,14 @@
 				<string>tencent1105204239</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>UPPayDemo</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
@@ -71,6 +79,12 @@
 		<string>mqqOpensdkSSoLogin</string>
 		<string>mqq</string>
 		<string>mqqapi</string>
+        <string>uppaysdk</string>
+        <string>uppaywallet</string>
+        <string>uppayx1</string>
+        <string>uppayx2</string>
+        <string>uppayx3</string>
+
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

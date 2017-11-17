@@ -68,7 +68,7 @@ static float mDuration = 0.25;
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 600;
+    return 650;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -99,7 +99,7 @@ static float mDuration = 0.25;
 /**
  选择支付方式代理方法
  
- @param mType 返回当前选择的支付方式（1是微信支付，2是支付宝支付,0是未选择）
+ @param mType 返回当前选择的支付方式（1是微信支付，2是支付宝支付,3是银联支付,0是未选择）
  */
 - (void)WKBuyGoldCellDelegateWithPayType:(NSInteger)mType{
     MLLog(@"选择了：%ld",mType);

@@ -46,9 +46,12 @@
         case 1:
         {
         if (sender.selected == NO) {
-            self.mWechatBtn.selected = YES;
-            self.mAlipayBtn.selected = NO;
             
+            self.mWechatBtn.selected = YES;
+            
+            self.mAlipayBtn.selected = NO;
+            self.mUnionPayBtn.selected = NO;
+
             [_mTypeArr addObject:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
             
         }else{
@@ -62,8 +65,11 @@
         case 2:
         {
         if (sender.selected == NO) {
-            self.mWechatBtn.selected = NO;
+            
             self.mAlipayBtn.selected = YES;
+
+            self.mWechatBtn.selected = NO;
+            self.mUnionPayBtn.selected = NO;
             
             [_mTypeArr addObject:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
         }else{
@@ -74,6 +80,24 @@
         
         }
             break;
+        case 3:
+        {
+        if (sender.selected == NO) {
+            
+            self.mUnionPayBtn.selected = YES;
+
+            self.mWechatBtn.selected = NO;
+            self.mAlipayBtn.selected = NO;
+            
+            [_mTypeArr addObject:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
+        }else{
+            
+            sender.selected = NO;
+            [_mTypeArr removeAllObjects];
+        }
+        
+        }
+        break;
         default:
             break;
     }

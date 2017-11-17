@@ -25,6 +25,7 @@
 
 #import "WKGenericLoginViewController.h"
 #import "NSData+CRC32.h"
+#import "UPPaymentControl.h"
 
 @interface AppDelegate ()<JPUSHRegisterDelegate,WXApiDelegate>
 
@@ -220,4 +221,44 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [(UINavigationController*)((UITabBarController*)self.window.rootViewController).selectedViewController presentViewController:vc animated:YES completion:nil];
 
 }
+#pragma mark----****----银联支付回调
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    if ([url.host isEqualToString:@"uppayresult"]){
+        //银联支付结果
+        [[UPPaymentControl defaultControl] handlePaymentResult:url completeBlock:^(NSString *code, NSDictionary *data) {
+            //结果code为成功时，先校验签名，校验成功后做后续处理
+            if([code isEqualToString:@"success"]) {
+                //交易成功
+            }else if([code isEqualToString:@"fail"]) {
+                //交易失败
+            }else if([code isEqualToString:@"cancel"]) {
+                //交易取消
+            }
+        }];
+    }
+    return YES;
+}
+    
+    // NOTE: 9.0以后使用新API接口
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
+    {
+    if ([url.host isEqualToString:@"uppayresult"]){
+        //银联支付结果
+        [[UPPaymentControl defaultControl] handlePaymentResult:url completeBlock:^(NSString *code, NSDictionary *data) {
+            //结果code为成功时，先校验签名，校验成功后做后续处理
+            if([code isEqualToString:@"success"]) {
+                //交易成功
+            }else if([code isEqualToString:@"fail"]) {
+                //交易失败
+            }else if([code isEqualToString:@"cancel"]) {
+                //交易取消
+            }
+        }];
+    }
+    return YES;
+    }
+
 @end

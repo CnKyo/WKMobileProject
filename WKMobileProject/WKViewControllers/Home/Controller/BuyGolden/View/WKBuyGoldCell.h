@@ -47,6 +47,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *mWechatBtn;
 ///支付宝支付
 @property (weak, nonatomic) IBOutlet UIButton *mAlipayBtn;
+///银联支付
+@property (weak, nonatomic) IBOutlet UIButton *mUnionPayBtn;
+    
 ///去支付按钮
 @property (weak, nonatomic) IBOutlet UIButton *mGoPayBtn;
 ///朋友代付按钮

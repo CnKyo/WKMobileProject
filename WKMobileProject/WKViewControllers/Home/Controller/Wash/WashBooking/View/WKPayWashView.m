@@ -44,7 +44,8 @@
             self.mWechatBtn.selected = YES;
             self.mAlipayBtn.selected = NO;
             self.mCoinBtn.selected = NO;
-     
+            self.mUnionPayBtn.selected = NO;
+
             [_mPayTypeArr addObject:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
         }else{
             
@@ -60,7 +61,8 @@
             self.mWechatBtn.selected = NO;
             self.mAlipayBtn.selected = YES;
             self.mCoinBtn.selected = NO;
-            
+            self.mUnionPayBtn.selected = NO;
+
             [_mPayTypeArr addObject:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
         }else{
             
@@ -75,7 +77,8 @@
             self.mWechatBtn.selected = NO;
             self.mAlipayBtn.selected = NO;
             self.mCoinBtn.selected = YES;
-            
+            self.mUnionPayBtn.selected = NO;
+
             [_mPayTypeArr addObject:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
         }else{
             
@@ -84,6 +87,22 @@
         }
         }
             break;
+        case 4:
+        {
+        if (sender.selected == NO) {
+            self.mWechatBtn.selected = NO;
+            self.mAlipayBtn.selected = NO;
+            self.mCoinBtn.selected = NO;
+            self.mUnionPayBtn.selected = YES;
+
+            [_mPayTypeArr addObject:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
+        }else{
+            
+            sender.selected = NO;
+            [_mPayTypeArr removeAllObjects];
+        }
+        }
+        break;
             
         default:
             break;

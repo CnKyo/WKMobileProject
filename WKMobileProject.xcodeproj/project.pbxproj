@@ -280,6 +280,7 @@
 		529D8E871EE010B300BF0FDE /* CountDownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D8E831EE010B300BF0FDE /* CountDownLabel.m */; };
 		529D8E8A1EE01F4300BF0FDE /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529D8E891EE01F4300BF0FDE /* Photos.framework */; };
 		529D8E8B1EE01F6D00BF0FDE /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A221AC1E99CDE50058A21B /* AssetsLibrary.framework */; };
+		52A03B7B1FBE956000B90D73 /* libPaymentControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A03B7A1FBE956000B90D73 /* libPaymentControl.a */; };
 		52A408491F6131750053B683 /* WKUserMsgDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A408481F6131750053B683 /* WKUserMsgDetailViewController.m */; };
 		52A408501F613D970053B683 /* WKUserMsgDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A4084E1F613D970053B683 /* WKUserMsgDetailCell.m */; };
 		52A408511F613D970053B683 /* WKUserMsgDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A4084F1F613D970053B683 /* WKUserMsgDetailCell.xib */; };
@@ -856,6 +857,11 @@
 		529D8E821EE010B300BF0FDE /* CountDownLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountDownLabel.h; sourceTree = "<group>"; };
 		529D8E831EE010B300BF0FDE /* CountDownLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountDownLabel.m; sourceTree = "<group>"; };
 		529D8E891EE01F4300BF0FDE /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		52A03B761FBE956000B90D73 /* UPAPayPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPlugin.h; sourceTree = "<group>"; };
+		52A03B771FBE956000B90D73 /* UPAPayPluginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPluginDelegate.h; sourceTree = "<group>"; };
+		52A03B781FBE956000B90D73 /* UPPaymentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPPaymentControl.h; sourceTree = "<group>"; };
+		52A03B7A1FBE956000B90D73 /* libPaymentControl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPaymentControl.a; sourceTree = "<group>"; };
+		52A03B7C1FBE970B00B90D73 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		52A408471F6131750053B683 /* WKUserMsgDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUserMsgDetailViewController.h; sourceTree = "<group>"; };
 		52A408481F6131750053B683 /* WKUserMsgDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUserMsgDetailViewController.m; sourceTree = "<group>"; };
 		52A4084D1F613D970053B683 /* WKUserMsgDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKUserMsgDetailCell.h; path = WKMobileProject/WKViewControllers/User/Controller/WKUserMsgDetailCell.h; sourceTree = SOURCE_ROOT; };
@@ -1006,6 +1012,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				529D8E4B1EDFFE7600BF0FDE /* CFNetwork.framework in Frameworks */,
 				529D8E8B1EE01F6D00BF0FDE /* AssetsLibrary.framework in Frameworks */,
 				529D8E8A1EE01F4300BF0FDE /* Photos.framework in Frameworks */,
 				529D8E6E1EE000A800BF0FDE /* libsqlite3.0.tbd in Frameworks */,
@@ -1018,6 +1025,7 @@
 				529D8E601EE0006000BF0FDE /* AddressBook.framework in Frameworks */,
 				529D8E5E1EE0005500BF0FDE /* libxml2.tbd in Frameworks */,
 				529D8E5B1EDFFED400BF0FDE /* libresolv.tbd in Frameworks */,
+				52A03B7B1FBE956000B90D73 /* libPaymentControl.a in Frameworks */,
 				529D8E591EDFFEC300BF0FDE /* UserNotifications.framework in Frameworks */,
 				529D8E571EDFFEAC00BF0FDE /* AdSupport.framework in Frameworks */,
 				529D8E551EDFFEA200BF0FDE /* libz.tbd in Frameworks */,
@@ -1025,7 +1033,6 @@
 				529D8E511EDFFE9000BF0FDE /* SystemConfiguration.framework in Frameworks */,
 				529D8E4F1EDFFE8800BF0FDE /* CoreTelephony.framework in Frameworks */,
 				529D8E4D1EDFFE7E00BF0FDE /* CoreFoundation.framework in Frameworks */,
-				529D8E4B1EDFFE7600BF0FDE /* CFNetwork.framework in Frameworks */,
 				31A221A01E99C2640058A21B /* QuartzCore.framework in Frameworks */,
 				31A2219E1E99C25E0058A21B /* CoreGraphics.framework in Frameworks */,
 				31A2219C1E99C2540058A21B /* UIKit.framework in Frameworks */,
@@ -1245,6 +1252,7 @@
 			isa = PBXGroup;
 			children = (
 				529D8E5C1EDFFF1700BF0FDE /* WKMobileProject.entitlements */,
+				52A03B741FBE956000B90D73 /* paymentcontrol */,
 				525E03001FBC54EF00C72D6D /* HXWeiboPhotoPicker */,
 				525E02F91FBC54EE00C72D6D /* OnlyLocationManager */,
 				5204BF0C1FB2FC5E00583025 /* WKUIbuttonOneClick */,
@@ -2333,6 +2341,33 @@
 			path = WKModelCacke;
 			sourceTree = "<group>";
 		};
+		52A03B741FBE956000B90D73 /* paymentcontrol */ = {
+			isa = PBXGroup;
+			children = (
+				52A03B751FBE956000B90D73 /* inc */,
+				52A03B791FBE956000B90D73 /* libs */,
+			);
+			path = paymentcontrol;
+			sourceTree = "<group>";
+		};
+		52A03B751FBE956000B90D73 /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				52A03B761FBE956000B90D73 /* UPAPayPlugin.h */,
+				52A03B771FBE956000B90D73 /* UPAPayPluginDelegate.h */,
+				52A03B781FBE956000B90D73 /* UPPaymentControl.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		52A03B791FBE956000B90D73 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				52A03B7A1FBE956000B90D73 /* libPaymentControl.a */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
 		52AC362D1EC2A059000866D4 /* UIFDCustom+PopView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2572,6 +2607,7 @@
 		E268BC1B05380FDB2B866690 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				52A03B7C1FBE970B00B90D73 /* LocalAuthentication.framework */,
 				52D2DC2A1FB03A6D004FBDC2 /* CoreLocation.framework */,
 				52D2DC291FB03A65004FBDC2 /* MapKit.framework */,
 				529D8E891EE01F4300BF0FDE /* Photos.framework */,
@@ -3278,6 +3314,10 @@
 				INFOPLIST_FILE = WKMobileProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WKMobileProject/paymentcontrol/libs",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = mw.washmachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -3293,6 +3333,10 @@
 				INFOPLIST_FILE = WKMobileProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WKMobileProject/paymentcontrol/libs",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = mw.washmachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

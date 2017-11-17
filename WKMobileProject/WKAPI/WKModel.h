@@ -845,7 +845,7 @@
 @property (nonatomic,strong) NSString *mNum;
 ///价格
 @property (nonatomic,assign) int mPrice;
-///支付方式1:微信。2:支付宝。
+///支付方式1:微信。2:支付宝。3:银联支付
 @property (nonatomic,assign) NSInteger mPayType;
 
 @end
