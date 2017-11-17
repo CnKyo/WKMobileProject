@@ -9,6 +9,7 @@
 #import "WKWashGoPayViewController.h"
 #import "WKPayWashView.h"
 #import "WKWashPayResultView.h"
+#import "TimeModel.h"
 
 static float mDuration = 0.25;
 
@@ -51,6 +52,17 @@ static float mDuration = 0.25;
     
     mView = [WKPayWashView initView];
     mView.delegate = self;
+    
+    NSDictionary* style1 = @{@"color": [UIColor colorWithRed:0.97 green:0.58 blue:0.27 alpha:1]};
+    mView.mDetailTx.attributedText = [[NSString stringWithFormat:@"%@ | %@ | <color> %@元</color>",self.mOrderInfo.location_name,self.mOrderInfo.wash_feature_name,self.mOrderInfo.order_price] attributedStringWithStyleBook:style1];
+    mView.mCountTimeTx.hidden = YES;
+    
+    mView.mPayPriceTx.attributedText = [[NSString stringWithFormat:@"应付款金额：<color> %@元</color>",self.mOrderInfo.order_price] attributedStringWithStyleBook:style1];
+    
+    TimeModel *model = [TimeModel new];
+    model.endTime = [Util WKCurrentTimePlusTo15Min:120];
+    mView.mCountTimeTx.text = [self.countDown countDownWithModel:model timeLabel:mView.mCountTimeTx];
+    
     mView.frame = CGRectMake(0, 104, DEVICE_Width, DEVICE_Height-64);
     [self.view addSubview:mView];
 

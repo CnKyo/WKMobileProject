@@ -49,4 +49,21 @@
         self.mWaiting.hidden = YES;
     }
 }
+- (void)setMDeviceInfo:(MWDeviceInfo *)mDeviceInfo{
+    
+    if ([mDeviceInfo.device_status isEqualToString:@"1"]) {
+        self.mBgkImg.image = [UIImage imageNamed:@"mang"];
+        [self.mBtn setTitle:@"使用中" forState:0];
+        [self.mBtn setBackgroundColor:[UIColor lightGrayColor]];
+        self.mBtn.enabled = NO;
+    } else {
+        self.mBgkImg.image = [UIImage imageNamed:@"kong"];
+        [self.mBtn setTitle:@"选择" forState:0];
+        [self.mBtn setBackgroundColor:[UIColor colorWithRed:0.25 green:0.58 blue:0.94 alpha:1]];
+        self.mBtn.enabled = YES;
+    }
+    self.mContent.text = mDeviceInfo.device_address;
+    
+}
+    
 @end

@@ -381,7 +381,6 @@
                 [SVProgressHUD dismiss];
                 [self showCustomViewType:WKCustomPopViewSucess andTitle:@"签到成功" andContentTx:@"恭喜你，签到成功获得1金币!" andOkBtntitle:@"确定" andCancelBtntitle:nil];
                 
-                [self tableViewHeaderReloadData];
 
             }else{
                 [SVProgressHUD showErrorWithStatus:info.err_msg];
@@ -461,6 +460,8 @@
 ///确定按钮代理方法
 - (void)WKCustomPopViewWithOkBtnAction{
     MLLog(@"确定");
+    [self tableViewHeaderReloadData];
+
 }
 
 @end

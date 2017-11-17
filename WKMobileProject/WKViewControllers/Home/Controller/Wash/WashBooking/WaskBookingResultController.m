@@ -12,6 +12,7 @@
 #import "WKHeader.h"
 #import "WKWashGoPayViewController.h"
 #import "WKChoiceWashTableViewCell.h"
+#import "TimeModel.h"
 
 #define defaultTag 0
 
@@ -23,6 +24,7 @@
 @implementation WaskBookingResultController{
     WKWashBookingHeaderView *mHeaderView;
     UITableView *mTableView;
+    NSString *mWashID;
     
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -54,6 +56,16 @@
     // Do any additional setup after loading the view.
     mHeaderView = [WKWashBookingHeaderView initBookingView];
     //    mHeaderView.frame = CGRectMake(0, 61, DEVICE_Width, 150);
+    mHeaderView.mWashAddress.text = [NSString stringWithFormat:@"洗衣机位置：%@",_mDeviceInfo.device_address];
+    if ([_mDeviceInfo.device_status isEqualToString:@"1"]) {
+        mHeaderView.mWashStatus.text = @"洗衣机状态：工作中";
+    } else {
+        mHeaderView.mWashStatus.text = @"洗衣机状态:空闲";
+    }
+    mHeaderView.mWashSeclected.hidden = YES;
+    TimeModel *model = [TimeModel new];
+    model.endTime = [Util WKCurrentTimePlusTo15Min:120];
+    mHeaderView.mCountTime.text = [self.countDown countDownWithModel:model timeLabel:mHeaderView.mCountTime];
     [self.view addSubview:mHeaderView];
     
     [mHeaderView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -83,26 +95,24 @@
 }
 - (void)bookingResult{
     
-    
-    if ([WKUser currentUser].user_id.length>0) {
+    [self.tableArr removeAllObjects];
+    if ([WKUser currentUser].member_id.length>0) {
         
         NSMutableDictionary *para = [NSMutableDictionary new];
         
-        [para setObject:[WKUser currentUser].token forKey:@"token"];
-        [para setObject:[WKUser currentUser].user_id forKey:@"uid"];
-        [para setObject:_mCode forKey:@"device_code"];
-        
-//        [para setObject:@"348963" forKey:@"uid"];
-//        [para setObject:@"dXQyMDE3MTExMDA5NTU0MjE3ODg0NTI1" forKey:@"token"];
+        [para setObject:_mDeviceInfo.wash_id forKey:@"wash_id"];
+    
+    
         MLLog(@"参数是：%@",para);
 
-        [MWBaseObj MWFindDeviceInfo:para block:^(MWBaseObj *info, MWBookingObj *mArr) {
+        [MWBaseObj MWFindDeviceList:para block:^(MWBaseObj *info, NSArray *mArr) {
             if (info.err_code == 0) {
-                
+                [self.tableArr addObjectsFromArray:mArr];
             }else{
                 [SVProgressHUD showErrorWithStatus:info.err_msg];
                 [self popViewController];
             }
+            [self.tableView reloadData];
         }];
     }
 }
@@ -130,7 +140,7 @@
 {
     
     
-    return 3;
+    return self.tableArr.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -139,8 +149,11 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
+    
+    MWDeviceInfo *mDevice = self.tableArr[indexPath.row];
+    
     WKChoiceWashTableViewCell *customCell = [[WKChoiceWashTableViewCell alloc] init];
-    [customCell.mBtn setTitle:[NSString stringWithFormat:@"第%ld个",indexPath.row] forState:0];
+    [customCell.mBtn setTitle:mDevice.name forState:0];
     customCell.mBtn.tag = defaultTag+indexPath.row;
     if (customCell.mBtn.tag == self.btnTag) {
         [customCell.mBtn setBackgroundColor:[UIColor colorWithRed:0.976470588235294 green:0.580392156862745 blue:0.274509803921569 alpha:1.00]];
@@ -160,7 +173,12 @@
             
             self.btnTag = btnTag;
             MLLog(@"$$$$$$%ld",(long)btnTag);
+        MWDeviceInfo *mDevice = self.tableArr[btnTag];
+            mWashID = mDevice.id;
             [self.tableView reloadData];
+            
+            
+            
         }
         else{
             //选中一个之后，再次点击，是未选中状态，图片仍然设置为选中的图片，记录下tag，刷新tableView，这个else 也可以注释不用，tag只记录选中的就可以
@@ -216,8 +234,20 @@
 }
 - (void)mPayAction{
     MLLog(@"付款");
-    WKWashGoPayViewController *vc = [WKWashGoPayViewController new];
-    [self pushViewController:vc];
+    if (mWashID.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请选择洗衣类型"];
+        return;
+    }
+    [MWBaseObj MWCcommitWashOrder:@{@"member_id":[WKUser currentUser].member_id,@"wash_id":_mDeviceInfo.wash_id,@"wash_feature":mWashID,@"device_barcode":@"0"} block:^(MWBaseObj *info,MWWashOrderObj *mOrderObj) {
+        if (info.err_code == 0) {
+            WKWashGoPayViewController *vc = [WKWashGoPayViewController new];
+            vc.mOrderInfo = mOrderObj;
+            [self pushViewController:vc];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+    }];
+
 }
 - (void)WKWashBookingCellBtnAction:(NSIndexPath *)mIndexPath{
     MLLog(@"点击了%ld行",mIndexPath.row);

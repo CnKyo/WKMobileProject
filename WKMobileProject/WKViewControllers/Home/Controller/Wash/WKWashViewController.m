@@ -21,8 +21,11 @@
     BOOL  Display[100];
 
 }
-@property (nonatomic,strong)NSMutableArray *questionArr;
-@property (nonatomic,strong)NSMutableArray *answerArr;
+    
+@property (nonatomic,strong)NSMutableArray *mTitleArr;
+@property (nonatomic,strong)NSMutableArray *mSubTitleArr;
+@property (nonatomic,strong)NSMutableArray *mContentArr;
+
 @property(nonatomic,strong)NSMutableDictionary * dic;
 @property(nonatomic,strong)WKWashTableHeaderView *mHeaderView;
 @end
@@ -54,6 +57,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"洗衣机";
+    
+    self.mTitleArr = [NSMutableArray new];
+    self.mSubTitleArr = [NSMutableArray new];
+    self.mContentArr = [NSMutableArray new];
+
     self.dic = [[NSMutableDictionary alloc]init];
 
     self.view.backgroundColor = M_CO;
@@ -124,26 +132,27 @@
     }
 }
 - (void)tableViewHeaderReloadData{
-    NSString *answerText1 = @"当初尚未离家时，爷爷奶奶尚且在世，围绕爷爷奶奶周围形成一个大家庭。每年过端午的时候，爷爷会早早带着我们孙辈们较大的一位或二位，";
-    NSString *answerText2 = @"当初尚未离家时，爷爷奶奶尚且在世，围绕爷爷奶奶周围形成一个大家庭。每年过端午的时候，爷爷会早早带着我们孙辈们较大的一位或二位，。";
-    NSString *answerText3 = @"易连（智能总机）使用手机电信套餐。";
-    NSString *answerText4 = @"离开家乡二十多年，从未在端午期间回过家，家乡粽子的味道离得越来越久远，但却又分明留存在难以抹灭的记忆中。浙江、江苏虽属邻省，第二故乡宁波离魂牵梦绕的高邮湖畔也不过五百公里，但粽子的味道却差别甚大。";
-    NSString *answerText5 = @"又是一年粽飘香。自古，过端午便有很多的习俗，如悬挂菖蒲艾草、佩香袋、赛龙舟、荡秋千、给小孩涂雄黄、吃咸蛋、吃粽子等等。来自高邮湖畔的我，记忆里只留有吃咸蛋和吃粽子两样，尤其是每年只有一次的吃粽子。";
-    NSString *answerText6 = @"嘉兴粽子闻名天下，五芳斋、诸老大等名牌产品出产的肉粽、蛋黄粽、豆沙粽，吃起来很是过瘾，每年过端午时总会吃上很多。可是，不管吃多吃少，每每吃的时候总会想起爷爷亲手包的粽子。";
+  
+    [self.mTitleArr removeAllObjects];
+    [self.mSubTitleArr removeAllObjects];
+    [self.mContentArr removeAllObjects];
+
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    [MWBaseObj MWGetWashNoteContent:^(MWBaseObj *info,NSArray *mTArr,NSArray *mSTArr,NSArray *mCArr) {
+        if(info.err_code == 0){
+            [self.mTitleArr addObjectsFromArray:mTArr];
+            [self.mSubTitleArr addObjectsFromArray:mSTArr];
+            [self.mContentArr addObjectsFromArray:mCArr];
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+        [self.tableView reloadData];
+
+        [SVProgressHUD dismiss];
+    }];
     
     
-    NSString *questionText1 = @"当初尚未离家时，爷爷奶奶尚且在世，围绕爷爷奶奶周围形成一个大家庭。";
-    NSString *questionText2 = @"当初尚未离家时，爷爷奶奶尚且在世，围绕爷爷奶奶周围形成一个大家庭。";
-    NSString *questionText3 = @"当初尚未离家时，爷爷奶奶尚且在世，围绕爷爷奶奶周围形成一个大家庭。";
-    NSString *questionText4 = @"当初尚未离家时，爷爷奶奶尚且在世，围绕爷爷奶奶周围形成一个大家庭。";
-    NSString *questionText5 = @"当初尚未离家时，爷爷奶奶尚且在世，围绕爷爷奶奶周围形成一个大家庭。";
-    NSString *questionText6 = @"当初尚未离家时，爷爷奶奶尚且在世，围绕爷爷奶奶周围形成一个大家庭。？";
-    
-    self.questionArr = [[NSMutableArray alloc]initWithObjects:questionText1,questionText2,questionText3,questionText4,questionText5,questionText6, nil];
-    
-    self.answerArr = [[NSMutableArray alloc] initWithObjects:answerText1,answerText2,answerText3,answerText4,answerText5,answerText6, nil];
-    
-    [self.tableView reloadData];
    
 }
 - (void)didReceiveMemoryWarning {
@@ -153,7 +162,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
-    return self.questionArr.count;
+    return self.mTitleArr.count;
     
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -170,35 +179,35 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WKWashTableCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    if (indexPath.section == 0)
-        {
-        
-        cell.mContent.text = self.answerArr[0];
-        
-        
-        } if (indexPath.section == 1)
-            {
-            cell.mContent.text = self.answerArr[1];
-            }
-    if (indexPath.section == 2)
-        {
-        cell.mContent.text = self.answerArr[2];
-        }
-    if (indexPath.section == 3)
-        {
-        cell.mContent.text = self.answerArr[3];
-        }
-    
-    if (indexPath.section == 4)
-        {
-        cell.mContent.text = self.answerArr[4];
-        }
-    if (indexPath.section == 5)
-        {
-        cell.mContent.text = self.answerArr[5];
-        }
-    
-    
+    cell.mContent.text = self.mContentArr[indexPath.section];
+//    if (indexPath.section == 0)
+//        {
+//
+//        cell.mContent.text = self.mSubTitleArr[0];
+//
+//        } if (indexPath.section == 1)
+//            {
+//            cell.mContent.text = self.mSubTitleArr[1];
+//            }
+//    if (indexPath.section == 2)
+//        {
+//        cell.mContent.text = self.mSubTitleArr[2];
+//        }
+//    if (indexPath.section == 3)
+//        {
+//        cell.mContent.text = self.mSubTitleArr[3];
+//        }
+//
+//    if (indexPath.section == 4)
+//        {
+//        cell.mContent.text = self.mSubTitleArr[4];
+//        }
+//    if (indexPath.section == 5)
+//        {
+//        cell.mContent.text = self.mSubTitleArr[5];
+//        }
+//
+//
     return cell;
     
     
@@ -215,7 +224,8 @@
     
     _mHeaderView = [WKWashTableHeaderView initView];
     _mHeaderView.frame = CGRectMake(0, 0, self.view.frame.size.width, 90);
-    _mHeaderView.mContent.text = self.questionArr[section];
+    _mHeaderView.mContent.text = self.mSubTitleArr[section];
+    _mHeaderView.mTitle.text = self.mTitleArr[section];
     _mHeaderView.mIndexPath = section;
     _mHeaderView.delegate = self;
     

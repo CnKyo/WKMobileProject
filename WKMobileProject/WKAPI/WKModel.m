@@ -642,6 +642,129 @@ static WKUser *g_user = nil;
     }];
     
 }
+#pragma mark----****----app初始化
+    /**
+     app初始化
+     
+     @param para 参数
+     @param block 返回值
+     */
++ (void)MWAppInit:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"appInit.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+}
+#pragma mark----****----注册推送
+    /**
+     注册推送
+     
+     @param para 参数
+     @param block 返回值
+     */
++ (void)MWRegistJPush:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"registPushId.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+}
+#pragma mark----****----获取洗衣机注意事项
+    /**
+     获取洗衣机注意事项
+     
+     @param block 返回值
+     */
++ (void)MWGetWashNoteContent:(void(^)(MWBaseObj *info,NSArray *mTArr,NSArray *mSTArr,NSArray *mCArr))block{
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/wash/wash_introduce.php" withPara:@{} block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            NSMutableArray *mTitleArr = [NSMutableArray new];
+            NSMutableArray *mSubTitleArr = [NSMutableArray new];
+            NSMutableArray *mContentArr = [NSMutableArray new];
+
+            if ([info.data isKindOfClass:[NSDictionary class]]) {
+                
+                if ([[info.data objectForKey:@"introduce_wash"] isKindOfClass:[NSString class]]) {
+                    if (![[info.data objectForKey:@"introduce_wash"] isEqualToString:@""]) {
+                      
+                        [mTitleArr addObject:[Util ZLCutStringWithText:[info.data objectForKey:@"introduce_wash"] andRangeWithLocation:0 andRangeWithLength:10]];
+                        
+                        [mSubTitleArr addObject:[Util ZLCutStringWithText:[info.data objectForKey:@"introduce_wash"] andRangeWithLocation:10 andRangeWithLength:20]];
+                       
+                        [mContentArr addObject:[Util ZLCutStringWithText:[info.data objectForKey:@"introduce_wash"] andRangeWithLocation:30 andRangeWithLength:[NSString stringWithFormat:@"%@",[info.data objectForKey:@"introduce_wash"]].length-30]];
+
+                    }
+                }
+                
+                if ([[info.data objectForKey:@"notices"] isKindOfClass:[NSString class]]) {
+                    if (![[info.data objectForKey:@"notices"] isEqualToString:@""]) {
+                        [mTitleArr addObject:[Util ZLCutStringWithText:[info.data objectForKey:@"notices"] andRangeWithLocation:0 andRangeWithLength:10]];
+                        
+                        [mSubTitleArr addObject:[Util ZLCutStringWithText:[info.data objectForKey:@"notices"] andRangeWithLocation:10 andRangeWithLength:20]];
+                        
+                        [mContentArr addObject:[Util ZLCutStringWithText:[info.data objectForKey:@"notices"] andRangeWithLocation:30 andRangeWithLength:[NSString stringWithFormat:@"%@",[info.data objectForKey:@"notices"]].length-30]];
+                    }
+                }
+                
+                if ([[info.data objectForKey:@"wash_step"] isKindOfClass:[NSString class]]) {
+                    if (![[info.data objectForKey:@"wash_step"] isEqualToString:@""]) {
+                        [mTitleArr addObject:[Util ZLCutStringWithText:[info.data objectForKey:@"wash_step"] andRangeWithLocation:0 andRangeWithLength:10]];
+                        
+                        [mSubTitleArr addObject:[Util ZLCutStringWithText:[info.data objectForKey:@"wash_step"] andRangeWithLocation:10 andRangeWithLength:20]];
+                        
+                        [mContentArr addObject:[Util ZLCutStringWithText:[info.data objectForKey:@"wash_step"] andRangeWithLocation:30 andRangeWithLength:[NSString stringWithFormat:@"%@",[info.data objectForKey:@"wash_step"]].length-30]];
+                    }
+                }
+            }
+            block(info,mTitleArr,mSubTitleArr,mContentArr);
+        }else{
+            block(info,nil,nil,nil);
+        }
+    }];
+}
+#pragma mark----****----注册获取学校信息
+    /**
+     注册获取学校信息
+     
+     @param para 参数
+     @param block 返回值
+     */
++ (void)MWRegistGetSchoolInfo:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/wash/wash_features_list.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            NSMutableArray *mTempArr = [NSMutableArray new];
+            if ([[para objectForKey:@"school_id"] isEqualToString:@"0"]) {
+                if ([info.data isKindOfClass:[NSDictionary class]]) {
+                    if ([[info.data objectForKey:@"school_list"] isKindOfClass:[NSArray class]]) {
+                        for (NSDictionary *dic in [info.data objectForKey:@"school_list"]) {
+                            [mTempArr addObject:[MWSchoolInfo yy_modelWithDictionary:dic]];
+                        }
+                    }
+                }
+            }else{
+                if ([info.data isKindOfClass:[NSDictionary class]]) {
+                    if ([[info.data objectForKey:@"features_list"] isKindOfClass:[NSArray class]]) {
+                        for (NSDictionary *dic in [info.data objectForKey:@"features_list"]) {
+                            [mTempArr addObject:[MWDeviceInfo yy_modelWithDictionary:dic]];
+                        }
+                    }
+                }
+            }
+         
+            block(info,mTempArr);
+        }else{
+            block(info,nil);
+        }
+    }];
+}
 /**
  获取学校列表
  
@@ -666,19 +789,9 @@ static WKUser *g_user = nil;
 + (void)MWFindSchoolList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr,MWSchoolInfo *mSchool))block{
     [[WKHttpRequest initClient] WKMWPostDataWithUrl:@"debug/tj.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 1) {
-            
-            NSMutableArray *mTempArr = [NSMutableArray new];
-            MWSchoolInfo *mSchoolInfo = [MWSchoolInfo new];
-            mSchoolInfo.sum_money = [NSString stringWithFormat:@"%@",[info.data objectForKey:@"sum_money"]];
-
-            if ([info.data isKindOfClass:[NSDictionary class]]) {
-                for (NSDictionary *dic in [info.data objectForKey:@"arr"]) {
-                    mSchoolInfo.school_name = [dic objectForKey:@"school_name"];
-                    [mTempArr addObject:[MWDeviceInfo yy_modelWithDictionary:dic]];
-                }
-            }
+        
       
-            block(info,mTempArr,mSchoolInfo);
+            block(info,nil,nil);
         }else{
             block(info,nil,nil);
         }
@@ -691,9 +804,41 @@ static WKUser *g_user = nil;
  @param block 返回值
  */
 + (void)MWFindDeviceList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block{
-    [[WKHttpRequest initClient] WKMWPostDataWithUrl:@"wx/add_wash.php" withPara:para block:^(MWBaseObj *info) {
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/wash/wash_appointment.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
+            NSMutableArray *mTempArr = [NSMutableArray new];
+            if ([[info.data objectForKey:@"wash_feature"] isKindOfClass:[NSArray class]]) {
+                for(NSDictionary *dic in [info.data objectForKey:@"wash_feature"]){
+                    [mTempArr addObject:[MWDeviceInfo yy_modelWithDictionary:dic]];
+                }
+            }
+            block(info,mTempArr);
+
+        }else{
             block(info,nil);
+        }
+    }];
+}
+#pragma mark----****----提交洗衣机预订单
+    /**
+     提交洗衣机预订单
+     
+     @param para cansh
+     @param block fanhuizhi
+     */
++ (void)MWCcommitWashOrder:(NSDictionary *)para block:(void(^)(MWBaseObj *info,MWWashOrderObj *mOrderObj))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/wash/wash_order.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            
+
+            if ([info.data isKindOfClass:[NSDictionary class]]) {
+                block(info,[MWWashOrderObj yy_modelWithDictionary:info.data]);
+            }else{
+                block(info,nil);
+            }
+
         }else{
             block(info,nil);
         }
@@ -808,7 +953,23 @@ static WKUser *g_user = nil;
 //    }];
 
 }
-
+#pragma mark----****----买金币
+    /**
+     买金币
+     
+     @param para 参数
+     @param block 返回值
+     */
++ (void)MWBuyGold:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/gold/gold.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+}
 #pragma mark----****----获取我的任务列表
 /**
  获取我的任务列表
@@ -1441,3 +1602,20 @@ static MWLocationInfo *mLocation = nil;
 @end
 @implementation FileUploadResponseObject
 @end
+
+@implementation MWWashNoteContent
+
+
+-(id)initWithObj:(NSDictionary*)dic
+    {
+    self = [super init];
+    if( self )
+        {
+
+        
+        }
+    return self;
+    }
+
+@end
+

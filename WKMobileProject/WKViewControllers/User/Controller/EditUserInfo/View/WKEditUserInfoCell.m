@@ -34,6 +34,7 @@
 
 - (void)setMUserInfo:(WKUser *)mUserInfo{
     [self.mAvator sd_setImageWithURL:[NSURL URLWithString:mUserInfo.headimgurl] placeholderImage:nil];
-    self.mUserName.text = mUserInfo.nickname;
+    self.mUserName.text = mUserInfo.member_name;
+    self.mUserPhone.text = mUserInfo.mobile;
 }
 @end

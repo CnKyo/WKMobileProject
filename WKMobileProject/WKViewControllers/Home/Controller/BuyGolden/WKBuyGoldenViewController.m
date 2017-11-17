@@ -104,6 +104,7 @@ static float mDuration = 0.25;
 - (void)WKBuyGoldCellDelegateWithPayType:(NSInteger)mType{
     MLLog(@"选择了：%ld",mType);
     self.mGoldObj.mPayType = mType;
+    
 }
 /**
  选择直接支付还是微信好友支付
@@ -112,7 +113,29 @@ static float mDuration = 0.25;
  */
 - (void)WKBuyGoldCellDelegateIsGoPayOrFriendPayBtnClicked:(NSInteger)mTag{
     MLLog(@"选择了：%ld",mTag);
-    [self showSucessView];
+//    [self showSucessView];
+    if (self.mGoldObj.mPrice <= 0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入购买金额！"];
+        return;
+    }
+    if (self.mGoldObj.mPayType <= 0) {
+        [SVProgressHUD showErrorWithStatus:@"请选择支付方式！"];
+        return;
+    }
+    
+    NSMutableDictionary *para = [NSMutableDictionary new];
+    [para setObject:[NSString stringWithFormat:@"%d",self.mGoldObj.mPrice] forKey:@"number"];
+    [para setObject:[WKUser currentUser].member_id forKey:@"member_id"];
+//    [para setObject:[NSString stringWithFormat:@"%d",self.mGoldObj.mPayType] forKey:@"number"];
+    [MWBaseObj MWBuyGold:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            
+        }else{
+            
+        }
+    }];
+
+
 }
 /**
  输入框代理方法

@@ -10,6 +10,9 @@
 #import "WKWashBookingHeaderView.h"
 #import "WKWashBookingCell.h"
 #import "WaskBookingResultController.h"
+
+#import "LTPickerView.h"
+
 @interface WKWashBookingViewController ()<WKWashBookingCellDelegate>
 
 @end
@@ -18,13 +21,18 @@
 {
     WKWashBookingHeaderView *mHeaderView;
     MWSchoolInfo *mSchoolInfo;
+    
+    MWSchoolInfo *mShoolObj;
+    
+    NSMutableArray *mShoolList;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     mSchoolInfo = [MWSchoolInfo new];
     self.navigationItem.title = @"预约洗衣";
-    
+    mShoolObj = [MWSchoolInfo new];
+    mShoolList = [NSMutableArray new];
     [self addTableView];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"WKWashBookingCell" bundle:nil] forCellReuseIdentifier:@"cell"];
@@ -32,27 +40,23 @@
     
 }
 - (void)tableViewHeaderReloadData{
-//    NSArray *mUserArr = [ZLPlafarmtLogin bg_findAll];
-//
-//    if (mUserArr.count>0) {
-//        ZLPlafarmtLogin *mUserInfo = mUserArr[0];
-//        MLLog(@"接档用户信息是：%@",mUserArr);
-        NSMutableDictionary *para = [NSMutableDictionary new];
-        [para setObject:@"2" forKey:@"school_id"];
-    [MWBaseObj MWFindSchoolList:para block:^(MWBaseObj *info, NSArray *mArr, MWSchoolInfo *mSchool) {
-        
-        if (info.err_code == 1) {
-                [self.tableArr removeAllObjects];
-            mSchoolInfo = mSchool;
+    [self.tableArr removeAllObjects];
+
+    if (mShoolObj.schoolid.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请先选择学校!"];
+    }else{
+        [SVProgressHUD showWithStatus:@"正在获取洗衣机信息!"];
+        [MWBaseObj MWRegistGetSchoolInfo:@{@"school_id":mShoolObj.schoolid} block:^(MWBaseObj *info, NSArray *mArr) {
+            if (info.err_code == 0) {
                 [self.tableArr addObjectsFromArray:mArr];
-                [self.tableView reloadData];
+                [SVProgressHUD showSuccessWithStatus:info.err_msg];
             }else{
                 [SVProgressHUD showErrorWithStatus:info.err_msg];
             }
+            [SVProgressHUD dismiss];
+            [self.tableView reloadData];
         }];
-        
-        
-//    }
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -87,9 +91,8 @@
     [cell setMType:WKBusy];
     cell.delegate = self;
     cell.mIndexPath = indexPath;
-    MWDeviceInfo *mDevice = self.tableArr[indexPath.row];
-    cell.mContent.text = mDevice.location_name;
-    cell.mWaiting.text = mDevice.school_name;
+    [cell setMDeviceInfo:self.tableArr[indexPath.row]];
+
     return cell;
     
     
@@ -106,9 +109,53 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     mHeaderView = [WKWashBookingHeaderView initView];
-    mHeaderView.mContent.text = mSchoolInfo.school_name;
+    if (mShoolObj.schoolname.length==0) {
+        mShoolObj.schoolname = @"请选择学校信息";
+    }
+    mHeaderView.mContent.text = mShoolObj.schoolname;
+    [mHeaderView.mSelectedShollBtn addTarget:self action:@selector(mSelectedAction) forControlEvents:UIControlEventTouchUpInside];
     return mHeaderView;
     
+}
+#pragma mark----****----选择学校事件
+- (void)mSelectedAction{
+    [SVProgressHUD showWithStatus:@"正在获取学校信息!"];
+    [MWBaseObj MWRegistGetSchoolInfo:@{@"school_id":@"0"} block:^(MWBaseObj *info, NSArray *mArr) {
+        if (info.err_code == 0) {
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            [self initLTPickerView:mArr];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+        [SVProgressHUD dismiss];
+    }];
+}
+- (void)initLTPickerView:(NSArray *)mList{
+    
+    NSMutableArray *mListArr = [NSMutableArray new];
+    for (MWSchoolInfo *mShool in mList) {
+        [mListArr addObject:mShool.schoolname];
+    }
+    
+    LTPickerView *LtpickerView = [LTPickerView new];
+    LtpickerView.dataSource = mListArr;//设置要显示的数据
+    LtpickerView.defaultStr = mListArr[0];//默认选择的数据
+    [LtpickerView show];//显示
+    
+    //回调block
+    LtpickerView.block = ^(LTPickerView* obj,NSString* str,int num){
+        //obj:LTPickerView对象
+        //str:选中的字符串
+        //num:选中了第几行
+        MLLog(@"选择了第%d行的%@",num,str);
+        MWSchoolInfo *mShoolInfo = mList[num];
+        mShoolObj = mShoolInfo;
+
+        [self.tableView reloadData];
+        [self tableViewHeaderReloadData];
+        
+    };
+
 }
 - (void)WKWashBookingCellBtnAction:(NSIndexPath *)mIndexPath{
     MLLog(@"点击了%ld行",mIndexPath.row);

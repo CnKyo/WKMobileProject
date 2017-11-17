@@ -10,4 +10,6 @@
 
 @interface WKWashGoPayViewController : WKBaseViewController
 
+    @property (strong,nonatomic) MWWashOrderObj *mOrderInfo;
+    
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WKHeader.h"
 ///设置代理
 @protocol WKWashBookingCellDelegate <NSObject>
 
@@ -50,5 +51,7 @@ typedef NS_ENUM(NSInteger,WKWashBookingType) {
 ///设置代理
 @property (weak,nonatomic) id<WKWashBookingCellDelegate>delegate;
 
+
+    @property (strong,nonatomic) MWDeviceInfo *mDeviceInfo;
 
 @end

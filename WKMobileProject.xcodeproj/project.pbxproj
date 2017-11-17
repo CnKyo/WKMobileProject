@@ -281,6 +281,8 @@
 		529D8E8A1EE01F4300BF0FDE /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529D8E891EE01F4300BF0FDE /* Photos.framework */; };
 		529D8E8B1EE01F6D00BF0FDE /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A221AC1E99CDE50058A21B /* AssetsLibrary.framework */; };
 		52A03B7B1FBE956000B90D73 /* libPaymentControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A03B7A1FBE956000B90D73 /* libPaymentControl.a */; };
+		52A03B891FBED55800B90D73 /* LTPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A03B871FBED55800B90D73 /* LTPickerView.m */; };
+		52A03B8A1FBED55800B90D73 /* LTPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A03B881FBED55800B90D73 /* LTPickerView.xib */; };
 		52A408491F6131750053B683 /* WKUserMsgDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A408481F6131750053B683 /* WKUserMsgDetailViewController.m */; };
 		52A408501F613D970053B683 /* WKUserMsgDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A4084E1F613D970053B683 /* WKUserMsgDetailCell.m */; };
 		52A408511F613D970053B683 /* WKUserMsgDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A4084F1F613D970053B683 /* WKUserMsgDetailCell.xib */; };
@@ -862,6 +864,9 @@
 		52A03B781FBE956000B90D73 /* UPPaymentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPPaymentControl.h; sourceTree = "<group>"; };
 		52A03B7A1FBE956000B90D73 /* libPaymentControl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPaymentControl.a; sourceTree = "<group>"; };
 		52A03B7C1FBE970B00B90D73 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		52A03B861FBED55800B90D73 /* LTPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPickerView.h; sourceTree = "<group>"; };
+		52A03B871FBED55800B90D73 /* LTPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPickerView.m; sourceTree = "<group>"; };
+		52A03B881FBED55800B90D73 /* LTPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTPickerView.xib; sourceTree = "<group>"; };
 		52A408471F6131750053B683 /* WKUserMsgDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUserMsgDetailViewController.h; sourceTree = "<group>"; };
 		52A408481F6131750053B683 /* WKUserMsgDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUserMsgDetailViewController.m; sourceTree = "<group>"; };
 		52A4084D1F613D970053B683 /* WKUserMsgDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKUserMsgDetailCell.h; path = WKMobileProject/WKViewControllers/User/Controller/WKUserMsgDetailCell.h; sourceTree = SOURCE_ROOT; };
@@ -1252,6 +1257,7 @@
 			isa = PBXGroup;
 			children = (
 				529D8E5C1EDFFF1700BF0FDE /* WKMobileProject.entitlements */,
+				52A03B851FBED55800B90D73 /* LTPickerView */,
 				52A03B741FBE956000B90D73 /* paymentcontrol */,
 				525E03001FBC54EF00C72D6D /* HXWeiboPhotoPicker */,
 				525E02F91FBC54EE00C72D6D /* OnlyLocationManager */,
@@ -2368,6 +2374,16 @@
 			path = libs;
 			sourceTree = "<group>";
 		};
+		52A03B851FBED55800B90D73 /* LTPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				52A03B861FBED55800B90D73 /* LTPickerView.h */,
+				52A03B871FBED55800B90D73 /* LTPickerView.m */,
+				52A03B881FBED55800B90D73 /* LTPickerView.xib */,
+			);
+			path = LTPickerView;
+			sourceTree = "<group>";
+		};
 		52AC362D1EC2A059000866D4 /* UIFDCustom+PopView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2836,6 +2852,7 @@
 				5239D3391EF3B22000BAB3F3 /* mui.css in Resources */,
 				52D02D361F419A0F00B24618 /* WKChangePWDView.xib in Resources */,
 				5279A7481EC97E5000999B3D /* WKWashPayErrorView.xib in Resources */,
+				52A03B8A1FBED55800B90D73 /* LTPickerView.xib in Resources */,
 				5239D32E1EF37E7D00BAB3F3 /* index1.css in Resources */,
 				52D02D251F41800A00B24618 /* WKTaskDetailCell.xib in Resources */,
 				522976161ECC2C1400FEB6D9 /* WKJoinusHeaderSectionView.xib in Resources */,
@@ -3105,6 +3122,7 @@
 				31632CB71EAAFE850057B161 /* WKTabbarViewController.m in Sources */,
 				524E3EEB1ECAA30900EF0224 /* WKBuyGoldenViewController.m in Sources */,
 				5279A7571EC99C1400999B3D /* WKVipTopupViewController.m in Sources */,
+				52A03B891FBED55800B90D73 /* LTPickerView.m in Sources */,
 				525E036B1FBC54EF00C72D6D /* HXAlbumModel.m in Sources */,
 				31A222091E99CFA10058A21B /* CTServiceFactory.m in Sources */,
 				52AC36461EC2C086000866D4 /* SXColorGradientView.m in Sources */,

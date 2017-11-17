@@ -380,7 +380,7 @@
 @class MWBookingObj;
 @class MWTaskObj;
 @class MWMyRewardsObj;
-
+@class MWWashOrderObj;
 @interface MWBaseObj : NSObject
 
 @property (nonatomic,strong) NSString *err_msg;
@@ -440,6 +440,7 @@
  @param block 返回值
  */
 + (void)MWLogOut:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+#pragma mark----****----获取验证码
 /**
  获取验证码
 
@@ -447,7 +448,7 @@
  @param block 返回值i
  */
 + (void)MWGetMobileVeryfyCode:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
-
+#pragma mark----****----验证码登录
 /**
  验证码登录
 
@@ -455,7 +456,7 @@
  @param block 返回值
  */
 + (void)MWVeryfyCodeLogin:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
-
+#pragma mark----****---- 注册
 /**
  注册
 
@@ -463,6 +464,38 @@
  @param block 返回值
  */
 + (void)MWRegist:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+#pragma mark----****----app初始化
+/**
+ app初始化
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWAppInit:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+#pragma mark----****----注册推送
+/**
+ 注册推送
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWRegistJPush:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+#pragma mark----****----获取洗衣机注意事项
+/**
+ 获取洗衣机注意事项
+
+ @param block 返回值
+ */
++ (void)MWGetWashNoteContent:(void(^)(MWBaseObj *info,NSArray *mTArr,NSArray *mSTArr,NSArray *mCArr))block;
+#pragma mark----****----注册获取学校信息
+/**
+ 注册获取学校信息
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWRegistGetSchoolInfo:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block;
+#pragma mark----****----获取学校列表
 /**
  获取学校列表
 
@@ -470,6 +503,7 @@
  @param block 返回值
  */
 + (void)MWGetSchoolList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block;
+#pragma mark----****----查询学校
 /**
  查询学校
  
@@ -477,6 +511,7 @@
  @param block 返回值
  */
 + (void)MWFindSchoolList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr,MWSchoolInfo *mSchool))block;
+#pragma mark----****----查询洗衣机
 /**
  查询洗衣机
  
@@ -484,6 +519,21 @@
  @param block 返回值
  */
 + (void)MWFindDeviceList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block;
+    
+    
+#pragma mark----****----提交洗衣机预订单
+/**
+ 提交洗衣机预订单
+
+ @param para cansh
+ @param block fanhuizhi
+ */
++ (void)MWCcommitWashOrder:(NSDictionary *)para block:(void(^)(MWBaseObj *info,MWWashOrderObj *mOrderObj))block;
+    
+    
+    
+    
+#pragma mark----****----查询洗衣机信息
 /**
  查询洗衣机信息
  
@@ -491,6 +541,7 @@
  @param block 返回值
  */
 + (void)MWFindDeviceInfo:(NSDictionary *)para block:(void(^)(MWBaseObj *info,MWBookingObj *mArr))block;
+#pragma mark----****---- 添加功能
 /**
  添加功能
  
@@ -498,6 +549,7 @@
  @param block 返回值
  */
 + (void)MWAddDeviceFunc:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+#pragma mark----****---- 查询任务
 /**
  查询任务
  
@@ -505,7 +557,7 @@
  @param block 返回值
  */
 + (void)MWFindTaskList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block;
-
+#pragma mark----****----操作洗衣机
 /**
  操作洗衣机
  
@@ -513,6 +565,7 @@
  @param block 返回值
  */
 + (void)MWControlDevice:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+#pragma mark----****----获取洗衣机状态
 /**
  获取洗衣机状态
  
@@ -520,7 +573,7 @@
  @param block 返回值
  */
 + (void)MWGetDeviceStatus:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
-
+#pragma mark----****----编号洗衣获取deviceCode
 /**
  编号洗衣获取deviceCode
 
@@ -528,8 +581,14 @@
  @param block 返回值
  */
 + (void)MWWashToCode:(NSMutableDictionary *)para block:(void(^)(MWBaseObj *info,MWDeviceCode *mDeviceCode))block;
+#pragma mark----****----买金币
+/**
+ 买金币
 
-
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWBuyGold:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
 #pragma mark----****----获取我的任务列表
 /**
  获取我的任务列表
@@ -687,24 +746,57 @@
 @end
 
 
-
+#pragma mark----****----洗衣机信息
 @interface MWDeviceInfo : NSObject
 
-@property (nonatomic,strong) NSString *location_name;
-
-@property (nonatomic,assign) int device_id;
-@property (nonatomic,assign) int money;
-
-@property (nonatomic,assign) int school_id;
-
-@property (nonatomic,strong) NSString *school_name;
-
-@property (nonatomic,assign) int sum_money;
+@property (nonatomic,strong) NSString *add_time;
+@property (nonatomic,strong) NSString *device_accuracy;
+@property (nonatomic,strong) NSString *device_address;
+@property (nonatomic,strong) NSString *device_barcode;
+@property (nonatomic,strong) NSString *device_feature;
+@property (nonatomic,strong) NSString *device_feature_name;
+@property (nonatomic,strong) NSString *device_id;
+@property (nonatomic,strong) NSString *device_latiude;
+@property (nonatomic,strong) NSString *device_longitude;
+@property (nonatomic,strong) NSString *device_name;
+///洗衣机状态 0:空闲。1:洗衣中。
+@property (nonatomic,strong) NSString *device_status;
+@property (nonatomic,strong) NSString *isshow;
+@property (nonatomic,strong) NSString *school_id;
+@property (nonatomic,strong) NSString *wash_id;
+@property (nonatomic,strong) NSString *wash_name;
+@property (nonatomic,strong) NSString *wash_num;
+@property (nonatomic,strong) NSString *wash_price;
+@property (nonatomic,strong) NSString *wash_sex;
+@property (nonatomic,strong) NSString *wash_status;
+@property (nonatomic,strong) NSString *wash_time;
+    
+    
+    @property (nonatomic,strong) NSString *name;
+    @property (nonatomic,strong) NSString *id;
 
 @end
 @interface MWSchoolInfo : NSObject
-@property (nonatomic,strong) NSString *school_name;
-@property (nonatomic,strong) NSString *sum_money;
+  
+@property (nonatomic,strong) NSString *mShoolName;
+@property (nonatomic,strong) NSString *mShoolId;
+
+@property (nonatomic,strong) NSString *add_time;
+@property (nonatomic,strong) NSString *address;
+@property (nonatomic,strong) NSString *cityid;
+@property (nonatomic,strong) NSString *content;
+@property (nonatomic,strong) NSString *devicenum;
+@property (nonatomic,strong) NSString *iselite;
+@property (nonatomic,strong) NSString *piclist;
+@property (nonatomic,strong) NSString *registers;
+@property (nonatomic,strong) NSString *ruleset;
+@property (nonatomic,strong) NSString *schoolid;
+@property (nonatomic,strong) NSString *schoollogo;
+@property (nonatomic,strong) NSString *schoolname;
+@property (nonatomic,strong) NSString *sort;
+@property (nonatomic,strong) NSString *students;
+
+
 @end
 
 @interface MWDeviceCode : NSObject
@@ -1074,3 +1166,15 @@
 @property(nonatomic,assign) NSInteger               type;         //!< 上传格式
 @property(nonatomic,strong) NSString *              name;            //!< 上传文件路径
 @end
+
+@interface MWWashNoteContent : NSObject
+    
+@property(nonatomic,strong) NSString *              mTitle;            //!< 标题
+@property(nonatomic,strong) NSString *              mSubTitle;            //!< 副标题
+@property(nonatomic,strong) NSString *              mContent;            //!< 内容
+
+-(id)initWithObj:(NSDictionary*)dic;
+
+@end
+
+
