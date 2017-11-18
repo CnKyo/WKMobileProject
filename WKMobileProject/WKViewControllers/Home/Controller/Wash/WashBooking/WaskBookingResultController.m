@@ -63,9 +63,14 @@
         mHeaderView.mWashStatus.text = @"洗衣机状态:空闲";
     }
     mHeaderView.mWashSeclected.hidden = YES;
-    TimeModel *model = [TimeModel new];
-    model.endTime = [Util WKCurrentTimePlusTo15Min:120];
-    mHeaderView.mCountTime.text = [self.countDown countDownWithModel:model timeLabel:mHeaderView.mCountTime];
+    
+//    TimeModel *model = [TimeModel new];
+//    model.endTime = [Util WKCurrentTimePlusTo15Min:120];
+//    mHeaderView.mCountTime.text = [self.countDown countDownWithModel:model timeLabel:mHeaderView.mCountTime];
+    
+  MZTimerLabel *mC  = [[MZTimerLabel alloc] initWithLabel:mHeaderView.mCountTime andTimerType:MZTimerLabelTypeTimer];
+    [mC setCountDownTime:15*60]; //** Or you can use [timer3 setCountDownToDate:aDate];
+    [mC start];
     [self.view addSubview:mHeaderView];
     
     [mHeaderView mas_makeConstraints:^(MASConstraintMaker *make) {

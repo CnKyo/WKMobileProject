@@ -76,6 +76,10 @@
     
     cell.delegate = self;
     [cell setMUserInfo:[WKUser currentUser]];
+    if (mHeaderImg) {
+        cell.mAvator.image = mHeaderImg;
+    }
+    
     return cell;
    
     
@@ -145,6 +149,8 @@
     if (photos.count>0) {
         UIImage *mSelectedImage = photos[0];
         [self upLoadImage:UIImageJPEGRepresentation(mSelectedImage, 1.0)];
+        mHeaderImg = mSelectedImage;
+        [self.tableView reloadData];
     }
     
 }

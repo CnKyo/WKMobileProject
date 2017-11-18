@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="立即洗衣" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVz-sE-NHz" customClass="WKCountLabel">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="立即洗衣" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVz-sE-NHz" customClass="MZTimerLabel">
                     <rect key="frame" x="16" y="15" width="343" height="48"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="hVz-sE-NHz" secondAttribute="height" multiplier="343:48" id="0LO-BI-WgP"/>
@@ -25,7 +25,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="倒计时" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQL-NK-kpE">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="倒计时" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQL-NK-kpE">
                     <rect key="frame" x="16" y="69" width="343" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="fQL-NK-kpE" secondAttribute="height" multiplier="49:3" id="VAe-JZ-vxE"/>

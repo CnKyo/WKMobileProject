@@ -156,7 +156,15 @@
             cell.mStatusH.constant = 20;
             
         }
-    
+        NSString *mImgS = @"";
+        if (_mTaskType == 1) {
+            mImgS = @"submit_status01";
+        }else if (_mTaskType == 2){
+            mImgS = @"submit_status02";
+        }else{
+            mImgS = @"submit_status02";
+        }
+        cell.mStatusImg.image = [UIImage imageNamed:mImgS];
         cell.mTaskName.text = _mTask.task_title;
         cell.mTaskPrice.text = [NSString stringWithFormat:@"任务酬劳：%@元",mMyTask.task_price];
         cell.mTaskEndTime.text = [NSString stringWithFormat:@"任务截止时间:%@",[Util WKTimeIntervalToDate:mMyTask.complete_time]];

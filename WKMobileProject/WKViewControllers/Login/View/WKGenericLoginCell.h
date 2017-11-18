@@ -124,6 +124,9 @@
  */
 @property (weak, nonatomic) IBOutlet UITextField *mSchoolTx;
 
+@property (weak, nonatomic) IBOutlet UIButton *mSelectedSchoolBtn;
+
+
 /**
  注册按钮
  */

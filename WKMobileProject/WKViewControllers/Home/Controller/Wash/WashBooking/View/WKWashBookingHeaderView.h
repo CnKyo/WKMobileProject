@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "WKCountLabel.h"
+#import "MZTimerLabel.h"
 
-@interface WKWashBookingHeaderView : UIView
+@interface WKWashBookingHeaderView : UIView<MZTimerLabelDelegate>
 #pragma mark----****----洗衣机首页
 ///背景view
 @property (weak, nonatomic) IBOutlet UIView *mBkgView;
@@ -22,7 +23,7 @@
 + (WKWashBookingHeaderView *)initView;
 #pragma mark----****----洗衣机预约
 ///倒计时
-@property (weak, nonatomic) IBOutlet WKCountLabel *mCountTime;
+@property (weak, nonatomic) IBOutlet MZTimerLabel *mCountTime;
 ///状态按钮
 @property (weak, nonatomic) IBOutlet UIButton *mStatusBtn;
 ///洗衣地址

@@ -110,7 +110,7 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKViewControllers/Task/Controller/WKTaskDetailViewController.m"
-                  timestampString = "532670891.647189"
+                  timestampString = "532674905.33415"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "74"
@@ -125,7 +125,7 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKViewControllers/Task/Controller/WKTaskDetailViewController.m"
-                  timestampString = "532670891.649824"
+                  timestampString = "532674905.335875"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "74"
@@ -174,7 +174,7 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKAPI/WKHttpRequest.m"
-                  timestampString = "532670891.659049"
+                  timestampString = "532674905.344525"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "72"
@@ -189,7 +189,7 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKAPI/WKHttpRequest.m"
-                  timestampString = "532670891.661824"
+                  timestampString = "532674905.349249"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "72"
@@ -206,7 +206,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WKMobileProject/WKAPI/WKModel.m"
-            timestampString = "532670891.255372"
+            timestampString = "532674905.035341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1503"
@@ -222,7 +222,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WKMobileProject/WKAPI/WKModel.m"
-            timestampString = "532670891.255527"
+            timestampString = "532674905.035766"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1502"
@@ -238,7 +238,7 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKAPI/WKModel.m"
-                  timestampString = "532670891.673126"
+                  timestampString = "532674905.358001"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1502"
@@ -253,7 +253,7 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKAPI/WKModel.m"
-                  timestampString = "532670891.676701"
+                  timestampString = "532674905.360107"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1502"
@@ -270,7 +270,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WKMobileProject/WKAPI/WKModel.m"
-            timestampString = "532670891.255658"
+            timestampString = "532674905.036043"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1522"
@@ -286,7 +286,7 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKAPI/WKModel.m"
-                  timestampString = "532670891.68228"
+                  timestampString = "532674905.364794"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1522"
@@ -301,7 +301,7 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKAPI/WKModel.m"
-                  timestampString = "532670891.685211"
+                  timestampString = "532674905.366547"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1522"
@@ -318,44 +318,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WKMobileProject/WKAPI/WKModel.m"
-            timestampString = "532670891.256002"
+            timestampString = "532674905.036312"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1523"
             endingLineNumber = "1523"
             landmarkName = "+MWUserWithDraw:block:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WKMobileProject/WKAPI/WKHttpRequest.m"
-            timestampString = "532666828.781573"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "376"
-            endingLineNumber = "376"
-            landmarkName = "-MWPostFileWithUrl:andPara:fileData:name:fileName:fileType:success:fail:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WKMobileProject/WKAPI/WKHttpRequest.m"
-            timestampString = "532666828.781619"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "382"
-            endingLineNumber = "382"
-            landmarkName = "-MWPostFileWithUrl:andPara:fileData:name:fileName:fileType:success:fail:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -398,7 +366,7 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKAPI/WKHttpRequest.m"
-                  timestampString = "532670891.713573"
+                  timestampString = "532674905.378186"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "489"
@@ -413,7 +381,7 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKAPI/WKHttpRequest.m"
-                  timestampString = "532670891.716139"
+                  timestampString = "532674905.380069"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "489"
@@ -430,7 +398,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WKMobileProject/WKAPI/WKModel.m"
-            timestampString = "532670891.256758"
+            timestampString = "532674905.036661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "891"
@@ -446,12 +414,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WKMobileProject/WKAPI/WKModel.m"
-            timestampString = "532670891.257225"
+            timestampString = "532674905.036952"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "870"
             endingLineNumber = "870"
             landmarkName = "+MWCcommitWashOrder:block:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WKMobileProject/WKViewControllers/Login/Controller/WKGenericLoginViewController.m"
+            timestampString = "532674905.037231"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "-WKGenericRegistCellDelegateWithBtnAction:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
