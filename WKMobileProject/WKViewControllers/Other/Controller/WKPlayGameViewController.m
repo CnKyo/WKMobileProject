@@ -11,6 +11,8 @@
 #import "UIScrollView+DREmptyDataSet.h"
 #import "UIScrollView+DRRefresh.h"
 #import "WKTestViewcontrollerViewController.h"
+#import "WKWebViewController.h"
+
 @interface WKPlayGameViewController ()<UITableViewDataSource,UITableViewDelegate,WKCustomPopViewDelegate>
 
 @end
@@ -21,6 +23,8 @@
     FDAlertView *WKCustomAlertView;
     
     UIView *mBgkView;
+    
+    MWGameObj *mGame;
 }
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:YES];
@@ -32,7 +36,7 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"玩游戏";
     [self removeAlert];
-
+    mGame = [MWGameObj new];
     self.tableArr = [NSMutableArray new];
     
     self.tableView.delegate = self;
@@ -160,7 +164,8 @@
     MLLog(@"%ld行",indexPath.row);
 //    WKTestViewcontrollerViewController *vc = [[WKTestViewcontrollerViewController alloc] initWithNibName:@"WKBaseSuperViewController" bundle:nil];
 //    [self.navigationController pushViewController:vc animated:YES];
-    MWGameObj *mGame = self.tableArr[indexPath.row];
+    MWGameObj *mGameInfo = self.tableArr[indexPath.row];
+    mGame = mGameInfo;
     NSString *mcontent = [NSString stringWithFormat:@"本次游戏将消耗您%d个金币，您是否愿意玩本次游戏呢？",mGame.pay_coin_num];
     [self showCustomViewType:WKCustomPopViewHaveTwoBtn andTitle:[NSString stringWithFormat:@"您的账户还有%@个金币",[WKUser currentUser].gold] andContentTx:mcontent andOkBtntitle:@"确定" andCancelBtntitle:@"取消"];
     
@@ -185,6 +190,20 @@
 //    [WKCustomAlertView hide];
     [mBgkView removeFromSuperview];
     [mCustomView removeFromSuperview];
+    [SVProgressHUD showWithStatus:@"正在加载中..."];
+    [MWBaseObj MWPlayGame:@{@"member_id":[WKUser currentUser].member_id,@"game_id":mGame.game_id} block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            [SVProgressHUD dismiss];
+            NSURL *path = [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"html"];
+            WKWebViewController *vc = [WKWebViewController new];
+            vc.mPath = path;
+            
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+        }
+    }];
+    
 
 }
 #pragma mark----****----自定义弹出框

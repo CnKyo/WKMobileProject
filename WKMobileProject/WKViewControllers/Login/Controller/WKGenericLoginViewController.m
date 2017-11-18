@@ -302,10 +302,24 @@
             break;
         case 5:
         {
-        //        [self dismissViewController];
-        [self dismissViewControllerAnimated:YES completion:^{
-            self.mBlock(1);
-        }];
+        
+        if (mUserInfo.password.length<=0 || mUserInfo.mobile.length<=0 || mUserInfo.verifycode.length <= 0) {
+            [SVProgressHUD showErrorWithStatus:@"请完善注册信息！"];
+            return;
+        }else{
+            [SVProgressHUD showWithStatus:@"正在注册..."];
+            
+            [MWBaseObj MWRegist:@{@"mobile":mUserInfo.mobile,@"password":mUserInfo.password,@"verifycode":mUserInfo.verifycode,@"school_name":mShoolObj.schoolname,@"school_id":mShoolObj.schoolid,@"recommender_mobile":mUserInfo.recommender_mobile} block:^(MWBaseObj *info) {
+                if (info.err_code == 0) {
+                    [SVProgressHUD showSuccessWithStatus:@"注册成功,请登录!"];
+                    self.mLoginType = WKLogin;
+                    [self.tableView reloadData];
+                    
+                }else{
+                    [SVProgressHUD showErrorWithStatus:info.err_msg];
+                }
+            }];
+        }
         
         }
             break;

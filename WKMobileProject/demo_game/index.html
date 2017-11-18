@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<title>福彩刮刮乐 超级双11</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="renderer" content="webkit">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+<meta name="msapplication-tap-highlight" content="no">
+<script type="text/javascript" src="js/style.js"></script>
+<link rel="stylesheet" href="css/weui.min.css"/>
+<link rel="stylesheet" href="css/main.css?v=20171117"/>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/ThreeCanvas.js"></script>
+<script type="text/javascript" src="js/Snow.js"></script>
+<style>
+	.btn_zjgs{position:absolute;width:1.69rem;height:0.51rem;top:6rem;right:0.5rem;background:url(img/btn_zjgs.png) no-repeat;background-size:100% 100%;display:none;}
+	#hbgs_box .jp_box{height:6.18rem;background:url(img/hbgs_bg.png) no-repeat;background-size:100% 100%;margin-top:-3.09rem;}
+	#hbgs_box .jp_box .jp_list{width:100%;margin-top:0;margin-left:0;}
+	#hbgs_box #gslist li div{display:inline-block;width:1.4rem;text-align:center;font-size:0.22rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+	#hbgs_box #gslist li div:nth-child(3){overflow:inherit;text-overflow:initial;white-space:inherit;}
+	#hbgs_box .sel_time{display:block;background:#a33f3c;color:#FFF;border:none;padding:0.1rem 0.2rem;border-radius:5px;outline:none;margin-left:0.3rem;margin-top:0.8rem;margin-bottom:0.1rem;font-weight:600;}
+	#hbgs_box .jp_tit{font-size:0.25rem;color:#a33f3c;font-weight:600;}
+	#hbgs_box .jp_tit span{width:33%;display:inline-block;text-align:center;}
+	
+</style>
+</head>
+<body id="Vbody">
+
+<input type="hidden" id="txt_uid" alt="用户id" value="">
+<input type="hidden" id="txt_syjp" alt="剩余奖品数量" value="">
+<input type="hidden" id="txt_cjcs" alt="抽奖次数" value="">
+
+<!--加载-->
+<div id="loading" class="loading_container">
+	<div class="loading_wrap">
+		<div class="loader">
+			<div class="pacman">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class="progress">
+				页面加载中...
+				<span id="current">0%</span>
+			</div>
+		</div>
+	</div>
+</div>
+<!--/加载-->
+
+<div id="pages_container" class="pages_container" style="display:none;">
+    <div class="page index">
+        <div class="abs logo"></div>
+        <div class="abs title"></div>
+		<!-- 活动未开始 -->
+		<div id="hd_wks" style="display:none;">
+			<!--倒计时	-->
+			<div class="wait_start" style="top:3.3rem;"></div>
+			<div class="countdown" style="top:4.3rem;">
+				<div class="countdown_box">
+					<ul class="time">
+						<li>1</li>
+						<li>1</li>
+						<li class="dh_li">:</li>
+						<li>1</li>
+						<li>1</li>
+						<li class="dh_li">:</li>
+						<li>1</li>
+						<li>1</li>
+					</ul>
+				</div>
+			</div>
+			<div class="btn_zjgs" style="display:block;"></div>
+			<!--倒计时-->
+		</div>
+		<!-- /活动未开始 -->
+		<!-- 活动开始 -->
+		<div id="hd_start" class="abs hd_start">
+			<input type="text" class="t_kouling" placeholder="点击输入口令即可抽取红包" maxlength="30" style="font-size:0.3rem;font-weight:600;">
+			<button class="btn_go"></button>
+			<span class="abs sp_myhb">查看我的红包</span>
+		</div>
+		<!-- /活动开始 -->
+		<!-- 活动规则 -->
+		<div class="abs hd_rule">
+			<h3>活动时间：</h3>
+			<p style="padding-bottom:0.2rem;">2017年11月11日—12月13日  每天18：00</p>
+			<h3>活动规则：</h3>
+			<p>1.活动时间内，输入相应的口令即可领取红包。</p>
+			<p>2.每人每天只能领取一次红包。</p>
+			<p>3.活动最终解释权归重庆市福利彩票发行中心所有。</p>
+			<p>服务热线：<a href="tel:18696506447">18696506447</a></p>
+		</div>
+		<!-- /活动规则 -->
+    </div>
+</div>
+<!-- music -->
+<div class="music" style="display:none;"></div>
+<audio id="audio" src="audio/bgm.mp3" loop></audio>
+<!-- /music -->
+<!-- 未中奖 -->
+<div id="ts_fail" class="allbg" style="display:none;">
+    <div class="abs ts_wzj">
+    	<div class="abs btn_again" onClick="document.getElementById('ts_fail').style.display='none';"></div>
+    </div>
+</div>
+<!-- /未中奖 -->
+<!-- 中奖 -->
+<div id="ts_succ" class="allbg" style="display:none;">
+    <div class="abs ts_zj">
+    	<a href="javascript:;" class="abs btn_close" onClick="document.getElementById('ts_succ').style.display='none';"></a>
+		<p><span id="surprise">0</span></p>
+    </div>
+</div>
+<!-- 中奖 -->
+<!-- 我的红包 -->
+<div id="zj_box" class="allbg" style="display:none;">
+	<div class="abs jp_box">
+		<a href="javascript:;" class="abs close_jp" onClick="document.getElementById('zj_box').style.display='none';"></a>
+		<div class="jp_list">
+			<ul id="plist"></ul>
+		</div>
+	</div>
+</div>
+<!-- /我的红包 -->
+<!-- 红包公示 -->
+<div id="hbgs_box" class="allbg" style="display:none;">
+	<div class="abs jp_box">
+		<a href="javascript:;" class="abs close_jp" onClick="document.getElementById('hbgs_box').style.display='none';"></a>
+		<select class="sel_time" id="sel_time">
+			<option value="14">11月14日</option>
+		</select>
+		<div class="jp_tit"><span>昵称</span><span>金额</span><span>时间</span></div>
+		<div class="jp_list" id="gslist">
+			<ul>
+				<li><div>如梦人生</div><div>11.11</div><div>2017/11/14 18:01</div></li>
+				<li><div>如梦人生</div><div>11.11</div><div>2017/11/14 18:01</div></li>
+				<li><div>如梦人生</div><div>11.11</div><div>2017/11/14 18:01</div></li>
+				<li><div>如梦人生</div><div>11.11</div><div>2017/11/14 18:01</div></li>
+				<li><div>如梦人生</div><div>11.11</div><div>2017/11/14 18:01</div></li>
+				<li><div>如梦人生</div><div>11.11</div><div>2017/11/14 18:01</div></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- /红包公示 -->
+<!-- 加载 -->
+<div id="commonUILoading" class="commonUI-loading-mask" style="display:none;">
+	<div class="commonUI-loading">
+		<div class="commonUI-loadingPic"></div>
+		<div class="commonUI-loadingText">加载中...</div>
+	</div>
+</div>
+<!-- /加载 -->
+<!-- dialog2 -->
+<div class="weui_dialog_alert" id="dialog2" style="display: none;">
+    <div class="weui_mask"></div>
+    <div class="weui_dialog">
+        <div class="weui_dialog_hd"><strong class="weui_dialog_title">消息</strong></div>
+        <div class="weui_dialog_bd"></div>
+        <div class="weui_dialog_ft"><a href="javascript:;" class="weui_btn_dialog primary">确定</a></div>
+    </div>
+</div>
+<!-- /dialog2 -->
+
+<script src="js/wxmoment.min.js?2017"></script>
+<script src="js/resLoader.js?2017"></script>
+<script src="js/mwapi.v1.js?2017"></script>
+<script>
+	var SCREEN_WIDTH = window.innerWidth,SCREEN_HEIGHT = window.innerHeight,container,particle,camera,scene,renderer,starSnow = 1,particles = [],particleImage = new Image();
+	particleImage.src = 'img/red_packet.png?20171107';
+	init();
+	function init(){
+		container = document.createElement('div');//container：画布实例;
+		container.setAttribute("class","abs hbrain");
+		container.setAttribute("id","hbrain_box");
+		document.getElementById("pages_container").appendChild(container);
+		camera = new THREE.PerspectiveCamera( 50, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
+		camera.position.z = 1000;
+		scene = new THREE.Scene();
+		scene.add(camera);
+		renderer = new THREE.CanvasRenderer();
+		renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+		var material = new THREE.ParticleBasicMaterial( { map: new THREE.Texture(particleImage) } );
+		for (var i = 0; i < 160; i++) {
+			particle = new Particle3D( material);
+			particle.position.x = Math.random() * 2000-1000;
+			particle.position.z = Math.random() * 2000-1000;
+			particle.position.y = Math.random() * 2000-1000;
+			particle.scale.x = particle.scale.y = 0.8;
+			scene.add( particle );
+			particles.push(particle); 
+		}
+		container.appendChild( renderer.domElement );
+		setInterval( loop, 1000 / 80 );
+	}
+	function loop(){
+		for(var i = 0; i<particles.length; i++){
+			var particle = particles[i]; 
+			particle.updatePhysics(); 
+			with(particle.position){
+				if((y<-1000)&&starSnow) {y+=2000;}
+				if(x>1000) x-=2000; 
+				else if(x<-1000) x+=2000;
+				if(z>1000) z-=2000; 
+				else if(z<-1000) z+=2000;
+			}			
+		}
+		camera.lookAt(scene.position); 
+		renderer.render( scene, camera );
+	}
+</script>
+
+<script>
+//倒计时
+function GetRTime(year,month,day){
+	var nowDate = new Date();
+	var year = nowDate.getFullYear();
+	var month = nowDate.getMonth();
+	var day = nowDate.getDate();
+	var hour = nowDate.getHours();
+	var lastDay = 0;
+	var lastHour = 0;
+	var lastMinute = 0;
+	var lastSecond = 0;
+	if (hour>=18){
+		if (day != 31) {
+			day+=1;		
+		}else{
+			day = 1;
+			month += 1;
+		}
+	}
+	var EndTime= new Date(year,month,day,18,0,0);
+	var t =EndTime.getTime() - nowDate.getTime();
+	if(t>=0){
+		lastDay=Math.floor(t/1000/60/60/24%365)
+		lastHour=add0(Math.floor(t/1000/60/60%24)+lastDay*24);
+		lastMinute=add0(Math.floor(t/1000/60%60));
+		lastSecond=add0(Math.floor(t/1000%60));
+		setTime(lastHour,lastMinute,lastSecond);
+	}else{
+		$('#hd_wks').hide();
+		$('#hd_start').show();
+	}
+	//console.log(lastDay+':'+lastHour+':'+lastMinute+':'+lastSecond);
+}
+GetRTime();
+function add0(m){return m<10?'0'+m:m.toString()};
+function setTime(lastHour,lastMinute,lastSecond){
+	$('.countdown li').eq(0).html(lastHour.substring(0,1));
+	$('.countdown li').eq(1).html(lastHour.substring(1,2));
+	$('.countdown li').eq(3).html(lastMinute.substring(0,1));
+	$('.countdown li').eq(4).html(lastMinute.substring(1,2));
+	$('.countdown li').eq(6).html(lastSecond.substring(0,1));
+	$('.countdown li').eq(7).html(lastSecond.substring(1,2));
+	getNowTime();
+}
+setInterval(function(){
+	GetRTime();
+},1000)
+
+/* ******************* */
+// 红包公示
+$("#sel_time").change(function(){
+	var num= $(this).val();
+	getPrizeInfo(num);
+});
+$(".btn_zjgs").click(function(){
+	$("#hbgs_box").show();
+});
+
+// 抽红包
+var cj_flag= true;
+$(".btn_go").click(function(){
+	if(cj_flag){
+		var kl= $(".t_kouling").val();
+		if($.trim(kl)==""){
+			we_alert("请输入红包口令~");return;
+		}else{
+			cj_flag= false;
+			$("#commonUILoading").show();
+		}
+	}else{
+		we_alert("正在抽奖，请勿频繁操作！");
+	}
+});
+	
+// 查看我的红包
+var gpn_flag= true;
+$(".sp_myhb").click(function(){
+	if(gpn_flag){
+		gpn_flag= false;
+	}else{
+		we_alert("获取数据中，请勿频繁操作！");
+	}
+});
+function get_prize_now(){
+	$("#plist").empty();
+	$("#commonUILoading").show();
+	$.ajax({
+		url: "http://webapp.aboutnew.net/mwcloudapi/prize/index.php",
+		type:'POST',
+		dataType:'json',
+		data:{
+			wxoid : appData.openid,
+			wbuid : '',
+			count : "1",
+			slimit: 0,
+			elimit: 40,
+			form_id : appData.form_id,
+            merchant_id: appData.merchant_id,
+            merchant_token: appData.merchant_token,
+            project_id: appData.project_id,
+            project_token: appData.project_token
+		},
+		success:function(data){
+			$("#commonUILoading").hide();
+			$("#zj_box").show();
+			console.log("查询是否获得奖品");
+			console.log(data);
+			if(data.my_winning_prize_id){
+				// 查询有奖品
+				var obj= data.my_prize_arr;
+				var shtml= '';
+				var len= Number(obj.length);
+				$.each(obj,function(i,v){
+					shtml= '<li><div>'+v['prize_name']+'</div></li>';
+					$("#plist").append(shtml);
+				});
+			}else{
+				$("#plist").append('<li><div style="font-size:0.3rem;text-align:center;padding:1rem 0;">还未获得红包！</div></li>');
+			}
+			gpn_flag= true;
+		},
+		timeout: 5000,
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			//we_alert("当前活动人数太多，请稍后再试！");
+			$("#plist").empty();
+			gpn_flag= true;
+			$("#commonUILoading").hide();
+			$("#zj_box").show();
+			$("#plist").append('<li><div style="font-size:0.3rem;text-align:center;padding:1rem 0;">还未获得红包！</div></li>');
+		}
+	});
+}
+
+// 明天再来
+$(".btn_again").click(function(){ shutDown() });
+// 判断时间
+function getNowTime(){
+	var ndate = new Date();
+	var hh = ndate.getHours();
+	if (hh<18){
+		//console.log("未开始");
+		$('#hd_wks').show();
+		$('#hd_start').hide();
+		return;
+	}else if(hh>=18 && hh<=23){
+		//console.log("进行中");
+		$('#hd_wks').hide();
+		$('#hd_start').show();
+	}
+}
+// 提示框
+function we_alert(msg){
+	$(".weui_dialog_bd").html(msg);
+	$(".weui_dialog_alert").css("display", "block");
+	$(".weui_btn_dialog").click(function() {
+		$(".weui_dialog_alert").css("display", "none");
+	})
+}
+function we_alert2(msg){
+	$(".weui_dialog_bd").html(msg);
+	$(".weui_dialog_alert").css("display", "block");
+	$(".weui_btn_dialog").click(function() {
+		shutDown();
+	})
+}
+// 退出微信
+function shutDown(){
+	WeixinJSBridge.call('closeWindow');
+}
+</script>
+<script>
+var loader = new resLoader({
+	resources : [
+		'img/bg.png',
+		'img/bg_hb.png',
+		'img/btn_close.png',
+		'img/btn_ok.png',
+		'img/btn_qiang.png',
+		'img/hdgz.png',
+		'img/hdwks.png',
+		'img/logo.png',
+		'img/tit.png',
+		'img/tit1.png',
+		'img/tit2.png',
+		'img/music_off.png',
+		'img/music_on.png',
+		'img/nohb.png',
+		'img/plist_bg.png',
+		'img/red_packet.png',
+		'img/tit.png',
+		'img/wzj_bg.png',
+		'img/zj_bg.png',
+		'img/wxlogo.jpg'
+	],
+	onStart : function(total){
+		console.log('start:'+total);
+	},
+	onProgress : function(current, total){
+		var percent = parseInt(current/total*100);
+		$('#current').text(percent+"%");
+	},
+	onComplete : function(total){
+		console.log('加载完毕:'+total+'个资源');
+		setTimeout(function(){
+			$("#loading").remove();
+			$("#pages_container").show();
+		},2000);
+	}
+});
+loader.start();
+
+var music= $(".music");
+var audio = $("#audio")[0];
+var play_flag= true;
+function addMusic(){
+	music.removeClass("music_close");
+	music.bind("touchend", function () {
+		music.hasClass("music_close") ? (music.removeClass("music_close"), audio.play()):(music.addClass("music_close"),!audio.pause());
+	});
+	// 音乐播放
+	if(play_flag){
+		play_flag= false;
+		// 自动播放音乐
+		$(".music").show();
+		audioAutoPlay("audio");
+	}
+}
+function audioAutoPlay(id){
+	var audio = document.getElementById(id);
+	var play = function() {
+		document.removeEventListener("WeixinJSBridgeReady", play);
+		document.removeEventListener("YixinJSBridgeReady", play);
+		audio.play();
+		document.removeEventListener("touchstart", play, false);
+	};
+	audio.play();
+	document.addEventListener("WeixinJSBridgeReady", play, false);
+	document.addEventListener('YixinJSBridgeReady', play, false);
+	document.addEventListener("touchstart", play, false);
+}
+setTimeout(function(){
+	addMusic();
+},10000);
+/* 微信分享 */
+var shareData = {
+	title: '福彩刮刮乐 超级双11',
+	desc: '',
+	link: 'http://web02.aboutnew.net/mwcloud/2017111101/',
+	imgUrl: 'http://web02.aboutnew.net/mwcloud/2017111101/img/wxlogo.jpg?2017',
+	success: function(res) { },
+	cancel: function(res) { }
+},
+wxhideOptionMenu = 0;
+</script>
+<script src="http://open.aboutnew.net/api/weixin/jssdk/wx.mini.js"></script>
+
+</body>
+</html>

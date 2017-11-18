@@ -656,6 +656,14 @@
  @param block 返回值
  */
 + (void)MWFetchGameList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mList))block;
+#pragma mark----****----玩游戏
+/**
+ 玩游戏
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWPlayGame:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
 #pragma mark----****----获取消息列表
 /**
  获取消息列表和读取消息

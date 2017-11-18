@@ -1159,6 +1159,24 @@ static WKUser *g_user = nil;
         }
     }];
 }
+#pragma mark----****----玩游戏
+/**
+ 玩游戏
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWPlayGame:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/game/game_order.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+}
 #pragma mark----****----获取消息列表
 /**
  获取消息列表
