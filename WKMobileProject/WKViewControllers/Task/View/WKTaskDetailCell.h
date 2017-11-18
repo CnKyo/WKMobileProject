@@ -19,4 +19,6 @@
 
 @property (strong,nonatomic) MWTaskObj *mTask;
 
+@property (strong,nonatomic) WKHome *mActivity;
+
 @end

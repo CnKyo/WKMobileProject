@@ -381,6 +381,8 @@
 @class MWTaskObj;
 @class MWMyRewardsObj;
 @class MWWashOrderObj;
+@class MWMyWashOrderObj;
+@class MWJoinUsObj;
 @interface MWBaseObj : NSObject
 
 @property (nonatomic,strong) NSString *err_msg;
@@ -535,8 +537,15 @@
  @param block 返回值
  */
 + (void)MWFindDeviceList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block;
-    
-    
+
+#pragma mark----****----查询我的预约洗衣订单
+/**
+ 查询我的预约洗衣订单
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWFindMyWashOrder:(NSDictionary *)para block:(void(^)(MWBaseObj *info,MWMyWashOrderObj *mWashOrderInfo))block;
 #pragma mark----****----提交洗衣机预订单
 /**
  提交洗衣机预订单
@@ -686,7 +695,7 @@
 
  @param block 返回值
  */
-+ (void)MWGetJoinUs:(void(^)(MWBaseObj *info,NSArray *mArr))block;
++ (void)MWGetJoinUs:(void(^)(MWBaseObj *info,MWJoinUsObj *mDetail))block;
 #pragma mark----****----申请加入我们
 /**
  申请加入我们
@@ -1199,6 +1208,26 @@
 @property(nonatomic,strong) NSString *              mContent;            //!< 内容
 
 -(id)initWithObj:(NSDictionary*)dic;
+
+@end
+@interface MWMyWashOrderObj : NSObject
+@property(nonatomic,strong) NSString *              add_time;            //!< 内容
+@property(nonatomic,strong) NSString *              device_id;            //!< 内容
+@property(nonatomic,strong) NSString *              location_name;            //!< 内容
+@property(nonatomic,strong) NSString *              member_id;            //!< 内容
+@property(nonatomic,strong) NSString *              order_id;            //!< 内容
+@property(nonatomic,strong) NSString *              order_no;            //!< 内容
+@property(nonatomic,strong) NSString *              order_pay_type;            //!< 内容
+@property(nonatomic,strong) NSString *              order_price;            //!< 内容
+@property(nonatomic,strong) NSString *              order_type;            //!< 内容
+@property(nonatomic,strong) NSString *              pay_status;            //!< 内容
+@property(nonatomic,strong) NSString *              pay_time;            //!< 内容
+@property(nonatomic,strong) NSString *              school_id;            //!< 内容
+@property(nonatomic,strong) NSString *              wash_feature;            //!< 内容
+@property(nonatomic,strong) NSString *              wash_feature_name;            //!< 内容
+@property(nonatomic,strong) NSString *              wash_id;            //!< 内容
+@property(nonatomic,strong) NSString *              wash_remark;            //!< 内容
+@property(nonatomic,strong) NSString *              wash_time;            //!< 内容
 
 @end
 

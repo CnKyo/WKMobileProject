@@ -109,11 +109,11 @@
         }
     }
 }
-- (ZJJTimeCountDown *)countDown{
-    
-    ZJJTimeCountDown *countDown = [super countDown];
-    return countDown;
-}
+//- (ZJJTimeCountDown *)countDown{
+//    
+//    ZJJTimeCountDown *countDown = [super countDown];
+//    return countDown;
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -220,5 +220,16 @@
     
     
 }
-
+- (ZJJTimeCountDown *)countDown{
+    
+    if (!_countDown) {
+        _countDown = [[ZJJTimeCountDown alloc] initWithScrollView:self.tableView dataList:self.tableArr];
+        _countDown.delegate = self;
+    }
+    return _countDown;
+}
+- (void)dealloc {
+    /// 2.销毁
+    [_countDown destoryTimer];
+}
 @end

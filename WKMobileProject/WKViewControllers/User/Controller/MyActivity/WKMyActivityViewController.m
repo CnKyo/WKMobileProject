@@ -8,7 +8,7 @@
 
 #import "WKMyActivityViewController.h"
 #import "WKActivityTableViewCell.h"
-
+#import "WKTaskDetailViewController.h"
 @interface WKMyActivityViewController ()
 
 @end
@@ -103,6 +103,11 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     MLLog(@"点击了%ld行",indexPath.row);
+    WKTaskDetailViewController *vc = [WKTaskDetailViewController new];
+    vc.mType = WKActivityDetail;
+    vc.mAct = self.tableArr[indexPath.row];
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

@@ -10,4 +10,9 @@
 
 @interface WKScanDeviceViewController : WKBaseViewController
 
+/**
+ 扫描类型 1：扫描设备二维码，2：验证机器
+ */
+@property (assign,nonatomic) MWScanType mTyp;
+
 @end

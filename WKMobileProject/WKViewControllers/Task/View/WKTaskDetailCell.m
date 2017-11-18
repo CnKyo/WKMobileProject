@@ -25,5 +25,8 @@
     self.mTitle.text = mTask.task_title;
     self.mContent.text = mTask.task_step;
 }
-
+- (void)setMActivity:(WKHome *)mActivity{
+    self.mTitle.text = mActivity.banner_title;
+    self.mContent.text = mActivity.banner_content;
+}
 @end

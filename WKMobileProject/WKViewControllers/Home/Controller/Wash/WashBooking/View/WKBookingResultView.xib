@@ -42,7 +42,7 @@
                         <constraint firstAttribute="width" secondItem="ivg-pA-5JA" secondAttribute="height" multiplier="53:16" id="kCl-IX-njD"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="预约成功" image="icon_search">
+                    <state key="normal" title="预约成功" image="succ_small">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
@@ -122,6 +122,6 @@
         </view>
     </objects>
     <resources>
-        <image name="icon_search" width="32" height="32"/>
+        <image name="succ_small" width="35" height="35"/>
     </resources>
 </document>

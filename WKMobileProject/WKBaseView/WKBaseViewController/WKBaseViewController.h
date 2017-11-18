@@ -13,9 +13,8 @@
 #import <UIView+LayoutMethods.h>
 #import "WKAPIManager.h"
 #import "WKHeader.h"
-#import "FDAlertView.h"
-#import "WKCustomPopView.h"
-#import "ZJJTimeCountDown.h"
+
+//#import "ZJJTimeCountDown.h"
 
 typedef NS_ENUM(NSInteger,WKBaseHandleType){
     WKBaseHandleTypeHeaderRefresh = 1,///列表头部刷新
@@ -26,11 +25,11 @@ typedef NS_ENUM(NSInteger,WKBaseHandleType){
 
 typedef void (^WKHandle)(WKBaseHandleType);
 
-@interface WKBaseViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,WKCustomPopViewDelegate,ZJJTimeCountDownDelegate>
+@interface WKBaseViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,ZJJTimeCountDownDelegate>
 @property (strong,nonatomic) UIImageView *navBarHairlineImageView;
 - (UIImageView *)findHairlineImageViewUnder:(UIView *)view;
 
-@property(nonatomic,strong) ZJJTimeCountDown * countDown;
+//@property(nonatomic,strong) ZJJTimeCountDown * countDown;
 #pragma mark----****----block
 @property (copy,nonatomic)WKHandle mBlock;
 #pragma mark----****----View基本界面

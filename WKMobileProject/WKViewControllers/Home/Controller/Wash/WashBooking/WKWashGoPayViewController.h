@@ -7,9 +7,11 @@
 //
 
 #import "WKBaseViewController.h"
+//#import "ZJJTimeCountDown.h"
 
 @interface WKWashGoPayViewController : WKBaseViewController
 
-    @property (strong,nonatomic) MWWashOrderObj *mOrderInfo;
-    
+@property (strong,nonatomic) MWWashOrderObj *mOrderInfo;
+//@property(nonatomic,strong) ZJJTimeCountDown *countDown; 
+
 @end

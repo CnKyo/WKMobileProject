@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,7 +21,7 @@
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0UH-Kh-KCO">
                             <rect key="frame" x="137" y="-50" width="100" height="100"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEa-gI-0jw">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEa-gI-0jw" customClass="MZTimerLabel">
                                     <rect key="frame" x="8" y="23" width="83" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="24" id="YUR-A0-JAH"/>
@@ -50,20 +50,20 @@
                                 <constraint firstAttribute="width" constant="100" id="bLc-f9-vfW"/>
                             </constraints>
                         </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dUC-GN-pqv">
-                            <rect key="frame" x="0.0" y="100" width="375" height="190"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_yylc" translatesAutoresizingMaskIntoConstraints="NO" id="dUC-GN-pqv">
+                            <rect key="frame" x="20" y="100" width="335" height="135"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="190" id="5Ky-Cd-Itm"/>
+                                <constraint firstAttribute="height" constant="135" id="5Ky-Cd-Itm"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在预约付款" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQL-KT-ql1">
-                            <rect key="frame" x="8" y="329" width="359" height="23"/>
+                            <rect key="frame" x="8" y="274" width="359" height="23"/>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTS-l5-1ee">
-                            <rect key="frame" x="107" y="382" width="160" height="45"/>
+                            <rect key="frame" x="107" y="327" width="160" height="45"/>
                             <color key="backgroundColor" red="0.97254901959999995" green="0.58431372550000005" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="DIs-hk-f1T"/>
@@ -79,9 +79,9 @@
                     <constraints>
                         <constraint firstItem="ZTS-l5-1ee" firstAttribute="centerX" secondItem="blw-oS-z9Q" secondAttribute="centerX" id="14g-19-mbx"/>
                         <constraint firstItem="DQL-KT-ql1" firstAttribute="leading" secondItem="blw-oS-z9Q" secondAttribute="leading" constant="8" id="ASf-gY-vhg"/>
-                        <constraint firstItem="dUC-GN-pqv" firstAttribute="leading" secondItem="blw-oS-z9Q" secondAttribute="leading" id="IZI-bs-uLs"/>
+                        <constraint firstItem="dUC-GN-pqv" firstAttribute="leading" secondItem="blw-oS-z9Q" secondAttribute="leading" constant="20" id="IZI-bs-uLs"/>
                         <constraint firstAttribute="trailing" secondItem="DQL-KT-ql1" secondAttribute="trailing" constant="8" id="JfE-7Y-vsS"/>
-                        <constraint firstAttribute="trailing" secondItem="dUC-GN-pqv" secondAttribute="trailing" id="WW3-1j-qm3"/>
+                        <constraint firstAttribute="trailing" secondItem="dUC-GN-pqv" secondAttribute="trailing" constant="20" id="WW3-1j-qm3"/>
                         <constraint firstItem="0UH-Kh-KCO" firstAttribute="top" secondItem="blw-oS-z9Q" secondAttribute="top" constant="-50" id="YNU-vs-NSQ"/>
                         <constraint firstItem="DQL-KT-ql1" firstAttribute="top" secondItem="dUC-GN-pqv" secondAttribute="bottom" constant="39" id="eec-Z1-9xc"/>
                         <constraint firstItem="dUC-GN-pqv" firstAttribute="top" secondItem="0UH-Kh-KCO" secondAttribute="bottom" constant="50" id="fL9-2h-hOh"/>
@@ -107,4 +107,7 @@
             <point key="canvasLocation" x="46.5" y="79.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon_yylc" width="662" height="234"/>
+    </resources>
 </document>

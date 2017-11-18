@@ -114,7 +114,7 @@ static float mDuration = 0.25;
 - (void)WKBuyGoldCellDelegateIsGoPayOrFriendPayBtnClicked:(NSInteger)mTag{
     MLLog(@"选择了：%ld",mTag);
 //    [self showSucessView];
-    if (self.mGoldObj.mPrice <= 0) {
+    if (self.mGoldObj.mNum <= 0) {
         [SVProgressHUD showErrorWithStatus:@"请输入购买金额！"];
         return;
     }
@@ -124,14 +124,15 @@ static float mDuration = 0.25;
     }
     
     NSMutableDictionary *para = [NSMutableDictionary new];
-    [para setObject:[NSString stringWithFormat:@"%d",self.mGoldObj.mPrice] forKey:@"number"];
+    [para setObject:self.mGoldObj.mNum forKey:@"number"];
     [para setObject:[WKUser currentUser].member_id forKey:@"member_id"];
 //    [para setObject:[NSString stringWithFormat:@"%d",self.mGoldObj.mPayType] forKey:@"number"];
     [MWBaseObj MWBuyGold:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
-            
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            [self popViewController];
         }else{
-            
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
         }
     }];
 

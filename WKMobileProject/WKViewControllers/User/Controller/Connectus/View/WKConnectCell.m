@@ -7,7 +7,7 @@
 //
 
 #import "WKConnectCell.h"
-
+#import "AppDelegate.h"
 @implementation WKConnectCell
 
 - (void)awakeFromNib {
@@ -23,7 +23,7 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     
-    self.mImg.backgroundColor = [UIColor redColor];
+//    self.mImg.backgroundColor = [UIColor redColor];
     self.mConnectBtn.layer.cornerRadius = 3.0f;
 }
 - (void)setMConnectObj:(MWConntactUsObj *)mConnectObj{
@@ -36,5 +36,13 @@
 
     self.mName.text = mHelpObj.help_title;
     self.mAcount.text = mHelpObj.help_number;
+    self.mConnectBtn.tag = [mHelpObj.help_number integerValue];
+    [self.mConnectBtn addTarget:self action:@selector(connectAction:) forControlEvents:UIControlEventTouchUpInside];
+}
+- (void)connectAction:(UIButton *)sender{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt:%@",sender.tag]] options:nil completionHandler:^(BOOL success) {
+        
+    }];
+
 }
 @end

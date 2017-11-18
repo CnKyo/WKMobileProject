@@ -11,6 +11,7 @@
 #import "WKWashPayResultView.h"
 #import "TimeModel.h"
 
+#import "MZTimerLabel.h"
 static float mDuration = 0.25;
 
 @interface WKWashGoPayViewController ()<WKPayWashViewDelegate,WKWashPayResultViewDelegate>
@@ -59,10 +60,13 @@ static float mDuration = 0.25;
     
     mView.mPayPriceTx.attributedText = [[NSString stringWithFormat:@"应付款金额：<color> %@元</color>",self.mOrderInfo.order_price] attributedStringWithStyleBook:style1];
     
-    TimeModel *model = [TimeModel new];
-    model.endTime = [Util WKCurrentTimePlusTo15Min:120];
-    mView.mCountTimeTx.text = [self.countDown countDownWithModel:model timeLabel:mView.mCountTimeTx];
+//    TimeModel *model = [TimeModel new];
+//    model.endTime = [Util WKCurrentTimePlusTo15Min:120];
+//    mView.mCountTimeTx.text = [self.countDown countDownWithModel:model timeLabel:mView.mCountTimeTx];
     
+    MZTimerLabel *mC  = [[MZTimerLabel alloc] initWithLabel:mView.mCountTimeTx andTimerType:MZTimerLabelTypeTimer];
+    [mC setCountDownTime:15*60]; //** Or you can use [timer3 setCountDownToDate:aDate];
+    [mC start];
     mView.frame = CGRectMake(0, 104, DEVICE_Width, DEVICE_Height-64);
     [self.view addSubview:mView];
 
@@ -177,4 +181,16 @@ static float mDuration = 0.25;
     [self popViewController];
     
 }
+//- (ZJJTimeCountDown *)countDown{
+//
+//    if (!_countDown) {
+//        _countDown = [[ZJJTimeCountDown alloc] initWithScrollView:self.tableView dataList:self.tableArr];
+//        _countDown.delegate = self;
+//    }
+//    return _countDown;
+//}
+//- (void)dealloc {
+//    /// 2.销毁
+//    [_countDown destoryTimer];
+//}
 @end

@@ -12,7 +12,6 @@
 #import "WKHeader.h"
 #import "WKWashGoPayViewController.h"
 #import "WKChoiceWashTableViewCell.h"
-#import "TimeModel.h"
 
 #define defaultTag 0
 
@@ -64,9 +63,6 @@
     }
     mHeaderView.mWashSeclected.hidden = YES;
     
-//    TimeModel *model = [TimeModel new];
-//    model.endTime = [Util WKCurrentTimePlusTo15Min:120];
-//    mHeaderView.mCountTime.text = [self.countDown countDownWithModel:model timeLabel:mHeaderView.mCountTime];
     
   MZTimerLabel *mC  = [[MZTimerLabel alloc] initWithLabel:mHeaderView.mCountTime andTimerType:MZTimerLabelTypeTimer];
     [mC setCountDownTime:15*60]; //** Or you can use [timer3 setCountDownToDate:aDate];
@@ -178,7 +174,7 @@
             
             self.btnTag = btnTag;
             MLLog(@"$$$$$$%ld",(long)btnTag);
-        MWDeviceInfo *mDevice = self.tableArr[btnTag];
+            MWDeviceInfo *mDevice = self.tableArr[btnTag];
             mWashID = mDevice.id;
             [self.tableView reloadData];
             

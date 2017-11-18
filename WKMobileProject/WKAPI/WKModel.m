@@ -854,6 +854,33 @@ static WKUser *g_user = nil;
         }
     }];
 }
+#pragma mark----****----查询我的预约洗衣订单
+/**
+ 查询我的预约洗衣订单
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWFindMyWashOrder:(NSDictionary *)para block:(void(^)(MWBaseObj *info,MWMyWashOrderObj *mWashOrderInfo))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/wash/wash_my_order.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            if ([info.data isKindOfClass:[NSDictionary class]]) {
+                if ([[info.data objectForKey:@"order_list"] isKindOfClass:[NSDictionary class]]) {
+                    block(info,[MWMyWashOrderObj yy_modelWithDictionary:[info.data objectForKey:@"order_list"]]);
+
+                }else{
+                    block(info,nil);
+                }
+            }else{
+                block(info,nil);
+            }
+            
+        }else{
+            block(info,nil);
+        }
+    }];
+}
 #pragma mark----****----提交洗衣机预订单
     /**
      提交洗衣机预订单
@@ -1283,19 +1310,15 @@ static WKUser *g_user = nil;
  
  @param block 返回值
  */
-+ (void)MWGetJoinUs:(void(^)(MWBaseObj *info,NSArray *mArr))block{
++ (void)MWGetJoinUs:(void(^)(MWBaseObj *info,MWJoinUsObj *mDetail))block{
  
     
     [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/join/join_list.php" withPara:@{} block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
-            NSMutableArray *mTempArr = [NSMutableArray new];
             if ([info.data isKindOfClass:[NSDictionary class]]) {
-                
-                [mTempArr addObject:[MWJoinUsObj yy_modelWithDictionary:info.data]];
-                
-                block(info,mTempArr);
+                block(info,[MWJoinUsObj yy_modelWithDictionary:info.data]);
             }else{
-                block(info,mTempArr);
+                block(info,nil);
             }
         }else{
             block(info,nil);
@@ -1677,6 +1700,9 @@ static MWLocationInfo *mLocation = nil;
         }
     return self;
     }
+
+@end
+@implementation MWMyWashOrderObj
 
 @end
 

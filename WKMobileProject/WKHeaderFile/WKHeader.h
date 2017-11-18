@@ -308,6 +308,13 @@ typedef NS_ENUM(NSInteger,kFileType) {
     kFileType_photo = 1,//
     kFileType_video = 2,//
 } ; //文件类型（1-图片，2-音频）
+
+
+typedef NS_ENUM(NSInteger,MWScanType) {
+    MWScanDeviceCode = 1,//
+    MWVeryfyDevice = 2,//
+} ; //扫描类型（1：扫描设备二维码，2：验证机器）
+
 //-----------------------
 //自定义的写在下面，通用的写在上面
 //-----------------------

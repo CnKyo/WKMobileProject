@@ -18,7 +18,9 @@
 @end
 
 @implementation WKTaskDetailViewController
-
+{
+    WKHome *mH;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -32,7 +34,7 @@
     }
     
     self.navigationItem.title = mT;
-    
+    mH = [WKHome new];
     [self addTableView];
     
     UINib   *nib = [UINib nibWithNibName:@"WKTaskDetailCell" bundle:nil];
@@ -74,6 +76,9 @@
         [MWBaseObj MWFetchActivityList:para block:^(MWBaseObj *info, NSArray *mArr) {
             if (info.err_code == 0) {
                 [SVProgressHUD dismiss];
+                if (mArr.count>0) {
+                    mH = mArr[0];
+                }
                 [self.tableArr addObjectsFromArray:mArr];
                 [self.tableView reloadData];
                 
@@ -134,7 +139,7 @@
         if (section == 0) {
             return 0;
         }else{
-            return 4;
+            return self.tableArr.count;
         }
         
     }
@@ -264,6 +269,10 @@
     }else{
         cell.backgroundColor = [UIColor colorWithRed:0.952941176470588 green:0.968627450980392 blue:0.992156862745098 alpha:1.00];
         cell.mLine.hidden = NO;
+//        WKHome *mObj = self.tableArr[0];
+//
+        [cell setMActivity:mH];
+
     }
     return cell;
 

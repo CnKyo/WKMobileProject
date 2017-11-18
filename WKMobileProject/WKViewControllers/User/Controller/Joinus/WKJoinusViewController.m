@@ -19,11 +19,14 @@
 
     WKJoinusHeaderFooterSectionView *mHeaderView;
     WKJoinusHeaderFooterSectionView *mFooterView;
+    
+    MWJoinUsObj *mJoinUsInfo;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"加入我们";
+    mJoinUsInfo = [MWJoinUsObj new];
     [self addTableView];
     UINib   *nib = [UINib nibWithNibName:@"WKJoinusCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
@@ -36,9 +39,10 @@
     MLLog(@"刷头");
     
     [self.tableArr removeAllObjects];
-    [MWBaseObj MWGetJoinUs:^(MWBaseObj *info, NSArray *mArr) {
+    [MWBaseObj MWGetJoinUs:^(MWBaseObj *info,MWJoinUsObj *mDetail) {
         if (info.err_code == 0) {
-            [self.tableArr addObjectsFromArray:mArr];
+            mJoinUsInfo = mDetail;
+            
             [self.tableView reloadData];
             
         }else{
@@ -73,7 +77,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return 1;
     
 }
 
@@ -85,7 +89,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
-        return 80;
+    return 80;
      
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
@@ -94,7 +98,8 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     mHeaderView = [WKJoinusHeaderFooterSectionView initHeaderView];
-    
+    [mHeaderView.mImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mJoinUsInfo.join_img]] placeholderImage:[UIImage imageNamed:@"icon_task"]];
+    mHeaderView.mName.text = mJoinUsInfo.title;
     return mHeaderView;
     
     
@@ -116,7 +121,8 @@
     WKJoinusCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    
+    cell.mTitle.text = mJoinUsInfo.content;
+    cell.mContent.text = mJoinUsInfo.requirement;
     return cell;
     
     
@@ -127,9 +133,8 @@
 - (void)joinAction{
     MLLog(@"加入我们");
     WKJoinusApplyViewController *vc = [[WKJoinusApplyViewController alloc] initWithNibName:@"WKJoinusApplyViewController" bundle:nil];
-    if (self.tableArr.count>0) {
-        vc.mJoinObj = self.tableArr[0];
-    }
+    vc.mJoinObj = mJoinUsInfo;
+    
     [self pushViewController:vc];
 }
 @end

@@ -19,6 +19,8 @@
 {
     WKCustomPopView *mCustomView;
     FDAlertView *WKCustomAlertView;
+    
+    UIView *mBgkView;
 }
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:YES];
@@ -166,18 +168,24 @@
 ///关闭按钮代理方法
 - (void)WKCustomPopViewWithCloseBtnAction{
     MLLog(@"关闭");
-    [WKCustomAlertView hide];
-
+//    [WKCustomAlertView hide];
+    [mBgkView removeFromSuperview];
+    [mCustomView removeFromSuperview];
 }
 ///取消按钮代理方法
 - (void)WKCustomPopViewWithCancelBtnAction{
     MLLog(@"取消");
-    [WKCustomAlertView hide];
+//    [WKCustomAlertView hide];
+    [mBgkView removeFromSuperview];
+    [mCustomView removeFromSuperview];
 }
 ///确定按钮代理方法
 - (void)WKCustomPopViewWithOkBtnAction{
     MLLog(@"确定");
-    [WKCustomAlertView hide];
+//    [WKCustomAlertView hide];
+    [mBgkView removeFromSuperview];
+    [mCustomView removeFromSuperview];
+
 }
 #pragma mark----****----自定义弹出框
 /**
@@ -191,13 +199,19 @@
  */
 - (void)showCustomViewType:(WKCustomPopViewType)mType andTitle:(NSString *)mTitle andContentTx:(NSString *)mContent andOkBtntitle:(NSString *)mOkTitle andCancelBtntitle:(NSString *)mCancelTitle{
     
-    WKCustomAlertView = [[FDAlertView alloc] init];
+//    WKCustomAlertView = [[FDAlertView alloc] init];
+    
+    mBgkView = [UIView new];
+    mBgkView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    mBgkView.frame = CGRectMake(0, 0, DEVICE_Width, DEVICE_Height);
+    [self.view addSubview:mBgkView];
     mCustomView = [WKCustomPopView initViewType:mType andTitle:mTitle andContentTx:mContent andOkBtntitle:mOkTitle andCancelBtntitle:mCancelTitle];
     mCustomView.delegate = self;
     
-    mCustomView.frame = CGRectMake(30, 0, self.view.bounds.size.width-60, 250);
-    WKCustomAlertView.contentView = mCustomView;
-    [WKCustomAlertView show];
+    mCustomView.frame = CGRectMake(30, DEVICE_Height/2-125, DEVICE_Width-60, 250);
+    [mBgkView addSubview:mCustomView];
+//    WKCustomAlertView.contentView = mCustomView;
+//    [WKCustomAlertView show];
     
 }
 

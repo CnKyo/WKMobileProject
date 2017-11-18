@@ -7,7 +7,9 @@
 //
 
 #import "WKBaseViewController.h"
+#import "ZJJTimeCountDown.h"
 
-@interface WKMyTaskViewController : WKBaseViewController
+@interface WKMyTaskViewController : WKBaseViewController<ZJJTimeCountDownDelegate>
+@property(nonatomic,strong) ZJJTimeCountDown *countDown;
 
 @end

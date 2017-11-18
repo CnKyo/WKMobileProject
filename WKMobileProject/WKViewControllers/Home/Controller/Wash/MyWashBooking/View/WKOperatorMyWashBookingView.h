@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MZTimerLabel.h"
 
 
 
-@interface WKOperatorMyWashBookingView : UIView
+@interface WKOperatorMyWashBookingView : UIView<MZTimerLabelDelegate>
 @property (weak, nonatomic) IBOutlet UIView *mBgkView;
 
-@property (weak, nonatomic) IBOutlet UILabel *mCountTime;
+@property (weak, nonatomic) IBOutlet MZTimerLabel *mCountTime;
 
 @property (weak, nonatomic) IBOutlet UILabel *mContent;
 

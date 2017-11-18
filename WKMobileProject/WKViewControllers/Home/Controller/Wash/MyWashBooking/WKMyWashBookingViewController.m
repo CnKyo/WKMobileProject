@@ -9,6 +9,7 @@
 #import "WKMyWashBookingViewController.h"
 #import "WKOperatorMyWashBookingView.h"
 #import "WKScanDeviceViewController.h"
+#import "MZTimerLabel.h"
 
 @interface WKMyWashBookingViewController ()
 
@@ -16,6 +17,7 @@
 
 @implementation WKMyWashBookingViewController{
     WKOperatorMyWashBookingView *mView;
+    MWMyWashOrderObj *mWashOrder;
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -37,7 +39,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"我的预约";
-    
+    mWashOrder = [MWMyWashOrderObj new];
     self.view.backgroundColor = M_CO;
     self.navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
 
@@ -47,8 +49,30 @@
     mView.frame = CGRectMake(0, 64, DEVICE_Width, DEVICE_Height-64);
     [self.view addSubview:mView];
     [mView.mBtnAction addTarget:self action:@selector(mBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self loadData];
 }
 
+- (void)loadData{
+    [SVProgressHUD showWithStatus:@"正在加载中..."];
+    [MWBaseObj MWFindMyWashOrder:@{@"member_id":[WKUser currentUser].member_id} block:^(MWBaseObj *info,MWMyWashOrderObj *mWashOrderInfo) {
+        if (info.err_code == 0) {
+            [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            mWashOrder = mWashOrderInfo;
+            [self updatePage];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+            [self popViewController];
+        }
+            
+    }];
+}
+- (void)updatePage{
+    MLLog(@"%@",mWashOrder)
+    
+    MZTimerLabel *mC  = [[MZTimerLabel alloc] initWithLabel:mView.mCountTime andTimerType:MZTimerLabelTypeTimer];
+    [mC setCountDownTime:15*60]; //** Or you can use [timer3 setCountDownToDate:aDate];
+    [mC start];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -57,6 +81,7 @@
     MLLog(@"按钮");
     UIStoryboard *board = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     WKScanDeviceViewController *vc = [board instantiateViewControllerWithIdentifier:@"scan"];;
+    vc.mTyp = MWVeryfyDevice;
     [self pushViewController:vc];
 }
 /*

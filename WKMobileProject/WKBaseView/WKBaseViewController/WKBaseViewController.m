@@ -14,7 +14,6 @@
 
 @implementation WKBaseViewController
 {
-    WKCustomPopView *mCustomView;
     
 }
 //通过一个方法来找到这个黑线(findHairlineImageViewUnder):
@@ -344,26 +343,7 @@
     
 }
 #pragma mark----****----自定义弹出框
-/**
- 自定义弹出框
- 
- @param mType 弹出框类型
- @param mTitle 标题
- @param mContent 内容
- @param mOkTitle 确定按钮
- @param mCancelTitle 取消按钮
- */
-- (void)showCustomViewType:(WKCustomPopViewType)mType andTitle:(NSString *)mTitle andContentTx:(NSString *)mContent andOkBtntitle:(NSString *)mOkTitle andCancelBtntitle:(NSString *)mCancelTitle{
-    
-    FDAlertView *alert = [[FDAlertView alloc] init];
-    mCustomView = [WKCustomPopView initViewType:mType andTitle:mTitle andContentTx:mContent andOkBtntitle:mOkTitle andCancelBtntitle:mCancelTitle];
-    mCustomView.delegate = self;
-    
-    mCustomView.frame = CGRectMake(30, 0, self.view.bounds.size.width-60, 250);
-    alert.contentView = mCustomView;
-    [alert show];
-    
-}
+
 #pragma mark----****----hud框
 - (void)showSucess:(NSString *)text{
     [SVProgressHUD showSuccessWithStatus:text];
@@ -395,18 +375,6 @@
 -(void)dismiss //隐藏svprogressview
 {
     [SVProgressHUD dismiss];
-}
-- (ZJJTimeCountDown *)countDown{
-    
-    if (!_countDown) {
-        _countDown = [[ZJJTimeCountDown alloc] initWithScrollView:self.tableView dataList:self.tableArr];
-        _countDown.delegate = self;
-    }
-    return _countDown;
-}
-- (void)dealloc {
-    /// 2.销毁
-    [_countDown destoryTimer];
 }
 
 @end
