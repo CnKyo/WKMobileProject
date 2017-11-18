@@ -245,6 +245,8 @@
 		5279A75C1EC99ECC00999B3D /* WKTopupHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5279A75B1EC99ECC00999B3D /* WKTopupHeaderView.xib */; };
 		5279A7631EC9AA8200999B3D /* WKTopupCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5279A7611EC9AA8200999B3D /* WKTopupCollectionViewCell.m */; };
 		5279A7671EC9AB9000999B3D /* WKTopupCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5279A7661EC9AB9000999B3D /* WKTopupCollectionReusableView.m */; };
+		5287EF681FC0175500E992CA /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 5287EF651FC0175400E992CA /* image.png */; };
+		5287EF691FC0175500E992CA /* SQCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5287EF671FC0175400E992CA /* SQCustomButton.m */; };
 		529D21521ECC50E800766E2F /* WKMyWashCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D21501ECC50E800766E2F /* WKMyWashCell.m */; };
 		529D21531ECC50E800766E2F /* WKMyWashCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529D21511ECC50E800766E2F /* WKMyWashCell.xib */; };
 		529D21571ECC533900766E2F /* MyWashDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D21551ECC533900766E2F /* MyWashDetailCell.m */; };
@@ -812,6 +814,9 @@
 		5279A7611EC9AA8200999B3D /* WKTopupCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTopupCollectionViewCell.m; sourceTree = "<group>"; };
 		5279A7651EC9AB9000999B3D /* WKTopupCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTopupCollectionReusableView.h; sourceTree = "<group>"; };
 		5279A7661EC9AB9000999B3D /* WKTopupCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTopupCollectionReusableView.m; sourceTree = "<group>"; };
+		5287EF651FC0175400E992CA /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
+		5287EF661FC0175400E992CA /* SQCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQCustomButton.h; sourceTree = "<group>"; };
+		5287EF671FC0175400E992CA /* SQCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQCustomButton.m; sourceTree = "<group>"; };
 		529D214F1ECC50E800766E2F /* WKMyWashCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyWashCell.h; sourceTree = "<group>"; };
 		529D21501ECC50E800766E2F /* WKMyWashCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMyWashCell.m; sourceTree = "<group>"; };
 		529D21511ECC50E800766E2F /* WKMyWashCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKMyWashCell.xib; sourceTree = "<group>"; };
@@ -1257,6 +1262,7 @@
 			isa = PBXGroup;
 			children = (
 				529D8E5C1EDFFF1700BF0FDE /* WKMobileProject.entitlements */,
+				5287EF641FC0175400E992CA /* SQCustomButton */,
 				52A03B851FBED55800B90D73 /* LTPickerView */,
 				52A03B741FBE956000B90D73 /* paymentcontrol */,
 				525E03001FBC54EF00C72D6D /* HXWeiboPhotoPicker */,
@@ -2270,6 +2276,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		5287EF641FC0175400E992CA /* SQCustomButton */ = {
+			isa = PBXGroup;
+			children = (
+				5287EF651FC0175400E992CA /* image.png */,
+				5287EF661FC0175400E992CA /* SQCustomButton.h */,
+				5287EF671FC0175400E992CA /* SQCustomButton.m */,
+			);
+			path = SQCustomButton;
+			sourceTree = "<group>";
+		};
 		529D215C1ECC577400766E2F /* MyOrder */ = {
 			isa = PBXGroup;
 			children = (
@@ -2796,6 +2812,7 @@
 				529D21531ECC50E800766E2F /* WKMyWashCell.xib in Resources */,
 				529D21581ECC533900766E2F /* MyWashDetailCell.xib in Resources */,
 				52BC43871F39BAF800B44FD6 /* WKGenericRegistCell.xib in Resources */,
+				5287EF681FC0175500E992CA /* image.png in Resources */,
 				5239D3301EF3B1EC00BAB3F3 /* home.html in Resources */,
 				52E1ADEC1FA090090082F9A5 /* WKBaseSuperViewController.xib in Resources */,
 				5214A3431F3C3A9500BE840D /* MyTaskTableViewCell.xib in Resources */,
@@ -3084,6 +3101,7 @@
 				31A2220B1E99CFA10058A21B /* CTLoggerConfiguration.m in Sources */,
 				525E036A1FBC54EF00C72D6D /* HXAlbumListViewController.m in Sources */,
 				525E036F1FBC54EF00C72D6D /* HXCircleProgressView.m in Sources */,
+				5287EF691FC0175500E992CA /* SQCustomButton.m in Sources */,
 				52AC36581EC2C5DA000866D4 /* WKCustomBtnView.m in Sources */,
 				52AC364A1EC2C086000866D4 /* UIColor+Separate.m in Sources */,
 				52AC365B1EC2F0BB000866D4 /* WKHomeHeaderSectionView.m in Sources */,

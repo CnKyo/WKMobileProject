@@ -84,7 +84,13 @@ static float mDuration = 0.25;
     mSucessView = [WKWashPayResultView initSucessView];
     mSucessView.frame = CGRectMake(0, DEVICE_Height, DEVICE_Width, DEVICE_Height
                                    );
+    mSucessView.mDetail.text = [NSString stringWithFormat:@"此次付款%@元",self.mOrderInfo.order_price];
     mSucessView.delegate = self;
+    
+    MZTimerLabel *mC  = [[MZTimerLabel alloc] initWithLabel:mSucessView.mCountTime andTimerType:MZTimerLabelTypeTimer];
+    [mC setCountDownTime:15*60]; //** Or you can use [timer3 setCountDownToDate:aDate];
+    [mC start];
+    
     [self.view addSubview:mSucessView];
 }
 - (void)initErrorView{

@@ -63,7 +63,7 @@
     }
     mHeaderView.mWashSeclected.hidden = YES;
     
-    
+    mHeaderView.mCountTime.textColor = [UIColor colorWithRed:0.97 green:0.58 blue:0.27 alpha:1];
   MZTimerLabel *mC  = [[MZTimerLabel alloc] initWithLabel:mHeaderView.mCountTime andTimerType:MZTimerLabelTypeTimer];
     [mC setCountDownTime:15*60]; //** Or you can use [timer3 setCountDownToDate:aDate];
     [mC start];
@@ -235,9 +235,15 @@
 }
 - (void)mPayAction{
     MLLog(@"付款");
+    if (self.tableArr.count>0) {
+        MWDeviceInfo *mDevice = self.tableArr[0];
+        mWashID = mDevice.id;
+        
+    }
     if (mWashID.length == 0) {
         [SVProgressHUD showErrorWithStatus:@"请选择洗衣类型"];
         return;
+    
     }
     [MWBaseObj MWCcommitWashOrder:@{@"member_id":[WKUser currentUser].member_id,@"wash_id":_mDeviceInfo.wash_id,@"wash_feature":mWashID,@"device_barcode":@"0"} block:^(MWBaseObj *info,MWWashOrderObj *mOrderObj) {
         if (info.err_code == 0) {

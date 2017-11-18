@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MZTimerLabel.h"
+
 ///设置代理
 @protocol WKWashPayResultViewDelegate <NSObject>
 
@@ -22,7 +24,7 @@
 ///内容
 @property (weak, nonatomic) IBOutlet UILabel *mDetail;
 ///倒计时
-@property (weak, nonatomic) IBOutlet UILabel *mCountTime;
+@property (weak, nonatomic) IBOutlet MZTimerLabel *mCountTime;
 ///返回按钮
 @property (weak, nonatomic) IBOutlet UIButton *mBackBtn;
 ///重新预约按钮

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WKCountLabel.h"
 #import "MZTimerLabel.h"
-
+#import "SQCustomButton.h"
 @interface WKWashBookingHeaderView : UIView<MZTimerLabelDelegate>
 #pragma mark----****----洗衣机首页
 ///背景view
@@ -36,6 +36,7 @@
 + (WKWashBookingHeaderView *)initBookingView;
     
     
+@property (weak, nonatomic) IBOutlet UIView *mCutomBtn;
 
 
 @end

@@ -8,6 +8,8 @@
 
 #import "WKWashBookingHeaderView.h"
 
+
+
 @implementation WKWashBookingHeaderView
 
 /*
@@ -31,6 +33,19 @@
 + (WKWashBookingHeaderView *)initBookingView{
     WKWashBookingHeaderView * view = [[[NSBundle mainBundle] loadNibNamed:@"WKBookingResultView" owner:self options:nil] objectAtIndex:0];
  
+    SQCustomButton *button2 = [[SQCustomButton alloc]initWithFrame:view.mCutomBtn.bounds
+                                                              type:SQCustomButtonLeftImageType
+                                                         imageSize:CGSizeMake(30, 30) midmargin:10];
+    button2.isShowSelectBackgroudColor = YES;
+    button2.imageView.image = [UIImage imageNamed:@"succ_small"];
+    button2.backgroundColor = [UIColor clearColor];
+    button2.titleLabel.text = @"预约成功";
+    button2.titleLabel.textColor = [UIColor whiteColor];
+    [view.mCutomBtn addSubview:button2];
+    [button2 touchAction:^(SQCustomButton * _Nonnull button) {
+        NSLog(@"左图标，右文字");
+    }];
+    
     return view;
 }
 
