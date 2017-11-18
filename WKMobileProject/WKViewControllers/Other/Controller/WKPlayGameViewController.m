@@ -20,10 +20,17 @@
     WKCustomPopView *mCustomView;
     FDAlertView *WKCustomAlertView;
 }
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:YES];
+    [self removeAlert];
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"玩游戏";
+    [self removeAlert];
+
     self.tableArr = [NSMutableArray new];
     
     self.tableView.delegate = self;
@@ -37,18 +44,26 @@
     __weak __typeof(self)weakSelf = self;
     
     [self.tableView setRefreshWithHeaderBlock:^{
+        [self removeAlert];
+
         [weakSelf tableViewHeaderReloadData];
     } footerBlock:^{
+        [self removeAlert];
+
         [weakSelf tableViewFooterReloadData];
     }];
     
     [self.tableView setupEmptyData:^{
+        [self removeAlert];
+
         [weakSelf tableViewHeaderReloadData];
         
     }];
     [self.tableView headerBeginRefreshing];
 }
 - (void)tableViewHeaderReloadData{
+    [self removeAlert];
+
     [self.tableArr removeAllObjects];
     [SVProgressHUD showWithStatus:@"正在加载中..."];
     [MWBaseObj MWFetchGameList:@{} block:^(MWBaseObj *info, NSArray *mList) {
@@ -64,7 +79,14 @@
     }];
 
 }
+- (void)removeAlert{
+    [mCustomView removeFromSuperview];
+    [WKCustomAlertView hide];
+    [WKCustomAlertView removeFromSuperview];
+}
 - (void)tableViewFooterReloadData{
+    [self removeAlert];
+
     [self.tableView footerEndRefreshing];
 
 }

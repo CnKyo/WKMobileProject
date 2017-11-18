@@ -102,10 +102,28 @@
     if (mType == 2) {
         WKChangeUserInfoViewController *vc = [WKChangeUserInfoViewController new];
         vc.mType = WKChangeNormalInfo;
+        vc.block = ^(NSString *mBlock){
+            MLLog(@"返回的内容是：%@",mBlock);
+            if (mBlock.length == 0) {
+                [SVProgressHUD showErrorWithStatus:@"您未输入任务内容！"];
+                return;
+            }
+            [MWBaseObj MWModifyUserName:@{@"member_id":[WKUser currentUser].member_id,@"member_name":mBlock} block:^(MWBaseObj *info) {
+                if (info.err_code == 0) {
+                    [SVProgressHUD showSuccessWithStatus:info.err_msg];
+                    [self popViewController];
+                }else{
+                    [SVProgressHUD showErrorWithStatus:info.err_msg];
+                }
+            }];
+        };
         [self pushViewController:vc];
     }else if (mType == 6){
         WKChangeUserInfoViewController *vc = [WKChangeUserInfoViewController new];
         vc.mType = WKChangePwd;
+        vc.block = ^(NSString *mBlock){
+            MLLog(@"返回的内容是：%@",mBlock);
+        };
         [self pushViewController:vc];
     }
     else if (mType == 1){

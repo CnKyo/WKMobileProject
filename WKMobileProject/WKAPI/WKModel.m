@@ -592,7 +592,7 @@ static WKUser *g_user = nil;
  */
 + (void)MWGetMobileVeryfyCode:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
     MLLog(@"参数是：%@",para);
-    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/code/login_code.php" withPara:para block:^(MWBaseObj *info) {
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"code/login_code.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
             block(info);
         }else{
@@ -669,6 +669,40 @@ static WKUser *g_user = nil;
 + (void)MWRegistJPush:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
     MLLog(@"参数是：%@",para);
     [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"registPushId.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+}
+#pragma mark----****----修改用户名
+/**
+ 修改用户名
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWModifyUserName:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/member/member_name.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+}
+#pragma mark----****----修改密码
+/**
+ 修改密码
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWModifyUserPwd:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/member/password_update.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
             block(info);
         }else{
@@ -1154,7 +1188,14 @@ static WKUser *g_user = nil;
             BOOL mS = false;
             if ([info.data isKindOfClass:[NSDictionary class]]) {
                 if ([[info.data objectForKey:@"member_list"] isKindOfClass:[NSDictionary class]]) {
+                    [WKUser cleanUserInfo];
+//                    WKUser *mU = [WKUser currentUser];
+//                    MLLog(@"用户信息是:%@",mU);
                     [WKUser saveUserInfo:[info.data objectForKey:@"member_list"]];
+//                    WKUser *mU2 = [WKUser currentUser];
+
+//                    MLLog(@"用户信息是:%@",mU2);
+
                 }
                 if ([info.data objectForKey:@"banner_list"] != nil) {
                     if ([[info.data objectForKey:@"banner_list"] isKindOfClass:[NSArray class]]) {

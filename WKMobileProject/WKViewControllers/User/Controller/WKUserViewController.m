@@ -41,6 +41,8 @@
     WKCustomPopView *mCustomView;
 
     FDAlertView *WKCustomAlerView;
+    
+    WKUser *mUinfo;
 }
 //通过一个方法来找到这个黑线(findHairlineImageViewUnder):
 - (UIImageView *)findHairlineImageViewUnder:(UIView *)view {
@@ -55,6 +57,10 @@
     }
     return nil;
 }
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:YES];
+    [self removeAlert];
+}
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navBarHairlineImageView.hidden = YES;
@@ -66,9 +72,15 @@
     self.navBarHairlineImageView.hidden = NO;
     
 }
-
+- (void)removeAlert{
+    [mCustomView removeFromSuperview];
+    [WKCustomAlerView hide];
+    [WKCustomAlerView removeFromSuperview];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self removeAlert];
+    mUinfo = [WKUser new];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"个人中心";
     self.view.backgroundColor = M_CO;
@@ -116,8 +128,12 @@
     __weak __typeof(self)weakSelf = self;
     
     [self.tableView setRefreshWithHeaderBlock:^{
+        [self removeAlert];
+
         [weakSelf tableViewHeaderReloadData];
     } footerBlock:^{
+        [self removeAlert];
+
         [self.tableView footerEndRefreshing];
 
     }];
@@ -137,6 +153,8 @@
     
 }
 - (void)tableViewHeaderReloadData{
+    [self removeAlert];
+
     [self.tableArr removeAllObjects];
 
     [MWBaseObj MWReFreshUserInfo:@{@"member_id":[WKUser currentUser].member_id} block:^(MWBaseObj *info,NSArray *mActArr,BOOL mSign) {
@@ -144,6 +162,7 @@
        if (info.err_code == 0) {
             [SVProgressHUD dismiss];
            isSign = mSign;
+           mUinfo = [WKUser yy_modelWithDictionary:[info.data objectForKey:@"member_list"]];
             [self.tableView reloadData];
             
         }else{
@@ -241,7 +260,7 @@
         WKUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setMPressValue:@"18"];
-        [cell setMUserInfo:[WKUser currentUser]];
+        [cell setMUserInfo:mUinfo];
         [cell setMSign:isSign];
         cell.delegete = self;
 
@@ -381,7 +400,8 @@
             if (info.err_code == 0) {
                 [SVProgressHUD dismiss];
                 [self showCustomViewType:WKCustomPopViewSucess andTitle:@"签到成功" andContentTx:@"恭喜你，签到成功获得1金币!" andOkBtntitle:@"确定" andCancelBtntitle:nil];
-                
+                [self tableViewHeaderReloadData];
+
 
             }else{
                 [SVProgressHUD showErrorWithStatus:info.err_msg];
@@ -465,7 +485,6 @@
 - (void)WKCustomPopViewWithOkBtnAction{
     MLLog(@"确定");
     [WKCustomAlerView hide];
-    [self tableViewHeaderReloadData];
 
 }
 

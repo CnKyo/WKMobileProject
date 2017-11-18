@@ -20,5 +20,9 @@ typedef enum WKChangeUserInfoType {
 
 @property (nonatomic,assign)WKChangeUserInfoType mType;
 
+/**
+ block
+ */
+@property (nonatomic,strong) void(^block)(NSString *mBlock);
 
 @end

@@ -480,6 +480,22 @@
  @param block 返回值
  */
 + (void)MWRegistJPush:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+#pragma mark----****----修改用户名
+/**
+ 修改用户名
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWModifyUserName:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
+#pragma mark----****----修改密码
+/**
+ 修改密码
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWModifyUserPwd:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
 #pragma mark----****----获取洗衣机注意事项
 /**
  获取洗衣机注意事项

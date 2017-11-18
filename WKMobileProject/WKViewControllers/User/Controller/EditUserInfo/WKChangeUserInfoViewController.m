@@ -14,7 +14,14 @@
 @end
 
 @implementation WKChangeUserInfoViewController
+{
+    NSString *mContent;
+    
+    NSString *mCode;
+    NSString *mPwd;
+    NSString *mCPwd;
 
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -91,7 +98,11 @@
     }
     
     WKChangeUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     cell.delegate  = self;
+    cell.mPhoneTx.text = [WKUser currentUser].mobile;
+    cell.mPhoneTx.enabled = NO;
     return cell;
     
     
@@ -105,6 +116,35 @@
  */
 - (void)WKChangeUserInfoCellWithBtnClickTag:(NSInteger)mBtnTag{
     MLLog(@"得到的内容是：%ld",(long)mBtnTag);
+    if (mBtnTag == 2) {
+        if (mCode.length<6) {
+            [SVProgressHUD showErrorWithStatus:@"验证码错误！"];
+            return;
+        }
+        if (![mPwd isEqualToString:mCPwd]) {
+            [SVProgressHUD showErrorWithStatus:@"2次密码输入不一致！"];
+            return;
+        }
+        [SVProgressHUD showWithStatus:@"正在修改..."];
+        [MWBaseObj MWModifyUserPwd:@{@"member_id":[WKUser currentUser].member_id,@"verifycode":mCode,@"mobile":[WKUser currentUser].mobile,@"password":mPwd} block:^(MWBaseObj *info) {
+            if (info.err_code == 0) {
+                [SVProgressHUD showSuccessWithStatus:info.err_msg];
+                [self popViewController];
+            }else{
+                [SVProgressHUD showErrorWithStatus:info.err_msg];
+            }
+        }];
+    }else{
+        [SVProgressHUD showWithStatus:@"正在获取验证码!"];
+        [MWBaseObj MWGetMobileVeryfyCode:@{@"mobile":[WKUser currentUser].mobile,@"type":@"3"} block:^(MWBaseObj *info) {
+            if (info.err_code == 0) {
+                [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            }else{
+                [SVProgressHUD showErrorWithStatus:info.err_msg];
+
+            }
+        }];
+    }
 
 }
 
@@ -112,10 +152,58 @@
 /**
  输入框代理方法
  
- @param mTextFieldTag 输入框tag值 11:手机号码。 6:验证码。 20:新密码。 other：个人信息
+ @param mTextFieldTag 输入框tag值 11:手机号码。 6:验证码。 20:新密码。 21:确认新密码。 other：个人信息
  @param mText 返回输入框内容
  */
 - (void)WKChangeUserInfoCellWithTextFieldEndEditingWithTextFieldTag:(NSInteger)mTextFieldTag andText:(NSString *)mText{
     MLLog(@"得到的内容是：%@",mText);
+//    self.block(mContent);
+    switch (mTextFieldTag) {
+        case 11:
+        {
+        
+        }
+            break;
+        case 6:
+        {
+        mCode = mText;
+        }
+            break;
+        case 20:
+        {
+        mPwd = mText;
+        }
+            break;
+        case 21:
+        {
+        mCPwd = mText;
+        }
+            break;
+     
+            
+        default:
+            mContent = mText;
+
+            break;
+    }
+    
+
 }
+- (void)popViewController{
+    
+    self.block(mContent);
+
+}
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:YES];
+    if (_mType == WKChangeNormalInfo) {
+        self.block(mContent);
+    }else{
+        self.block(@"");
+
+    }
+    
+
+}
+
 @end
