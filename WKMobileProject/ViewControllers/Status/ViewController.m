@@ -55,7 +55,7 @@
     self.navigationItem.title = @"状态";
     [mTableArr addObject:[NSString stringWithFormat:@"https://tbm.alicdn.com/Y73o4CKjm22oPjIGMxw/7149iEtPiobvJOHhfVz%40%40ld.mp4"]];
     [mTableArr addObject:[NSString stringWithFormat:@"https://tbm.alicdn.com/Y73o4CKjm22oPjIGMxw/7149iEtPiobvJOHhfVz%40%40ld.mp4"]];
-    mSTableArr = @[@"1号蜂巢",@"2号蜂巢"];
+    mSTableArr = @[@"茶园1号蜂巢",@"界石2号蜂巢"];
     [self initNavLeftView];
 
     mTableArr = [NSMutableArray new];

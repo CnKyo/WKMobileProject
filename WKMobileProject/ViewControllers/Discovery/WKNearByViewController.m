@@ -10,6 +10,10 @@
 #import <MAMapKit/MAMapKit.h>
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
+
+#import "CustomCalloutView.h"
+#import "CustomAnnotationView.h"
+
 @interface WKNearByViewController ()<AMapSearchDelegate>
 
 @property (strong,nonatomic)    AMapSearchAPI *mPOISearch;
@@ -76,11 +80,25 @@
         return;
         }else{
             for (AMapPOI *mPoi in response.pois) {
+                NSLog(@"pois的内容是：%@",response.pois);
                 MAPointAnnotation *pointAnnotation = [[MAPointAnnotation alloc] init];
                 pointAnnotation.coordinate = CLLocationCoordinate2DMake(mPoi.location.latitude, mPoi.location.longitude);
                 pointAnnotation.title = mPoi.name;
                 pointAnnotation.subtitle = mPoi.address;
                 
+                static NSString *pointReuseIndentifier = @"pointReuseIndentifier";
+                CustomAnnotationView*annotationView = (CustomAnnotationView*)[_mapView dequeueReusableAnnotationViewWithIdentifier:pointReuseIndentifier];
+                if (annotationView == nil)
+                    {
+                    annotationView = [[CustomAnnotationView alloc] initWithAnnotation:pointAnnotation reuseIdentifier:pointReuseIndentifier];
+                    }
+                annotationView.image = [UIImage imageNamed:@"map_user"];
+                
+                // 设置为NO，用以调用自定义的calloutView
+                annotationView.canShowCallout = NO;
+                
+                // 设置中心点偏移，使得标注底部中间点成为经纬度对应点
+                annotationView.centerOffset = CGPointMake(0, -18);
                 [_mapView addAnnotation:pointAnnotation];
             }
           
@@ -93,15 +111,18 @@
     if ([annotation isKindOfClass:[MAPointAnnotation class]])
         {
         static NSString *pointReuseIndentifier = @"pointReuseIndentifier";
-        MAPinAnnotationView*annotationView = (MAPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:pointReuseIndentifier];
+        CustomAnnotationView*annotationView = (CustomAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:pointReuseIndentifier];
         if (annotationView == nil)
             {
-            annotationView = [[MAPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pointReuseIndentifier];
+            annotationView = [[CustomAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pointReuseIndentifier];
             }
-        annotationView.canShowCallout= YES;       //设置气泡可以弹出，默认为NO
-        annotationView.animatesDrop = YES;        //设置标注动画显示，默认为NO
-        annotationView.draggable = YES;        //设置标注可以拖动，默认为NO
-        annotationView.pinColor = MAPinAnnotationColorPurple;
+        annotationView.image = [UIImage imageNamed:@"map_user"];
+        
+        // 设置为NO，用以调用自定义的calloutView
+        annotationView.canShowCallout = NO;
+        
+        // 设置中心点偏移，使得标注底部中间点成为经纬度对应点
+        annotationView.centerOffset = CGPointMake(0, -18);
         return annotationView;
         }
     return nil;

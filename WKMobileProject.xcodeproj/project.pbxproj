@@ -64,6 +64,8 @@
 		520CDC161FC44AB4006DEFFB /* WKDeviceDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 520CDC141FC44AB4006DEFFB /* WKDeviceDetailTableViewCell.xib */; };
 		520CDC1A1FC44D1F006DEFFB /* WKCameraTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 520CDC181FC44D1F006DEFFB /* WKCameraTableViewCell.m */; };
 		520CDC1B1FC44D1F006DEFFB /* WKCameraTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 520CDC191FC44D1F006DEFFB /* WKCameraTableViewCell.xib */; };
+		520CDC1E1FC45585006DEFFB /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 520CDC1D1FC45585006DEFFB /* CustomCalloutView.m */; };
+		520CDC211FC4563B006DEFFB /* CustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 520CDC201FC4563B006DEFFB /* CustomAnnotationView.m */; };
 		52315FEA1F5285300001BA21 /* WKHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52315FE81F5285300001BA21 /* WKHomeTableViewCell.m */; };
 		52315FEB1F5285300001BA21 /* WKHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52315FE91F5285300001BA21 /* WKHomeTableViewCell.xib */; };
 		52315FEE1F529BDE0001BA21 /* WKLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52315FED1F529BDE0001BA21 /* WKLoginView.m */; };
@@ -254,6 +256,10 @@
 		520CDC171FC44D1F006DEFFB /* WKCameraTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKCameraTableViewCell.h; sourceTree = "<group>"; };
 		520CDC181FC44D1F006DEFFB /* WKCameraTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKCameraTableViewCell.m; sourceTree = "<group>"; };
 		520CDC191FC44D1F006DEFFB /* WKCameraTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKCameraTableViewCell.xib; sourceTree = "<group>"; };
+		520CDC1C1FC45585006DEFFB /* CustomCalloutView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCalloutView.h; sourceTree = "<group>"; };
+		520CDC1D1FC45585006DEFFB /* CustomCalloutView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutView.m; sourceTree = "<group>"; };
+		520CDC1F1FC4563B006DEFFB /* CustomAnnotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationView.h; sourceTree = "<group>"; };
+		520CDC201FC4563B006DEFFB /* CustomAnnotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotationView.m; sourceTree = "<group>"; };
 		52315FE71F5285300001BA21 /* WKHomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHomeTableViewCell.h; sourceTree = "<group>"; };
 		52315FE81F5285300001BA21 /* WKHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHomeTableViewCell.m; sourceTree = "<group>"; };
 		52315FE91F5285300001BA21 /* WKHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKHomeTableViewCell.xib; sourceTree = "<group>"; };
@@ -814,6 +820,10 @@
 				52EB5DE61F8FA5DF007A381B /* WKOrderDetailCell.h */,
 				52EB5DE71F8FA5DF007A381B /* WKOrderDetailCell.m */,
 				52EB5DE81F8FA5DF007A381B /* WKOrderDetailCell.xib */,
+				520CDC1C1FC45585006DEFFB /* CustomCalloutView.h */,
+				520CDC1D1FC45585006DEFFB /* CustomCalloutView.m */,
+				520CDC1F1FC4563B006DEFFB /* CustomAnnotationView.h */,
+				520CDC201FC4563B006DEFFB /* CustomAnnotationView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1247,6 +1257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				520CDC211FC4563B006DEFFB /* CustomAnnotationView.m in Sources */,
 				31A221FF1E99CFA00058A21B /* CTCachedObject.m in Sources */,
 				5263F0391F8F5CCA00F80B4D /* WKMyReleaseCell.m in Sources */,
 				52EB5E2E1F8FC0FF007A381B /* WKMoveHistoryViewController.m in Sources */,
@@ -1304,6 +1315,7 @@
 				52EB5E271F8FBBC4007A381B /* ControlRunLoopTool.m in Sources */,
 				31A222051E99CFA10058A21B /* CTRequestGenerator.m in Sources */,
 				5263F05B1F8F702E00F80B4D /* WKGoPayViewController.m in Sources */,
+				520CDC1E1FC45585006DEFFB /* CustomCalloutView.m in Sources */,
 				31A222091E99CFA10058A21B /* CTServiceFactory.m in Sources */,
 				52EB5DE91F8FA5DF007A381B /* WKOrderDetailCell.m in Sources */,
 				5263F03D1F8F61E800F80B4D /* WKMyPayListViewController.m in Sources */,
