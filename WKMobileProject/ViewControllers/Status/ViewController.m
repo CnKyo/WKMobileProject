@@ -17,7 +17,11 @@
 #import "WKHomeStatusCell.h"
 #import "WKCameraViewController.h"
 #import "WKAddDeviceViewController.h"
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,AVSpeechSynthesizerDelegate,UIAlertViewDelegate,WKNavLeftViewDelegate,WKHomeStatusCellDelegate>
+
+#import "WKStatusTableViewCell.h"
+#import "WKSegmentControl.h"
+
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,AVSpeechSynthesizerDelegate,UIAlertViewDelegate,WKNavLeftViewDelegate,WKHomeStatusCellDelegate,WKSegmentControlDelagate>
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
@@ -32,6 +36,9 @@
     NSArray *mSTableArr;
 
     WKNavLeftView *mNavLView;
+    
+    WKSegmentControl *mSegmentView;
+
 }
 @synthesize mTableView;
 - (void)viewWillAppear:(BOOL)animated{
@@ -56,8 +63,12 @@
     mTableView.delegate = self;
     mTableView.dataSource = self;
     mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
-    UINib   *nib = [UINib nibWithNibName:@"WKHomeStatusCell" bundle:nil];
+    mTableView.backgroundColor = [UIColor colorWithRed:0.96 green:0.97 blue:0.98 alpha:1];
+//    UINib   *nib = [UINib nibWithNibName:@"WKHomeStatusCell" bundle:nil];
+//    [self.mTableView registerNib:nib forCellReuseIdentifier:@"cell"];
+    
+    
+    UINib   *nib = [UINib nibWithNibName:@"WKStatusTableViewCell" bundle:nil];
     [self.mTableView registerNib:nib forCellReuseIdentifier:@"cell"];
     
     self.view.backgroundColor = [UIColor colorWithRed:0.949019607843137 green:0.949019607843137 blue:0.949019607843137 alpha:1.00];
@@ -69,6 +80,9 @@
     WKLoginViewController *vc = [[WKLoginViewController alloc] initWithNibName:@"WKLoginViewController" bundle:nil];
     
     [self presentViewController:vc animated:YES completion:nil];
+    
+
+    
 }
 - (void)initNavLeftView{
     
@@ -197,11 +211,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *cellId = @"cell";
     
-    WKHomeStatusCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    WKStatusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.delegate = self;
-    cell.mIndexPath = indexPath;
+//    cell.delegate = self;
+//    cell.mIndexPath = indexPath;
     cell.mName.text = mSTableArr[indexPath.row];
     return cell;
 }
@@ -214,7 +228,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 365;
+    return 130;
 }
 #pragma mark----****----这是语音代理方法
 - (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didStartSpeechUtterance:(AVSpeechUtterance*)utterance{
