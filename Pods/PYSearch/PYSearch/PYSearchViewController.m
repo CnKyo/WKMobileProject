@@ -119,11 +119,18 @@
     }
     
     UIButton *cancelButton = self.navigationItem.rightBarButtonItem.customView;
-    [cancelButton sizeToFit];
-    cancelButton.py_width += 5;
     // Adapt the search bar layout problem in the navigation bar on iOS 11
     // More details : https://github.com/iphone5solo/PYSearch/issues/108
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 11.0) { // iOS 11
+        UINavigationBar *navBar = self.navigationController.navigationBar;
+        navBar.layoutMargins = UIEdgeInsetsZero;
+        CGFloat space = 8;
+        for (UIView *subview in navBar.subviews) {
+            if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
+                subview.layoutMargins = UIEdgeInsetsMake(0, space, 0, space); // Fix cancel button width is modified
+                break;
+            }
+        }
         _searchBar.py_width = self.view.py_width - cancelButton.py_width - PYSEARCH_MARGIN * 3 - 8;
         _searchBar.py_height = self.view.py_width > self.view.py_height ? 24 : 30;
         _searchTextField.frame = _searchBar.bounds;
@@ -155,7 +162,7 @@
     // Adjust the view according to the `navigationBar.translucent`
     if (NO == self.navigationController.navigationBar.translucent) {
         self.baseSearchTableView.contentInset = UIEdgeInsetsMake(0, 0, self.view.py_y, 0);
-        self.searchSuggestionVC.view.frame = CGRectMake(0, 64 - self.view.py_y, self.view.py_width, self.view.py_height + self.view.py_y);
+        self.searchSuggestionVC.view.frame = CGRectMake(0, CGRectGetMaxY(self.navigationController.navigationBar.frame) - self.view.py_y, self.view.py_width, self.view.py_height + self.view.py_y);
         if (!self.navigationController.navigationBar.barTintColor) {
             self.navigationController.navigationBar.barTintColor = PYSEARCH_COLOR(249, 249, 249);
         }
@@ -167,7 +174,6 @@
     [super viewWillDisappear:animated];
     
     [self.searchBar resignFirstResponder];
-    
 }
 
 - (void)dealloc
@@ -231,7 +237,7 @@
                 [_swSelf searchBarSearchButtonClicked:_swSelf.searchBar];
             }
         };
-        searchSuggestionVC.view.frame = CGRectMake(0, 64, PYScreenW, PYScreenH);
+        searchSuggestionVC.view.frame = CGRectMake(0, CGRectGetMaxY(self.navigationController.navigationBar.frame), PYScreenW, PYScreenH);
         searchSuggestionVC.view.backgroundColor = self.baseSearchTableView.backgroundColor;
         searchSuggestionVC.view.hidden = YES;
         _searchSuggestionView = (UITableView *)searchSuggestionVC.view;
@@ -339,6 +345,7 @@
     [cancleButton setTitle:[NSBundle py_localizedStringForKey:PYSearchCancelButtonText] forState:UIControlStateNormal];
     [cancleButton addTarget:self action:@selector(cancelDidClick)  forControlEvents:UIControlEventTouchUpInside];
     [cancleButton sizeToFit];
+    cancleButton.py_width += PYSEARCH_MARGIN;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:cancleButton];
     /**
      * Initialize settings
@@ -998,7 +1005,7 @@
                 [self.view addSubview:self.searchResultController.view];
                 [self addChildViewController:self.searchResultController];
                 self.searchResultController.view.hidden = NO;
-                self.searchResultController.view.py_y = NO == self.navigationController.navigationBar.translucent ? 0 : 64;
+                self.searchResultController.view.py_y = NO == self.navigationController.navigationBar.translucent ? 0 : CGRectGetMaxY(self.navigationController.navigationBar.frame);
                 self.searchResultController.view.py_height = self.view.py_height - self.searchResultController.view.py_y;
                 self.searchSuggestionVC.view.hidden = YES;
             } else {

@@ -7,6 +7,9 @@
 
 - 🔍 An elegant search controller for iOS.
 
+## QQ chat room
+ <img src="https://github.com/iphone5solo/learngit/raw/master/imagesForPYSearch/QQChatRoomForPYSearch.jpg" width="200">
+
 ## Features
 - [x] Support a variety of hot search style
 - [x] Support a variety of search history style
@@ -58,7 +61,7 @@
 #### Search history style
 <img src="https://github.com/iphone5solo/learngit/raw/master/imagesForPYSearch/searchHistoryStyle01.png" width="375"> <img src="https://github.com/iphone5solo/learngit/raw/master/imagesForPYSearch/searchHistoryStyle02.png" width="375"><br><img src="https://github.com/iphone5solo/learngit/raw/master/imagesForPYSearch/searchHistoryStyle03.png" width="375"> <img src="https://github.com/iphone5solo/learngit/raw/master/imagesForPYSearch/searchHistoryStyle04.png" width="375"><br><img src="https://github.com/iphone5solo/learngit/raw/master/imagesForPYSearch/searchHistoryStyle05.png" width="375">
 
-## <a id="How to use"></a>How to use
+## <a id="Howtouse"></a>How to use
 * Use CocoaPods:
   - `pod "PYSearch"`
   - Import the main file：`#import <PYSearch.h>`
@@ -107,43 +110,4 @@ searchViewController.searchResultController = [[UIViewController alloc] init];
 searchViewController.hotSearchStyle = PYHotSearchStyleColorfulTag;
 ```
 
-* Set searchHistoryStyle（default is PYSearchHistoryStyleCell）
-```objc
-// Set searchHistoryStyle
-searchViewController.searchHistoryStyle = PYSearchHistoryStyleBorderTag;
-```
-
-* Set searchHistoriesCachePath（default is PYSEARCH_SEARCH_HISTORY_CACHE_PATH）
-```objc
-// Set searchHistoriesCachePath
-searchViewController.searchHistoriesCachePath = @"The cache path";
-```
-
-* Set searchHistoriesCount（default is 20）
-```objc
-// Set searchHistoriesCount
-searchViewController. searchHistoriesCount = 6;
-```
-
-* Set searchResultShowMode（default is PYSearchResultShowModeCustom）
-```objc
-// Set searchResultShowMode
-searchViewController.searchResultShowMode = PYSearchResultShowModeEmbed;
-```
-
-* Set searchSuggestionHidden（deafult is NO）
-```objc
-// Set searchSuggestionHidden
-searchViewController.searchSuggestionHidden = YES;
-```
-
-## <a id="Hope"></a>Hope
-
-- If you have any questions during the process or want more interfaces to customize，you can [issues me](https://github.com/iphone5solo/PYSearch/issues/new)! 
-- Instead of giving me star, it is better to throw a bug to me!
-- If you want to participate in the maintenance of this project or have a good design style, welcome to pull request!
-- If you feel slightly discomfort in use, please contact me QQ:499491531 or Email:499491531@qq.com.
-- Hope to improve this project together, let it become more powerful, able to meet the needs of most users!
-
-## Licenses
-All source code is licensed under the MIT License.
+* Set searchHistoryStyle（default is PYS
