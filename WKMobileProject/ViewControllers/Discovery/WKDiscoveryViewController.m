@@ -11,10 +11,10 @@
 #import "WKDiscoveryCell.h"
 #import "WKExchangeViewController.h"
 #import "WKTransetViewController.h"
-#import "RKImageBrowser.h"
 #import "WKNearByViewController.h"
+#import "SDCycleScrollView.h"
 
-@interface WKDiscoveryViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface WKDiscoveryViewController ()<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate>
 @property (strong,nonatomic) UITableView *tableView;
 
 @end
@@ -24,7 +24,6 @@
     
     NSMutableArray *mTableArr;
     NSArray *mSTArr;
-    RKImageBrowser  *mScrollerView;
 
 }
 - (void)viewDidLoad {
@@ -60,6 +59,8 @@
         make.height.equalTo(self.view.mas_height);
     }];
     
+    
+    
 }
     
 
@@ -84,21 +85,22 @@
                                   @"https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/super/whfpf%3D425%2C260%2C50/sign=a41eb338dd33c895a62bcb3bb72e47c2/5fdf8db1cb134954a2192ccb524e9258d1094a1e.jpg",
                                   @"http://c.hiphotos.baidu.com/image/w%3D400/sign=c2318ff84334970a4773112fa5c8d1c0/b7fd5266d0160924c1fae5ccd60735fae7cd340d.jpg"
                                   ];
+ 
+    // 网络加载 --- 创建带标题的图片轮播器
+    SDCycleScrollView *cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, DEVICE_Width, 180) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
     
-    mScrollerView = [[RKImageBrowser alloc] initWithFrame:CGRectMake(0, 0, screen_width, 150)];
-    mScrollerView.backgroundColor = [UIColor whiteColor];
-    [mScrollerView setBrowserWithImagesArray:imagesURLStrings];
-    __weak __typeof(self)weakSelf = self;
+    cycleScrollView2.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
+    cycleScrollView2.currentPageDotColor = [UIColor whiteColor]; // 自定义分页控件小圆标颜色
     
-    mScrollerView.didselectRowBlock = ^(NSInteger clickRow) {
-        MLLog(@"333点击了图片%ld", clickRow);
-        
-    };
-    return mScrollerView;
+    //         --- 模拟加载延迟
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        cycleScrollView2.imageURLStringsGroup = imagesURLStrings;
+    });
+    return cycleScrollView2;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
-    return 150;
+    return 180;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     

@@ -106,7 +106,6 @@
 		52EB5DE91F8FA5DF007A381B /* WKOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5DE71F8FA5DF007A381B /* WKOrderDetailCell.m */; };
 		52EB5DEA1F8FA5DF007A381B /* WKOrderDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EB5DE81F8FA5DF007A381B /* WKOrderDetailCell.xib */; };
 		52EB5DED1F8FA99B007A381B /* WKOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5DEC1F8FA99B007A381B /* WKOrderDetailViewController.m */; };
-		52EB5DF21F8FAB11007A381B /* RKImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5DF11F8FAB11007A381B /* RKImageBrowser.m */; };
 		52EB5DF51F8FAD3B007A381B /* WKNearByViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5DF41F8FAD3B007A381B /* WKNearByViewController.m */; };
 		52EB5E141F8FB1FC007A381B /* ZGLVideoMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E111F8FB1FC007A381B /* ZGLVideoMaskView.m */; };
 		52EB5E151F8FB1FC007A381B /* ZGLVideoPlyer.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EB5E131F8FB1FC007A381B /* ZGLVideoPlyer.m */; };
@@ -309,8 +308,6 @@
 		52EB5DE81F8FA5DF007A381B /* WKOrderDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKOrderDetailCell.xib; sourceTree = "<group>"; };
 		52EB5DEB1F8FA99B007A381B /* WKOrderDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKOrderDetailViewController.h; sourceTree = "<group>"; };
 		52EB5DEC1F8FA99B007A381B /* WKOrderDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKOrderDetailViewController.m; sourceTree = "<group>"; };
-		52EB5DF01F8FAB11007A381B /* RKImageBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKImageBrowser.h; sourceTree = "<group>"; };
-		52EB5DF11F8FAB11007A381B /* RKImageBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKImageBrowser.m; sourceTree = "<group>"; };
 		52EB5DF31F8FAD3B007A381B /* WKNearByViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKNearByViewController.h; sourceTree = "<group>"; };
 		52EB5DF41F8FAD3B007A381B /* WKNearByViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKNearByViewController.m; sourceTree = "<group>"; };
 		52EB5E101F8FB1FC007A381B /* ZGLVideoMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGLVideoMaskView.h; sourceTree = "<group>"; };
@@ -901,18 +898,8 @@
 				52EB5E191F8FBBC4007A381B /* ScanCode */,
 				52EB5E1F1F8FBBC4007A381B /* WKCountTimeLb */,
 				52EB5E0F1F8FB1FC007A381B /* ZGLVideoPlayer */,
-				52EB5DEF1F8FAB11007A381B /* UIBannerView */,
 			);
 			path = WKOtherResource;
-			sourceTree = "<group>";
-		};
-		52EB5DEF1F8FAB11007A381B /* UIBannerView */ = {
-			isa = PBXGroup;
-			children = (
-				52EB5DF01F8FAB11007A381B /* RKImageBrowser.h */,
-				52EB5DF11F8FAB11007A381B /* RKImageBrowser.m */,
-			);
-			path = UIBannerView;
 			sourceTree = "<group>";
 		};
 		52EB5E0F1F8FB1FC007A381B /* ZGLVideoPlayer */ = {
@@ -1190,6 +1177,7 @@
 				"${PODS_ROOT}/DateTools/DateTools/DateTools/DateTools.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/PSCarouselView/CarouselDemo/PSCarouselView/PSCarouselCollectionCell.xib",
 				"${PODS_ROOT}/PYSearch/PYSearch/PYSearch.bundle",
 				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
@@ -1221,7 +1209,6 @@
 				31A222081E99CFA10058A21B /* CTService.m in Sources */,
 				31A221FA1E99CFA00058A21B /* NSURLRequest+CTNetworkingMethods.m in Sources */,
 				315FFC091E97D3C600C78440 /* ViewController.m in Sources */,
-				52EB5DF21F8FAB11007A381B /* RKImageBrowser.m in Sources */,
 				31A222031E99CFA00058A21B /* CTURLResponse.m in Sources */,
 				5263F0311F8F514E00F80B4D /* WKPersonCellThree.m in Sources */,
 				5263F04E1F8F65EC00F80B4D /* WKReleaseViewController.m in Sources */,
