@@ -58,7 +58,7 @@
         self.bigFrame = CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
         
         
-        self.player = [AVPlayer playerWithURL:[NSURL URLWithString:@""]];
+        self.player = [AVPlayer playerWithURL:[NSURL URLWithString:_videoUrlStr]];
         
         if([[UIDevice currentDevice] systemVersion].floatValue >= 10.0){
             //      增加下面这行可以解决iOS10兼容性问题了

@@ -84,7 +84,7 @@
     CGRect mRFrame = CGRectMake(DEVICE_Width-80, 0, 80, 40);
 
 
-    UIButton *mNavLeftBtn = [UIButton ba_creatButtonWithFrame:frame title:@"重庆 小雨 15℃" selTitle:nil titleColor:[UIColor colorWithRed:0.223529411764706 green:0.533333333333333 blue:0.886274509803922 alpha:1.00] titleFont:[UIFont systemFontOfSize:14] image:[UIImage imageNamed:@"icon_littleRing"] selImage:nil padding:2 buttonPositionStyle:BAKit_ButtonLayoutTypeLeftImageLeft viewRectCornerType:nil viewCornerRadius:0 target:self selector:@selector(handleLeftNaviButtonAction:)];
+    UIButton *mNavLeftBtn = [UIButton ba_creatButtonWithFrame:frame title:@"重庆 小雨 15℃" selTitle:nil titleColor:[UIColor colorWithRed:0.223529411764706 green:0.533333333333333 blue:0.886274509803922 alpha:1.00] titleFont:[UIFont systemFontOfSize:14] image:[UIImage imageNamed:@"icon_littleRing"] selImage:nil padding:2 buttonPositionStyle:BAKit_ButtonLayoutTypeLeftImageLeft viewRectCornerType:BAKit_ViewRectCornerTypeAllCorners viewCornerRadius:0 target:self selector:@selector(handleLeftNaviButtonAction:)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:mNavLeftBtn];
     
     UIButton *mRightBtn = [UIButton ba_creatButtonWithFrame:mRFrame title:@"+添加蜂眼" selTitle:nil titleColor:[UIColor colorWithRed:0.223529411764706 green:0.533333333333333 blue:0.886274509803922 alpha:1.00] titleFont:[UIFont systemFontOfSize:14] image:nil selImage:nil padding:2 buttonPositionStyle:BAKit_ButtonLayoutTypeCenterImageRight viewRectCornerType:BAKit_ViewRectCornerTypeAllCorners viewCornerRadius:20 target:self selector:@selector(handleRightNaviButtonAction:)];
