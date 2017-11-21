@@ -56,6 +56,14 @@
 		520CDC021FC43A97006DEFFB /* WKStatusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 520CDC001FC43A97006DEFFB /* WKStatusTableViewCell.m */; };
 		520CDC031FC43A97006DEFFB /* WKStatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 520CDC011FC43A97006DEFFB /* WKStatusTableViewCell.xib */; };
 		520CDC061FC43D95006DEFFB /* WKSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 520CDC041FC43D95006DEFFB /* WKSegmentControl.m */; };
+		520CDC0A1FC441C1006DEFFB /* WKWarningTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 520CDC081FC441C1006DEFFB /* WKWarningTableViewCell.m */; };
+		520CDC0B1FC441C1006DEFFB /* WKWarningTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 520CDC091FC441C1006DEFFB /* WKWarningTableViewCell.xib */; };
+		520CDC0E1FC444B5006DEFFB /* WKPersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 520CDC0D1FC444B5006DEFFB /* WKPersonInfoViewController.m */; };
+		520CDC111FC449B6006DEFFB /* WKDeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 520CDC101FC449B6006DEFFB /* WKDeviceListViewController.m */; };
+		520CDC151FC44AB4006DEFFB /* WKDeviceDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 520CDC131FC44AB4006DEFFB /* WKDeviceDetailTableViewCell.m */; };
+		520CDC161FC44AB4006DEFFB /* WKDeviceDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 520CDC141FC44AB4006DEFFB /* WKDeviceDetailTableViewCell.xib */; };
+		520CDC1A1FC44D1F006DEFFB /* WKCameraTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 520CDC181FC44D1F006DEFFB /* WKCameraTableViewCell.m */; };
+		520CDC1B1FC44D1F006DEFFB /* WKCameraTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 520CDC191FC44D1F006DEFFB /* WKCameraTableViewCell.xib */; };
 		52315FEA1F5285300001BA21 /* WKHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52315FE81F5285300001BA21 /* WKHomeTableViewCell.m */; };
 		52315FEB1F5285300001BA21 /* WKHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52315FE91F5285300001BA21 /* WKHomeTableViewCell.xib */; };
 		52315FEE1F529BDE0001BA21 /* WKLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52315FED1F529BDE0001BA21 /* WKLoginView.m */; };
@@ -233,6 +241,19 @@
 		520CDC011FC43A97006DEFFB /* WKStatusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKStatusTableViewCell.xib; sourceTree = "<group>"; };
 		520CDC041FC43D95006DEFFB /* WKSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKSegmentControl.m; sourceTree = "<group>"; };
 		520CDC051FC43D95006DEFFB /* WKSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKSegmentControl.h; sourceTree = "<group>"; };
+		520CDC071FC441C1006DEFFB /* WKWarningTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWarningTableViewCell.h; sourceTree = "<group>"; };
+		520CDC081FC441C1006DEFFB /* WKWarningTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWarningTableViewCell.m; sourceTree = "<group>"; };
+		520CDC091FC441C1006DEFFB /* WKWarningTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKWarningTableViewCell.xib; sourceTree = "<group>"; };
+		520CDC0C1FC444B5006DEFFB /* WKPersonInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKPersonInfoViewController.h; sourceTree = "<group>"; };
+		520CDC0D1FC444B5006DEFFB /* WKPersonInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKPersonInfoViewController.m; sourceTree = "<group>"; };
+		520CDC0F1FC449B6006DEFFB /* WKDeviceListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKDeviceListViewController.h; sourceTree = "<group>"; };
+		520CDC101FC449B6006DEFFB /* WKDeviceListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKDeviceListViewController.m; sourceTree = "<group>"; };
+		520CDC121FC44AB4006DEFFB /* WKDeviceDetailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKDeviceDetailTableViewCell.h; sourceTree = "<group>"; };
+		520CDC131FC44AB4006DEFFB /* WKDeviceDetailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKDeviceDetailTableViewCell.m; sourceTree = "<group>"; };
+		520CDC141FC44AB4006DEFFB /* WKDeviceDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKDeviceDetailTableViewCell.xib; sourceTree = "<group>"; };
+		520CDC171FC44D1F006DEFFB /* WKCameraTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKCameraTableViewCell.h; sourceTree = "<group>"; };
+		520CDC181FC44D1F006DEFFB /* WKCameraTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKCameraTableViewCell.m; sourceTree = "<group>"; };
+		520CDC191FC44D1F006DEFFB /* WKCameraTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WKCameraTableViewCell.xib; sourceTree = "<group>"; };
 		52315FE71F5285300001BA21 /* WKHomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHomeTableViewCell.h; sourceTree = "<group>"; };
 		52315FE81F5285300001BA21 /* WKHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHomeTableViewCell.m; sourceTree = "<group>"; };
 		52315FE91F5285300001BA21 /* WKHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKHomeTableViewCell.xib; sourceTree = "<group>"; };
@@ -421,8 +442,8 @@
 				52315FF21F52A5AB0001BA21 /* WKLoginViewController.m */,
 				52315FF31F52A5AB0001BA21 /* WKLoginViewController.xib */,
 				52315FE61F5284DC0001BA21 /* View */,
-				315FFC0A1E97D3C600C78440 /* Main.storyboard */,
 				315FFC0D1E97D3C600C78440 /* Assets.xcassets */,
+				315FFC0A1E97D3C600C78440 /* Main.storyboard */,
 				315FFC0F1E97D3C600C78440 /* LaunchScreen.storyboard */,
 				315FFC121E97D3C600C78440 /* Info.plist */,
 				315FFC011E97D3C600C78440 /* Supporting Files */,
@@ -845,6 +866,8 @@
 			children = (
 				315FFC071E97D3C600C78440 /* ViewController.h */,
 				315FFC081E97D3C600C78440 /* ViewController.m */,
+				520CDC0F1FC449B6006DEFFB /* WKDeviceListViewController.h */,
+				520CDC101FC449B6006DEFFB /* WKDeviceListViewController.m */,
 				52EB5E161F8FB21C007A381B /* WKCameraViewController.h */,
 				52EB5E171F8FB21C007A381B /* WKCameraViewController.m */,
 				52EB5E291F8FBBD9007A381B /* WKAddDeviceViewController.h */,
@@ -863,9 +886,18 @@
 				520CDBFF1FC43A97006DEFFB /* WKStatusTableViewCell.h */,
 				520CDC001FC43A97006DEFFB /* WKStatusTableViewCell.m */,
 				520CDC011FC43A97006DEFFB /* WKStatusTableViewCell.xib */,
+				520CDC071FC441C1006DEFFB /* WKWarningTableViewCell.h */,
+				520CDC081FC441C1006DEFFB /* WKWarningTableViewCell.m */,
+				520CDC091FC441C1006DEFFB /* WKWarningTableViewCell.xib */,
 				520CDBFA1FC43A5C006DEFFB /* WKNavLeftView.h */,
 				520CDBF91FC43A5C006DEFFB /* WKNavLeftView.m */,
 				520CDBF71FC43A5C006DEFFB /* WKNavLeftView.xib */,
+				520CDC121FC44AB4006DEFFB /* WKDeviceDetailTableViewCell.h */,
+				520CDC131FC44AB4006DEFFB /* WKDeviceDetailTableViewCell.m */,
+				520CDC141FC44AB4006DEFFB /* WKDeviceDetailTableViewCell.xib */,
+				520CDC171FC44D1F006DEFFB /* WKCameraTableViewCell.h */,
+				520CDC181FC44D1F006DEFFB /* WKCameraTableViewCell.m */,
+				520CDC191FC44D1F006DEFFB /* WKCameraTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -887,6 +919,8 @@
 				5263F05A1F8F702E00F80B4D /* WKGoPayViewController.m */,
 				52EB5E2C1F8FC0FF007A381B /* WKMoveHistoryViewController.h */,
 				52EB5E2D1F8FC0FF007A381B /* WKMoveHistoryViewController.m */,
+				520CDC0C1FC444B5006DEFFB /* WKPersonInfoViewController.h */,
+				520CDC0D1FC444B5006DEFFB /* WKPersonInfoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1099,6 +1133,7 @@
 				5263F0281F8F512900F80B4D /* WKPersonCellOne.xib in Resources */,
 				5263F0421F8F622D00F80B4D /* WKMyPayListCell.xib in Resources */,
 				52EB5DEA1F8FA5DF007A381B /* WKOrderDetailCell.xib in Resources */,
+				520CDC161FC44AB4006DEFFB /* WKDeviceDetailTableViewCell.xib in Resources */,
 				5263F0531F8F664E00F80B4D /* WKReleaseCell.xib in Resources */,
 				31A222001E99CFA00058A21B /* iPhoneTypeDefine.plist in Resources */,
 				5263F03A1F8F5CCA00F80B4D /* WKMyReleaseCell.xib in Resources */,
@@ -1111,8 +1146,10 @@
 				520CDBFC1FC43A5C006DEFFB /* WKHomeStatusCell.xib in Resources */,
 				5263F0321F8F514E00F80B4D /* WKPersonCellThree.xib in Resources */,
 				315FFC0C1E97D3C600C78440 /* Main.storyboard in Resources */,
+				520CDC1B1FC44D1F006DEFFB /* WKCameraTableViewCell.xib in Resources */,
 				520CDBFD1FC43A5C006DEFFB /* WKNavLeftView.xib in Resources */,
 				52AAA1391F8F8E3000AC777C /* WKDriverCell.xib in Resources */,
+				520CDC0B1FC441C1006DEFFB /* WKWarningTableViewCell.xib in Resources */,
 				31A2220C1E99CFA10058A21B /* CTNetworkingConfiguration.plist in Resources */,
 				52EB5E331F8FC15E007A381B /* WKMoveCell.xib in Resources */,
 				5263F0601F8F734600F80B4D /* WKDiscoveryCell.xib in Resources */,
@@ -1223,9 +1260,11 @@
 				5263F04E1F8F65EC00F80B4D /* WKReleaseViewController.m in Sources */,
 				520CDC061FC43D95006DEFFB /* WKSegmentControl.m in Sources */,
 				31A222071E99CFA10058A21B /* CTUDIDGenerator.m in Sources */,
+				520CDC0E1FC444B5006DEFFB /* WKPersonInfoViewController.m in Sources */,
 				31A221F81E99CFA00058A21B /* NSObject+AXNetworkingMethods.m in Sources */,
 				520CDC021FC43A97006DEFFB /* WKStatusTableViewCell.m in Sources */,
 				315FFC061E97D3C600C78440 /* AppDelegate.m in Sources */,
+				520CDC151FC44AB4006DEFFB /* WKDeviceDetailTableViewCell.m in Sources */,
 				31A221F61E99CFA00058A21B /* NSDictionary+AXNetworkingMethods.m in Sources */,
 				5263F0411F8F622D00F80B4D /* WKMyPayListCell.m in Sources */,
 				5263F02C1F8F514200F80B4D /* WKPersonCellTwo.m in Sources */,
@@ -1251,11 +1290,13 @@
 				52EB5E151F8FB1FC007A381B /* ZGLVideoPlyer.m in Sources */,
 				5263F0571F8F6B1D00F80B4D /* WKGoPayCell.m in Sources */,
 				52EB5E281F8FBBC4007A381B /* CountDownLabel.m in Sources */,
+				520CDC111FC449B6006DEFFB /* WKDeviceListViewController.m in Sources */,
 				31A222101E99D0520058A21B /* WKAPIManager.m in Sources */,
 				52EB5DED1F8FA99B007A381B /* WKOrderDetailViewController.m in Sources */,
 				315FFC031E97D3C600C78440 /* main.m in Sources */,
 				31A221AB1E99CCD00058A21B /* Util.m in Sources */,
 				31A222131E99D2B50058A21B /* WKBaseViewController.m in Sources */,
+				520CDC0A1FC441C1006DEFFB /* WKWarningTableViewCell.m in Sources */,
 				5263F0BF1F8F7E7D00F80B4D /* WKExchangeBarcodeView.m in Sources */,
 				31A221FE1E99CFA00058A21B /* CTCache.m in Sources */,
 				31A221F71E99CFA00058A21B /* NSMutableString+AXNetworkingMethods.m in Sources */,
@@ -1270,6 +1311,7 @@
 				31A222061E99CFA10058A21B /* CTSignatureGenerator.m in Sources */,
 				5263F0B81F8F7CDF00F80B4D /* WKExchangeCell.m in Sources */,
 				52EB5E141F8FB1FC007A381B /* ZGLVideoMaskView.m in Sources */,
+				520CDC1A1FC44D1F006DEFFB /* WKCameraTableViewCell.m in Sources */,
 				52EB5E2B1F8FBBD9007A381B /* WKAddDeviceViewController.m in Sources */,
 				5263F0BC1F8F7D8700F80B4D /* WKExchangeViewController.m in Sources */,
 				52EB5DF51F8FAD3B007A381B /* WKNearByViewController.m in Sources */,

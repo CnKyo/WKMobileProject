@@ -20,7 +20,9 @@
 
 #import "WKStatusTableViewCell.h"
 #import "WKSegmentControl.h"
+#import "WKWarningTableViewCell.h"
 
+#import "WKDeviceListViewController.h"
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource,AVSpeechSynthesizerDelegate,UIAlertViewDelegate,WKNavLeftViewDelegate,WKHomeStatusCellDelegate,WKSegmentControlDelagate>
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
@@ -38,6 +40,8 @@
     WKNavLeftView *mNavLView;
     
     WKSegmentControl *mSegmentView;
+    
+    NSInteger mType;
 
 }
 @synthesize mTableView;
@@ -71,6 +75,10 @@
     UINib   *nib = [UINib nibWithNibName:@"WKStatusTableViewCell" bundle:nil];
     [self.mTableView registerNib:nib forCellReuseIdentifier:@"cell"];
     
+    nib = [UINib nibWithNibName:@"WKWarningTableViewCell" bundle:nil];
+    [self.mTableView registerNib:nib forCellReuseIdentifier:@"cell2"];
+    
+    
     self.view.backgroundColor = [UIColor colorWithRed:0.949019607843137 green:0.949019607843137 blue:0.949019607843137 alpha:1.00];
 
     mTableArr = [WKHomeModel searchWithWhere:[NSString stringWithFormat:@"mId=1"]];
@@ -81,7 +89,7 @@
     
     [self presentViewController:vc animated:YES completion:nil];
     
-
+    mSegmentView = [WKSegmentControl initWithSegmentControlFrame:CGRectMake(0, 0, DEVICE_Width, 50) andTitleWithBtn:@[@"蜂巢列表",@"蜂巢预警"] andBackgroudColor:[UIColor whiteColor] andBtnSelectedColor:[UIColor colorWithRed:0.23 green:0.54 blue:0.89 alpha:1] andBtnTitleColor:[UIColor blackColor] andUndeLineColor:[UIColor colorWithRed:0.23 green:0.54 blue:0.89 alpha:1] andBtnTitleFont:[UIFont systemFontOfSize:15] andInterval:5 delegate:self andIsHiddenLine:YES andType:4];
     
 }
 - (void)initNavLeftView{
@@ -201,34 +209,68 @@
     // Dispose of any resources that can be recreated.
 }
 - (NSInteger)numberOfRowsInSection:(NSInteger)section{
-    return 0;
+    return 1;
 }
-
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return mSegmentView;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 50;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return mSTableArr.count;
+    if (mType == 0) {
+        return mSTableArr.count;
+    }else{
+        return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *cellId = @"cell";
-    
-    WKStatusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//    cell.delegate = self;
-//    cell.mIndexPath = indexPath;
-    cell.mName.text = mSTableArr[indexPath.row];
-    return cell;
+    if (mType == 0) {
+        NSString *cellId = @"cell";
+        
+        WKStatusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        //    cell.delegate = self;
+        //    cell.mIndexPath = indexPath;
+        cell.mName.text = mSTableArr[indexPath.row];
+        return cell;
+    }else{
+        
+        NSString *cellId = @"cell2";
+        
+        WKWarningTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+        return cell;
+    }
+  
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    if (mType == 0) {
+        WKDeviceListViewController *vc = [WKDeviceListViewController new];
+        //        WKCameraViewController *vc = [WKCameraViewController new];
+        //        vc.mUrlString = @"https://tbm.alicdn.com/Y73o4CKjm22oPjIGMxw/7149iEtPiobvJOHhfVz%40%40ld.mp4";
+//        https://cloud.video.taobao.com/play/u/3257655479/p/1/e/6/t/1/50008124793.mp4
+        
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     
     
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 130;
+    if (mType == 0) {
+        return 130;
+    }else{
+        return 120;
+    }
+    
 }
 #pragma mark----****----这是语音代理方法
 - (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didStartSpeechUtterance:(AVSpeechUtterance*)utterance{
@@ -269,9 +311,12 @@
 
         case 1:
         {
-        WKCameraViewController *vc = [WKCameraViewController new];
+        
+        WKDeviceListViewController *vc = [WKDeviceListViewController new];
+//        WKCameraViewController *vc = [WKCameraViewController new];
+//        vc.mUrlString = @"https://tbm.alicdn.com/Y73o4CKjm22oPjIGMxw/7149iEtPiobvJOHhfVz%40%40ld.mp4";
+
         vc.hidesBottomBarWhenPushed = YES;
-        vc.mUrlString = @"https://tbm.alicdn.com/Y73o4CKjm22oPjIGMxw/7149iEtPiobvJOHhfVz%40%40ld.mp4";
         [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -281,5 +326,10 @@
     }
     
 }
-
+///选择了哪一个？
+- (void)WKDidSelectedIndex:(NSInteger)mIndex{
+    MLLog(@"%ld",mIndex);
+    mType = mIndex;
+    [mTableView reloadData];
+}
 @end

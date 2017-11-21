@@ -1,12 +1,12 @@
 //
-//  WKPersoncenterViewController.m
+//  WKPersonInfoViewController.m
 //  WKMobileProject
 //
-//  Created by mwi01 on 2017/10/12.
+//  Created by mwi01 on 2017/11/21.
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
 
-#import "WKPersoncenterViewController.h"
+#import "WKPersonInfoViewController.h"
 #import "WKPersonCellOne.h"
 #import "WKPersonCellTwo.h"
 #import "WKPersonCellThree.h"
@@ -16,32 +16,27 @@
 #import "WKMyPayListViewController.h"
 #import "WKMyMsgViewController.h"
 #import "WKMoveHistoryViewController.h"
-
-#import "WKPersonInfoViewController.h"
-@interface WKPersoncenterViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface WKPersonInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic) UITableView *tableView;
 
 @end
 
-@implementation WKPersoncenterViewController
+@implementation WKPersonInfoViewController
 {
     NSMutableArray *mTableArr;
     NSArray *mSArr;
-    
+    NSArray *mCArr;
     
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"个人中心";
+    self.navigationItem.title = @"个人信息";
     mTableArr = [NSMutableArray new];
-    mSArr = @[@"我的发布",@"我的消费记录",@"我的消息",@"我的流动记录"];
-    [self initView];
-}
+    mSArr = @[@"我的电话：",@"我的蜂龄：",@"我的生日：",@"我的地址:",@"身份证：",@"真实姓名：",@"性别：",@"蜂群数量："];
+    mCArr = @[@"133****3333",@"3年",@"1955-09-09",@"重庆市渝中区较场口",@"5123******123123",@" 张三",@"男",@"1个"];
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self initView];
 }
 - (void)initView{
     
@@ -71,26 +66,22 @@
     }];
     
 }
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 #pragma mark -
 #pragma mark Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView              // Default is 1 if not implemented
 {
     
-    return 3;
+    return 2;
     
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    if (section == 0 || section == 2) {
+    if (section == 0) {
         return 1;
     }else{
         return mSArr.count;
@@ -102,9 +93,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         return 110;
-    }else if (indexPath.section == 2){
-        
-        return 90;
     }else{
         return 45;
         
@@ -120,13 +108,7 @@
         
         WKPersonCellOne *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
-        
-    }else if (indexPath.section == 2){
-        CellId = @"cell3";
-        
-        WKPersonCellThree *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.mLine.hidden = YES;
         return cell;
         
     }else{
@@ -136,7 +118,8 @@
         WKPersonCellTwo *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.mContent.text = [NSString stringWithFormat:@"%@",mSArr[indexPath.row]];
-        
+        cell.mName.text = [NSString stringWithFormat:@"%@",mCArr[indexPath.row]];
+        cell.mLine.hidden = YES;
         return cell;
     }
     
@@ -148,12 +131,6 @@
     MLLog(@"点击了第：%ld",indexPath.row);
     if (indexPath.section == 0) {
         MLLog(@"个人信息");
-        WKPersonInfoViewController *vc = [WKPersonInfoViewController new];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.section == 2){
-        MLLog(@"退出");
-        
         
     }else{
         if (indexPath.row == 0) {
@@ -183,5 +160,4 @@
     }
     
 }
-
 @end

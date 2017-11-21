@@ -13,4 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *mName;
 @property (weak, nonatomic) IBOutlet UILabel *mLevel;
 
+@property (weak, nonatomic) IBOutlet UIImageView *mLine;
+
+
 @end
