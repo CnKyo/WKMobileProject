@@ -32,7 +32,7 @@
                                                   -CGRectGetHeight(self.calloutView.bounds) / 2.f + self.calloutOffset.y);
             }
         
-        self.calloutView.image = [UIImage imageNamed:@"building"];
+        self.calloutView.image = [UIImage imageNamed:@"bld"];
         self.calloutView.title = self.annotation.title;
         self.calloutView.subtitle = self.annotation.subtitle;
         
