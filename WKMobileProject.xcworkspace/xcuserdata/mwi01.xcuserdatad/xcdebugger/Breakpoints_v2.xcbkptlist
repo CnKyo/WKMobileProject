@@ -147,8 +147,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1547"
             endingLineNumber = "1547"
-            landmarkName = "+MWBundleTool:block:"
-            landmarkType = "7">
+            landmarkName = "MWBaseObj"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -163,7 +163,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1546"
             endingLineNumber = "1546"
-            landmarkName = "+MWBundleTool:block:"
+            landmarkName = "+MWGetMyWealthHistoryList:block:"
             landmarkType = "7">
             <Locations>
                <Location
@@ -211,7 +211,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1566"
             endingLineNumber = "1566"
-            landmarkName = "+MWUserWithDraw:block:"
+            landmarkName = "+MWBundleTool:block:"
             landmarkType = "7">
             <Locations>
                <Location
@@ -259,8 +259,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1567"
             endingLineNumber = "1567"
-            landmarkName = "+MWUserWithDraw:block:"
-            landmarkType = "7">
+            landmarkName = "MWBaseObj"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

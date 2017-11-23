@@ -29,9 +29,11 @@ target 'WKMobileProject' do
   pod 'ShareSDK3/ShareSDKPlatforms/QQ'
   pod 'ShareSDK3/ShareSDKPlatforms/WeChat'
   pod 'ShareSDK3/ShareSDKPlatforms/WeChat'
+  pod 'WeChatSDK-iOS'
+  pod 'AlipaySDK-2.0'
+
   pod 'MOBFoundation'
   pod 'CustomIOSAlertView'
-  pod 'AlipaySDK-2.0'
   pod 'LPActionSheet'
   pod 'HcdGuideView'
   pod 'JWLaunchAd'

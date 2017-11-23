@@ -608,12 +608,13 @@
 + (void)MWWashToCode:(NSMutableDictionary *)para block:(void(^)(MWBaseObj *info,MWDeviceCode *mDeviceCode))block;
 #pragma mark----****----买金币
 /**
- 买金币
+ 买金币  支付类型mType: 1是微信支付，2是支付宝支付,3是银联支付
 
  @param para 参数
+ @param mType 支付类型
  @param block 返回值
  */
-+ (void)MWBuyGold:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
++ (void)MWBuyGold:(NSDictionary *)para amdPayType:(NSInteger)mType block:(void(^)(MWBaseObj *info))block;
 #pragma mark----****----获取我的任务列表
 /**
  获取我的任务列表
@@ -1238,5 +1239,45 @@
 @property(nonatomic,strong) NSString *              wash_time;            //!< 内容
 
 @end
+#pragma mark----****----微信支付对象
+@interface SWxPayInfo : NSObject
+/**
+ *  支付方式
+ */
+@property (nonatomic,strong) NSString*  mPayType;
+/**
+ *  随机字符串
+ */
+@property (nonatomic,strong) NSString*  nonce_str;
+/**
+ *  商户号
+ */
+@property (nonatomic,strong) NSString*  partnerid;
 
+/**
+ *  商户订单号
+ */
+@property (nonatomic,strong) NSString*  out_trade_no;
+/**
+ *  预支付交易会话ID
+ */
+@property (nonatomic,strong) NSString*  prepay_id;
+/**
+ *  签名
+ */
+@property (nonatomic,strong) NSString*  sign;
+/**
+ *  时间戳
+ */
+@property (nonatomic,assign) int        timeStamp;
+
+@property (nonatomic,strong) NSString*  appid;
+
+@property (nonatomic,strong) NSString*  packages;
+
+@property (nonatomic,assign) int        pay_channel;
+
+@property (nonatomic,strong) NSString*  sn;
+
+@end
 

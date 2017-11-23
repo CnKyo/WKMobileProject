@@ -127,7 +127,7 @@ static float mDuration = 0.25;
     [para setObject:self.mGoldObj.mNum forKey:@"number"];
     [para setObject:[WKUser currentUser].member_id forKey:@"member_id"];
 //    [para setObject:[NSString stringWithFormat:@"%d",self.mGoldObj.mPayType] forKey:@"number"];
-    [MWBaseObj MWBuyGold:para block:^(MWBaseObj *info) {
+    [MWBaseObj MWBuyGold:para amdPayType:self.mGoldObj.mPayType block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
             [SVProgressHUD showSuccessWithStatus:info.err_msg];
             [self popViewController];
