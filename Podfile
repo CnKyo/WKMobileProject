@@ -24,12 +24,17 @@ target 'WKMobileProject' do
   pod 'AMapLocation'
   pod 'SKTagView'
   pod 'JPush'
-  pod 'ShareSDK3'
-  pod 'ShareSDK3/ShareSDKUI'
-  pod 'ShareSDK3/ShareSDKPlatforms/QQ'
-  pod 'ShareSDK3/ShareSDKPlatforms/WeChat'
-  pod 'ShareSDK3/ShareSDKPlatforms/WeChat'
-  pod 'WeChatSDK-iOS'
+#  pod 'ShareSDK3'
+#  pod 'ShareSDK3/ShareSDKUI'
+#  pod 'WeChatSDK-iOS'
+#  pod 'ShareSDK3/ShareSDKPlatforms/QQ'
+#  pod 'ShareSDK3/ShareSDKPlatforms/WeChat'
+
+pod 'mob_sharesdk'
+pod 'mob_sharesdk/ShareSDKUI'
+pod 'mob_sharesdk/ShareSDKPlatforms/WeChatFull'
+pod 'mob_sharesdk/ShareSDKPlatforms/QQ'
+
   pod 'AlipaySDK-2.0'
 
   pod 'MOBFoundation'

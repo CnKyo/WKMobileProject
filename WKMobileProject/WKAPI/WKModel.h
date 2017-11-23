@@ -383,6 +383,7 @@
 @class MWWashOrderObj;
 @class MWMyWashOrderObj;
 @class MWJoinUsObj;
+@class SWxPayInfo;
 @interface MWBaseObj : NSObject
 
 @property (nonatomic,strong) NSString *err_msg;
@@ -615,6 +616,7 @@
  @param block 返回值
  */
 + (void)MWBuyGold:(NSDictionary *)para amdPayType:(NSInteger)mType block:(void(^)(MWBaseObj *info))block;
+
 #pragma mark----****----获取我的任务列表
 /**
  获取我的任务列表
@@ -1278,6 +1280,15 @@
 @property (nonatomic,assign) int        pay_channel;
 
 @property (nonatomic,strong) NSString*  sn;
+
+
+#pragma mark----****----微信支付方法
+/**
+ 微信支付方法
+ 
+ @param payinfo 支付信息
+ */
++ (void)gotoWXPayWithSRV:(SWxPayInfo*)payinfo;
 
 @end
 

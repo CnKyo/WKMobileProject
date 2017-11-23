@@ -10,6 +10,7 @@
 #import <WXApiObject.h>
 #import <WXApi.h>
 #import <AlipaySDK/AlipaySDK.h>
+
 @implementation WKBaseInfo
 
 /**
@@ -1032,8 +1033,8 @@ static WKUser *g_user = nil;
         if (info.err_code == 0) {
             if (mType == 1) {
                 if ([info.data isKindOfClass:[NSDictionary class]]) {
-                SWxPayInfo* wxpayinfo = [SWxPayInfo yy_modelWithDictionary:info.data];
-                    [self gotowx];
+                    SWxPayInfo* wxpayinfo = [SWxPayInfo yy_modelWithDictionary:info.data];
+                    [SWxPayInfo gotoWXPayWithSRV:wxpayinfo];
                 }
                 
 
@@ -1048,18 +1049,7 @@ static WKUser *g_user = nil;
         }
     }];
 }
-#pragma mark----****----微信支付方法
-#pragma mark----****----微信支付
-- (void)gotoWXPayWithSRV:(SWxPayInfo*)payinfo{
-    PayReq *payobj = [[PayReq alloc] init];
-    payobj.partnerId = @"1336953201";
-    payobj.prepayId = payinfo.prepay_id;
-    payobj.nonceStr = payinfo.nonce_str;
-    payobj.timeStamp = payinfo.timeStamp;
-    payobj.package = @"Sign=WXPay";
-    payobj.sign = payinfo.sign;
-    [WXApi sendReq:payobj];
-}
+
 #pragma mark----****----获取我的任务列表
 /**
  获取我的任务列表
@@ -1754,4 +1744,15 @@ static MWLocationInfo *mLocation = nil;
 @end
 
 @implementation SWxPayInfo
+#pragma mark----****----微信支付方法
++ (void)gotoWXPayWithSRV:(SWxPayInfo*)payinfo{
+    PayReq *payobj = [[PayReq alloc] init];
+    payobj.partnerId = @"1336953201";
+    payobj.prepayId = payinfo.prepay_id;
+    payobj.nonceStr = payinfo.nonce_str;
+    payobj.timeStamp = payinfo.timeStamp;
+    payobj.package = @"Sign=WXPay";
+    payobj.sign = payinfo.sign;
+    [WXApi sendReq:payobj];
+}
 @end

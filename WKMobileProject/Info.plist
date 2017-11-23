@@ -27,7 +27,7 @@
 			<string>weixinShare</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wx0bab4e7d58fccfac</string>
+				<string>wxf8feb845b3a4d04e</string>
 			</array>
 		</dict>
 		<dict>
@@ -35,6 +35,10 @@
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
 			<string>weixinPay</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wxf8feb845b3a4d04e</string>
+			</array>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
@@ -79,12 +83,11 @@
 		<string>mqqOpensdkSSoLogin</string>
 		<string>mqq</string>
 		<string>mqqapi</string>
-        <string>uppaysdk</string>
-        <string>uppaywallet</string>
-        <string>uppayx1</string>
-        <string>uppayx2</string>
-        <string>uppayx3</string>
-
+		<string>uppaysdk</string>
+		<string>uppaywallet</string>
+		<string>uppayx1</string>
+		<string>uppayx2</string>
+		<string>uppayx3</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
