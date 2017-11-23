@@ -15,15 +15,12 @@
     static WKHttpRequest *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        //[APIClient loadDefault];
         _sharedClient = [[WKHttpRequest alloc] initWithBaseURL:[NSURL URLWithString:kLocalAPIUrlString]];
         _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
         _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
         
         ;
-        //_sharedClient.requestSerializer = [AFJSONRequestSerializer serializer];
         _sharedClient.requestSerializer.HTTPShouldHandleCookies = YES;
-        //_sharedClient.requestSerializer.Content = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
     });
     return _sharedClient;
 }
@@ -394,6 +391,7 @@
 }
 -(void)urlGroupKey:(NSString *)key path:(NSString *)URLString parameters:(id)parameters call:(void (^)(NSError *error, id responseObject))callback
 {
+    MLLog(@" 参数是：  %@  \n url链接是：  %@",parameters,URLString);
     id operation = nil;
     operation = [self POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         callback(nil, responseObject);
@@ -555,5 +553,108 @@
         [self removeConnection:operation group:key];
     }];
     [self addConnection:operation group:key];
+}
+
+#pragma mark----****----重写baseUrl方法
+- (instancetype)initWithBaseURL:(NSURL *)url {
+    self = [super initWithBaseURL:url];
+    if (self) {
+        self.requestSerializer.HTTPShouldHandleCookies = YES;
+        self.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+
+        self.conDic = [NSMutableDictionary dictionary];
+    }
+    return self;
+}
+#pragma mark -
+- (void)cancelHttpOpretion:(NSURLSessionDataTask *)http
+{
+    for (NSOperation *operation in [self.operationQueue operations]) {
+        if (![operation isKindOfClass:[NSURLSessionDataTask class]]) {
+            continue;
+        }
+        if ([operation isEqual:http]) {
+            [operation cancel];
+            break;
+        }
+    }
+}
+- (void)getUrl:(NSString *)URLString parameters:(id)parameters call:(void (^)( MWBaseObj* info))callback{
+    
+    MLLog(@"请求地址：%@-------请求参数：%@",URLString,parameters);
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSMutableSet *contentTypes = [[NSMutableSet alloc] initWithSet:manager.responseSerializer.acceptableContentTypes];
+    [contentTypes addObject:@"text/html"];
+    [contentTypes addObject:@"text/plain"];
+    
+    manager.responseSerializer.acceptableContentTypes = self.acceptableContentTypes;
+    manager.requestSerializer.timeoutInterval = 10;
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    [manager GET:[NSString stringWithFormat:@"%@/%@",kLocalAPIUrlString,URLString] parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        MLLog(@"data:%@",responseObject);
+        
+        NSDictionary *resbObj = [Util deleteEmpty:responseObject];
+        
+        MLLog(@"去掉字典里的null值之后的数据：%@",resbObj);
+        
+        MWBaseObj   *retob = [MWBaseObj yy_modelWithDictionary:resbObj];
+        
+        callback(  retob );
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        MLLog(@"error:%@",error.description);
+        callback( [MWBaseObj infoWithError:error] );
+        
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    }];
+    
+}
+#pragma mark----****----重写请求方法
+/**
+ 重写请求方法
+ 
+ @param tag tag
+ @param URLString 请求地址
+ @param parameters 参数
+ @param callback 返回值
+ */
+-(void)loadAPIWithTag:(NSObject *)tag path:(NSString *)URLString parameters:(id)parameters call:(void (^)(MWBaseObj* info))callback
+{
+
+    NSLog(@"URLString:%@ 参数parameters:%@", URLString, parameters);
+    
+    [self urlGroupKey:NSStringFromClass([tag class]) path:URLString parameters:parameters call:^(NSError *error, id responseObject) {
+        MWBaseObj *info = nil;
+        if (error == nil) {
+            NSLog(@"\n\n ---APIObject----result:-----------%@", responseObject);
+            info = [MWBaseObj yy_modelWithDictionary:responseObject];
+            
+            ///如果需要登录就在这里判断
+            //        if (info.err_code == 1) {
+            //            [((AppDelegate*)[UIApplication sharedApplication].delegate) performSelector:@selector(gotoLogin) withObject:nil afterDelay:0.4f];
+            //            block(nil);
+            //        }else{
+//            block(info);
+            //        }
+            if (info==nil)
+                info = [MWBaseObj infoWithErrorMessage:@"网络错误"];
+        } else {
+            NSLog(@"\n\n ---APIObject----result error:-----------%@", error);
+            info = [MWBaseObj infoWithError:error];
+        }
+        
+        callback(info);
+    }];
 }
 @end

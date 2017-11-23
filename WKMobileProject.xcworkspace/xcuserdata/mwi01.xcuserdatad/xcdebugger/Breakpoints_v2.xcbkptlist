@@ -94,11 +94,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WKMobileProject/WKAPI/WKHttpRequest.m"
-            timestampString = "532666828.780158"
+            timestampString = "533098287.874367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "-WKBaiDuGetDataWithUrl:withPara:block:"
             landmarkType = "7">
             <Locations>
@@ -110,11 +110,11 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKAPI/WKHttpRequest.m"
-                  timestampString = "533094551.42902"
+                  timestampString = "533098287.945679"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
                   offsetFromSymbolStart = "651">
                </Location>
                <Location
@@ -125,11 +125,11 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKAPI/WKHttpRequest.m"
-                  timestampString = "533094551.430703"
+                  timestampString = "533098287.947294"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
                   offsetFromSymbolStart = "47">
                </Location>
             </Locations>
@@ -142,11 +142,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WKMobileProject/WKAPI/WKModel.m"
-            timestampString = "532695471.07121"
+            timestampString = "533098287.874436"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1544"
-            endingLineNumber = "1544"
+            startingLineNumber = "1547"
+            endingLineNumber = "1547"
             landmarkName = "+MWBundleTool:block:"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,11 +158,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WKMobileProject/WKAPI/WKModel.m"
-            timestampString = "532695471.071362"
+            timestampString = "533098287.874487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1543"
-            endingLineNumber = "1543"
+            startingLineNumber = "1546"
+            endingLineNumber = "1546"
             landmarkName = "+MWBundleTool:block:"
             landmarkType = "7">
             <Locations>
@@ -174,11 +174,11 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKAPI/WKModel.m"
-                  timestampString = "533094551.43768"
+                  timestampString = "533098287.95393"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1543"
-                  endingLineNumber = "1543"
+                  startingLineNumber = "1546"
+                  endingLineNumber = "1546"
                   offsetFromSymbolStart = "1196">
                </Location>
                <Location
@@ -189,11 +189,11 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKAPI/WKModel.m"
-                  timestampString = "533094551.43966"
+                  timestampString = "533098287.955471"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1543"
-                  endingLineNumber = "1543"
+                  startingLineNumber = "1546"
+                  endingLineNumber = "1546"
                   offsetFromSymbolStart = "47">
                </Location>
             </Locations>
@@ -206,11 +206,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WKMobileProject/WKAPI/WKModel.m"
-            timestampString = "532695471.071463"
+            timestampString = "533098287.874531"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1563"
-            endingLineNumber = "1563"
+            startingLineNumber = "1566"
+            endingLineNumber = "1566"
             landmarkName = "+MWUserWithDraw:block:"
             landmarkType = "7">
             <Locations>
@@ -222,11 +222,11 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKAPI/WKModel.m"
-                  timestampString = "533094551.443276"
+                  timestampString = "533098287.959057"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1563"
-                  endingLineNumber = "1563"
+                  startingLineNumber = "1566"
+                  endingLineNumber = "1566"
                   offsetFromSymbolStart = "1196">
                </Location>
                <Location
@@ -237,11 +237,11 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKAPI/WKModel.m"
-                  timestampString = "533094551.44486"
+                  timestampString = "533098287.960775"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1563"
-                  endingLineNumber = "1563"
+                  startingLineNumber = "1566"
+                  endingLineNumber = "1566"
                   offsetFromSymbolStart = "47">
                </Location>
             </Locations>
@@ -254,11 +254,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WKMobileProject/WKAPI/WKModel.m"
-            timestampString = "532695471.071565"
+            timestampString = "533098287.874573"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1564"
-            endingLineNumber = "1564"
+            startingLineNumber = "1567"
+            endingLineNumber = "1567"
             landmarkName = "+MWUserWithDraw:block:"
             landmarkType = "7">
          </BreakpointContent>
@@ -270,11 +270,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WKMobileProject/WKAPI/WKHttpRequest.m"
-            timestampString = "532666828.781659"
+            timestampString = "533098287.874616"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "528"
-            endingLineNumber = "528"
+            startingLineNumber = "526"
+            endingLineNumber = "526"
             landmarkName = "-fileUploadWithTag:uploadDatas:type:path:call:"
             landmarkType = "7">
          </BreakpointContent>
@@ -286,11 +286,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WKMobileProject/WKAPI/WKHttpRequest.m"
-            timestampString = "532666828.781698"
+            timestampString = "533098287.874658"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "489"
-            endingLineNumber = "489"
+            startingLineNumber = "487"
+            endingLineNumber = "487"
             landmarkName = "-fileUploadWithTag:uploadDatas:type:path:call:"
             landmarkType = "7">
             <Locations>
@@ -302,11 +302,11 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKAPI/WKHttpRequest.m"
-                  timestampString = "533094551.454018"
+                  timestampString = "533098287.970583"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "489"
-                  endingLineNumber = "489"
+                  startingLineNumber = "487"
+                  endingLineNumber = "487"
                   offsetFromSymbolStart = "2122">
                </Location>
                <Location
@@ -317,30 +317,14 @@
                   moduleName = "WKMobileProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mwi01/WKMobileProject/WKMobileProject/WKAPI/WKHttpRequest.m"
-                  timestampString = "533094551.455728"
+                  timestampString = "533098287.972172"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "489"
-                  endingLineNumber = "489"
+                  startingLineNumber = "487"
+                  endingLineNumber = "487"
                   offsetFromSymbolStart = "55">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WKMobileProject/WKAPI/WKModel.m"
-            timestampString = "532695471.072198"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "918"
-            endingLineNumber = "918"
-            landmarkName = "+MWFindDeviceInfo:block:"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

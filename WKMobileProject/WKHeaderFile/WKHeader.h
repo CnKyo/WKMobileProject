@@ -195,7 +195,7 @@ static NSString* const  kAFAppDotNetImgBaseURLString        = @"http://resource.
 static NSString* const  KAppFetchJPUSHService        = @"loginNotify";
 #pragma mark----****----本地Host api访问地址
 ///本地Host api访问地址
-static NSString* const kLocalAPIUrlString                 = @"www.lexiaoyuan.com/";
+static NSString* const kLocalAPIUrlString                 = @"http://www.lexiaoyuan.com/";
 //static NSString* const kLocalAPIUrlString                 = @"192.168.31.44/";
 #pragma mark----****----阿凡达数据APPKey
 ///阿凡达数据APPKey

@@ -21,6 +21,10 @@ typedef void (^TableArrBlock)(NSString *tableArr, MWBaseObj* info);
 @interface WKHttpRequest : AFHTTPSessionManager
 
 @property(nonatomic, strong) NSMutableDictionary *conDic;//存网络链接，便于取消
+/**
+ *  可接受的响应内容类型
+ */
+@property (nonatomic, copy) NSSet <NSString *> *acceptableContentTypes;
 ///本地api地址
 + (instancetype)initLocalApiclient;
 - (void)MWPostWithUrl:(NSString*)url withPara:(NSDictionary*)para block:(void(^)(MWBaseObj *info))block;
@@ -153,4 +157,16 @@ typedef void (^TableArrBlock)(NSString *tableArr, MWBaseObj* info);
  *  @param callback   返回值
  */
 -(void)postWithTag:(NSObject *)tag path:(NSString *)URLString parameters:(id)parameters constructingBodyWithBlockBack:(void (^)(id <AFMultipartFormData> formData))block call:(void (^)(NSError *error, id responseObject))callback;
+
+#pragma mark----****----重写请求方法
+/**
+ 重写请求方法
+
+ @param tag tag
+ @param URLString 请求地址
+ @param parameters 参数
+ @param callback 返回值　
+ */
+-(void)loadAPIWithTag:(NSObject *)tag path:(NSString *)URLString parameters:(id)parameters call:(void (^)(MWBaseObj* info))callback;
+
 @end

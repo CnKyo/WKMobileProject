@@ -772,6 +772,9 @@ static WKUser *g_user = nil;
      */
 + (void)MWRegistGetSchoolInfo:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block{
     MLLog(@"参数是：%@",para);
+//    [[WKHttpRequest initLocalApiclient] loadAPIWithTag:self path:@"controller/wash/wash_features_list.php" parameters:para call:^(MWBaseObj *info) {
+//
+//    }];
     [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/wash/wash_features_list.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
             NSMutableArray *mTempArr = [NSMutableArray new];
