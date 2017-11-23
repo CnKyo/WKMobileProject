@@ -245,11 +245,11 @@
 //是否是自动删除已过时的时间数据
 - (BOOL)isAutomaticallyDeletedWithModel:(id)model timeLabel:(ZJJTimeCountDownLabel *)timeLabel{
 
-    NSString *descript = [self timeStringWithModel:model timeLabel:timeLabel];
-    
-    if (timeLabel.isAutomaticallyDeleted && [descript isEqualToString:timeLabel.jj_description] && [self countDownTableView]) {
-        return YES;
-    }
+//    NSString *descript = [self timeStringWithModel:model timeLabel:timeLabel];
+//
+//    if (timeLabel.isAutomaticallyDeleted && [descript isEqualToString:timeLabel.jj_description] && [self countDownTableView]) {
+//        return YES;
+//    }
     return NO;
 }
 

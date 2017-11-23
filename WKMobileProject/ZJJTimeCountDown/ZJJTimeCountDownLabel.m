@@ -8,7 +8,7 @@
 
 #import "ZJJTimeCountDownLabel.h"
 
-static NSString *const kZJJTimeCountDownLabelDescription = @"活动已经结束！";
+static NSString *const kZJJTimeCountDownLabelDescription = @"任务已经结束！";
 
 @implementation ZJJTimeCountDownLabel
 

@@ -100,17 +100,18 @@
 
     }];
 }
-//移除过时数据
-- (void)removeOutDate{
-    
-    for (NSInteger i = mTableArr.count-1; i >= 0; i--) {
-        
-        TimeModel *model = mTableArr[i];
-        if ([self.countDown isOutDateWithModel:model]) {
-            [mTableArr removeObject:model];
-        }
-    }
-}
+////移除过时数据
+//- (void)removeOutDate{
+//
+//    for (NSInteger i = mTableArr.count-1; i >= 0; i--) {
+//
+//        TimeModel *model = mTableArr[i];
+//        if ([self.countDown isOutDateWithModel:model]) {
+//            [mTableArr removeObject:model];
+//        }
+//    }
+//}
+
 //- (ZJJTimeCountDown *)countDown{
 //    
 //    ZJJTimeCountDown *countDown = [super countDown];
@@ -155,7 +156,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.tableArr.count;
+    return mTableArr.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -229,6 +230,10 @@
         _countDown.delegate = self;
     }
     return _countDown;
+}
+- (void)scrollViewWithAutomaticallyDeleteModel:(id)model{
+    
+    MLLog(@"==model:%@===endTime=%@===",model,[model valueForKey:@"endTime"]);
 }
 - (void)dealloc {
     /// 2.销毁
