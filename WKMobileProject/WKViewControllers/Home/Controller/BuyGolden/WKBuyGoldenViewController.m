@@ -9,6 +9,7 @@
 #import "WKBuyGoldenViewController.h"
 #import "WKBuyGoldCell.h"
 #import "WKWashPayResultView.h"
+#import "UPPaymentControl.h"
 
 static float mDuration = 0.25;
 
@@ -130,6 +131,11 @@ static float mDuration = 0.25;
     [MWBaseObj MWBuyGold:para amdPayType:self.mGoldObj.mPayType block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
             [SVProgressHUD showSuccessWithStatus:info.err_msg];
+            if (self.mGoldObj.mPayType == 3) {
+                
+                [[UPPaymentControl defaultControl] startPay:@"支付信息" fromScheme:@"UPPayDemo" mode:@"01" viewController:self];
+
+            }
             [self popViewController];
         }else{
             [SVProgressHUD showErrorWithStatus:info.err_msg];

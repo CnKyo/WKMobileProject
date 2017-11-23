@@ -1241,6 +1241,7 @@
 @property(nonatomic,strong) NSString *              wash_time;            //!< 内容
 
 @end
+@class MWBaseObj;
 #pragma mark----****----微信支付对象
 @interface SWxPayInfo : NSObject
 /**
@@ -1280,6 +1281,8 @@
 @property (nonatomic,assign) int        pay_channel;
 
 @property (nonatomic,strong) NSString*  sn;
+///银联支付信息
+@property (nonatomic,strong) NSString*  tn;
 
 
 #pragma mark----****----微信支付方法
@@ -1289,6 +1292,19 @@
  @param payinfo 支付信息
  */
 + (void)gotoWXPayWithSRV:(SWxPayInfo*)payinfo;
+#pragma mark----****----支付宝支付方法
+/**
+ 支付宝支付方法
 
+ @param payinfo 支付信息
+ */
++ (void)gotoAliPay:(SWxPayInfo *)payinfo;
+#pragma mark----****----银联支付方法
+/**
+ 银联支付方法
+ 
+ @param payinfo 支付信息
+ */
++ (void)gotoUnionPay:(SWxPayInfo *)payinfo;
 @end
 

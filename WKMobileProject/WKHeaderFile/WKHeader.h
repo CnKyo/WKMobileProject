@@ -193,6 +193,9 @@ static NSString* const  kAFAppDotNetImgBaseURLString        = @"http://resource.
 
 #pragma mark----****----登录通知
 static NSString* const  KAppFetchJPUSHService        = @"loginNotify";
+#pragma mark----****----支付成功通知
+static NSString * const kPaySuccessNotification      = @"MyOrderPaySuccessNotification";
+
 #pragma mark----****----本地Host api访问地址
 ///本地Host api访问地址
 static NSString* const kLocalAPIUrlString                 = @"http://www.lexiaoyuan.com/";

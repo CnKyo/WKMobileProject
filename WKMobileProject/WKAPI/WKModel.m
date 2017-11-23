@@ -10,7 +10,10 @@
 #import <WXApiObject.h>
 #import <WXApi.h>
 #import <AlipaySDK/AlipaySDK.h>
+#import <AlipaySDK/AlipaySDK.h>
+#import <JPush/JPUSHService.h>
 
+#import "UPPaymentControl.h"
 @implementation WKBaseInfo
 
 /**
@@ -1034,12 +1037,19 @@ static WKUser *g_user = nil;
             if (mType == 1) {
                 if ([info.data isKindOfClass:[NSDictionary class]]) {
                     SWxPayInfo* wxpayinfo = [SWxPayInfo yy_modelWithDictionary:info.data];
+//                    if ([WXApi isWXAppInstalled]) {
+//
+//                    }
                     [SWxPayInfo gotoWXPayWithSRV:wxpayinfo];
                 }
                 
 
             }else if (mType == 2){
-                
+                if ([info.data isKindOfClass:[NSDictionary class]]) {
+                    SWxPayInfo* wxpayinfo = [SWxPayInfo yy_modelWithDictionary:info.data];
+        
+                    [SWxPayInfo gotoAliPay:wxpayinfo];
+                }
             }else{
                 
             }
@@ -1754,5 +1764,53 @@ static MWLocationInfo *mLocation = nil;
     payobj.package = @"Sign=WXPay";
     payobj.sign = payinfo.sign;
     [WXApi sendReq:payobj];
+}
+#pragma mark----****----支付宝支付方法
+/**
+ 支付宝支付方法
+ 
+ @param payinfo 支付信息
+ */
++ (void)gotoAliPay:(SWxPayInfo *)payinfo{
+    [[AlipaySDK defaultService] payOrder:payinfo.packages fromScheme:@"zerolife" callback:^(NSDictionary *resultDic) {
+        MLLog(@"xxx:%@",resultDic);
+        MWBaseObj *retobj = [[MWBaseObj alloc]init];
+        if (resultDic) {
+            if ( [[resultDic objectForKey:@"resultStatus"] intValue] == 9000 )
+                {
+                
+                retobj.err_msg = @"支付成功";
+                retobj.err_code = 200;
+                [[NSNotificationCenter defaultCenter] postNotificationName:kPaySuccessNotification object:nil];
+                [SVProgressHUD showSuccessWithStatus:retobj.err_msg];
+                
+                }
+            else
+                {
+                [SVProgressHUD showErrorWithStatus:[resultDic objectForKey:@"memo" ]];
+                
+                retobj.err_msg = [resultDic objectForKey:@"memo" ];
+                retobj.err_code = 500;
+                [SVProgressHUD showErrorWithStatus:retobj.err_msg];
+                
+                }
+        }else{
+            
+            retobj.err_msg = @"支付出现异常";
+            retobj.err_code = 500;
+            [SVProgressHUD showErrorWithStatus:retobj.err_msg];
+            
+        }
+        
+        
+    }];
+}
+#pragma mark----****----银联支付方法
+/**
+ 银联支付方法
+ 
+ @param payinfo 支付信息
+ */
++ (void)gotoUnionPay:(SWxPayInfo *)payinfo{
 }
 @end

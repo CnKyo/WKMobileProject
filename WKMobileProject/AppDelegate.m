@@ -22,6 +22,7 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <WXApi.h>
+#import <AlipaySDK/AlipaySDK.h>
 
 #import "WKGenericLoginViewController.h"
 #import "NSData+CRC32.h"
@@ -238,8 +239,21 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                 //交易取消
             }
         }];
+    }else if ([url.host isEqualToString:@"safepay"]){
+        ///支付宝支付结果
+        return YES;
+
+    }else{
+        ///微信支付结果
+        return  [WXApi handleOpenURL:url delegate:self];
+
     }
-    return YES;
+    return NO;
+}
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    MLLog(@"hhhhhhurl:%@",url);
+    return  [WXApi handleOpenURL:url delegate:self];
 }
     
     // NOTE: 9.0以后使用新API接口
@@ -257,8 +271,91 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                 //交易取消
             }
         }];
+    }else if ([[options objectForKey:@"UIApplicationOpenURLOptionsSourceApplicationKey"] isEqualToString:@"com.alipay.iphoneclient"]){
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url
+                                                  standbyCallback:^(NSDictionary *resultDic) {
+                                                      
+                                                      MLLog(@"xxx:%@",resultDic);
+                                                      
+                                                      MWBaseObj* retobj = nil;
+                                                      
+                                                      
+                                                      if (resultDic)
+                                                          {
+                                                          if ( [[resultDic objectForKey:@"resultStatus"] intValue] == 9000 )
+                                                              {
+                                                              
+                                                              [[NSNotificationCenter defaultCenter] postNotificationName:kPaySuccessNotification object:nil];
+                                                              MWBaseObj* retobj = [[MWBaseObj alloc]init];
+                                                              retobj.err_code = 200;
+                                                              retobj.err_msg = @"支付成功";
+                                                              [SVProgressHUD showSuccessWithStatus:retobj.err_msg];
+                                                              
+                                                              }
+                                                          else
+                                                              {
+                                                              [SVProgressHUD showErrorWithStatus:[resultDic objectForKey:@"memo" ]];
+                                                              retobj.err_msg = [resultDic objectForKey:@"memo" ];
+                                                              
+                                                              [SVProgressHUD showErrorWithStatus:retobj.err_msg];
+                                                              }
+                                                          }
+                                                      else
+                                                          {
+                                                          retobj.err_code = 500;
+                                                          retobj.err_msg = @"支付出现异常";
+                                                          
+                                                          [SVProgressHUD showErrorWithStatus:retobj.err_msg];
+                                                          }
+                                                  }];
+        
+        
+        return YES;
+    }else if([[options objectForKey:@"UIApplicationOpenURLOptionsSourceApplicationKey"] isEqualToString:@"com.tencent.xin"]){
+        
+        return  [WXApi handleOpenURL:url delegate:self];
     }
     return YES;
+    
     }
+
+- (void)onResp:(BaseResp *)resp{
+    if( [resp isKindOfClass: [PayResp class]] )
+        {
+        NSString *strMsg    =   [NSString stringWithFormat:@"errcode:%d errmsg:%@ payinfo:%@", resp.errCode,resp.errStr,((PayResp*)resp).returnKey];
+        MLLog(@"payresp:%@",strMsg);
+        
+        MWBaseObj* retobj = MWBaseObj.new;
+        if( resp.errCode == -1 )
+            {//
+                retobj.err_code = 500;
+                retobj.err_msg = @"支付出现异常";
+                [SVProgressHUD showErrorWithStatus:retobj.err_msg];
+                
+            }
+        else if( resp.errCode == -2 )
+            {
+            retobj.err_code = 500;
+            retobj.err_msg = @"用户取消了支付";
+            [SVProgressHUD showErrorWithStatus:retobj.err_msg];
+            
+            }
+        else
+            {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPaySuccessNotification object:nil];
+            
+            retobj.err_code = 200;
+            retobj.err_msg = @"支付成功";
+            [SVProgressHUD showSuccessWithStatus:retobj.err_msg];
+            
+            }
+        
+        
+        }
+    else
+        {
+        MLLog(@"may be err what class one onResp");
+        }
+}
 
 @end
