@@ -66,10 +66,11 @@
                     [self.tableArr addObject:model];
 
             }
+            [self.tableView reloadData];
+
         }else{
             [SVProgressHUD showErrorWithStatus:info.err_msg];
         }
-        [self.tableView reloadData];
 
     }];
     
@@ -91,10 +92,11 @@
                 [self.tableArr addObject:model];
                 
             }
+            [self.tableView reloadData];
+
         }else{
             [SVProgressHUD showErrorWithStatus:info.err_msg];
         }
-        [self.tableView reloadData];
 
     }];
 }
