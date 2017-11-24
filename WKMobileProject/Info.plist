@@ -27,7 +27,7 @@
 			<string>weixinShare</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wxf8feb845b3a4d04e</string>
+				<string>wx0bab4e7d58fccfac</string>
 			</array>
 		</dict>
 		<dict>
@@ -37,7 +37,7 @@
 			<string>weixinPay</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wxf8feb845b3a4d04e</string>
+				<string>wx0bab4e7d58fccfac</string>
 			</array>
 		</dict>
 		<dict>

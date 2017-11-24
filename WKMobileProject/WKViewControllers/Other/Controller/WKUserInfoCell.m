@@ -45,7 +45,7 @@
     self.mTreasure.text = [NSString stringWithFormat:@"%@",mUserInfo.rewards];
     self.mGold.text = [NSString stringWithFormat:@"%@个",mUserInfo.gold];
     self.mUserName.text = [NSString stringWithFormat:@"%@  %@",mUserInfo.member_name,mUserInfo.mobile];
-    [self.mAvator sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mUserInfo.user_img]] placeholderImage:nil];
+    [self.mAvator sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mUserInfo.user_img]] placeholderImage:WKDefaultImg];
     self.mLevel.text = [NSString stringWithFormat:@"会员等级：LV%@",mUserInfo.gradeid];
     
 }

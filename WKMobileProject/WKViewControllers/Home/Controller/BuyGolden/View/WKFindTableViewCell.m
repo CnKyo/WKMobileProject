@@ -25,7 +25,7 @@
    
     self.mName.text = mNews.func_title;
     self.mSource.text = [Util WKTimeIntervalToDate:mNews.add_time];
-    [self.mImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mNews.func_img]] placeholderImage:nil];
+    [self.mImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mNews.func_img]] placeholderImage:WKDefaultBannerImg];
     
 }
 @end

@@ -12,5 +12,6 @@
 
 @property(strong,nonatomic) MWDeviceInfo *mDeviceInfo;
 @property(strong,nonatomic) NSString *mCode;
-
+///扫描类型。 1:直接扫描过来。  2:预约洗衣机。
+@property(assign,nonatomic) NSInteger mType;
 @end

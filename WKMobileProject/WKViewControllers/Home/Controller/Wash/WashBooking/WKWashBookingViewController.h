@@ -9,5 +9,6 @@
 #import "WKBaseViewController.h"
 
 @interface WKWashBookingViewController : WKBaseViewController
-
+///设备code
+@property (strong,nonatomic) NSString *mCode;
 @end

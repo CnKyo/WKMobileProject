@@ -530,14 +530,16 @@
  @param block 返回值
  */
 + (void)MWFindSchoolList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr,MWSchoolInfo *mSchool))block;
-#pragma mark----****----查询洗衣机
+#pragma mark----****----查询洗衣机功能
 /**
- 查询洗衣机
+ 查询洗衣机功能
  
  @param para 参数
+ @param mtype 请求类型  1:直接扫描。 2:预约洗衣机
+
  @param block 返回值
  */
-+ (void)MWFindDeviceList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block;
++ (void)MWFindDeviceList:(NSDictionary *)para andType:(NSInteger)mtype block:(void(^)(MWBaseObj *info,NSArray *mArr))block;
 
 #pragma mark----****----查询我的预约洗衣订单
 /**
@@ -555,8 +557,14 @@
  @param block fanhuizhi
  */
 + (void)MWCcommitWashOrder:(NSDictionary *)para block:(void(^)(MWBaseObj *info,MWWashOrderObj *mOrderObj))block;
-    
-    
+#pragma mark----****----洗衣机支付订单
+/**
+ 洗衣机支付订单
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGoPayWashOrder:(NSDictionary *)para andPayType:(NSInteger)mType block:(void(^)(MWBaseObj *info,MWWashOrderObj *mOrderObj))block;
     
     
 #pragma mark----****----查询洗衣机信息
@@ -607,6 +615,7 @@
  @param block 返回值
  */
 + (void)MWWashToCode:(NSMutableDictionary *)para block:(void(^)(MWBaseObj *info,MWDeviceCode *mDeviceCode))block;
+
 #pragma mark----****----买金币
 /**
  买金币  支付类型mType: 1是微信支付，2是支付宝支付,3是银联支付

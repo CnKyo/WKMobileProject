@@ -22,7 +22,7 @@
 }
 
 - (void)setMActObj:(WKHome *)mActObj{
-    [self.mImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mActObj.banner_img]] placeholderImage:nil];
+    [self.mImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mActObj.banner_img]] placeholderImage:WKDefaultBannerImg];
     self.mName.text = mActObj.banner_title;
 }
 

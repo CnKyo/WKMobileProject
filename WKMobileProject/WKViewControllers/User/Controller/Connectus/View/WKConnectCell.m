@@ -32,7 +32,7 @@
     self.mAcount.text = mConnectObj.tel;
 }
 - (void)setMHelpObj:(MWHelpCenterObj *)mHelpObj{
-    [self.mImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mHelpObj.help_logo]] placeholderImage:nil];
+    [self.mImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mHelpObj.help_logo]] placeholderImage:WKDefaultImg];
 
     self.mName.text = mHelpObj.help_title;
     self.mAcount.text = mHelpObj.help_number;

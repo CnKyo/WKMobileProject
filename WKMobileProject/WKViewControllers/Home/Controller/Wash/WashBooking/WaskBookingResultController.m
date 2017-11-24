@@ -95,18 +95,22 @@
     [self bookingResult];
 }
 - (void)bookingResult{
-    
-    [self.tableArr removeAllObjects];
-    if ([WKUser currentUser].member_id.length>0) {
-        
-        NSMutableDictionary *para = [NSMutableDictionary new];
-        
-        [para setObject:_mDeviceInfo.wash_id forKey:@"wash_id"];
-    
-    
-        MLLog(@"参数是：%@",para);
+    NSMutableDictionary *para = [NSMutableDictionary new];
 
-        [MWBaseObj MWFindDeviceList:para block:^(MWBaseObj *info, NSArray *mArr) {
+    if (_mType == 1) {
+        
+        [para setObject:_mCode forKey:@"device_barcode"];
+    }else{
+        [para setObject:_mDeviceInfo.wash_id forKey:@"wash_id"];
+        
+    }
+    [self.tableArr removeAllObjects];
+    
+    if ([WKUser currentUser].member_id.length>0) {
+
+        MLLog(@"参数是：%@",para);
+        
+        [MWBaseObj MWFindDeviceList:para andType:_mType block:^(MWBaseObj *info, NSArray *mArr) {
             if (info.err_code == 0) {
                 [self.tableArr addObjectsFromArray:mArr];
             }else{
@@ -116,6 +120,7 @@
             [self.tableView reloadData];
         }];
     }
+   
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -235,9 +240,13 @@
 }
 - (void)mPayAction{
     MLLog(@"付款");
+    MWDeviceInfo *mPDevice = [MWDeviceInfo new];
     if (self.tableArr.count>0) {
-        MWDeviceInfo *mDevice = self.tableArr[0];
-        mWashID = mDevice.id;
+        if (mWashID.length==0) {
+           mPDevice  = self.tableArr[0];
+            mWashID = mPDevice.id;
+        }
+
         
     }
     if (mWashID.length == 0) {
@@ -245,7 +254,18 @@
         return;
     
     }
-    [MWBaseObj MWCcommitWashOrder:@{@"member_id":[WKUser currentUser].member_id,@"wash_id":_mDeviceInfo.wash_id,@"wash_feature":mWashID,@"device_barcode":@"0"} block:^(MWBaseObj *info,MWWashOrderObj *mOrderObj) {
+    if (_mCode.length==0) {
+        _mCode = @"0";
+    }
+
+    NSString *mWId = @"";
+    if (_mType == 1) {
+        mWId = @"0";
+    }else{
+       mWId = _mDeviceInfo.wash_id;
+    }
+    
+    [MWBaseObj MWCcommitWashOrder:@{@"member_id":[WKUser currentUser].member_id,@"wash_id":mWId,@"wash_feature":mWashID,@"device_barcode":_mCode} block:^(MWBaseObj *info,MWWashOrderObj *mOrderObj) {
         if (info.err_code == 0) {
             WKWashGoPayViewController *vc = [WKWashGoPayViewController new];
             vc.mOrderInfo = mOrderObj;

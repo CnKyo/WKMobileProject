@@ -33,7 +33,7 @@
 }
 
 - (void)setMUserInfo:(WKUser *)mUserInfo{
-    [self.mAvator sd_setImageWithURL:[NSURL URLWithString:mUserInfo.headimgurl] placeholderImage:nil];
+    [self.mAvator sd_setImageWithURL:[NSURL URLWithString:mUserInfo.headimgurl] placeholderImage:WKDefaultImg];
     self.mUserName.text = mUserInfo.member_name;
     self.mUserPhone.text = mUserInfo.mobile;
 }

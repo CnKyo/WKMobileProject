@@ -22,7 +22,7 @@
 }
 
 - (void)setMTask:(MWTaskObj *)mTask{
-    [self.mImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mTask.task_image]] placeholderImage:nil];
+    [self.mImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mTask.task_image]] placeholderImage:WKDefaultImg];
     self.mName.text = mTask.task_title;
     self.mTimes.text = [NSString stringWithFormat:@"剩余%@次",mTask.task_leave_num];
     self.mPrice.text = [NSString stringWithFormat:@"¥%@/次",mTask.task_price];

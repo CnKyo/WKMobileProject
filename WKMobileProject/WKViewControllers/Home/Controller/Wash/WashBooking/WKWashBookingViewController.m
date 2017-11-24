@@ -163,6 +163,8 @@
 
     WaskBookingResultController *vc = [WaskBookingResultController new];
     vc.mDeviceInfo = mDevice;
+    vc.mType = 2;
+    vc.mCode = _mCode;
     [self pushViewController:vc];
 }
 

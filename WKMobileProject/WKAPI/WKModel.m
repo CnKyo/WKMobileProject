@@ -846,9 +846,18 @@ static WKUser *g_user = nil;
  @param para 参数
  @param block 返回值
  */
-+ (void)MWFindDeviceList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block{
++ (void)MWFindDeviceList:(NSDictionary *)para andType:(NSInteger)mtype block:(void(^)(MWBaseObj *info,NSArray *mArr))block{
     MLLog(@"参数是：%@",para);
-    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/wash/wash_appointment.php" withPara:para block:^(MWBaseObj *info) {
+    NSString *mUrl = @"";
+    ///1：直接扫描。 2:预约洗衣机
+    if (mtype == 1) {
+        mUrl = @"controller/wash/wash_immediately.php";
+
+    }else{
+        mUrl = @"controller/wash/wash_appointment.php";
+
+    }
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:mUrl withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
             NSMutableArray *mTempArr = [NSMutableArray new];
             if ([[info.data objectForKey:@"wash_feature"] isKindOfClass:[NSArray class]]) {
@@ -903,6 +912,46 @@ static WKUser *g_user = nil;
         if (info.err_code == 0) {
             
 
+            if ([info.data isKindOfClass:[NSDictionary class]]) {
+                block(info,[MWWashOrderObj yy_modelWithDictionary:info.data]);
+            }else{
+                block(info,nil);
+            }
+
+        }else{
+            block(info,nil);
+        }
+    }];
+}
+#pragma mark----****----洗衣机支付订单
+/**
+ 洗衣机支付订单
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWGoPayWashOrder:(NSDictionary *)para andPayType:(NSInteger)mType block:(void(^)(MWBaseObj *info,MWWashOrderObj *mOrderObj))block{
+    MLLog(@"参数是：%@",para);
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/pay_order/pay_wash_order.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+//            if (mType == 1) {
+//                if ([info.data isKindOfClass:[NSDictionary class]]) {
+//                    SWxPayInfo* wxpayinfo = [SWxPayInfo yy_modelWithDictionary:info.data];
+//
+//                    [SWxPayInfo gotoWXPayWithSRV:wxpayinfo];
+//                }
+//
+//
+//            }else if (mType == 2){
+//                if ([info.data isKindOfClass:[NSDictionary class]]) {
+//                    SWxPayInfo* wxpayinfo = [SWxPayInfo yy_modelWithDictionary:info.data];
+//
+//                    [SWxPayInfo gotoAliPay:wxpayinfo];
+//                }
+//            }else{
+//
+//            }
+            
             if ([info.data isKindOfClass:[NSDictionary class]]) {
                 block(info,[MWWashOrderObj yy_modelWithDictionary:info.data]);
             }else{
@@ -1793,15 +1842,21 @@ static MWLocationInfo *mLocation = nil;
 #pragma ma rk----****----微信支付方法
 + (void)gotoWXPayWithSRV:(SWxPayInfo*)payinfo{
     PayReq *payobj = [[PayReq alloc] init];
-    payobj.partnerId = @"1336953201";
-    payobj.prepayId = payinfo.prepay_id;
-    payobj.nonceStr = payinfo.nonce_str;
-    payobj.timeStamp = payinfo.timeStamp;
+//    payobj.partnerId = @"1336953201";
+//    payobj.prepayId = payinfo.prepay_id;
+//    payobj.nonceStr = payinfo.nonce_str;
+//    payobj.timeStamp = payinfo.timeStamp;
+//    payobj.package = @"Sign=WXPay";
+//    payobj.sign = payinfo.sign;
+    payobj.partnerId = @"1486953152";
+    payobj.prepayId = @"wx20171124191320a8efb4819e0198022895";
+    payobj.nonceStr = @"3740wwdjnu0b2y58qfdemfvop94232zq";
+    payobj.timeStamp = 1511522000;
     payobj.package = @"Sign=WXPay";
-    payobj.sign = payinfo.sign;
+    payobj.sign = @"8BA54E66A0AA447D7318DD8A1C6E91E7";
     [WXApi sendReq:payobj];
 }
-#pragma mark----****----支付宝支付方法
+#pragma mark----****----支付宝支付方法 
 /**
  支付宝支付方法
  

@@ -466,8 +466,8 @@
             cell.mRIndex = indexPath.row*2+1;
 
         }
-        [cell.mLeftImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mN1.banner_img]] placeholderImage:nil];
-        [cell.mrightImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mN2.banner_img]] placeholderImage:nil];
+        [cell.mLeftImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mN1.banner_img]] placeholderImage:WKDefaultBannerImg];
+        [cell.mrightImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mN2.banner_img]] placeholderImage:WKDefaultBannerImg];
         
         
         return cell;
@@ -478,7 +478,7 @@
         WKHomeActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
         WKHome *mN = mActArr[indexPath.row];
 
-        [cell.mImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mN.banner_img]] placeholderImage:nil];
+        [cell.mImg sd_setImageWithURL:[NSURL URLWithString:[Util currentSourceImgUrl:mN.banner_img]] placeholderImage:WKDefaultBannerImg];
         return cell;
 
     }

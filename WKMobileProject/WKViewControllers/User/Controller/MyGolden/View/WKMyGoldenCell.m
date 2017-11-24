@@ -22,7 +22,15 @@
 }
 
 - (void)setMGold:(MWGoldListObj *)mGold{
-    self.mNum.text = [NSString stringWithFormat:@"+%@",mGold.money];
+    
+    if ([mGold.income_expenditure isEqualToString:@"1"]) {
+        self.mNum.text = [NSString stringWithFormat:@"+%@",mGold.money];
+
+    }else{
+        self.mNum.text = [NSString stringWithFormat:@"-%@",mGold.money];
+
+    }
+    
     self.mName.text = mGold.title;
     self.mTime.text = mGold.content;
 }

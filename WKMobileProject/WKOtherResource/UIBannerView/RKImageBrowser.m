@@ -86,12 +86,12 @@
         //        [imgView sd_setImageWithURL:[NSURL URLWithString:banner[@"img"]] placeholderImage:[UIImage imageNamed:@"home_banner_default"]];
         //设置图片
         if (index == 0) {
-             [imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",imgsAry[imgsAry.count-1]]] placeholderImage:nil];
+             [imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",imgsAry[imgsAry.count-1]]] placeholderImage:WKDefaultBannerImg];
         }else if (index == imgsAry.count+1) {
-            [imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",imgsAry[0]]] placeholderImage:nil];
+            [imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",imgsAry[0]]] placeholderImage:WKDefaultBannerImg];
 
         }else {
-            [imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",imgsAry[index-1]]] placeholderImage:nil];
+            [imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",imgsAry[index-1]]] placeholderImage:WKDefaultBannerImg];
 
         }
         

@@ -25,6 +25,8 @@ static float mDuration = 0.25;
     
     WKWashPayResultView *mSucessView;
     WKWashPayResultView *mErrorView;
+    
+    NSInteger mPayType;
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -47,7 +49,7 @@ static float mDuration = 0.25;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"去支付";
-    
+    mPayType = 0;
     self.view.backgroundColor = M_CO;
     self.navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
     
@@ -145,15 +147,43 @@ static float mDuration = 0.25;
 #pragma mark----****----去支付按钮代理方法
 - (void)WKPayWashViewDelegateWithPayBtnClicked{
     MLLog(@"去支付");
-    [self showSucessView];
+//    [self showSucessView];
 //    [self showErrorView];
+    NSString *mPay = @"";
+    if (mPayType == 1) {
+        mPay = @"wx_pay";
+    }else if (mPayType == 2){
+        
+        mPay = @"zfb_pay";
+
+    }else if (mPayType == 3){
+        
+        mPay = @"jb_pay";
+
+    }else{
+        mPay = @"union_pay";
+
+    }
+    [SVProgressHUD showWithStatus:@"正在支付..."];
+    
+    [MWBaseObj MWGoPayWashOrder:@{@"member_id":[WKUser currentUser].member_id,@"order_no":_mOrderInfo.order_no,@"pay_name":mPay} andPayType:mPayType block:^(MWBaseObj *info, MWWashOrderObj *mOrderObj) {
+        if (info.err_code == 0) {
+            [self showSucessView];
+        }else{
+             [self showErrorView];
+        }
+        [SVProgressHUD dismiss];
+    }];
+    
+    
 }
 - (void)WKPayWashViewDelegateCurrentPayType:(NSInteger)mType{
-    
+    mPayType = mType;
     switch (mType) {
         case 0:
         {
         MLLog(@"无");
+        
         }
             break;
         case 1:
@@ -169,6 +199,11 @@ static float mDuration = 0.25;
         case 3:
         {
         MLLog(@"金币");
+        }
+            break;
+        case 4:
+        {
+        MLLog(@"银联");
         }
             break;
             

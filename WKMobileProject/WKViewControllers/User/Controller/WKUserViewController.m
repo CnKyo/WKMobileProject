@@ -283,8 +283,8 @@
             cell.mRightImg.hidden = NO;
             
         }
-        [cell.mLeftImg sd_setImageWithURL:[NSURL URLWithString:mN1.thumbnails] placeholderImage:nil];
-        [cell.mRightImg sd_setImageWithURL:[NSURL URLWithString:mN2.thumbnails] placeholderImage:nil];
+        [cell.mLeftImg sd_setImageWithURL:[NSURL URLWithString:mN1.thumbnails] placeholderImage:WKDefaultBannerImg];
+        [cell.mRightImg sd_setImageWithURL:[NSURL URLWithString:mN2.thumbnails] placeholderImage:WKDefaultBannerImg];
         
         return cell;
     }else{
