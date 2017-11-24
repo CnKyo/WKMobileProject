@@ -63,8 +63,8 @@
 
     if ([self.delegate respondsToSelector:@selector(WKCustomPopViewWithCloseBtnAction)]) {
         [self.delegate WKCustomPopViewWithCloseBtnAction];
-        FDAlertView *alert = (FDAlertView *)self.superview;
-        [alert hide];
+//        FDAlertView *alert = (FDAlertView *)self.superview;
+//        [alert hide];
     }
     
     
@@ -74,8 +74,8 @@
 
     if ([self.delegate respondsToSelector:@selector(WKCustomPopViewWithOkBtnAction)]) {
         [self.delegate WKCustomPopViewWithOkBtnAction];
-        FDAlertView *alert = (FDAlertView *)self.superview;
-        [alert hide];
+//        FDAlertView *alert = (FDAlertView *)self.superview;
+//        [alert hide];
 
     }
 }

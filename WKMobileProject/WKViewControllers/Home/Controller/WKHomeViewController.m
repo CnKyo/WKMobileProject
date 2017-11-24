@@ -530,10 +530,10 @@
 - (void)WKHomeScrollerLabelDidSelected{
     MLLog(@"跑马灯");
     
-    WKWebViewController *vc = [WKWebViewController new];
-    vc.mURLString = @"http://cq.189.cn/cms/picAdv.htm?id=21329?gzh-cqwt";
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+//    WKWebViewController *vc = [WKWebViewController new];
+//    vc.mURLString = @"http://cq.189.cn/cms/picAdv.htm?id=21329?gzh-cqwt";
+//    vc.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:vc animated:YES];
 
 }
 /**

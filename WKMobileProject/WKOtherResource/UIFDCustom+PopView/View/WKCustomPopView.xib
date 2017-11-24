@@ -83,7 +83,6 @@
                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="ok:" destination="iN0-l3-epB" eventType="touchUpInside" id="Bq7-jw-JtJ"/>
                                 <action selector="shutdown:" destination="iN0-l3-epB" eventType="touchUpInside" id="jFS-zR-pEe"/>
                             </connections>
                         </button>

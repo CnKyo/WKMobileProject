@@ -35,10 +35,11 @@
         if (info.err_code == 0) {
             [SVProgressHUD showSuccessWithStatus:info.err_msg];
             [self.tableArr addObjectsFromArray:mList];
-            [self.tableView reloadData];
         }else{
             [SVProgressHUD showErrorWithStatus:info.err_msg];
         }
+        [self.tableView reloadData];
+
     }];
 }
 - (void)tableViewFooterReloadData{

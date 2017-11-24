@@ -475,13 +475,11 @@
  @param path <#path description#>
  @param callback <#callback description#>
  */
--(void)fileUploadWithTag:(NSObject *)tag uploadDatas:(NSArray *)uploadDatas type:(NSInteger)type path:(NSString *)path call:(TableArrBlock)callback{
+-(void)fileUploadWithTag:(NSObject *)tag uploadDatas:(NSArray *)uploadDatas type:(NSInteger)type call:(TableArrBlock)callback{
     WKUser *user = [WKUser currentUser];
-    if (user.member_id.length == 0) {
+    if (user.member_id.length > 0) {
         
         NSMutableDictionary* paramDic = [NSMutableDictionary dictionary];
-        [paramDic setObject:[NSString stringWithFormat:@"%ld",type] forKey:@"type"];
-        [paramDic setObject:path forKey:@"path"];
         [paramDic setObject:user.member_id forKey:@"user_id"];
         
         [self postWithTag:tag path:@"upLoadImg.php" parameters:paramDic constructingBodyWithBlockBack:^(id<AFMultipartFormData> formData) {
@@ -657,4 +655,5 @@
         callback(info);
     }];
 }
+
 @end

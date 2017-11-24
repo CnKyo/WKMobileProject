@@ -33,13 +33,13 @@
     NSString *mS = @"";
     if ([mWashObj.order_type isEqualToString:@"2"]) {
         mS = @"进行中";
-        self.mStatus.textColor = [UIColor lightTextColor];
+        self.mStatus.textColor = [UIColor colorWithRed:0.41 green:0.4 blue:0.39 alpha:1];
     }else if([mWashObj.order_type isEqualToString:@"3"]){
         mS = @"超时返还";
         self.mStatus.textColor = [UIColor colorWithRed:0.29 green:0.6 blue:0.94 alpha:1];
     }else{
         mS = @"已完成";
-        self.mStatus.textColor = [UIColor lightTextColor];
+        self.mStatus.textColor = [UIColor colorWithRed:0.41 green:0.4 blue:0.39 alpha:1];
     }
     self.mStatus.text = mS;
     NSDictionary* style1 = @{@"color": [UIColor colorWithRed:0.97 green:0.58 blue:0.27 alpha:1]};

@@ -88,7 +88,7 @@
             NSLog(@"registrationID获取成功：%@",registrationID);
             
             //向服务器更新registrationID
-//            [[APIClient sharedClient] userJpushUpdateWithTag:self jpush_id:registrationID call:^(APIObject *info) { }];
+            [MWBaseObj MWRegistJPush:@{@"registId":registrationID} block:^(MWBaseObj *info) {}];
             
         } else
             NSLog(@"registrationID获取失败，code：%d",resCode);

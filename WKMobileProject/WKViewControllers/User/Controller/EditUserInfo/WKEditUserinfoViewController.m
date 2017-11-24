@@ -148,7 +148,7 @@
     MLLog(@"结果是：%@",assets);
     if (photos.count>0) {
         UIImage *mSelectedImage = photos[0];
-        [self upLoadImage:UIImageJPEGRepresentation(mSelectedImage, 1.0)];
+        [self upLoadImage:UIImageJPEGRepresentation(mSelectedImage, 0.2)];
         mHeaderImg = mSelectedImage;
         [self.tableView reloadData];
     }
@@ -182,20 +182,23 @@
 - (void)upLoadImage:(NSData *)mImgData{
     [SVProgressHUD showWithStatus:@"文件上传中..."];
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"yyyyMMddHHmmss";
-    NSString *timeStr = [formatter stringFromDate:[NSDate date]];
-    NSString *fileName = [NSString stringWithFormat:@"%@_0.png",timeStr];
+    NSArray *arr = [NSArray arrayWithObject:mImgData];
 
-    
-    [[WKHttpRequest initLocalApiclient] MWPostFileWithUrl:@"upLoadImg" andPara:@{@"userId":[WKUser currentUser].member_id} fileData:mImgData name:@"uploadFile0" fileName:fileName fileType:@"image/jpg/png" success:^(id responseObject) {
-        if (responseObject) {
-            MLLog(@"responseObject:%@",responseObject);
-            [SVProgressHUD dismiss];
+    [[WKHttpRequest initLocalApiclient] fileUploadWithTag:self uploadDatas:arr type:1 call:^(NSString *tableArr, MWBaseObj *info) {
+        if (info.err_code == 0) {
+            [SVProgressHUD showSuccessWithStatus:@"图片上传成功！"];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
         }
-    } fail:^{
-        MLLog(@"error:");
-        [SVProgressHUD dismiss];
     }];
+//    [[WKHttpRequest initLocalApiclient] MWPostFileWithUrl:@"upLoadImg" andPara:@{@"userId":[WKUser currentUser].member_id} fileData:mImgData name:@"uploadFile0" fileName:fileName fileType:@"image/jpg/png" success:^(id responseObject) {
+//        if (responseObject) {
+//            MLLog(@"responseObject:%@",responseObject);
+//            [SVProgressHUD dismiss];
+//        }
+//    } fail:^{
+//        MLLog(@"error:");
+//        [SVProgressHUD dismiss];
+//    }];
 }
 @end

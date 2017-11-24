@@ -155,7 +155,6 @@
     
 }
 - (void)tableViewHeaderReloadData{
-    [self removeAlert];
 
     [self.tableArr removeAllObjects];
 

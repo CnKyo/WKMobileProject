@@ -146,7 +146,7 @@ typedef void (^TableArrBlock)(NSString *tableArr, MWBaseObj* info);
  @param path 文件路径
  @param callback 返回值
  */
--(void)fileUploadWithTag:(NSObject *)tag uploadDatas:(NSArray *)uploadDatas type:(NSInteger)type path:(NSString *)path call:(TableArrBlock)callback;
+-(void)fileUploadWithTag:(NSObject *)tag uploadDatas:(NSArray *)uploadDatas type:(NSInteger)type call:(TableArrBlock)callback;
 /**
  *  上传图片方法
  *
@@ -168,5 +168,15 @@ typedef void (^TableArrBlock)(NSString *tableArr, MWBaseObj* info);
  @param callback 返回值　
  */
 -(void)loadAPIWithTag:(NSObject *)tag path:(NSString *)URLString parameters:(id)parameters call:(void (^)(MWBaseObj* info))callback;
-
+#pragma mark----****----上传图片方法
+/**
+ *  上传图片方法
+ *
+ *  @param tag        tag
+ *  @param URLString  请求地址
+ *  @param parameters 参数
+ *  @param block      返回值
+ *  @param callback   返回值
+ */
+-(void)postWithTag:(NSObject *)tag path:(NSString *)URLString parameters:(id)parameters constructingBodyWithBlockBack:(void (^)(id <AFMultipartFormData> formData))block call:(void (^)(NSError *error, id responseObject))callback;
 @end

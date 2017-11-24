@@ -755,7 +755,7 @@
  @param para 参数
  @param block 返回值
  */
-+ (void)MWGetMyTaskOrderDetail:(NSDictionary *)para block:(void(^)(MWBaseObj *info,MWTaskObj *mTaskDetailObj))block;
++ (void)MWGetMyTaskOrderDetail:(NSDictionary *)para block:(void(^)(MWBaseObj *info,MWTaskObj *mTaskDetailObj,NSArray *mArr))block;
 #pragma mark----****----  获取我的财富值
 /**
  获取我的财富值
@@ -1308,3 +1308,8 @@
 + (void)gotoUnionPay:(SWxPayInfo *)payinfo;
 @end
 
+@interface MWTaskContent : NSObject
+@property (nonatomic,strong) NSString*  mTitle;
+@property (nonatomic,strong) NSString*  mContent;
+
+@end

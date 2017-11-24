@@ -1494,16 +1494,52 @@ static WKUser *g_user = nil;
  @param para 参数
  @param block 返回值
  */
-+ (void)MWGetMyTaskOrderDetail:(NSDictionary *)para block:(void(^)(MWBaseObj *info,MWTaskObj *mTaskDetailObj))block{
++ (void)MWGetMyTaskOrderDetail:(NSDictionary *)para block:(void(^)(MWBaseObj *info,MWTaskObj *mTaskDetailObj,NSArray *mArr))block{
     MLLog(@"参数是：%@",para);
     
     [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/task_member/index.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
+            NSMutableArray *tempArr = [NSMutableArray new];
+            if ([info.data isKindOfClass:[NSDictionary class]]) {
+                if ([[[info.data objectForKey:@"task_list"] objectForKey:@"task_describe"] isKindOfClass:[NSString class]]) {
+                    NSString *mTT = [[info.data objectForKey:@"task_list"] objectForKey:@"task_describe"];
+                    if (mTT.length>0) {
+                        MWTaskContent *mTask = [MWTaskContent new];
 
-            block(info,[MWTaskObj yy_modelWithDictionary:[info.data objectForKey:@"task_list"]]);
+                        mTask.mTitle = @"任务描述";
+                        mTask.mContent = mTT;
+                        [tempArr addObject:mTask];
+                    }
+                    
+                }
+                if ([[[info.data objectForKey:@"task_list"] objectForKey:@"task_step"] isKindOfClass:[NSString class]]) {
+                    NSString *mTT = [[info.data objectForKey:@"task_list"] objectForKey:@"task_step"];
+
+                    if (mTT.length>0) {
+                        MWTaskContent *mTask = [MWTaskContent new];
+
+                        mTask.mTitle = @"任务步骤";
+                        mTask.mContent = mTT;
+                        [tempArr addObject:mTask];
+                    }
+       
+                }
+                if ([[[info.data objectForKey:@"task_list"] objectForKey:@"task_notices"] isKindOfClass:[NSString class]]) {
+                    NSString *mTT = [[info.data objectForKey:@"task_list"] objectForKey:@"task_notices"];
+                    if (mTT.length>0) {
+                        MWTaskContent *mTask = [MWTaskContent new];
+
+                        mTask.mTitle = @"注意事项";
+                        mTask.mContent = mTT;
+                        [tempArr addObject:mTask];
+                    }
+           
+                }
+            }
+            block(info,[MWTaskObj yy_modelWithDictionary:[info.data objectForKey:@"task_list"]],tempArr);
             
         }else{
-            block(info,nil);
+            block(info,nil,nil);
         }
     }];
 }
@@ -1754,7 +1790,7 @@ static MWLocationInfo *mLocation = nil;
 @end
 
 @implementation SWxPayInfo
-#pragma mark----****----微信支付方法
+#pragma ma rk----****----微信支付方法
 + (void)gotoWXPayWithSRV:(SWxPayInfo*)payinfo{
     PayReq *payobj = [[PayReq alloc] init];
     payobj.partnerId = @"1336953201";
@@ -1813,4 +1849,6 @@ static MWLocationInfo *mLocation = nil;
  */
 + (void)gotoUnionPay:(SWxPayInfo *)payinfo{
 }
+@end
+@implementation MWTaskContent
 @end

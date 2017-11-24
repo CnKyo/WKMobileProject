@@ -198,8 +198,10 @@ static NSString * const kPaySuccessNotification      = @"MyOrderPaySuccessNotifi
 
 #pragma mark----****----本地Host api访问地址
 ///本地Host api访问地址
-static NSString* const kLocalAPIUrlString                 = @"http://www.lexiaoyuan.com/";
+//static NSString* const kLocalAPIUrlString                 = @"http://www.lexiaoyuan.com/";
 //static NSString* const kLocalAPIUrlString                 = @"http://192.168.31.44/";
+static NSString* const kLocalAPIUrlString                 = @"http://xyjtest.aboutnew.net/AndroidTest";
+
 #pragma mark----****----阿凡达数据APPKey
 ///阿凡达数据APPKey
 static NSString* const kAFanDaAppKey                 = @"015b8433f2294d4f90d6b25a262a7af7";

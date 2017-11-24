@@ -74,11 +74,12 @@
 }
 - (void)tableViewHeaderReloadData{
     MLLog(@"刷头");
-        
+    [self.tableArr  removeAllObjects];
     [SVProgressHUD showWithStatus:@"正在加载中..."];
-    [MWBaseObj MWGetMyTaskOrderDetail:@{@"task_id":_mTask.task_id} block:^(MWBaseObj *info,MWTaskObj *mTaskDetailObj) {
+    [MWBaseObj MWGetMyTaskOrderDetail:@{@"task_id":_mTask.task_id} block:^(MWBaseObj *info,MWTaskObj *mTaskDetailObj,NSArray *mArr) {
         if (info.err_code == 0) {
             mMyTask = mTaskDetailObj;
+            [self.tableArr addObjectsFromArray:mArr];
             [SVProgressHUD showSuccessWithStatus:info.err_msg];
            
         }else{
@@ -119,7 +120,7 @@
         if (_mStatus == Going) {
             return 1;
         }else{
-            return 1;
+            return self.tableArr.count;
         }
     }
     
@@ -188,8 +189,9 @@
             
             WKTaskDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.mTitle.text = mMyTask.task_title;
-            cell.mContent.text = mMyTask.task_step;
+            MWTaskContent *mTask = self.tableArr[indexPath.row];
+            cell.mTitle.text = mTask.mTitle;
+            cell.mContent.text = mTask.mContent;
             return cell;
         }
         
