@@ -1017,7 +1017,24 @@ static WKUser *g_user = nil;
         }
     }];
 }
-
+#pragma mark----****----验证洗衣机
+/**
+ 验证洗衣机
+ 
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWVeryfyDevice:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
+    MLLog(@"参数是：%@",para);
+    
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/wash/wash_machine.php" withPara:para block:^(MWBaseObj *info) {
+        if (info.err_code == 0) {
+            block(info);
+        }else{
+            block(info);
+        }
+    }];
+}
 /**
  操作洗衣机
  
@@ -1025,7 +1042,9 @@ static WKUser *g_user = nil;
  @param block 返回值
  */
 + (void)MWControlDevice:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block{
-    [[WKHttpRequest initClient] WKMWPostDataWithUrl:@"wx/device_tasks.php" withPara:para block:^(MWBaseObj *info) {
+    MLLog(@"参数是：%@",para);
+
+    [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/wash/wash_start.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
             block(info);
         }else{

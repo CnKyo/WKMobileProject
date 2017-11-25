@@ -51,19 +51,19 @@
                             </constraints>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_yylc" translatesAutoresizingMaskIntoConstraints="NO" id="dUC-GN-pqv">
-                            <rect key="frame" x="20" y="100" width="335" height="135"/>
+                            <rect key="frame" x="20" y="100" width="335" height="120"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="135" id="5Ky-Cd-Itm"/>
+                                <constraint firstAttribute="height" constant="120" id="5Ky-Cd-Itm"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在预约付款" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQL-KT-ql1">
-                            <rect key="frame" x="8" y="274" width="359" height="23"/>
+                            <rect key="frame" x="8" y="259" width="359" height="23"/>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTS-l5-1ee">
-                            <rect key="frame" x="107" y="327" width="160" height="45"/>
+                            <rect key="frame" x="107" y="312" width="160" height="45"/>
                             <color key="backgroundColor" red="0.97254901959999995" green="0.58431372550000005" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="DIs-hk-f1T"/>

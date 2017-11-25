@@ -591,6 +591,14 @@
  @param block 返回值
  */
 + (void)MWFindTaskList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mArr))block;
+#pragma mark----****----验证洗衣机
+/**
+ 验证洗衣机
+
+ @param para 参数
+ @param block 返回值
+ */
++ (void)MWVeryfyDevice:(NSDictionary *)para block:(void(^)(MWBaseObj *info))block;
 #pragma mark----****----操作洗衣机
 /**
  操作洗衣机

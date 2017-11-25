@@ -15,4 +15,7 @@
  */
 @property (assign,nonatomic) MWScanType mTyp;
 
+@property (nonatomic,strong) void(^block)(NSInteger isOk,NSString *mCode);
+
+
 @end
