@@ -29,6 +29,7 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"个人中心";
     mHeaderImg = [UIImage new];
+    mHeaderImg = [UIImage imageNamed:@"default_header_img"];
     [self addTableView];
     UINib   *nib = [UINib nibWithNibName:@"WKEditUserInfoCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
@@ -81,9 +82,6 @@
     }
     
     return cell;
-   
-    
-    
     
 }
 

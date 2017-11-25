@@ -58,7 +58,7 @@ static float mDuration = 0.25;
     
     NSDictionary* style1 = @{@"color": [UIColor colorWithRed:0.97 green:0.58 blue:0.27 alpha:1]};
     mView.mDetailTx.attributedText = [[NSString stringWithFormat:@"%@ | %@ | <color> %@元</color>",self.mOrderInfo.location_name,self.mOrderInfo.wash_feature_name,self.mOrderInfo.order_price] attributedStringWithStyleBook:style1];
-    mView.mCountTimeTx.hidden = YES;
+//    mView.mCountTimeTx.hidden = YES;
     
     mView.mPayPriceTx.attributedText = [[NSString stringWithFormat:@"应付款金额：<color> %@元</color>",self.mOrderInfo.order_price] attributedStringWithStyleBook:style1];
     

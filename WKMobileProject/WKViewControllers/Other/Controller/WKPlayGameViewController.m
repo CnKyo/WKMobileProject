@@ -196,7 +196,7 @@
             [SVProgressHUD dismiss];
             NSURL *path = [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"html"];
             WKWebViewController *vc = [WKWebViewController new];
-            vc.mPath = path;
+            vc.mURLString = mGame.game_url;
             
             [self.navigationController pushViewController:vc animated:YES];
         }else{
