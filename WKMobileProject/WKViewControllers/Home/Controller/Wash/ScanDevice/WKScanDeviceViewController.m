@@ -275,21 +275,21 @@ const static CGFloat animationTime = 2.5f;//扫描时长
 }
 - (void)judgeString:(NSString *)mText{
     if (_mTyp == 2) {
-//            BOOL mJ = [Util WKJudgeString:mText toString:@"q="];
-//            if (mJ) {
-//                NSString *mCurrentString = [Util WK_StringToString:mText toString:@"q="];
+            BOOL mJ = [Util WKJudgeString:mText toString:@"q="];
+            if (mJ) {
+                NSString *mCurrentString = [Util WK_StringToString:mText toString:@"q="];
 //                [self showSucess:@"有"];
-//                MLLog(@"包含了：%@",mCurrentString);
+                MLLog(@"包含了：%@",mCurrentString);
                 [SVProgressHUD showWithStatus:@"正在操作中..."];
         
                 NSMutableDictionary *para = [NSMutableDictionary new];
                 [para setObject:[WKUser currentUser].member_id forKey:@"member_id"];
-                [para setObject:@"eHgyMDE3MDkwNTAyNDUxNzYwNzM4NDA4" forKey:@"device_barcode"];
+                [para setObject:mCurrentString forKey:@"device_barcode"];
                 [MWBaseObj MWVeryfyDevice:para block:^(MWBaseObj *info) {
                     if (info.err_code == 0) {
                         [SVProgressHUD showSuccessWithStatus:info.err_msg];
                         [self popViewController];
-                        self.block(2,@"eHgyMDE3MDkwNTAyNDUxNzYwNzM4NDA4");
+                        self.block(2,mCurrentString);
                     }else{
                         [SVProgressHUD showErrorWithStatus:info.err_msg];
                         
@@ -297,44 +297,32 @@ const static CGFloat animationTime = 2.5f;//扫描时长
                     [self startScan];
                 }];
         
-//
-//            }else{
-//                [self showError:@"没有"];
-//                MLLog(@"不包含");
-//
-//            }
+
+            }else{
+                [self showError:@"未知设备，请重新扫描！"];
+                MLLog(@"不包含");
+                [self startScan];
+
+            }
     }else{
-        //    BOOL mJ = [Util WKJudgeString:mText toString:@"q="];
-        //    if (mJ) {
-        //        NSString *mCurrentString = [Util WK_StringToString:mText toString:@"q="];
-        //        [self showSucess:@"有"];
-        //        MLLog(@"包含了：%@",mCurrentString);
-        //        [SVProgressHUD showWithStatus:@"正在操作中..."];
-        //
-        //        NSMutableDictionary *para = [NSMutableDictionary new];
-        //        [para setObject:[WKUser currentUser].user_id forKey:@"uid"];
-        //        [para setObject:[WKUser currentUser].token forKey:@"token"];
-        //
-        //
-        //        [MWBaseObj MWFindTaskList:para block:^(MWBaseObj *info, NSArray *mArr) {
-        //            if (info.err_code == 1) {
-        //                [SVProgressHUD dismiss];
-        WaskBookingResultController *vc = [WaskBookingResultController new];
-        //                vc.mCode = mCurrentString;
-        vc.mCode = @"eHgyMDE3MDkwNTAyNDUxNzYwNzM4NDA4";
-        vc.mType = 1;
-        [self pushViewController:vc];
-        //            }else{
-        //                [SVProgressHUD showErrorWithStatus:info.err_msg];
-        //            }
-        //        }];
-        //
-        //
-        //    }else{
-        //        [self showError:@"没有"];
-        //        MLLog(@"不包含");
-        //
-        //    }
+        BOOL mJ = [Util WKJudgeString:mText toString:@"q="];
+        if (mJ) {
+            NSString *mCurrentString = [Util WK_StringToString:mText toString:@"q="];
+//            [self showSucess:@"有"];
+            MLLog(@"包含了：%@",mCurrentString);
+            
+            WaskBookingResultController *vc = [WaskBookingResultController new];
+            vc.mCode = mCurrentString;
+//            vc.mCode = @"eHgyMDE3MDkwNTAyNDUxNzYwNzM4NDA4";
+            vc.mType = 1;
+            [self pushViewController:vc];
+            
+        }else{
+            [self showError:@"未知设备，请重新扫描！"];
+            MLLog(@"不包含");
+            [self startScan];
+            
+        }
     }
 
 }
