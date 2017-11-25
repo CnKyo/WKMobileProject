@@ -50,13 +50,16 @@
 
     // Do any additional setup after loading the view.
     
+    [self initView];
+    [self loadData];
+}
+- (void)initView{
+    [mView removeFromSuperview];
     mView = [WKOperatorMyWashBookingView initview];
     mView.frame = CGRectMake(0, 64, DEVICE_Width, DEVICE_Height-64);
     [self.view addSubview:mView];
     [mView.mBtnAction addTarget:self action:@selector(mBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self loadData];
 }
-
 - (void)loadData{
     if (mDeviceStatus == 1) {
         [SVProgressHUD showWithStatus:@"正在加载中..."];
@@ -84,6 +87,8 @@
     
 }
 - (void)updatePage{
+    [self initView];
+
     MLLog(@"%@",mWashOrder)
 
     if (mDeviceStatus == 2) {
