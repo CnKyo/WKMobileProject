@@ -32,7 +32,7 @@
     mSegmentView = [WKSegmentControl initWithSegmentControlFrame:CGRectMake(0, 0, DEVICE_Width, 50) andTitleWithBtn:@[@"执行中",@"已提交",@"已结束"] andBackgroudColor:[UIColor whiteColor] andBtnSelectedColor:[UIColor whiteColor] andBtnTitleColor:[UIColor blackColor] andUndeLineColor: [UIColor whiteColor] andBtnTitleFont:[UIFont systemFontOfSize:15] andInterval:5 delegate:self andIsHiddenLine:YES andType:4];
     
     mTableView = [UITableView new];
-    mTableView.frame = CGRectMake(0, 64, DEVICE_Width, DEVICE_Height-64);
+    mTableView.frame = CGRectMake(0, 0, DEVICE_Width, DEVICE_Height);
     mTableView.delegate = self;
     mTableView.dataSource = self;
     mTableView.separatorStyle = UITableViewCellSelectionStyleNone;

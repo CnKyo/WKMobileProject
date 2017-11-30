@@ -1404,8 +1404,11 @@ static WKUser *g_user = nil;
             }else{
                 if ([info.data isKindOfClass:[NSDictionary class]]) {
                     
-                    if ([[info.data objectForKey:@"h_list"] isKindOfClass:[NSDictionary class]]) {
-                        [mTempArr addObject:[MWHelpCenterObj yy_modelWithDictionary:[info.data objectForKey:@"h_list"]]];
+                    if ([[info.data objectForKey:@"h_list"] isKindOfClass:[NSArray class]]) {
+                        for (NSDictionary *dic in [info.data objectForKey:@"h_list"]) {
+                            [mTempArr addObject:[MWHelpCenterObj yy_modelWithDictionary:dic]];
+
+                        }
                         
                     }
                     

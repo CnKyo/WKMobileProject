@@ -1823,7 +1823,7 @@
 //     */
 + (NSString *)currentSourceImgUrl:(NSString *)mUrl{
     if (mUrl.length > 0){
-        return [NSString stringWithFormat:@"%@%@",kLocalAPIUrlString,[mUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        return [NSString stringWithFormat:@"%@%@",kSourceUrlString,[mUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     }else{
         return @"";
     }

@@ -28,6 +28,7 @@
 
 #import "OnlyLocationManager.h"
 #import "CurentLocation.h"
+#import "WKTaskDetailViewController.h"
 @interface WKHomeViewController ()<WKHomeTypeHeaderCellDelegate,WKHomeDecomandedCellDelegate,NSNetworkMonitorProtocol,MMApBlockCoordinate>
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
@@ -458,11 +459,15 @@
         WKHome *mN2;
         if ((indexPath.row+1)*2>mRecommend.count) {
             cell.mrightImg.hidden = YES;
+            cell.mRightBtn.hidden = YES;
+
             cell.mIndex = indexPath.row*2;
 
         }else{
             mN2 = mRecommend[indexPath.row*2+1];
             cell.mrightImg.hidden = NO;
+            cell.mRightBtn.hidden = NO;
+
             cell.mRIndex = indexPath.row*2+1;
 
         }
@@ -491,13 +496,20 @@
         MLLog(@"%ld行",indexPath.row);
         
 
-        WKHome *mN = mActArr[indexPath.row];
-        if (mN.banner_skip_content.length>0 || mN.banner_skip_content !=nil) {
-            WKWebViewController *vc = [WKWebViewController new];
-            vc.mURLString = mN.banner_skip_content;
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
+//        WKHome *mN = mActArr[indexPath.row];
+//        if (mN.banner_skip_content.length>0 || mN.banner_skip_content !=nil) {
+//            WKWebViewController *vc = [WKWebViewController new];
+//            vc.mURLString = mN.banner_skip_content;
+//            vc.hidesBottomBarWhenPushed = YES;
+//            [self.navigationController pushViewController:vc animated:YES];
+//        }
+        MLLog(@"点击了%ld行",indexPath.row);
+        WKTaskDetailViewController *vc = [WKTaskDetailViewController new];
+        vc.mType = WKActivityDetail;
+        vc.mAct = mActArr[indexPath.row];
+        vc.hidesBottomBarWhenPushed = YES;
+        
+        [self.navigationController pushViewController:vc animated:YES];
        
     }
     

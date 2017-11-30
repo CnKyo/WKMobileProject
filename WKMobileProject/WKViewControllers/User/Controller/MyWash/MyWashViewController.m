@@ -137,7 +137,10 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.delegate = self;
     cell.mIndexPath = indexPath;
+    if (self.tableArr.count != 0) {
     [cell setMWashObj:self.tableArr[indexPath.row]];
+    }
+    
     return cell;
     
 }

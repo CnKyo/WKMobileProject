@@ -283,6 +283,10 @@
             [SVProgressHUD showErrorWithStatus:@"请输入手机号码！"];
             return;
         }
+        if (![Util isMobileNumber:mUserInfo.mobile]) {
+            [SVProgressHUD showErrorWithStatus:@"请输入手机号码！"];
+            return;
+        }
         [SVProgressHUD showWithStatus:@"正在获取发送验证码..."];
         int mType;
         if (self.mLoginType == WKRegist) {
@@ -303,12 +307,17 @@
         case 5:
         {
         
-        if (mUserInfo.password.length<=0 || mUserInfo.mobile.length<=0 || mUserInfo.verifycode.length <= 0) {
+        if (mUserInfo.password.length<=0 || mUserInfo.mobile.length<=0 || mUserInfo.verifycode.length <= 0 || mShoolObj.schoolid.length == 0 || mUserInfo.recommender_mobile.length == 0) {
             [SVProgressHUD showErrorWithStatus:@"请完善注册信息！"];
             return;
         }else{
             [SVProgressHUD showWithStatus:@"正在注册..."];
-            
+            if (mShoolObj.schoolid.length == 0) {
+                mShoolObj.schoolid = @"0";
+            }
+            if (mShoolObj.schoolname.length == 0) {
+                mShoolObj.schoolname = @"0";
+            }
             [MWBaseObj MWRegist:@{@"mobile":mUserInfo.mobile,@"password":mUserInfo.password,@"verifycode":mUserInfo.verifycode,@"school_name":mShoolObj.schoolname,@"school_id":mShoolObj.schoolid,@"recommender_mobile":mUserInfo.recommender_mobile} block:^(MWBaseObj *info) {
                 if (info.err_code == 0) {
                     [SVProgressHUD showSuccessWithStatus:@"注册成功,请登录!"];

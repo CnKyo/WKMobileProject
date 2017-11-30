@@ -206,6 +206,8 @@ static NSString * const kPaySuccessNotification      = @"MyOrderPaySuccessNotifi
 //static NSString* const kLocalAPIUrlString                 = @"http://192.168.31.44/";
 static NSString* const kLocalAPIUrlString                 = @"http://xyjtest.aboutnew.net/AndroidTest";
 
+static NSString* const kSourceUrlString                 = @"http://xyjtest02.aboutnew.net";
+
 #pragma mark----****----阿凡达数据APPKey
 ///阿凡达数据APPKey
 static NSString* const kAFanDaAppKey                 = @"015b8433f2294d4f90d6b25a262a7af7";

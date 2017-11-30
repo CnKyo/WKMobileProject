@@ -209,8 +209,6 @@
         [self.tableView headerEndRefreshing];
     }];
     
-    
-    
 }
 - (void)tableViewFooterReloadData{
     

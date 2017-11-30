@@ -25,7 +25,7 @@
     UINib   *nib = [UINib nibWithNibName:@"WKUserMsgCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
     [self addTableViewHeaderRefreshing];
-    [self addTableViewFootererRefreshing];
+//    [self addTableViewFootererRefreshing];
     
 }
 - (void)tableViewHeaderReloadData{
@@ -35,10 +35,11 @@
         if (info.err_code == 0) {
             [SVProgressHUD showSuccessWithStatus:info.err_msg];
             [self.tableArr addObjectsFromArray:mList];
+            [self.tableView reloadData];
+
         }else{
             [SVProgressHUD showErrorWithStatus:info.err_msg];
         }
-        [self.tableView reloadData];
 
     }];
 }
@@ -109,8 +110,10 @@
     
     WKUserMsgCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
-    [cell setMMSG:self.tableArr[indexPath.row]];
+    if (self.tableArr.count != 0) {
+        [cell setMMSG:self.tableArr[indexPath.row]];
+    }
+    
     return cell;
     
     

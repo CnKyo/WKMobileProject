@@ -79,7 +79,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uIB-0i-EDM">
-                        <rect key="frame" x="8" y="163" width="304" height="210"/>
+                        <rect key="frame" x="8" y="163" width="304" height="90"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择支付方式：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8Q-Fh-Plq">
                                 <rect key="frame" x="15" y="15" width="281" height="18"/>
@@ -115,27 +115,27 @@
                                     <action selector="mSeclectedBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="HDS-v2-enE"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eyz-Xd-uc4">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eyz-Xd-uc4">
                                 <rect key="frame" x="15" y="97" width="274" height="1"/>
                                 <color key="backgroundColor" red="0.90026319030000002" green="0.92770570519999995" blue="0.97168630359999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="NPt-Hi-miP"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_alipay" translatesAutoresizingMaskIntoConstraints="NO" id="VAH-7D-RVx">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_alipay" translatesAutoresizingMaskIntoConstraints="NO" id="VAH-7D-RVx">
                                 <rect key="frame" x="15" y="111" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="6Ms-Q7-LYe"/>
                                     <constraint firstAttribute="height" constant="25" id="9oI-R4-dCz"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付宝支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHC-dv-bWS">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付宝支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHC-dv-bWS">
                                 <rect key="frame" x="50" y="114" width="191" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.81284781679999996" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l85-FB-7Q5">
+                            <button hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l85-FB-7Q5">
                                 <rect key="frame" x="262" y="111" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="bym-xd-rQe"/>
@@ -150,27 +150,27 @@
                                     <action selector="mSeclectedBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ZAC-7f-rKT"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80K-No-oq5">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80K-No-oq5">
                                 <rect key="frame" x="15" y="158" width="274" height="1"/>
                                 <color key="backgroundColor" red="0.90026319030000002" green="0.92770570519999995" blue="0.97168630359999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="4EX-Za-mLE"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_unionPay" translatesAutoresizingMaskIntoConstraints="NO" id="Bjq-nu-mji">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_unionPay" translatesAutoresizingMaskIntoConstraints="NO" id="Bjq-nu-mji">
                                 <rect key="frame" x="15" y="172" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="rHr-v8-Xbl"/>
                                     <constraint firstAttribute="width" constant="25" id="xBe-vo-Gfk"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="银联支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3j-g6-Wji">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="银联支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3j-g6-Wji">
                                 <rect key="frame" x="50" y="175" width="191" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.81284781679999996" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgq-M8-BGR">
+                            <button hidden="YES" opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgq-M8-BGR">
                                 <rect key="frame" x="262" y="172" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="PGd-6S-Zix"/>
@@ -199,7 +199,7 @@
                             <constraint firstItem="Eyz-Xd-uc4" firstAttribute="leading" secondItem="uIB-0i-EDM" secondAttribute="leading" constant="15" id="Lcc-F1-thK"/>
                             <constraint firstItem="Bso-GZ-gl9" firstAttribute="leading" secondItem="uIB-0i-EDM" secondAttribute="leading" constant="15" id="MI3-vt-zjZ"/>
                             <constraint firstItem="KHC-dv-bWS" firstAttribute="top" secondItem="Eyz-Xd-uc4" secondAttribute="bottom" constant="16" id="PtA-jE-ngt"/>
-                            <constraint firstAttribute="height" constant="210" id="QZJ-5S-yxw"/>
+                            <constraint firstAttribute="height" constant="90" id="QZJ-5S-yxw"/>
                             <constraint firstItem="ZeQ-iF-HRd" firstAttribute="top" secondItem="D8Q-Fh-Plq" secondAttribute="bottom" constant="21" id="SCw-qR-AtE"/>
                             <constraint firstItem="Eyz-Xd-uc4" firstAttribute="top" secondItem="hgp-SQ-5we" secondAttribute="bottom" constant="21" id="TG0-yW-iDU"/>
                             <constraint firstItem="Bjq-nu-mji" firstAttribute="leading" secondItem="uIB-0i-EDM" secondAttribute="leading" constant="15" id="TsR-fh-PTu"/>
@@ -222,7 +222,7 @@
                         </constraints>
                     </view>
                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecH-Ud-qaY">
-                        <rect key="frame" x="23" y="398" width="274" height="45"/>
+                        <rect key="frame" x="23" y="278" width="274" height="45"/>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.58431372550000005" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="nFf-y2-sKf"/>
@@ -235,8 +235,8 @@
                             <action selector="mGoPayType:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tEs-Ie-RqT"/>
                         </connections>
                     </button>
-                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1E-Ee-WDT">
-                        <rect key="frame" x="23" y="468" width="274" height="45"/>
+                    <button hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1E-Ee-WDT">
+                        <rect key="frame" x="23" y="348" width="274" height="45"/>
                         <color key="backgroundColor" red="0.25490196079999999" green="0.58431372550000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="aGV-ev-Z5M"/>
@@ -250,7 +250,7 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5p-p3-E4H">
-                        <rect key="frame" x="23" y="545" width="274" height="89"/>
+                        <rect key="frame" x="23" y="425" width="274" height="209"/>
                         <string key="text">川村雄介认为，从整体来看，中国目前房地产发展一定是存在泡沫的。毕竟日本曾经经历过泡沫经济这样一个时期，他 本人也是感同身受。但是回过头来看一看我们中国，中国其实在十年之前已经有专家在提出中国房地产已经出现了泡沫，但是到目前为止中国还没有出现像日本上世纪90年代初这个泡沫经济破灭情况出现。为什么会有这样一个情况出现呢？</string>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
