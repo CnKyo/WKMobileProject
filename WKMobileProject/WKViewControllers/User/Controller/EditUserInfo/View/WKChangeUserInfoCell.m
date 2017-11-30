@@ -9,7 +9,9 @@
 #import "WKChangeUserInfoCell.h"
 
 @implementation WKChangeUserInfoCell
-
+{
+    NSString *mContent;
+}
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -26,13 +28,31 @@
     self.mCodeBtn.layer.cornerRadius = self.mCommitBtn.layer.cornerRadius = 4;
 
     self.mEditTextField.delegate =self.mPhoneTx.delegate =self.mCodeTx.delegate =self.mNewPwdTx.delegate =self.mComfirmNewPwd.delegate = self;
+    
+    
+    
+    [self.mEditTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.mPhoneTx addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.mCodeTx addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.mNewPwdTx addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.mComfirmNewPwd addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
+    
     if (textField.text.length>0 && ![textField.text isEqualToString:@" "]) {
         if ([self.delegate respondsToSelector:@selector(WKChangeUserInfoCellWithTextFieldEndEditingWithTextFieldTag:andText:)]) {
             [self.delegate WKChangeUserInfoCellWithTextFieldEndEditingWithTextFieldTag:textField.tag andText:textField.text];
 
+        }
+    }
+}
+-(void)textFieldDidChange :(UITextField *)textField{
+    MLLog( @"输入的内容是: %@", textField.text);
+    if (textField.text.length>0 && ![textField.text isEqualToString:@" "]) {
+        if ([self.delegate respondsToSelector:@selector(WKChangeUserInfoCellWithTextFieldEndEditingWithTextFieldTag:andText:)]) {
+            [self.delegate WKChangeUserInfoCellWithTextFieldEndEditingWithTextFieldTag:textField.tag andText:textField.text];
+            
         }
     }
 }

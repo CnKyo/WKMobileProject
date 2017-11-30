@@ -102,10 +102,33 @@
     
     if (indexPath.section == 0) {
         reuseCellId = @"headCell";
-        
+        switch (_mLoginType) {
+            case WKLogin:
+            {
+            _mTitle = @"登录";
+            
+            }
+                break;
+            case WKVerifyCode:
+            {
+            _mTitle = @"验证码登录";
+            
+            }
+                break;
+            case WKRegist:
+            {
+            _mTitle = @"注册";
+            
+            }
+                break;
+                
+            default:
+                break;
+        }
         WKGenericHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
+        cell.mTitle.text = _mTitle;
+
         return cell;
         
     }else{

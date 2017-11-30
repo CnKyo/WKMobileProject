@@ -11,4 +11,6 @@
 @interface WKGenericHeaderCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *mImg;
 
+@property (weak, nonatomic) IBOutlet UILabel *mTitle;
+
 @end

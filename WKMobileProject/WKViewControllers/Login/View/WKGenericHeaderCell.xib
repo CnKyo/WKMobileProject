@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,13 +20,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reg_top_bg" translatesAutoresizingMaskIntoConstraints="NO" id="avn-FF-Mo5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                        <rect key="frame" x="8" y="3" width="304" height="144.5"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCi-08-o32">
-                        <rect key="frame" x="139" y="65" width="42" height="21"/>
+                        <rect key="frame" x="60" y="65" width="200" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="V9S-DV-Nmx"/>
-                            <constraint firstAttribute="width" constant="42" id="gs2-hp-i9e"/>
+                            <constraint firstAttribute="width" constant="200" id="gs2-hp-i9e"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,6 +44,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="mImg" destination="avn-FF-Mo5" id="Qsr-xM-fXc"/>
+                <outlet property="mTitle" destination="uCi-08-o32" id="CC1-3a-wYr"/>
             </connections>
         </tableViewCell>
     </objects>

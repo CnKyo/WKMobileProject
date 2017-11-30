@@ -10,7 +10,7 @@
 
 @implementation WKGenericLoginCell
 {
-
+    NSString *mTextContent;
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -29,11 +29,24 @@
     self.mGetVerifyCodeBtn.layer.cornerRadius = self.mLoginBtn.layer.cornerRadius = self.mRegistBtn.layer.cornerRadius = 4;
     
     self.mUserNameTx.delegate = self.mPwdTx.delegate = self.mVerifyCodeTx.delegate = self.mComfirmPwdTx.delegate = self.mSharePersonPhoneTx.delegate = self.mSchoolTx.delegate = self;
+    
+    [self.mUserNameTx addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.mPwdTx addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.mVerifyCodeTx addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.mComfirmPwdTx addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.mSharePersonPhoneTx addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.mSchoolTx addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
 }
 
 - (IBAction)mBtnAction:(UIButton *)sender {
     if (sender.tag == 4) {
-        [self timeCount];
+        if (![Util isMobileNumber:mTextContent]) {
+            [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码！"];
+            return;
+        }else{
+            [self timeCount];
+        }
+        
     }
     if ([self.delegate respondsToSelector:@selector(WKGenericRegistCellDelegateWithBtnAction:)]) {
         [self.delegate WKGenericRegistCellDelegateWithBtnAction:sender.tag];
@@ -76,7 +89,9 @@
 
 
 -(void)textFieldDidEndEditing:(UITextField *)textField{
-    
+    if (textField.tag == 11 || textField.tag == 17) {
+        mTextContent = textField.text;
+    }
     if ([self.delegate respondsToSelector:@selector(WKGenericRegistCellDelegateWithTextFieldEditingWithTag:andText:)]) {
         [self.delegate WKGenericRegistCellDelegateWithTextFieldEditingWithTag:textField.tag andText:textField.text];
     }
@@ -123,5 +138,14 @@
         return NO;
     }
     
+}
+-(void)textFieldDidChange :(UITextField *)textField{
+    MLLog( @"输入的内容是: %@", textField.text);
+    if (textField.tag == 11 || textField.tag == 17) {
+        mTextContent = textField.text;
+    }
+    if ([self.delegate respondsToSelector:@selector(WKGenericRegistCellDelegateWithTextFieldEditingWithTag:andText:)]) {
+        [self.delegate WKGenericRegistCellDelegateWithTextFieldEditingWithTag:textField.tag andText:textField.text];
+    }
 }
 @end
