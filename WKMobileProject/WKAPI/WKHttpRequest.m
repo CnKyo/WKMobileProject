@@ -28,7 +28,7 @@
     [[NSNetworkRequest sharedInstance] MWPOSTWithUrl:url parameters:para cacheMode:NO successBlock:^(id responseObject) {
         MLLog(@"responseObject----:%@",responseObject);
         
-        MWBaseObj *info = [MWBaseObj yy_modelWithJSON:responseObject];
+        MWBaseObj *info = [MWBaseObj yy_modelWithJSON:[Util delNUll:responseObject]];
         block(info);
     } failureBlock:^(NSError *error) {
         

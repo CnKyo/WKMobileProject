@@ -98,7 +98,7 @@
     WKUser *mU = [WKUser currentUser];
     MLLog(@"用户信息:%@",mU);
     
-    [MWBaseObj MWGetTaskList:para block:^(MWBaseObj *info, NSArray *mBannerArr,NSArray *mList) {
+    [MWBaseObj MWGetTaskList:para block:^(MWBaseObj *info, NSArray *mBannerArr,NSArray *mList,NSArray *mArr) {
         if (info.err_code == 0) {
             [SVProgressHUD dismiss];
             [mBannerList addObjectsFromArray:mBannerArr];
@@ -128,7 +128,7 @@
     WKUser *mU = [WKUser currentUser];
     MLLog(@"用户信息:%@",mU);
     
-    [MWBaseObj MWGetTaskList:para block:^(MWBaseObj *info, NSArray *mBannerArr,NSArray *mList) {
+    [MWBaseObj MWGetTaskList:para block:^(MWBaseObj *info, NSArray *mBannerArr,NSArray *mList,NSArray *mArr) {
         if (info.err_code == 0) {
             [SVProgressHUD dismiss];
             [mBannerList addObjectsFromArray:mBannerArr];

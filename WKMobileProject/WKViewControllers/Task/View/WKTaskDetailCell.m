@@ -21,9 +21,9 @@
     // Configure the view for the selected state
 }
 
-- (void)setMTask:(MWTaskObj *)mTask{
-    self.mTitle.text = mTask.task_title;
-    self.mContent.text = mTask.task_step;
+- (void)setMTask:(MWTaskContent *)mTask{
+    self.mTitle.text = mTask.mTitle;
+    self.mContent.text = mTask.mContent;
 }
 - (void)setMActivity:(WKHome *)mActivity{
     self.mTitle.text = mActivity.banner_title;

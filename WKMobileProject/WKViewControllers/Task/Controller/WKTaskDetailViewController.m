@@ -54,7 +54,7 @@
         WKUser *mU = [WKUser currentUser];
         MLLog(@"用户信息:%@",mU);
         
-        [MWBaseObj MWGetTaskList:para block:^(MWBaseObj *info, NSArray *mBannerArr,NSArray *mList) {
+        [MWBaseObj MWGetTaskList:para block:^(MWBaseObj *info, NSArray *mBannerArr,NSArray *mList,NSArray *mArr) {
             if (info.err_code == 0) {
                 [SVProgressHUD dismiss];
                 [self.tableArr addObjectsFromArray:mList];
@@ -181,6 +181,9 @@
             if (self.tableArr.count == 1) {
                 WKHome *mObj = self.tableArr[0];
                 mHeaderView.mTaskName.text = mObj.banner_title;
+                if (mObj.add_time.length == 0 || [mObj.add_time isEqualToString:@""]) {
+                    mObj.add_time = @"无";
+                }
                 mHeaderView.mTaskTime.text = [NSString stringWithFormat:@"发布时间：%@",mObj.add_time];
 
             }
@@ -264,7 +267,9 @@
     if (_mType == WKTaskDetail) {
         cell.backgroundColor = [UIColor whiteColor];
         cell.mLine.hidden = YES;
-        [cell setMTask:_mTask];
+        MWTaskContent *mTask = self.tableArr[indexPath.row];
+
+        [cell setMTask:mTask];
         
     }else{
         cell.backgroundColor = [UIColor colorWithRed:0.952941176470588 green:0.968627450980392 blue:0.992156862745098 alpha:1.00];

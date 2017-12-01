@@ -1135,7 +1135,7 @@ static WKUser *g_user = nil;
  @param para 参数
  @param block 返回值
  */
-+ (void)MWGetTaskList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mBannerArr,NSArray *mList))block{
++ (void)MWGetTaskList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mBannerArr,NSArray *mList,NSArray *mArr))block{
     MLLog(@"参数是：%@",para);
     [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/task_member/index.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
@@ -1150,14 +1150,50 @@ static WKUser *g_user = nil;
                         [mArr addObject:[MWTaskObj yy_modelWithDictionary:mdic]];
                     }
                 }else if([[info.data objectForKey:@"task_list"] isKindOfClass:[NSDictionary class]]){
-                    [mArr addObject:[MWTaskObj yy_modelWithDictionary:[info.data objectForKey:@"task_list"]]];
+                    if ([info.data isKindOfClass:[NSDictionary class]]) {
+                        if ([[[info.data objectForKey:@"task_list"] objectForKey:@"task_describe"] isKindOfClass:[NSString class]]) {
+                            NSString *mTT = [[info.data objectForKey:@"task_list"] objectForKey:@"task_describe"];
+                            if (mTT.length>0) {
+                                MWTaskContent *mTask = [MWTaskContent new];
+                                
+                                mTask.mTitle = @"任务描述";
+                                mTask.mContent = mTT;
+                                [mArr addObject:mTask];
+                            }
+                            
+                        }
+                        if ([[[info.data objectForKey:@"task_list"] objectForKey:@"task_step"] isKindOfClass:[NSString class]]) {
+                            NSString *mTT = [[info.data objectForKey:@"task_list"] objectForKey:@"task_step"];
+                            
+                            if (mTT.length>0) {
+                                MWTaskContent *mTask = [MWTaskContent new];
+                                
+                                mTask.mTitle = @"任务步骤";
+                                mTask.mContent = mTT;
+                                [mArr addObject:mTask];
+                            }
+                            
+                        }
+                        if ([[[info.data objectForKey:@"task_list"] objectForKey:@"task_notices"] isKindOfClass:[NSString class]]) {
+                            NSString *mTT = [[info.data objectForKey:@"task_list"] objectForKey:@"task_notices"];
+                            if (mTT.length>0) {
+                                MWTaskContent *mTask = [MWTaskContent new];
+                                
+                                mTask.mTitle = @"注意事项";
+                                mTask.mContent = mTT;
+                                [mArr addObject:mTask];
+                            }
+                            
+                        }
+                    }
+//                    [mArr addObject:[MWTaskObj yy_modelWithDictionary:[info.data objectForKey:@"task_list"]]];
                 }
            
             }
             
-            block(info,mBannerA,mArr);
+            block(info,mBannerA,mArr,nil);
         }else{
-            block(info,nil,nil);
+            block(info,nil,nil,nil);
         }
     }];
 }
@@ -1191,7 +1227,7 @@ static WKUser *g_user = nil;
             NSMutableArray *mList = [NSMutableArray new];
             if ([info.data isKindOfClass:[NSArray class]]) {
                 for (NSDictionary *dic in info.data) {
-                    [mList addObject:[WKHome yy_modelWithDictionary:dic]];
+                    [mList addObject:[WKHome yy_modelWithDictionary:[Util delNUll:dic]]];
                 }
             }
             block(info,mList);

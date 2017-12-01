@@ -641,7 +641,7 @@
  @param para 参数
  @param block 返回值
  */
-+ (void)MWGetTaskList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mBannerArr,NSArray *mList))block;
++ (void)MWGetTaskList:(NSDictionary *)para block:(void(^)(MWBaseObj *info,NSArray *mBannerArr,NSArray *mList,NSArray *mArr))block;
 #pragma mark----****----领取任务
 /**
  领取任务

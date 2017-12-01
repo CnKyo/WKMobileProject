@@ -17,7 +17,7 @@
 ///底部的线
 @property (weak, nonatomic) IBOutlet UIView *mLine;
 
-@property (strong,nonatomic) MWTaskObj *mTask;
+@property (strong,nonatomic) MWTaskContent *mTask;
 
 @property (strong,nonatomic) WKHome *mActivity;
 
