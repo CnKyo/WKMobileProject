@@ -89,6 +89,9 @@
 		5217DDFF1EE169C600BE35ED /* WKPwdText.m in Sources */ = {isa = PBXBuildFile; fileRef = 5217DDFE1EE169C600BE35ED /* WKPwdText.m */; };
 		521E3B721F9F42FB00CA3187 /* UIScrollView+DREmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 521E3B6F1F9F42FB00CA3187 /* UIScrollView+DREmptyDataSet.m */; };
 		521E3B731F9F42FB00CA3187 /* UIScrollView+DRRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 521E3B711F9F42FB00CA3187 /* UIScrollView+DRRefresh.m */; };
+		522868F81FD153990023422C /* NSObject+MatchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 522868F31FD153990023422C /* NSObject+MatchModel.m */; };
+		522868F91FD153990023422C /* NSObject+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 522868F51FD153990023422C /* NSObject+Safe.m */; };
+		522868FA1FD153990023422C /* UIKit+Dtext.m in Sources */ = {isa = PBXBuildFile; fileRef = 522868F71FD153990023422C /* UIKit+Dtext.m */; };
 		52289D721ECAE94700D8A6F5 /* WKPlayGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52289D711ECAE94700D8A6F5 /* WKPlayGameViewController.m */; };
 		52289D761ECAE99F00D8A6F5 /* WKPlayGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52289D741ECAE99F00D8A6F5 /* WKPlayGameCell.m */; };
 		52289D771ECAE99F00D8A6F5 /* WKPlayGameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52289D751ECAE99F00D8A6F5 /* WKPlayGameCell.xib */; };
@@ -590,6 +593,13 @@
 		521E3B6F1F9F42FB00CA3187 /* UIScrollView+DREmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+DREmptyDataSet.m"; sourceTree = "<group>"; };
 		521E3B701F9F42FB00CA3187 /* UIScrollView+DRRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+DRRefresh.h"; sourceTree = "<group>"; };
 		521E3B711F9F42FB00CA3187 /* UIScrollView+DRRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+DRRefresh.m"; sourceTree = "<group>"; };
+		522868F11FD153990023422C /* Dkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dkit.h; sourceTree = "<group>"; };
+		522868F21FD153990023422C /* NSObject+MatchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MatchModel.h"; sourceTree = "<group>"; };
+		522868F31FD153990023422C /* NSObject+MatchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MatchModel.m"; sourceTree = "<group>"; };
+		522868F41FD153990023422C /* NSObject+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Safe.h"; sourceTree = "<group>"; };
+		522868F51FD153990023422C /* NSObject+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Safe.m"; sourceTree = "<group>"; };
+		522868F61FD153990023422C /* UIKit+Dtext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+Dtext.h"; sourceTree = "<group>"; };
+		522868F71FD153990023422C /* UIKit+Dtext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIKit+Dtext.m"; sourceTree = "<group>"; };
 		52289D701ECAE94700D8A6F5 /* WKPlayGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPlayGameViewController.h; sourceTree = "<group>"; };
 		52289D711ECAE94700D8A6F5 /* WKPlayGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPlayGameViewController.m; sourceTree = "<group>"; };
 		52289D731ECAE99F00D8A6F5 /* WKPlayGameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKPlayGameCell.h; path = WKMobileProject/WKViewControllers/Other/Controller/WKPlayGameCell.h; sourceTree = SOURCE_ROOT; };
@@ -1346,6 +1356,7 @@
 			isa = PBXGroup;
 			children = (
 				529D8E5C1EDFFF1700BF0FDE /* WKMobileProject.entitlements */,
+				522868F01FD153990023422C /* DKitClass */,
 				5287EF6A1FC01FD500E992CA /* demo_game */,
 				5287EF641FC0175400E992CA /* SQCustomButton */,
 				52A03B851FBED55800B90D73 /* LTPickerView */,
@@ -1915,6 +1926,20 @@
 				521E3B711F9F42FB00CA3187 /* UIScrollView+DRRefresh.m */,
 			);
 			path = WKQuikRefresh;
+			sourceTree = "<group>";
+		};
+		522868F01FD153990023422C /* DKitClass */ = {
+			isa = PBXGroup;
+			children = (
+				522868F11FD153990023422C /* Dkit.h */,
+				522868F21FD153990023422C /* NSObject+MatchModel.h */,
+				522868F31FD153990023422C /* NSObject+MatchModel.m */,
+				522868F41FD153990023422C /* NSObject+Safe.h */,
+				522868F51FD153990023422C /* NSObject+Safe.m */,
+				522868F61FD153990023422C /* UIKit+Dtext.h */,
+				522868F71FD153990023422C /* UIKit+Dtext.m */,
+			);
+			path = DKitClass;
 			sourceTree = "<group>";
 		};
 		52289D8F1ECB078500D8A6F5 /* EditUserInfo */ = {
@@ -3304,12 +3329,14 @@
 				5229761C1ECC30AD00FEB6D9 /* WKJoinusApplyViewController.m in Sources */,
 				52EFE1901EDECC74004CDA65 /* WKModel.m in Sources */,
 				529D8E871EE010B300BF0FDE /* CountDownLabel.m in Sources */,
+				522868F81FD153990023422C /* NSObject+MatchModel.m in Sources */,
 				52AC36551EC2C4C6000866D4 /* RKImageBrowser.m in Sources */,
 				526B7D831ECC64B900A43DCF /* WKMyGoldenCell.m in Sources */,
 				525E037F1FBC54EF00C72D6D /* HXDatePhotoViewTransition.m in Sources */,
 				31A221FC1E99CFA00058A21B /* CTApiProxy.m in Sources */,
 				52EEE8631F42EA9600D7C985 /* WKPwdTextField.m in Sources */,
 				5279A7671EC9AB9000999B3D /* WKTopupCollectionReusableView.m in Sources */,
+				522868FA1FD153990023422C /* UIKit+Dtext.m in Sources */,
 				52AC366C1EC3039B000866D4 /* WKWashViewController.m in Sources */,
 				525E038C1FBC54EF00C72D6D /* HXPhotoTools.m in Sources */,
 				5260EBEF1F43DDD10021F42A /* WKMyTaskDetailCommitCell.m in Sources */,
@@ -3364,6 +3391,7 @@
 				31E289411EB21A47006C9756 /* WKHttpRequest.m in Sources */,
 				5217DDD91EE1031500BE35ED /* WKMyWealthTableViewCell.m in Sources */,
 				529D8E851EE010B300BF0FDE /* UIImage+Extend.m in Sources */,
+				522868F91FD153990023422C /* NSObject+Safe.m in Sources */,
 				520623AC1F5E7FB500E91A8E /* NSNetworkRequest.m in Sources */,
 				31A221FE1E99CFA00058A21B /* CTCache.m in Sources */,
 				525E039A1FBC54EF00C72D6D /* UIImage+HXExtension.m in Sources */,

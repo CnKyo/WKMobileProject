@@ -61,6 +61,8 @@
 #import "UPPaymentControl.h"
 //#define  WKSyncQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
+#import "Dkit.h"
+
 
 #define WKDefaultBannerImg           [UIImage imageNamed:@"ZLDefault_Banner"]
 #define WKDefaultImg           [UIImage imageNamed:@"ZLDefault_Img"]
