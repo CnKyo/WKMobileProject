@@ -557,6 +557,7 @@ static WKUser *g_user = nil;
     [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/login/login.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
             if ([info.data isKindOfClass:[NSDictionary class]]) {
+                [WKUser cleanUserInfo];
 
                 [WKUser saveUserInfo:info.data];
 
@@ -618,7 +619,7 @@ static WKUser *g_user = nil;
     [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/login/code_login.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
             if ([info.data isKindOfClass:[NSDictionary class]]) {
-                
+                [WKUser cleanUserInfo];
                 [WKUser saveUserInfo:info.data];
                 
                 [[NSNotificationCenter defaultCenter] postNotificationName:KAppFetchJPUSHService object:nil];

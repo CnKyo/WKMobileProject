@@ -167,7 +167,8 @@
             [self.tableView reloadData];
             
         }else{
-            [SVProgressHUD dismiss];
+//            [SVProgressHUD dismiss];
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
         }
         [self.tableView headerEndRefreshing];
 
@@ -261,7 +262,7 @@
         WKUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellId];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setMPressValue:@"18"];
-        [cell setMUserInfo:mUinfo];
+        [cell setMUserInfo:[WKUser currentUser]];
         [cell setMSign:isSign];
         cell.delegete = self;
 
