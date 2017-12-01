@@ -82,7 +82,8 @@
         }
        [self updatePage];
     }else{
-        
+        [self updatePage];
+
     }
     
 }
@@ -131,6 +132,9 @@
         [MWBaseObj MWControlDevice:@{@"member_id":[WKUser currentUser].member_id,@"device_barcode":mDeviceCode} block:^(MWBaseObj *info) {
             if (info.err_code == 0) {
                 [SVProgressHUD showSuccessWithStatus:info.err_msg];
+                mDeviceStatus = 3;
+                
+                [self loadData];
             }else{
                 [SVProgressHUD showErrorWithStatus:info.err_msg];
                 
