@@ -129,35 +129,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     MLLog(@"点击了第：%ld",indexPath.row);
-    if (indexPath.section == 0) {
-        MLLog(@"个人信息");
-        
-    }else{
-        if (indexPath.row == 0) {
-            WKMyCollectionViewController *vc = [WKMyCollectionViewController new];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }else if (indexPath.row == 1){
-            
-            WKMyPayListViewController *vc = [WKMyPayListViewController new];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }else if (indexPath.row == 2){
-            
-            WKMyPayListViewController *vc = [WKMyPayListViewController new];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }else{
-            MLLog(@"其他 ");
-            WKMoveHistoryViewController *vc = [WKMoveHistoryViewController new];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-            
-        }
-        
-        
-        
-    }
+   
     
 }
 @end

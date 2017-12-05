@@ -369,7 +369,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.navigationItem.title = @"附近的蜂农";
     [self initSearch];
     [self initMapView];
     

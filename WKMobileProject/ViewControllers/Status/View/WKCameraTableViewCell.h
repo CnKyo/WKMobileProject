@@ -10,5 +10,6 @@
 
 @interface WKCameraTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *mName;
+@property (weak, nonatomic) IBOutlet UIImageView *mImg;
 
 @end

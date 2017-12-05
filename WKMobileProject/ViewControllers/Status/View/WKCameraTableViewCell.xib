@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="104.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1号摄像头" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfR-Zd-wGq">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="蜂场实时画面" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfR-Zd-wGq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="25"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -29,6 +29,9 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_camera1" translatesAutoresizingMaskIntoConstraints="NO" id="0Dl-VL-z7o">
+                        <rect key="frame" x="0.0" y="24" width="320" height="81"/>
+                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="qX0-OC-sLW">
                         <rect key="frame" x="141" y="45" width="38" height="35"/>
                         <constraints>
@@ -39,21 +42,27 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="BfR-Zd-wGq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2LA-6M-7vk"/>
+                    <constraint firstItem="0Dl-VL-z7o" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4cB-NQ-3Jk"/>
                     <constraint firstAttribute="trailing" secondItem="BfR-Zd-wGq" secondAttribute="trailing" id="9Cx-zT-aKO"/>
+                    <constraint firstAttribute="trailing" secondItem="0Dl-VL-z7o" secondAttribute="trailing" id="AlB-Sq-f2g"/>
+                    <constraint firstAttribute="bottom" secondItem="0Dl-VL-z7o" secondAttribute="bottom" constant="-0.5" id="Ghh-Su-GBZ"/>
                     <constraint firstItem="BfR-Zd-wGq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="RHH-dX-za2"/>
                     <constraint firstItem="qX0-OC-sLW" firstAttribute="top" secondItem="BfR-Zd-wGq" secondAttribute="bottom" constant="20" id="SAY-bQ-fxv"/>
                     <constraint firstItem="qX0-OC-sLW" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="f5c-2w-3wU"/>
+                    <constraint firstItem="0Dl-VL-z7o" firstAttribute="top" secondItem="BfR-Zd-wGq" secondAttribute="bottom" constant="-1" id="k3b-7o-Uzw"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="mImg" destination="0Dl-VL-z7o" id="VIT-ev-kcb"/>
                 <outlet property="mName" destination="BfR-Zd-wGq" id="DvH-1o-det"/>
             </connections>
             <point key="canvasLocation" x="25" y="82.5"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="icon_camera1" width="536" height="266"/>
         <image name="play" width="527" height="494"/>
     </resources>
 </document>

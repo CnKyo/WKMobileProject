@@ -55,7 +55,7 @@
     self.navigationItem.title = @"状态";
     [mTableArr addObject:[NSString stringWithFormat:@"https://tbm.alicdn.com/Y73o4CKjm22oPjIGMxw/7149iEtPiobvJOHhfVz%40%40ld.mp4"]];
     [mTableArr addObject:[NSString stringWithFormat:@"https://tbm.alicdn.com/Y73o4CKjm22oPjIGMxw/7149iEtPiobvJOHhfVz%40%40ld.mp4"]];
-    mSTableArr = @[@"茶园1号蜂巢",@"界石2号蜂巢"];
+    mSTableArr = @[@"茶园1号蜂场",@"界石2号蜂场"];
     [self initNavLeftView];
 
     mTableArr = [NSMutableArray new];
@@ -89,7 +89,7 @@
     
     [self presentViewController:vc animated:YES completion:nil];
     
-    mSegmentView = [WKSegmentControl initWithSegmentControlFrame:CGRectMake(0, 0, DEVICE_Width, 50) andTitleWithBtn:@[@"蜂巢列表",@"蜂巢预警"] andBackgroudColor:[UIColor whiteColor] andBtnSelectedColor:[UIColor colorWithRed:0.23 green:0.54 blue:0.89 alpha:1] andBtnTitleColor:[UIColor blackColor] andUndeLineColor:[UIColor colorWithRed:0.23 green:0.54 blue:0.89 alpha:1] andBtnTitleFont:[UIFont systemFontOfSize:15] andInterval:5 delegate:self andIsHiddenLine:YES andType:4];
+    mSegmentView = [WKSegmentControl initWithSegmentControlFrame:CGRectMake(0, 0, DEVICE_Width, 50) andTitleWithBtn:@[@"蜂场列表",@"蜂场预警"] andBackgroudColor:[UIColor whiteColor] andBtnSelectedColor:[UIColor colorWithRed:0.23 green:0.54 blue:0.89 alpha:1] andBtnTitleColor:[UIColor blackColor] andUndeLineColor:[UIColor colorWithRed:0.23 green:0.54 blue:0.89 alpha:1] andBtnTitleFont:[UIFont systemFontOfSize:15] andInterval:5 delegate:self andIsHiddenLine:YES andType:4];
     
 }
 - (void)initNavLeftView{
@@ -305,7 +305,7 @@
         case 0:
             {
                 
-            [self palyVoice:@"1号蜂巢。今天是9月28。农历八月初九。气温25度。天气。晴。空气质量。优。风向。西北风。报警状态。正常"];
+            [self palyVoice:@"1号蜂场。今天是9月28。农历八月初九。气温25度。天气。晴。空气质量。优。风向。西北风。报警状态。正常"];
             }
             break;
 

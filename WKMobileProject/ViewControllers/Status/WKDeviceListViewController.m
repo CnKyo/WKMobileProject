@@ -30,16 +30,19 @@
     NSMutableArray *mTableArr;
     NSArray *mSArr;
     NSArray *mTArr;
+    NSArray *mIArr;
 
     
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"我的蜂巢";
+    self.navigationItem.title = @"我的蜂场";
     mTableArr = [NSMutableArray new];
     mSArr = @[@"https://tbm.alicdn.com/Y73o4CKjm22oPjIGMxw/7149iEtPiobvJOHhfVz%40%40ld.mp4",@"https://cloud.video.taobao.com/play/u/3257655479/p/1/e/6/t/1/50008124793.mp4"];
-    mTArr = @[@"1号摄像头",@"2号摄像头"];
+    mTArr = @[@"蜂场东实时画面",@"蜂场西实时画面"];
+    mIArr = @[@"icon_camera1",@"icon_camera2"];
+
     [self initView];
 }
 - (void)initView{
@@ -119,6 +122,7 @@
         WKCameraTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.mName.text = mTArr[indexPath.row];
+        cell.mImg.image = [UIImage imageNamed:mIArr[indexPath.row]];
         return cell;
     }
     
