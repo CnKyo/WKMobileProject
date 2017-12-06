@@ -115,7 +115,7 @@ static float mDuration = 0.25;
 - (void)WKBuyGoldCellDelegateIsGoPayOrFriendPayBtnClicked:(NSInteger)mTag{
     MLLog(@"选择了：%ld",mTag);
 //    [self showSucessView];
-    if (self.mGoldObj.mNum <= 0) {
+    if ([self.mGoldObj.mNum integerValue] <= 0) {
         [SVProgressHUD showErrorWithStatus:@"请输入购买金额！"];
         return;
     }

@@ -63,8 +63,8 @@
     }
     mHeaderView.mWashSeclected.hidden = YES;
     
-    mHeaderView.mCountTime.textColor = [UIColor colorWithRed:0.97 green:0.58 blue:0.27 alpha:1];
-  MZTimerLabel *mC  = [[MZTimerLabel alloc] initWithLabel:mHeaderView.mCountTime andTimerType:MZTimerLabelTypeTimer];
+    mHeaderView.mCountTime.textColor = [UIColor whiteColor];
+    MZTimerLabel *mC  = [[MZTimerLabel alloc] initWithLabel:mHeaderView.mCountTime andTimerType:MZTimerLabelTypeTimer];
     [mC setCountDownTime:15*60]; //** Or you can use [timer3 setCountDownToDate:aDate];
     [mC start];
     [self.view addSubview:mHeaderView];
@@ -96,7 +96,7 @@
 }
 - (void)bookingResult{
     NSMutableDictionary *para = [NSMutableDictionary new];
-
+    
     if (_mType == 1) {
         
         [para setObject:_mCode forKey:@"device_barcode"];
@@ -107,7 +107,7 @@
     [self.tableArr removeAllObjects];
     
     if ([WKUser currentUser].member_id.length>0) {
-
+        
         MLLog(@"参数是：%@",para);
         
         [MWBaseObj MWFindDeviceList:para andType:_mType block:^(MWBaseObj *info, NSArray *mArr) {
@@ -120,7 +120,7 @@
             [self.tableView reloadData];
         }];
     }
-   
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -243,26 +243,26 @@
     MWDeviceInfo *mPDevice = [MWDeviceInfo new];
     if (self.tableArr.count>0) {
         if (mWashID.length==0) {
-           mPDevice  = self.tableArr[0];
+            mPDevice  = self.tableArr[0];
             mWashID = mPDevice.id;
         }
-
+        
         
     }
     if (mWashID.length == 0) {
         [SVProgressHUD showErrorWithStatus:@"请选择洗衣类型"];
         return;
-    
+        
     }
     if (_mCode.length==0) {
         _mCode = @"0";
     }
-
+    
     NSString *mWId = @"";
     if (_mType == 1) {
         mWId = @"0";
     }else{
-       mWId = _mDeviceInfo.wash_id;
+        mWId = _mDeviceInfo.wash_id;
     }
     
     [MWBaseObj MWCcommitWashOrder:@{@"member_id":[WKUser currentUser].member_id,@"wash_id":mWId,@"wash_feature":mWashID,@"device_barcode":_mCode} block:^(MWBaseObj *info,MWWashOrderObj *mOrderObj) {
@@ -274,7 +274,7 @@
             [SVProgressHUD showErrorWithStatus:info.err_msg];
         }
     }];
-
+    
 }
 - (void)WKWashBookingCellBtnAction:(NSIndexPath *)mIndexPath{
     MLLog(@"点击了%ld行",mIndexPath.row);
