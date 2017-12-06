@@ -82,9 +82,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "937"
-            endingLineNumber = "937"
-            landmarkName = "+MWGoPayWashOrder:andPayType:block:"
-            landmarkType = "7">
+            endingLineNumber = "937">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -98,9 +96,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "938"
-            endingLineNumber = "938"
-            landmarkName = "+MWGoPayWashOrder:andPayType:block:"
-            landmarkType = "7">
+            endingLineNumber = "938">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

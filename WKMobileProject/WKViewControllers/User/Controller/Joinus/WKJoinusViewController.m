@@ -43,12 +43,12 @@
         if (info.err_code == 0) {
             mJoinUsInfo = mDetail;
             
-            [self.tableView reloadData];
             
         }else{
             [SVProgressHUD showErrorWithStatus:info.err_msg];
         }
-        
+        [self.tableView reloadData];
+
         
     }];
     

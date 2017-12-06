@@ -50,7 +50,13 @@
     mLogOut.layer.cornerRadius = 4;
     mLogOut.frame = CGRectMake(0, 15, DEVICE_Width, 50);
     mLogOut.backgroundColor = [UIColor colorWithRed:0.97 green:0.58 blue:0.27 alpha:1];
+
     [mLogOut setTitle:@"提交任务" forState:0];
+    if (_mTaskType == 1) {
+        mLogOut.hidden = NO;
+    }else{
+        mLogOut.hidden = YES;
+    }
     [mLogOut addTarget:self action:@selector(mCommitAction) forControlEvents:UIControlEventTouchUpInside];
     [mFooterView addSubview:mLogOut];
     

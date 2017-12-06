@@ -335,6 +335,8 @@
 		52A408511F613D970053B683 /* WKUserMsgDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A4084F1F613D970053B683 /* WKUserMsgDetailCell.xib */; };
 		52A66E501EF268330011EEC3 /* index3.html in Resources */ = {isa = PBXBuildFile; fileRef = 52A66E4F1EF268330011EEC3 /* index3.html */; };
 		52A66E531EF293310011EEC3 /* WKWebViewConfigDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A66E521EF293310011EEC3 /* WKWebViewConfigDelegate.m */; };
+		52AB4BE71FD7EB760030FE35 /* WKTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AB4BE31FD7EB740030FE35 /* WKTaskViewController.m */; };
+		52AB4BE81FD7EB760030FE35 /* WKTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AB4BE51FD7EB750030FE35 /* WKTaskDetailViewController.m */; };
 		52ABDCB21F7C9C8B0051744C /* WKGetDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ABDCB11F7C9C8B0051744C /* WKGetDeviceInfo.m */; };
 		52AC36341EC2A059000866D4 /* FDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC362F1EC2A059000866D4 /* FDAlertView.m */; };
 		52AC36351EC2A059000866D4 /* WKCustomPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC36321EC2A059000866D4 /* WKCustomPopView.m */; };
@@ -369,7 +371,6 @@
 		52B724681EF13D9F00551108 /* index1.html in Resources */ = {isa = PBXBuildFile; fileRef = 52B724661EF13D9F00551108 /* index1.html */; };
 		52B724691EF13D9F00551108 /* jquery.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 52B724671EF13D9F00551108 /* jquery.min.js */; };
 		52BC435A1F395E1600B44FD6 /* WKChoiceWashTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC43591F395E1600B44FD6 /* WKChoiceWashTableViewCell.m */; };
-		52BC43601F39649200B44FD6 /* WKTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC435F1F39649200B44FD6 /* WKTaskViewController.m */; };
 		52BC43641F39650C00B44FD6 /* WKTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC43621F39650C00B44FD6 /* WKTaskTableViewCell.m */; };
 		52BC43651F39650C00B44FD6 /* WKTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BC43631F39650C00B44FD6 /* WKTaskTableViewCell.xib */; };
 		52BC43681F39676500B44FD6 /* WKTaskHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC43671F39676500B44FD6 /* WKTaskHeaderCell.m */; };
@@ -385,7 +386,6 @@
 		52C7F3621FB091C40063FC20 /* WKBDModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C7F3601FB091C40063FC20 /* WKBDModel.m */; };
 		52C7F3671FB095C30063FC20 /* WKWechatLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C7F3631FB095C30063FC20 /* WKWechatLoginManager.m */; };
 		52C7F3681FB095C30063FC20 /* WKGenericLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C7F3651FB095C30063FC20 /* WKGenericLoginViewController.m */; };
-		52D02D201F417FD900B24618 /* WKTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D02D1F1F417FD900B24618 /* WKTaskDetailViewController.m */; };
 		52D02D241F41800A00B24618 /* WKTaskDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D02D221F41800A00B24618 /* WKTaskDetailCell.m */; };
 		52D02D251F41800A00B24618 /* WKTaskDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D02D231F41800A00B24618 /* WKTaskDetailCell.xib */; };
 		52D02D281F41814F00B24618 /* WKTaskSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D02D271F41814F00B24618 /* WKTaskSectionHeaderView.m */; };
@@ -974,6 +974,10 @@
 		52A66E4F1EF268330011EEC3 /* index3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index3.html; sourceTree = "<group>"; };
 		52A66E511EF293310011EEC3 /* WKWebViewConfigDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewConfigDelegate.h; sourceTree = "<group>"; };
 		52A66E521EF293310011EEC3 /* WKWebViewConfigDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewConfigDelegate.m; sourceTree = "<group>"; };
+		52AB4BE31FD7EB740030FE35 /* WKTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTaskViewController.m; sourceTree = "<group>"; };
+		52AB4BE41FD7EB750030FE35 /* WKTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTaskDetailViewController.h; sourceTree = "<group>"; };
+		52AB4BE51FD7EB750030FE35 /* WKTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTaskDetailViewController.m; sourceTree = "<group>"; };
+		52AB4BE61FD7EB750030FE35 /* WKTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTaskViewController.h; sourceTree = "<group>"; };
 		52ABDCB01F7C9C8B0051744C /* WKGetDeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKGetDeviceInfo.h; sourceTree = "<group>"; };
 		52ABDCB11F7C9C8B0051744C /* WKGetDeviceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKGetDeviceInfo.m; sourceTree = "<group>"; };
 		52AC362E1EC2A059000866D4 /* FDAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDAlertView.h; sourceTree = "<group>"; };
@@ -1033,8 +1037,6 @@
 		52B724671EF13D9F00551108 /* jquery.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.min.js; sourceTree = "<group>"; };
 		52BC43581F395E1600B44FD6 /* WKChoiceWashTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKChoiceWashTableViewCell.h; sourceTree = "<group>"; };
 		52BC43591F395E1600B44FD6 /* WKChoiceWashTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKChoiceWashTableViewCell.m; sourceTree = "<group>"; };
-		52BC435E1F39649200B44FD6 /* WKTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTaskViewController.h; sourceTree = "<group>"; };
-		52BC435F1F39649200B44FD6 /* WKTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTaskViewController.m; sourceTree = "<group>"; };
 		52BC43611F39650C00B44FD6 /* WKTaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTaskTableViewCell.h; sourceTree = "<group>"; };
 		52BC43621F39650C00B44FD6 /* WKTaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTaskTableViewCell.m; sourceTree = "<group>"; };
 		52BC43631F39650C00B44FD6 /* WKTaskTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKTaskTableViewCell.xib; sourceTree = "<group>"; };
@@ -1059,8 +1061,6 @@
 		52C7F3641FB095C30063FC20 /* WKGenericLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKGenericLoginViewController.h; sourceTree = "<group>"; };
 		52C7F3651FB095C30063FC20 /* WKGenericLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKGenericLoginViewController.m; sourceTree = "<group>"; };
 		52C7F3661FB095C30063FC20 /* WKWechatLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWechatLoginManager.h; sourceTree = "<group>"; };
-		52D02D1E1F417FD900B24618 /* WKTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTaskDetailViewController.h; sourceTree = "<group>"; };
-		52D02D1F1F417FD900B24618 /* WKTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTaskDetailViewController.m; sourceTree = "<group>"; };
 		52D02D211F41800A00B24618 /* WKTaskDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTaskDetailCell.h; sourceTree = "<group>"; };
 		52D02D221F41800A00B24618 /* WKTaskDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTaskDetailCell.m; sourceTree = "<group>"; };
 		52D02D231F41800A00B24618 /* WKTaskDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKTaskDetailCell.xib; sourceTree = "<group>"; };
@@ -2687,10 +2687,10 @@
 		52BC435C1F39647B00B44FD6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				52BC435E1F39649200B44FD6 /* WKTaskViewController.h */,
-				52BC435F1F39649200B44FD6 /* WKTaskViewController.m */,
-				52D02D1E1F417FD900B24618 /* WKTaskDetailViewController.h */,
-				52D02D1F1F417FD900B24618 /* WKTaskDetailViewController.m */,
+				52AB4BE41FD7EB750030FE35 /* WKTaskDetailViewController.h */,
+				52AB4BE51FD7EB750030FE35 /* WKTaskDetailViewController.m */,
+				52AB4BE61FD7EB750030FE35 /* WKTaskViewController.h */,
+				52AB4BE31FD7EB740030FE35 /* WKTaskViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3223,7 +3223,6 @@
 				525E03761FBC54EF00C72D6D /* HXDatePhotoCollectionViewLayout.m in Sources */,
 				31A221FF1E99CFA00058A21B /* CTCachedObject.m in Sources */,
 				525E039B1FBC54EF00C72D6D /* UIView+HXExtension.m in Sources */,
-				52BC43601F39649200B44FD6 /* WKTaskViewController.m in Sources */,
 				52AC36491EC2C086000866D4 /* SXMarquee.m in Sources */,
 				52AC364B1EC2C086000866D4 /* UIColor+Wonderful.m in Sources */,
 				52D2DC321FB04B4F004FBDC2 /* QUShareSDK.m in Sources */,
@@ -3247,6 +3246,7 @@
 				315FFC091E97D3C600C78440 /* ViewController.m in Sources */,
 				52EEE8601F42E3B400D7C985 /* WLUnitField.m in Sources */,
 				525E03681FBC54EF00C72D6D /* OnlyLocationVO.m in Sources */,
+				52AB4BE71FD7EB760030FE35 /* WKTaskViewController.m in Sources */,
 				529D215B1ECC534E00766E2F /* WKMyWashDetailViewController.m in Sources */,
 				522976301ECC418D00FEB6D9 /* MyWashViewController.m in Sources */,
 				52AC36481EC2C086000866D4 /* SXHeadLine.m in Sources */,
@@ -3297,7 +3297,6 @@
 				52C7F3621FB091C40063FC20 /* WKBDModel.m in Sources */,
 				525E038F1FBC54EF00C72D6D /* HXPhotoViewCell.m in Sources */,
 				31A221F81E99CFA00058A21B /* NSObject+AXNetworkingMethods.m in Sources */,
-				52D02D201F417FD900B24618 /* WKTaskDetailViewController.m in Sources */,
 				5214A33E1F3C3A6800BE840D /* WKMyTaskViewController.m in Sources */,
 				5217DDE51EE1134700BE35ED /* WKFetchWealthCell.m in Sources */,
 				522976141ECC2C0700FEB6D9 /* WKJoinusHeaderFooterSectionView.m in Sources */,
@@ -3465,6 +3464,7 @@
 				52B2AE121FB4010000C4DE9A /* DeviceInfoManager.m in Sources */,
 				52E1ADEF1FA095270082F9A5 /* WKTestViewcontrollerViewController.m in Sources */,
 				529D8E791EE0109200BF0FDE /* WKScanDeviceViewController.m in Sources */,
+				52AB4BE81FD7EB760030FE35 /* WKTaskDetailViewController.m in Sources */,
 				525E03941FBC54EF00C72D6D /* HXVideoPreviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

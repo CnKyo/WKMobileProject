@@ -43,12 +43,12 @@
     [MWBaseObj MWGetHelpCenter:@{} andType:_mType block:^(MWBaseObj *info,NSArray *mArr,NSArray *mList) {
         if (info.err_code == 0) {
             [self.tableArr addObjectsFromArray:mList];
-            [self.tableView reloadData];
             
         }else{
             [SVProgressHUD showErrorWithStatus:info.err_msg];
         }
-        
+        [self.tableView reloadData];
+
 
     }];
 

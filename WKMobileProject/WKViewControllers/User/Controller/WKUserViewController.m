@@ -164,12 +164,13 @@
             [SVProgressHUD dismiss];
            isSign = mSign;
            mUinfo = [WKUser yy_modelWithDictionary:[info.data objectForKey:@"member_list"]];
-            [self.tableView reloadData];
-            
+           
         }else{
 //            [SVProgressHUD dismiss];
             [SVProgressHUD showErrorWithStatus:info.err_msg];
         }
+        [self.tableView reloadData];
+
         [self.tableView headerEndRefreshing];
 
         
