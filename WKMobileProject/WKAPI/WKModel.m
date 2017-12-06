@@ -935,15 +935,16 @@ static WKUser *g_user = nil;
     MLLog(@"参数是：%@",para);
     [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/pay_order/pay_wash_order.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
-//            if (mType == 1) {
-//                if ([info.data isKindOfClass:[NSDictionary class]]) {
-//                    SWxPayInfo* wxpayinfo = [SWxPayInfo yy_modelWithDictionary:info.data];
-//
-//                    [SWxPayInfo gotoWXPayWithSRV:wxpayinfo];
-//                }
-//
-//
-//            }else if (mType == 2){
+            if (mType == 1) {
+                if ([info.data isKindOfClass:[NSDictionary class]]) {
+                    SWxPayInfo* wxpayinfo = [SWxPayInfo yy_modelWithDictionary:info.data];
+
+                    [SWxPayInfo gotoWXPayWithSRV:wxpayinfo];
+                }
+
+
+            }
+//            else if (mType == 2){
 //                if ([info.data isKindOfClass:[NSDictionary class]]) {
 //                    SWxPayInfo* wxpayinfo = [SWxPayInfo yy_modelWithDictionary:info.data];
 //

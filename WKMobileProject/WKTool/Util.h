@@ -467,6 +467,7 @@
      @return 返回图片的URL
      */
 + (NSString *)currentSourceImgUrl:(NSString *)mUrl;
++ (NSString *)currentHeaderImgUrl:(NSString *)mUrl;
 #pragma mark----字符串拼接成数组
     /**
      字符串拼接成数组

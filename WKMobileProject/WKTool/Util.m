@@ -1828,6 +1828,14 @@
         return @"";
     }
 }
++ (NSString *)currentHeaderImgUrl:(NSString *)mUrl{
+    if (mUrl.length > 0){
+        return [NSString stringWithFormat:@"%@%@",kLocalAPIUrlString,[mUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    }else{
+        return @"";
+    }
+}
+
 #pragma mark----字符串拼接成数组
     /**
      字符串拼接成数组

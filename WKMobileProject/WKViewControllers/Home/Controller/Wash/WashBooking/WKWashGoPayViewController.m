@@ -58,21 +58,21 @@ static float mDuration = 0.25;
     
     NSDictionary* style1 = @{@"color": [UIColor colorWithRed:0.97 green:0.58 blue:0.27 alpha:1]};
     mView.mDetailTx.attributedText = [[NSString stringWithFormat:@"%@ | %@ | <color> %@元</color>",self.mOrderInfo.location_name,self.mOrderInfo.wash_feature_name,self.mOrderInfo.order_price] attributedStringWithStyleBook:style1];
-//    mView.mCountTimeTx.hidden = YES;
+    //    mView.mCountTimeTx.hidden = YES;
     
     mView.mPayPriceTx.attributedText = [[NSString stringWithFormat:@"应付款金额：<color> %@元</color>",self.mOrderInfo.order_price] attributedStringWithStyleBook:style1];
     
-//    TimeModel *model = [TimeModel new];
-//    model.endTime = [Util WKCurrentTimePlusTo15Min:120];
-//    mView.mCountTimeTx.text = [self.countDown countDownWithModel:model timeLabel:mView.mCountTimeTx];
+    //    TimeModel *model = [TimeModel new];
+    //    model.endTime = [Util WKCurrentTimePlusTo15Min:120];
+    //    mView.mCountTimeTx.text = [self.countDown countDownWithModel:model timeLabel:mView.mCountTimeTx];
     
     MZTimerLabel *mC  = [[MZTimerLabel alloc] initWithLabel:mView.mCountTimeTx andTimerType:MZTimerLabelTypeTimer];
     [mC setCountDownTime:15*60]; //** Or you can use [timer3 setCountDownToDate:aDate];
     [mC start];
     mView.frame = CGRectMake(0, 104, DEVICE_Width, DEVICE_Height-64);
     [self.view addSubview:mView];
-
-
+    
+    
     [self initSucessView];
     [self initErrorView];
 }
@@ -98,12 +98,12 @@ static float mDuration = 0.25;
 - (void)initErrorView{
     mErrorView = [WKWashPayResultView initErrorView];
     mErrorView.frame = CGRectMake(0, DEVICE_Height, DEVICE_Width, DEVICE_Height
-                                   );
+                                  );
     mErrorView.delegate = self;
     [self.view addSubview:mErrorView];
 }
 - (void)updatePopView{
-
+    
 }
 - (void)showSucessView{
     [UIView animateWithDuration:mDuration animations:^{
@@ -136,33 +136,34 @@ static float mDuration = 0.25;
     }];
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 #pragma mark----****----去支付按钮代理方法
 - (void)WKPayWashViewDelegateWithPayBtnClicked{
     MLLog(@"去支付");
-//    [self showSucessView];
-//    [self showErrorView];
+    //    [self showSucessView];
+    //    [self showErrorView];
     NSString *mPay = @"";
     if (mPayType == 1) {
         mPay = @"wx_pay";
     }else if (mPayType == 2){
         
         mPay = @"zfb_pay";
-
+        
     }else if (mPayType == 3){
         
         mPay = @"jb_pay";
-
+        
     }else{
-        mPay = @"union_pay";
-
+        [SVProgressHUD showErrorWithStatus:@"请选择支付方式！"];
+        return;
+        
     }
     [SVProgressHUD showWithStatus:@"正在支付..."];
     
@@ -170,7 +171,9 @@ static float mDuration = 0.25;
         if (info.err_code == 0) {
             [self showSucessView];
         }else{
-             [self showErrorView];
+            [self showErrorView];
+            [SVProgressHUD showErrorWithStatus:info.err_msg];
+            
         }
         [SVProgressHUD dismiss];
     }];
@@ -218,7 +221,7 @@ static float mDuration = 0.25;
 }
 - (void)mBackAction{
     [self WKWashPayResultViewWithBackAction];
-
+    
     [self popViewController];
     
 }

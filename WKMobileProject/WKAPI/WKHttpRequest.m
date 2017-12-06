@@ -480,16 +480,16 @@
     if (user.member_id.length > 0) {
         
         NSMutableDictionary* paramDic = [NSMutableDictionary dictionary];
-        [paramDic setObject:user.member_id forKey:@"user_id"];
+        [paramDic setObject:user.member_id forKey:@"member_id"];
         
-        [self postWithTag:tag path:@"upLoadImg.php" parameters:paramDic constructingBodyWithBlockBack:^(id<AFMultipartFormData> formData) {
+        [self postWithTag:tag path:@"controller/member/user_img.php" parameters:paramDic constructingBodyWithBlockBack:^(id<AFMultipartFormData> formData) {
             NSString *mimeType = nil;
             NSString *fileExt = nil;
             
             switch (type) {
                 case kFileType_photo:
                     fileExt = @".png";
-                    mimeType = @"image/jpg/png";
+                    mimeType = @"image/png";
                     break;
                 case kFileType_video:
                     fileExt = @".mp4";
@@ -503,11 +503,11 @@
             formatter.dateFormat = @"yyyyMMddHHmmss";
             NSString *timeStr = [formatter stringFromDate:[NSDate date]];
             
-            for (int i=0; i<uploadDatas.count; i++) {
-                NSString *fileName = [NSString stringWithFormat:@"%@_%i%@",timeStr, i, fileExt];
-                NSString *name = [NSString stringWithFormat:@"uploadFile%i", i];
-                [formData appendPartWithFileData:uploadDatas[i] name:name fileName:fileName mimeType:mimeType];
-            }
+//            for (int i=0; i<uploadDatas.count; i++) {
+                NSString *fileName = [NSString stringWithFormat:@"%@%@",timeStr, fileExt];
+                NSString *name = [NSString stringWithFormat:@"uploadFile"];
+                [formData appendPartWithFileData:uploadDatas[0] name:name fileName:fileName mimeType:mimeType];
+//            }
             
         } call:^(NSError *error, id responseObject) {
             MWBaseObj *info = nil;

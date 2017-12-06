@@ -77,9 +77,6 @@
     
     cell.delegate = self;
     [cell setMUserInfo:[WKUser currentUser]];
-    if (mHeaderImg) {
-        cell.mAvator.image = mHeaderImg;
-    }
     
     return cell;
     
@@ -185,6 +182,7 @@
     [[WKHttpRequest initLocalApiclient] fileUploadWithTag:self uploadDatas:arr type:1 call:^(NSString *tableArr, MWBaseObj *info) {
         if (info.err_code == 0) {
             [SVProgressHUD showSuccessWithStatus:@"图片上传成功！"];
+            [self refreshUserInfo];
         }else{
             [SVProgressHUD showErrorWithStatus:info.err_msg];
         }
@@ -198,5 +196,10 @@
 //        MLLog(@"error:");
 //        [SVProgressHUD dismiss];
 //    }];
+}
+- (void)refreshUserInfo{
+    [MWBaseObj MWReFreshUserInfo:@{@"member_id":[WKUser currentUser].member_id} block:^(MWBaseObj *info,NSArray *mActArr,BOOL mSign) {
+        
+    }];
 }
 @end
