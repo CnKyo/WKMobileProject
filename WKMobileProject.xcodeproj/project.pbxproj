@@ -292,10 +292,6 @@
 		5287EFC01FC01FD500E992CA /* style.js in Resources */ = {isa = PBXBuildFile; fileRef = 5287EF961FC01FD500E992CA /* style.js */; };
 		5287EFC11FC01FD500E992CA /* ThreeCanvas.js in Resources */ = {isa = PBXBuildFile; fileRef = 5287EF971FC01FD500E992CA /* ThreeCanvas.js */; };
 		5287EFC21FC01FD500E992CA /* wxmoment.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 5287EF981FC01FD500E992CA /* wxmoment.min.js */; };
-		529D21521ECC50E800766E2F /* WKMyWashCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D21501ECC50E800766E2F /* WKMyWashCell.m */; };
-		529D21531ECC50E800766E2F /* WKMyWashCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529D21511ECC50E800766E2F /* WKMyWashCell.xib */; };
-		529D21571ECC533900766E2F /* MyWashDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D21551ECC533900766E2F /* MyWashDetailCell.m */; };
-		529D21581ECC533900766E2F /* MyWashDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529D21561ECC533900766E2F /* MyWashDetailCell.xib */; };
 		529D215B1ECC534E00766E2F /* WKMyWashDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D215A1ECC534E00766E2F /* WKMyWashDetailViewController.m */; };
 		529D21601ECC579000766E2F /* WKMyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D215F1ECC579000766E2F /* WKMyOrderViewController.m */; };
 		529D21641ECC580F00766E2F /* WKMyOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 529D21621ECC580F00766E2F /* WKMyOrderCell.m */; };
@@ -337,6 +333,10 @@
 		52A66E531EF293310011EEC3 /* WKWebViewConfigDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A66E521EF293310011EEC3 /* WKWebViewConfigDelegate.m */; };
 		52AB4BE71FD7EB760030FE35 /* WKTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AB4BE31FD7EB740030FE35 /* WKTaskViewController.m */; };
 		52AB4BE81FD7EB760030FE35 /* WKTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AB4BE51FD7EB750030FE35 /* WKTaskDetailViewController.m */; };
+		52AB4BEF1FD7EE2F0030FE35 /* WKMyWashCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AB4BE91FD7EE2D0030FE35 /* WKMyWashCell.m */; };
+		52AB4BF01FD7EE2F0030FE35 /* MyWashDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AB4BEA1FD7EE2E0030FE35 /* MyWashDetailCell.m */; };
+		52AB4BF11FD7EE2F0030FE35 /* WKMyWashCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AB4BEB1FD7EE2E0030FE35 /* WKMyWashCell.xib */; };
+		52AB4BF21FD7EE2F0030FE35 /* MyWashDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AB4BEE1FD7EE2F0030FE35 /* MyWashDetailCell.xib */; };
 		52ABDCB21F7C9C8B0051744C /* WKGetDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ABDCB11F7C9C8B0051744C /* WKGetDeviceInfo.m */; };
 		52AC36341EC2A059000866D4 /* FDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC362F1EC2A059000866D4 /* FDAlertView.m */; };
 		52AC36351EC2A059000866D4 /* WKCustomPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AC36321EC2A059000866D4 /* WKCustomPopView.m */; };
@@ -911,12 +911,6 @@
 		5287EF961FC01FD500E992CA /* style.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = style.js; sourceTree = "<group>"; };
 		5287EF971FC01FD500E992CA /* ThreeCanvas.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ThreeCanvas.js; sourceTree = "<group>"; };
 		5287EF981FC01FD500E992CA /* wxmoment.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = wxmoment.min.js; sourceTree = "<group>"; };
-		529D214F1ECC50E800766E2F /* WKMyWashCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyWashCell.h; sourceTree = "<group>"; };
-		529D21501ECC50E800766E2F /* WKMyWashCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMyWashCell.m; sourceTree = "<group>"; };
-		529D21511ECC50E800766E2F /* WKMyWashCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKMyWashCell.xib; sourceTree = "<group>"; };
-		529D21541ECC533900766E2F /* MyWashDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWashDetailCell.h; sourceTree = "<group>"; };
-		529D21551ECC533900766E2F /* MyWashDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWashDetailCell.m; sourceTree = "<group>"; };
-		529D21561ECC533900766E2F /* MyWashDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyWashDetailCell.xib; sourceTree = "<group>"; };
 		529D21591ECC534E00766E2F /* WKMyWashDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyWashDetailViewController.h; sourceTree = "<group>"; };
 		529D215A1ECC534E00766E2F /* WKMyWashDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMyWashDetailViewController.m; sourceTree = "<group>"; };
 		529D215E1ECC579000766E2F /* WKMyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyOrderViewController.h; sourceTree = "<group>"; };
@@ -978,6 +972,12 @@
 		52AB4BE41FD7EB750030FE35 /* WKTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTaskDetailViewController.h; sourceTree = "<group>"; };
 		52AB4BE51FD7EB750030FE35 /* WKTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTaskDetailViewController.m; sourceTree = "<group>"; };
 		52AB4BE61FD7EB750030FE35 /* WKTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTaskViewController.h; sourceTree = "<group>"; };
+		52AB4BE91FD7EE2D0030FE35 /* WKMyWashCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMyWashCell.m; sourceTree = "<group>"; };
+		52AB4BEA1FD7EE2E0030FE35 /* MyWashDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWashDetailCell.m; sourceTree = "<group>"; };
+		52AB4BEB1FD7EE2E0030FE35 /* WKMyWashCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKMyWashCell.xib; sourceTree = "<group>"; };
+		52AB4BEC1FD7EE2E0030FE35 /* WKMyWashCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyWashCell.h; sourceTree = "<group>"; };
+		52AB4BED1FD7EE2F0030FE35 /* MyWashDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWashDetailCell.h; sourceTree = "<group>"; };
+		52AB4BEE1FD7EE2F0030FE35 /* MyWashDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyWashDetailCell.xib; sourceTree = "<group>"; };
 		52ABDCB01F7C9C8B0051744C /* WKGetDeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKGetDeviceInfo.h; sourceTree = "<group>"; };
 		52ABDCB11F7C9C8B0051744C /* WKGetDeviceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKGetDeviceInfo.m; sourceTree = "<group>"; };
 		52AC362E1EC2A059000866D4 /* FDAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDAlertView.h; sourceTree = "<group>"; };
@@ -2039,12 +2039,12 @@
 		5229762D1ECC417C00FEB6D9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				529D214F1ECC50E800766E2F /* WKMyWashCell.h */,
-				529D21501ECC50E800766E2F /* WKMyWashCell.m */,
-				529D21511ECC50E800766E2F /* WKMyWashCell.xib */,
-				529D21541ECC533900766E2F /* MyWashDetailCell.h */,
-				529D21551ECC533900766E2F /* MyWashDetailCell.m */,
-				529D21561ECC533900766E2F /* MyWashDetailCell.xib */,
+				52AB4BED1FD7EE2F0030FE35 /* MyWashDetailCell.h */,
+				52AB4BEA1FD7EE2E0030FE35 /* MyWashDetailCell.m */,
+				52AB4BEE1FD7EE2F0030FE35 /* MyWashDetailCell.xib */,
+				52AB4BEC1FD7EE2E0030FE35 /* WKMyWashCell.h */,
+				52AB4BE91FD7EE2D0030FE35 /* WKMyWashCell.m */,
+				52AB4BEB1FD7EE2E0030FE35 /* WKMyWashCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3006,8 +3006,6 @@
 				5239D3371EF3B22000BAB3F3 /* public.css in Resources */,
 				5287EFB81FC01FD500E992CA /* wzj_bg.png in Resources */,
 				52289D7C1ECAF09E00D8A6F5 /* WKUserInfoCell.xib in Resources */,
-				529D21531ECC50E800766E2F /* WKMyWashCell.xib in Resources */,
-				529D21581ECC533900766E2F /* MyWashDetailCell.xib in Resources */,
 				52BC43871F39BAF800B44FD6 /* WKGenericRegistCell.xib in Resources */,
 				5287EF681FC0175500E992CA /* image.png in Resources */,
 				5239D3301EF3B1EC00BAB3F3 /* home.html in Resources */,
@@ -3025,6 +3023,7 @@
 				5239D33B1EF3B22000BAB3F3 /* mui.min.css in Resources */,
 				52AC36621EC2F3A1000866D4 /* WKHomeDecomandedCell.xib in Resources */,
 				5239D3431EF3B29B00BAB3F3 /* shuijiao.jpg in Resources */,
+				52AB4BF11FD7EE2F0030FE35 /* WKMyWashCell.xib in Resources */,
 				5260EBEB1F43DC150021F42A /* WKMyTaskDetailHeadCell.xib in Resources */,
 				52368FFF1EC412F0002524E5 /* WKWashBookingCell.xib in Resources */,
 				5217DDD01EE0FE9900BE35ED /* scancode.caf in Resources */,
@@ -3105,6 +3104,7 @@
 				52BC436E1F39925900B44FD6 /* WKProgressView.xib in Resources */,
 				5279A73E1EC94C6700999B3D /* WKPayWashView.xib in Resources */,
 				5287EFAA1FC01FD500E992CA /* logo.png in Resources */,
+				52AB4BF21FD7EE2F0030FE35 /* MyWashDetailCell.xib in Resources */,
 				5279A7521EC989F200999B3D /* WKOperatorMyWashBookingView.xib in Resources */,
 				5279A7361EC9428A00999B3D /* WKBookingResultCell.xib in Resources */,
 				52DC82C41FB14459003750E6 /* WKQuikWashTableViewCell.xib in Resources */,
@@ -3322,7 +3322,6 @@
 				31A221FD1E99CFA00058A21B /* CTAPIBaseManager.m in Sources */,
 				52BC436C1F39925200B44FD6 /* WKProgressView.m in Sources */,
 				31632CC41EAB6E8E0057B161 /* UIView+RoundedCorners.m in Sources */,
-				529D21571ECC533900766E2F /* MyWashDetailCell.m in Sources */,
 				31A221F91E99CFA00058A21B /* NSString+AXNetworkingMethods.m in Sources */,
 				525E03841FBC54EF00C72D6D /* HXPhotoEditView.m in Sources */,
 				5229761C1ECC30AD00FEB6D9 /* WKJoinusApplyViewController.m in Sources */,
@@ -3346,6 +3345,7 @@
 				5279A7411EC95E1300999B3D /* WKWashGoPayViewController.m in Sources */,
 				522D1F201FAC6E470037137D /* ZYProGressView.m in Sources */,
 				521E3B731F9F42FB00CA3187 /* UIScrollView+DRRefresh.m in Sources */,
+				52AB4BEF1FD7EE2F0030FE35 /* WKMyWashCell.m in Sources */,
 				52B2AE0D1FB4010000C4DE9A /* NetWorkInfoManager.m in Sources */,
 				31A222021E99CFA00058A21B /* CTLogger.m in Sources */,
 				5274A12F1ECD307A0002B252 /* WKConnectViewController.m in Sources */,
@@ -3432,10 +3432,10 @@
 				5217DDE01EE1059600BE35ED /* UIButton+Layout.m in Sources */,
 				52D2DC2E1FB03C05004FBDC2 /* CurentLocation.m in Sources */,
 				525E03871FBC54EF00C72D6D /* HXPhotoModel.m in Sources */,
-				529D21521ECC50E800766E2F /* WKMyWashCell.m in Sources */,
 				31507E961EA06EA5007B8345 /* WKBaseNavViewController.m in Sources */,
 				5214A3421F3C3A9500BE840D /* MyTaskTableViewCell.m in Sources */,
 				5217DDED1EE1392500BE35ED /* WKMyWealthRecordCell.m in Sources */,
+				52AB4BF01FD7EE2F0030FE35 /* MyWashDetailCell.m in Sources */,
 				31A2220D1E99CFA10058A21B /* GDMapService.m in Sources */,
 				52368FF81EC41105002524E5 /* WKWashBookingHeaderView.m in Sources */,
 				5229762B1ECC413F00FEB6D9 /* WKSegmentControl.m in Sources */,

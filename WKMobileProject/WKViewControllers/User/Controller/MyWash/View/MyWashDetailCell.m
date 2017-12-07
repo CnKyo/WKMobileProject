@@ -24,14 +24,14 @@
     NSString *mS = @"";
     if ([mWashObj.order_type isEqualToString:@"2"]) {
         mS = @"进行中";
-        self.mReason.textColor = [UIColor lightTextColor];
     }else if([mWashObj.order_type isEqualToString:@"3"]){
         mS = @"超时返还";
-        self.mReason.textColor = [UIColor colorWithRed:0.29 green:0.6 blue:0.94 alpha:1];
     }else{
         mS = @"已完成";
-        self.mReason.textColor = [UIColor lightTextColor];
+
     }
+    self.mReason.textColor = [UIColor colorWithRed:0.35 green:0.64 blue:0.94 alpha:1];
+
     self.mReason.text = [NSString stringWithFormat:@"订单状态：%@",mS];
 //    NSDictionary* style1 = @{@"color": [UIColor colorWithRed:0.97 green:0.58 blue:0.27 alpha:1]};
     self.mWashType.text = [NSString stringWithFormat:@"洗衣类型：%@   %@元",mWashObj.wash_feature_name,mWashObj.order_price];

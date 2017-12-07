@@ -223,7 +223,7 @@
         {
         MLLog(@"提现");
         if ([WKUser currentUser].pay_type.length==0 || [[WKUser currentUser].pay_type isEqualToString:@"0"]) {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"您还未绑定受款工具哦！" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"您还未绑定收款工具哦！" message:nil preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction *ok = [UIAlertAction actionWithTitle:@"去绑定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
