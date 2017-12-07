@@ -89,6 +89,10 @@
 		5217DDFF1EE169C600BE35ED /* WKPwdText.m in Sources */ = {isa = PBXBuildFile; fileRef = 5217DDFE1EE169C600BE35ED /* WKPwdText.m */; };
 		521E3B721F9F42FB00CA3187 /* UIScrollView+DREmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 521E3B6F1F9F42FB00CA3187 /* UIScrollView+DREmptyDataSet.m */; };
 		521E3B731F9F42FB00CA3187 /* UIScrollView+DRRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 521E3B711F9F42FB00CA3187 /* UIScrollView+DRRefresh.m */; };
+		521F93971FD9368600C911A5 /* WKRuntimeDeCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 521F93941FD9368500C911A5 /* WKRuntimeDeCode.m */; };
+		521F93981FD9368600C911A5 /* WKBDModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 521F93961FD9368600C911A5 /* WKBDModel.m */; };
+		521F939D1FD9474C00C911A5 /* WKWechatLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 521F93991FD9474B00C911A5 /* WKWechatLoginManager.m */; };
+		521F939E1FD9474C00C911A5 /* WKGenericLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521F939B1FD9474C00C911A5 /* WKGenericLoginViewController.m */; };
 		522868F81FD153990023422C /* NSObject+MatchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 522868F31FD153990023422C /* NSObject+MatchModel.m */; };
 		522868F91FD153990023422C /* NSObject+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 522868F51FD153990023422C /* NSObject+Safe.m */; };
 		522868FA1FD153990023422C /* UIKit+Dtext.m in Sources */ = {isa = PBXBuildFile; fileRef = 522868F71FD153990023422C /* UIKit+Dtext.m */; };
@@ -382,10 +386,6 @@
 		52BC43831F39B70D00B44FD6 /* WKGenericHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BC43811F39B70D00B44FD6 /* WKGenericHeaderCell.xib */; };
 		52BC43851F39BA0100B44FD6 /* WKGenericVerifyCodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BC43841F39BA0100B44FD6 /* WKGenericVerifyCodeCell.xib */; };
 		52BC43871F39BAF800B44FD6 /* WKGenericRegistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BC43861F39BAF800B44FD6 /* WKGenericRegistCell.xib */; };
-		52C7F3611FB091C40063FC20 /* WKRuntimeDeCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C7F35E1FB091C40063FC20 /* WKRuntimeDeCode.m */; };
-		52C7F3621FB091C40063FC20 /* WKBDModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C7F3601FB091C40063FC20 /* WKBDModel.m */; };
-		52C7F3671FB095C30063FC20 /* WKWechatLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C7F3631FB095C30063FC20 /* WKWechatLoginManager.m */; };
-		52C7F3681FB095C30063FC20 /* WKGenericLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C7F3651FB095C30063FC20 /* WKGenericLoginViewController.m */; };
 		52D02D241F41800A00B24618 /* WKTaskDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D02D221F41800A00B24618 /* WKTaskDetailCell.m */; };
 		52D02D251F41800A00B24618 /* WKTaskDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D02D231F41800A00B24618 /* WKTaskDetailCell.xib */; };
 		52D02D281F41814F00B24618 /* WKTaskSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D02D271F41814F00B24618 /* WKTaskSectionHeaderView.m */; };
@@ -593,6 +593,14 @@
 		521E3B6F1F9F42FB00CA3187 /* UIScrollView+DREmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+DREmptyDataSet.m"; sourceTree = "<group>"; };
 		521E3B701F9F42FB00CA3187 /* UIScrollView+DRRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+DRRefresh.h"; sourceTree = "<group>"; };
 		521E3B711F9F42FB00CA3187 /* UIScrollView+DRRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+DRRefresh.m"; sourceTree = "<group>"; };
+		521F93931FD9368500C911A5 /* WKBDModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBDModel.h; sourceTree = "<group>"; };
+		521F93941FD9368500C911A5 /* WKRuntimeDeCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKRuntimeDeCode.m; sourceTree = "<group>"; };
+		521F93951FD9368500C911A5 /* WKRuntimeDeCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKRuntimeDeCode.h; sourceTree = "<group>"; };
+		521F93961FD9368600C911A5 /* WKBDModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBDModel.m; sourceTree = "<group>"; };
+		521F93991FD9474B00C911A5 /* WKWechatLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWechatLoginManager.m; sourceTree = "<group>"; };
+		521F939A1FD9474C00C911A5 /* WKGenericLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKGenericLoginViewController.h; sourceTree = "<group>"; };
+		521F939B1FD9474C00C911A5 /* WKGenericLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKGenericLoginViewController.m; sourceTree = "<group>"; };
+		521F939C1FD9474C00C911A5 /* WKWechatLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWechatLoginManager.h; sourceTree = "<group>"; };
 		522868F11FD153990023422C /* Dkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dkit.h; sourceTree = "<group>"; };
 		522868F21FD153990023422C /* NSObject+MatchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MatchModel.h"; sourceTree = "<group>"; };
 		522868F31FD153990023422C /* NSObject+MatchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MatchModel.m"; sourceTree = "<group>"; };
@@ -1053,14 +1061,6 @@
 		52BC43811F39B70D00B44FD6 /* WKGenericHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKGenericHeaderCell.xib; sourceTree = "<group>"; };
 		52BC43841F39BA0100B44FD6 /* WKGenericVerifyCodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKGenericVerifyCodeCell.xib; sourceTree = "<group>"; };
 		52BC43861F39BAF800B44FD6 /* WKGenericRegistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKGenericRegistCell.xib; sourceTree = "<group>"; };
-		52C7F35D1FB091C30063FC20 /* WKBDModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBDModel.h; sourceTree = "<group>"; };
-		52C7F35E1FB091C40063FC20 /* WKRuntimeDeCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKRuntimeDeCode.m; sourceTree = "<group>"; };
-		52C7F35F1FB091C40063FC20 /* WKRuntimeDeCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKRuntimeDeCode.h; sourceTree = "<group>"; };
-		52C7F3601FB091C40063FC20 /* WKBDModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBDModel.m; sourceTree = "<group>"; };
-		52C7F3631FB095C30063FC20 /* WKWechatLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWechatLoginManager.m; sourceTree = "<group>"; };
-		52C7F3641FB095C30063FC20 /* WKGenericLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKGenericLoginViewController.h; sourceTree = "<group>"; };
-		52C7F3651FB095C30063FC20 /* WKGenericLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKGenericLoginViewController.m; sourceTree = "<group>"; };
-		52C7F3661FB095C30063FC20 /* WKWechatLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWechatLoginManager.h; sourceTree = "<group>"; };
 		52D02D211F41800A00B24618 /* WKTaskDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTaskDetailCell.h; sourceTree = "<group>"; };
 		52D02D221F41800A00B24618 /* WKTaskDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTaskDetailCell.m; sourceTree = "<group>"; };
 		52D02D231F41800A00B24618 /* WKTaskDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKTaskDetailCell.xib; sourceTree = "<group>"; };
@@ -2546,10 +2546,10 @@
 		529F3B3E1F3D9860000E5933 /* WKModelCacke */ = {
 			isa = PBXGroup;
 			children = (
-				52C7F35D1FB091C30063FC20 /* WKBDModel.h */,
-				52C7F3601FB091C40063FC20 /* WKBDModel.m */,
-				52C7F35F1FB091C40063FC20 /* WKRuntimeDeCode.h */,
-				52C7F35E1FB091C40063FC20 /* WKRuntimeDeCode.m */,
+				521F93931FD9368500C911A5 /* WKBDModel.h */,
+				521F93961FD9368600C911A5 /* WKBDModel.m */,
+				521F93951FD9368500C911A5 /* WKRuntimeDeCode.h */,
+				521F93941FD9368500C911A5 /* WKRuntimeDeCode.m */,
 			);
 			path = WKModelCacke;
 			sourceTree = "<group>";
@@ -2736,10 +2736,10 @@
 		52BC43701F39B3F500B44FD6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				52C7F3641FB095C30063FC20 /* WKGenericLoginViewController.h */,
-				52C7F3651FB095C30063FC20 /* WKGenericLoginViewController.m */,
-				52C7F3661FB095C30063FC20 /* WKWechatLoginManager.h */,
-				52C7F3631FB095C30063FC20 /* WKWechatLoginManager.m */,
+				521F939A1FD9474C00C911A5 /* WKGenericLoginViewController.h */,
+				521F939B1FD9474C00C911A5 /* WKGenericLoginViewController.m */,
+				521F939C1FD9474C00C911A5 /* WKWechatLoginManager.h */,
+				521F93991FD9474B00C911A5 /* WKWechatLoginManager.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3257,11 +3257,9 @@
 				526B7D791ECC60A900A43DCF /* WKMyOrderDetailTableViewCell.m in Sources */,
 				5279A75A1EC99EC500999B3D /* WKTopupHeaderView.m in Sources */,
 				52289D891ECB042700D8A6F5 /* WKUserMsgViewController.m in Sources */,
-				52C7F3611FB091C40063FC20 /* WKRuntimeDeCode.m in Sources */,
 				525E03891FBC54EF00C72D6D /* HXPhotoPreviewViewController.m in Sources */,
 				525E03931FBC54EF00C72D6D /* HXVideoPresentTransition.m in Sources */,
 				52368FE91EC3FA15002524E5 /* WKWashTableHeaderView.m in Sources */,
-				52C7F3681FB095C30063FC20 /* WKGenericLoginViewController.m in Sources */,
 				520623AB1F5E7FB500E91A8E /* NSNetworkMonitor.m in Sources */,
 				525E037A1FBC54EF00C72D6D /* HXDatePhotoPreviewBottomView.m in Sources */,
 				525E03981FBC54EF00C72D6D /* UIButton+HXExtension.m in Sources */,
@@ -3285,6 +3283,7 @@
 				52AC36471EC2C086000866D4 /* SXColorLabel.m in Sources */,
 				5279A7441EC97B0C00999B3D /* WKWashPayResultView.m in Sources */,
 				525E03731FBC54EF00C72D6D /* HXCustomCollectionReusableView.m in Sources */,
+				521F93971FD9368600C911A5 /* WKRuntimeDeCode.m in Sources */,
 				5279A73C1EC94C5D00999B3D /* WKPayWashView.m in Sources */,
 				525E03771FBC54EF00C72D6D /* HXDatePhotoCollectionViewLayoutAttributes.m in Sources */,
 				5279A74D1EC9896E00999B3D /* WKMyWashBookingViewController.m in Sources */,
@@ -3293,8 +3292,8 @@
 				52B2AE111FB4010000C4DE9A /* BatteryInfoManager.m in Sources */,
 				52E1ADF21FA09A5B0082F9A5 /* WKSecondViewController.m in Sources */,
 				525E03911FBC54EF00C72D6D /* HXPresentTransition.m in Sources */,
+				521F939D1FD9474C00C911A5 /* WKWechatLoginManager.m in Sources */,
 				524E3EFE1ECACD7300EF0224 /* WKFindTableViewCell.m in Sources */,
-				52C7F3621FB091C40063FC20 /* WKBDModel.m in Sources */,
 				525E038F1FBC54EF00C72D6D /* HXPhotoViewCell.m in Sources */,
 				31A221F81E99CFA00058A21B /* NSObject+AXNetworkingMethods.m in Sources */,
 				5214A33E1F3C3A6800BE840D /* WKMyTaskViewController.m in Sources */,
@@ -3308,6 +3307,7 @@
 				52368FEF1EC3FEEC002524E5 /* WKWashTableCell.m in Sources */,
 				5260EBE61F43DB7D0021F42A /* WKMyTaskDetailViewController.m in Sources */,
 				5217DDF21EE157AA00BE35ED /* WKPasswordTextFiled.m in Sources */,
+				521F939E1FD9474C00C911A5 /* WKGenericLoginViewController.m in Sources */,
 				31A221F61E99CFA00058A21B /* NSDictionary+AXNetworkingMethods.m in Sources */,
 				529D8E491EDFF9E100BF0FDE /* WKMarqueeBar.m in Sources */,
 				525E03801FBC54EF00C72D6D /* HXFullScreenCameraPlayView.m in Sources */,
@@ -3397,11 +3397,11 @@
 				31A221F71E99CFA00058A21B /* NSMutableString+AXNetworkingMethods.m in Sources */,
 				52289D7B1ECAF09E00D8A6F5 /* WKUserInfoCell.m in Sources */,
 				525E03721FBC54EF00C72D6D /* HXCustomCameraViewController.m in Sources */,
-				52C7F3671FB095C30063FC20 /* WKWechatLoginManager.m in Sources */,
 				31A221F51E99CFA00058A21B /* NSArray+AXNetworkingMethods.m in Sources */,
 				52289D8D1ECB043A00D8A6F5 /* WKUserMsgCell.m in Sources */,
 				31A222051E99CFA10058A21B /* CTRequestGenerator.m in Sources */,
 				52BC437D1F39B6CF00B44FD6 /* WKGenericLoginCell.m in Sources */,
+				521F93981FD9368600C911A5 /* WKBDModel.m in Sources */,
 				52BC435A1F395E1600B44FD6 /* WKChoiceWashTableViewCell.m in Sources */,
 				5214A3301F3C037900BE840D /* ZJJTimeCountDownDateTool.m in Sources */,
 				31632CB71EAAFE850057B161 /* WKTabbarViewController.m in Sources */,

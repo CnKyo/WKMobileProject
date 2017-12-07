@@ -127,13 +127,20 @@
 
 @implementation WKUser : NSObject
 
-static WKUser *g_user = nil;
-
-
+//+ (id)allocWithZone:(struct _NSZone *)zone{
+//    return [WKUser currentUser];
+//}
+#pragma mark----****----重新定义单例模式
 + (WKUser *)currentUser{
-    if (g_user) {
-        return g_user;
-    }
+    static WKUser *g_user = nil;
+
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        if (g_user  == nil) {
+//            g_user = [WKUser loadUserInfo];
+//        }
+//    });
+//    return  (WKUser *)g_user;
     @synchronized(self) {
         if (!g_user) {
             g_user = [WKUser loadUserInfo];

@@ -78,11 +78,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WKMobileProject/WKAPI/WKModel.m"
-            timestampString = "534236365.486718"
+            timestampString = "534333389.093848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "937"
-            endingLineNumber = "937">
+            startingLineNumber = "944"
+            endingLineNumber = "944"
+            landmarkName = "+MWGoPayWashOrder:andPayType:block:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -92,11 +94,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WKMobileProject/WKAPI/WKModel.m"
-            timestampString = "534236365.487064"
+            timestampString = "534333389.093912"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "938"
-            endingLineNumber = "938">
+            startingLineNumber = "945"
+            endingLineNumber = "945"
+            landmarkName = "+MWGoPayWashOrder:andPayType:block:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
