@@ -131,8 +131,9 @@
 //    return [WKUser currentUser];
 //}
 #pragma mark----****----重新定义单例模式
+static WKUser *g_user = nil;
+
 + (WKUser *)currentUser{
-    static WKUser *g_user = nil;
 
 //    static dispatch_once_t onceToken;
 //    dispatch_once(&onceToken, ^{
@@ -176,6 +177,8 @@
     NSUserDefaults* def = [NSUserDefaults standardUserDefaults];
     [def setObject:nil forKey:@"userInfo"];
     [def synchronize];
+    g_user = nil;
+
 }
 
 //判断是否需要登录
@@ -590,6 +593,8 @@
     [[WKHttpRequest initLocalApiclient] MWPostWithUrl:@"controller/member/logout.php" withPara:para block:^(MWBaseObj *info) {
         if (info.err_code == 0) {
             [WKUser cleanUserInfo];
+            WKUser *mU = [WKUser currentUser];
+
             [((AppDelegate*)[UIApplication sharedApplication].delegate) performSelector:@selector(gotoLogin) withObject:nil afterDelay:0.4f];
             block(info);
          

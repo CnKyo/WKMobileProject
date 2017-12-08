@@ -157,8 +157,8 @@
 - (void)tableViewHeaderReloadData{
 
     [self.tableArr removeAllObjects];
-
-    [MWBaseObj MWReFreshUserInfo:@{@"member_id":[WKUser currentUser].member_id} block:^(MWBaseObj *info,NSArray *mActArr,BOOL mSign) {
+    WKUser *mU = [WKUser currentUser];
+    [MWBaseObj MWReFreshUserInfo:@{@"member_id":mU.member_id} block:^(MWBaseObj *info,NSArray *mActArr,BOOL mSign) {
         
        if (info.err_code == 0) {
             [SVProgressHUD dismiss];

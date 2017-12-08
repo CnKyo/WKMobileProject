@@ -270,6 +270,8 @@
 
                 [MWBaseObj MWLoginWithPhone:@{@"mobile":mUserInfo.mobile,@"password":mUserInfo.password} block:^(MWBaseObj *info) {
                     if (info.err_code == 0) {
+                        WKUser *mU = [WKUser currentUser];
+
                         [SVProgressHUD showSuccessWithStatus:@"登录成功!"];
                         [self dismissViewControllerAnimated:YES completion:^{
 //                            self.mBlock(1);
