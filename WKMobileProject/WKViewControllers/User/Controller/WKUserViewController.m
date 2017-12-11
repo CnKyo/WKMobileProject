@@ -61,6 +61,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navBarHairlineImageView.hidden = YES;
+    [self.tableView headerBeginRefreshing];
 
 }
 //在页面消失的时候就让navigationbar还原样式
@@ -128,7 +129,6 @@
 
     }];
 
-    [self.tableView headerBeginRefreshing];
     
 }
 - (void)mLogOutAction{
