@@ -26,7 +26,7 @@
 #import "UIScrollView+DRRefresh.h"
 #import "WKCustomPopView.h"
 #import <BGFMDB.h>
-@interface WKUserViewController ()<WKUserInfoCellDelegate,WKUserInfoAdCellDelegate,UITableViewDataSource,UITableViewDelegate,WKCustomPopViewDelegate>
+@interface WKUserViewController ()<WKUserInfoCellDelegate,WKUserInfoAdCellDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @end
 
@@ -38,12 +38,8 @@
     
     BOOL isSign;
 
-    WKCustomPopView *mCustomView;
-
-    FDAlertView *WKCustomAlerView;
-    
+   
     WKUser *mUinfo;
-    UIView *mBgkView;
 
 }
 //通过一个方法来找到这个黑线(findHairlineImageViewUnder):
@@ -61,7 +57,6 @@
 }
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:YES];
-    [self removeAlert];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -74,14 +69,9 @@
     self.navBarHairlineImageView.hidden = NO;
     
 }
-- (void)removeAlert{
-    [mCustomView removeFromSuperview];
-    [WKCustomAlerView hide];
-    [WKCustomAlerView removeFromSuperview];
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self removeAlert];
     mUinfo = [WKUser new];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"个人中心";
@@ -130,11 +120,9 @@
     __weak __typeof(self)weakSelf = self;
     
     [self.tableView setRefreshWithHeaderBlock:^{
-        [self removeAlert];
 
         [weakSelf tableViewHeaderReloadData];
     } footerBlock:^{
-        [self removeAlert];
 
         [self.tableView footerEndRefreshing];
 
@@ -402,7 +390,8 @@
         [MWBaseObj MWUserSign:@{@"member_id":[WKUser currentUser].member_id} block:^(MWBaseObj *info) {
             if (info.err_code == 0) {
                 [SVProgressHUD dismiss];
-                [self showCustomViewType:WKCustomPopViewSucess andTitle:@"签到成功" andContentTx:@"恭喜你，签到成功获得1金币!" andOkBtntitle:@"确定" andCancelBtntitle:nil];
+                [self showCustomView:@"签到成功" andContentTx:@"恭喜你，签到成功获得1金币!" andOkBtntitle:@"确定" andCancelBtntitle:nil];
+                
                 [self tableViewHeaderReloadData];
 
 
@@ -456,50 +445,24 @@
 /**
  自定义弹出框
  
- @param mType 弹出框类型
  @param mTitle 标题
  @param mContent 内容
  @param mOkTitle 确定按钮
  @param mCancelTitle 取消按钮
  */
-- (void)showCustomViewType:(WKCustomPopViewType)mType andTitle:(NSString *)mTitle andContentTx:(NSString *)mContent andOkBtntitle:(NSString *)mOkTitle andCancelBtntitle:(NSString *)mCancelTitle{
+- (void)showCustomView:(NSString *)mTitle andContentTx:(NSString *)mContent andOkBtntitle:(NSString *)mOkTitle andCancelBtntitle:(NSString *)mCancelTitle{
     
-    //    WKCustomAlertView = [[FDAlertView alloc] init];
+    WKAlertView *mAlert = [WKAlertView alertTitle:mTitle andTitleTextColor:[UIColor whiteColor] andLineViewColor:[UIColor colorWithRed:220/255.0 green:221/255.0 blue:221/255.0 alpha:1] andTitleBgkColor:[UIColor colorWithRed:0.25 green:0.58 blue:0.94 alpha:1] andHideCloseBtn:NO andHideLineView:NO andCornerRadius:0 andMessage:mContent];
     
-    mBgkView = [UIView new];
-    mBgkView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
-    mBgkView.frame = CGRectMake(0, 0, DEVICE_Width, DEVICE_Height);
-    [self.view addSubview:mBgkView];
-    mCustomView = [WKCustomPopView initViewType:mType andTitle:mTitle andContentTx:mContent andOkBtntitle:mOkTitle andCancelBtntitle:mCancelTitle];
-    mCustomView.delegate = self;
-    
-    mCustomView.frame = CGRectMake(30, DEVICE_Height/2-125, DEVICE_Width-60, 250);
-    [mBgkView addSubview:mCustomView];
-    //    WKCustomAlertView.contentView = mCustomView;
-    //    [WKCustomAlertView show];
+    mAlert.butttonConfirmBgColor = [UIColor colorWithRed:0.97 green:0.58 blue:0.27 alpha:1];
+
+    [mAlert addAction:[WKAlertAction actionTitle:mOkTitle style:WKAlertActionConfirm handler:^(WKAlertAction *action) {
+        MLLog(@"取消取消取消取消");
+        
+    }]];
+    [mAlert show];
     
 }
-///关闭按钮代理方法
-- (void)WKCustomPopViewWithCloseBtnAction{
-    MLLog(@"关闭");
-    //    [WKCustomAlertView hide];
-    [mBgkView removeFromSuperview];
-    [mCustomView removeFromSuperview];
-}
-///取消按钮代理方法
-- (void)WKCustomPopViewWithCancelBtnAction{
-    MLLog(@"取消");
-    //    [WKCustomAlertView hide];
-    [mBgkView removeFromSuperview];
-    [mCustomView removeFromSuperview];
-}
-///确定按钮代理方法
-- (void)WKCustomPopViewWithOkBtnAction{
-    MLLog(@"确定");
-    //    [WKCustomAlertView hide];
-    [mBgkView removeFromSuperview];
-    [mCustomView removeFromSuperview];
-    
-}
+
 
 @end

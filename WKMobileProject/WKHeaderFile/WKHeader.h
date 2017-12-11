@@ -63,6 +63,8 @@
 
 #import "Dkit.h"
 
+#import "WKAlertView.h"
+
 
 #define WKDefaultBannerImg           [UIImage imageNamed:@"ZLDefault_Banner"]
 #define WKDefaultImg           [UIImage imageNamed:@"ZLDefault_Img"]

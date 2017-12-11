@@ -125,6 +125,7 @@
 		5229762B1ECC413F00FEB6D9 /* WKSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5229762A1ECC413F00FEB6D9 /* WKSegmentControl.m */; };
 		522976301ECC418D00FEB6D9 /* MyWashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5229762F1ECC418D00FEB6D9 /* MyWashViewController.m */; };
 		522D1F201FAC6E470037137D /* ZYProGressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 522D1F1F1FAC6E470037137D /* ZYProGressView.m */; };
+		523066B71FDE7F0E00E8B5E0 /* WKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 523066B61FDE7F0D00E8B5E0 /* WKAlertView.m */; };
 		523544851F4AD19F007983C8 /* FCIPAddressGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 523544841F4AD19F007983C8 /* FCIPAddressGeocoder.m */; };
 		52368FE91EC3FA15002524E5 /* WKWashTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52368FE81EC3FA15002524E5 /* WKWashTableHeaderView.m */; };
 		52368FEB1EC3FA1D002524E5 /* WKWashTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52368FEA1EC3FA1D002524E5 /* WKWashTableHeaderView.xib */; };
@@ -655,6 +656,8 @@
 		5229762F1ECC418D00FEB6D9 /* MyWashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWashViewController.m; sourceTree = "<group>"; };
 		522D1F1E1FAC6E470037137D /* ZYProGressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYProGressView.h; sourceTree = "<group>"; };
 		522D1F1F1FAC6E470037137D /* ZYProGressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYProGressView.m; sourceTree = "<group>"; };
+		523066B51FDE7F0D00E8B5E0 /* WKAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKAlertView.h; sourceTree = "<group>"; };
+		523066B61FDE7F0D00E8B5E0 /* WKAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKAlertView.m; sourceTree = "<group>"; };
 		523544831F4AD19F007983C8 /* FCIPAddressGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCIPAddressGeocoder.h; sourceTree = "<group>"; };
 		523544841F4AD19F007983C8 /* FCIPAddressGeocoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCIPAddressGeocoder.m; sourceTree = "<group>"; };
 		52368FE71EC3FA15002524E5 /* WKWashTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWashTableHeaderView.h; sourceTree = "<group>"; };
@@ -1356,6 +1359,7 @@
 			isa = PBXGroup;
 			children = (
 				529D8E5C1EDFFF1700BF0FDE /* WKMobileProject.entitlements */,
+				523066B41FDE7E5D00E8B5E0 /* WKAlertView */,
 				522868F01FD153990023422C /* DKitClass */,
 				5287EF6A1FC01FD500E992CA /* demo_game */,
 				5287EF641FC0175400E992CA /* SQCustomButton */,
@@ -2056,6 +2060,15 @@
 				522D1F1F1FAC6E470037137D /* ZYProGressView.m */,
 			);
 			path = WKPregressBar;
+			sourceTree = "<group>";
+		};
+		523066B41FDE7E5D00E8B5E0 /* WKAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				523066B51FDE7F0D00E8B5E0 /* WKAlertView.h */,
+				523066B61FDE7F0D00E8B5E0 /* WKAlertView.m */,
+			);
+			path = WKAlertView;
 			sourceTree = "<group>";
 		};
 		523544821F4AD19F007983C8 /* FCIPAddressGeocoder */ = {
@@ -3229,6 +3242,7 @@
 				31A222081E99CFA10058A21B /* CTService.m in Sources */,
 				525E03881FBC54EF00C72D6D /* HXPhotoPreviewViewCell.m in Sources */,
 				5214A3351F3C055100BE840D /* MZTimerLabel.m in Sources */,
+				523066B71FDE7F0E00E8B5E0 /* WKAlertView.m in Sources */,
 				524E3EEF1ECAA34600EF0224 /* WKBuyGoldCell.m in Sources */,
 				52368FFE1EC412F0002524E5 /* WKWashBookingCell.m in Sources */,
 				52B2AE0E1FB4010000C4DE9A /* DeviceDataLibrery.m in Sources */,

@@ -13,29 +13,23 @@
 #import "WKTestViewcontrollerViewController.h"
 #import "WKWebViewController.h"
 
-@interface WKPlayGameViewController ()<UITableViewDataSource,UITableViewDelegate,WKCustomPopViewDelegate>
+@interface WKPlayGameViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
 
 @implementation WKPlayGameViewController
 {
-    WKCustomPopView *mCustomView;
-    FDAlertView *WKCustomAlertView;
-    
-    UIView *mBgkView;
-    
+  
     MWGameObj *mGame;
 }
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:YES];
-    [self removeAlert];
 
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"玩游戏";
-    [self removeAlert];
     mGame = [MWGameObj new];
     self.tableArr = [NSMutableArray new];
     
@@ -50,17 +44,14 @@
     __weak __typeof(self)weakSelf = self;
     
     [self.tableView setRefreshWithHeaderBlock:^{
-        [self removeAlert];
 
         [weakSelf tableViewHeaderReloadData];
     } footerBlock:^{
-        [self removeAlert];
 
         [weakSelf tableViewFooterReloadData];
     }];
     
     [self.tableView setupEmptyData:^{
-        [self removeAlert];
 
         [weakSelf tableViewHeaderReloadData];
         
@@ -68,7 +59,6 @@
     [self.tableView headerBeginRefreshing];
 }
 - (void)tableViewHeaderReloadData{
-    [self removeAlert];
 
     [self.tableArr removeAllObjects];
     [SVProgressHUD showWithStatus:@"正在加载中..."];
@@ -85,13 +75,8 @@
     }];
 
 }
-- (void)removeAlert{
-    [mCustomView removeFromSuperview];
-    [WKCustomAlertView hide];
-    [WKCustomAlertView removeFromSuperview];
-}
+
 - (void)tableViewFooterReloadData{
-    [self removeAlert];
 
     [self.tableView footerEndRefreshing];
 
@@ -167,71 +152,36 @@
     MWGameObj *mGameInfo = self.tableArr[indexPath.row];
     mGame = mGameInfo;
     NSString *mcontent = [NSString stringWithFormat:@"本次游戏将消耗您%d个金币，您是否愿意玩本次游戏呢？",mGame.pay_coin_num];
-    [self showCustomViewType:WKCustomPopViewHaveTwoBtn andTitle:[NSString stringWithFormat:@"您的账户还有%@个金币",[WKUser currentUser].gold] andContentTx:mcontent andOkBtntitle:@"确定" andCancelBtntitle:@"取消"];
+    
+    WKAlertView *mAlert = [WKAlertView alertTitle:[NSString stringWithFormat:@"您的账户还有%@个金币",[WKUser currentUser].gold] andTitleTextColor:[UIColor whiteColor] andLineViewColor:[UIColor colorWithRed:220/255.0 green:221/255.0 blue:221/255.0 alpha:1] andTitleBgkColor:[UIColor colorWithRed:0.25 green:0.58 blue:0.94 alpha:1] andHideCloseBtn:NO andHideLineView:NO andCornerRadius:0 andMessage:mcontent];
+    
+    mAlert.butttonCancelBgColor = [UIColor colorWithRed:0.97 green:0.58 blue:0.27 alpha:1];
+    mAlert.butttonConfirmBgColor = [UIColor colorWithRed:0.66 green:0.66 blue:0.66 alpha:1];
+    [mAlert addAction:[WKAlertAction actionTitle:@"确定" style:WKAlertActionCancel handler:^(WKAlertAction *action) {
+        MLLog(@"确定确定确定确定");
+        
+        [SVProgressHUD showWithStatus:@"正在加载中..."];
+        [MWBaseObj MWPlayGame:@{@"member_id":[WKUser currentUser].member_id,@"game_id":mGame.game_id} block:^(MWBaseObj *info) {
+            if (info.err_code == 0) {
+                [SVProgressHUD dismiss];
+                NSURL *path = [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"html"];
+                WKWebViewController *vc = [WKWebViewController new];
+                vc.mURLString = mGame.game_url;
+                
+                [self.navigationController pushViewController:vc animated:YES];
+            }else{
+                [SVProgressHUD showErrorWithStatus:info.err_msg];
+            }
+        }];
+    }]];
+    [mAlert addAction:[WKAlertAction actionTitle:@"取消" style:WKAlertActionConfirm handler:^(WKAlertAction *action) {
+        MLLog(@"取消取消取消取消");
+        
+    }]];
+    [mAlert show];
     
 }
-///关闭按钮代理方法
-- (void)WKCustomPopViewWithCloseBtnAction{
-    MLLog(@"关闭");
-//    [WKCustomAlertView hide];
-    [mBgkView removeFromSuperview];
-    [mCustomView removeFromSuperview];
-}
-///取消按钮代理方法
-- (void)WKCustomPopViewWithCancelBtnAction{
-    MLLog(@"取消");
-//    [WKCustomAlertView hide];
-    [mBgkView removeFromSuperview];
-    [mCustomView removeFromSuperview];
-}
-///确定按钮代理方法
-- (void)WKCustomPopViewWithOkBtnAction{
-    MLLog(@"确定");
-//    [WKCustomAlertView hide];
-    [mBgkView removeFromSuperview];
-    [mCustomView removeFromSuperview];
-    [SVProgressHUD showWithStatus:@"正在加载中..."];
-    [MWBaseObj MWPlayGame:@{@"member_id":[WKUser currentUser].member_id,@"game_id":mGame.game_id} block:^(MWBaseObj *info) {
-        if (info.err_code == 0) {
-            [SVProgressHUD dismiss];
-            NSURL *path = [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"html"];
-            WKWebViewController *vc = [WKWebViewController new];
-            vc.mURLString = mGame.game_url;
-            
-            [self.navigationController pushViewController:vc animated:YES];
-        }else{
-            [SVProgressHUD showErrorWithStatus:info.err_msg];
-        }
-    }];
-    
 
-}
-#pragma mark----****----自定义弹出框
-/**
- 自定义弹出框
- 
- @param mType 弹出框类型
- @param mTitle 标题
- @param mContent 内容
- @param mOkTitle 确定按钮
- @param mCancelTitle 取消按钮
- */
-- (void)showCustomViewType:(WKCustomPopViewType)mType andTitle:(NSString *)mTitle andContentTx:(NSString *)mContent andOkBtntitle:(NSString *)mOkTitle andCancelBtntitle:(NSString *)mCancelTitle{
-    
-//    WKCustomAlertView = [[FDAlertView alloc] init];
-    
-    mBgkView = [UIView new];
-    mBgkView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
-    mBgkView.frame = CGRectMake(0, 0, DEVICE_Width, DEVICE_Height);
-    [self.view addSubview:mBgkView];
-    mCustomView = [WKCustomPopView initViewType:mType andTitle:mTitle andContentTx:mContent andOkBtntitle:mOkTitle andCancelBtntitle:mCancelTitle];
-    mCustomView.delegate = self;
-    
-    mCustomView.frame = CGRectMake(30, DEVICE_Height/2-125, DEVICE_Width-60, 250);
-    [mBgkView addSubview:mCustomView];
-//    WKCustomAlertView.contentView = mCustomView;
-//    [WKCustomAlertView show];
-    
-}
+
 
 @end
