@@ -23,11 +23,14 @@
     
     UIImage *mHeaderImg;
 
+    BOOL isLoad;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     self.navigationItem.title = @"个人中心";
+    isLoad = NO;
     mHeaderImg = [UIImage new];
     mHeaderImg = [UIImage imageNamed:@"default_header_img"];
     [self addTableView];
@@ -77,6 +80,9 @@
     
     cell.delegate = self;
     [cell setMUserInfo:[WKUser currentUser]];
+    if (isLoad == YES) {
+        cell.mAvator.image = mHeaderImg;
+    }
     
     return cell;
     
@@ -145,7 +151,6 @@
         UIImage *mSelectedImage = photos[0];
         [self upLoadImage:UIImageJPEGRepresentation(mSelectedImage, 0.2)];
         mHeaderImg = mSelectedImage;
-        [self.tableView reloadData];
     }
     
 }
@@ -182,10 +187,15 @@
     [[WKHttpRequest initLocalApiclient] fileUploadWithTag:self uploadDatas:arr type:1 call:^(NSString *tableArr, MWBaseObj *info) {
         if (info.err_code == 0) {
             [SVProgressHUD showSuccessWithStatus:@"图片上传成功！"];
+            isLoad = YES;
+
             [self refreshUserInfo];
         }else{
             [SVProgressHUD showErrorWithStatus:info.err_msg];
+            isLoad = NO;
         }
+        [self.tableView reloadData];
+
     }];
 //    [[WKHttpRequest initLocalApiclient] MWPostFileWithUrl:@"upLoadImg" andPara:@{@"userId":[WKUser currentUser].member_id} fileData:mImgData name:@"uploadFile0" fileName:fileName fileType:@"image/jpg/png" success:^(id responseObject) {
 //        if (responseObject) {
