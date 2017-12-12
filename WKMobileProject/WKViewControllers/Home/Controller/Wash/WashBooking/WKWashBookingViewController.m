@@ -151,7 +151,6 @@
         MWSchoolInfo *mShoolInfo = mList[num];
         mShoolObj = mShoolInfo;
 
-        [self.tableView reloadData];
         [self tableViewHeaderReloadData];
         
     };
