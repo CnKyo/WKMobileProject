@@ -55,13 +55,13 @@
     // Do any additional setup after loading the view.
     mHeaderView = [WKWashBookingHeaderView initBookingView];
     //    mHeaderView.frame = CGRectMake(0, 61, DEVICE_Width, 150);
-    mHeaderView.mWashAddress.text = [NSString stringWithFormat:@"洗衣机位置：%@",_mDeviceInfo.device_address];
+    mHeaderView.mWashAddress.text = [NSString stringWithFormat:@"洗衣机位置：%@",_mDeviceInfo.location_name];
     if ([_mDeviceInfo.device_status isEqualToString:@"1"]) {
         mHeaderView.mWashStatus.text = @"洗衣机状态：工作中";
     } else {
         mHeaderView.mWashStatus.text = @"洗衣机状态:空闲";
     }
-    mHeaderView.mWashSeclected.hidden = YES;
+    mHeaderView.mWashSeclected.text = @"洗衣程序（1桶）：";
     
     mHeaderView.mCountTime.textColor = [UIColor whiteColor];
     MZTimerLabel *mC  = [[MZTimerLabel alloc] initWithLabel:mHeaderView.mCountTime andTimerType:MZTimerLabelTypeTimer];
@@ -101,7 +101,7 @@
         
         [para setObject:_mCode forKey:@"device_barcode"];
     }else{
-        [para setObject:_mDeviceInfo.wash_id forKey:@"wash_id"];
+        [para setObject:_mDeviceInfo.device_id forKey:@"wash_id"];
         
     }
     [self.tableArr removeAllObjects];
@@ -159,7 +159,7 @@
     MWDeviceInfo *mDevice = self.tableArr[indexPath.row];
     
     WKChoiceWashTableViewCell *customCell = [[WKChoiceWashTableViewCell alloc] init];
-    [customCell.mBtn setTitle:mDevice.name forState:0];
+    [customCell.mBtn setTitle:[NSString stringWithFormat:@"%@%@分钟(%@元)",mDevice.device_feature_name,mDevice.feature_time,mDevice.price] forState:0];
     customCell.mBtn.tag = defaultTag+indexPath.row;
     if (customCell.mBtn.tag == self.btnTag) {
         [customCell.mBtn setBackgroundColor:[UIColor colorWithRed:0.976470588235294 green:0.580392156862745 blue:0.274509803921569 alpha:1.00]];
@@ -180,7 +180,7 @@
             self.btnTag = btnTag;
             MLLog(@"$$$$$$%ld",(long)btnTag);
             MWDeviceInfo *mDevice = self.tableArr[btnTag];
-            mWashID = mDevice.id;
+            mWashID = mDevice.device_id;
             [self.tableView reloadData];
             
             
@@ -244,7 +244,7 @@
     if (self.tableArr.count>0) {
         if (mWashID.length==0) {
             mPDevice  = self.tableArr[0];
-            mWashID = mPDevice.id;
+            mWashID = mPDevice.device_feature;
         }
         
         
@@ -265,7 +265,7 @@
         mWId = _mDeviceInfo.wash_id;
     }
     
-    [MWBaseObj MWCcommitWashOrder:@{@"member_id":[WKUser currentUser].member_id,@"wash_id":mWId,@"wash_feature":mWashID,@"device_barcode":_mCode} block:^(MWBaseObj *info,MWWashOrderObj *mOrderObj) {
+    [MWBaseObj MWCcommitWashOrder:@{@"member_id":[WKUser currentUser].member_id,@"wash_feature":mWashID,@"device_barcode":_mCode,@"device_id":_mDeviceInfo.device_id} block:^(MWBaseObj *info,MWWashOrderObj *mOrderObj) {
         if (info.err_code == 0) {
             WKWashGoPayViewController *vc = [WKWashGoPayViewController new];
             vc.mOrderInfo = mOrderObj;

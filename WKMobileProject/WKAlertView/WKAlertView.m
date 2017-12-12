@@ -2,7 +2,7 @@
 //  WKAlertView.m
 //  WKMobileProject
 //
-//  Created by mwi01 on 2017/12/11.
+//  Created by wangke on 2017/12/11.
 //  Copyright © 2017年 com.xw. All rights reserved.
 //
 

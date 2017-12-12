@@ -62,7 +62,7 @@
         [self.mBtn setBackgroundColor:[UIColor colorWithRed:0.25 green:0.58 blue:0.94 alpha:1]];
         self.mBtn.enabled = YES;
     }
-    self.mContent.text = mDeviceInfo.device_address;
+    self.mContent.text = mDeviceInfo.location_name;
     
 }
     

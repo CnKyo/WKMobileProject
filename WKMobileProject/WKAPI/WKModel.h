@@ -837,6 +837,40 @@
     @property (nonatomic,strong) NSString *name;
     @property (nonatomic,strong) NSString *id;
 
+@property (nonatomic,strong) NSString *admin_id;
+@property (nonatomic,strong) NSString *device_feature_id;
+@property (nonatomic,strong) NSString *price;
+@property (nonatomic,strong) NSString *feature_time;
+
+
+
+@property (nonatomic,strong) NSString *area;
+@property (nonatomic,strong) NSString *birth_time;
+@property (nonatomic,strong) NSString *brand_name;
+@property (nonatomic,strong) NSString *device_model;
+@property (nonatomic,strong) NSString *device_type;
+@property (nonatomic,strong) NSString *down_time;
+@property (nonatomic,strong) NSString *end_time;
+@property (nonatomic,strong) NSString *end_user_id;
+@property (nonatomic,strong) NSString *first_use_time;
+@property (nonatomic,strong) NSString *lat;
+@property (nonatomic,strong) NSString *lng;
+@property (nonatomic,strong) NSString *location_name;
+@property (nonatomic,strong) NSString *pre;
+@property (nonatomic,strong) NSString *run_status;
+
+@property (nonatomic,strong) NSString *sex;
+@property (nonatomic,strong) NSString *start_time;
+@property (nonatomic,strong) NSString *total_money;
+@property (nonatomic,strong) NSString *total_num;
+
+
+
+
+
+
+
+
 @end
 @interface MWSchoolInfo : NSObject
   
