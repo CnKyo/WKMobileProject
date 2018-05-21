@@ -449,7 +449,6 @@
 				52EB5DE21F8FA182007A381B /* WKSegMentView */,
 				31A221A71E99CBA40058A21B /* WKHeaderFile */,
 				31A221A11E99CB5D0058A21B /* WKTool */,
-				31A221A21E99CB5D0058A21B /* WKViewControllers */,
 				31A221A31E99CB5D0058A21B /* WKAPI */,
 				31A221A41E99CB5D0058A21B /* WKBaseView */,
 				5263F00D1F8F336B00F80B4D /* ViewControllers */,
@@ -503,13 +502,6 @@
 			path = WKTool;
 			sourceTree = "<group>";
 		};
-		31A221A21E99CB5D0058A21B /* WKViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = WKViewControllers;
-			sourceTree = "<group>";
-		};
 		31A221A31E99CB5D0058A21B /* WKAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,7 +518,6 @@
 			isa = PBXGroup;
 			children = (
 				31A221A51E99CB8B0058A21B /* WKBaseViewController */,
-				31A221A61E99CB8B0058A21B /* WKNav */,
 			);
 			path = WKBaseView;
 			sourceTree = "<group>";
@@ -538,13 +529,6 @@
 				31A222121E99D2B50058A21B /* WKBaseViewController.m */,
 			);
 			path = WKBaseViewController;
-			sourceTree = "<group>";
-		};
-		31A221A61E99CB8B0058A21B /* WKNav */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = WKNav;
 			sourceTree = "<group>";
 		};
 		31A221A71E99CBA40058A21B /* WKHeaderFile */ = {
